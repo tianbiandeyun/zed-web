@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .get-work {
+            width: 100%;
+            background-color: rgba(255, 255, 255, .8);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            color: #000;
+            text-align: center;
+            padding: 10px 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            z-index: 99;
+        }
+
+        .get-work > #get {
+            outline: none;
+            border: none;
+            width: 120px;
+            height: 40px;
+            background-color: #e70012;
+            color: #fff;
+            font-size: 16px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .reservation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .8);
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .reservation-main {
+            width: 80%;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-image: url(./tip.png);
+            display: grid;
+            grid-template-rows: 10fr 1fr;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .qr > img {
+            width: 230px;
+            margin-bottom: 20px;
+        }
+
+        .qr > p {
+            text-align: center;
+            line-height: 1.4;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .close > img {
+            width: 40px;
+            height: 40px;
+        }
+
+        #reservation {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<iframe id="show-iframe"
+        frameborder=0
+        name="showHere"
+        scrolling=auto>
+</iframe>
+
+<section class="get-work">
+    <button id="get">下载课件</button>
+</section>
+
+<div id="reservation">
+    <div class="reservation">
+        <div class="reservation-main">
+            <div class="qr">
+                <img id="qr_img" src="" alt="">
+                <p>长按识别二维码</p>
+                <p>下载课件</p>
+            </div>
+            <div class="close">
+                <img src="./close.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // 请求域名
+    // const _PROJECT_REQUEST = 'https://devphp.hztc.dev.hztcapp.com/test_index.php'; // 开发
+    const _PROJECT_REQUEST = 'https://hztc.dev.hztcapp.com/index.php'; // 正式
+
+    // 接口
+    const _INTERFACE = {
+        set_video_duration: 'set_video_duration',
+        set_pv_statistics: 'set_pv_statistics'
+    };
+
+    // 参数
+    let _PARAMES = {
+        opend_id: '',
+        video_id: '',
+        video_type: ''
+    };
+
+    // 发送观看时间 / pv
+    _setVideoWatchTime = (url, video_status = '') => {
+        console.log(video_status);
+        $.ajax({
+            type: "GET",
+            url: `${url}&fps[video_status]=${video_status}&iv=jsonp&callback=`,
+            success: res => {
+                console.log(JSON.parse(res));
+            }
+        });
+        $.ajax({
+            type: "GET",
+            url: `${_PROJECT_REQUEST}?r=interface/api&ac=hxdf&ic=h200727&im=${_INTERFACE.set_pv_statistics}&fps[info_key]=网家家&iv=jsonp&callback=`,
+            success: res => {
+                console.log(JSON.parse(res));
+            }
+        });
+    };
+
+    // 获取地址栏参数
+    getUrlParam = name => {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
+        let r = window.location.search.substr(1).match(reg); // 匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; // 返回参数值
+    };
+
+    // 初始化 iframe
+    init_iframe = url => {
+        const oIframe = document.getElementById('show-iframe');
+        const deviceWidth = document.documentElement.clientWidth;
+        const deviceHeight = document.documentElement.clientHeight;
+        oIframe.style.width = deviceWidth + 'px';
+        oIframe.style.height = deviceHeight + 'px';
+        oIframe.src = url
+    };
+
+    // 程序入口
+    (async () => {
+        let _url = await getUrlParam('video_url');
+        _PARAMES.opend_id = await getUrlParam('id');
+        _PARAMES.video_id = await getUrlParam('video_id');
+        _PARAMES.video_type = decodeURI(await getUrlParam('type'));
+        console.log(_PARAMES);
+        const _URL = `${_PROJECT_REQUEST}?r=interface/api&ac=hxdf&ic=h200727&im=${_INTERFACE.set_video_duration}&fps[open_id]=${_PARAMES.opend_id}&fps[video_id]=${_PARAMES.video_id}&fps[video_type]=${_PARAMES.video_type}`;
+        _setVideoWatchTime(_URL, '1');
+        setInterval(() => {
+            _setVideoWatchTime(_URL);
+        }, 1000 * 60 * 3);
+        init_iframe(_url);
+    })();
+
+    $('#get').click(async () => {
+        let _qr = await getUrlParam('qr');
+        $('#qr_img').attr("src", _qr);
+        $('#reservation').show();
+    });
+
+    $('.close').click(() => {
+        $('#reservation').hide();
+    })
+
+</script>
+</body>
+</html>
