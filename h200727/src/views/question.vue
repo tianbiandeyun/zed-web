@@ -99,7 +99,7 @@
                         display: table-cell;
                         vertical-align: middle;
                         height: 90px;
-                        font-size: @default-font-size-30;
+                        font-size: @default-font-size-36;
                         font-weight: bold;
                         color: @default-font-color-title;
                         padding-left: 20px;
@@ -109,7 +109,6 @@
 
             .test-select {
                 display: grid;
-                background-color: #19be6b;
 
                 .select {
                     display: grid;
