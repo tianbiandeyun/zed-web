@@ -10,14 +10,22 @@
             <div class="select">
                 <div class="select-item" v-for="(item,index) in question.result">
                     <label>
-                        <input type="radio" name="1" :value="item.val" class="select-item-radio">
+                        <input type="radio" name="1" :value="item.score" class="select-item-radio">
                         <span class="select-item-label"></span>
                         <span class="select-item-val">{{item.val}}</span>
                     </label>
                 </div>
             </div>
         </div>
-        <div class="test-submit"></div>
+        <div class="test-submit">
+            <div class="test-submit-count">
+                2/15
+            </div>
+            <div class="test-submit-operat">
+                <button class="prev">上一题</button>
+                <button class="next">下一题</button>
+            </div>
+        </div>
     </section>
 </template>
 
@@ -127,8 +135,41 @@
         }
 
         .test-submit {
-            display: grid;
-            background-color: #808695;
+
+            .test-submit-count {
+                text-align: center;
+                font-size: @default-font-size-28;
+                line-height: 2;
+                margin-bottom: 20px;
+            }
+
+            .test-submit-operat {
+                display: flex;
+                justify-content: center;
+
+                .prev {
+                    border: 2px solid black;
+                    width: 240px;
+                    height: 80px;
+                    font-size: @default-font-size-36;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    border-radius: 10px;
+                }
+
+                .next {
+                    border: 1px solid red;
+                    background-color: red;
+                    width: 240px;
+                    height: 80px;
+                    margin-left: 20px;
+                    font-size: @default-font-size-36;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    border-radius: 10px;
+                    color: #fff;
+                }
+            }
         }
 
     }
