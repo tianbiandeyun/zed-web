@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item :question="list[test_index]"></test-item>
+        <test-item :question="list[test_index]" @next="next"></test-item>
 
     </section>
 </template>
@@ -31,6 +31,12 @@
         },
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评');
+        },
+        methods: {
+            next(res) {
+                console.log(res);
+                this.test_index += 1;
+            }
         }
     }
 </script>
