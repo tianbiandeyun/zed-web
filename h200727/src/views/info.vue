@@ -144,6 +144,9 @@
                         }
                     }, 1000);
                     let code_result = await this._getPhotoCode(this.photo);
+                    if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
+                        alert('电话已存在，无法重复注册')
+                    }
                     if (code_result.back_value) {
                         alert('发送成功')
                     }
