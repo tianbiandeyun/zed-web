@@ -12,7 +12,7 @@
             <div class="select">
                 <div class="select-item" v-for="(item,index) in question.result">
                     <label>
-                        <input type="radio" name="1" :value="item.score" class="select-item-radio">
+                        <input type="radio" name="1" v-model="val" :value="item.score" class="select-item-radio">
                         <span class="select-item-label"></span>
                         <span class="select-item-val">{{item.val}}</span>
                     </label>
@@ -25,8 +25,8 @@
                 2/15
             </div>
             <div class="test-submit-operat">
-                <button class="prev">上一题</button>
-                <button class="next">下一题</button>
+                <button class="prev" @click="prev">上一题</button>
+                <button class="next" @click="next">下一题</button>
             </div>
         </div>
 
@@ -39,6 +39,19 @@
         props: {
             question: {
                 type: Object
+            }
+        },
+        data() {
+            return {
+                val: ''
+            }
+        },
+        methods: {
+            prev() {
+
+            },
+            next() {
+                console.log(this.val)
             }
         }
     }
