@@ -48,7 +48,7 @@
     .test-container {
         height: 100%;
         display: grid;
-        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-rows: 1fr 2fr 1.4fr;
 
         .test-title {
             display: grid;
