@@ -9,9 +9,7 @@
             <button class="start-test">开始测试</button>
         </div>
 
-        <div class="rules">
-            规则
-        </div>
+        <div class="rules">规则</div>
 
     </section>
 </template>
