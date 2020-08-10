@@ -33,7 +33,6 @@
         position: relative;
 
         .top {
-            border: 1px solid black;
             position: absolute;
             top: 0;
             left: 0;
@@ -46,11 +45,11 @@
         }
 
         .right {
-            border: 1px solid black;
             position: absolute;
             bottom: 0;
             right: 0;
             font-size: 0;
+            width: 70px;
 
             img {
                 width: 100%;
@@ -58,11 +57,11 @@
         }
 
         .left {
-            border: 1px solid black;
             position: absolute;
             bottom: 0;
             left: 0;
             font-size: 0;
+            width: 300px;
 
             img {
                 width: 100%;
