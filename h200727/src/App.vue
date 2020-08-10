@@ -1,32 +1,23 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <transition name="effect">
+            <router-view/>
+        </transition>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="less" scoped>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    .effect-enter, .effect-leave-to {
+        opacity: 0;
+        transform: translateX(100%);
     }
-  }
-}
+
+    .effect-enter-active, .effect-leave-active {
+        transition: all .3s ease-in-out;
+    }
+
 </style>
