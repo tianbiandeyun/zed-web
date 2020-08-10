@@ -26,11 +26,11 @@
             </div>
             <div class="test-submit-operat">
                 <button class="prev"
-                        v-if="question.index > 1"
+                        v-if="question.index > 1 && question.index !== 15"
                         @click="prev">
                     上一题
                 </button>
-                <button class="next" @click="next">下一题</button>
+                <button class="next" @click="next">{{question.index !== 15 ? '下一题' : '查看结果'}}</button>
             </div>
         </div>
 
