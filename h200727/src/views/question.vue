@@ -11,11 +11,6 @@
             <img src="../assets/images/test-bottom.png" alt="">
         </div>
 
-        <!--<label>-->
-        <!--<input type="radio" name="1" id="2" class="a-radio">-->
-        <!--<span class="b-radio"></span>-->
-        <!--<span style="font-size:40px">很棒</span>-->
-        <!--</label>-->
 
         <!--测试题-->
 
@@ -29,13 +24,25 @@
             <div class="test-select">
                 <div class="select">
                     <div class="select-item">
-
+                        <label>
+                            <input type="radio" name="1" class="select-item-radio">
+                            <span class="select-item-label"></span>
+                            <span class="select-item-val">很棒</span>
+                        </label>
                     </div>
                     <div class="select-item">
-
+                        <label>
+                            <input type="radio" name="1" class="select-item-radio">
+                            <span class="select-item-label"></span>
+                            <span class="select-item-val">很棒</span>
+                        </label>
                     </div>
                     <div class="select-item">
-
+                        <label>
+                            <input type="radio" name="1" class="select-item-radio">
+                            <span class="select-item-label"></span>
+                            <span class="select-item-val">很棒</span>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -107,9 +114,53 @@
                 .select {
                     display: grid;
                     grid-template-rows: 1fr 1fr 1fr;
+                    align-items: center;
+                    padding-left: 120px;
 
                     .select-item {
-                        border: 1px solid black;
+                        border-bottom: 1px solid @default-font-color-sub;
+                        padding-bottom: 20px;
+
+                        .select-item-radio {
+                            display: none;
+                        }
+
+                        .select-item-label {
+                            display: inline-block;
+                            border: 1px solid @default-font-color-content;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            vertical-align: middle;
+                            margin-right: 20px;
+                            position: relative;
+
+                            &:before {
+                                content: '';
+                                font-size: 0;
+                                width: 20px;
+                                height: 20px;
+                                background-color: #000;
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                margin-left: -10px;
+                                margin-top: -10px;
+                                border-radius: 50%;
+                                display: none;
+                            }
+                        }
+
+                        .select-item-radio:checked ~ .select-item-label:before {
+                            display: block;
+                        }
+
+                        .select-item-val {
+                            font-size: @default-font-size-36;
+                            position: relative;
+                            top: 4px;
+                            color: @default-font-color-content;
+                        }
                     }
                 }
             }
@@ -157,38 +208,5 @@
             }
         }
 
-        /*.a-radio {*/
-        /*display: none;*/
-        /*}*/
-
-        /*.b-radio {*/
-        /*display: inline-block;*/
-        /*border: 1px solid #000;*/
-        /*width: 100px;*/
-        /*height: 100px;*/
-        /*border-radius: 50%;*/
-        /*vertical-align: middle;*/
-        /*margin-right: 5px;*/
-        /*position: relative;*/
-
-        /*&:before {*/
-        /*content: '';*/
-        /*font-size: 0;*/
-        /*width: 60px;*/
-        /*height: 60px;*/
-        /*background: rgb(143, 188, 238);*/
-        /*position: absolute;*/
-        /*left: 50%;*/
-        /*top: 50%;*/
-        /*margin-left: -30px;*/
-        /*margin-top: -30px;*/
-        /*border-radius: 50%;*/
-        /*display: none;*/
-        /*}*/
-        /*}*/
-
-        /*.a-radio:checked ~ .b-radio:before {*/
-        /*display: block;*/
-        /*}*/
     }
 </style>
