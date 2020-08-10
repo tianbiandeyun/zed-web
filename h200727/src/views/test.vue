@@ -6,7 +6,7 @@
         </div>
 
         <div class="test-btn">
-            <button class="start-test">开始测试</button>
+            <button class="start-test" @click="goTest">开始测试</button>
         </div>
 
         <div class="rules" @click="goRules">规则</div>
@@ -21,6 +21,9 @@
             this.$utils.setDocumentTitle('职业倾向测评')
         },
         methods: {
+            goTest() {
+                this.$router.push('/question')
+            },
             goRules() {
                 this.$router.push('/rules')
             }

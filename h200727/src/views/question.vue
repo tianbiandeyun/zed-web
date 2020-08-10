@@ -1,12 +1,18 @@
 <template>
     <section class="question-container">
-        question
+
     </section>
 </template>
 
 <script>
     export default {
-        name: "question"
+        name: "question",
+        data() {
+            return {}
+        },
+        mounted() {
+            this.$utils.setDocumentTitle('职业倾向测评')
+        }
     }
 </script>
 
