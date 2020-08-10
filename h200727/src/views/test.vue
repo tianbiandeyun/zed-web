@@ -9,7 +9,7 @@
             <button class="start-test">开始测试</button>
         </div>
 
-        <div class="rules">规则</div>
+        <div class="rules" @click="goRules">规则</div>
 
     </section>
 </template>
@@ -19,6 +19,11 @@
         name: "test",
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评')
+        },
+        methods: {
+            goRules() {
+                this.$router.push('/rules')
+            }
         }
     }
 </script>
@@ -44,7 +49,6 @@
 
         .test-btn {
             width: 100%;
-            padding-bottom: 30px;
             background-color: #fff;
 
             .start-test {
@@ -56,7 +60,6 @@
                 font-size: @default-font-size-30;
                 color: @default-font-color-content;
             }
-
         }
 
         .rules {
