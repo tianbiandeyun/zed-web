@@ -90,7 +90,7 @@
                     display: table-cell;
                     vertical-align: middle;
                     height: 90px;
-                    font-size: @default-font-size-36;
+                    font-size: @default-font-size-30;
                     font-weight: bold;
                     color: @default-font-color-title;
                     padding-left: 20px;
@@ -105,7 +105,7 @@
                 display: grid;
                 grid-template-rows: 1fr 1fr 1fr;
                 align-items: center;
-                padding-left: 120px;
+                padding: 0 100px 0 120px;
 
                 .select-item {
                     border-bottom: 1px solid @default-font-color-sub;
