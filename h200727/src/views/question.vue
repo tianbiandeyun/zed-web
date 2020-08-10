@@ -26,7 +26,7 @@
         data() {
             return {
                 list: this.$config.TEST_QUESTION_LIST,
-                test_index: 0
+                test_index: 13
             }
         },
         mounted() {

@@ -25,7 +25,11 @@
                 {{question.index}}/{{question.count}}
             </div>
             <div class="test-submit-operat">
-                <button class="prev" v-if="question.index > 1" @click="prev">上一题</button>
+                <button class="prev"
+                        v-if="question.index > 1"
+                        @click="prev">
+                    上一题
+                </button>
                 <button class="next" @click="next">下一题</button>
             </div>
         </div>
