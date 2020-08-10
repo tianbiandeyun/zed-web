@@ -129,28 +129,30 @@
                     alert('请填写手机');
                     return false;
                 }
-                const TIME_COUNT = 60;
-                if (!this.timer) {
-                    let code = TIME_COUNT;
-                    this.message = `${TIME_COUNT}s后获取`;
-                    this.timer = setInterval(() => {
-                        if (code > 0 && code <= TIME_COUNT) {
-                            code--;
-                            this.message = `${code--}s后获取`;
-                        } else {
-                            clearInterval(this.timer);
-                            this.timer = null;
-                            this.message = '获取验证码';
-                        }
-                    }, 1000);
-                    let code_result = await this._getPhotoCode(this.photo);
-                    if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
-                        alert('电话已存在，无法重复注册')
-                    }
-                    if (code_result.back_value) {
-                        alert('发送成功')
+                let code_result = await this._getPhotoCode(this.photo);
+
+                if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
+                    alert('电话已存在，无法重复注册')
+                }
+
+                if (code_result.back_value) {
+                    const TIME_COUNT = 60;
+                    if (!this.timer) {
+                        let code = TIME_COUNT;
+                        this.message = `${TIME_COUNT}s后获取`;
+                        this.timer = setInterval(() => {
+                            if (code > 0 && code <= TIME_COUNT) {
+                                code--;
+                                this.message = `${code--}s后获取`;
+                            } else {
+                                clearInterval(this.timer);
+                                this.timer = null;
+                                this.message = '获取验证码';
+                            }
+                        }, 1000);
                     }
                 }
+
             },
             /**
              * 发送短信
