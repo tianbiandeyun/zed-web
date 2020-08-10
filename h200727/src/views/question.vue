@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item></test-item>
+        <test-item :question="list[test_index]"></test-item>
 
     </section>
 </template>
@@ -24,11 +24,13 @@
         name: "question",
         components: {TestItem},
         data() {
-            return {}
+            return {
+                list: this.$config.TEST_QUESTION_LIST,
+                test_index: 0
+            }
         },
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评');
-            console.log(this.$config.TEST_QUESTION_LIST)
         }
     }
 </script>

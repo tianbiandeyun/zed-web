@@ -2,31 +2,17 @@
     <section class="test-container">
         <div class="test-title">
             <div class="title">
-                <span class="title-index">01</span>
-                <span class="title-content">如果有三种职业摆在你的面前？</span>
+                <span class="title-index">{{question.index}}</span>
+                <span class="title-content">{{question.title}}</span>
             </div>
         </div>
         <div class="test-select">
             <div class="select">
-                <div class="select-item">
+                <div class="select-item" v-for="(item,index) in question.result">
                     <label>
-                        <input type="radio" name="1" class="select-item-radio">
+                        <input type="radio" name="1" :value="item.val" class="select-item-radio">
                         <span class="select-item-label"></span>
-                        <span class="select-item-val">很棒</span>
-                    </label>
-                </div>
-                <div class="select-item">
-                    <label>
-                        <input type="radio" name="1" class="select-item-radio">
-                        <span class="select-item-label"></span>
-                        <span class="select-item-val">很棒</span>
-                    </label>
-                </div>
-                <div class="select-item">
-                    <label>
-                        <input type="radio" name="1" class="select-item-radio">
-                        <span class="select-item-label"></span>
-                        <span class="select-item-val">很棒</span>
+                        <span class="select-item-val">{{item.val}}</span>
                     </label>
                 </div>
             </div>
@@ -37,7 +23,12 @@
 
 <script>
     export default {
-        name: "test-item"
+        name: "test-item",
+        props: {
+            question: {
+                type: Object
+            }
+        }
     }
 </script>
 
