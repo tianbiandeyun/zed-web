@@ -1,11 +1,13 @@
 <template>
     <section class="test-container">
+
         <div class="test-title">
             <div class="title">
                 <span class="title-index">{{question.index}}</span>
                 <span class="title-content">{{question.title}}</span>
             </div>
         </div>
+
         <div class="test-select">
             <div class="select">
                 <div class="select-item" v-for="(item,index) in question.result">
@@ -17,6 +19,7 @@
                 </div>
             </div>
         </div>
+
         <div class="test-submit">
             <div class="test-submit-count">
                 2/15
@@ -26,6 +29,7 @@
                 <button class="next">下一题</button>
             </div>
         </div>
+
     </section>
 </template>
 
@@ -138,7 +142,7 @@
 
             .test-submit-count {
                 text-align: center;
-                font-size: @default-font-size-28;
+                font-size: @default-font-size-36;
                 line-height: 2;
                 margin-bottom: 20px;
             }
