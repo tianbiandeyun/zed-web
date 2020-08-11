@@ -14,7 +14,7 @@
             <div class="select">
                 <div class="select-item" v-for="(item,index) in item.result">
                     <label>
-                        <input type="radio" name="1" v-model="val" :value="item.score" class="select-item-radio">
+                        <input type="radio" name="1" v-model="val" :value="index" class="select-item-radio">
                         <span class="select-item-label"></span>
                         <span class="select-item-val">{{item.val}}</span>
                     </label>
@@ -46,6 +46,9 @@
         props: {
             item: {
                 type: Object
+            },
+            index: {
+                type: Number
             }
         },
         data() {
@@ -55,7 +58,7 @@
         },
         methods: {
             prev() {
-                this.$emit('prev');
+                // this.$emit('prev');
             },
             next() {
                 // if (this.val === '') {
@@ -63,9 +66,12 @@
                 //     return false;
                 // }
 
-                console.log(this.val)
-
-                // this.$emit('next', this.val);
+                // let _result = {
+                //     test_id: this.index,
+                //     test_val_id: this.val
+                // };
+                //
+                // this.$emit('next', _result);
                 // this.val = '';
             }
         }

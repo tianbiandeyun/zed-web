@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item :item="list[list_index]" @next="next" @prev="prev"></test-item>
+        <test-item :item="list[list_index]" :index="list_index" @next="next" @prev="prev"></test-item>
 
     </section>
 </template>
@@ -39,10 +39,13 @@
                 this.list_index -= 1;
             },
             next(res) {
-                console.log(res);
-                if (this.list_index < this.list.length - 1) {
-                    this.list_index += 1;
-                }
+                // console.log(res);
+                // console.log(this.list[res.test_id].result[res.test_val_id].score)
+                // console.log(this.list[res.test_id].result[res.test_val_id].val)
+
+                // if (this.list_index < this.list.length - 1) {
+                //     this.list_index += 1;
+                // }
             }
         }
     }
