@@ -4,7 +4,7 @@
         <!--标题-->
         <div class="test-title">
             <div class="title">
-                <span class="title-index">{{item.index}}</span>
+                <span class="title-index">{{item.index + 1}}</span>
                 <span class="title-content">{{item.title}}</span>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <!--按钮-->
         <div class="test-submit">
             <div class="test-submit-count">
-                {{item.index}}/{{item.count}}
+                {{item.index + 1}}/{{item.count}}
             </div>
             <div class="test-submit-operat">
                 <button class="prev"
