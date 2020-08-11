@@ -12,7 +12,9 @@
         </div>
 
         <!--测试题-->
-        <test-item :item="list[list_index]" :index="list_index" @next="next" @prev="prev"></test-item>
+        <div v-for="(item,index) in list" :key="index">
+            <test-item :item="item" @next="next" @prev="prev"></test-item>
+        </div>
 
     </section>
 </template>
@@ -34,6 +36,9 @@
             this.$utils.setDocumentTitle('职业倾向测评');
         },
         methods: {
+            abd() {
+
+            },
             prev() {
                 console.log('prev');
                 this.list_index -= 1;
@@ -46,6 +51,11 @@
                 // if (this.list_index < this.list.length - 1) {
                 //     this.list_index += 1;
                 // }
+            }
+        },
+        computed: {
+            window_width() {
+                return document.body.clientWidth
             }
         }
     }
@@ -62,6 +72,7 @@
             left: 0;
             width: 100%;
             font-size: 0;
+            z-index: -1;
 
             img {
                 width: 100%;
@@ -74,6 +85,7 @@
             right: 0;
             font-size: 0;
             width: 70px;
+            z-index: -1;
 
             img {
                 width: 100%;
