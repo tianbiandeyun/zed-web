@@ -14,7 +14,8 @@
             <div class="select">
                 <div class="select-item" v-for="(item,index) in item.result">
                     <label>
-                        <input type="radio" :name="item.result" v-model="val" :value="index" class="select-item-radio">
+                        <input type="radio" :name="item.result" v-model="val" :value="item.val"
+                               class="select-item-radio">
                         <span class="select-item-label"></span>
                         <span class="select-item-val">{{item.val}}</span>
                     </label>
@@ -68,7 +69,7 @@
                 //     test_val_id: this.val
                 // };
                 //
-                // this.$emit('next', _result);
+                this.$emit('next', this.val);
                 // this.val = '';
             }
         }
