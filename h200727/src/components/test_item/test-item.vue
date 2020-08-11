@@ -83,7 +83,6 @@
                 console.log(this.$store.state.test_result);
 
                 this.$emit('next');
-                this.val = '';
             }
         }
     }

@@ -34,15 +34,21 @@
         },
         methods: {
             prev(res) {
-                console.log(res);
 
-                console.log(this.$store.state.test_result[res]);
+                // console.log(res);
 
-                this.$refs.test.val = this.$store.state.test_result[res];
+                // console.log(`选择的：${this.$store.state.test_result[res]}`);
+
+                // this.$refs.test.val = this.$store.state.test_result[res];
+
+                // console.log(`this.val：${this.$refs.test.val}`);
+
+
                 this.index -= 1;
             },
             next() {
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
+                    this.$refs.test.val = '';
                     this.index += 1;
                     return false;
                 }
