@@ -64,13 +64,15 @@
         },
         methods: {
             prev() {
+                this.val = this.$store.state.test_result[this.index - 1];
                 this.$emit('prev');
             },
             next() {
-                // if (this.val === '') {
-                //     alert('请选择答案');
-                //     return false;
-                // }
+
+                if (this.val === '') {
+                    alert('请选择答案');
+                    return false;
+                }
 
                 let _result = {
                     test_id: this.index,
@@ -78,8 +80,6 @@
                 };
 
                 this.$store.commit('set_test_result', _result);
-
-                console.log(this.$store.state.test_result);
 
                 this.$emit('next');
                 this.val = '';
