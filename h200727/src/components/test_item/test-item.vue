@@ -67,7 +67,8 @@
                 //     return false;
                 // }
 
-                console.log(this.val)
+                console.log(`题号：${this.index}`);
+                console.log(`答案：${this.val}`);
 
                 // this.$store.commit('set_test_result', this.val)
 
