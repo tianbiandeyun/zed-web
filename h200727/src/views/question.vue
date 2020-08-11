@@ -1,71 +1,70 @@
 <template>
     <section class="question-container">
 
-        <!--<div class="top">-->
-        <!--<img src="../assets/images/test-top.png" alt="">-->
-        <!--</div>-->
-        <!--<div class="right">-->
-        <!--<img src="../assets/images/test-right.png" alt="">-->
-        <!--</div>-->
-        <!--<div class="left">-->
-        <!--<img src="../assets/images/test-bottom.png" alt="">-->
-        <!--</div>-->
+        <div class="top">
+            <img src="../assets/images/test-top.png" alt="">
+        </div>
+        <div class="right">
+            <img src="../assets/images/test-right.png" alt="">
+        </div>
+        <div class="left">
+            <img src="../assets/images/test-bottom.png" alt="">
+        </div>
 
         <!--测试题-->
-        <section class="test-container">
+        <transition name="test">
+            <section class="test-container">
 
-            <div class="test-title">
-                <div class="title">
-                    <span class="title-index">{{item.index + 1}}</span>
-                    <span class="title-content">{{item.title}}</span>
-                </div>
-            </div>
-
-            <!--选择答案-->
-            <div class="test-select">
-                <div class="select">
-                    <div class="select-item" v-for="(i,index) in item.result">
-                        <label>
-                            <input type="radio"
-                                   :name="item.title"
-                                   v-model="val"
-                                   :value="i.val"
-                                   class="select-item-radio">
-                            <span class="select-item-label"></span>
-                            <span class="select-item-val">{{i.val}}</span>
-                        </label>
+                <div class="test-title">
+                    <div class="title">
+                        <span class="title-index">{{item.index + 1}}</span>
+                        <span class="title-content">{{item.title}}</span>
                     </div>
                 </div>
-            </div>
 
-            <!--按钮-->
-            <div class="test-submit">
-                <div class="test-submit-count">
-                    {{item.index + 1}}/{{item.count}}
+                <!--选择答案-->
+                <div class="test-select">
+                    <div class="select">
+                        <div class="select-item" v-for="(i,index) in item.result">
+                            <label>
+                                <input type="radio"
+                                       v-model="val"
+                                       :value="i.val"
+                                       class="select-item-radio">
+                                <span class="select-item-label"></span>
+                                <span class="select-item-val">{{i.val}}</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="test-submit-operat">
-                    <button class="prev"
-                            v-if="item.index > 0 && item.index !== 14"
-                            @click="prev">
-                        上一题
-                    </button>
-                    <button class="next" @click="next">
-                        {{item.index !== 14 ? '下一题' : '查看结果'}}
-                    </button>
-                </div>
-            </div>
 
-        </section>
+                <!--按钮-->
+                <div class="test-submit">
+                    <div class="test-submit-count">
+                        {{item.index + 1}}/{{item.count}}
+                    </div>
+                    <div class="test-submit-operat">
+                        <button class="prev"
+                                v-if="item.index > 0 && item.index !== 14"
+                                @click="prev">
+                            上一题
+                        </button>
+                        <button class="next" @click="next">
+                            {{item.index !== 14 ? '下一题' : '查看结果'}}
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+        </transition>
 
     </section>
 </template>
 
 <script>
-    // import TestItem from '../components/test_item/test-item'
 
     export default {
         name: "question",
-        // components: {TestItem},
         data() {
             return {
                 val: '',
@@ -78,12 +77,12 @@
         },
         methods: {
             prev() {
-                // console.log(res);
-                // this.test_result = this.$store.state.test_result[res];
-                //
-                // console.log(this.test_result);
-                //
                 this.index -= 1;
+
+                if (this.$store.state.test_result[this.index] !== undefined) {
+                    this.val = this.$store.state.test_result[this.index];
+                }
+
             },
             next() {
 
@@ -94,9 +93,6 @@
 
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
 
-
-                    console.log(`答案:${this.val}`);
-
                     let _result = {
                         test_id: this.index,
                         test_val: this.val
@@ -104,14 +100,11 @@
 
                     this.$store.commit('set_test_result', _result);
 
+                    console.log(this.$store.state.test_result);
 
                     this.index += 1;
                     return false;
                 }
-                //
-                // let test_score = this.$store.state.test_result;
-                //
-                // console.log(test_score)
             }
         },
         computed: {
@@ -123,6 +116,16 @@
 </script>
 
 <style lang="less" scoped>
+
+    .test-enter, .test-leave-to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    .test-enter-active, .test-leave-active {
+        transition: all .3s ease-in-out;
+    }
+
     .question-container {
         position: relative;
         height: 100%;
