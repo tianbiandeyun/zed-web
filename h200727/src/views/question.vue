@@ -12,7 +12,9 @@
         </div>
 
         <!--测试题-->
-        <test-item ref="test" :item="item" :index="index" @next="next" @prev="prev"></test-item>
+        <div v-for="(item,index) in test_list" :key="index">
+            <test-item :item="item" @next="next" @prev="prev"></test-item>
+        </div>
 
     </section>
 </template>
@@ -31,36 +33,25 @@
         },
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评');
+            this.test_show = true;
         },
         methods: {
             prev(res) {
-
-                // console.log(res);
-
-                // console.log(`选择的：${this.$store.state.test_result[res]}`);
-
-                // this.$refs.test.val = this.$store.state.test_result[res];
-
-                // console.log(`this.val：${this.$refs.test.val}`);
-
-
-                this.index -= 1;
             },
             next() {
-                if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
-                    this.$refs.test.val = '';
-                    this.index += 1;
-                    return false;
-                }
-
-                let test_score = this.$store.state.test_result;
-
-                console.log(test_score)
+                // if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
+                //     this.index += 1;
+                //     return false;
+                // }
+                //
+                // let test_score = this.$store.state.test_result;
+                //
+                // console.log(test_score)
             }
         },
         computed: {
-            item() {
-                return this.$config.TEST_QUESTION_LIST[this.index]
+            test_list() {
+                return this.$config.TEST_QUESTION_LIST;
             }
         }
     }
