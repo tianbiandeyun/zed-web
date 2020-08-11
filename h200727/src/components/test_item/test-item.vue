@@ -64,8 +64,12 @@
         },
         methods: {
             prev() {
+
                 this.val = this.$store.state.test_result[this.index - 1];
-                this.$emit('prev');
+
+                console.log(this.val)
+
+                // this.$emit('prev');
             },
             next() {
 
@@ -80,6 +84,8 @@
                 };
 
                 this.$store.commit('set_test_result', _result);
+
+                console.log(this.$store.state.test_result);
 
                 this.$emit('next');
                 this.val = '';

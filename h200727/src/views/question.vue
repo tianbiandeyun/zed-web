@@ -45,7 +45,9 @@
                     return false;
                 }
 
-                console.log(this.$store.state.test_result)
+                let test_score = this.$store.state.test_result;
+
+                console.log(test_score)
             }
         },
         computed: {
