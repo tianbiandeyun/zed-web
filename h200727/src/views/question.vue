@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item :item="item" @next="next" @prev="prev"></test-item>
+        <test-item :item="item" :index="index" @next="next" @prev="prev"></test-item>
 
     </section>
 </template>

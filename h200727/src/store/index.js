@@ -11,7 +11,8 @@ export default new Vuex.Store({
     state: {
         getOpenid_info: '',
         hasUserInfo_geren: '',
-        hasUserInfo_zuzhi: ''
+        hasUserInfo_zuzhi: '',
+        test_result: {}
     },
     mutations: {
         get_openid(state, res) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
         },
         has_user_info_zuzhi(state, res) {
             state.hasUserInfo_zuzhi = res
+        },
+        set_test_result(state, res) {
+            console.log(res)
         }
     },
     actions: {

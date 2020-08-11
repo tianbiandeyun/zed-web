@@ -47,11 +47,14 @@
         props: {
             item: {
                 type: Object
+            },
+            index: {
+                type: Number
             }
         },
         data() {
             return {
-                val: 'S形'
+                val: ''
             }
         },
         methods: {
@@ -64,12 +67,12 @@
                 //     return false;
                 // }
 
-                // let _result = {
-                //     test_id: this.index,
-                //     test_val_id: this.val
-                // };
-                //
-                this.$emit('next', this.val);
+                console.log(this.val)
+
+                // this.$store.commit('set_test_result', this.val)
+
+
+                // this.$emit('next');
                 // this.val = '';
             }
         }
