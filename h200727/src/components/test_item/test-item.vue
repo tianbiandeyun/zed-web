@@ -52,7 +52,7 @@
         },
         methods: {
             prev() {
-                this.$emit('prev')
+                console.log('prev')
             },
             next() {
                 // if (this.val === '') {

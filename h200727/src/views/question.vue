@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item :question="list[test_index]" @next="next" @prev="prev"></test-item>
+        <test-item :question="list[test_index]" @next="next"></test-item>
 
     </section>
 </template>
@@ -36,6 +36,7 @@
         methods: {
             prev() {
                 console.log('prev');
+                console.log(this.test_index)
             },
             next(res) {
                 console.log(res);
