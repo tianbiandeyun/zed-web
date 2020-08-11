@@ -16,16 +16,16 @@ export default new Vuex.Store({
     },
     mutations: {
         get_openid(state, res) {
-            state.getOpenid_info = res
+            state.getOpenid_info = res;
         },
         has_user_info_geren(state, res) {
-            state.hasUserInfo_geren = res
+            state.hasUserInfo_geren = res;
         },
         has_user_info_zuzhi(state, res) {
-            state.hasUserInfo_zuzhi = res
+            state.hasUserInfo_zuzhi = res;
         },
         set_test_result(state, res) {
-            console.log(res)
+            state.test_result[res.test_id] = res.test_val;
         }
     },
     actions: {

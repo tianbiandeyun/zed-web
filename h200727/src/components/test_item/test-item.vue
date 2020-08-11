@@ -17,7 +17,7 @@
                         <input type="radio"
                                :name="item.result"
                                v-model="val"
-                               :value="item.val"
+                               :value="item.score"
                                class="select-item-radio">
                         <span class="select-item-label"></span>
                         <span class="select-item-val">{{item.val}}</span>
@@ -33,7 +33,7 @@
             </div>
             <div class="test-submit-operat">
                 <button class="prev"
-                        v-if="item.index > 1 && item.index !== 15"
+                        v-if="item.index > 0 && item.index !== 15"
                         @click="prev">
                     上一题
                 </button>
@@ -72,13 +72,17 @@
                 //     return false;
                 // }
 
-                console.log(`题号：${this.index}`);
-                console.log(`答案：${this.val}`);
+                let _result = {
+                    test_id: this.index,
+                    test_val: this.val
+                };
 
-                // this.$store.commit('set_test_result', this.val)
+                this.$store.commit('set_test_result', _result);
 
-                // this.$emit('next');
-                // this.val = '';
+                console.log(this.$store.state.test_result);
+
+                this.$emit('next');
+                this.val = '';
             }
         }
     }

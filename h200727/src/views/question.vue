@@ -40,8 +40,7 @@
                 console.log('prev');
                 this.index -= 1;
             },
-            next(res) {
-                console.log(res);
+            next() {
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
                     this.index += 1;
                 }
