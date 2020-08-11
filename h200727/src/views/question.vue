@@ -1,20 +1,19 @@
 <template>
     <section class="question-container">
 
-        <div class="top">
-            <img src="../assets/images/test-top.png" alt="">
-        </div>
-        <div class="right">
-            <img src="../assets/images/test-right.png" alt="">
-        </div>
-        <div class="left">
-            <img src="../assets/images/test-bottom.png" alt="">
-        </div>
+        <!--<div class="top">-->
+        <!--<img src="../assets/images/test-top.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="right">-->
+        <!--<img src="../assets/images/test-right.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="left">-->
+        <!--<img src="../assets/images/test-bottom.png" alt="">-->
+        <!--</div>-->
 
         <!--测试题-->
-        <div v-for="(item,index) in test_list" :key="index">
-            <test-item :item="item" @next="next" @prev="prev"></test-item>
-        </div>
+
+        <test-item :item="item" :index="index" @next="next" @prev="prev"></test-item>
 
     </section>
 </template>
@@ -39,10 +38,11 @@
             prev(res) {
             },
             next() {
-                // if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
-                //     this.index += 1;
-                //     return false;
-                // }
+
+                if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
+                    this.index += 1;
+                    return false;
+                }
                 //
                 // let test_score = this.$store.state.test_result;
                 //
@@ -50,8 +50,8 @@
             }
         },
         computed: {
-            test_list() {
-                return this.$config.TEST_QUESTION_LIST;
+            item() {
+                return this.$config.TEST_QUESTION_LIST[this.index];
             }
         }
     }
@@ -59,9 +59,8 @@
 
 <style lang="less" scoped>
     .question-container {
-        height: 100%;
-        overflow: hidden;
         position: relative;
+        height: 100%;
 
         .top {
             position: absolute;
