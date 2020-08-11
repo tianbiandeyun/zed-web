@@ -45,7 +45,7 @@ export const PROJECT_INTERFACE = {
  * */
 export const TEST_QUESTION_LIST = [
     {
-        index: 1,
+        index: 0,
         count: 15,
         title: '圆形、三角形、S形3种图形，你更喜欢哪一种？',
         result: [
@@ -64,7 +64,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 2,
+        index: 1,
         count: 15,
         title: '以下几种文学题材作品你更喜欢哪一种？',
         result: [
@@ -83,7 +83,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 3,
+        index: 2,
         count: 15,
         title: '你对学习演奏一种乐器是否感兴趣？',
         result: [
@@ -102,7 +102,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 4,
+        index: 3,
         count: 15,
         title: '以下哪种性格更符合你本人实际性格？',
         result: [
@@ -121,7 +121,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 5,
+        index: 4,
         count: 15,
         title: '在做事的条理性方面，你对自己的评价是？',
         result: [
@@ -140,7 +140,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 6,
+        index: 5,
         count: 15,
         title: '过往是否接触或主动了解过创业相关的信息？',
         result: [
@@ -159,7 +159,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 7,
+        index: 6,
         count: 15,
         title: '是否认为自己在服饰穿搭方面有天赋？',
         result: [
@@ -178,7 +178,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 8,
+        index: 7,
         count: 15,
         title: '如果创业，以下哪个选项你会优先考虑？',
         result: [
@@ -197,7 +197,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 9,
+        index: 8,
         count: 15,
         title: '你通常选择以下哪种方式度过周末？',
         result: [
@@ -216,7 +216,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 10,
+        index: 9,
         count: 15,
         title: '外出旅行，你更喜欢去哪些地方？',
         result: [
@@ -235,7 +235,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 11,
+        index: 10,
         count: 15,
         title: '朋友在一起讨论问题，通常情况下，你的见解？',
         result: [
@@ -254,7 +254,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 12,
+        index: 11,
         count: 15,
         title: '如果某件事吸引了你，你会？',
         result: [
@@ -273,7 +273,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 13,
+        index: 12,
         count: 15,
         title: '在以下那种情况下会决定创业？',
         result: [
@@ -292,7 +292,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 14,
+        index: 13,
         count: 15,
         title: '下面的场景你更喜欢哪个？',
         result: [
@@ -311,7 +311,7 @@ export const TEST_QUESTION_LIST = [
         ]
     },
     {
-        index: 15,
+        index: 14,
         count: 15,
         title: '如果有三种职业摆在你的面前，人事经理、记者和自由画家，你会选择哪一种？',
         result: [
