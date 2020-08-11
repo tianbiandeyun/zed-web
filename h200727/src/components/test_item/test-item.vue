@@ -72,7 +72,6 @@
 
                 // this.$store.commit('set_test_result', this.val)
 
-
                 // this.$emit('next');
                 // this.val = '';
             }
