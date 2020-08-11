@@ -4,15 +4,15 @@
         <!--标题-->
         <div class="test-title">
             <div class="title">
-                <span class="title-index">{{question.index}}</span>
-                <span class="title-content">{{question.title}}</span>
+                <span class="title-index">{{item.index}}</span>
+                <span class="title-content">{{item.title}}</span>
             </div>
         </div>
 
         <!--选择答案-->
         <div class="test-select">
             <div class="select">
-                <div class="select-item" v-for="(item,index) in question.result">
+                <div class="select-item" v-for="(item,index) in item.result">
                     <label>
                         <input type="radio" name="1" v-model="val" :value="item.score" class="select-item-radio">
                         <span class="select-item-label"></span>
@@ -25,15 +25,15 @@
         <!--按钮-->
         <div class="test-submit">
             <div class="test-submit-count">
-                {{question.index}}/{{question.count}}
+                {{item.index}}/{{item.count}}
             </div>
             <div class="test-submit-operat">
                 <button class="prev"
-                        v-if="question.index > 1 && question.index !== 15"
+                        v-if="item.index > 1 && item.index !== 15"
                         @click="prev">
                     上一题
                 </button>
-                <button class="next" @click="next">{{question.index !== 15 ? '下一题' : '查看结果'}}</button>
+                <button class="next" @click="next">{{item.index !== 15 ? '下一题' : '查看结果'}}</button>
             </div>
         </div>
 
@@ -44,7 +44,7 @@
     export default {
         name: "test-item",
         props: {
-            question: {
+            item: {
                 type: Object
             }
         },
