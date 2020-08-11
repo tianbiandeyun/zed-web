@@ -65,11 +65,9 @@
         methods: {
             prev() {
 
-                this.val = this.$store.state.test_result[this.index - 1];
+                let _next_val = this.$store.state.test_result[this.index - 1];
 
-                console.log(this.val)
-
-                // this.$emit('prev');
+                this.$emit('prev', _next_val);
             },
             next() {
 

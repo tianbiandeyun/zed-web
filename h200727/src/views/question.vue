@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item :item="item" :index="index" @next="next" @prev="prev"></test-item>
+        <test-item ref="test" :item="item" :index="index" @next="next" @prev="prev"></test-item>
 
     </section>
 </template>
@@ -33,10 +33,8 @@
             this.$utils.setDocumentTitle('职业倾向测评');
         },
         methods: {
-            abd() {
-
-            },
-            prev() {
+            prev(res) {
+                this.$refs.test.val = res;
                 this.index -= 1;
             },
             next() {
