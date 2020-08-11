@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item :question="list[test_index]" @next="next" @prev="prev"></test-item>
+        <test-item :question="list[list_index]" @next="next" @prev="prev"></test-item>
 
     </section>
 </template>
@@ -26,8 +26,8 @@
         data() {
             return {
                 list: this.$config.TEST_QUESTION_LIST,
-                test_index: 0,
-                test_result: {}
+                list_index: 0,
+                list_result: {}
             }
         },
         mounted() {
@@ -36,12 +36,12 @@
         methods: {
             prev() {
                 console.log('prev');
-                this.test_index -= 1;
+                this.list_index -= 1;
             },
             next(res) {
                 console.log(res);
-                if (this.test_index < this.list.length - 1) {
-                    this.test_index += 1;
+                if (this.list_index < this.list.length - 1) {
+                    this.list_index += 1;
                 }
             }
         }
