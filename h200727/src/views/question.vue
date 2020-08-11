@@ -12,8 +12,8 @@
         </div>
 
         <!--测试题-->
-        <div v-for="(item,index) in list" :key="index" style="height: 100%">
-            <test-item v-if="index === list_index" :item="item" @next="next" @prev="prev"></test-item>
+        <div v-for="(item,index) in list" :key="index" style="height: 100%;">
+            <test-item :item="item" @next="next" @prev="prev"></test-item>
         </div>
 
     </section>
@@ -45,12 +45,9 @@
             },
             next(res) {
                 console.log(res);
-                // console.log(this.list[res.test_id].result[res.test_val_id].score)
-                // console.log(this.list[res.test_id].result[res.test_val_id].val)
-
-                // if (this.list_index < this.list.length - 1) {
-                //     this.list_index += 1;
-                // }
+                if (this.list_index < this.list.length - 1) {
+                    this.list_index += 1;
+                }
             }
         },
         computed: {
@@ -64,6 +61,7 @@
 <style lang="less" scoped>
     .question-container {
         height: 100%;
+        overflow: hidden;
         position: relative;
 
         .top {
