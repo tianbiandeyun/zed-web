@@ -64,9 +64,7 @@
         },
         methods: {
             prev() {
-
                 let _next_val = this.$store.state.test_result[this.index - 1];
-
                 this.$emit('prev', _next_val);
             },
             next() {
