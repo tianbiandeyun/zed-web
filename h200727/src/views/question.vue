@@ -12,9 +12,7 @@
         </div>
 
         <!--测试题-->
-        <div v-for="(item,index) in list" :key="index" style="height: 100%;">
-            <test-item :item="item" @next="next" @prev="prev"></test-item>
-        </div>
+        <test-item :item="item" @next="next" @prev="prev"></test-item>
 
     </section>
 </template>
@@ -27,8 +25,7 @@
         components: {TestItem},
         data() {
             return {
-                list: this.$config.TEST_QUESTION_LIST,
-                list_index: 0,
+                index: 0,
                 list_result: {}
             }
         },
@@ -41,18 +38,18 @@
             },
             prev() {
                 console.log('prev');
-                this.list_index -= 1;
+                this.index -= 1;
             },
             next(res) {
                 console.log(res);
-                if (this.list_index < this.list.length - 1) {
-                    this.list_index += 1;
+                if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
+                    this.index += 1;
                 }
             }
         },
         computed: {
-            window_width() {
-                return document.body.clientWidth
+            item() {
+                return this.$config.TEST_QUESTION_LIST[this.index]
             }
         }
     }

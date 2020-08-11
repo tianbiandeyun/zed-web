@@ -51,7 +51,7 @@
         },
         data() {
             return {
-                val: ''
+                val: 'S形'
             }
         },
         methods: {
