@@ -32,10 +32,12 @@
         },
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评');
-            this.test_show = true;
         },
         methods: {
             prev(res) {
+                console.log(res);
+                console.log(this.$store.state.test_result[res]);
+                this.index -= 1;
             },
             next() {
 

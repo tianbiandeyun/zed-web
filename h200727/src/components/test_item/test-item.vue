@@ -64,7 +64,7 @@
         },
         methods: {
             prev() {
-                this.$emit('prev');
+                this.$emit('prev', this.index - 1);
             },
             next() {
 
