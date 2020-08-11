@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <test-item :question="list[test_index]" @next="next"></test-item>
+        <test-item :question="list[test_index]" @next="next" @prev="prev"></test-item>
 
     </section>
 </template>
@@ -36,7 +36,7 @@
         methods: {
             prev() {
                 console.log('prev');
-                console.log(this.test_index)
+                this.test_index -= 1;
             },
             next(res) {
                 console.log(res);
@@ -81,6 +81,8 @@
             left: 0;
             font-size: 0;
             width: 300px;
+            background-color: #808695;
+            z-index: -1;
 
             img {
                 width: 100%;
