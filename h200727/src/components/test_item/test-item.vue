@@ -1,49 +1,5 @@
 <template>
-    <section class="test-container">
 
-        <!--标题-->
-        <div class="test-title">
-            <div class="title">
-                <span class="title-index">{{item.index + 1}}</span>
-                <span class="title-content">{{item.title}}</span>
-            </div>
-        </div>
-
-        <!--选择答案-->
-        <div class="test-select">
-            <div class="select">
-                <div class="select-item" v-for="(i,index) in item.result">
-                    <label>
-                        <input type="radio"
-                               :name="item.title"
-                               v-model="val"
-                               :value="i.val"
-                               class="select-item-radio">
-                        <span class="select-item-label"></span>
-                        <span class="select-item-val">{{i.val}}</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <!--按钮-->
-        <div class="test-submit">
-            <div class="test-submit-count">
-                {{item.index + 1}}/{{item.count}}
-            </div>
-            <div class="test-submit-operat">
-                <button class="prev"
-                        v-if="item.index > 0 && item.index !== 14"
-                        @click="prev">
-                    上一题
-                </button>
-                <button class="next" @click="next">
-                    {{item.index !== 14 ? '下一题' : '查看结果'}}
-                </button>
-            </div>
-        </div>
-
-    </section>
 </template>
 
 <script>
@@ -55,11 +11,14 @@
             },
             index: {
                 type: Number
+            },
+            result: {
+                type: String
             }
         },
         data() {
             return {
-                val: ''
+                val: this.result
             }
         },
         methods: {
@@ -84,6 +43,11 @@
 
                 this.$emit('next');
             }
+        },
+        watch: {
+            // result(n, o) {
+            //     this.val = n;
+            // }
         }
     }
 </script>
