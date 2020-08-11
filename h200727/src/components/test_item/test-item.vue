@@ -1,6 +1,7 @@
 <template>
     <section class="test-container">
 
+        <!--标题-->
         <div class="test-title">
             <div class="title">
                 <span class="title-index">{{question.index}}</span>
@@ -8,6 +9,7 @@
             </div>
         </div>
 
+        <!--选择答案-->
         <div class="test-select">
             <div class="select">
                 <div class="select-item" v-for="(item,index) in question.result">
@@ -20,6 +22,7 @@
             </div>
         </div>
 
+        <!--按钮-->
         <div class="test-submit">
             <div class="test-submit-count">
                 {{question.index}}/{{question.count}}
