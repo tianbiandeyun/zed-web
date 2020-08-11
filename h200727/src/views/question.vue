@@ -37,7 +37,6 @@
 
             },
             prev() {
-                console.log('prev');
                 this.index -= 1;
             },
             next() {
