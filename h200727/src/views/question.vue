@@ -81,7 +81,6 @@
             left: 0;
             font-size: 0;
             width: 300px;
-            background-color: #808695;
             z-index: -1;
 
             img {
