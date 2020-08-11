@@ -13,7 +13,7 @@
 
         <!--测试题-->
         <transition name="test">
-            <section class="test-container">
+            <section class="test-container" v-if="test_show" :key="item.index">
 
                 <div class="test-title">
                     <div class="title">
@@ -67,6 +67,7 @@
         name: "question",
         data() {
             return {
+                test_show: false,
                 val: '',
                 index: 0,
                 test_result: '',
@@ -74,6 +75,7 @@
         },
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评');
+            this.test_show = true;
         },
         methods: {
             prev() {
@@ -93,6 +95,8 @@
 
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
 
+                    this.test_show = false;
+
                     let _result = {
                         test_id: this.index,
                         test_val: this.val
@@ -103,6 +107,7 @@
                     console.log(this.$store.state.test_result);
 
                     this.index += 1;
+                    this.test_show = true;
                     return false;
                 }
             }
@@ -117,13 +122,22 @@
 
 <style lang="less" scoped>
 
-    .test-enter, .test-leave-to {
+    .test-enter {
         opacity: 0;
         transform: translateX(100%);
     }
 
-    .test-enter-active, .test-leave-active {
-        transition: all .3s ease-in-out;
+    .test-leave-to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    .test-enter-active {
+        transition: all .6s ease-in-out;
+    }
+
+    .test-leave-active {
+        transition: all .3s ease-out;
     }
 
     .question-container {
