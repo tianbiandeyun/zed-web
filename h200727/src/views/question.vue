@@ -42,7 +42,10 @@
             next() {
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
                     this.index += 1;
+                    return false;
                 }
+
+                console.log(this.$store.state.test_result)
             }
         },
         computed: {

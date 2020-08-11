@@ -12,15 +12,15 @@
         <!--选择答案-->
         <div class="test-select">
             <div class="select">
-                <div class="select-item" v-for="(item,index) in item.result">
+                <div class="select-item" v-for="(i,index) in item.result">
                     <label>
                         <input type="radio"
-                               :name="item.result"
+                               :name="item.title"
                                v-model="val"
-                               :value="item.score"
+                               :value="i.score"
                                class="select-item-radio">
                         <span class="select-item-label"></span>
-                        <span class="select-item-val">{{item.val}}</span>
+                        <span class="select-item-val">{{i.val}}</span>
                     </label>
                 </div>
             </div>
@@ -33,12 +33,12 @@
             </div>
             <div class="test-submit-operat">
                 <button class="prev"
-                        v-if="item.index > 0 && item.index !== 15"
+                        v-if="item.index > 0 && item.index !== 14"
                         @click="prev">
                     上一题
                 </button>
                 <button class="next" @click="next">
-                    {{item.index !== 15 ? '下一题' : '查看结果'}}
+                    {{item.index !== 14 ? '下一题' : '查看结果'}}
                 </button>
             </div>
         </div>
