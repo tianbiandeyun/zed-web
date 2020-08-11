@@ -14,7 +14,10 @@
             <div class="select">
                 <div class="select-item" v-for="(item,index) in item.result">
                     <label>
-                        <input type="radio" :name="item.result" v-model="val" :value="item.val"
+                        <input type="radio"
+                               :name="item.result"
+                               v-model="val"
+                               :value="item.val"
                                class="select-item-radio">
                         <span class="select-item-label"></span>
                         <span class="select-item-val">{{item.val}}</span>
@@ -34,7 +37,9 @@
                         @click="prev">
                     上一题
                 </button>
-                <button class="next" @click="next">{{item.index !== 15 ? '下一题' : '查看结果'}}</button>
+                <button class="next" @click="next">
+                    {{item.index !== 15 ? '下一题' : '查看结果'}}
+                </button>
             </div>
         </div>
 
