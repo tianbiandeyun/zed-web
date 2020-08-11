@@ -62,8 +62,11 @@
                 //     alert('请选择答案');
                 //     return false;
                 // }
-                this.$emit('next', this.val);
-                this.val = '';
+
+                console.log(this.val)
+
+                // this.$emit('next', this.val);
+                // this.val = '';
             }
         }
     }
