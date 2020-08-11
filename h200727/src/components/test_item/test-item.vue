@@ -17,7 +17,7 @@
                         <input type="radio"
                                :name="item.title"
                                v-model="val"
-                               :value="i.score"
+                               :value="i.val"
                                class="select-item-radio">
                         <span class="select-item-label"></span>
                         <span class="select-item-val">{{i.val}}</span>
@@ -64,8 +64,7 @@
         },
         methods: {
             prev() {
-                let _next_val = this.$store.state.test_result[this.index - 1];
-                this.$emit('prev', _next_val);
+                this.$emit('prev', this.index - 1);
             },
             next() {
 

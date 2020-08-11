@@ -34,7 +34,11 @@
         },
         methods: {
             prev(res) {
-                this.$refs.test.val = res;
+                console.log(res);
+
+                console.log(this.$store.state.test_result[res]);
+
+                this.$refs.test.val = this.$store.state.test_result[res];
                 this.index -= 1;
             },
             next() {
