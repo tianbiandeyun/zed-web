@@ -40,7 +40,9 @@
             },
             next(res) {
                 console.log(res);
-                this.test_index += 1;
+                if (this.test_index < this.list.length - 1) {
+                    this.test_index += 1;
+                }
             }
         }
     }
