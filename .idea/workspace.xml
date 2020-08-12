@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac5fc719-1d9e-4e35-9aca-d1e158238d0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/h200727/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200727/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h200727/src/views/question.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200727/src/views/question.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/h200727/src/views/result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200727/src/views/result.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,20 +28,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/h200727/src/views/question.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="93" column="10" lean-forward="true" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
+            <state relative-caret-position="366">
+              <caret line="87" column="35" lean-forward="true" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h200727/src/views/Home.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="128" column="48" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/h200727/src/views/result.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="-351">
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -70,9 +79,9 @@
         <option value="$PROJECT_DIR$/h200727/src/store/index.js" />
         <option value="$PROJECT_DIR$/h200727/src/views/Home.vue" />
         <option value="$PROJECT_DIR$/h200727/src/router/index.js" />
-        <option value="$PROJECT_DIR$/h200727/src/views/question.vue" />
         <option value="$PROJECT_DIR$/h200727/src/App.vue" />
         <option value="$PROJECT_DIR$/h200727/src/views/result.vue" />
+        <option value="$PROJECT_DIR$/h200727/src/views/question.vue" />
       </list>
     </option>
   </component>
@@ -162,12 +171,12 @@
       <updated>1597196448252</updated>
       <workItem from="1597196450667" duration="5621000" />
       <workItem from="1597202225926" duration="3294000" />
-      <workItem from="1597206602846" duration="2310000" />
+      <workItem from="1597206602846" duration="2693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11225000" />
+    <option name="totallyTimeSpent" value="11608000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="5" width="1703" height="1037" extended-state="0" />
@@ -209,13 +218,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/h200727/src/views/info.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="119" column="46" lean-forward="true" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/h200727/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
@@ -233,20 +235,6 @@
     <entry file="file://$PROJECT_DIR$/h200727/src/views/rules.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/h200727/src/views/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="128" selection-start-line="128" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/h200727/src/views/question.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="93" column="10" lean-forward="true" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/h200727/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -254,10 +242,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/h200727/src/views/info.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="119" column="41" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200727/src/views/Home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="128" column="48" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/h200727/src/views/result.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="-351">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200727/src/views/question.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="87" column="35" lean-forward="true" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
         </state>
       </provider>
     </entry>

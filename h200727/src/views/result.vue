@@ -16,11 +16,6 @@
         mounted(){
             const that = this;
 
-            window.addEventListener("popstate", function(e) {
-                // that.$router.replace('/test');
-                alert('后退')
-            }, false);
-
             that.$utils.setDocumentTitle('答题结果');
 
             that.$store.dispatch('_getQuestionResult', {
