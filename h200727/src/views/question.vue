@@ -29,7 +29,7 @@
                             <label>
                                 <input type="radio"
                                        v-model="val"
-                                       :value="i.val"
+                                       :value="i.score"
                                        class="select-item-radio">
                                 <span class="select-item-label"></span>
                                 <span class="select-item-val">{{i.val}}</span>
@@ -97,10 +97,25 @@
 
                 this.test_result.splice(this.index, 1, this.val)
 
+
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
-                    this.index += 1;
-                }else{
                     console.log(this.test_result)
+                    this.index += 1;
+                    this.val = '';
+                }else{
+                    this.val = '';
+                    console.log(this.test_result)
+
+                    // 1  0—2分
+                    // 2  3—16分
+                    // 3  17—23分
+
+                 let a = this.test_result.reduce((total,num) => {
+                        return total + num;
+                    })
+
+                    console.log(a);
+
                 }
 
                 this.test_show = true;
