@@ -9,7 +9,7 @@
     export default {
         name: "result",
         data(){
-            return:{
+            return {
                 img_src:''
             }
         },
@@ -27,17 +27,17 @@
                 let _result = +res.back_value;
 
                 if(_result <= 2){
-                    this.img_src = '../assets/images/1.png'
+                    this.img_src = require('../assets/images/1.png')
                     return false;
                 }
 
                 if(2 < _result && _result <= 16){
-                    this.img_src = '../assets/images/2.png'
+                    this.img_src = require('../assets/images/2.png')
                     return false;
                 }
 
                 if(16 < _result && _result <= 23){
-                    this.img_src = '../assets/images/3.png'
+                    this.img_src = require('../assets/images/3.png')
                     return false;
                 }
 
