@@ -76,7 +76,21 @@
         },
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评');
-            this.test_show = true;
+
+            // 获取 答题结果 如果有则跳转答题结果
+            this.$store.dispatch('_getQuestionResult', {
+                im: this.$config.PROJECT_INTERFACE.get_answer_record,
+                fps: {
+                    open_id: this.getOpenid_info.back_value.open_id,
+                },
+                url: this.$config.REQUEST_URL
+            }).then(res => {
+                if(res.back_value){
+                    this.$router.push('/result')
+                }else{
+                    this.test_show = true;
+                }
+            })
         },
         methods: {
             prev() {
