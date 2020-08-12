@@ -144,7 +144,7 @@
                         url: this.$config.REQUEST_URL
                     }).then(res => {
                         if(res.back_value){
-                            this.$router.push('/result')
+                            this.$router.replace('/result')
                         }
                     })
 
