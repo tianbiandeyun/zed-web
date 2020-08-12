@@ -62,6 +62,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
 
     export default {
         name: "question",
@@ -120,6 +121,16 @@
                         return total + num;
                     })
 
+                    this.$store.dispatch('_setOrganization', {
+                        im: this.$config.PROJECT_INTERFACE.set_user_organization,
+                        fps: {
+                            open_id: this.getOpenid_info.back_value.open_id,
+                            level_1_organization: this.first_active,
+                            level_2_organization: this.second_active
+                        },
+                        url: this.$config.REQUEST_URL
+                    })
+
                     // if(sum <= 2){
                     //     console.log(sum);
                     //     console.log('1.png');
@@ -144,6 +155,9 @@
             }
         },
         computed: {
+            ...mapGetters([
+                'getOpenid_info'
+            ]),
             item() {
                 return this.$config.TEST_QUESTION_LIST[this.index];
             }
