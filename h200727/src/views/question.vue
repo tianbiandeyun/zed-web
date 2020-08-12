@@ -70,7 +70,7 @@
                 test_show: false,
                 val: '',
                 index: 0,
-                test_result: '',
+                test_result: [],
             }
         },
         mounted() {
@@ -81,8 +81,8 @@
             prev() {
                 this.index -= 1;
 
-                if (this.$store.state.test_result[this.index] !== undefined) {
-                    this.val = this.$store.state.test_result[this.index];
+                if (this.test_result[this.index] !== undefined) {
+                    this.val = this.test_result[this.index];
                 }
 
             },
@@ -93,23 +93,17 @@
                     return false;
                 }
 
+                this.test_show = false;
+
+                this.test_result.splice(this.index, 1, this.val)
+
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
-
-                    this.test_show = false;
-
-                    let _result = {
-                        test_id: this.index,
-                        test_val: this.val
-                    };
-
-                    this.$store.commit('set_test_result', _result);
-
-                    console.log(this.$store.state.test_result);
-
                     this.index += 1;
-                    this.test_show = true;
-                    return false;
+                }else{
+                    console.log(this.test_result)
                 }
+
+                this.test_show = true;
             }
         },
         computed: {
