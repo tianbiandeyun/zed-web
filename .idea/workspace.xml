@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac5fc719-1d9e-4e35-9aca-d1e158238d0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200727/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/h200727/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200727/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200727/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200727/src/views/question.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200727/src/views/question.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h200727/src/views/result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200727/src/views/result.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/h200727/src/views/question.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="77" selection-start-line="77" selection-end-line="78" />
+            <state relative-caret-position="96">
+              <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -42,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/h200727/src/views/result.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+            <state relative-caret-position="648">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -156,12 +153,12 @@
       <updated>1597196448252</updated>
       <workItem from="1597196450667" duration="5621000" />
       <workItem from="1597202225926" duration="3294000" />
-      <workItem from="1597206602846" duration="979000" />
+      <workItem from="1597206602846" duration="993000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9894000" />
+    <option name="totallyTimeSpent" value="9908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="5" width="1703" height="1037" extended-state="0" />
@@ -224,13 +221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/h200727/src/views/question.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="77" selection-start-line="77" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/h200727/src/utils/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -238,10 +228,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/h200727/src/views/question.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/h200727/src/views/result.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        <state relative-caret-position="648">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
