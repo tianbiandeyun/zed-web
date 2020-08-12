@@ -26,10 +26,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/h200727/src/views/Home.vue">
+        <entry file="file://$PROJECT_DIR$/h200727/src/utils/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="142" column="58" lean-forward="true" selection-start-line="142" selection-start-column="58" selection-end-line="142" selection-end-column="58" />
+            <state relative-caret-position="270">
+              <caret line="10" column="81" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -54,13 +54,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/h200727/src/utils/config.js" />
         <option value="$PROJECT_DIR$/h200727/src/store/index.js" />
         <option value="$PROJECT_DIR$/h200727/src/router/index.js" />
         <option value="$PROJECT_DIR$/h200727/src/App.vue" />
         <option value="$PROJECT_DIR$/h200727/src/views/result.vue" />
         <option value="$PROJECT_DIR$/h200727/src/views/question.vue" />
         <option value="$PROJECT_DIR$/h200727/src/views/Home.vue" />
+        <option value="$PROJECT_DIR$/h200727/src/utils/config.js" />
       </list>
     </option>
   </component>
@@ -71,8 +71,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="56" />
-    <option name="y" value="5" />
+    <option name="x" value="38" />
+    <option name="y" value="1" />
     <option name="width" value="1703" />
     <option name="height" value="1037" />
   </component>
@@ -150,15 +150,15 @@
       <updated>1597196448252</updated>
       <workItem from="1597196450667" duration="5621000" />
       <workItem from="1597202225926" duration="3294000" />
-      <workItem from="1597206602846" duration="3325000" />
+      <workItem from="1597206602846" duration="3378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12240000" />
+    <option name="totallyTimeSpent" value="12293000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="5" width="1703" height="1037" extended-state="0" />
+    <frame x="38" y="1" width="1703" height="1037" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16396396" />
@@ -204,13 +204,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/h200727/src/utils/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/h200727/src/views/rules.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -246,6 +239,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="142" column="58" lean-forward="true" selection-start-line="142" selection-start-column="58" selection-end-line="142" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200727/src/utils/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="81" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
         </state>
       </provider>
     </entry>
