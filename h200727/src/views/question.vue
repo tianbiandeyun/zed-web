@@ -121,14 +121,15 @@
                         return total + num;
                     })
 
-                    this.$store.dispatch('_setOrganization', {
-                        im: this.$config.PROJECT_INTERFACE.set_user_organization,
+                    this.$store.dispatch('_setQuestionResult', {
+                        im: this.$config.PROJECT_INTERFACE.set_answer_record,
                         fps: {
                             open_id: this.getOpenid_info.back_value.open_id,
-                            level_1_organization: this.first_active,
-                            level_2_organization: this.second_active
+                            answer: this.first_active
                         },
                         url: this.$config.REQUEST_URL
+                    }).then(res => {
+                        console.log(res)
                     })
 
                     // if(sum <= 2){
