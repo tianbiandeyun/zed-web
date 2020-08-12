@@ -125,30 +125,14 @@
                         im: this.$config.PROJECT_INTERFACE.set_answer_record,
                         fps: {
                             open_id: this.getOpenid_info.back_value.open_id,
-                            answer: this.first_active
+                            answer: sum
                         },
                         url: this.$config.REQUEST_URL
                     }).then(res => {
-                        console.log(res)
+                        if(res.back_value){
+                            this.$router.push('/result')
+                        }
                     })
-
-                    // if(sum <= 2){
-                    //     console.log(sum);
-                    //     console.log('1.png');
-                    //     return false;
-                    // }
-                    //
-                    // if(2 < sum && sum <= 16){
-                    //     console.log(sum);
-                    //     console.log('2.png');
-                    //     return false;
-                    // }
-                    //
-                    // if(16 < sum && sum <= 23){
-                    //     console.log(sum);
-                    //     console.log('3.png');
-                    //     return false;
-                    // }
 
                 }
 

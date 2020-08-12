@@ -2,7 +2,7 @@
     <section class="home-container" v-if="page_show">
 
         <div class="banner">
-            <button>点击测评</button>
+            <button @click='goTest'>点击测评</button>
         </div>
 
         <div v-for="(item,index) in video_list" :key="index">
@@ -73,6 +73,9 @@
             this._hasUserInfo();
         },
         methods: {
+            goTest(){
+                this.$router.push('/test')
+            },
             go(type, item) {
 
                 this.$store.dispatch('_setVideoClickCount', {
