@@ -28,6 +28,8 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  *接口名
  * */
 export const PROJECT_INTERFACE = {
+    get_answer_record:'get_answer_record', //获取答题结果
+    set_answer_record:'set_answer_record', // 设置答题结果
     set_uv_statistics: 'set_uv_statistics', // uv
     set_pv_statistics: 'set_pv_statistics', // pv
     get_jsconf: 'get_jsconf', // 获取微信配置

@@ -79,6 +79,7 @@
         },
         methods: {
             prev() {
+
                 this.index -= 1;
 
                 if (this.test_result[this.index] !== undefined) {
@@ -103,18 +104,39 @@
                     this.index += 1;
                     this.val = '';
                 }else{
-                    this.val = '';
                     console.log(this.test_result)
 
-                    // 1  0—2分
-                    // 2  3—16分
-                    // 3  17—23分
+                    // 去除 没有分数的题目
+                    for(let i =0 ;i<this.test_result.length;i++){
+                        if(typeof this.test_result[i] === 'string'){
+                            this.test_result.splice(i, 1)
+                        }
+                    }
 
-                 let a = this.test_result.reduce((total,num) => {
+                    console.log(this.test_result)
+
+                    // 结果求和
+                 let sum = this.test_result.reduce((total,num) => {
                         return total + num;
                     })
 
-                    console.log(a);
+                    // if(sum <= 2){
+                    //     console.log(sum);
+                    //     console.log('1.png');
+                    //     return false;
+                    // }
+                    //
+                    // if(2 < sum && sum <= 16){
+                    //     console.log(sum);
+                    //     console.log('2.png');
+                    //     return false;
+                    // }
+                    //
+                    // if(16 < sum && sum <= 23){
+                    //     console.log(sum);
+                    //     console.log('3.png');
+                    //     return false;
+                    // }
 
                 }
 
