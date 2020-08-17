@@ -8,7 +8,7 @@
 
             <div class="item">
                 <span class="item-caption">姓名</span>：
-                <input class="item-message auto-width" v-model="name" type="text" placeholder="请输入姓名"/>
+                <input class="item-message input-width" v-model="name" type="text" placeholder="请输入姓名"/>
             </div>
 
             <div class="item">
@@ -24,7 +24,7 @@
 
             <div class="item">
                 <span class="item-caption">年龄</span>：
-                <select class="auto-width" v-model="age_active">
+                <select class="input-width" v-model="age_active">
                     <option
                             v-for="(item,index) in age_list"
                             :key="index"
@@ -36,7 +36,7 @@
 
             <div class="item">
                 <span class="item-caption">手机</span>：
-                <input class="item-message auto-width" v-model="photo" type="number" placeholder="请输入手机号码"/>
+                <input class="item-message input-width" v-model="photo" type="number" placeholder="请输入手机号码"/>
             </div>
 
             <div class="item">
@@ -268,7 +268,7 @@
                     float: right;
                 }
 
-                .auto-width {
+                .input-width {
                     width: calc(100% - 170px);
                 }
 
