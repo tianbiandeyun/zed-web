@@ -12,7 +12,7 @@
         </div>
 
         <!--测试题-->
-        <transition name="test">
+        <transition :name="animationend">
             <section class="test-container" v-if="test_show" :key="item.index">
 
                 <div class="test-title">
@@ -76,6 +76,7 @@
                 val: '',
                 index: 0,
                 test_result: [],
+                animationend: ''
             }
         },
         mounted() {
@@ -101,6 +102,8 @@
         methods: {
             prev() {
 
+                this.animationend = 'toRight';
+
                 this.index -= 1;
 
                 if (this.test_result[this.index] !== undefined) {
@@ -111,6 +114,7 @@
             next() {
 
                 this.loading_isShow = true;
+                this.animationend = 'toLeft';
 
                 if (this.val === '') {
                     alert('请选择答案');
@@ -177,21 +181,31 @@
 
 <style lang="less" scoped>
 
-    .test-enter {
+    .toLeft-enter {
         opacity: 0;
         transform: translateX(100%);
     }
 
-    .test-leave-to {
+    .toLeft-leave-to {
         opacity: 0;
         transform: translateX(-100%);
     }
 
-    .test-enter-active {
+    .toRight-enter {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    .toRight-leave-to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    .toLeft-enter-active, .toRight-enter-active {
         transition: all .6s ease-in-out;
     }
 
-    .test-leave-active {
+    .toLeft-leave-active, .toRight-leave-active {
         transition: all .3s ease-out;
     }
 
