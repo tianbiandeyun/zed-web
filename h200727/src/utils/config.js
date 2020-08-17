@@ -8,8 +8,8 @@ export const SHARE_ID = "h_200727";
 /**
  * 请求域名
  * */
-export const PROJECT_REQUEST = 'https://devphp.hztc.dev.hztcapp.com/test_index.php'; // 开发
-// export const PROJECT_REQUEST = 'https://hztc.dev.hztcapp.com/index.php'; // 正式
+// export const PROJECT_REQUEST = 'https://devphp.hztc.dev.hztcapp.com/test_index.php'; // 开发
+export const PROJECT_REQUEST = 'https://hztc.dev.hztcapp.com/index.php'; // 正式
 
 /**
  * 分享域名
