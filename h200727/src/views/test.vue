@@ -44,9 +44,10 @@
         .test-bg {
             width: 100%;
             text-align: center;
+            padding-top: 20px;
 
             img {
-                width: 94%;
+                width: 680px;
             }
         }
 
