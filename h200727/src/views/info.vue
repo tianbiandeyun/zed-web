@@ -89,37 +89,57 @@
              * 提交
              * */
             submit() {
-                if (this.name === '') {
-                    alert('请填写姓名');
-                    return false;
-                }
 
-                if (this.photo === '') {
-                    alert('请填写手机');
-                    return false;
-                }
-
-                if (this.photo_code === '') {
-                    alert('请填写验证码');
-                    return false;
-                }
-
-                this.$store.dispatch('_setUserInfo', {
-                    im: this.$config.PROJECT_INTERFACE.set_user_info,
-                    fps: {
-                        open_id: this.getOpenid_info.back_value.open_id,
-                        name: this.name,
-                        sex: this.picked,
-                        age: this.age_active,
-                        phone: this.photo,
-                        code: this.photo_code
-                    },
-                    url: this.$config.REQUEST_URL
-                }).then(res => {
-                    if (res.back_value) {
-                        this.$router.push('/')
-                    }
+                this.$weui.dialog({
+                    title: '提示',
+                    content: '是否领取礼品',
+                    buttons: [{
+                        label: '取消',
+                        type: 'default',
+                        onClick: () => {
+                            alert('您已取消领取礼品！')
+                        }
+                    }, {
+                        label: '确定',
+                        type: 'primary',
+                        onClick: () => {
+                            alert('您已确定领取礼品！')
+                        }
+                    }]
                 })
+
+
+                // if (this.name === '') {
+                //     alert('请填写姓名');
+                //     return false;
+                // }
+                //
+                // if (this.photo === '') {
+                //     alert('请填写手机');
+                //     return false;
+                // }
+                //
+                // if (this.photo_code === '') {
+                //     alert('请填写验证码');
+                //     return false;
+                // }
+                //
+                // this.$store.dispatch('_setUserInfo', {
+                //     im: this.$config.PROJECT_INTERFACE.set_user_info,
+                //     fps: {
+                //         open_id: this.getOpenid_info.back_value.open_id,
+                //         name: this.name,
+                //         sex: this.picked,
+                //         age: this.age_active,
+                //         phone: this.photo,
+                //         code: this.photo_code
+                //     },
+                //     url: this.$config.REQUEST_URL
+                // }).then(res => {
+                //     if (res.back_value) {
+                //         this.$router.push('/')
+                //     }
+                // })
             },
             /**
              * 点击获取验证码
