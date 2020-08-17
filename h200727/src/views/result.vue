@@ -6,14 +6,15 @@
 
 <script>
     import {mapGetters} from 'vuex'
+
     export default {
         name: "result",
-        data(){
+        data() {
             return {
-                img_src:''
+                img_src: ''
             }
         },
-        mounted(){
+        mounted() {
             const that = this;
 
             that.$utils.setDocumentTitle('答题结果');
@@ -28,17 +29,17 @@
 
                 let _result = +res.back_value;
 
-                if(_result <= 2){
+                if (_result <= 2) {
                     that.img_src = require('../assets/images/1.png')
                     return false;
                 }
 
-                if(2 < _result && _result <= 16){
+                if (2 < _result && _result <= 16) {
                     that.img_src = require('../assets/images/2.png')
                     return false;
                 }
 
-                if(16 < _result && _result <= 23){
+                if (16 < _result && _result <= 23) {
                     that.img_src = require('../assets/images/3.png')
                     return false;
                 }
@@ -55,9 +56,9 @@
 </script>
 
 <style lang="less" scoped>
-    .result-container{
-        img{
-            width:100%;
+    .result-container {
+        img {
+            width: 100%;
         }
     }
 </style>

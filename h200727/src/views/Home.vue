@@ -73,7 +73,7 @@
             this._hasUserInfo();
         },
         methods: {
-            goTest(){
+            goTest() {
                 this.$router.push('/test')
             },
             go(type, item) {

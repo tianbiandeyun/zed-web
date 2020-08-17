@@ -85,9 +85,9 @@
                 },
                 url: this.$config.REQUEST_URL
             }).then(res => {
-                if(res.back_value){
+                if (res.back_value) {
                     this.$router.replace('/result')
-                }else{
+                } else {
                     this.test_show = true;
                 }
             })
@@ -118,12 +118,12 @@
                     console.log(this.test_result)
                     this.index += 1;
                     this.val = '';
-                }else{
+                } else {
                     console.log(this.test_result)
 
                     // 去除 没有分数的题目
-                    for(let i =0 ;i<this.test_result.length;i++){
-                        if(typeof this.test_result[i] === 'string'){
+                    for (let i = 0; i < this.test_result.length; i++) {
+                        if (typeof this.test_result[i] === 'string') {
                             this.test_result.splice(i, 1)
                         }
                     }
@@ -131,7 +131,7 @@
                     console.log(this.test_result)
 
                     // 结果求和
-                 let sum = this.test_result.reduce((total,num) => {
+                    let sum = this.test_result.reduce((total, num) => {
                         return total + num;
                     })
 
@@ -143,7 +143,7 @@
                         },
                         url: this.$config.REQUEST_URL
                     }).then(res => {
-                        if(res.back_value){
+                        if (res.back_value) {
                             this.$router.replace('/result')
                         }
                     })
