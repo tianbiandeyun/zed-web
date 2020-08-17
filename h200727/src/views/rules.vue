@@ -38,10 +38,14 @@
 <style lang="less" scoped>
 
     .rules-container {
+        height: 100%;
+        background-color: red;
+        padding: 0 40px 0 40px;
 
         .title {
             text-align: center;
             padding-top: 100px;
+            margin-bottom: 30px;
 
             img {
                 width: 240px;
@@ -49,7 +53,8 @@
         }
 
         .rules {
-            padding: 60px 40px 20px 40px;
+            background-color: #fff;
+            padding: 40px 40px 20px 40px;
 
             .rules-title {
                 font-size: @default-font-size-36;
