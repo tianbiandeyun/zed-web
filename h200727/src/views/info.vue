@@ -24,14 +24,7 @@
 
             <div class="item">
                 <span class="item-caption">年龄</span>：
-                <select class="input-width" v-model="age_active">
-                    <option
-                            v-for="(item,index) in age_list"
-                            :key="index"
-                            :value='item'>
-                        {{item}}
-                    </option>
-                </select>
+                <div class="age input-width" @click="popup_isShow = true">{{current_date}}</div>
             </div>
 
             <div class="item">
@@ -50,37 +43,43 @@
             <button @click="submit">立即参与</button>
         </div>
 
-        <DatetimePicker
-                v-model="currentDate"
-                type="year-month"
-                title="选择年月"
-                :min-date="minDate"
-                :max-date="maxDate"
-                :formatter="formatter"
-                @confirm="confirmPicker"
-        ></DatetimePicker>
+        <!--选择出生年月-->
+        <Popup
+                v-model="popup_isShow"
+                position="bottom"
+        >
+            <DatetimePicker
+                    type="year-month"
+                    title="选择出生年月"
+                    :min-date="min_date"
+                    :max-date="max_date"
+                    :formatter="formatter"
+                    @cancel="popup_isShow = false"
+                    @confirm="confirmPicker"
+            ></DatetimePicker>
+
+        </Popup>
 
     </section>
 </template>
 
 <script>
     import share from '../utils/share';
-    import {DatetimePicker} from 'vant';
+    import {DatetimePicker, Popup} from 'vant';
     import {mapGetters} from 'vuex'
 
     export default {
         name: "info",
         mixins: [share],
-        components: {DatetimePicker},
+        components: {DatetimePicker, Popup},
         data() {
             return {
-                minDate: new Date(2020, 0, 1),
-                maxDate: new Date(2025, 10, 1),
-                currentDate: new Date(),
-                // ---
+                popup_isShow: false, // 是否显示日期选择
+                min_date: new Date(1960, 0, 1),
+                max_date: new Date(2010, 11, 31),
+                current_date: '1960年1月', // 选择的出生日期
                 name: '',
                 picked: '1',
-                age_active: 2010,
                 photo: '',
                 photo_code: '',
                 message: '获取验证码',
@@ -101,15 +100,14 @@
 
         },
         methods: {
+            /**
+             * 日期选择
+             * */
             confirmPicker(val) {
-                let year = val.getFullYear()
-                let month = val.getMonth() + 1
-                let day = val.getDate()
-                if (day >= 1 && day <= 9) {
-                    day = `0${day}`
-                }
-                let timeValue = `${year}-${month}-${day}`
-                console.log(timeValue)
+                let year = val.getFullYear();
+                let month = val.getMonth() + 1;
+                this.current_date = `${year}年${month}月`;
+                this.popup_isShow = false;
             },
             /**
              * 提交
@@ -136,7 +134,7 @@
                         open_id: this.getOpenid_info.back_value.open_id,
                         name: this.name,
                         sex: this.picked,
-                        age: this.age_active,
+                        age: this.current_date,
                         phone: this.photo,
                         code: this.photo_code
                     },
@@ -254,7 +252,12 @@
                     line-height: 60px;
                 }
 
-                .item-message {
+                .age {
+                    display: inline-block;
+                    line-height: 60px;
+                }
+
+                .item-message, .age {
                     font-size: @default-font-size-30;
                     height: 60px;
                     border: 1px solid @default-font-color-sub;
