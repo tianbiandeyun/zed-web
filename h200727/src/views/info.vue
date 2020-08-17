@@ -242,7 +242,7 @@
             .item {
                 font-size: @default-font-size-36;
                 color: @default-font-color-content;
-                margin-bottom: 20px;
+                margin-bottom: 40px;
 
                 .item-caption {
                     width: 120px;
