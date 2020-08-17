@@ -60,6 +60,8 @@
 
         </Popup>
 
+        <loading :show="loading_isShow"></loading>
+
     </section>
 </template>
 
@@ -74,14 +76,15 @@
         components: {DatetimePicker, Popup},
         data() {
             return {
+                loading_isShow: false,
                 popup_isShow: false, // 是否显示日期选择
-                min_date: new Date(1960, 0, 1),
-                max_date: new Date(2010, 11, 31),
+                min_date: new Date(1960, 0, 1), // 最小日期
+                max_date: new Date(2010, 11, 31), // 最大日期
                 current_date: '1960年1月', // 选择的出生日期
-                name: '',
-                picked: '1',
-                photo: '',
-                photo_code: '',
+                name: '', // 名字
+                picked: '1', // 男/女
+                photo: '',// 电话
+                photo_code: '',// 验证码
                 message: '获取验证码',
                 timer: null
             }
@@ -113,18 +116,24 @@
              * 提交
              * */
             submit() {
+
+                this.loading_isShow = true;
+
                 if (this.name === '') {
                     alert('请填写姓名');
+                    this.loading_isShow = false;
                     return false;
                 }
 
                 if (this.photo === '') {
                     alert('请填写手机');
+                    this.loading_isShow = false;
                     return false;
                 }
 
                 if (this.photo_code === '') {
                     alert('请填写验证码');
+                    this.loading_isShow = false;
                     return false;
                 }
 
@@ -141,6 +150,7 @@
                     url: this.$config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
+                        this.loading_isShow = false;
                         this.$router.push('/')
                     }
                 })
@@ -149,14 +159,21 @@
              * 点击获取验证码
              * */
             async getCode() {
+                this.loading_isShow = true;
+
                 if (this.photo === '') {
                     alert('请填写手机');
+                    this.loading_isShow = false;
                     return false;
                 }
                 let code_result = await this._getPhotoCode(this.photo);
 
+                this.loading_isShow = false;
+
                 if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
-                    alert('电话已存在，无法重复注册')
+                    alert('电话已存在，无法重复注册');
+                    this.loading_isShow = false;
+                    return false;
                 }
 
                 if (code_result.back_value) {
@@ -206,14 +223,7 @@
         computed: {
             ...mapGetters([
                 'getOpenid_info'
-            ]),
-            age_list() {
-                let _age = [];
-                for (let i = 1960; i <= 2010; i++) {
-                    _age.push(i);
-                }
-                return _age;
-            }
+            ])
         }
     }
 </script>

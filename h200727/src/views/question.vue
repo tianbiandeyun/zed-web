@@ -58,6 +58,9 @@
             </section>
         </transition>
 
+
+        <loading :show="loading_isShow"></loading>
+
     </section>
 </template>
 
@@ -68,7 +71,8 @@
         name: "question",
         data() {
             return {
-                test_show: false,
+                loading_isShow: true,
+                test_show: false, // 展示切换题目的效果
                 val: '',
                 index: 0,
                 test_result: [],
@@ -86,8 +90,10 @@
                 url: this.$config.REQUEST_URL
             }).then(res => {
                 if (res.back_value) {
+                    this.loading_isShow = false;
                     this.$router.replace('/result')
                 } else {
+                    this.loading_isShow = false;
                     this.test_show = true;
                 }
             })
@@ -104,22 +110,24 @@
             },
             next() {
 
+                this.loading_isShow = true;
+
                 if (this.val === '') {
                     alert('请选择答案');
+                    this.loading_isShow = false;
                     return false;
                 }
 
                 this.test_show = false;
 
-                this.test_result.splice(this.index, 1, this.val)
-
+                this.test_result.splice(this.index, 1, this.val);
 
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
-                    console.log(this.test_result)
+                    this.loading_isShow = false;
+                    console.log(this.test_result);
                     this.index += 1;
                     this.val = '';
                 } else {
-                    console.log(this.test_result)
 
                     // 去除 没有分数的题目
                     for (let i = 0; i < this.test_result.length; i++) {
@@ -128,12 +136,12 @@
                         }
                     }
 
-                    console.log(this.test_result)
-
                     // 结果求和
                     let sum = this.test_result.reduce((total, num) => {
                         return total + num;
-                    })
+                    });
+
+                    console.log(sum);
 
                     this.$store.dispatch('_setQuestionResult', {
                         im: this.$config.PROJECT_INTERFACE.set_answer_record,
@@ -144,7 +152,10 @@
                         url: this.$config.REQUEST_URL
                     }).then(res => {
                         if (res.back_value) {
-                            this.$router.replace('/result')
+                            setTimeout(() => {
+                                this.loading_isShow = false;
+                                this.$router.replace('/result')
+                            }, 1000)
                         }
                     })
 

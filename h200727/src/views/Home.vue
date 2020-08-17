@@ -73,9 +73,15 @@
             this._hasUserInfo();
         },
         methods: {
+            /**
+             * 前往测试
+             * */
             goTest() {
                 this.$router.push('/test')
             },
+            /**
+             * 前往观看视频
+             * */
             go(type, item) {
 
                 this.$store.dispatch('_setVideoClickCount', {
@@ -97,6 +103,9 @@
                 });
 
             },
+            /**
+             * 判断是否组册信息
+             * */
             async _hasUserInfo() {
 
                 // 设置 PV

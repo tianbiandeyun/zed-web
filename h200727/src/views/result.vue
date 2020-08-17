@@ -1,6 +1,8 @@
 <template>
     <section class="result-container">
         <img :src="img_src" alt="">
+
+        <loading :show="loading_isShow"></loading>
     </section>
 </template>
 
@@ -11,6 +13,7 @@
         name: "result",
         data() {
             return {
+                loading_isShow: true,
                 img_src: ''
             }
         },
@@ -30,17 +33,20 @@
                 let _result = +res.back_value;
 
                 if (_result <= 2) {
-                    that.img_src = require('../assets/images/1.png')
+                    that.img_src = require('../assets/images/1.png');
+                    this.loading_isShow = false;
                     return false;
                 }
 
                 if (2 < _result && _result <= 16) {
-                    that.img_src = require('../assets/images/2.png')
+                    that.img_src = require('../assets/images/2.png');
+                    this.loading_isShow = false;
                     return false;
                 }
 
                 if (16 < _result && _result <= 23) {
-                    that.img_src = require('../assets/images/3.png')
+                    that.img_src = require('../assets/images/3.png');
+                    this.loading_isShow = false;
                     return false;
                 }
 

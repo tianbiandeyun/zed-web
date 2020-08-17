@@ -53,9 +53,9 @@
         data() {
             return {
                 show: false,
-                first_list: ["A", "B", "C"],
+                first_list: ["A", "B", "C"], // 一级组织
                 first_active: "A",
-                second_list: {
+                second_list: { // 二级组织
                     'A': ['a1', 'a2', 'a3', 'a4'],
                     'B': ['b1', 'b2', 'b3', 'b4'],
                     'C': ['c1', 'c2', 'c3', 'c4'],
@@ -77,11 +77,17 @@
 
         },
         methods: {
+            /**
+             * 选择组织
+             * */
             changFirst(event) {
                 let optionVal = event.target.value;
                 this.first_active = optionVal;
                 this.second_active = this.second_list[optionVal][0];
             },
+            /**
+             * 提交选择的组织
+             * */
             submit() {
                 this.show = true;
                 this.$store.dispatch('_setOrganization', {
