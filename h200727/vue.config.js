@@ -8,17 +8,17 @@ module.exports = {
             ]
         }
     },
-    css: {
-        loaderOptions: {
-            postcss: {
-                plugins: [
-                    require("postcss-px2rem")({
-                        remUnit: 75 // 设计稿 / 10 --- 750 / 10 = 75
-                    })
-                ]
-            }
-        }
-    },
+    // css: {
+    //     loaderOptions: {
+    //         postcss: {
+    //             plugins: [
+    //                 require("postcss-px2rem")({
+    //                     remUnit: 75 // 设计稿 / 10 --- 750 / 10 = 75
+    //                 })
+    //             ]
+    //         }
+    //     }
+    // },
     publicPath: './',
     outputDir: 'dist',
     assetsDir: 'static'
