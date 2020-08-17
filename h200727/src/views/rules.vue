@@ -42,6 +42,10 @@
         .title {
             text-align: center;
             padding-top: 100px;
+
+            img {
+                width: 200px;
+            }
         }
 
         .rules {
