@@ -29,7 +29,7 @@
                             <label>
                                 <input type="radio"
                                        v-model="val"
-                                       :value="i.val"
+                                       :value="i.score"
                                        class="select-item-radio">
                                 <span class="select-item-label"></span>
                                 <span class="select-item-val">{{i.val}}</span>
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
 
     export default {
         name: "question",
@@ -70,19 +71,34 @@
                 test_show: false,
                 val: '',
                 index: 0,
-                test_result: '',
+                test_result: [],
             }
         },
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评');
-            this.test_show = true;
+
+            // 获取 答题结果 如果有则跳转答题结果
+            this.$store.dispatch('_getQuestionResult', {
+                im: this.$config.PROJECT_INTERFACE.get_answer_record,
+                fps: {
+                    open_id: this.getOpenid_info.back_value.open_id,
+                },
+                url: this.$config.REQUEST_URL
+            }).then(res => {
+                if(res.back_value){
+                    this.$router.replace('/result')
+                }else{
+                    this.test_show = true;
+                }
+            })
         },
         methods: {
             prev() {
+
                 this.index -= 1;
 
-                if (this.$store.state.test_result[this.index] !== undefined) {
-                    this.val = this.$store.state.test_result[this.index];
+                if (this.test_result[this.index] !== undefined) {
+                    this.val = this.test_result[this.index];
                 }
 
             },
@@ -93,26 +109,54 @@
                     return false;
                 }
 
+                this.test_show = false;
+
+                this.test_result.splice(this.index, 1, this.val)
+
+
                 if (this.index < this.$config.TEST_QUESTION_LIST.length - 1) {
-
-                    this.test_show = false;
-
-                    let _result = {
-                        test_id: this.index,
-                        test_val: this.val
-                    };
-
-                    this.$store.commit('set_test_result', _result);
-
-                    console.log(this.$store.state.test_result);
-
+                    console.log(this.test_result)
                     this.index += 1;
-                    this.test_show = true;
-                    return false;
+                    this.val = '';
+                }else{
+                    console.log(this.test_result)
+
+                    // 去除 没有分数的题目
+                    for(let i =0 ;i<this.test_result.length;i++){
+                        if(typeof this.test_result[i] === 'string'){
+                            this.test_result.splice(i, 1)
+                        }
+                    }
+
+                    console.log(this.test_result)
+
+                    // 结果求和
+                 let sum = this.test_result.reduce((total,num) => {
+                        return total + num;
+                    })
+
+                    this.$store.dispatch('_setQuestionResult', {
+                        im: this.$config.PROJECT_INTERFACE.set_answer_record,
+                        fps: {
+                            open_id: this.getOpenid_info.back_value.open_id,
+                            answer: sum
+                        },
+                        url: this.$config.REQUEST_URL
+                    }).then(res => {
+                        if(res.back_value){
+                            this.$router.replace('/result')
+                        }
+                    })
+
                 }
+
+                this.test_show = true;
             }
         },
         computed: {
+            ...mapGetters([
+                'getOpenid_info'
+            ]),
             item() {
                 return this.$config.TEST_QUESTION_LIST[this.index];
             }

@@ -28,6 +28,8 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  *接口名
  * */
 export const PROJECT_INTERFACE = {
+    get_answer_record:'get_answer_record', //获取答题结果
+    set_answer_record:'set_answer_record', // 设置答题结果
     set_uv_statistics: 'set_uv_statistics', // uv
     set_pv_statistics: 'set_pv_statistics', // pv
     get_jsconf: 'get_jsconf', // 获取微信配置
@@ -146,15 +148,15 @@ export const TEST_QUESTION_LIST = [
         result: [
             {
                 val: '从来没有',
-                score: 0
+                score: '从来没有',
             },
             {
                 val: '接触/了解过但是不熟悉',
-                score: 0
+                score: '接触/了解过但是不熟悉',
             },
             {
                 val: '经常接触',
-                score: 0
+                score:'经常接触',
             }
         ]
     },
@@ -184,15 +186,15 @@ export const TEST_QUESTION_LIST = [
         result: [
             {
                 val: '考虑有成功案例的领域',
-                score: 0
+                score:'考虑有成功案例的领域',
             },
             {
                 val: '探索新领域',
-                score: 0
+                score: '探索新领域',
             },
             {
                 val: '单刀直入当前热门领域',
-                score: 0
+                score: '单刀直入当前热门领域',
             }
         ]
     },
@@ -279,15 +281,15 @@ export const TEST_QUESTION_LIST = [
         result: [
             {
                 val: '等有了一定工作经验后',
-                score: 0
+                score: '等有了一定工作经验后',
             },
             {
                 val: '等有了经济实力后',
-                score: 0
+                score: '等有了经济实力后',
             },
             {
                 val: '一边学习一边思考，成熟后就创业',
-                score: 0
+                score: '一边学习一边思考，成熟后就创业',
             }
         ]
     },

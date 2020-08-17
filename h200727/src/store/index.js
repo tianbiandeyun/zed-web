@@ -11,8 +11,7 @@ export default new Vuex.Store({
     state: {
         getOpenid_info: '',
         hasUserInfo_geren: '',
-        hasUserInfo_zuzhi: '',
-        test_result: []
+        hasUserInfo_zuzhi: ''
     },
     mutations: {
         get_openid(state, res) {
@@ -23,12 +22,27 @@ export default new Vuex.Store({
         },
         has_user_info_zuzhi(state, res) {
             state.hasUserInfo_zuzhi = res;
-        },
-        set_test_result(state, res) {
-            state.test_result.splice(res.test_id, 1, res.test_val)
         }
     },
     actions: {
+        _getQuestionResult({commit}, params) {
+            const [im, fps = {}, url] = [params.im, params.fps, params.url];
+            const requestUrl = utils.produceRequestUrl(im, fps, url);
+            return new Promise((resolve, reject) => {
+                axios.get(requestUrl).then(res => {
+                    resolve(res.data);
+                });
+            });
+        },
+        _setQuestionResult({commit}, params) {
+            const [im, fps = {}, url] = [params.im, params.fps, params.url];
+            const requestUrl = utils.produceRequestUrl(im, fps, url);
+            return new Promise((resolve, reject) => {
+                axios.get(requestUrl).then(res => {
+                    resolve(res.data);
+                });
+            });
+        },
         _setPv({commit}, params) {
             const [im, fps = {}, url] = [params.im, params.fps, params.url];
             const requestUrl = utils.produceRequestUrl(im, fps, url);
