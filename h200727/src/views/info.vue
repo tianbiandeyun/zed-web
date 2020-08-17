@@ -50,18 +50,34 @@
             <button @click="submit">立即参与</button>
         </div>
 
+        <DatetimePicker
+                v-model="currentDate"
+                type="year-month"
+                title="选择年月"
+                :min-date="minDate"
+                :max-date="maxDate"
+                :formatter="formatter"
+                @confirm="confirmPicker"
+        ></DatetimePicker>
+
     </section>
 </template>
 
 <script>
-    import share from '../utils/share'
+    import share from '../utils/share';
+    import {DatetimePicker} from 'vant';
     import {mapGetters} from 'vuex'
 
     export default {
         name: "info",
         mixins: [share],
+        components: {DatetimePicker},
         data() {
             return {
+                minDate: new Date(2020, 0, 1),
+                maxDate: new Date(2025, 10, 1),
+                currentDate: new Date(),
+                // ---
                 name: '',
                 picked: '1',
                 age_active: 2010,
@@ -85,61 +101,51 @@
 
         },
         methods: {
+            confirmPicker(val) {
+                let year = val.getFullYear()
+                let month = val.getMonth() + 1
+                let day = val.getDate()
+                if (day >= 1 && day <= 9) {
+                    day = `0${day}`
+                }
+                let timeValue = `${year}-${month}-${day}`
+                console.log(timeValue)
+            },
             /**
              * 提交
              * */
             submit() {
+                if (this.name === '') {
+                    alert('请填写姓名');
+                    return false;
+                }
 
-                this.$weui.dialog({
-                    title: '提示',
-                    content: '是否领取礼品',
-                    buttons: [{
-                        label: '取消',
-                        type: 'default',
-                        onClick: () => {
-                            alert('您已取消领取礼品！')
-                        }
-                    }, {
-                        label: '确定',
-                        type: 'primary',
-                        onClick: () => {
-                            alert('您已确定领取礼品！')
-                        }
-                    }]
+                if (this.photo === '') {
+                    alert('请填写手机');
+                    return false;
+                }
+
+                if (this.photo_code === '') {
+                    alert('请填写验证码');
+                    return false;
+                }
+
+                this.$store.dispatch('_setUserInfo', {
+                    im: this.$config.PROJECT_INTERFACE.set_user_info,
+                    fps: {
+                        open_id: this.getOpenid_info.back_value.open_id,
+                        name: this.name,
+                        sex: this.picked,
+                        age: this.age_active,
+                        phone: this.photo,
+                        code: this.photo_code
+                    },
+                    url: this.$config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$router.push('/')
+                    }
                 })
-
-
-                // if (this.name === '') {
-                //     alert('请填写姓名');
-                //     return false;
-                // }
-                //
-                // if (this.photo === '') {
-                //     alert('请填写手机');
-                //     return false;
-                // }
-                //
-                // if (this.photo_code === '') {
-                //     alert('请填写验证码');
-                //     return false;
-                // }
-                //
-                // this.$store.dispatch('_setUserInfo', {
-                //     im: this.$config.PROJECT_INTERFACE.set_user_info,
-                //     fps: {
-                //         open_id: this.getOpenid_info.back_value.open_id,
-                //         name: this.name,
-                //         sex: this.picked,
-                //         age: this.age_active,
-                //         phone: this.photo,
-                //         code: this.photo_code
-                //     },
-                //     url: this.$config.REQUEST_URL
-                // }).then(res => {
-                //     if (res.back_value) {
-                //         this.$router.push('/')
-                //     }
-                // })
             },
             /**
              * 点击获取验证码
@@ -186,6 +192,17 @@
                     },
                     url: this.$config.REQUEST_URL
                 })
+            },
+            /**
+             * 格式化选择日期
+             * */
+            formatter(type, val) {
+                if (type === 'year') {
+                    return `${val}年`;
+                } else if (type === 'month') {
+                    return `${val}月`;
+                }
+                return val;
             }
         },
         computed: {

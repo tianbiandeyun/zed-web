@@ -5,7 +5,6 @@ import store from './store'
 import 'normalize.css'
 import 'lib-flexible'
 import './assets/css/rest.css'
-import 'weui'
 
 import global from './utils/global'
 
