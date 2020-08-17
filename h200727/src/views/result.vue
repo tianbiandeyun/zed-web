@@ -32,19 +32,19 @@
 
                 let _result = +res.back_value;
 
-                if (_result <= 2) {
+                if (_result <= 6) {
                     that.img_src = require('../assets/images/1.png');
                     this.loading_isShow = false;
                     return false;
                 }
 
-                if (2 < _result && _result <= 16) {
+                if (7 < _result && _result <= 20) {
                     that.img_src = require('../assets/images/2.png');
                     this.loading_isShow = false;
                     return false;
                 }
 
-                if (16 < _result && _result <= 23) {
+                if (21 < _result && _result <= 27) {
                     that.img_src = require('../assets/images/3.png');
                     this.loading_isShow = false;
                     return false;

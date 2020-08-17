@@ -44,12 +44,12 @@
             padding-top: 100px;
 
             img {
-                width: 200px;
+                width: 240px;
             }
         }
 
         .rules {
-            padding: 20px 40px;
+            padding: 60px 40px 20px 40px;
 
             .rules-title {
                 font-size: @default-font-size-36;

@@ -58,11 +58,11 @@
             .start-test {
                 width: 100%;
                 height: 100px;
-                background-color: #fff;
+                background-color: red;
                 text-align: center;
                 line-height: 100px;
                 font-size: @default-font-size-30;
-                color: @default-font-color-content;
+                color: #fff;
             }
         }
 
