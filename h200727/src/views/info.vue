@@ -35,7 +35,7 @@
             <div class="item">
                 <span class="item-caption">验证码</span>：
                 <input class="item-message code-width" v-model="photo_code" type="number" placeholder="请输入验证码"/>
-                <span class="photo-code" @click="getCode">{{message}}</span>
+                <button :disabled="message !== '获取验证码'" class="photo-code" @click="getCode">{{message}}</button>
             </div>
 
         </div>
