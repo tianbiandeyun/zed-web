@@ -1,5 +1,5 @@
 <template>
-    <section class="question-container">
+    <section class="question-container" v-if="page_show">
 
         <div class="top">
             <img src="../assets/images/test-top.png" alt="">
@@ -13,7 +13,7 @@
 
         <!--测试题-->
         <transition :name="animationend">
-            <section class="test-container" v-if="test_show" :key="item.index">
+            <section class="test-container" :key="item.index">
 
                 <div class="test-title">
                     <div class="title">
@@ -71,8 +71,8 @@
         name: "question",
         data() {
             return {
+                page_show: false,
                 loading_isShow: true,
-                test_show: false, // 展示切换题目的效果
                 val: '',
                 index: 0,
                 test_result: [],
@@ -94,8 +94,8 @@
                     this.loading_isShow = false;
                     this.$router.replace('/result')
                 } else {
+                    this.page_show = true;
                     this.loading_isShow = false;
-                    this.test_show = true;
                 }
             })
         },
@@ -121,8 +121,6 @@
                     this.loading_isShow = false;
                     return false;
                 }
-
-                this.test_show = false;
 
                 this.test_result.splice(this.index, 1, this.val);
 
@@ -165,7 +163,6 @@
 
                 }
 
-                this.test_show = true;
             }
         },
         computed: {

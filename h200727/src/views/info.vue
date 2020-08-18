@@ -159,20 +159,16 @@
              * 点击获取验证码
              * */
             async getCode() {
-                this.loading_isShow = true;
 
                 if (this.photo === '') {
                     alert('请填写手机');
-                    this.loading_isShow = false;
                     return false;
                 }
-                let code_result = await this._getPhotoCode(this.photo);
 
-                this.loading_isShow = false;
+                let code_result = await this._getPhotoCode(this.photo);
 
                 if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
                     alert('电话已存在，无法重复注册');
-                    this.loading_isShow = false;
                     return false;
                 }
 
@@ -191,6 +187,8 @@
                                 this.message = '获取验证码';
                             }
                         }, 1000);
+                    } else {
+                        console.log('不能一直点')
                     }
                 }
 
