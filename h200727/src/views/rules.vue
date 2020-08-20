@@ -27,8 +27,11 @@
 </template>
 
 <script>
+    import share from '../utils/share'
+
     export default {
         name: "rules",
+        mixins: [share],
         mounted() {
             this.$utils.setDocumentTitle('活动规则说明')
         }

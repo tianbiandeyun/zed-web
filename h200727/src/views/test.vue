@@ -15,8 +15,11 @@
 </template>
 
 <script>
+    import share from '../utils/share'
+
     export default {
         name: "test",
+        mixins: [share],
         mounted() {
             this.$utils.setDocumentTitle('职业倾向测评')
         },

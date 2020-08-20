@@ -58,17 +58,18 @@
             </section>
         </transition>
 
-
         <loading :show="loading_isShow"></loading>
 
     </section>
 </template>
 
 <script>
+    import share from '../utils/share'
     import {mapGetters} from 'vuex'
 
     export default {
         name: "question",
+        mixins: [share],
         data() {
             return {
                 page_show: false,

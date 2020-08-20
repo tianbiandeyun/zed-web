@@ -7,10 +7,12 @@
 </template>
 
 <script>
+    import share from '../utils/share'
     import {mapGetters} from 'vuex'
 
     export default {
         name: "result",
+        mixins: [share],
         data() {
             return {
                 loading_isShow: true,
