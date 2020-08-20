@@ -123,14 +123,13 @@
     .login-container {
         height: 100%;
         display: grid;
-        grid-template-rows: 3fr 2fr 2fr;
+        grid-template-rows: 3fr 3fr 2fr;
         justify-items: center;
-        align-items: center;
 
         .logo {
 
             img {
-                height: 300px;
+                width: 100%;
             }
         }
 
