@@ -1,43 +1,52 @@
 <template>
-    <section class="alert-container" v-if="alert_show">
 
-        <div class="alert-box">
+    <transition name="fade">
 
-            <!--title-->
-            <div class="alert-box_title">
-                <div class="alert-box_title__left">
-                    <img src="../../assets/images/title-left.png" alt="">
+        <section class="alert-container" v-if="alert_show">
+
+            <div class="alert-box">
+
+                <!--title-->
+                <div class="alert-box_title" v-if="titleShow">
+                    <div class="alert-box_title__left">
+                        <img src="../../assets/images/title-left.png" alt="">
+                    </div>
+                    <div class="alert-box_title__center">{{title}}</div>
+                    <div class="alert-box_title__right">
+                        <img src="../../assets/images/title-right.png" alt="">
+                    </div>
                 </div>
-                <div class="alert-box_title__center">{{title}}</div>
-                <div class="alert-box_title__right">
-                    <img src="../../assets/images/title-right.png" alt="">
+
+                <!--内容-->
+                <div class="alert-box_content">
+                    我是内容
                 </div>
+
+                <!--按钮-->
+                <div class="alert-box_button">
+                    <button>{{confirmText}}</button>
+                </div>
+
+                <!--关闭-->
+                <div class="alert-box_close" @click="close">
+                    <img src="../../assets/images/close.png" alt="">
+                </div>
+
             </div>
 
-            <!--内容-->
-            <div class="alert-box_content">
-                我是内容
-            </div>
+        </section>
 
-            <!--按钮-->
-            <div class="alert-box_button">
-                <button>{{confirmText}}</button>
-            </div>
-
-            <!--关闭-->
-            <div class="alert-box_close" @click="close">
-                <img src="../../assets/images/close.png" alt="">
-            </div>
-
-        </div>
-
-    </section>
+    </transition>
 </template>
 
 <script>
     export default {
         name: "alert",
         props: {
+            titleShow: {
+                type: Boolean,
+                default: true
+            },
             title: {
                 type: String,
                 default: '标题'
@@ -68,6 +77,16 @@
 </script>
 
 <style lang="less" scoped>
+
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    .fade-enter-active, .fade-leave-active {
+        transition: all .3s ease-in-out;
+    }
+
     .alert-container {
         position: fixed;
         width: 100%;
