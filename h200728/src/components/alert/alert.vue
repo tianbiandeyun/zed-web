@@ -23,7 +23,7 @@
                 </div>
 
                 <!--按钮-->
-                <div class="alert-box_button" @click="_operat">
+                <div class="alert-box_button" @click="_operatButton">
                     <button>{{confirmText}}</button>
                 </div>
 
@@ -43,24 +43,39 @@
     export default {
         name: "alert",
         props: {
+            /**
+             * 标题是否显示
+             * */
             titleShow: {
                 type: Boolean,
                 default: true
             },
+            /**
+             * 标题文字
+             * */
             title: {
                 type: String,
                 default: '标题'
             },
+            /**
+             * 标题操作按钮
+             * */
             confirmText: {
                 type: String,
                 default: '按钮'
             },
+            /**
+             * 操作按钮
+             * */
             operatButton: {
                 type: Function,
                 default: () => {
                     console.log('操作按钮')
                 }
             },
+            /**
+             * 关闭
+             * */
             operatClose: {
                 type: Function,
                 default: () => {
@@ -74,18 +89,27 @@
             }
         },
         methods: {
+            /**
+             * 显示
+             * */
             show() {
                 if (this.alert_show === false) {
                     this.alert_show = true;
                 }
             },
+            /**
+             * 关闭
+             * */
             _close() {
                 if (this.alert_show) {
                     this.alert_show = false;
                     this.operatClose();
                 }
             },
-            _operat() {
+            /**
+             * 按钮操作
+             * */
+            _operatButton() {
                 this.operatButton();
             }
         }
