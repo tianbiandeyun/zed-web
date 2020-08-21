@@ -23,12 +23,12 @@
                 </div>
 
                 <!--按钮-->
-                <div class="alert-box_button">
+                <div class="alert-box_button" @click="_operat">
                     <button>{{confirmText}}</button>
                 </div>
 
                 <!--关闭-->
-                <div class="alert-box_close" @click="close">
+                <div class="alert-box_close" @click="_close">
                     <img src="../../assets/images/close.png" alt="">
                 </div>
 
@@ -54,6 +54,12 @@
             confirmText: {
                 type: String,
                 default: '按钮'
+            },
+            operatFun: {
+                type: Function,
+                default: () => {
+                    console.log('操作按钮')
+                }
             }
         },
         data() {
@@ -67,10 +73,13 @@
                     this.alert_show = true;
                 }
             },
-            close() {
+            _close() {
                 if (this.alert_show) {
                     this.alert_show = false;
                 }
+            },
+            _operat() {
+                this.operatFun();
             }
         }
     }
