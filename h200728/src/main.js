@@ -6,6 +6,10 @@ import 'normalize.css'
 import 'lib-flexible'
 import './assets/css/rest.css'
 
+import Alert from './components/alert/alert'
+
+Vue.prototype.$Alert = Alert;
+
 Vue.config.productionTip = false;
 
 new Vue({

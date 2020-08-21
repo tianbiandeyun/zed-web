@@ -8,7 +8,7 @@
                 <div class="alert-box_title__left">
                     <img src="../../assets/images/title-left.png" alt="">
                 </div>
-                <div class="alert-box_title__center">签到成功</div>
+                <div class="alert-box_title__center">{{title}}</div>
                 <div class="alert-box_title__right">
                     <img src="../../assets/images/title-right.png" alt="">
                 </div>
@@ -21,7 +21,7 @@
 
             <!--按钮-->
             <div class="alert-box_button">
-                <button>点开放大看</button>
+                <button>{{confirmText}}</button>
             </div>
 
             <!--关闭-->
@@ -37,6 +37,16 @@
 <script>
     export default {
         name: "alert",
+        props: {
+            title: {
+                type: String,
+                default: '标题'
+            },
+            confirmText: {
+                type: String,
+                default: '按钮'
+            }
+        },
         data() {
             return {
                 alert_show: false

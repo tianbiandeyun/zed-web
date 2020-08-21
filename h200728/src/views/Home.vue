@@ -1,15 +1,18 @@
 <template>
     <section class="home-container">
-        <alert></alert>
+        <!--<alert></alert>-->
     </section>
 </template>
 
 <script>
-    import alert from '../components/alert/alert'
+    // import alert from '../components/alert/alert'
 
     export default {
         name: 'Home',
-        components: {alert}
+        components: {},
+        methods: {
+
+        }
     }
 </script>
 
