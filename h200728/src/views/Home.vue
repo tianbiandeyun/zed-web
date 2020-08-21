@@ -1,12 +1,12 @@
 <template>
     <section class="home-container">
-        <!--<alert></alert>-->
+
         <button @click="go">click me</button>
+
     </section>
 </template>
 
 <script>
-    // import alert from '../components/alert/alert'
 
     export default {
         name: 'Home',
