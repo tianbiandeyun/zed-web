@@ -10,6 +10,11 @@ import Alert from './components/alert/alert'
 
 Vue.prototype.$Alert = Alert;
 
+import Utils from './utils/utils'
+
+Vue.prototype.$Utils = Utils;
+
+
 Vue.config.productionTip = false;
 
 new Vue({

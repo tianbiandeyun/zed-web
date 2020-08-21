@@ -1,4 +1,3 @@
-
 /**
  * 该工具需要配合 config.js 使用
  * */
@@ -77,5 +76,21 @@ export default {
         let r = window.location.search.substr(1).match(reg); // 匹配目标参数
         if (r != null) return unescape(r[2]);
         return null; // 返回参数值
+    },
+    /**
+     * 获取年 / 月 /日
+     * */
+    getYearMonthDay(date) {
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        let day = date.getDate();
+        return {year, month, day};
+    },
+    /**
+     * 获取日期对象
+     * */
+    getDate(...res) {
+        let [year, month, day] = [...res];
+        return new Date(year, month, day);
     }
 }
