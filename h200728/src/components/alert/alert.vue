@@ -36,7 +36,10 @@
 
 <script>
     export default {
-        name: "alert"
+        name: "alert",
+        mounted() {
+            
+        }
     }
 </script>
 
@@ -60,6 +63,8 @@
             position: relative;
 
             .alert-box_title {
+                border-top-left-radius: @default-element-border-radius;
+                border-top-right-radius: @default-element-border-radius;
                 background-color: @default-app-color-primary;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
@@ -98,6 +103,7 @@
             .alert-box_content {
                 border: 1px solid black;
                 text-align: center;
+                padding: 20px 0;
             }
 
             .alert-box_button {
