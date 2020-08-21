@@ -1,3 +1,8 @@
+
+/**
+ * 该工具需要配合 config.js 使用
+ * */
+
 import * as config from './config'
 
 export default {
