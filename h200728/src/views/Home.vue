@@ -83,10 +83,13 @@
 <style lang="less" scoped>
 
     .home-container {
+        height: 100%;
+        background-color: @default-app-color-background;
 
         .banner {
             width: 100%;
             font-size: 0;
+            margin-bottom: 20px;
 
             img {
                 width: 100%;
@@ -94,12 +97,11 @@
         }
 
         .calender-box {
-            border: 1px solid black;
 
             .calender {
+                background-color: #fff;
                 margin: 0 auto;
                 width: 640px;
-                border: 1px solid red;
                 -webkit-border-radius: @default-element-border-radius;
                 -moz-border-radius: @default-element-border-radius;
                 border-radius: @default-element-border-radius;
@@ -129,6 +131,7 @@
                     align-items: center;
                     font-size: @default-font-size-30;
                     color: @default-font-color-content;
+                    padding-bottom: 60px;
 
                     .calender_main__item {
 
