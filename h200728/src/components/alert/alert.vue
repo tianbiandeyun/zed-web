@@ -25,7 +25,7 @@
             </div>
 
             <!--关闭-->
-            <div class="alert-box_close">
+            <div class="alert-box_close" @click="close">
                 <img src="../../assets/images/close.png" alt="">
             </div>
 

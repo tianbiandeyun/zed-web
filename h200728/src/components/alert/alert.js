@@ -24,9 +24,6 @@ Alert.newInstance = (props) => {
     return {
         show() {
             _Alert.show();
-        },
-        close() {
-            _Alert.close();
         }
     }
 };
@@ -43,8 +40,5 @@ let getMessageInstance = (props) => {
 export default {
     show(props) {
         getMessageInstance(props).show();
-    },
-    close() {
-        getMessageInstance().close();
     }
 };
