@@ -22,6 +22,7 @@
                          :key="index">
                         {{item.getDate()}}
                     </div>
+                    <div class="calender_main__nowMonth">{{nowMonth}}月</div>
                 </div>
 
             </div>
@@ -132,9 +133,25 @@
                     font-size: @default-font-size-30;
                     color: @default-font-color-content;
                     padding-bottom: 60px;
+                    position: relative;
 
                     .calender_main__item {
+                        z-index: 9;
+                    }
 
+                    .calender_main__nowMonth {
+                        width: 400px;
+                        height: 280px;
+                        text-align: center;
+                        line-height: 280px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-left: -200px;
+                        margin-top: -180px;
+                        z-index: 0;
+                        color: @default-app-color-background;
+                        font-size: 240px;
                     }
 
                     /*不是本月则显示灰色*/
