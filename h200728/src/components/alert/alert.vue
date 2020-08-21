@@ -3,18 +3,30 @@
 
         <div class="alert-box">
 
+            <!--title-->
             <div class="alert-box_title">
-                <div class="alert-box_title__left">左</div>
-                <div class="alert-box_title__center">中</div>
-                <div class="alert-box_title__right">右</div>
+                <div class="alert-box_title__left">
+                    <img src="../../assets/images/title-left.png" alt="">
+                </div>
+                <div class="alert-box_title__center">签到成功</div>
+                <div class="alert-box_title__right">
+                    <img src="../../assets/images/title-right.png" alt="">
+                </div>
             </div>
 
+            <!--内容-->
             <div class="alert-box_content">
-
+                我是内容
             </div>
 
+            <!--按钮-->
             <div class="alert-box_button">
                 <button>点开放大看</button>
+            </div>
+
+            <!--关闭-->
+            <div class="alert-box_close">
+                <img src="../../assets/images/close.png" alt="">
             </div>
 
         </div>
@@ -45,29 +57,47 @@
             -webkit-border-radius: @default-element-border-radius;
             -moz-border-radius: @default-element-border-radius;
             border-radius: @default-element-border-radius;
+            position: relative;
 
             .alert-box_title {
                 background-color: @default-app-color-primary;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: 60px;
+                grid-template-rows: 120px;
+
+                .alert-box_title__left, .alert-box_title__center, .alert-box_title__right {
+                    display: grid;
+                    align-items: center;
+                }
 
                 .alert-box_title__left {
-                    text-align: right;
+                    justify-items: right;
+
+                    img {
+                        width: 80px;
+                    }
                 }
 
                 .alert-box_title__center {
-                    text-align: center;
+                    justify-items: center;
+                    font-size: @default-font-size-30;
+                    color: #fff;
+
                 }
 
                 .alert-box_title__right {
-                    text-align: left;
+                    justify-items: left;
+
+                    img {
+                        width: 80px;
+                    }
                 }
 
             }
 
             .alert-box_content {
                 border: 1px solid black;
+                text-align: center;
             }
 
             .alert-box_button {
@@ -83,6 +113,18 @@
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
                     border-radius: @default-element-border-radius;
+                }
+            }
+
+            .alert-box_close {
+                width: 80px;
+                position: absolute;
+                bottom: -140px;
+                left: 50%;
+                margin-left: -40px;
+
+                img {
+                    width: 100%;
                 }
             }
         }
