@@ -38,7 +38,7 @@
     export default {
         name: "alert",
         mounted() {
-            
+
         }
     }
 </script>
