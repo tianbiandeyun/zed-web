@@ -13,7 +13,9 @@
         components: {},
         methods: {
             go() {
+
                 this.$Alert.show()
+
             }
         }
     }
