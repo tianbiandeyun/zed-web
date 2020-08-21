@@ -13,10 +13,7 @@
         components: {},
         methods: {
             go() {
-                this.$Alert.show({
-                    title: '签到成功',
-                    confirmText: '前往领奖'
-                })
+                this.$Alert.show()
             }
         }
     }

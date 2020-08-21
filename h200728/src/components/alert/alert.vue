@@ -55,12 +55,18 @@
                 type: String,
                 default: '按钮'
             },
-            operatFun: {
+            operatButton: {
                 type: Function,
                 default: () => {
                     console.log('操作按钮')
                 }
-            }
+            },
+            operatClose: {
+                type: Function,
+                default: () => {
+                    console.log('关闭操作')
+                }
+            },
         },
         data() {
             return {
@@ -76,10 +82,11 @@
             _close() {
                 if (this.alert_show) {
                     this.alert_show = false;
+                    this.operatClose();
                 }
             },
             _operat() {
-                this.operatFun();
+                this.operatButton();
             }
         }
     }
