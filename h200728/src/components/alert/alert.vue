@@ -123,11 +123,11 @@
             }
 
             .alert-box_close {
-                width: 80px;
+                width: 60px;
                 position: absolute;
-                bottom: -140px;
+                bottom: -120px;
                 left: 50%;
-                margin-left: -40px;
+                margin-left: -30px;
 
                 img {
                     width: 100%;
