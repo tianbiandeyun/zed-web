@@ -1,19 +1,18 @@
 <template>
     <section class="home-container">
-        home
+        <alert></alert>
     </section>
 </template>
 
 <script>
+    import alert from '../components/alert/alert'
 
     export default {
         name: 'Home',
-        components: {}
+        components: {alert}
     }
 </script>
 
 <style lang="less" scoped>
-    .home-container{
-        font-size: @default-font-size-30;
-    }
+
 </style>
