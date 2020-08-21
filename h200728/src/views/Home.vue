@@ -131,6 +131,7 @@
                     justify-items: center;
                     align-items: center;
                     font-size: @default-font-size-30;
+                    font-weight: 600;
                     color: @default-font-color-content;
                     padding-bottom: 60px;
                     position: relative;
