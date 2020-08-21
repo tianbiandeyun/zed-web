@@ -1,5 +1,5 @@
 <template>
-    <section class="alert-container">
+    <section class="alert-container" v-if="alert_show">
 
         <div class="alert-box">
 
@@ -37,8 +37,22 @@
 <script>
     export default {
         name: "alert",
-        mounted() {
-
+        data() {
+            return {
+                alert_show: false
+            }
+        },
+        methods: {
+            show() {
+                if (this.alert_show === false) {
+                    this.alert_show = true;
+                }
+            },
+            close() {
+                if (this.alert_show) {
+                    this.alert_show = false;
+                }
+            }
         }
     }
 </script>
