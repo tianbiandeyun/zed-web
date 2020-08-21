@@ -30,7 +30,6 @@ Alert.newInstance = (props) => {
 
 // getMessageInstance 函数用来获取实例，它不会重复创建，如果 messageInstance 已经存在，就直接返回了，
 // 只在第一次调用 Notification 的 newInstance 时来创建实例。
-// 传递 props
 let messageInstance;
 
 let getMessageInstance = (props) => {
