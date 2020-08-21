@@ -102,7 +102,7 @@
             .calender {
                 background-color: #fff;
                 margin: 0 auto;
-                width: 640px;
+                width: 680px;
                 -webkit-border-radius: @default-element-border-radius;
                 -moz-border-radius: @default-element-border-radius;
                 border-radius: @default-element-border-radius;
