@@ -6,7 +6,7 @@
 
             <div class="alert-box">
 
-                <!--title-->
+                <!--标题-->
                 <div class="alert-box_title" v-if="titleShow">
                     <div class="alert-box_title__left">
                         <img src="../../assets/images/title-left.png" alt="">
