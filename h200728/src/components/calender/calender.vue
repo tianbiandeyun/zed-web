@@ -18,6 +18,8 @@
                 <div class="calender_main__nowMonth">{{nowMonth}}月</div>
             </div>
 
+            <button class="calender_button">立即签到</button>
+
         </div>
 
     </section>
@@ -77,7 +79,7 @@
             -webkit-border-radius: @default-element-border-radius;
             -moz-border-radius: @default-element-border-radius;
             border-radius: @default-element-border-radius;
-            overflow: hidden;
+            position: relative;
 
             .calender_header {
                 background-color: @default-app-color-primary;
@@ -131,6 +133,21 @@
                     color: @default-font-color-sub;
                 }
 
+            }
+
+            .calender_button {
+                width: 300px;
+                color: #FFF;
+                font-size: @default-font-size-30;
+                background-color: @default-app-color-primary;
+                padding: 20px 0 20px 0;
+                -webkit-border-radius: @default-element-border-radius;
+                -moz-border-radius: @default-element-border-radius;
+                border-radius: @default-element-border-radius;
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                margin-left: -150px;
             }
 
         }
