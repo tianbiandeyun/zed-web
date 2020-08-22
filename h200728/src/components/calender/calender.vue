@@ -71,11 +71,10 @@
 <style lang="less" scoped>
 
     .calender-container {
+        padding: 0 40px;
 
         .calender {
             background-color: #fff;
-            margin: 0 auto;
-            width: 680px;
             -webkit-border-radius: @default-element-border-radius;
             -moz-border-radius: @default-element-border-radius;
             border-radius: @default-element-border-radius;
