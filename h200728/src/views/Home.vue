@@ -75,6 +75,7 @@
                 -webkit-border-radius: @default-element-border-radius;
                 -moz-border-radius: @default-element-border-radius;
                 border-radius: @default-element-border-radius;
+                padding: 0 20px;
 
                 .continuous_box__item {
                     display: grid;
