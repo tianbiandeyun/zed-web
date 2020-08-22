@@ -37,13 +37,13 @@
              * */
             visibeDays() {
 
-                // 获取当前日期
+                // 获取当前日期 年/月
                 let {year, month} = this.$Utils.getYearMonthDay(this.date);
 
                 // 获取当前月的第一天
                 let currentFirstDay = this.$Utils.getDate(year, month, 1);
 
-                // 当月第一天是周几
+                // 获取当月第一天是周几
                 let week = currentFirstDay.getDay();
 
                 // 本日历盘开始的第一天
