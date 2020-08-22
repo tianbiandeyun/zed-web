@@ -72,6 +72,7 @@
 
     .calender-container {
         padding: 0 40px;
+        margin-bottom: 60px;
 
         .calender {
             background-color: #fff;
