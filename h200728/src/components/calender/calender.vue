@@ -113,7 +113,6 @@
 
                 .calender_main__item {
                     z-index: 9;
-                    border: 1px solid black;
                     position: relative;
                 }
 
