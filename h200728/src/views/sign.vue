@@ -3,7 +3,6 @@
 
         <div class="sign_count">
 
-
         </div>
 
         <div class="reward_box">
@@ -15,10 +14,7 @@
 
 <script>
     export default {
-        name: "sign",
-        mounted(){
-            new Promise()
-        }
+        name: "sign"
     }
 </script>
 
