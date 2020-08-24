@@ -9,7 +9,7 @@
 
             <!--我想要的-->
             <div class="reward" v-if="want">
-                <div class="reward__item" v-for="item in 6" :key="item">
+                <div class="reward__item" v-for="(item,index) in 6" :key="index">
                     <div class="reward__item_img">{{item}}</div>
                     <div class="reward__item_name">
                         玩着荣耀皮肤
@@ -19,7 +19,7 @@
 
             <!--抽奖的-->
             <div class="reward" v-if="!want">
-                <div class="reward__select" v-for="item in 6" :key="item">
+                <div class="reward__select" v-for="(item,index) in 6" :key="index" @click="changeReward(index)">
                     <img src="../assets/images/jiangpingfengmian.png" alt="">
                 </div>
             </div>
@@ -43,11 +43,27 @@
             return {
                 want: false
             }
+        },
+        methods: {
+            /**
+             * 翻牌选择奖品
+             * */
+            changeReward(index) {
+                console.log(index)
+            }
         }
     }
 </script>
 
 <style lang="less" scoped>
+
+    .changeReward-leave-to {
+        opacity: 0;
+    }
+
+    .changeReward-enter-active, .changeReward-leave-active {
+        transition: all .3s ease-in-out;
+    }
 
     .sign-container {
         height: 100%;
@@ -122,6 +138,9 @@
                 }
 
                 .reward__select {
+                    font-size: 0;
+                    overflow: hidden;
+
                     img {
                         width: 100%;
                     }
