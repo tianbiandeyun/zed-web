@@ -101,8 +101,8 @@
                 display: grid;
                 grid-template-columns: repeat(7, 1fr);
                 grid-template-rows: repeat(6, 80px);
-                justify-items: center;
-                align-items: center;
+                text-align: center;
+                line-height: 80px;
                 font-size: @default-font-size-30;
                 font-weight: 600;
                 color: @default-font-color-content;
