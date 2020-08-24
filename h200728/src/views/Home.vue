@@ -79,7 +79,7 @@
 
                 .continuous_box__item {
                     display: grid;
-                    grid-template-columns: 1fr 2fr 1fr;
+                    grid-template-columns: 1fr 4fr 1fr;
 
                     .continuous_box__item___left {
                         background-color: #ed4014;
