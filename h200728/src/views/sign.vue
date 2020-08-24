@@ -107,7 +107,7 @@
                 margin-bottom: 20px;
                 border: 1px solid black;
 
-                .reward__item, .change__item {
+                .reward__item {
                     border: 1px solid @default-app-color-border;
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
@@ -115,14 +115,14 @@
                     display: grid;
                     grid-template-rows: 6fr 1fr;
 
-                    .reward__item_img, .change__item_img {
+                    .reward__item_img {
                         border-top-left-radius: @default-element-border-radius;
                         border-top-right-radius: @default-element-border-radius;
                         text-align: center;
                         line-height: 4;
                     }
 
-                    .reward__item_name, .change__item_name {
+                    .reward__item_name {
                         background-color: @default-app-color-primary;
                         color: #fff;
                         border-bottom-left-radius: @default-element-border-radius;
@@ -132,15 +132,6 @@
                         line-height: 1.4;
                     }
                 }
-
-                .change__item {
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-
             }
 
             .reward_tip {
