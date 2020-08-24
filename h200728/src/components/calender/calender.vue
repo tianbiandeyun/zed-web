@@ -14,6 +14,8 @@
                      v-for="(item,index) in visibeDays"
                      :key="index">
                     {{item.getDate()}}
+
+                    <div class="active" v-if="false"></div>
                 </div>
                 <div class="calender_main__nowMonth">{{nowMonth}}月</div>
             </div>
@@ -111,6 +113,24 @@
 
                 .calender_main__item {
                     z-index: 9;
+                    border: 1px solid black;
+                    position: relative;
+                }
+
+                .active {
+                    width: 60px;
+                    height: 60px;
+                    background-color: @default-app-color-primary;
+                    color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -30px;
+                    margin-left: -30px;
+                    z-index: -1;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
                 }
 
                 .calender_main__nowMonth {
