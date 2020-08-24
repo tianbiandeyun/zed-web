@@ -105,7 +105,7 @@
                 grid-gap: 20px;
 
                 .sign_reward__item {
-                    border: 1px solid red;
+                    border: 1px solid @default-app-color-border;
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
                     border-radius: @default-element-border-radius;
@@ -113,13 +113,11 @@
                     grid-template-rows: 6fr 1fr;
 
                     .sign_reward__item_img {
-                        border: 1px solid black;
                         border-top-left-radius: @default-element-border-radius;
                         border-top-right-radius: @default-element-border-radius;
                     }
 
                     .sign_reward__item_name {
-                        border: 1px solid black;
                         background-color: @default-app-color-primary;
                         color: #fff;
                         border-bottom-left-radius: @default-element-border-radius;
