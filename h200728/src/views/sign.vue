@@ -20,7 +20,6 @@
             <!--抽奖的-->
 
 
-
             <!--提示-->
             <div class="reward_tip">
                 <div><img src="../assets/images/left.png" alt=""></div>
@@ -110,7 +109,7 @@
                 grid-gap: 20px;
                 margin-bottom: 20px;
 
-                .reward__item, .reward__select {
+                .reward__item {
                     border: 1px solid @default-app-color-border;
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
@@ -133,15 +132,6 @@
                         font-size: @default-font-size-26;
                         text-align: center;
                         line-height: 1.4;
-                    }
-                }
-
-                .reward__select {
-                    font-size: 0;
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
                     }
                 }
             }
