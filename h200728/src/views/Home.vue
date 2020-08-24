@@ -15,9 +15,68 @@
             <div class="continuous_box">
 
                 <div class="continuous_box__item">
-                    <div class="continuous_box__item___left">1</div>
-                    <div class="continuous_box__item___center">2</div>
-                    <div class="continuous_box__item___right">3</div>
+                    <div class="continuous_box__item___left">
+                        <img src="../assets/images/t.png" alt="">
+                    </div>
+                    <div class="continuous_box__item___center">
+                        <p>连续签到222天，+2青创币</p>
+                        <p>有效期至2020-03-1111</p>
+                    </div>
+                    <div class="continuous_box__item___right">
+                        <button>不能领取</button>
+                    </div>
+                </div>
+
+                <div class="continuous_box__item">
+                    <div class="continuous_box__item___left">
+                        <img src="../assets/images/t.png" alt="">
+                    </div>
+                    <div class="continuous_box__item___center">
+                        <p>连续签到222天，+2青创币</p>
+                        <p>有效期至2020-03-1111</p>
+                    </div>
+                    <div class="continuous_box__item___right">
+                        <button>不能领取</button>
+                    </div>
+                </div>
+
+                <div class="continuous_box__item">
+                    <div class="continuous_box__item___left">
+                        <img src="../assets/images/t.png" alt="">
+                    </div>
+                    <div class="continuous_box__item___center">
+                        <p>连续签到222天，+2青创币</p>
+                        <p>有效期至2020-03-1111</p>
+                    </div>
+                    <div class="continuous_box__item___right">
+                        <button>不能领取</button>
+                    </div>
+                </div>
+
+                <div class="continuous_box__item">
+                    <div class="continuous_box__item___left">
+                        <img src="../assets/images/t.png" alt="">
+                    </div>
+                    <div class="continuous_box__item___center">
+                        <p>连续签到222天，+2青创币</p>
+                        <p>有效期至2020-03-1111</p>
+                    </div>
+                    <div class="continuous_box__item___right">
+                        <button>不能领取</button>
+                    </div>
+                </div>
+
+                <div class="continuous_box__item">
+                    <div class="continuous_box__item___left">
+                        <img src="../assets/images/t.png" alt="">
+                    </div>
+                    <div class="continuous_box__item___center">
+                        <p>连续签到222天，+2青创币</p>
+                        <p>有效期至2020-03-1111</p>
+                    </div>
+                    <div class="continuous_box__item___right">
+                        <button>不能领取</button>
+                    </div>
                 </div>
 
             </div>
@@ -49,6 +108,7 @@
 
     .home-container {
         height: 100%;
+        overflow-y: scroll;
         background-color: @default-app-color-background;
 
         .banner {
@@ -64,33 +124,60 @@
         .continuous {
             padding: 0 40px;
 
-            p {
+            > p {
                 color: @default-font-color-title;
                 font-size: @default-font-size-30;
+                margin-bottom: 20px;
             }
 
             .continuous_box {
-                border: 1px solid black;
                 background-color: #fff;
                 -webkit-border-radius: @default-element-border-radius;
                 -moz-border-radius: @default-element-border-radius;
                 border-radius: @default-element-border-radius;
-                padding: 0 20px;
+                padding: 20px 16px 0 16px;
 
                 .continuous_box__item {
                     display: grid;
-                    grid-template-columns: 1fr 4fr 1fr;
+                    grid-template-columns: 1fr 5fr 2fr;
+                    border-bottom: 1px solid @default-app-color-border;
+                    padding-bottom: 20px;
+                    margin-bottom: 20px;
 
                     .continuous_box__item___left {
-                        background-color: #ed4014;
+                        display: grid;
+                        align-items: center;
+                        justify-items: center;
+
+                        img {
+                            width: 70px;
+                        }
                     }
 
                     .continuous_box__item___center {
-                        background-color: #2db7f5;
+                        display: grid;
+                        align-items: center;
+
+                        p {
+                            font-size: @default-font-size-26;
+                            padding-left: 10px;
+                            color: @default-font-color-content;
+                        }
                     }
 
                     .continuous_box__item___right {
-                        background-color: #f7931e;
+                        display: grid;
+                        align-items: center;
+
+                        button {
+                            color: #FFF;
+                            font-size: @default-font-size-26;
+                            background-color: @default-app-color-primary;
+                            padding: 16px 20px 16px 20px;
+                            -webkit-border-radius: @default-element-border-radius;
+                            -moz-border-radius: @default-element-border-radius;
+                            border-radius: @default-element-border-radius;
+                        }
                     }
                 }
             }
