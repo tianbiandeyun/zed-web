@@ -1,7 +1,12 @@
 <template>
     <section class="sign-container">
 
-        <div class="reward-box">
+        <div class="sign_count">
+
+
+        </div>
+
+        <div class="reward_box">
 
         </div>
 
@@ -10,7 +15,10 @@
 
 <script>
     export default {
-        name: "sign"
+        name: "sign",
+        mounted(){
+            new Promise()
+        }
     }
 </script>
 
@@ -24,7 +32,12 @@
         background-position: top center;
         background-size: 700px;
 
-        .reward-box {
+        .sign_count {
+            height: 360px;
+            border: 1px solid black;
+        }
+
+        .reward_box {
             background-color: #fff;
             -webkit-border-radius: @default-element-border-radius;
             -moz-border-radius: @default-element-border-radius;
