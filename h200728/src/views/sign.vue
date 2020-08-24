@@ -7,46 +7,25 @@
 
         <div class="reward_box">
 
-            <div class="sign_reward">
-                <div class="sign_reward__item">
-                    <div class="sign_reward__item_img"></div>
-                    <div class="sign_reward__item_name">
-                        玩着荣耀皮肤
-                    </div>
-                </div>
-                <div class="sign_reward__item">
-                    <div class="sign_reward__item_img"></div>
-                    <div class="sign_reward__item_name">
-                        玩着荣耀皮肤
-                    </div>
-                </div>
-                <div class="sign_reward__item">
-                    <div class="sign_reward__item_img"></div>
-                    <div class="sign_reward__item_name">
-                        玩着荣耀皮肤
-                    </div>
-                </div>
-                <div class="sign_reward__item">
-                    <div class="sign_reward__item_img"></div>
-                    <div class="sign_reward__item_name">
-                        玩着荣耀皮肤
-                    </div>
-                </div>
-                <div class="sign_reward__item">
-                    <div class="sign_reward__item_img"></div>
-                    <div class="sign_reward__item_name">
-                        玩着荣耀皮肤
-                    </div>
-                </div>
-                <div class="sign_reward__item">
-                    <div class="sign_reward__item_img"></div>
-                    <div class="sign_reward__item_name">
+            <!--我想要的-->
+            <div class="reward" v-if="want">
+                <div class="reward__item" v-for="item in 6" :key="item">
+                    <div class="reward__item_img">{{item}}</div>
+                    <div class="reward__item_name">
                         玩着荣耀皮肤
                     </div>
                 </div>
             </div>
 
-            <div class="sign_reward_tip">
+            <!--抽奖的-->
+            <div class="reward" v-if="!want">
+                <div class="reward__select" v-for="item in 6" :key="item">
+                    <img src="../assets/images/jiangpingfengmian.png" alt="">
+                </div>
+            </div>
+
+            <!--提示-->
+            <div class="reward_tip">
                 <div><img src="../assets/images/left.png" alt=""></div>
                 <div>点击图标选择想要的奖品</div>
                 <div><img src="../assets/images/right.png" alt=""></div>
@@ -59,7 +38,12 @@
 
 <script>
     export default {
-        name: "sign"
+        name: "sign",
+        data() {
+            return {
+                want: false
+            }
+        }
     }
 </script>
 
@@ -104,14 +88,14 @@
             padding: 20px;
             margin: 0 auto;
 
-            .sign_reward {
+            .reward {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 300px);
                 grid-gap: 20px;
                 margin-bottom: 20px;
 
-                .sign_reward__item {
+                .reward__item, .reward__select {
                     border: 1px solid @default-app-color-border;
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
@@ -119,12 +103,14 @@
                     display: grid;
                     grid-template-rows: 6fr 1fr;
 
-                    .sign_reward__item_img {
+                    .reward__item_img {
                         border-top-left-radius: @default-element-border-radius;
                         border-top-right-radius: @default-element-border-radius;
+                        text-align: center;
+                        line-height: 4;
                     }
 
-                    .sign_reward__item_name {
+                    .reward__item_name {
                         background-color: @default-app-color-primary;
                         color: #fff;
                         border-bottom-left-radius: @default-element-border-radius;
@@ -134,9 +120,15 @@
                         line-height: 1.4;
                     }
                 }
+
+                .reward__select {
+                    img {
+                        width: 100%;
+                    }
+                }
             }
 
-            .sign_reward_tip {
+            .reward_tip {
                 display: grid;
                 grid-template-columns: 1fr 2fr 1fr;
 
