@@ -137,6 +137,7 @@
         display: grid;
         justify-content: center;
         align-content: center;
+        z-index: 9999;
 
         .alert-box {
             background-color: #fff;

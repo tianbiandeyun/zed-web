@@ -23,59 +23,7 @@
                         <p>有效期至2020-03-1111</p>
                     </div>
                     <div class="continuous_box__item___right">
-                        <button>不能领取</button>
-                    </div>
-                </div>
-
-                <div class="continuous_box__item">
-                    <div class="continuous_box__item___left">
-                        <img src="../assets/images/t.png" alt="">
-                    </div>
-                    <div class="continuous_box__item___center">
-                        <p>连续签到222天，+2青创币</p>
-                        <p>有效期至2020-03-1111</p>
-                    </div>
-                    <div class="continuous_box__item___right">
-                        <button>不能领取</button>
-                    </div>
-                </div>
-
-                <div class="continuous_box__item">
-                    <div class="continuous_box__item___left">
-                        <img src="../assets/images/t.png" alt="">
-                    </div>
-                    <div class="continuous_box__item___center">
-                        <p>连续签到222天，+2青创币</p>
-                        <p>有效期至2020-03-1111</p>
-                    </div>
-                    <div class="continuous_box__item___right">
-                        <button>不能领取</button>
-                    </div>
-                </div>
-
-                <div class="continuous_box__item">
-                    <div class="continuous_box__item___left">
-                        <img src="../assets/images/t.png" alt="">
-                    </div>
-                    <div class="continuous_box__item___center">
-                        <p>连续签到222天，+2青创币</p>
-                        <p>有效期至2020-03-1111</p>
-                    </div>
-                    <div class="continuous_box__item___right">
-                        <button>不能领取</button>
-                    </div>
-                </div>
-
-                <div class="continuous_box__item">
-                    <div class="continuous_box__item___left">
-                        <img src="../assets/images/t.png" alt="">
-                    </div>
-                    <div class="continuous_box__item___center">
-                        <p>连续签到222天，+2青创币</p>
-                        <p>有效期至2020-03-1111</p>
-                    </div>
-                    <div class="continuous_box__item___right">
-                        <button>不能领取</button>
+                        <button @click="getReward">不能领取</button>
                     </div>
                 </div>
 
@@ -95,6 +43,14 @@
         data() {
             return {
                 date: new Date()
+            }
+        },
+        methods: {
+            getReward() {
+                this.$Alert.show({
+                    title: '签到成功',
+                    confirmText: '去抽奖'
+                })
             }
         }
     }
