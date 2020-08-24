@@ -163,6 +163,7 @@
                         text-align: center;
                         line-height: 2;
                         font-size: @default-font-size-26;
+                        color: @default-font-color-content;
                     }
                 }
             }
