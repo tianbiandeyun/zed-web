@@ -96,11 +96,7 @@
             return {
                 date: new Date()
             }
-        },
-        mounted() {
-
-        },
-        methods: {}
+        }
     }
 </script>
 
