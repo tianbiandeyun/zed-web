@@ -18,11 +18,8 @@
             </div>
 
             <!--抽奖的-->
-            <div class="reward" v-if="!want">
-                <div class="reward__select" v-for="(item,index) in 6" :key="index" @click="changeReward(index)">
-                    <img src="../assets/images/jiangpingfengmian.png" alt="">
-                </div>
-            </div>
+
+
 
             <!--提示-->
             <div class="reward_tip">
@@ -41,7 +38,8 @@
         name: "sign",
         data() {
             return {
-                want: false
+                want: true,
+                change: []
             }
         },
         methods: {
@@ -49,7 +47,7 @@
              * 翻牌选择奖品
              * */
             changeReward(index) {
-                console.log(index)
+                this.change = [...this.change, index]
             }
         }
     }
@@ -58,6 +56,7 @@
 <style lang="less" scoped>
 
     .changeReward-leave-to {
+        transform: rotateY(180deg);
         opacity: 0;
     }
 
