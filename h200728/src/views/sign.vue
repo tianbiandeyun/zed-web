@@ -3,6 +3,7 @@
 
         <div class="sign_count">
 
+            <p class="count"></p>
         </div>
 
         <div class="reward_box">
@@ -31,6 +32,10 @@
         .sign_count {
             height: 360px;
             border: 1px solid black;
+
+            .count {
+
+            }
         }
 
         .reward_box {
