@@ -46,6 +46,12 @@
                 </div>
             </div>
 
+            <div class="sign_reward_tip">
+                <div><img src="../assets/images/left.png" alt=""></div>
+                <div>点击图标选择想要的奖品</div>
+                <div><img src="../assets/images/right.png" alt=""></div>
+            </div>
+
         </div>
 
     </section>
@@ -103,6 +109,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 300px);
                 grid-gap: 20px;
+                margin-bottom: 20px;
 
                 .sign_reward__item {
                     border: 1px solid @default-app-color-border;
@@ -125,6 +132,37 @@
                         font-size: @default-font-size-26;
                         text-align: center;
                         line-height: 1.4;
+                    }
+                }
+            }
+
+            .sign_reward_tip {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+
+                div {
+
+                    &:nth-of-type(1), &:nth-of-type(3) {
+                        display: grid;
+                        align-items: center;
+
+                        img {
+                            width: 100px;
+                        }
+                    }
+
+                    &:nth-of-type(1) {
+                        justify-items: right;
+                    }
+
+                    &:nth-of-type(3) {
+                        justify-items: left;
+                    }
+
+                    &:nth-of-type(2) {
+                        text-align: center;
+                        line-height: 2;
+                        font-size: @default-font-size-26;
                     }
                 }
             }
