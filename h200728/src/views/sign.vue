@@ -1,6 +1,10 @@
 <template>
     <section class="sign-container">
 
+        <div class="reward-box">
+
+        </div>
+
     </section>
 </template>
 
@@ -19,6 +23,16 @@
         background-repeat: no-repeat;
         background-position: top center;
         background-size: 700px;
+
+        .reward-box {
+            background-color: #fff;
+            -webkit-border-radius: @default-element-border-radius;
+            -moz-border-radius: @default-element-border-radius;
+            border-radius: @default-element-border-radius;
+            width: 700px;
+            padding: 20px;
+            margin: 0 auto;
+        }
     }
 
 </style>
