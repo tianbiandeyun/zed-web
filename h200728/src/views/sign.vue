@@ -17,6 +17,23 @@
                 </div>
             </div>
 
+            <!--抽奖-->
+            <div class="change" v-else>
+
+                <!--<transition-group class="change" v-else name="changeReward" tag="div">-->
+                <div class="change__item" v-for="(item,index) in 6" :key="index" @click="changeReward(index)">
+                    <transition name="changeReward">
+                        <img v-show="!change.includes(index)" src="../assets/images/jiangpingfengmian.png" alt="">
+                    </transition>
+                    <div v-show="change.includes(index)" class="reward__item_img">{{item}}</div>
+                    <div v-show="change.includes(index)" class="reward__item_name">
+                        玩着荣耀皮肤
+                    </div>
+                </div>
+                <!--</transition-group>-->
+
+            </div>
+
             <!--提示-->
             <div class="reward_tip">
                 <div><img src="../assets/images/left.png" alt=""></div>
@@ -34,7 +51,7 @@
         name: "sign",
         data() {
             return {
-                want: true,
+                want: false,
                 change: []
             }
         },
@@ -51,13 +68,31 @@
 
 <style lang="less" scoped>
 
+    /*.changeReward-leave-to {*/
+    /*transform: rotateY(180deg);*/
+    /*opacity: 0;*/
+    /*}*/
+
+    /*.changeReward-enter-active, .changeReward-leave-active {*/
+    /*transition: all .3s ease-in-out;*/
+    /*}*/
+
+    .changeReward-enter {
+        transform: rotateY(180deg);
+        opacity: 0;
+    }
+
     .changeReward-leave-to {
         transform: rotateY(180deg);
         opacity: 0;
     }
 
-    .changeReward-enter-active, .changeReward-leave-active {
+    .changeReward-enter-active, .changeReward-leave-active, .changeReward-move {
         transition: all .3s ease-in-out;
+    }
+
+    .changeReward-leave-active {
+        position: absolute;
     }
 
     .sign-container {
@@ -99,7 +134,18 @@
             padding: 20px;
             margin: 0 auto;
 
-            .reward {
+            .change {
+
+                .change__item {
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .reward, .change {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 300px);
@@ -107,8 +153,7 @@
                 margin-bottom: 20px;
                 border: 1px solid black;
 
-                .reward__item {
-                    border: 1px solid @default-app-color-border;
+                .reward__item, .change__item {
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
                     border-radius: @default-element-border-radius;
