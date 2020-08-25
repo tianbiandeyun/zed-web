@@ -19,17 +19,15 @@
 
             <!--抽奖-->
             <div class="change" v-else>
-
                 <div class="change__item" v-for="(item,index) in 6" :key="index" @click="changeReward(index)">
                     <transition name="changeReward">
                         <img v-show="!change.includes(index)" src="../assets/images/jiangpingfengmian.png" alt="">
                     </transition>
-                    <div v-show="change.includes(index)" class="reward__item_img">{{item}}</div>
-                    <div v-show="change.includes(index)" class="reward__item_name">
+                    <div v-show="change.includes(index)" class="changeReward__item_img">{{item}}</div>
+                    <div v-show="change.includes(index)" class="changeReward__item_name">
                         玩着荣耀皮肤
                     </div>
                 </div>
-
             </div>
 
             <!--提示-->
@@ -140,14 +138,14 @@
                     display: grid;
                     grid-template-rows: 6fr 1fr;
 
-                    .reward__item_img {
+                    .reward__item_img, .changeReward__item_img {
                         border-top-left-radius: @default-element-border-radius;
                         border-top-right-radius: @default-element-border-radius;
                         text-align: center;
                         line-height: 4;
                     }
 
-                    .reward__item_name {
+                    .reward__item_name, .changeReward__item_name {
                         background-color: @default-app-color-primary;
                         color: #fff;
                         border-bottom-left-radius: @default-element-border-radius;
