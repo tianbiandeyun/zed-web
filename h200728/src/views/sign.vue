@@ -129,7 +129,6 @@
                 grid-template-rows: repeat(2, 300px);
                 grid-gap: 20px;
                 margin-bottom: 20px;
-                border: 1px solid black;
 
                 .reward__item, .change__item {
                     -webkit-border-radius: @default-element-border-radius;
