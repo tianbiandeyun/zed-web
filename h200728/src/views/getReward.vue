@@ -26,34 +26,45 @@
                 <h1>领取人完整信息：</h1>
 
                 <div>
-                    <span>姓名</span>
-                    <input type="text" placeholder="填写姓名">
+                    <Field v-model="text" label="姓名" placeholder="请输入姓名"/>
                 </div>
 
                 <div>
-                    <span>姓名</span>
-                    <input type="text" placeholder="填写姓名">
+                    <Field v-model="tel" type="tel" label="手机号" placeholder="请输入手机号"/>
                 </div>
 
                 <div>
-                    <span>姓名</span>
-                    <input type="text" placeholder="填写姓名">
-                    <button>获取验证码</button>
+                    <Field
+                            v-model="sms"
+                            center
+                            clearable
+                            label="短信验证码"
+                            placeholder="请输入短信验证码"
+                    >
+                        <template #button>
+                            <Button size="small" type="primary" color="#f7931e">发送验证码</Button>
+                        </template>
+                    </Field>
                 </div>
 
             </div>
 
         </div>
 
+        <Divider>为了完成后续奖品兑换服务，同意该信息提供给第三方</Divider>
+
+        <!--提交-->
+        
+
     </section>
 </template>
 
 <script>
-    import {Swipe, SwipeItem} from 'vant';
+    import {Swipe, SwipeItem, Field, Button, Divider} from 'vant';
 
     export default {
         name: "get_reward",
-        components: {Swipe, SwipeItem}
+        components: {Swipe, SwipeItem, Field, Button, Divider}
     }
 </script>
 
@@ -79,7 +90,6 @@
             padding: 40px 20px;
 
             .reward_details, .write_information {
-                background-color: @default-app-color-background;
                 border-radius: @default-element-border-radius;
                 padding: 20px;
             }
