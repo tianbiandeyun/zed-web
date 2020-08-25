@@ -11,7 +11,39 @@
             </Swipe>
         </div>
 
+        <!--内容-->
+        <div class="content">
 
+            <div class="reward_details">
+                <h1>奖品说明：</h1>
+                <p>奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明
+                    奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明</p>
+                <p>奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明</p>
+            </div>
+
+            <div class="write_information">
+
+                <h1>领取人完整信息：</h1>
+
+                <div>
+                    <span>姓名</span>
+                    <input type="text" placeholder="填写姓名">
+                </div>
+
+                <div>
+                    <span>姓名</span>
+                    <input type="text" placeholder="填写姓名">
+                </div>
+
+                <div>
+                    <span>姓名</span>
+                    <input type="text" placeholder="填写姓名">
+                    <button>获取验证码</button>
+                </div>
+
+            </div>
+
+        </div>
 
     </section>
 </template>
@@ -40,6 +72,42 @@
                     text-align: center;
                     background-color: #39a9ed;
                 }
+            }
+        }
+
+        .content {
+            padding: 40px 20px;
+
+            .reward_details, .write_information {
+                background-color: @default-app-color-background;
+                border-radius: @default-element-border-radius;
+                padding: 20px;
+            }
+
+            .reward_details {
+                margin-bottom: 20px;
+
+                h1 {
+                    color: @default-font-color-title;
+                    font-size: @default-font-size-30;
+                    line-height: 0;
+                }
+
+                p {
+                    font-size: @default-font-size-26;
+                    line-height: 1.6;
+                    color: @default-font-color-sub;
+                }
+            }
+
+            .write_information {
+
+                h1 {
+                    color: @default-font-color-title;
+                    font-size: @default-font-size-30;
+                    line-height: 0;
+                }
+
             }
         }
     }
