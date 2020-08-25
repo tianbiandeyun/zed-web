@@ -20,7 +20,6 @@
             <!--抽奖-->
             <div class="change" v-else>
 
-                <!--<transition-group class="change" v-else name="changeReward" tag="div">-->
                 <div class="change__item" v-for="(item,index) in 6" :key="index" @click="changeReward(index)">
                     <transition name="changeReward">
                         <img v-show="!change.includes(index)" src="../assets/images/jiangpingfengmian.png" alt="">
@@ -30,7 +29,6 @@
                         玩着荣耀皮肤
                     </div>
                 </div>
-                <!--</transition-group>-->
 
             </div>
 
@@ -68,31 +66,13 @@
 
 <style lang="less" scoped>
 
-    /*.changeReward-leave-to {*/
-    /*transform: rotateY(180deg);*/
-    /*opacity: 0;*/
-    /*}*/
-
-    /*.changeReward-enter-active, .changeReward-leave-active {*/
-    /*transition: all .3s ease-in-out;*/
-    /*}*/
-
-    .changeReward-enter {
-        transform: rotateY(180deg);
-        opacity: 0;
-    }
-
     .changeReward-leave-to {
         transform: rotateY(180deg);
         opacity: 0;
     }
 
-    .changeReward-enter-active, .changeReward-leave-active, .changeReward-move {
+    .changeReward-enter-active, .changeReward-leave-active {
         transition: all .3s ease-in-out;
-    }
-
-    .changeReward-leave-active {
-        position: absolute;
     }
 
     .sign-container {
