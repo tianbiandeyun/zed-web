@@ -64,7 +64,14 @@
 
     export default {
         name: "get_reward",
-        components: {Swipe, SwipeItem, Field, Button, Divider}
+        components: {Swipe, SwipeItem, Field, Button, Divider},
+        data() {
+            return {
+                sms: '',
+                tel: '',
+                text: ''
+            }
+        }
     }
 </script>
 
