@@ -54,7 +54,7 @@
         <Divider>为了完成后续奖品兑换服务，同意该信息提供给第三方</Divider>
 
         <!--提交-->
-        
+
 
     </section>
 </template>
