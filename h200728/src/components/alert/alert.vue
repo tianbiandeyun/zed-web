@@ -19,8 +19,19 @@
 
                 <!--内容-->
                 <div class="alert-box_content">
-                    {{content.alertType}}
-                    {{content.keepSignCount}}
+
+                    <div v-if="content.alertType === 'sign'">
+                        <div class="alert-box_content__sign">
+                            <div>
+                                <img src="../../assets/images/tt.png" alt="">
+                            </div>
+                            <p>加几个硬币</p>
+                            <p>已经起拿到几天，获得几个硬币</p>
+                        </div>
+                    </div>
+
+                    <!--{{content.alertType}}-->
+                    <!--{{content.keepSignCount}}-->
                 </div>
 
                 <!--按钮-->
@@ -147,6 +158,7 @@
         z-index: 9999;
 
         .alert-box {
+            width: 640px;
             background-color: #fff;
             -webkit-border-radius: @default-element-border-radius;
             -moz-border-radius: @default-element-border-radius;
@@ -195,10 +207,30 @@
                 border: 1px solid black;
                 text-align: center;
                 padding: 20px 0;
+
+                .alert-box_content__sign {
+
+                    div {
+
+                        img {
+                            width: 300px;
+                        }
+                    }
+
+                    p {
+                        font-size: @default-font-size-30;
+                        color: @default-font-color-content;
+                        line-height: 2;
+
+                        &:nth-of-type(1) {
+                            font-size: @default-font-size-38;
+                            color: @default-app-color-primary;
+                        }
+                    }
+                }
             }
 
             .alert-box_button {
-                width: 600px;
                 text-align: center;
                 padding: 20px 0 40px 0;
 
