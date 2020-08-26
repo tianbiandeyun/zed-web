@@ -65,6 +65,9 @@
 
         },
         methods: {
+            /**
+             * 签到
+             * */
             sign() {
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.clock_in_by_day,

@@ -14,6 +14,7 @@
                      v-for="(item,index) in visibeDays"
                      :key="index">
                     {{item.getDate()}}
+                    <!--{{item.getMonth()+1}}-->
 
                     <div class="active" v-if="false"></div>
                 </div>
