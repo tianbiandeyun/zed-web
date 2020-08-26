@@ -22,9 +22,7 @@
 
                     <div v-if="content.alertType === 'sign'">
                         <div class="alert-box_content__sign">
-                            <div>
-                                <img src="../../assets/images/tt.png" alt="">
-                            </div>
+                            <img src="../../assets/images/tt.png" alt="">
                             <p>加几个硬币</p>
                             <p>已经起拿到几天，获得几个硬币</p>
                         </div>
@@ -210,11 +208,8 @@
 
                 .alert-box_content__sign {
 
-                    div {
-
-                        img {
-                            width: 300px;
-                        }
+                    img {
+                        width: 300px;
                     }
 
                     p {
