@@ -14,16 +14,19 @@
 
             <div class="continuous_box">
 
-                <div class="continuous_box__item">
+                <div class="continuous_box__item" v-for="(item,index) in keep_sign_list" :key="index">
                     <div class="continuous_box__item___left">
                         <img src="../assets/images/t.png" alt="">
                     </div>
                     <div class="continuous_box__item___center">
-                        <p>连续签到222天，+2青创币</p>
-                        <p>有效期至2020-03-1111</p>
+                        <p v-if="typeof reward_type[item.bonustype].reward === 'number'">
+                            连续签到{{reward_type[item.bonustype].day}}天，+{{reward_type[item.bonustype].reward}}青创币
+                        </p>
+                        <p v-else>连续签到{{reward_type[item.bonustype].day}}天，获得{{reward_type[item.bonustype].reward}}</p>
+                        <p>有效期至{{item.date}}</p>
                     </div>
                     <div class="continuous_box__item___right">
-                        <button @click="getReward">不能领取</button>
+                        <button @click="getReward">{{keep_sign_status[item.status]}}</button>
                     </div>
                 </div>
 
@@ -46,16 +49,26 @@
                 exist_date: [], // 已签到的日期
                 coin: 0, // 有几枚硬币
                 keep_sign_count: '', //连续签到的天数
-                reward_get_status: {
+                keep_sign_list: '', // 连续签到列表
+                keep_sign_status: {
                     1: '领取',
                     2: '已领取',
                     3: '过期',
                     4: '已抢光'
                 },
                 reward_type: {
-                    4: 2,
-                    5: 3,
-                    6: '爱奇艺会员'
+                    4: {
+                        day: 3,
+                        reward: 2
+                    },
+                    5: {
+                        day: 5,
+                        reward: 3
+                    },
+                    6: {
+                        day: 7,
+                        reward: '爱奇艺会员'
+                    }
                 }
             }
         },
@@ -139,7 +152,7 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
-                    console.log(res);
+                    this.keep_sign_list = res.back_value;
                 })
             }
         },
