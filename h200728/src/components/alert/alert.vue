@@ -68,7 +68,10 @@
              * 内容文字
              * */
             content: {
-                type: Object
+                type: Object,
+                default: () => {
+                    return {}
+                }
             },
             /**
              * 标题操作按钮
