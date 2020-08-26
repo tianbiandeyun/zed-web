@@ -26,7 +26,11 @@
                         <p>有效期至{{item.date}}</p>
                     </div>
                     <div class="continuous_box__item___right">
-                        <button @click="getReward">{{keep_sign_status[item.status]}}</button>
+                        <button @click="getReward(item.bonustype)"
+                                :class="{disabled_button:keep_sign_status['disabled'].includes(item.status)}"
+                                :disabled="keep_sign_status['disabled'].includes(item.status)">
+                            {{keep_sign_status[item.status]}}
+                        </button>
                     </div>
                 </div>
 
@@ -51,6 +55,7 @@
                 keep_sign_count: '', //连续签到的天数
                 keep_sign_list: '', // 连续签到列表
                 keep_sign_status: {
+                    'disabled': [2, 3, 4],
                     1: '领取',
                     2: '已领取',
                     3: '过期',
@@ -114,8 +119,8 @@
                     })
                 })
             },
-            getReward() {
-
+            getReward(res) {
+                console.log(res)
             },
             /**
              * 获取展示信息
@@ -237,6 +242,11 @@
                             -webkit-border-radius: @default-element-border-radius;
                             -moz-border-radius: @default-element-border-radius;
                             border-radius: @default-element-border-radius;
+                        }
+
+                        .disabled_button {
+                            background-color: @default-app-color-disabled;
+                            color: @default-font-color-content;
                         }
                     }
                 }
