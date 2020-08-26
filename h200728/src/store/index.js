@@ -34,7 +34,8 @@ export default new Vuex.Store({
             });
         },
         /**
-         * 通用请求：fetchDate（数据不共享单独局部使用）
+         * 通用请求：fetchDate
+         * 数据不共享，单独局部使用
          * */
         fetchData({commit}, params) {
             const [im, fps = {}, url] = [params.im, params.fps, params.url];

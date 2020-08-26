@@ -4,7 +4,7 @@
         <div class="calender">
 
             <div class="calender_header">
-                <p>已有青创币 9999 枚</p>
+                <p>已有青创币 {{coin}} 枚</p>
                 <p>幸运抽牌 ></p>
             </div>
 
@@ -42,7 +42,11 @@
             existDate: {
                 type: Array,
                 default: []
-            }
+            },
+            coin: {
+                type: Number,
+                default: 0
+            },
         },
         methods: {
             sign() {

@@ -6,7 +6,7 @@
         </header>
 
         <!--日历盘-->
-        <calender :exist-date="exist_date" @sign="sign"></calender>
+        <calender :coin="coin" :exist-date="exist_date" @sign="sign"></calender>
 
         <!--奖励列表-->
         <div class="continuous">
@@ -43,15 +43,19 @@
         components: {calender},
         data() {
             return {
-                exist_date: []
+                exist_date: [],
+                coin: 0
             }
         },
         async mounted() {
 
+            // 获取 openid
             await this.$store.dispatch('getOpenid', {
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
             }).then(res => {
+
+                // 获取 已签到的日期
                 return this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
                     fps: {
@@ -61,6 +65,17 @@
                 })
             }).then(res => {
                 this.exist_date = res.back_value;
+
+                // 获取 用户信息-有几枚硬币
+                return this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.getplayerinfo,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                })
+            }).then(res => {
+                this.coin = parseInt(res.back_value.score);
             })
 
         },
@@ -77,16 +92,10 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
-                        return this.$store.dispatch('fetchData', {
-                            im: this.$Config.PROJECT_INTERFACE.clock_in_by_day,
-                            fps: {
-                                open_id: this.openid_info.back_value.open_id
-                            },
-                            url: this.$Config.REQUEST_URL
-                        })
+
+                        console.log('签到成功')
+
                     }
-                }).then(res => {
-                    console.log(res)
                 })
             },
             getReward() {
