@@ -72,28 +72,8 @@
             await this.$store.dispatch('getOpenid', {
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
-            }).then(res => {
-                // 获取 已签到的日期
-                return this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
-                    fps: {
-                        open_id: res.back_value.open_id
-                    },
-                    url: this.$Config.REQUEST_URL
-                })
-            }).then(res => {
-                this.exist_date = res.back_value;
-                // 获取 用户信息-有几枚硬币
-                return this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.getplayerinfo,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id
-                    },
-                    url: this.$Config.REQUEST_URL
-                })
-            }).then(res => {
-                this.coin = parseInt(res.back_value.score);
-            })
+            });
+            this.refresh();
 
         },
         methods: {
@@ -109,16 +89,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
-                        // 更新 已签到的日期
-                        this.$store.dispatch('fetchData', {
-                            im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
-                            fps: {
-                                open_id: res.back_value.open_id
-                            },
-                            url: this.$Config.REQUEST_URL
-                        }).then(res => {
-                            this.exist_date = res.back_value;
-                        });
+                        this.refresh();
                         // 连续签到天数
                         return this.$store.dispatch('fetchData', {
                             im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
@@ -141,6 +112,33 @@
             },
             getReward() {
 
+            },
+            /**
+             * 获取展示信息
+             * */
+            refresh() {
+
+                // 获取 已签到的日期
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.exist_date = res.back_value;
+                });
+
+                // 获取 用户信息-有几枚硬币
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.getplayerinfo,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.coin = parseInt(res.back_value.score);
+                })
             }
         },
         computed: {
