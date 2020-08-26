@@ -6,7 +6,7 @@
         </header>
 
         <!--日历盘-->
-        <calender :date="date" @sign="sign"></calender>
+        <calender :exist-date="exist_date" @sign="sign"></calender>
 
         <!--奖励列表-->
         <div class="continuous">
@@ -43,7 +43,7 @@
         components: {calender},
         data() {
             return {
-                date: new Date()
+                exist_date: []
             }
         },
         async mounted() {
@@ -60,7 +60,7 @@
                     url: this.$Config.REQUEST_URL
                 })
             }).then(res => {
-                console.log(res)
+                this.exist_date = res.back_value;
             })
 
         },

@@ -10,13 +10,14 @@
 
             <div class="calender_main">
                 <div class="calender_main__item"
-                     :class="{pro_month_active: item.getMonth()+1 !== date.getMonth()+1}"
+                     :style="{color:existDate.includes(item.formDate) ? '#fff' :''}"
                      v-for="(item,index) in visibeDays"
-                     :key="index">
-                    {{item.getDate()}}
-                    <!--{{item.getMonth()+1}}-->
+                     :class="{pro_month_active: item.date.getMonth()+1 !== date.getMonth()+1}"
+                     :key="index"
+                     :date-formdate="item.formDate">
+                    {{item.date.getDate()}}
 
-                    <div class="active" v-if="false"></div>
+                    <div class="active" v-if="existDate.includes(item.formDate)"></div>
                 </div>
                 <div class="calender_main__nowMonth">{{nowMonth}}月</div>
             </div>
@@ -33,7 +34,14 @@
         name: "calender",
         props: {
             date: {
-                type: Date
+                type: Date,
+                default: () => {
+                    return new Date()
+                }
+            },
+            existDate: {
+                type: Array,
+                default: []
             }
         },
         methods: {
@@ -62,7 +70,15 @@
                 let arr = [];
 
                 for (let i = 0; i < 42; i++) {
-                    arr.push(new Date(start + i * 60 * 60 * 1000 * 24))
+
+                    let y = new Date(start + i * 60 * 60 * 1000 * 24).getFullYear();
+                    let m = parseInt(new Date(start + i * 60 * 60 * 1000 * 24).getMonth() + 1) < 10 ? "0" + parseInt(new Date(start + i * 60 * 60 * 1000 * 24).getMonth() + 1) : parseInt(new Date(start + i * 60 * 60 * 1000 * 24).getMonth() + 1);
+                    let d = new Date(start + i * 60 * 60 * 1000 * 24).getDate() < 10 ? "0" + new Date(start + i * 60 * 60 * 1000 * 24).getDate() : new Date(start + i * 60 * 60 * 1000 * 24).getDate();
+
+                    arr.push({
+                        date: new Date(start + i * 60 * 60 * 1000 * 24),
+                        formDate: `${y}-${m}-${d}`
+                    })
                 }
 
                 return arr;
