@@ -97,6 +97,7 @@
              * */
             async sign() {
 
+                // 点击签到
                 let sign_result = await this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.clock_in_by_day,
                     fps: {
@@ -105,6 +106,7 @@
                     url: this.$Config.REQUEST_URL
                 });
 
+                // 获取连续签到的天数
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
                     fps: {
