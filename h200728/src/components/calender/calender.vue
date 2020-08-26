@@ -20,7 +20,7 @@
                 <div class="calender_main__nowMonth">{{nowMonth}}月</div>
             </div>
 
-            <button class="calender_button">立即签到</button>
+            <button class="calender_button" @click="sign">立即签到</button>
 
         </div>
 
@@ -33,6 +33,11 @@
         props: {
             date: {
                 type: Date
+            }
+        },
+        methods: {
+            sign() {
+                this.$emit('sign')
             }
         },
         computed: {

@@ -6,7 +6,7 @@
         </header>
 
         <!--日历盘-->
-        <calender :date="date"></calender>
+        <calender :date="date" @sign="sign"></calender>
 
         <!--奖励列表-->
         <div class="continuous">
@@ -36,6 +36,7 @@
 
 <script>
     import calender from '../components/calender/calender'
+    import {mapGetters} from 'vuex'
 
     export default {
         name: 'Home',
@@ -45,13 +46,47 @@
                 date: new Date()
             }
         },
+        async mounted() {
+
+            await this.$store.dispatch('getOpenid', {
+                im: this.$Config.PROJECT_INTERFACE.getopenid,
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                return this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
+                    fps: {
+                        open_id: res.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                })
+            }).then(res => {
+                console.log(res)
+            })
+
+        },
         methods: {
+            sign() {
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.clock_in_by_day,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    console.log(res)
+                })
+            },
             getReward() {
                 this.$Alert.show({
                     title: '签到成功',
                     confirmText: '去抽奖'
                 })
             }
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ]),
         }
     }
 </script>

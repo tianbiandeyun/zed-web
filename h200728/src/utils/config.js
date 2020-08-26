@@ -32,6 +32,8 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  *接口名
  * */
 export const PROJECT_INTERFACE = {
+    get_clocked_list: 'get_clocked_list', // 签到记录
+    clock_in_by_day: 'clock_in_by_day', // 签到
     getopenid: 'getopenid'
 };
 
