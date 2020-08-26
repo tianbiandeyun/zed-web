@@ -109,6 +109,16 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
+                        // 更新 已签到的日期
+                        this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
+                            fps: {
+                                open_id: res.back_value.open_id
+                            },
+                            url: this.$Config.REQUEST_URL
+                        }).then(res => {
+                            this.exist_date = res.back_value;
+                        });
                         // 连续签到天数
                         return this.$store.dispatch('fetchData', {
                             im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
@@ -122,7 +132,7 @@
                     this.$Alert.show({
                         title: '签到成功',
                         content: {
-                            alertType:'sign',
+                            alertType: 'sign',
                             keepSignCount: res.back_value
                         },
                         confirmText: '去抽奖'
