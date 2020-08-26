@@ -76,6 +76,16 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
+                    if (res.back_value) {
+                        return this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.clock_in_by_day,
+                            fps: {
+                                open_id: this.openid_info.back_value.open_id
+                            },
+                            url: this.$Config.REQUEST_URL
+                        })
+                    }
+                }).then(res => {
                     console.log(res)
                 })
             },
