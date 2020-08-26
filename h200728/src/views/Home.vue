@@ -46,24 +46,17 @@
                 exist_date: [], // 已签到的日期
                 coin: 0, // 有几枚硬币
                 keep_sign_count: '', //连续签到的天数
-                reward_list: [
-                    {
-                        type: 4,
-                        details: '连续三天'
-                    },
-                    {
-                        type: 5,
-                        details: '连续五天'
-                    },
-                    {
-                        type: 6,
-                        details: '连续七天'
-                    },
-                    {
-                        type: 7,
-                        details: '爱奇艺'
-                    }
-                ]
+                reward_get_status: {
+                    1: '领取',
+                    2: '已领取',
+                    3: '过期',
+                    4: '已抢光'
+                },
+                reward_type: {
+                    4: 2,
+                    5: 3,
+                    6: '爱奇艺会员'
+                }
             }
         },
         async mounted() {
@@ -88,16 +81,14 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
-                    if (res.back_value) {
-                        // 连续签到天数
-                        return this.$store.dispatch('fetchData', {
-                            im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
-                            fps: {
-                                open_id: this.openid_info.back_value.open_id
-                            },
-                            url: this.$Config.REQUEST_URL
-                        })
-                    }
+                    // 连续签到天数
+                    return this.$store.dispatch('fetchData', {
+                        im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
+                        fps: {
+                            open_id: this.openid_info.back_value.open_id
+                        },
+                        url: this.$Config.REQUEST_URL
+                    })
                 }).then(res => {
                     this.refresh();
                     this.$Alert.show({
