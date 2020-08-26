@@ -89,7 +89,6 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
-                        this.refresh();
                         // 连续签到天数
                         return this.$store.dispatch('fetchData', {
                             im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
@@ -100,6 +99,7 @@
                         })
                     }
                 }).then(res => {
+                    this.refresh();
                     this.$Alert.show({
                         title: '签到成功',
                         content: {
@@ -138,6 +138,17 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     this.coin = parseInt(res.back_value.score);
+                });
+
+                // 获取 连续福利列表
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_bouns_list_info,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    console.log(res);
                 })
             }
         },
