@@ -19,7 +19,8 @@
 
                 <!--内容-->
                 <div class="alert-box_content">
-                    我是内容
+                    {{content.alertType}}
+                    {{content.keepSignCount}}
                 </div>
 
                 <!--按钮-->
@@ -56,6 +57,12 @@
             title: {
                 type: String,
                 default: '标题'
+            },
+            /**
+             * 内容文字
+             * */
+            content: {
+                type: Object
             },
             /**
              * 标题操作按钮

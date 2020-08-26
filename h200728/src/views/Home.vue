@@ -93,16 +93,6 @@
                 })
             }).then(res => {
                 this.coin = parseInt(res.back_value.score);
-                // 连续签到天数
-                return this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id
-                    },
-                    url: this.$Config.REQUEST_URL
-                })
-            }).then(res => {
-                console.log(res);
             })
 
         },
@@ -119,15 +109,28 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
-                        console.log('签到成功')
+                        // 连续签到天数
+                        return this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
+                            fps: {
+                                open_id: this.openid_info.back_value.open_id
+                            },
+                            url: this.$Config.REQUEST_URL
+                        })
                     }
+                }).then(res => {
+                    this.$Alert.show({
+                        title: '签到成功',
+                        content: {
+                            alertType:'sign',
+                            keepSignCount: res.back_value
+                        },
+                        confirmText: '去抽奖'
+                    })
                 })
             },
             getReward() {
-                this.$Alert.show({
-                    title: '签到成功',
-                    confirmText: '去抽奖'
-                })
+
             }
         },
         computed: {
