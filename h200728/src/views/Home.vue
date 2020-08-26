@@ -54,7 +54,7 @@
                 coin: 0, // 有几枚硬币
                 keep_sign_count: '', //连续签到的天数
                 keep_sign_list: '', // 连续签到列表
-                keep_sign_status: {
+                keep_sign_status: { // 连续签到列表按钮文字
                     'disabled': [2, 3, 4],
                     1: '领取',
                     2: '已领取',
@@ -73,8 +73,12 @@
                     6: {
                         day: 7,
                         reward: '爱奇艺会员'
+                    },
+                    8: {
+                        day: 0,
+                        reward: 1
                     }
-                }
+                } // 奖品类别
             }
         },
         async mounted() {
@@ -91,33 +95,35 @@
             /**
              * 签到
              * */
-            sign() {
-                this.$store.dispatch('fetchData', {
+            async sign() {
+
+                let sign_result = await this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.clock_in_by_day,
                     fps: {
                         open_id: this.openid_info.back_value.open_id
                     },
                     url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    // 连续签到天数
-                    return this.$store.dispatch('fetchData', {
-                        im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
-                        fps: {
-                            open_id: this.openid_info.back_value.open_id
-                        },
-                        url: this.$Config.REQUEST_URL
-                    })
+                });
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
                 }).then(res => {
                     this.refresh();
                     this.$Alert.show({
                         title: '签到成功',
                         content: {
                             alertType: 'sign',
-                            keepSignCount: res.back_value
+                            keepSignCount: res.back_value,
+                            reward: this.reward_type[sign_result.back_value['bonustype']]
                         },
                         confirmText: '去抽奖'
                     })
                 })
+
             },
             getReward(res) {
                 console.log(res)

@@ -23,13 +23,10 @@
                     <div v-if="content.alertType === 'sign'">
                         <div class="alert-box_content__sign">
                             <img src="../../assets/images/tt.png" alt="">
-                            <p>加几个硬币</p>
-                            <p>已经起拿到几天，获得几个硬币</p>
+                            <p>+{{content.reward.reward}}青创币</p>
+                            <p>您已连续签到{{content.keepSignCount}}天，获{{content.reward.reward}}得青创币</p>
                         </div>
                     </div>
-
-                    <!--{{content.alertType}}-->
-                    <!--{{content.keepSignCount}}-->
                 </div>
 
                 <!--按钮-->
