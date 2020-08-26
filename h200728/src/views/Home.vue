@@ -43,8 +43,27 @@
         components: {calender},
         data() {
             return {
-                exist_date: [],
-                coin: 0
+                exist_date: [], // 已签到的日期
+                coin: 0, // 有几枚硬币
+                keep_sign_count: '', //连续签到的天数
+                reward_list: [
+                    {
+                        type: 4,
+                        details: '连续三天'
+                    },
+                    {
+                        type: 5,
+                        details: '连续五天'
+                    },
+                    {
+                        type: 6,
+                        details: '连续七天'
+                    },
+                    {
+                        type: 7,
+                        details: '爱奇艺'
+                    }
+                ]
             }
         },
         async mounted() {
@@ -54,7 +73,6 @@
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
             }).then(res => {
-
                 // 获取 已签到的日期
                 return this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
@@ -65,7 +83,6 @@
                 })
             }).then(res => {
                 this.exist_date = res.back_value;
-
                 // 获取 用户信息-有几枚硬币
                 return this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.getplayerinfo,
@@ -76,6 +93,16 @@
                 })
             }).then(res => {
                 this.coin = parseInt(res.back_value.score);
+                // 连续签到天数
+                return this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_clocked_keep_count,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                })
+            }).then(res => {
+                console.log(res);
             })
 
         },
@@ -92,9 +119,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
-
                         console.log('签到成功')
-
                     }
                 })
             },

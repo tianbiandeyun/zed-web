@@ -32,6 +32,9 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  *接口名
  * */
 export const PROJECT_INTERFACE = {
+    set_prize_record: 'set_prize_record', // 领取奖品
+    get_bouns_type_status: 'get_bouns_type_status', // 奖品领取状态
+    get_clocked_keep_count: 'get_clocked_keep_count', // 连续签到天数
     get_clocked_list: 'get_clocked_list', // 签到记录
     clock_in_by_day: 'clock_in_by_day', // 签到
     getplayerinfo: 'getplayerinfo', // 用户信息
