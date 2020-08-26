@@ -61,7 +61,7 @@
                     3: '过期',
                     4: '已抢光'
                 },
-                reward_type: {
+                reward_type: { // 奖品类别
                     4: {
                         day: 3,
                         reward: 2
@@ -78,7 +78,7 @@
                         day: 0,
                         reward: 1
                     }
-                } // 奖品类别
+                }
             }
         },
         async mounted() {
@@ -128,7 +128,16 @@
 
             },
             getReward(res) {
-                console.log(res)
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.set_prize_record,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        bonustype: res
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    console.log(res);
+                })
             },
             /**
              * 获取展示信息
