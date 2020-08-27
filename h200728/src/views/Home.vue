@@ -6,7 +6,7 @@
         </header>
 
         <!--日历盘-->
-        <calender :coin="coin" :exist-date="exist_date" @sign="sign"></calender>
+        <calender :coin="coin" :exist-date="exist_date" @sign="sign" @pick="pick"></calender>
 
         <!--奖励列表-->
         <div class="continuous">
@@ -44,6 +44,7 @@
 <script>
     import calender from '../components/calender/calender'
     import {mapGetters} from 'vuex'
+    import alert from "../components/alert/alert";
 
     export default {
         name: 'Home',
@@ -93,9 +94,16 @@
         },
         methods: {
             /**
+             * 抽奖
+             * */
+            pick() {
+                this.$router.push('/reward')
+            },
+            /**
              * 签到
              * */
             async sign() {
+                const that = this;
 
                 // 点击签到
                 let sign_result = await this.$store.dispatch('fetchData', {
@@ -105,6 +113,11 @@
                     },
                     url: this.$Config.REQUEST_URL
                 });
+
+                if (sign_result.error_code === 2001101) {
+                    window.alert('无法重复签到');
+                    return false;
+                }
 
                 // 获取连续签到的天数
                 this.$store.dispatch('fetchData', {
@@ -122,12 +135,20 @@
                             keepSignCount: res.back_value,
                             reward: this.reward_type[sign_result.back_value['bonustype']]
                         },
-                        confirmText: '去抽奖'
+                        confirmText: '去抽奖',
+                        operatButton() {
+                            that.$router.push('/reward')
+                        }
                     })
                 })
 
             },
+            /**
+             * 连续签到
+             * */
             getReward(res) {
+                const that = this;
+
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_prize_record,
                     fps: {
@@ -136,6 +157,12 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
+
+                    if (res.error_code === 2008111345) {
+                        window.alert('天数不够，无法领取');
+                        return false;
+                    }
+
                     this.refresh();
                     this.$Alert.show({
                         title: '签到成功',
@@ -143,8 +170,12 @@
                             alertType: 'sign',
                             reward: this.reward_type[res.back_value['bonustype']]
                         },
-                        confirmText: '去抽奖'
+                        confirmText: '去抽奖',
+                        operatButton() {
+                            that.$router.push('/reward')
+                        }
                     })
+
                 })
             },
             /**

@@ -5,7 +5,7 @@
 
             <div class="calender_header">
                 <p>已有青创币 {{coin}} 枚</p>
-                <p>幸运抽牌 ></p>
+                <p @click="pick">幸运抽牌 ></p>
             </div>
 
             <div class="calender_main">
@@ -51,6 +51,9 @@
         methods: {
             sign() {
                 this.$emit('sign')
+            },
+            pick(){
+                this.$emit('pick')
             }
         },
         computed: {
