@@ -16,8 +16,8 @@
                 <button :class="{disabled_button:typeof reward_type[item.bonustype].reward === 'number'}"
                         v-if="typeof reward_type[item.bonustype].reward === 'number'">已领取
                 </button>
-                <button :class="{disabled_button:_maxDate}"
-                        v-else>{{_maxDate ? '已过期' : '查看'}}
+                <button :class="{disabled_button:_maxDate(item.expiration_time)}"
+                        v-else>{{_maxDate(item.expiration_time) ? '已过期' : '查看'}}
                 </button>
             </div>
         </div>
