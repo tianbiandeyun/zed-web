@@ -32,7 +32,8 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  * 接口名
  * */
 export const PROJECT_INTERFACE = {
-    get_luck_draw_list_info:'get_luck_draw_list_info', // 翻盘奖品列表
+    set_pv_statistics: 'set_pv_statistics', // 设置我想要的
+    get_luck_draw_list_info: 'get_luck_draw_list_info', // 翻盘奖品列表
     getbonuslist: 'getbonuslist', // 已领取的奖励
     get_bouns_list_info: 'get_bouns_list_info', // 连续福利列表
     set_prize_record: 'set_prize_record', // 领取奖品

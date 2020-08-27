@@ -72,8 +72,19 @@
              * 点击我想要的
              * */
             wantReward(item) {
-                console.log(`剩余数量：${item.count}`);
-                console.log(`奖品类型：${item.bonustype}`);
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.set_pv_statistics,
+                    fps: {
+                        info_key: item.title
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        console.log(`剩余数量：${item.count}`);
+                        console.log(`奖品类型：${item.bonustype}`);
+                    }
+                });
             },
             /**
              * 翻牌选择奖品
