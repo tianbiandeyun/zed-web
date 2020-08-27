@@ -26,6 +26,7 @@
             return {}
         },
         mounted() {
+
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.getbonuslist,
                 fps: {
@@ -33,8 +34,9 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
-                this.keep_sign_list = res.back_value;
+                console.log(res);
             })
+
         },
         computed: {
             ...mapGetters([
