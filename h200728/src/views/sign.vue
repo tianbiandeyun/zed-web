@@ -43,13 +43,28 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+
     export default {
         name: "sign",
         data() {
             return {
-                want: false,
+                want: true,
                 change: []
             }
+        },
+        mounted() {
+
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                console.log(res)
+            });
+
         },
         methods: {
             /**
@@ -58,6 +73,11 @@
             changeReward(index) {
                 this.change = [...this.change, index]
             }
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
         }
     }
 </script>

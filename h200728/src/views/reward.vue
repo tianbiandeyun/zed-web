@@ -49,7 +49,6 @@
                 this.reward_list = res.back_value;
             });
 
-
         },
         methods: {
             _maxDate(d) {
