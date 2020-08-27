@@ -20,6 +20,7 @@
                 <!--内容-->
                 <div class="alert-box_content">
 
+                    <!--签到 / 连续签到弹框-->
                     <div v-if="content.alertType === 'sign'">
                         <div class="alert-box_content__sign">
                             <img src="../../assets/images/tt.png" alt="">
@@ -29,6 +30,7 @@
                             </p>
                         </div>
                     </div>
+                    
                 </div>
 
                 <!--按钮-->
