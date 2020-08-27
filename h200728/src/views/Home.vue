@@ -70,8 +70,8 @@
                         day: 5,
                         reward: 3
                     },
-                    6: {
-                        day: 7,
+                    7: {
+                        day: 8,
                         reward: '爱奇艺会员'
                     },
                     8: {
@@ -137,6 +137,16 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     console.log(res);
+
+                    this.refresh();
+                    this.$Alert.show({
+                        title: '签到成功',
+                        content: {
+                            alertType: 'sign',
+                            reward: this.reward_type[res.back_value['bonustype']]
+                        },
+                        confirmText: '去抽奖'
+                    })
                 })
             },
             /**
