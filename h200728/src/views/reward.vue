@@ -18,8 +18,29 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+
     export default {
-        name: "reward"
+        name: "reward",
+        data() {
+            return {}
+        },
+        mounted() {
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.getbonuslist,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                this.keep_sign_list = res.back_value;
+            })
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
+        }
     }
 </script>
 

@@ -220,7 +220,7 @@
         computed: {
             ...mapGetters([
                 'openid_info'
-            ]),
+            ])
         }
     }
 </script>
