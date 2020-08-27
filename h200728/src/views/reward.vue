@@ -23,33 +23,7 @@
     export default {
         name: "reward",
         data() {
-            return {
-                keep_sign_status: {
-                    'disabled': [2, 3, 4],
-                    1: '领取',
-                    2: '已领取',
-                    3: '过期',
-                    4: '已抢光'
-                },
-                reward_type: {
-                    4: {
-                        day: 3,
-                        reward: 2
-                    },
-                    5: {
-                        day: 5,
-                        reward: 3
-                    },
-                    7: {
-                        day: 8,
-                        reward: '爱奇艺会员'
-                    },
-                    8: {
-                        day: 0,
-                        reward: 1
-                    }
-                }
-            }
+            return {}
         },
         mounted() {
 
