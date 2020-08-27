@@ -1,22 +1,22 @@
 <template>
     <section class="reward-container">
 
-        <!--<div class="reward_item" v-for="(item,index) in reward_list" :key="index">-->
-            <!--<div class="reward_item___left">-->
-                <!--<img src="../assets/images/t.png" alt="">-->
-            <!--</div>-->
-            <!--<div class="reward_item___center">-->
-                <!--<p>连续签到{{reward_type[item.bonustype].day}}天，获得{{reward_type[item.bonustype].reward}}青创币</p>-->
-                <!--<p>有效期至{{item.expiration_time}}</p>-->
-            <!--</div>-->
-            <!--<div class="reward_item___right">-->
-                <!--<button>不能领取</button>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <div class="reward_item">
+        <div class="reward_item" v-for="(item,index) in reward_list" :key="index">
             <div class="reward_item___left">
                 <img src="../assets/images/t.png" alt="">
+            </div>
+            <div class="reward_item___center">
+                <p>
+                    <span>连续签到{{reward_type[item.bonustype].day}}天，获得{{reward_type[item.bonustype].reward}}</span>
+                    <span v-if="typeof reward_type[item.bonustype].reward === 'number'">青创币</span>
+                </p>
+                <p>获奖时间：{{item.date}}</p>
+            </div>
+            <div class="reward_item___right">
+                <button :class="{disabled_button:typeof reward_type[item.bonustype].reward === 'number'}"
+                        v-if="typeof reward_type[item.bonustype].reward === 'number'">已领取
+                </button>
+                <button v-else>xx</button>
             </div>
         </div>
 
@@ -106,6 +106,11 @@
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
                     border-radius: @default-element-border-radius;
+                }
+
+                .disabled_button {
+                    background-color: @default-app-color-disabled;
+                    color: @default-font-color-content;
                 }
             }
         }
