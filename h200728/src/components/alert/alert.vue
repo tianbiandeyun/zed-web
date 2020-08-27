@@ -217,11 +217,6 @@
                         font-size: @default-font-size-30;
                         color: @default-font-color-content;
                         line-height: 2;
-
-                        &:nth-of-type(1) {
-                            font-size: @default-font-size-38;
-                            color: @default-app-color-primary;
-                        }
                     }
                 }
             }

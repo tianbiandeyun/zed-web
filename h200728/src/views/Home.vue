@@ -136,17 +136,19 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
-                    console.log(res);
 
-                    this.refresh();
-                    this.$Alert.show({
-                        title: '签到成功',
-                        content: {
-                            alertType: 'sign',
-                            reward: this.reward_type[res.back_value['bonustype']]
-                        },
-                        confirmText: '去抽奖'
-                    })
+                    console.log(res.back_value['bonustype']);
+                    console.log(this.reward_type[res.back_value['bonustype']])
+
+                    // this.refresh();
+                    // this.$Alert.show({
+                    //     title: '签到成功',
+                    //     content: {
+                    //         alertType: 'sign',
+                    //         reward: this.reward_type[res.back_value['bonustype']]
+                    //     },
+                    //     confirmText: '去抽奖'
+                    // })
                 })
             },
             /**
