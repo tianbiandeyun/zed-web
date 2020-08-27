@@ -1,16 +1,22 @@
 <template>
     <section class="reward-container">
 
+        <!--<div class="reward_item" v-for="(item,index) in reward_list" :key="index">-->
+            <!--<div class="reward_item___left">-->
+                <!--<img src="../assets/images/t.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="reward_item___center">-->
+                <!--<p>连续签到{{reward_type[item.bonustype].day}}天，获得{{reward_type[item.bonustype].reward}}青创币</p>-->
+                <!--<p>有效期至{{item.expiration_time}}</p>-->
+            <!--</div>-->
+            <!--<div class="reward_item___right">-->
+                <!--<button>不能领取</button>-->
+            <!--</div>-->
+        <!--</div>-->
+
         <div class="reward_item">
             <div class="reward_item___left">
                 <img src="../assets/images/t.png" alt="">
-            </div>
-            <div class="reward_item___center">
-                <p>连续签到222天，+2青创币</p>
-                <p>有效期至2020-03-1111</p>
-            </div>
-            <div class="reward_item___right">
-                <button>不能领取</button>
             </div>
         </div>
 
@@ -23,7 +29,10 @@
     export default {
         name: "reward",
         data() {
-            return {}
+            return {
+                reward_list: [],
+                reward_type: this.$Config.REWARD_TYPE
+            }
         },
         mounted() {
 
@@ -34,7 +43,7 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
-                console.log(res);
+                this.reward_list = res.back_value;
             })
 
         },
@@ -49,6 +58,7 @@
 <style lang="less" scoped>
 
     .reward-container {
+        overflow-y: scroll;
         height: 100%;
         background-color: @default-app-color-background;
         padding: 20px 10px;
@@ -61,6 +71,7 @@
             -webkit-border-radius: @default-element-border-radius;
             -moz-border-radius: @default-element-border-radius;
             border-radius: @default-element-border-radius;
+            margin-bottom: 20px;
 
             .reward_item___left {
                 display: grid;

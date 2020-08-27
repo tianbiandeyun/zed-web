@@ -65,5 +65,5 @@ export const REWARD_TYPE = {
         day: 0,
         reward: 1
     }
-}
+};
 
