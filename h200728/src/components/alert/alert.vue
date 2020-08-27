@@ -24,7 +24,8 @@
                         <div class="alert-box_content__sign">
                             <img src="../../assets/images/tt.png" alt="">
                             <p>
-                                <span v-if="content.keepSignCount">您已连续签到{{content.keepSignCount}}天，</span>获{{content.reward.reward}}得青创币
+                                <span v-if="content.keepSignCount">您已连续签到{{content.keepSignCount}}天，</span>
+                                <span>获{{content.reward.reward}}得青创币</span>
                             </p>
                         </div>
                     </div>
