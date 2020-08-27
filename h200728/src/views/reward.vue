@@ -16,7 +16,9 @@
                 <button :class="{disabled_button:typeof reward_type[item.bonustype].reward === 'number'}"
                         v-if="typeof reward_type[item.bonustype].reward === 'number'">已领取
                 </button>
-                <button v-else>xx</button>
+                <button :class="{disabled_button:_maxDate}"
+                        v-else>{{_maxDate ? '已过期' : '查看'}}
+                </button>
             </div>
         </div>
 
@@ -36,6 +38,7 @@
         },
         mounted() {
 
+            // 获取我已经领取的奖品列表
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.getbonuslist,
                 fps: {
@@ -44,8 +47,24 @@
                 url: this.$Config.REQUEST_URL
             }).then(res => {
                 this.reward_list = res.back_value;
-            })
+            });
 
+
+        },
+        methods: {
+            _maxDate(d) {
+                let {year, month, day} = this.$Utils.getYearMonthDay(new Date());
+                let today = `${year}-${month + 1}-${day}`;
+                let _d1 = Date.parse(today.replace(/\-/g, "/"));
+                let _d2 = Date.parse(d.replace(/\-/g, "/"));
+
+                if (_d1 > _d2) {
+                    return true
+                } else {
+                    return false;
+                }
+
+            }
         },
         computed: {
             ...mapGetters([

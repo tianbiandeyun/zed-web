@@ -92,5 +92,20 @@ export default {
     getDate(...res) {
         let [year, month, day] = [...res];
         return new Date(year, month, day);
+    },
+    /**
+     * 获取选择的日期中日期最大的一个
+     * */
+    getMaxDate(arr) {
+        let compare = [];
+        let v = {};
+        for (let i = 0; i < arr.length; i++) {
+            v[Date.parse(arr[i].replace(/\-/g, "/"))] = arr[i];
+            compare.push(Date.parse(arr[i].replace(/\-/g, "/")));
+        }
+        let maxDate = compare.sort()[compare.length - 1];
+        let a = {};
+        a[v[maxDate]] = v[maxDate];
+        return a;
     }
 }
