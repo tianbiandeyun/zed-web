@@ -80,7 +80,7 @@
              * 抽奖
              * */
             pick() {
-                this.$router.push('/reward')
+                this.$router.push('/sign')
             },
             /**
              * 签到
@@ -120,7 +120,7 @@
                         },
                         confirmText: '去抽奖',
                         operatButton() {
-                            that.$router.push('/reward')
+                            that.$router.push('/sign')
                         }
                     })
                 })
@@ -155,7 +155,7 @@
                         },
                         confirmText: '去抽奖',
                         operatButton() {
-                            that.$router.push('/reward')
+                            that.$router.push('/sign')
                         }
                     })
 
