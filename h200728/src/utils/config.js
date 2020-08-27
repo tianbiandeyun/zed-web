@@ -29,7 +29,7 @@ export const REQUEST_URL = `${PROJECT_REQUEST}?r=interface/api&ac=hxdf&ic=${PROJ
 export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
 
 /**
- *接口名
+ * 接口名
  * */
 export const PROJECT_INTERFACE = {
     getbonuslist: 'getbonuslist', // 已领取的奖励
@@ -42,4 +42,28 @@ export const PROJECT_INTERFACE = {
     getplayerinfo: 'getplayerinfo', // 用户信息
     getopenid: 'getopenid'
 };
+
+/**
+ * 奖品类别
+ * day 需要签到几天
+ * reward 奖品类别
+ * */
+export const REWARD_TYPE = {
+    4: {
+        day: 3,
+        reward: 2
+    },
+    5: {
+        day: 5,
+        reward: 3
+    },
+    7: {
+        day: 8,
+        reward: '爱奇艺会员'
+    },
+    8: {
+        day: 0,
+        reward: 1
+    }
+}
 

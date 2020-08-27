@@ -62,24 +62,7 @@
                     3: '过期',
                     4: '已抢光'
                 },
-                reward_type: { // 奖品类别
-                    4: {
-                        day: 3,
-                        reward: 2
-                    },
-                    5: {
-                        day: 5,
-                        reward: 3
-                    },
-                    7: {
-                        day: 8,
-                        reward: '爱奇艺会员'
-                    },
-                    8: {
-                        day: 0,
-                        reward: 1
-                    }
-                }
+                reward_type: this.$Config.REWARD_TYPE
             }
         },
         async mounted() {
