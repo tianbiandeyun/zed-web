@@ -72,7 +72,8 @@
              * 点击我想要的
              * */
             wantReward(item) {
-                console.log(item)
+                console.log(`剩余数量：${item.count}`);
+                console.log(`奖品类型：${item.bonustype}`);
             },
             /**
              * 翻牌选择奖品
