@@ -9,10 +9,10 @@
 
             <!--我想要的-->
             <div class="reward" v-if="want">
-                <div class="reward__item" v-for="(item,index) in 6" :key="index">
-                    <div class="reward__item_img">{{item}}</div>
+                <div class="reward__item" v-for="(item,index) in reward_list" :key="index" @click="wantReward(item)">
+                    <div class="reward__item_img">奖品类型：{{item.bonustype}}</div>
                     <div class="reward__item_name">
-                        玩着荣耀皮肤
+                        {{item.title}}
                     </div>
                 </div>
             </div>
@@ -50,7 +50,8 @@
         data() {
             return {
                 want: true,
-                change: []
+                change: [], // 翻开的牌面
+                reward_list: []
             }
         },
         mounted() {
@@ -62,11 +63,17 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
-                console.log(res)
+                this.reward_list = res.back_value;
             });
 
         },
         methods: {
+            /**
+             * 点击我想要的
+             * */
+            wantReward(item) {
+                console.log(item)
+            },
             /**
              * 翻牌选择奖品
              * */
