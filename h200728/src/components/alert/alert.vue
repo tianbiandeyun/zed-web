@@ -130,6 +130,7 @@
              * 按钮操作
              * */
             _operatButton() {
+                this._close();
                 this.operatButton();
             }
         }
