@@ -89,7 +89,7 @@
                             content: {
                                 alertType: 'want',
                                 title: item.title,
-                                rewardImg:'../../assets/images/test_reward.png'
+                                rewardImg: '@/assets/images/test_reward.png'
                             },
                             confirmText: '试试手气'
                         })

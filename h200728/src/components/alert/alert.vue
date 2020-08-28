@@ -34,6 +34,7 @@
                     <!--想要的奖品展示-->
                     <div v-if="content.alertType === 'want'">
                         <div>{{content.title}}</div>
+                        <img :src="require(content.rewardImg)" alt="">
                         <div>消耗青创币1枚</div>
                     </div>
 
