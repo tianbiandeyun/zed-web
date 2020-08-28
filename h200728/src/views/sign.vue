@@ -23,7 +23,7 @@
             <div class="change" v-else>
                 <div class="change__item" v-for="(item,index) in change_reward" :key="index"
                      @click="changeReward(index)">
-                    <img src="../assets/images/jiangpingfengmian.png" alt="">
+                    <img :class="`change__item${index}`" src="../assets/images/jiangpingfengmian.png" alt="">
                 </div>
             </div>
 
@@ -46,24 +46,23 @@
         name: "sign",
         data() {
             return {
-                want: true,
+                want: false,
                 change: [], // 翻开的牌面
                 reward_list: [], // 奖品列表
                 change_reward: ['', '', '', '', '', '']
-
             }
         },
         mounted() {
 
-            this.$store.dispatch('fetchData', {
-                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
-                fps: {
-                    open_id: this.openid_info.back_value.open_id
-                },
-                url: this.$Config.REQUEST_URL
-            }).then(res => {
-                this.reward_list = res.back_value;
-            });
+            // this.$store.dispatch('fetchData', {
+            //     im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+            //     fps: {
+            //         open_id: this.openid_info.back_value.open_id
+            //     },
+            //     url: this.$Config.REQUEST_URL
+            // }).then(res => {
+            //     this.reward_list = res.back_value;
+            // });
 
             // console.log(this.change_reward)
             //
@@ -71,7 +70,6 @@
             // this.change_reward.splice(num, 1, {title: '33'})
             //
             // console.log(this.change_reward)
-
 
         },
         methods: {
@@ -174,23 +172,52 @@
             padding: 20px;
             margin: 0 auto;
 
-            .change {
-
-                .change__item {
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-            }
-
             .reward, .change {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 300px);
                 grid-gap: 20px;
                 margin-bottom: 20px;
+
+                .change__item {
+                    font-size: 0;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        transition: all .3s ease-in;
+                    }
+
+                    .change__item0{
+                        transform: translateX(124px);
+                        opacity: 0;
+                    }
+
+                    .change__item2 {
+                        transform: translateX(-124px);
+                        opacity: 0;
+                    }
+
+                    .change__item3 {
+                        background-color: #808695;
+                        transform: translate(124px, -110px);
+                        opacity: 0;
+                    }
+
+                    .change__item4 {
+                        background-color: #ed4014;
+                        transform: translateY(-110px);
+                        opacity: 0;
+                    }
+
+                    .change__item5 {
+                        background-color: #5cadff;
+                        transform: translate(-124px, -110px);
+                        opacity: 0;
+                    }
+
+                }
 
                 .reward__item, .change__item {
                     -webkit-border-radius: @default-element-border-radius;
@@ -199,7 +226,7 @@
                     display: grid;
                     grid-template-rows: 6fr 1fr;
 
-                    .reward__item_img, .changeReward__item_img {
+                    .reward__item_img {
                         border-top-left-radius: @default-element-border-radius;
                         border-top-right-radius: @default-element-border-radius;
                         text-align: center;
@@ -213,7 +240,7 @@
                         }
                     }
 
-                    .reward__item_name, .changeReward__item_name {
+                    .reward__item_name {
                         background-color: @default-app-color-primary;
                         color: #fff;
                         border-bottom-left-radius: @default-element-border-radius;
