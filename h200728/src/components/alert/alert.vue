@@ -218,7 +218,7 @@
             }
 
             .alert-box_content {
-                border: 1px solid black;
+                /*border: 1px solid black;*/
                 text-align: center;
                 padding: 20px 0;
 

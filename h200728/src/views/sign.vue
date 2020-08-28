@@ -74,6 +74,7 @@
              * 点击我想要的
              * */
             wantReward(item) {
+                const that = this;
 
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_pv_statistics,
@@ -94,7 +95,10 @@
                                 rewardImg: item.bonus_img,
                                 title: item.title
                             },
-                            confirmText: '试试手气'
+                            confirmText: '试试手气',
+                            operatButton() {
+                                that.want = false;
+                            }
                         })
 
                     }
