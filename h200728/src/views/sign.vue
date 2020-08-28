@@ -46,7 +46,7 @@
         name: "sign",
         data() {
             return {
-                want: false,
+                want: true,
                 change: [], // 翻开的牌面
                 reward_list: [], // 奖品列表
                 change_reward: ['', '', '', '', '', '']
@@ -54,15 +54,15 @@
         },
         mounted() {
 
-            // this.$store.dispatch('fetchData', {
-            //     im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
-            //     fps: {
-            //         open_id: this.openid_info.back_value.open_id
-            //     },
-            //     url: this.$Config.REQUEST_URL
-            // }).then(res => {
-            //     this.reward_list = res.back_value;
-            // });
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                this.reward_list = res.back_value;
+            });
 
             // console.log(this.change_reward)
             //
@@ -189,11 +189,10 @@
                         transition: all 1s ease-in;
                     }
 
-
                     .change__itemActive0 {
                         animation: change__item0-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .4s;
+                        animation-delay: .2s;
                     }
 
                     @-webkit-keyframes change__item0-animation {
@@ -221,7 +220,7 @@
                     .change__itemActive2 {
                         animation: change__item2-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .4s;
+                        animation-delay: .2s;
                     }
 
                     @-webkit-keyframes change__item2-animation {
@@ -249,7 +248,7 @@
                     .change__itemActive3 {
                         animation: change__item3-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .4s;
+                        animation-delay: .2s;
                     }
 
                     @-webkit-keyframes change__item3-animation {
@@ -277,7 +276,7 @@
                     .change__itemActive4 {
                         animation: change__item4-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .4s;
+                        animation-delay: .2s;
                     }
 
                     @-webkit-keyframes change__item4-animation {
@@ -305,7 +304,7 @@
                     .change__itemActive5 {
                         animation: change__item5-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .4s;
+                        animation-delay: .2s;
                     }
 
                     @-webkit-keyframes change__item5-animation {
