@@ -33,7 +33,6 @@
 
                     <!--想要的奖品展示-->
                     <div v-if="content.alertType === 'want'">
-
                         <div class="alert-box_content__want">
                             <div class="want-title">{{content.title}}</div>
                             <div class="want-img">
@@ -41,7 +40,6 @@
                             </div>
                             <div class="want-tip">消耗青创币1枚</div>
                         </div>
-
                     </div>
 
                 </div>
