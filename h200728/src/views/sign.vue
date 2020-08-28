@@ -2,7 +2,7 @@
     <section class="sign-container">
 
         <div class="sign_count">
-            <p class="count">剩余青创币可抽奖<span>999</span>次</p>
+            <p class="count">剩余青创币可抽奖<span>{{reward_count}}</span>次</p>
         </div>
 
         <div class="reward_box">
@@ -21,8 +21,8 @@
 
             <!--抽奖-->
             <div class="change" v-else>
-                <div class="change__item" v-for="(item,index) in change_reward" :key="index"
-                     @click="changeReward(index)">
+                <div class="change__item" v-for="(item,index) in 6" :key="index"
+                     @click="changeReward">
                     <img :class="`change__itemActive${index}`" src="../assets/images/jiangpingfengmian.png" alt="">
                 </div>
             </div>
@@ -47,13 +47,14 @@
         data() {
             return {
                 want: true,
-                change: [], // 翻开的牌面
+                reward_type: '', // 奖品类型 - 用于抽奖的时候告诉后端抽的是什么
                 reward_list: [], // 奖品列表
-                change_reward: ['', '', '', '', '', '']
+                reward_count: 0, // 剩余抽奖次数
             }
         },
         mounted() {
 
+            // 获取奖品列表
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
                 fps: {
@@ -63,6 +64,8 @@
             }).then(res => {
                 this.reward_list = res.back_value;
             });
+
+            this._getRewardCount();
 
         },
         methods: {
@@ -93,6 +96,7 @@
                             },
                             confirmText: '试试手气',
                             operatButton() {
+                                that.reward_type = item.bonustype;
                                 that.want = false;
                             }
                         })
@@ -103,8 +107,33 @@
             /**
              * 翻牌选择奖品
              * */
-            changeReward(index) {
-                this.change = [...this.change, index]
+            changeReward() {
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.set_luck_draw,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        bonustype: this.reward_type
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value.bonustype !== 1) {
+                        alert(`奖品类型：${res.back_value.bonustype}`)
+                    }
+                })
+            },
+            /**
+             * 获取剩余抽奖次数
+             * */
+            _getRewardCount() {
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_prize_record_count,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.reward_count = res.back_value;
+                })
             }
         },
         computed: {
