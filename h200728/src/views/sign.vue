@@ -23,7 +23,7 @@
             <div class="change" v-else>
                 <div class="change__item" v-for="(item,index) in change_reward" :key="index"
                      @click="changeReward(index)">
-                    <img :class="`change__item${index}`" src="../assets/images/jiangpingfengmian.png" alt="">
+                    <img :class="`change__itemActive${index}`" src="../assets/images/jiangpingfengmian.png" alt="">
                 </div>
             </div>
 
@@ -186,35 +186,148 @@
                     img {
                         width: 100%;
                         height: 100%;
-                        transition: all .3s ease-in;
+                        transition: all 1s ease-in;
                     }
 
-                    .change__item0{
-                        transform: translateX(124px);
-                        opacity: 0;
+
+                    .change__itemActive0 {
+                        animation: change__item0-animation .3s;
+                        animation-fill-mode: forwards;
+                        animation-delay: .4s;
                     }
 
-                    .change__item2 {
-                        transform: translateX(-124px);
-                        opacity: 0;
+                    @-webkit-keyframes change__item0-animation {
+                        0% {
+                            transform: translateX(124px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateX(0px);
+                            opacity: 1;
+                        }
                     }
 
-                    .change__item3 {
-                        background-color: #808695;
-                        transform: translate(124px, -110px);
-                        opacity: 0;
+                    @keyframes change__item0-animation {
+                        0% {
+                            transform: translateX(124px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateX(0px);
+                            opacity: 1;
+                        }
                     }
 
-                    .change__item4 {
-                        background-color: #ed4014;
-                        transform: translateY(-110px);
-                        opacity: 0;
+                    .change__itemActive2 {
+                        animation: change__item2-animation .3s;
+                        animation-fill-mode: forwards;
+                        animation-delay: .4s;
                     }
 
-                    .change__item5 {
-                        background-color: #5cadff;
-                        transform: translate(-124px, -110px);
-                        opacity: 0;
+                    @-webkit-keyframes change__item2-animation {
+                        0% {
+                            transform: translateX(-124px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateX(0px);
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes change__item2-animation {
+                        0% {
+                            transform: translateX(-124px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateX(0px);
+                            opacity: 1;
+                        }
+                    }
+
+                    .change__itemActive3 {
+                        animation: change__item3-animation .3s;
+                        animation-fill-mode: forwards;
+                        animation-delay: .4s;
+                    }
+
+                    @-webkit-keyframes change__item3-animation {
+                        0% {
+                            transform: translate(124px, -110px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translate(0px, 0px);
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes change__item3-animation {
+                        0% {
+                            transform: translate(124px, -110px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translate(0px, 0px);
+                            opacity: 1;
+                        }
+                    }
+
+                    .change__itemActive4 {
+                        animation: change__item4-animation .3s;
+                        animation-fill-mode: forwards;
+                        animation-delay: .4s;
+                    }
+
+                    @-webkit-keyframes change__item4-animation {
+                        0% {
+                            transform: translateY(-110px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateY(0px);
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes change__item4-animation {
+                        0% {
+                            transform: translateY(-110px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateY(0px);
+                            opacity: 1;
+                        }
+                    }
+
+                    .change__itemActive5 {
+                        animation: change__item5-animation .3s;
+                        animation-fill-mode: forwards;
+                        animation-delay: .4s;
+                    }
+
+                    @-webkit-keyframes change__item5-animation {
+                        0% {
+                            transform: translate(-124px, -110px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translate(0px, 0px);
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes change__item5-animation {
+                        0% {
+                            transform: translate(-124px, -110px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translate(0px, 0px);
+                            opacity: 1;
+                        }
                     }
 
                 }
