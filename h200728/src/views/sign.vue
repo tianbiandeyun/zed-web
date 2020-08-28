@@ -83,6 +83,17 @@
                     if (res.back_value) {
                         console.log(`剩余数量：${item.count}`);
                         console.log(`奖品类型：${item.bonustype}`);
+
+                        this.$Alert.show({
+                            titleShow: false,
+                            content: {
+                                alertType: 'want',
+                                title: item.title,
+                                rewardImg:'../../assets/images/test_reward.png'
+                            },
+                            confirmText: '试试手气'
+                        })
+
                     }
                 });
             },

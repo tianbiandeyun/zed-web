@@ -31,6 +31,12 @@
                         </div>
                     </div>
 
+                    <!--想要的奖品展示-->
+                    <div v-if="content.alertType === 'want'">
+                        <div>{{content.title}}</div>
+                        <div>消耗青创币1枚</div>
+                    </div>
+
                 </div>
 
                 <!--按钮-->
