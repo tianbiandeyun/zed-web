@@ -23,15 +23,7 @@
             <div class="change" v-else>
                 <div class="change__item" v-for="(item,index) in change_reward" :key="index"
                      @click="changeReward(index)">
-                    <transition name="changeReward">
-                        <img v-show="!change.includes(index)" src="../assets/images/jiangpingfengmian.png" alt="">
-                    </transition>
-                    <div v-show="change.includes(index)" class="changeReward__item_img">
-                        ddd
-                    </div>
-                    <div v-show="change.includes(index)" class="changeReward__item_name">
-                        {{index}}
-                    </div>
+                    <img src="../assets/images/jiangpingfengmian.png" alt="">
                 </div>
             </div>
 
@@ -54,7 +46,7 @@
         name: "sign",
         data() {
             return {
-                want: false,
+                want: true,
                 change: [], // 翻开的牌面
                 reward_list: [], // 奖品列表
                 change_reward: ['', '', '', '', '', '']
@@ -63,15 +55,15 @@
         },
         mounted() {
 
-            // this.$store.dispatch('fetchData', {
-            //     im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
-            //     fps: {
-            //         open_id: this.openid_info.back_value.open_id
-            //     },
-            //     url: this.$Config.REQUEST_URL
-            // }).then(res => {
-            //     this.reward_list = res.back_value;
-            // });
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                this.reward_list = res.back_value;
+            });
 
             // console.log(this.change_reward)
             //
