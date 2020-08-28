@@ -25,9 +25,11 @@
                     <transition name="changeReward">
                         <img v-show="!change.includes(index)" src="../assets/images/jiangpingfengmian.png" alt="">
                     </transition>
-                    <div v-show="change.includes(index)" class="changeReward__item_img">{{item}}</div>
+                    <div v-show="change.includes(index)" class="changeReward__item_img">
+                        ddd
+                    </div>
                     <div v-show="change.includes(index)" class="changeReward__item_name">
-                        玩着荣耀皮肤
+                        {{item}}
                     </div>
                 </div>
             </div>
@@ -51,22 +53,22 @@
         name: "sign",
         data() {
             return {
-                want: true,
+                want: false,
                 change: [], // 翻开的牌面
-                reward_list: []
+                reward_list: [], // 奖品列表
             }
         },
         mounted() {
 
-            this.$store.dispatch('fetchData', {
-                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
-                fps: {
-                    open_id: this.openid_info.back_value.open_id
-                },
-                url: this.$Config.REQUEST_URL
-            }).then(res => {
-                this.reward_list = res.back_value;
-            });
+            // this.$store.dispatch('fetchData', {
+            //     im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+            //     fps: {
+            //         open_id: this.openid_info.back_value.open_id
+            //     },
+            //     url: this.$Config.REQUEST_URL
+            // }).then(res => {
+            //     this.reward_list = res.back_value;
+            // });
 
         },
         methods: {
