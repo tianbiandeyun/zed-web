@@ -250,7 +250,8 @@
                         margin-bottom: 20px;
 
                         img {
-                            width: 400px;
+                            width: 560px;
+                            height: 660px;
                         }
                     }
 
@@ -275,7 +276,7 @@
             .alert-box_close {
                 width: 60px;
                 position: absolute;
-                bottom: -120px;
+                bottom: -100px;
                 left: 50%;
                 margin-left: -30px;
 

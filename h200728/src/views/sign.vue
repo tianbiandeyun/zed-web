@@ -185,7 +185,7 @@
                     .change__itemActive0 {
                         animation: change__item0-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .2s;
+                        animation-delay: .3s;
                     }
 
                     @-webkit-keyframes change__item0-animation {
@@ -213,7 +213,7 @@
                     .change__itemActive2 {
                         animation: change__item2-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .2s;
+                        animation-delay: .3s;
                     }
 
                     @-webkit-keyframes change__item2-animation {
@@ -241,7 +241,7 @@
                     .change__itemActive3 {
                         animation: change__item3-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .2s;
+                        animation-delay: .3s;
                     }
 
                     @-webkit-keyframes change__item3-animation {
@@ -269,7 +269,7 @@
                     .change__itemActive4 {
                         animation: change__item4-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .2s;
+                        animation-delay: .3s;
                     }
 
                     @-webkit-keyframes change__item4-animation {
@@ -297,7 +297,7 @@
                     .change__itemActive5 {
                         animation: change__item5-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .2s;
+                        animation-delay: .3s;
                     }
 
                     @-webkit-keyframes change__item5-animation {
