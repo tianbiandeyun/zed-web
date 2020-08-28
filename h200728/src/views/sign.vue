@@ -21,7 +21,8 @@
 
             <!--抽奖-->
             <div class="change" v-else>
-                <div class="change__item" v-for="(item,index) in 6" :key="index" @click="changeReward(index)">
+                <div class="change__item" v-for="(item,index) in change_reward" :key="index"
+                     @click="changeReward(index)">
                     <transition name="changeReward">
                         <img v-show="!change.includes(index)" src="../assets/images/jiangpingfengmian.png" alt="">
                     </transition>
@@ -29,7 +30,7 @@
                         ddd
                     </div>
                     <div v-show="change.includes(index)" class="changeReward__item_name">
-                        {{item}}
+                        {{index}}
                     </div>
                 </div>
             </div>
@@ -56,6 +57,8 @@
                 want: false,
                 change: [], // 翻开的牌面
                 reward_list: [], // 奖品列表
+                change_reward: ['', '', '', '', '', '']
+
             }
         },
         mounted() {
@@ -69,6 +72,14 @@
             // }).then(res => {
             //     this.reward_list = res.back_value;
             // });
+
+            // console.log(this.change_reward)
+            //
+            // let num = Math.floor(Math.random() * 6 + 0);
+            // this.change_reward.splice(num, 1, {title: '33'})
+            //
+            // console.log(this.change_reward)
+
 
         },
         methods: {
