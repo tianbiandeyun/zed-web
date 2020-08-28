@@ -64,13 +64,6 @@
                 this.reward_list = res.back_value;
             });
 
-            // console.log(this.change_reward)
-            //
-            // let num = Math.floor(Math.random() * 6 + 0);
-            // this.change_reward.splice(num, 1, {title: '33'})
-            //
-            // console.log(this.change_reward)
-
         },
         methods: {
             /**
@@ -359,7 +352,7 @@
                         border-bottom-right-radius: @default-element-border-radius;
                         font-size: @default-font-size-26;
                         text-align: center;
-                        line-height: 1.4;
+                        line-height: 1.6;
                     }
                 }
             }
