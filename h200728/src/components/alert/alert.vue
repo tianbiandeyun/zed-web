@@ -33,9 +33,15 @@
 
                     <!--想要的奖品展示-->
                     <div v-if="content.alertType === 'want'">
-                        <div>{{content.title}}</div>
-                        <img :src="require(content.rewardImg)" alt="">
-                        <div>消耗青创币1枚</div>
+
+                        <div class="alert-box_content__want">
+                            <div class="want-title">{{content.title}}</div>
+                            <div class="want-img">
+                                <img :src="content.rewardImg" alt="">
+                            </div>
+                            <div class="want-tip">消耗青创币1枚</div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -229,6 +235,27 @@
                         color: @default-font-color-content;
                         line-height: 2;
                     }
+                }
+
+                .alert-box_content__want {
+
+                    .want-title {
+                        margin-bottom: 20px;
+                    }
+
+                    .want-title, .want-tip {
+                        font-size: @default-font-size-30;
+                        color: @default-font-color-content;
+                    }
+
+                    .want-img {
+                        margin-bottom: 20px;
+
+                        img {
+                            width: 400px;
+                        }
+                    }
+
                 }
             }
 

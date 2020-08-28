@@ -10,7 +10,9 @@
             <!--我想要的-->
             <div class="reward" v-if="want">
                 <div class="reward__item" v-for="(item,index) in reward_list" :key="index" @click="wantReward(item)">
-                    <div class="reward__item_img">奖品类型：{{item.bonustype}}</div>
+                    <div class="reward__item_img">
+                        <img :src="item.bonus_img" alt="">
+                    </div>
                     <div class="reward__item_name">
                         {{item.title}}
                     </div>
@@ -81,6 +83,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
+
                         console.log(`剩余数量：${item.count}`);
                         console.log(`奖品类型：${item.bonustype}`);
 
@@ -88,8 +91,8 @@
                             titleShow: false,
                             content: {
                                 alertType: 'want',
-                                title: item.title,
-                                rewardImg: '@/assets/images/test_reward.png'
+                                rewardImg: item.bonus_img,
+                                title: item.title
                             },
                             confirmText: '试试手气'
                         })
@@ -192,6 +195,13 @@
                         border-top-right-radius: @default-element-border-radius;
                         text-align: center;
                         line-height: 4;
+                        font-size: 0;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
 
                     .reward__item_name, .changeReward__item_name {
