@@ -118,6 +118,8 @@
                 }).then(res => {
                     if (res.back_value.bonustype !== 1) {
                         alert(`奖品类型：${res.back_value.bonustype}`)
+                    } else {
+                        alert(`没有中奖`)
                     }
                 })
             },
