@@ -42,6 +42,13 @@
                         </div>
                     </div>
 
+                    <!--中奖-->
+                    <div v-if="content.alertType === 'reward'">
+                        <div class="alert-box_content__reward">
+                            {{content.type}}
+                        </div>
+                    </div>
+
                 </div>
 
                 <!--按钮-->
@@ -254,6 +261,10 @@
                             height: 660px;
                         }
                     }
+
+                }
+
+                .alert-box_content__reward {
 
                 }
             }

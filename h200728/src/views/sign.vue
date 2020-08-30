@@ -5,36 +5,44 @@
             <p class="count">剩余青创币可抽奖<span>{{reward_count}}</span>次</p>
         </div>
 
-        <div class="reward_box">
+        <transition name="fanzhuan">
 
-            <!--我想要的-->
-            <div class="reward" v-if="want">
-                <div class="reward__item" v-for="(item,index) in reward_list" :key="index" @click="wantReward(item)">
-                    <div class="reward__item_img">
-                        <img :src="item.bonus_img" alt="">
-                    </div>
-                    <div class="reward__item_name">
-                        {{item.title}}
+            <div class="reward_box" v-if="!is_reward">
+
+                <!--我想要的-->
+                <div class="reward" v-if="want" :key="0">
+                    <div class="reward__item" v-for="(item,index) in reward_list"
+                         :key="index"
+                         :date-reward-type="item.bonustype"
+                         @click="wantReward(item)">
+                        <div class="reward__item_img">
+                            <img :src="item.bonus_img" alt="">
+                        </div>
+                        <div class="reward__item_name">
+                            {{item.title}}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!--抽奖-->
-            <div class="change" v-else>
-                <div class="change__item" v-for="(item,index) in 6" :key="index"
-                     @click="changeReward">
-                    <img :class="`change__itemActive${index}`" src="../assets/images/jiangpingfengmian.png" alt="">
+                <!--抽奖-->
+                <div class="change" v-else>
+                    <div class="change__item" v-for="(item,index) in 6"
+                         :key="index"
+                         @click="changeReward">
+                        <img :class="`change__itemActive${index}`" src="../assets/images/jiangpingfengmian.png" alt="">
+                    </div>
                 </div>
+
+                <!--提示-->
+                <div class="reward_tip">
+                    <div><img src="../assets/images/left.png" alt=""></div>
+                    <div>点击图标选择想要的奖品</div>
+                    <div><img src="../assets/images/right.png" alt=""></div>
+                </div>
+
             </div>
 
-            <!--提示-->
-            <div class="reward_tip">
-                <div><img src="../assets/images/left.png" alt=""></div>
-                <div>点击图标选择想要的奖品</div>
-                <div><img src="../assets/images/right.png" alt=""></div>
-            </div>
-
-        </div>
+        </transition>
 
     </section>
 </template>
@@ -46,10 +54,11 @@
         name: "sign",
         data() {
             return {
-                want: true,
+                want: true, // 考试显示，我想要的还是抽奖的
                 reward_type: '', // 奖品类型 - 用于抽奖的时候告诉后端抽的是什么
                 reward_list: [], // 奖品列表
                 reward_count: 0, // 剩余抽奖次数
+                is_reward: false
             }
         },
         mounted() {
@@ -117,7 +126,17 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value.bonustype !== 1) {
-                        alert(`奖品类型：${res.back_value.bonustype}`)
+                        this.is_reward = true;
+
+                        this.$Alert.show({
+                            title: '恭喜中奖',
+                            content: {
+                                alertType: 'reward',
+                                type: res.back_value.bonustype
+                            },
+                            confirmText: '前往领奖'
+                        })
+
                     } else {
                         alert(`没有中奖`)
                     }
@@ -148,12 +167,12 @@
 
 <style lang="less" scoped>
 
-    .changeReward-leave-to {
+    .fanzhuan-leave-to {
         transform: rotateY(180deg);
         opacity: 0;
     }
 
-    .changeReward-enter-active, .changeReward-leave-active {
+    .fanzhuan-enter-active, .fanzhuan-leave-active {
         transition: all .3s ease-in-out;
     }
 
