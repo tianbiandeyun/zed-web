@@ -25,16 +25,15 @@
                 <h1>领取人完整信息：</h1>
 
                 <div>
-                    <Field v-model="text" label="姓名" placeholder="请输入姓名"/>
+                    <Field v-model="name" label="姓名" placeholder="请输入姓名"/>
                 </div>
 
                 <div>
-                    <Field v-model="tel" type="tel" label="手机号" placeholder="请输入手机号"/>
+                    <Field v-model="photo" type="tel" label="手机号" placeholder="请输入手机号"/>
                 </div>
 
                 <div>
                     <Field
-                            v-model="photo"
                             center
                             clearable
                             label="短信验证码"
@@ -60,6 +59,9 @@
         <Divider>为了完成后续奖品兑换服务，同意该信息提供给第三方</Divider>
 
         <!--提交-->
+        <div class="">
+
+        </div>
 
 
     </section>
@@ -74,13 +76,12 @@
         components: {Swipe, SwipeItem, Field, Button, Divider},
         data() {
             return {
-                swiper: [],
-                message: '发送验证码',
-                timer: null,
-                photo: '',
-                button_disabled: false,
-                tel: '',
-                text: ''
+                swiper: [], // 轮播图
+                message: '发送验证码', // 短信验证码按钮文字
+                timer: null, // 定时器清除
+                photo: '', // 电话号码
+                button_disabled: false, // 按钮禁用
+                name: ''
             }
         },
         mounted() {
