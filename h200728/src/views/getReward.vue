@@ -34,6 +34,7 @@
 
                 <div>
                     <Field
+                            v-model="photo_code"
                             center
                             clearable
                             label="短信验证码"
@@ -59,8 +60,8 @@
         <Divider>为了完成后续奖品兑换服务，同意该信息提供给第三方</Divider>
 
         <!--提交-->
-        <div class="">
-
+        <div class="submit">
+            <button @click="submit">兑换</button>
         </div>
 
 
@@ -81,7 +82,8 @@
                 timer: null, // 定时器清除
                 photo: '', // 电话号码
                 button_disabled: false, // 按钮禁用
-                name: ''
+                name: '',
+                photo_code: ''
             }
         },
         mounted() {
@@ -98,6 +100,19 @@
 
         },
         methods: {
+            submit() {
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.setplayerinfo,
+                    fps: {
+                        open_id: 'OPEN_ID_HELP_0',
+                        username: this.name,
+                        phone: this.photo,
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    console.log(res);
+                })
+            },
             /**
              * 点击获取验证码
              * */
@@ -124,7 +139,7 @@
                         this.timer = setInterval(() => {
                             if (code > 0 && code <= TIME_COUNT) {
                                 code--;
-                                this.message = `${code--}s后获取`;
+                                this.message = `${code}s后获取`;
                             } else {
                                 clearInterval(this.timer);
                                 this.timer = null;
@@ -211,6 +226,22 @@
                     line-height: 0;
                 }
 
+            }
+        }
+
+        .submit {
+            text-align: center;
+            padding-top: 20px;
+
+            button {
+                background-color: @default-app-color-primary;
+                font-size: @default-font-size-38;
+                color: #fff;
+                width: 200px;
+                padding: 20px 0;
+                -webkit-border-radius: @default-element-border-radius;
+                -moz-border-radius: @default-element-border-radius;
+                border-radius: @default-element-border-radius;
             }
         }
     }
