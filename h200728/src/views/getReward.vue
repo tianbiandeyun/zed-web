@@ -4,10 +4,9 @@
         <!--轮播-->
         <div class="get_reward_swiper">
             <Swipe class="swiper" :autoplay="3000" indicator-color="white">
-                <SwipeItem>1</SwipeItem>
-                <SwipeItem>2</SwipeItem>
-                <SwipeItem>3</SwipeItem>
-                <SwipeItem>4</SwipeItem>
+                <SwipeItem v-for="(item,index) in swiper" :key="index">
+                    {{item.id}}
+                </SwipeItem>
             </Swipe>
         </div>
 
@@ -60,6 +59,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     import {Swipe, SwipeItem, Field, Button, Divider} from 'vant';
 
     export default {
@@ -67,10 +67,29 @@
         components: {Swipe, SwipeItem, Field, Button, Divider},
         data() {
             return {
+                swiper: [],
                 sms: '',
                 tel: '',
                 text: ''
             }
+        },
+        mounted() {
+
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_banner,
+                fps: {
+                    page_name: '签到领福利'
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                this.swiper = res.back_value;
+            })
+
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
         }
     }
 </script>
