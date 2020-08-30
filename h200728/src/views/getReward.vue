@@ -46,7 +46,7 @@
                                     type="primary"
                                     color="#f7931e"
                                     @click="getCode"
-                                    :disabled="message !== '发送验证码'">
+                                    :disabled="button_disabled">
                                 {{message}}
                             </Button>
                         </template>
@@ -78,6 +78,7 @@
                 message: '发送验证码',
                 timer: null,
                 photo: '',
+                button_disabled: false,
                 tel: '',
                 text: ''
             }
@@ -108,32 +109,32 @@
 
                 let code_result = await this._getPhotoCode(this.photo);
 
-                console.log(code_result)
+                if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
+                    alert('电话已存在，无法重复注册');
+                    return false;
+                }
 
-                // if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
-                //     alert('电话已存在，无法重复注册');
-                //     return false;
-                // }
-                //
-                // if (code_result.back_value) {
-                //     const TIME_COUNT = 60;
-                //     if (!this.timer) {
-                //         let code = TIME_COUNT;
-                //         this.message = `${TIME_COUNT}s后获取`;
-                //         this.timer = setInterval(() => {
-                //             if (code > 0 && code <= TIME_COUNT) {
-                //                 code--;
-                //                 this.message = `${code--}s后获取`;
-                //             } else {
-                //                 clearInterval(this.timer);
-                //                 this.timer = null;
-                //                 this.message = '获取验证码';
-                //             }
-                //         }, 1000);
-                //     } else {
-                //         console.log('不能一直点')
-                //     }
-                // }
+                if (code_result.back_value) {
+                    const TIME_COUNT = 60;
+                    if (!this.timer) {
+                        let code = TIME_COUNT;
+                        this.button_disabled = true;
+                        this.message = `${TIME_COUNT}s后获取`;
+                        this.timer = setInterval(() => {
+                            if (code > 0 && code <= TIME_COUNT) {
+                                code--;
+                                this.message = `${code--}s后获取`;
+                            } else {
+                                clearInterval(this.timer);
+                                this.timer = null;
+                                this.message = '发送验证码';
+                                this.button_disabled = false;
+                            }
+                        }, 1000);
+                    } else {
+                        console.log('不能一直点')
+                    }
+                }
 
             },
             /**
@@ -143,7 +144,8 @@
                 return this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.send_phone_identifying_code,
                     fps: {
-                        open_id: this.openid_info.back_value.open_id,
+                        // open_id: this.openid_info.back_value.open_id,
+                        open_id: 'OPEN_ID_HELP_0',
                         phonenum: photo
                     },
                     url: this.$Config.REQUEST_URL
