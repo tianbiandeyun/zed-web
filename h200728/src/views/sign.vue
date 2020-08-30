@@ -138,7 +138,16 @@
                         })
 
                     } else {
-                        alert(`没有中奖`)
+
+                        this.$Alert.show({
+                            titleShow: false,
+                            content: {
+                                alertType: 'noReward',
+                                content: '没有中奖'
+                            },
+                            confirmText: '再来一次'
+                        })
+
                     }
                 })
             },

@@ -49,6 +49,13 @@
                         </div>
                     </div>
 
+                    <!--没有中奖-->
+                    <div v-if="content.alertType === 'noReward'">
+                        <div class="alert-box_content__noReward">
+                            {{content.content}}
+                        </div>
+                    </div>
+
                 </div>
 
                 <!--按钮-->
@@ -265,6 +272,10 @@
                 }
 
                 .alert-box_content__reward {
+
+                }
+
+                .alert-box_content__noReward {
 
                 }
             }
