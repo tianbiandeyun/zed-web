@@ -110,12 +110,32 @@
                         console.log(`奖品类型：${item.bonustype}`);
 
                         if (+this.reward_count === 0) {
-                            window.alert('没有抽奖机会');
+                            this.$Alert.show({
+                                titleShow: false,
+                                content: {
+                                    alertType: 'noReward',
+                                    content: '没有抽奖机会'
+                                },
+                                confirmText: '关闭',
+                                operatButton() {
+                                    console.log('关闭')
+                                }
+                            });
                             return false;
                         }
 
                         if (+item.count === 0) {
-                            window.alert('奖品被抢光');
+                            this.$Alert.show({
+                                titleShow: false,
+                                content: {
+                                    alertType: 'noReward',
+                                    content: '奖品已抢光，正在补货中'
+                                },
+                                confirmText: '查看其他奖励',
+                                operatButton() {
+                                    console.log('关闭')
+                                }
+                            });
                             return false;
                         }
 
