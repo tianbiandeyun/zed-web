@@ -150,6 +150,7 @@
                         })
 
                     } else {
+                        this.is_reward = true;
 
                         this.$Alert.show({
                             titleShow: false,
