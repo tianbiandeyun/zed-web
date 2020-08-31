@@ -70,11 +70,11 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import {Swipe, SwipeItem, Field, Button, Divider} from 'vant';
+    import {Swipe, SwipeItem, Field, Button, Divider, Toast} from 'vant';
 
     export default {
         name: "get_reward",
-        components: {Swipe, SwipeItem, Field, Button, Divider},
+        components: {Swipe, SwipeItem, Field, Button, Divider, Toast},
         data() {
             return {
                 swiper: [], // 轮播图
@@ -108,6 +108,11 @@
              * 提交信息
              * */
             submit() {
+                Toast.loading({
+                    message: '加载中...',
+                    forbidClick: true,
+                    duration: 0
+                });
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_prize_user_info,
                     fps: {
@@ -119,15 +124,8 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
-                    this.$Alert.show({
-                        title: '提交成功',
-                        content: {
-                            alertType: 'noReward',
-                            content: '提交成功，翘首以待你的礼物吧'
-                        },
-                        confirmText: '关闭',
-                        closeShow: false
-                    });
+                    Toast.clear();
+                    window.alert('成功')
                 })
             },
             /**
@@ -135,7 +133,14 @@
              * */
             async getCode() {
 
+                Toast.loading({
+                    message: '加载中...',
+                    forbidClick: true,
+                    duration: 0
+                });
+
                 if (this.photo === '') {
+                    Toast.clear();
                     alert('请填写手机');
                     return false;
                 }
@@ -143,11 +148,13 @@
                 let code_result = await this._getPhotoCode(this.photo);
 
                 if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
+                    Toast.clear();
                     alert('电话已存在，无法重复注册');
                     return false;
                 }
 
                 if (code_result.back_value) {
+                    Toast.clear();
                     const TIME_COUNT = 60;
                     if (!this.timer) {
                         let code = TIME_COUNT;
