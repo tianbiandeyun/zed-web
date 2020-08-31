@@ -80,10 +80,10 @@
                 swiper: [], // 轮播图
                 message: '发送验证码', // 短信验证码按钮文字
                 timer: null, // 定时器清除
-                photo: '', // 电话号码
                 button_disabled: false, // 按钮禁用
-                name: '',
-                photo_code: ''
+                name: '', // 姓名
+                photo: '', // 电话号码
+                photo_code: '' // 验证码
             }
         },
         mounted() {
@@ -102,11 +102,12 @@
         methods: {
             submit() {
                 this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.setplayerinfo,
+                    im: this.$Config.PROJECT_INTERFACE.update_save_phonenum,
                     fps: {
                         open_id: 'OPEN_ID_HELP_0',
                         username: this.name,
-                        phone: this.photo,
+                        phonenum: this.photo,
+                        phonecode: this.photo_code
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
