@@ -49,11 +49,12 @@
 
 <script>
     import calender from '../components/calender/calender'
+    import {Toast} from 'vant';
     import {mapGetters} from 'vuex'
 
     export default {
         name: 'Home',
-        components: {calender},
+        components: {calender, Toast},
         data() {
             return {
                 exist_date: [], // 已签到的日期
@@ -71,6 +72,13 @@
             }
         },
         async mounted() {
+
+            Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0
+            });
+
             this.$Utils.setDocumentTitle('签到领取福利');
             /**
              * openid
@@ -81,11 +89,19 @@
             });
             this.refresh();
 
+            Toast.clear();
+
         },
         methods: {
+            /**
+             * 已获得的奖品
+             * */
             getRewardList() {
                 this.$router.push('/reward')
             },
+            /**
+             * 规则
+             * */
             rule() {
                 this.$router.push('/rule')
             },

@@ -49,10 +49,12 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import {Toast} from 'vant';
     import alert from "../components/alert/alert";
 
     export default {
         name: "sign",
+        components: {Toast},
         data() {
             return {
                 want: true, // 考试显示，我想要的还是抽奖的
@@ -63,6 +65,13 @@
             }
         },
         mounted() {
+
+            Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0
+            });
+
             this.$Utils.setDocumentTitle('试试手气');
             /**
              * 获取奖品列表
@@ -78,6 +87,8 @@
             });
 
             this._getRewardCount();
+
+            Toast.clear();
 
         },
         methods: {
