@@ -3,6 +3,12 @@
 
         <header class="banner">
             <img src="../assets/images/banner@3x.png" alt="">
+
+            <!--规则-->
+            <div class="rule" @click="rule">规则</div>
+
+            <!--已领取-->
+            <div class="get_reward" @click="getRewardList">已领取福利</div>
         </header>
 
         <!--日历盘-->
@@ -37,12 +43,6 @@
             </div>
 
         </div>
-
-        <!--规则-->
-        <div class="rule" @click="rule">规则</div>
-
-        <!--已领取-->
-        <div class="get_reward" @click="getRewardList">已领取福利</div>
 
     </section>
 </template>
@@ -248,9 +248,31 @@
             width: 100%;
             font-size: 0;
             margin-bottom: 20px;
+            position: relative;
 
             img {
                 width: 100%;
+            }
+
+            .rule, .get_reward {
+                position: absolute;
+                top: 100px;
+                font-size: @default-font-size-26;
+                background-color: rgba(000, 000, 000, .2);
+                color: #fff;
+            }
+
+            .rule {
+                left: 0;
+                padding: 10px 40px 10px 20px;
+                border-top-right-radius: @default-element-border-radius;
+                border-bottom-right-radius: @default-element-border-radius;
+            }
+            .get_reward {
+                right: 0;
+                padding: 10px 20px 10px 40px;
+                border-top-left-radius: @default-element-border-radius;
+                border-bottom-left-radius: @default-element-border-radius;
             }
         }
 
@@ -320,27 +342,6 @@
                 }
             }
 
-        }
-
-        .rule, .get_reward {
-            position: fixed;
-            top: 100px;
-            font-size: @default-font-size-26;
-            background-color: rgba(000, 000, 000, .2);
-            color: #fff;
-        }
-
-        .rule {
-            left: 0;
-            padding: 10px 40px 10px 20px;
-            border-top-right-radius: @default-element-border-radius;
-            border-bottom-right-radius: @default-element-border-radius;
-        }
-        .get_reward {
-            right: 0;
-            padding: 10px 20px 10px 40px;
-            border-top-left-radius: @default-element-border-radius;
-            border-bottom-left-radius: @default-element-border-radius;
         }
 
     }
