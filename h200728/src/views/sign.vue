@@ -10,23 +10,23 @@
             <div class="reward_box" v-if="!is_reward">
 
                 <!--我想要的-->
-                <div class="reward" v-if="want" :key="0">
-                    <div class="reward__item" v-for="(item,index) in reward_list"
+                <div class="want_reward" v-if="want">
+                    <div class="want_reward__item" v-for="(item,index) in reward_list"
                          :key="index"
                          :date-reward-type="item.bonustype"
                          @click="wantReward(item)">
-                        <div class="reward__item_img">
+                        <div class="want_reward__item_img">
                             <img :src="item.bonus_img" alt="">
                         </div>
-                        <div class="reward__item_name">
+                        <div class="want_reward__item_name">
                             {{item.title}}
                         </div>
                     </div>
                 </div>
 
                 <!--抽奖-->
-                <div class="change" v-else>
-                    <div class="change__item" v-for="(item,index) in 6"
+                <div class="change_reward" v-else>
+                    <div class="change_reward__item" v-for="(item,index) in 6"
                          :key="index"
                          @click="changeReward">
                         <img :class="`change__itemActive${index}`" src="../assets/images/jiangpingfengmian.png" alt="">
@@ -50,7 +50,6 @@
 <script>
     import {mapGetters} from 'vuex'
     import {Toast} from 'vant';
-    import alert from "../components/alert/alert";
 
     export default {
         name: "sign",
@@ -59,7 +58,7 @@
             return {
                 want: true, // 考试显示，我想要的还是抽奖的
                 reward_type: '', // 奖品类型 - 用于抽奖的时候告诉后端抽的是什么
-                reward_list: [], // 奖品列表
+                reward_list: [1, 2, 3], // 奖品列表
                 reward_count: 0, // 剩余抽奖次数
                 is_reward: false
             }
@@ -259,179 +258,20 @@
             padding: 20px;
             margin: 0 auto;
 
-            .reward, .change {
+            .want_reward {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, 300px);
-                grid-gap: 20px;
-                margin-bottom: 20px;
+                grid-gap: 10px;
 
-                .change__item {
-                    font-size: 0;
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        transition: all 1s ease-in;
-                    }
-
-                    .change__itemActive0 {
-                        animation: change__item0-animation .3s;
-                        animation-fill-mode: forwards;
-                        animation-delay: .3s;
-                    }
-
-                    @-webkit-keyframes change__item0-animation {
-                        0% {
-                            transform: translateX(124px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translateX(0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    @keyframes change__item0-animation {
-                        0% {
-                            transform: translateX(124px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translateX(0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    .change__itemActive2 {
-                        animation: change__item2-animation .3s;
-                        animation-fill-mode: forwards;
-                        animation-delay: .3s;
-                    }
-
-                    @-webkit-keyframes change__item2-animation {
-                        0% {
-                            transform: translateX(-124px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translateX(0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    @keyframes change__item2-animation {
-                        0% {
-                            transform: translateX(-124px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translateX(0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    .change__itemActive3 {
-                        animation: change__item3-animation .3s;
-                        animation-fill-mode: forwards;
-                        animation-delay: .3s;
-                    }
-
-                    @-webkit-keyframes change__item3-animation {
-                        0% {
-                            transform: translate(124px, -110px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translate(0px, 0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    @keyframes change__item3-animation {
-                        0% {
-                            transform: translate(124px, -110px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translate(0px, 0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    .change__itemActive4 {
-                        animation: change__item4-animation .3s;
-                        animation-fill-mode: forwards;
-                        animation-delay: .3s;
-                    }
-
-                    @-webkit-keyframes change__item4-animation {
-                        0% {
-                            transform: translateY(-110px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translateY(0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    @keyframes change__item4-animation {
-                        0% {
-                            transform: translateY(-110px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translateY(0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    .change__itemActive5 {
-                        animation: change__item5-animation .3s;
-                        animation-fill-mode: forwards;
-                        animation-delay: .3s;
-                    }
-
-                    @-webkit-keyframes change__item5-animation {
-                        0% {
-                            transform: translate(-124px, -110px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translate(0px, 0px);
-                            opacity: 1;
-                        }
-                    }
-
-                    @keyframes change__item5-animation {
-                        0% {
-                            transform: translate(-124px, -110px);
-                            opacity: 0;
-                        }
-                        100% {
-                            transform: translate(0px, 0px);
-                            opacity: 1;
-                        }
-                    }
-
-                }
-
-                .reward__item, .change__item {
+                .want_reward__item {
+                    display: grid;
                     -webkit-border-radius: @default-element-border-radius;
                     -moz-border-radius: @default-element-border-radius;
                     border-radius: @default-element-border-radius;
-                    display: grid;
-                    grid-template-rows: 6fr 1fr;
+                    overflow: hidden;
 
-                    .reward__item_img {
-                        border-top-left-radius: @default-element-border-radius;
-                        border-top-right-radius: @default-element-border-radius;
-                        text-align: center;
-                        line-height: 4;
+                    .want_reward__item_img {
                         font-size: 0;
-                        overflow: hidden;
 
                         img {
                             width: 100%;
@@ -439,14 +279,31 @@
                         }
                     }
 
-                    .reward__item_name {
+                    .want_reward__item_name {
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-align: center;
+                        font-size: @default-font-size-26;
+                        padding: 5px;
                         background-color: @default-app-color-primary;
                         color: #fff;
-                        border-bottom-left-radius: @default-element-border-radius;
-                        border-bottom-right-radius: @default-element-border-radius;
-                        font-size: @default-font-size-26;
-                        text-align: center;
-                        line-height: 1.6;
+                    }
+                }
+            }
+
+            .change_reward {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto;
+                grid-gap: 10px;
+
+                .change_reward__item {
+                    font-size: 0;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
                     }
                 }
             }
