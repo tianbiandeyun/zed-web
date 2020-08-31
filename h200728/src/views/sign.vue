@@ -49,6 +49,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import alert from "../components/alert/alert";
 
     export default {
         name: "sign",
@@ -96,6 +97,16 @@
 
                         console.log(`剩余数量：${item.count}`);
                         console.log(`奖品类型：${item.bonustype}`);
+
+                        if (+this.reward_count === 0) {
+                            window.alert('没有抽奖机会');
+                            return false;
+                        }
+
+                        if (+item.count === 0) {
+                            window.alert('奖品被抢光');
+                            return false;
+                        }
 
                         this.$Alert.show({
                             titleShow: false,
