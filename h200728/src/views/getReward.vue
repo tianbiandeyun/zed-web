@@ -87,7 +87,9 @@
             }
         },
         mounted() {
-
+            /**
+             * 获取轮播图
+             * */
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_banner,
                 fps: {
@@ -100,11 +102,15 @@
 
         },
         methods: {
+            /**
+             * 提交信息
+             * */
             submit() {
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.update_save_phonenum,
                     fps: {
-                        open_id: 'OPEN_ID_HELP_0',
+                        open_id: this.openid_info.back_value.open_id,
+                        // open_id: 'OPEN_ID_HELP_0',
                         username: this.name,
                         phonenum: this.photo,
                         phonecode: this.photo_code
@@ -161,8 +167,8 @@
                 return this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.send_phone_identifying_code,
                     fps: {
-                        // open_id: this.openid_info.back_value.open_id,
-                        open_id: 'OPEN_ID_HELP_0',
+                        open_id: this.openid_info.back_value.open_id,
+                        // open_id: 'OPEN_ID_HELP_0',
                         phonenum: photo
                     },
                     url: this.$Config.REQUEST_URL
