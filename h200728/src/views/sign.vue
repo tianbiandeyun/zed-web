@@ -167,6 +167,7 @@
                             confirmText: '再来一次',
                             closeShow: false,
                             operatButton() {
+                                that._getRewardCount();
                                 that.is_reward = false;
                             }
                         })
