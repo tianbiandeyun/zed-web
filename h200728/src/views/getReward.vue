@@ -119,7 +119,15 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
-                    window.alert('成功')
+                    this.$Alert.show({
+                        title: '提交成功',
+                        content: {
+                            alertType: 'noReward',
+                            content: '提交成功，翘首以待你的礼物吧'
+                        },
+                        confirmText: '关闭',
+                        closeShow: false
+                    });
                 })
             },
             /**
