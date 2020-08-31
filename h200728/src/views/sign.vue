@@ -62,8 +62,9 @@
             }
         },
         mounted() {
-
-            // 获取奖品列表
+            /**
+             * 获取奖品列表
+             * */
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
                 fps: {

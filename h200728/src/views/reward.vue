@@ -37,8 +37,9 @@
             }
         },
         mounted() {
-
-            // 获取我已经领取的奖品列表
+            /**
+             * 获取我已经领取的奖品列表
+             * */
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.getbonuslist,
                 fps: {
@@ -51,6 +52,9 @@
 
         },
         methods: {
+            /**
+             * 比较日期大小
+             * */
             _maxDate(d) {
                 let {year, month, day} = this.$Utils.getYearMonthDay(new Date());
                 let today = `${year}-${month + 1}-${day}`;

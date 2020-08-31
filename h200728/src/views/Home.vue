@@ -66,8 +66,9 @@
             }
         },
         async mounted() {
-
-            // 获取 openid
+            /**
+             * openid
+             * */
             await this.$store.dispatch('getOpenid', {
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
