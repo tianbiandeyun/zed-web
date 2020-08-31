@@ -230,7 +230,7 @@
 
                 .alert-box_title__center {
                     justify-items: center;
-                    font-size: @default-font-size-30;
+                    font-size: @default-font-size-34;
                     color: #fff;
 
                 }
