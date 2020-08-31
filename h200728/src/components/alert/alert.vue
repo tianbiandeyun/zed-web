@@ -56,7 +56,10 @@
                     <!--没有中奖-->
                     <div v-if="content.alertType === 'noReward'">
                         <div class="alert-box_content__noReward">
-                            {{content.content}}
+                            <div class="no-reward_img">
+                                <img src="../../assets/images/meijiang.png" alt="">
+                            </div>
+                            <p class="no-reward_content">{{content.content}}</p>
                         </div>
                     </div>
 
@@ -288,6 +291,18 @@
 
                 .alert-box_content__noReward {
 
+                    .no-reward_img {
+                        margin-bottom: 20px;
+
+                        img {
+                            width: 200px;
+                        }
+                    }
+
+                    .no-reward_content {
+                        font-size: @default-font-size-30;
+                        color: @default-font-color-content;
+                    }
                 }
             }
 

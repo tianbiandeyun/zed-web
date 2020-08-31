@@ -106,9 +106,7 @@
                 }).then(res => {
                     if (res.back_value) {
 
-                        console.log(`剩余数量：${item.count}`);
-                        console.log(`奖品类型：${item.bonustype}`);
-
+                        // 没有抽奖机会
                         if (+this.reward_count === 0) {
                             this.$Alert.show({
                                 titleShow: false,
@@ -116,14 +114,12 @@
                                     alertType: 'noReward',
                                     content: '没有抽奖机会'
                                 },
-                                confirmText: '关闭',
-                                operatButton() {
-                                    console.log('关闭')
-                                }
+                                confirmText: '关闭'
                             });
                             return false;
                         }
 
+                        // 奖品没了
                         if (+item.count === 0) {
                             this.$Alert.show({
                                 titleShow: false,
@@ -131,14 +127,12 @@
                                     alertType: 'noReward',
                                     content: '奖品已抢光，正在补货中'
                                 },
-                                confirmText: '查看其他奖励',
-                                operatButton() {
-                                    console.log('关闭')
-                                }
+                                confirmText: '查看其他奖励'
                             });
                             return false;
                         }
 
+                        // 展示我想要的奖品
                         this.$Alert.show({
                             titleShow: false,
                             content: {
@@ -172,6 +166,7 @@
                     if (res.back_value.bonustype !== 1) {
                         this.is_reward = true;
 
+                        // 中奖
                         this.$Alert.show({
                             title: '恭喜中奖',
                             content: {
@@ -188,11 +183,12 @@
                     } else {
                         this.is_reward = true;
 
+                        // 没中奖
                         this.$Alert.show({
                             titleShow: false,
                             content: {
                                 alertType: 'noReward',
-                                content: '没有中奖'
+                                content: '别灰心，再试一次吧'
                             },
                             confirmText: '再来一次',
                             closeShow: false,
