@@ -108,16 +108,47 @@
              * 提交信息
              * */
             submit() {
+                const that = this;
                 Toast.loading({
                     message: '加载中...',
                     forbidClick: true,
                     duration: 0
                 });
+
+                if (this.name === '') {
+                    Toast.clear();
+                    this.$Alert.show({
+                        title: '提示',
+                        noRewardImg: false,
+                        content: {
+                            alertType: 'noReward',
+                            content: '姓名不能为空'
+                        },
+                        confirmText: '关闭',
+                        closeShow: false
+                    });
+                    return false;
+                }
+
+                if (this.photo === '') {
+                    Toast.clear();
+                    this.$Alert.show({
+                        title: '提示',
+                        noRewardImg: false,
+                        content: {
+                            alertType: 'noReward',
+                            content: '手机号码不能为空'
+                        },
+                        confirmText: '关闭',
+                        closeShow: false
+                    });
+                    return false;
+                }
+
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_prize_user_info,
                     fps: {
                         open_id: this.openid_info.back_value.open_id,
-                        // open_id: 'OPEN_ID_HELP_0',
                         username: this.name,
                         phonenum: this.photo,
                         phonecode: this.photo_code
@@ -127,13 +158,16 @@
                     Toast.clear();
                     this.$Alert.show({
                         title: '提交成功',
+                        noRewardImg: false,
                         content: {
                             alertType: 'noReward',
-                            noRewardImg: false,
                             content: '翘首以待你的礼物吧'
                         },
                         confirmText: '关闭',
-                        closeShow: false
+                        closeShow: false,
+                        operatButton() {
+                            that.$router.replace('/')
+                        }
                     });
                 })
             },
@@ -150,7 +184,16 @@
 
                 if (this.photo === '') {
                     Toast.clear();
-                    alert('请填写手机');
+                    this.$Alert.show({
+                        title: '提示',
+                        noRewardImg: false,
+                        content: {
+                            alertType: 'noReward',
+                            content: '请填写手机'
+                        },
+                        confirmText: '关闭',
+                        closeShow: false
+                    });
                     return false;
                 }
 
@@ -158,7 +201,16 @@
 
                 if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
                     Toast.clear();
-                    alert('电话已存在，无法重复注册');
+                    this.$Alert.show({
+                        title: '提示',
+                        noRewardImg: false,
+                        content: {
+                            alertType: 'noReward',
+                            content: '电话已存在，无法重复注册'
+                        },
+                        confirmText: '关闭',
+                        closeShow: false
+                    });
                     return false;
                 }
 
@@ -194,7 +246,6 @@
                     im: this.$Config.PROJECT_INTERFACE.send_phone_identifying_code,
                     fps: {
                         open_id: this.openid_info.back_value.open_id,
-                        // open_id: 'OPEN_ID_HELP_0',
                         phonenum: photo
                     },
                     url: this.$Config.REQUEST_URL
