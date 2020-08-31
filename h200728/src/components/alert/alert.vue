@@ -64,7 +64,7 @@
                 </div>
 
                 <!--关闭-->
-                <div class="alert-box_close" @click="_close">
+                <div class="alert-box_close" v-if="closeShow" @click="_close">
                     <img src="../../assets/images/close.png" alt="">
                 </div>
 
@@ -83,6 +83,13 @@
              * 标题是否显示
              * */
             titleShow: {
+                type: Boolean,
+                default: true
+            },
+            /**
+             * 关闭是否显示
+             * */
+            closeShow: {
                 type: Boolean,
                 default: true
             },

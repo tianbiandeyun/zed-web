@@ -129,6 +129,7 @@
              * 翻牌选择奖品
              * */
             changeReward() {
+                const that = this;
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_luck_draw,
                     fps: {
@@ -146,7 +147,8 @@
                                 alertType: 'reward',
                                 type: res.back_value.bonustype
                             },
-                            confirmText: '前往领奖'
+                            confirmText: '前往领奖',
+                            closeShow: false
                         })
 
                     } else {
@@ -158,7 +160,11 @@
                                 alertType: 'noReward',
                                 content: '没有中奖'
                             },
-                            confirmText: '再来一次'
+                            confirmText: '再来一次',
+                            closeShow: false,
+                            operatButton() {
+                                that.is_reward = false;
+                            }
                         })
 
                     }
