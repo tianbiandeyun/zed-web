@@ -53,7 +53,7 @@
                         </div>
                     </div>
 
-                    <!--没有中奖-->
+                    <!--没有中奖 / 重复签到-->
                     <div v-if="content.alertType === 'noReward'">
                         <div class="alert-box_content__noReward">
                             <div class="no-reward_img">

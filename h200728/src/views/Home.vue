@@ -127,7 +127,15 @@
                 });
 
                 if (sign_result.error_code === 2001101) {
-                    window.alert('无法重复签到');
+                    this.$Alert.show({
+                        titleShow: false,
+                        content: {
+                            alertType: 'noReward',
+                            content: '无法重复签到'
+                        },
+                        confirmText: '关闭',
+                        closeShow: false
+                    });
                     return false;
                 }
 

@@ -114,7 +114,8 @@
                                     alertType: 'noReward',
                                     content: '没有抽奖机会'
                                 },
-                                confirmText: '关闭'
+                                confirmText: '关闭',
+                                closeShow: false
                             });
                             return false;
                         }
@@ -127,7 +128,8 @@
                                     alertType: 'noReward',
                                     content: '奖品已抢光，正在补货中'
                                 },
-                                confirmText: '查看其他奖励'
+                                confirmText: '查看其他奖励',
+                                closeShow: false
                             });
                             return false;
                         }
