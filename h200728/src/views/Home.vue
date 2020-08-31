@@ -305,26 +305,23 @@
 
         }
 
-        .rule {
+        .rule, .get_reward {
             position: fixed;
             top: 100px;
+            font-size: @default-font-size-26;
+            background-color: rgba(000, 000, 000, .2);
+            color: #fff;
+        }
+
+        .rule {
             left: 0;
             padding: 10px 40px 10px 20px;
-            font-size: @default-font-size-26;
-            background-color: rgba(255, 255, 255, .5);
-            color: @default-font-color-title;
             border-top-right-radius: @default-element-border-radius;
             border-bottom-right-radius: @default-element-border-radius;
         }
-
         .get_reward {
-            position: fixed;
-            top: 100px;
             right: 0;
             padding: 10px 20px 10px 40px;
-            font-size: @default-font-size-26;
-            background-color: rgba(255, 255, 255, .5);
-            color: @default-font-color-title;
             border-top-left-radius: @default-element-border-radius;
             border-bottom-left-radius: @default-element-border-radius;
         }
