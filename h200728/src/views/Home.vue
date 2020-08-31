@@ -38,13 +38,18 @@
 
         </div>
 
+        <!--规则-->
+        <div class="rule" @click="rule">规则</div>
+
+        <!--已领取-->
+        <div class="get_reward" @click="getRewardList">已领取福利</div>
+
     </section>
 </template>
 
 <script>
     import calender from '../components/calender/calender'
     import {mapGetters} from 'vuex'
-    import alert from "../components/alert/alert";
 
     export default {
         name: 'Home',
@@ -77,6 +82,12 @@
 
         },
         methods: {
+            getRewardList() {
+                this.$router.push('/reward')
+            },
+            rule() {
+                this.$router.push('/rule')
+            },
             /**
              * 抽奖
              * */
@@ -293,6 +304,31 @@
             }
 
         }
+
+        .rule {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            padding: 10px 40px 10px 20px;
+            font-size: @default-font-size-26;
+            background-color: rgba(255, 255, 255, .5);
+            color: @default-font-color-title;
+            border-top-right-radius: @default-element-border-radius;
+            border-bottom-right-radius: @default-element-border-radius;
+        }
+
+        .get_reward {
+            position: fixed;
+            top: 100px;
+            right: 0;
+            padding: 10px 20px 10px 40px;
+            font-size: @default-font-size-26;
+            background-color: rgba(255, 255, 255, .5);
+            color: @default-font-color-title;
+            border-top-left-radius: @default-element-border-radius;
+            border-bottom-left-radius: @default-element-border-radius;
+        }
+
     }
 
 </style>
