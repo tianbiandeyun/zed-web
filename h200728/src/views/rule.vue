@@ -66,7 +66,6 @@
         padding: 40px;
 
         h1 {
-            line-height: 0;
             color: @default-font-color-title;
             font-size: @default-font-size-34;
         }

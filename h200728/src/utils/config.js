@@ -57,21 +57,46 @@ export const PROJECT_INTERFACE = {
  * reward 奖品类别
  * */
 export const REWARD_TYPE = {
+    1: {
+        reward: '谢谢参与'
+    },
+    2: {
+        reward: '考研英语词汇识记与应用大全'
+    },
+    3: {
+        reward: '考研英语一：真题分级教程'
+    },
     4: {
+        reward: '考研英语二：真题分级教程'
+    },
+    16: {
+        day: 30,
+        reward: '恋练有词：考研英语词汇识记与应用大全'
+    },
+    10: {
+        day: 0,
+        reward: 10,
+        info: '每天签到'
+    },
+    11: {
         day: 3,
+        reward: 1
+    },
+    12: {
+        day: 5,
         reward: 2
     },
-    5: {
-        day: 5,
+    13: {
+        day: 10,
         reward: 3
     },
-    7: {
-        day: 8,
-        reward: '爱奇艺会员'
+    14: {
+        day: 15,
+        reward: 4
     },
-    8: {
-        day: 0,
-        reward: 1
+    15: {
+        day: 20,
+        reward: 5
     }
 };
 
