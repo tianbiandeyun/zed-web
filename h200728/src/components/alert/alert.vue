@@ -25,8 +25,12 @@
                         <div class="alert-box_content__sign">
                             <img src="../../assets/images/tt.png" alt="">
                             <p>
+                                <!--如果有连续签到的天数则显示，签到几天-->
                                 <span v-if="content.keepSignCount">您已连续签到{{content.keepSignCount}}天，</span>
-                                <span>获{{content.reward.reward}}得青创币</span>
+                                <!--如果奖励不是金币则显示，奖励名称-->
+                                <span v-if="typeof content.reward.reward === 'string'">获{{content.reward.reward}}</span>
+                                <!--如果奖励是金币则显示几个金币-->
+                                <span v-if="typeof content.reward.reward === 'number'">获{{content.reward.reward}}得青创币</span>
                             </p>
                         </div>
                     </div>
