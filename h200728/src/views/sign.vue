@@ -187,7 +187,7 @@
 
                         // 没中奖
                         this.$Alert.show({
-                            titleShow: false,
+                            title: '谢谢参与',
                             content: {
                                 alertType: 'noReward',
                                 content: '别灰心，再试一次吧'
