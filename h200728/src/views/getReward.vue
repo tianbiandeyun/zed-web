@@ -109,7 +109,7 @@
              * */
             submit() {
                 this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.update_save_phonenum,
+                    im: this.$Config.PROJECT_INTERFACE.set_prize_user_info,
                     fps: {
                         open_id: this.openid_info.back_value.open_id,
                         // open_id: 'OPEN_ID_HELP_0',

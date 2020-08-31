@@ -32,7 +32,8 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  * 接口名
  * */
 export const PROJECT_INTERFACE = {
-    update_save_phonenum: 'update_save_phonenum', // 保存信息
+    get_prize_user_info: 'get_prize_user_info', // 获取信息
+    set_prize_user_info: 'set_prize_user_info', // 保存信息
     send_phone_identifying_code: 'send_phone_identifying_code', // 发送验证码
     get_banner: 'get_banner', // 获取轮播图
     set_luck_draw: 'set_luck_draw', // 抽奖
