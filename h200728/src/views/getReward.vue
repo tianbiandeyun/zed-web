@@ -87,6 +87,8 @@
             }
         },
         mounted() {
+            this.$Utils.setDocumentTitle('福利详情');
+
             /**
              * 获取轮播图
              * */

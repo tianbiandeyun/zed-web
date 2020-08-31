@@ -37,6 +37,8 @@
             }
         },
         mounted() {
+            this.$Utils.setDocumentTitle('已经领取的奖品列表');
+
             /**
              * 获取我已经领取的奖品列表
              * */

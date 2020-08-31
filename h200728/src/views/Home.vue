@@ -71,6 +71,7 @@
             }
         },
         async mounted() {
+            this.$Utils.setDocumentTitle('签到领取福利');
             /**
              * openid
              * */

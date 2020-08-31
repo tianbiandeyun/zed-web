@@ -63,6 +63,7 @@
             }
         },
         mounted() {
+            this.$Utils.setDocumentTitle('试试手气');
             /**
              * 获取奖品列表
              * */
