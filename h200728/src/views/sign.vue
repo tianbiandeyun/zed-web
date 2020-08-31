@@ -148,7 +148,10 @@
                                 type: res.back_value.bonustype
                             },
                             confirmText: '前往领奖',
-                            closeShow: false
+                            closeShow: false,
+                            operatButton() {
+                                that.$router.replace('/getReward')
+                            }
                         })
 
                     } else {

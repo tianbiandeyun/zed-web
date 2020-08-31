@@ -117,7 +117,7 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
-                    console.log(res);
+                    window.alert('成功')
                 })
             },
             /**
