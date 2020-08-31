@@ -53,10 +53,10 @@
                         </div>
                     </div>
 
-                    <!--没有中奖 / 重复签到-->
+                    <!--没有中奖 / 重复签到 / 各种提示框-->
                     <div v-if="content.alertType === 'noReward'">
                         <div class="alert-box_content__noReward">
-                            <div class="no-reward_img">
+                            <div class="no-reward_img" v-if="noRewardImg">
                                 <img src="../../assets/images/meijiang.png" alt="">
                             </div>
                             <p class="no-reward_content">{{content.content}}</p>
@@ -101,6 +101,13 @@
                 default: true
             },
             /**
+             * 各种提示按钮的图片是否显示
+             * */
+            noRewardImg: {
+                type: Boolean,
+                default: true
+            },
+            /**
              * 标题文字
              * */
             title: {
@@ -117,7 +124,7 @@
                 }
             },
             /**
-             * 标题操作按钮
+             * 标题操作按钮文字
              * */
             confirmText: {
                 type: String,
@@ -133,7 +140,7 @@
                 }
             },
             /**
-             * 关闭
+             * 关闭按钮
              * */
             operatClose: {
                 type: Function,
