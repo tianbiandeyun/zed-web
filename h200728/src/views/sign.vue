@@ -56,7 +56,7 @@
         components: {Toast},
         data() {
             return {
-                want: false, // 考试显示，我想要的还是抽奖的
+                want: true, // 考试显示，我想要的还是抽奖的
                 reward_type: '', // 奖品类型 - 用于抽奖的时候告诉后端抽的是什么
                 reward_list: [1, 2, 3], // 奖品列表
                 reward_count: 0, // 剩余抽奖次数
@@ -65,29 +65,29 @@
         },
         mounted() {
 
-            // Toast.loading({
-            //     message: '加载中...',
-            //     forbidClick: true,
-            //     duration: 0
-            // });
-            //
-            // this.$Utils.setDocumentTitle('试试手气');
-            // /**
-            //  * 获取奖品列表
-            //  * */
-            // this.$store.dispatch('fetchData', {
-            //     im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
-            //     fps: {
-            //         open_id: this.openid_info.back_value.open_id
-            //     },
-            //     url: this.$Config.REQUEST_URL
-            // }).then(res => {
-            //     this.reward_list = res.back_value;
-            // });
-            //
-            // this._getRewardCount();
-            //
-            // Toast.clear();
+            Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0
+            });
+
+            this.$Utils.setDocumentTitle('试试手气');
+            /**
+             * 获取奖品列表
+             * */
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                this.reward_list = res.back_value;
+            });
+
+            this._getRewardCount();
+
+            Toast.clear();
 
         },
         methods: {
