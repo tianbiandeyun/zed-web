@@ -61,7 +61,7 @@ export const REWARD_TYPE = {
         reward: '谢谢参与'
     },
     2: {
-        reward: '考研英语词汇识记与应用大全'
+        reward: '恋练有词：考研英语词汇识记与应用大全'
     },
     3: {
         reward: '考研英语一：真题分级教程'
