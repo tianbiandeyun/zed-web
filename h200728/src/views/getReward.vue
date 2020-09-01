@@ -64,7 +64,6 @@
             <button @click="submit">兑换</button>
         </div>
 
-
     </section>
 </template>
 
