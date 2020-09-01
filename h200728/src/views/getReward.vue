@@ -285,7 +285,7 @@
 
         .submit {
             text-align: center;
-            padding-top: 20px;
+            padding: 40px 0;
 
             button {
                 background-color: @default-app-color-primary;
