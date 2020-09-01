@@ -13,11 +13,16 @@
         <!--内容-->
         <div class="content">
 
-            <div class="reward_details">
+            <div class="reward_details"
+                 v-for="(item,index) in i_want_reward.back_value"
+                 :key="index"
+                 v-if="+item.bonustype === +bonustype"
+            >
+                <h1>奖品：</h1>
+                <p>{{item.title}}</p>
+                <div style="margin-bottom: 20px"></div>
                 <h1>奖品说明：</h1>
-                <p>奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明
-                    奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明</p>
-                <p>奖品说明奖品说明奖品说明奖品说明奖品说明奖品说明</p>
+                <p>{{item.info}}</p>
             </div>
 
             <div class="write_information">
@@ -76,6 +81,7 @@
         components: {Swipe, SwipeItem, Field, Button, Divider, Toast},
         data() {
             return {
+                bonustype: this.$route.query.bonustype,
                 swiper: [], // 轮播图
                 message: '发送验证码', // 短信验证码按钮文字
                 timer: null, // 定时器清除
@@ -87,9 +93,6 @@
         },
         mounted() {
             this.$Utils.setDocumentTitle('福利详情');
-
-            console.log(this.i_want_reward);
-            console.log(this.$route.query.bonustype);
 
             /**
              * 获取轮播图
