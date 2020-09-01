@@ -117,13 +117,13 @@
 
                 if (this.name === '') {
                     Toast.clear();
-                    window.alert('姓名不能为空')
+                    Toast('姓名不能为空');
                     return false;
                 }
 
                 if (this.photo === '') {
                     Toast.clear();
-                    window.alert('手机号码不能为空')
+                    Toast('手机号码不能为空');
                     return false;
                 }
 
@@ -166,7 +166,7 @@
 
                 if (this.photo === '') {
                     Toast.clear();
-                    window.alert('请填写手机')
+                    Toast('请填写手机');
                     return false;
                 }
 
@@ -174,7 +174,7 @@
 
                 if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
                     Toast.clear();
-                    window.alert('电话已存在，无法重复注册')
+                    Toast('电话已存在，无法重复注册');
                     return false;
                 }
 
