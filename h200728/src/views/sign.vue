@@ -75,7 +75,7 @@
             /**
              * 获取奖品列表
              * */
-            this.$store.dispatch('getIWantReward', {
+            this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
                 fps: {
                     open_id: this.openid_info.back_value.open_id

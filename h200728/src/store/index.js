@@ -9,16 +9,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        openid_info: '',
-        i_want_reward: ''
+        openid_info: ''
     },
     mutations: {
         getOpenid(state, res) {
             state.openid_info = res;
-        },
-        getIWantReward(state, res) {
-            state.i_want_reward = res;
-        },
+        }
     },
     actions: {
         /**
@@ -33,18 +29,6 @@ export default new Vuex.Store({
             return new Promise((resolve, reject) => {
                 axios.get(requestUrl).then(res => {
                     commit('getOpenid', res.data);
-                    resolve(res.data);
-                });
-            });
-        },
-
-        // 获取我想要的奖品列表
-        getIWantReward({commit}, params) {
-            const [im, fps = {}, url] = [params.im, params.fps, params.url];
-            const requestUrl = utils.produceRequestUrl(im, fps, url);
-            return new Promise((resolve, reject) => {
-                axios.get(requestUrl).then(res => {
-                    commit('getIWantReward', res.data);
                     resolve(res.data);
                 });
             });
@@ -64,7 +48,6 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        openid_info: state => state.openid_info,
-        i_want_reward: state => state.i_want_reward,
+        openid_info: state => state.openid_info
     }
 })

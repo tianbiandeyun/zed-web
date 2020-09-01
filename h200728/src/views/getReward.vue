@@ -14,7 +14,7 @@
         <div class="content">
 
             <div class="reward_details"
-                 v-for="(item,index) in i_want_reward.back_value"
+                 v-for="(item,index) in want_reward"
                  :key="index"
                  v-if="+item.bonustype === +bonustype"
             >
@@ -81,6 +81,7 @@
         components: {Swipe, SwipeItem, Field, Button, Divider, Toast},
         data() {
             return {
+                want_reward: '',
                 bonustype: this.$route.query.bonustype,
                 swiper: [], // 轮播图
                 message: '发送验证码', // 短信验证码按钮文字
@@ -92,6 +93,13 @@
             }
         },
         mounted() {
+
+            Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0
+            });
+
             this.$Utils.setDocumentTitle('福利详情');
 
             /**
@@ -108,6 +116,19 @@
             });
 
             /**
+             * 获取奖品列表
+             * */
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                this.want_reward = res.back_value;
+            });
+
+            /**
              * 填写的信息
              * */
             this.$store.dispatch('fetchData', {
@@ -119,7 +140,9 @@
                 url: this.$Config.REQUEST_URL
             }).then(res => {
                 console.log(res.back_value)
-            })
+            });
+
+            Toast.clear();
 
         },
         methods: {
