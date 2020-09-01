@@ -88,6 +88,9 @@
         mounted() {
             this.$Utils.setDocumentTitle('福利详情');
 
+            console.log(this.i_want_reward);
+            console.log(this.$route.query.bonustype);
+
             /**
              * 获取轮播图
              * */
@@ -217,7 +220,8 @@
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'i_want_reward'
             ])
         }
     }

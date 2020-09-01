@@ -178,7 +178,7 @@
                             confirmText: '前往领奖',
                             closeShow: false,
                             operatButton() {
-                                that.$router.replace('/getReward')
+                                that.$router.replace(`/getReward?bonustype=${res.back_value.bonustype}`)
                             }
                         })
 
