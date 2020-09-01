@@ -56,7 +56,7 @@
         components: {Toast},
         data() {
             return {
-                want: true, // 考试显示，我想要的还是抽奖的
+                want: false, // 考试显示，我想要的还是抽奖的
                 reward_type: '', // 奖品类型 - 用于抽奖的时候告诉后端抽的是什么
                 reward_list: [1, 2, 3], // 奖品列表
                 reward_count: 0, // 剩余抽奖次数
@@ -65,29 +65,29 @@
         },
         mounted() {
 
-            Toast.loading({
-                message: '加载中...',
-                forbidClick: true,
-                duration: 0
-            });
-
-            this.$Utils.setDocumentTitle('试试手气');
-            /**
-             * 获取奖品列表
-             * */
-            this.$store.dispatch('fetchData', {
-                im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
-                fps: {
-                    open_id: this.openid_info.back_value.open_id
-                },
-                url: this.$Config.REQUEST_URL
-            }).then(res => {
-                this.reward_list = res.back_value;
-            });
-
-            this._getRewardCount();
-
-            Toast.clear();
+            // Toast.loading({
+            //     message: '加载中...',
+            //     forbidClick: true,
+            //     duration: 0
+            // });
+            //
+            // this.$Utils.setDocumentTitle('试试手气');
+            // /**
+            //  * 获取奖品列表
+            //  * */
+            // this.$store.dispatch('fetchData', {
+            //     im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
+            //     fps: {
+            //         open_id: this.openid_info.back_value.open_id
+            //     },
+            //     url: this.$Config.REQUEST_URL
+            // }).then(res => {
+            //     this.reward_list = res.back_value;
+            // });
+            //
+            // this._getRewardCount();
+            //
+            // Toast.clear();
 
         },
         methods: {
@@ -328,7 +328,7 @@
                     .change__itemActive0 {
                         animation: change__item0-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .3s;
+                        animation-delay: .5s;
                     }
 
                     @-webkit-keyframes change__item0-animation {
@@ -356,7 +356,7 @@
                     .change__itemActive2 {
                         animation: change__item2-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .3s;
+                        animation-delay: .5s;
                     }
 
                     @-webkit-keyframes change__item2-animation {
@@ -384,7 +384,7 @@
                     .change__itemActive3 {
                         animation: change__item3-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .3s;
+                        animation-delay: .8s;
                     }
 
                     @-webkit-keyframes change__item3-animation {
@@ -412,7 +412,7 @@
                     .change__itemActive4 {
                         animation: change__item4-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .3s;
+                        animation-delay: .8s;
                     }
 
                     @-webkit-keyframes change__item4-animation {
@@ -440,7 +440,7 @@
                     .change__itemActive5 {
                         animation: change__item5-animation .3s;
                         animation-fill-mode: forwards;
-                        animation-delay: .3s;
+                        animation-delay: .8s;
                     }
 
                     @-webkit-keyframes change__item5-animation {
