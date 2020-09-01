@@ -173,7 +173,8 @@
                     im: this.$Config.PROJECT_INTERFACE.set_prize_record,
                     fps: {
                         open_id: this.openid_info.back_value.open_id,
-                        bonustype: res
+                        bonustype: res,
+                        date: '2020-09-30'
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
