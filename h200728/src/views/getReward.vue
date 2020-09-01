@@ -95,7 +95,7 @@
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_banner,
                 fps: {
-                    page_name: '签到领福利'
+                    page_name: '商品轮播图'
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
@@ -117,31 +117,13 @@
 
                 if (this.name === '') {
                     Toast.clear();
-                    this.$Alert.show({
-                        title: '提示',
-                        noRewardImg: false,
-                        content: {
-                            alertType: 'noReward',
-                            content: '姓名不能为空'
-                        },
-                        confirmText: '关闭',
-                        closeShow: false
-                    });
+                    window.alert('姓名不能为空')
                     return false;
                 }
 
                 if (this.photo === '') {
                     Toast.clear();
-                    this.$Alert.show({
-                        title: '提示',
-                        noRewardImg: false,
-                        content: {
-                            alertType: 'noReward',
-                            content: '手机号码不能为空'
-                        },
-                        confirmText: '关闭',
-                        closeShow: false
-                    });
+                    window.alert('手机号码不能为空')
                     return false;
                 }
 
@@ -184,16 +166,7 @@
 
                 if (this.photo === '') {
                     Toast.clear();
-                    this.$Alert.show({
-                        title: '提示',
-                        noRewardImg: false,
-                        content: {
-                            alertType: 'noReward',
-                            content: '请填写手机'
-                        },
-                        confirmText: '关闭',
-                        closeShow: false
-                    });
+                    window.alert('请填写手机')
                     return false;
                 }
 
@@ -201,16 +174,7 @@
 
                 if (code_result.result === 'failure' && code_result.error_code === 6180516006) {
                     Toast.clear();
-                    this.$Alert.show({
-                        title: '提示',
-                        noRewardImg: false,
-                        content: {
-                            alertType: 'noReward',
-                            content: '电话已存在，无法重复注册'
-                        },
-                        confirmText: '关闭',
-                        closeShow: false
-                    });
+                    window.alert('电话已存在，无法重复注册')
                     return false;
                 }
 
