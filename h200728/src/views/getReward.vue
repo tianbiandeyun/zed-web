@@ -94,8 +94,6 @@
         mounted() {
             this.$Utils.setDocumentTitle('福利详情');
 
-            console.log(this.$route.query.id)
-
             /**
              * 获取轮播图
              * */
@@ -112,16 +110,16 @@
             /**
              * 填写的信息
              * */
-            // this.$store.dispatch('fetchData', {
-            //     im: this.$Config.PROJECT_INTERFACE.get_prize_user_info,
-            //     fps: {
-            //         open_id: this.openid_info.back_value.open_id,
-            //         bonus_id: this.$route.query.id,
-            //     },
-            //     url: this.$Config.REQUEST_URL
-            // }).then(res => {
-            //     console.log(res.back_value)
-            // })
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_prize_user_info,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id,
+                    bonus_id: this.$route.query.id,
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                console.log(res.back_value)
+            })
 
         },
         methods: {
@@ -152,6 +150,7 @@
                     im: this.$Config.PROJECT_INTERFACE.set_prize_user_info,
                     fps: {
                         open_id: this.openid_info.back_value.open_id,
+                        bonus_id: this.$route.query.id,
                         username: this.name,
                         phonenum: this.photo,
                         phonecode: this.photo_code
