@@ -17,7 +17,9 @@
                         v-if="typeof reward_type[item.bonustype].reward === 'number'">已领取
                 </button>
                 <button :class="{disabled_button:_maxDate(item.expiration_time)}"
-                        v-else>{{_maxDate(item.expiration_time) ? '已过期' : '查看'}}
+                        v-else
+                        @click="rewardDetails(item)"
+                >{{_maxDate(item.expiration_time) ? '已过期' : '查看'}}
                 </button>
             </div>
         </div>
@@ -54,6 +56,9 @@
 
         },
         methods: {
+            rewardDetails(item) {
+                that.$router.replace(`/getReward?bonustype=${item.bonustype}&id=${+item.id}`)
+            },
             /**
              * 比较日期大小
              * */
