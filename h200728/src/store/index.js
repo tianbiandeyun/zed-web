@@ -65,5 +65,6 @@ export default new Vuex.Store({
     },
     getters: {
         openid_info: state => state.openid_info,
+        i_want_reward: state => state.i_want_reward,
     }
 })
