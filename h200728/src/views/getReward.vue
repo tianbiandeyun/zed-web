@@ -94,6 +94,8 @@
         mounted() {
             this.$Utils.setDocumentTitle('福利详情');
 
+            console.log(this.$route.query.id)
+
             /**
              * 获取轮播图
              * */
@@ -105,7 +107,21 @@
                 url: this.$Config.REQUEST_URL
             }).then(res => {
                 this.swiper = res.back_value;
-            })
+            });
+
+            /**
+             * 填写的信息
+             * */
+            // this.$store.dispatch('fetchData', {
+            //     im: this.$Config.PROJECT_INTERFACE.get_prize_user_info,
+            //     fps: {
+            //         open_id: this.openid_info.back_value.open_id,
+            //         bonus_id: this.$route.query.id,
+            //     },
+            //     url: this.$Config.REQUEST_URL
+            // }).then(res => {
+            //     console.log(res.back_value)
+            // })
 
         },
         methods: {
