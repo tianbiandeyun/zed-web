@@ -101,7 +101,7 @@
                 default: true
             },
             /**
-             * 各种提示按钮的图片是否显示
+             * 各种提示框的图片是否显示
              * */
             noRewardImg: {
                 type: Boolean,
