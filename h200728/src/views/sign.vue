@@ -58,7 +58,7 @@
             return {
                 want: true, // 考试显示，我想要的还是抽奖的
                 reward_type: '', // 奖品类型 - 用于抽奖的时候告诉后端抽的是什么
-                reward_list: [1, 2, 3], // 奖品列表
+                reward_list: [], // 奖品列表
                 reward_count: 0, // 剩余抽奖次数
                 is_reward: true
             }
@@ -184,20 +184,26 @@
                         this.is_reward = false;
 
                         // 中奖
-                        console.log(res.back_value.bonustype)
+                        for (let i = 0; i < this.reward_list.length; i++) {
+                            if (this.reward_list[i].bonustype === res.back_value.bonustype) {
+                                this.$Alert.show({
+                                    titleShow: false,
+                                    title: '恭喜中奖',
+                                    content: {
+                                        alertType: 'reward',
+                                        type: this.reward_list[i].bonustype,
+                                        rewardImg: this.reward_list[i].bonus_img
+                                    },
+                                    confirmText: '前往领奖',
+                                    closeShow: false,
+                                    operatButton() {
+                                        that.$router.replace(`/getReward?bonustype=${res.back_value.bonustype}&id=${+res.back_value.id}`)
+                                    }
+                                });
+                                break;
+                            }
+                        }
 
-                        // this.$Alert.show({
-                        //     title: '恭喜中奖',
-                        //     content: {
-                        //         alertType: 'reward',
-                        //         type: res.back_value.bonustype
-                        //     },
-                        //     confirmText: '前往领奖',
-                        //     closeShow: false,
-                        //     operatButton() {
-                        //         that.$router.replace(`/getReward?bonustype=${res.back_value.bonustype}&id=${+res.back_value.id}`)
-                        //     }
-                        // })
 
                     } else {
                         Toast.clear();

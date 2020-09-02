@@ -47,11 +47,13 @@
                     </div>
 
                     <!--中奖-->
-                    <!--<div v-if="content.alertType === 'reward'">-->
-                        <!--<div class="alert-box_content__reward">-->
-                            <!--{{content.type}}-->
-                        <!--</div>-->
-                    <!--</div>-->
+                    <div v-if="content.alertType === 'reward'">
+                        <div class="alert-box_content__reward">
+                            <div class="reward-img">
+                                <img :src="content.rewardImg" alt="">
+                            </div>
+                        </div>
+                    </div>
 
                     <!--没有中奖 / 重复签到 / 各种提示框-->
                     <div v-if="content.alertType === 'noReward'">
@@ -294,6 +296,14 @@
 
                 .alert-box_content__reward {
 
+                    .reward-img {
+                        margin-bottom: 20px;
+
+                        img {
+                            width: 500px;
+                            height: 600px;
+                        }
+                    }
                 }
 
                 .alert-box_content__noReward {
