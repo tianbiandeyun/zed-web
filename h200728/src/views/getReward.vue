@@ -92,7 +92,7 @@
                 photo_code: '' // 验证码
             }
         },
-        mounted() {
+        async mounted() {
 
             Toast.loading({
                 message: '加载中...',
@@ -105,7 +105,7 @@
             /**
              * 获取轮播图
              * */
-            this.$store.dispatch('fetchData', {
+            await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_banner,
                 fps: {
                     page_name: '商品轮播图'
@@ -118,7 +118,7 @@
             /**
              * 获取奖品列表
              * */
-            this.$store.dispatch('fetchData', {
+            await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
                 fps: {
                     open_id: this.openid_info.back_value.open_id
@@ -131,7 +131,7 @@
             /**
              * 填写的信息
              * */
-            this.$store.dispatch('fetchData', {
+            await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_prize_user_info,
                 fps: {
                     open_id: this.openid_info.back_value.open_id,
@@ -152,7 +152,6 @@
             submit() {
                 const that = this;
                 Toast.loading({
-                    message: '加载中...',
                     forbidClick: true,
                     duration: 0
                 });
@@ -202,7 +201,6 @@
             async getCode() {
 
                 Toast.loading({
-                    message: '加载中...',
                     forbidClick: true,
                     duration: 0
                 });

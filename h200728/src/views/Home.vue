@@ -89,8 +89,6 @@
             });
             this.refresh();
 
-            Toast.clear();
-
         },
         methods: {
             /**
@@ -215,10 +213,10 @@
             /**
              * 获取展示信息
              * */
-            refresh() {
+            async refresh() {
 
                 // 获取 已签到的日期
-                this.$store.dispatch('fetchData', {
+                await this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_clocked_list,
                     fps: {
                         open_id: this.openid_info.back_value.open_id
@@ -229,7 +227,7 @@
                 });
 
                 // 获取 用户信息-有几枚硬币
-                this.$store.dispatch('fetchData', {
+                await this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.getplayerinfo,
                     fps: {
                         open_id: this.openid_info.back_value.open_id
@@ -240,7 +238,7 @@
                 });
 
                 // 获取 连续福利列表
-                this.$store.dispatch('fetchData', {
+                await this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_bouns_list_info,
                     fps: {
                         open_id: this.openid_info.back_value.open_id
@@ -248,7 +246,10 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     this.keep_sign_list = res.back_value;
-                })
+                });
+
+                Toast.clear();
+
             }
         },
         computed: {

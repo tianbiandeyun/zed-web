@@ -63,7 +63,7 @@
                 is_reward: true
             }
         },
-        mounted() {
+       async mounted() {
 
             Toast.loading({
                 message: '加载中...',
@@ -75,7 +75,7 @@
             /**
              * 获取奖品列表
              * */
-            this.$store.dispatch('fetchData', {
+           await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
                 fps: {
                     open_id: this.openid_info.back_value.open_id
@@ -87,8 +87,7 @@
 
             this._getRewardCount();
 
-            Toast.clear();
-
+           Toast.clear();
         },
         methods: {
             /**

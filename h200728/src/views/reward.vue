@@ -39,6 +39,13 @@
             }
         },
         mounted() {
+
+            Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0
+            });
+
             this.$Utils.setDocumentTitle('已经领取的奖品列表');
 
             /**
@@ -51,6 +58,7 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
+                Toast.clear();
                 this.reward_list = res.back_value;
             });
 
