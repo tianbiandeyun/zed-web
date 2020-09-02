@@ -66,7 +66,7 @@
 
         <!--提交-->
         <div class="submit">
-            <button @click="submit">兑换</button>
+            <button @click="submit">提交</button>
         </div>
 
     </section>
