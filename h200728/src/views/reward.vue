@@ -57,7 +57,7 @@
         },
         methods: {
             rewardDetails(item) {
-                this.$router.replace(`/getReward?bonustype=${item.bonustype}&id=${+item.id}`)
+                this.$router.push(`/getReward?bonustype=${item.bonustype}&id=${+item.id}`)
             },
             /**
              * 比较日期大小
