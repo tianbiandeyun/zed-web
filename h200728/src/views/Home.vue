@@ -117,6 +117,11 @@
             async sign() {
                 const that = this;
 
+                Toast.loading({
+                    forbidClick: true,
+                    duration: 0
+                });
+
                 // 点击签到
                 let sign_result = await this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.clock_in_by_day,
@@ -127,6 +132,7 @@
                 });
 
                 if (sign_result.error_code === 2001101) {
+                    Toast.clear();
                     this.$Alert.show({
                         titleShow: false,
                         content: {
@@ -147,6 +153,7 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
+                    Toast.clear();
                     this.refresh();
                     this.$Alert.show({
                         title: '签到成功',
@@ -169,6 +176,11 @@
             getReward(res) {
                 const that = this;
 
+                Toast.loading({
+                    forbidClick: true,
+                    duration: 0
+                });
+
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_prize_record,
                     fps: {
@@ -180,10 +192,11 @@
                 }).then(res => {
 
                     if (res.error_code === 2008111345) {
-                        window.alert('天数不够，无法领取');
+                        Toast.clear();
+                        Toast('天数不够，无法领取');
                         return false;
                     }
-
+                    Toast.clear();
                     this.refresh();
                     this.$Alert.show({
                         title: '签到成功',
