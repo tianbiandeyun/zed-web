@@ -187,8 +187,7 @@
                         for (let i = 0; i < this.reward_list.length; i++) {
                             if (this.reward_list[i].bonustype === res.back_value.bonustype) {
                                 this.$Alert.show({
-                                    titleShow: false,
-                                    title: '恭喜中奖',
+                                    title: `恭喜中奖${this.reward_list[i].bonustype}`,
                                     content: {
                                         alertType: 'reward',
                                         type: this.reward_list[i].bonustype,

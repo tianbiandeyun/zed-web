@@ -50,7 +50,7 @@
                     <div v-if="content.alertType === 'reward'">
                         <div class="alert-box_content__reward">
                             <div class="reward-img">
-                                <img :src="content.rewardImg" alt="">
+                                <img src="../../assets/images/t.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -297,11 +297,17 @@
                 .alert-box_content__reward {
 
                     .reward-img {
-                        margin-bottom: 20px;
+                        width: 100%;
+                        height: 780px;
+                        background: url("../../assets/images/zhongjiang.png") no-repeat;
+                        background-size: 100% 100%;
+                        display: grid;
+                        align-items: center;
+                        justify-items: center;
 
-                        img {
-                            width: 500px;
-                            height: 600px;
+                        img{
+                            width: 300px;
+                            height: 300px;
                         }
                     }
                 }
@@ -325,7 +331,7 @@
 
             .alert-box_button {
                 text-align: center;
-                padding: 20px 0 40px 0;
+                padding: 0 0 30px 0;
 
                 button {
                     color: #FFF;
