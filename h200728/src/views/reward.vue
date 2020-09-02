@@ -28,10 +28,12 @@
 </template>
 
 <script>
+    import {Toast} from 'vant'
     import {mapGetters} from 'vuex'
 
     export default {
         name: "reward",
+        components: {Toast},
         data() {
             return {
                 reward_list: [],

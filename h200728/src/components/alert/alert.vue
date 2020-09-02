@@ -50,7 +50,7 @@
                     <div v-if="content.alertType === 'reward'">
                         <div class="alert-box_content__reward">
                             <div class="reward-img">
-                                <img src="../../assets/images/t.png" alt="">
+                                <img :src="content.rewardImg" alt="">
                             </div>
                         </div>
                     </div>
