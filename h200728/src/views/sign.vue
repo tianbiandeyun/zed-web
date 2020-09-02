@@ -184,18 +184,20 @@
                         this.is_reward = false;
 
                         // 中奖
-                        this.$Alert.show({
-                            title: '恭喜中奖',
-                            content: {
-                                alertType: 'reward',
-                                type: res.back_value.bonustype
-                            },
-                            confirmText: '前往领奖',
-                            closeShow: false,
-                            operatButton() {
-                                that.$router.replace(`/getReward?bonustype=${res.back_value.bonustype}&id=${+res.back_value.id}`)
-                            }
-                        })
+                        console.log(res.back_value.bonustype)
+
+                        // this.$Alert.show({
+                        //     title: '恭喜中奖',
+                        //     content: {
+                        //         alertType: 'reward',
+                        //         type: res.back_value.bonustype
+                        //     },
+                        //     confirmText: '前往领奖',
+                        //     closeShow: false,
+                        //     operatButton() {
+                        //         that.$router.replace(`/getReward?bonustype=${res.back_value.bonustype}&id=${+res.back_value.id}`)
+                        //     }
+                        // })
 
                     } else {
                         Toast.clear();

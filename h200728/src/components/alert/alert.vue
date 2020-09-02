@@ -47,11 +47,11 @@
                     </div>
 
                     <!--中奖-->
-                    <div v-if="content.alertType === 'reward'">
-                        <div class="alert-box_content__reward">
-                            {{content.type}}
-                        </div>
-                    </div>
+                    <!--<div v-if="content.alertType === 'reward'">-->
+                        <!--<div class="alert-box_content__reward">-->
+                            <!--{{content.type}}-->
+                        <!--</div>-->
+                    <!--</div>-->
 
                     <!--没有中奖 / 重复签到 / 各种提示框-->
                     <div v-if="content.alertType === 'noReward'">
