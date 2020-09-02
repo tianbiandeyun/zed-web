@@ -180,25 +180,27 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value.bonustype !== 1) {
-                        Toast.clear();
                         this.is_reward = false;
 
                         // 中奖
                         for (let i = 0; i < this.reward_list.length; i++) {
                             if (this.reward_list[i].bonustype === res.back_value.bonustype) {
-                                this.$Alert.show({
-                                    title: `恭喜中奖${this.reward_list[i].bonustype}`,
-                                    content: {
-                                        alertType: 'reward',
-                                        type: this.reward_list[i].bonustype,
-                                        rewardImg: this.reward_list[i].bonus_img
-                                    },
-                                    confirmText: '前往领奖',
-                                    closeShow: false,
-                                    operatButton() {
-                                        that.$router.replace(`/getReward?bonustype=${res.back_value.bonustype}&id=${+res.back_value.id}`)
-                                    }
-                                });
+                                setTimeout(() => {
+                                    Toast.clear();
+                                    this.$Alert.show({
+                                        title: `恭喜中奖${this.reward_list[i].bonustype}`,
+                                        content: {
+                                            alertType: 'reward',
+                                            type: this.reward_list[i].bonustype,
+                                            rewardImg: this.reward_list[i].bonus_img
+                                        },
+                                        confirmText: '前往领奖',
+                                        closeShow: false,
+                                        operatButton() {
+                                            that.$router.replace(`/getReward?bonustype=${res.back_value.bonustype}&id=${+res.back_value.id}`)
+                                        }
+                                    });
+                                }, 500);
                                 break;
                             }
                         }
@@ -346,11 +348,10 @@
                     img {
                         width: 100%;
                         height: 100%;
-                        transition: all 1s ease-in;
                     }
 
                     .change__itemActive0 {
-                        animation: change__item0-animation .3s;
+                        animation: change__item0-animation .6s;
                         animation-fill-mode: forwards;
                         animation-delay: .5s;
                     }
@@ -378,7 +379,7 @@
                     }
 
                     .change__itemActive2 {
-                        animation: change__item2-animation .3s;
+                        animation: change__item2-animation .6s;
                         animation-fill-mode: forwards;
                         animation-delay: .5s;
                     }
@@ -406,7 +407,7 @@
                     }
 
                     .change__itemActive3 {
-                        animation: change__item3-animation .3s;
+                        animation: change__item3-animation .8s;
                         animation-fill-mode: forwards;
                         animation-delay: .8s;
                     }
@@ -434,7 +435,7 @@
                     }
 
                     .change__itemActive4 {
-                        animation: change__item4-animation .3s;
+                        animation: change__item4-animation .8s;
                         animation-fill-mode: forwards;
                         animation-delay: .8s;
                     }
@@ -462,7 +463,7 @@
                     }
 
                     .change__itemActive5 {
-                        animation: change__item5-animation .3s;
+                        animation: change__item5-animation .8s;
                         animation-fill-mode: forwards;
                         animation-delay: .8s;
                     }
