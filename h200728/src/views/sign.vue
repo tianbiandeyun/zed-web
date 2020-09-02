@@ -7,7 +7,7 @@
 
         <transition name="fanzhuan">
 
-            <div class="reward_box" v-if="!is_reward">
+            <div class="reward_box" v-if="is_reward">
 
                 <!--我想要的-->
                 <div class="want_reward" v-if="want">
@@ -60,7 +60,7 @@
                 reward_type: '', // 奖品类型 - 用于抽奖的时候告诉后端抽的是什么
                 reward_list: [1, 2, 3], // 奖品列表
                 reward_count: 0, // 剩余抽奖次数
-                is_reward: false
+                is_reward: true
             }
         },
         mounted() {
@@ -181,7 +181,7 @@
                 }).then(res => {
                     if (res.back_value.bonustype !== 1) {
                         Toast.clear();
-                        this.is_reward = true;
+                        this.is_reward = false;
 
                         // 中奖
                         this.$Alert.show({
@@ -199,7 +199,7 @@
 
                     } else {
                         Toast.clear();
-                        this.is_reward = true;
+                        this.is_reward = false;
 
                         // 没中奖
                         this.$Alert.show({
@@ -212,7 +212,8 @@
                             closeShow: false,
                             operatButton() {
                                 that._getRewardCount();
-                                that.is_reward = false;
+                                that.want = true;
+                                that.is_reward = true;
                             }
                         })
 
