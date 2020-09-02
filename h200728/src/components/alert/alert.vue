@@ -207,7 +207,7 @@
         z-index: 9999;
 
         .alert-box {
-            width: 640px;
+            width: 600px;
             background-color: #fff;
             -webkit-border-radius: @default-element-border-radius;
             -moz-border-radius: @default-element-border-radius;
@@ -285,8 +285,8 @@
                         margin-bottom: 20px;
 
                         img {
-                            width: 560px;
-                            height: 660px;
+                            width: 500px;
+                            height: 600px;
                         }
                     }
 
