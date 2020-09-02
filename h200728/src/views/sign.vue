@@ -97,6 +97,11 @@
             wantReward(item) {
                 const that = this;
 
+                Toast.loading({
+                    forbidClick: true,
+                    duration: 0
+                });
+
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_pv_statistics,
                     fps: {
@@ -108,6 +113,7 @@
 
                         // 没有抽奖机会
                         if (+this.reward_count === 0) {
+                            Toast.clear();
                             this.$Alert.show({
                                 titleShow: false,
                                 content: {
@@ -122,6 +128,7 @@
 
                         // 奖品没了
                         if (+item.count === 0) {
+                            Toast.clear();
                             this.$Alert.show({
                                 titleShow: false,
                                 content: {
@@ -134,6 +141,7 @@
                             return false;
                         }
 
+                        Toast.clear();
                         // 展示我想要的奖品
                         this.$Alert.show({
                             titleShow: false,
@@ -157,6 +165,12 @@
              * */
             changeReward() {
                 const that = this;
+
+                Toast.loading({
+                    forbidClick: true,
+                    duration: 0
+                });
+
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.set_luck_draw,
                     fps: {
@@ -166,6 +180,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value.bonustype !== 1) {
+                        Toast.clear();
                         this.is_reward = true;
 
                         // 中奖
@@ -183,6 +198,7 @@
                         })
 
                     } else {
+                        Toast.clear();
                         this.is_reward = true;
 
                         // 没中奖
