@@ -15,18 +15,18 @@ export default {
             share_info: {
                 title: '我正在参加创新创业大讲堂，你也快来参与吧！',
                 desc: '培养创新意识，提高创新能力！',
-                img: this.$config.PROJECT_SHARE_REQUEST + '/h/' + this.$config.PROJECT_ID + '/dist/share.png'
+                img: this.$Config.PROJECT_SHARE_REQUEST + '/h/' + this.$Config.PROJECT_ID + '/dist/share.png'
             }
         }
     },
     async mounted() {
 
         // 分享地址
-        let _share_url = await this.$utils.makeShareLink();
+        let _share_url = await this.$Utils.makeShareLink();
         this.$set(this.share_info, "link", _share_url);
 
         // 是否在微信环境
-        let _is_weixin = this.$utils.isWeiXin();
+        let _is_weixin = this.$Utils.isWeiXin();
 
         if (_is_weixin) {
             this._initWeiXinShare(this.share_info);
@@ -41,12 +41,12 @@ export default {
             const _shareUrl = window.location.href;
 
             // 获取微信分享配置
-            let _wx_config = await this.$store.dispatch('_getWeiXinConfig', {
-                im: this.$config.PROJECT_INTERFACE.get_jsconf,
+            let _wx_config = await this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_jsconf,
                 fps: {
                     url: encodeURIComponent(_shareUrl)
                 },
-                url: this.$config.REQUEST_URL
+                url: this.$Config.REQUEST_URL
             });
 
             wx.config({
