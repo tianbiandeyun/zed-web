@@ -1,0 +1,15 @@
+{
+  "name": "zed_wxshare_vue",
+  "version": "1.0.0",
+  "description": "这是一个vue分享",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel index.js --out-dir dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
