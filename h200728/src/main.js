@@ -18,6 +18,10 @@ import * as Config from './utils/config'
 
 Vue.prototype.$Config = Config;
 
+import wxShare from 'zed_wxshare'
+
+Vue.prototype.$WxShare = wxShare;
+
 
 Vue.config.productionTip = false;
 

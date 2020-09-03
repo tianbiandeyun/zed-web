@@ -73,6 +73,8 @@
         },
         async mounted() {
 
+            console.log(new this.$WxShare().init());
+
             Toast.loading({
                 message: '加载中...',
                 forbidClick: true,
