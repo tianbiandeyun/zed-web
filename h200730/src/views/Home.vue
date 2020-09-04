@@ -14,7 +14,9 @@
                 <Swiper></Swiper>
 
                 <div class="office-list">
-                    <OfficItem></OfficItem>
+                    <OfficItem>
+                        <p>1</p>
+                    </OfficItem>
                 </div>
 
             </Tab>

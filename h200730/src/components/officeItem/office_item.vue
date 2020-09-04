@@ -10,9 +10,11 @@
                 <span>你好我是标签</span>
                 <span>你好我是标签</span>
             </p>
-            <p class="position">
-                我是位置
-            </p>
+            <slot>
+                <p class="position">
+                    我是位置
+                </p>
+            </slot>
         </div>
     </section>
 </template>
@@ -62,9 +64,6 @@
                         margin: 0 5px;
                     }
                 }
-            }
-
-            .position {
             }
         }
     }
