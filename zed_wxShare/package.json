@@ -1,8 +1,8 @@
 {
   "name": "zed_wxshare_vue",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "这是一个vue分享",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel index.js --out-dir dist"
   },
