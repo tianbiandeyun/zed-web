@@ -2,11 +2,23 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import 'normalize.css'
+import 'lib-flexible'
+import './assets/css/rest.css'
 
-Vue.config.productionTip = false
+
+import Utils from './utils/utils'
+
+Vue.prototype.$Utils = Utils;
+
+import * as Config from './utils/config'
+
+Vue.prototype.$Config = Config;
+
+Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');
