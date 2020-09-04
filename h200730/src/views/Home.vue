@@ -14,9 +14,7 @@
                 <Swiper></Swiper>
 
                 <div class="office-list">
-                    <OfficItem>
-                        <p>1</p>
-                    </OfficItem>
+                    <OfficItem></OfficItem>
                 </div>
 
             </Tab>
@@ -47,9 +45,9 @@
                 inactive-color="#515a6e"
                 safe-area-inset-bottom
                 @change="onTabbarClick">
-            <TabbarItem icon="home-o">标签1</TabbarItem>
-            <TabbarItem icon="search">标签2</TabbarItem>
-            <TabbarItem icon="friends-o">标签3</TabbarItem>
+            <TabbarItem icon="home-o">职位</TabbarItem>
+            <TabbarItem icon="search">我的投递</TabbarItem>
+            <TabbarItem icon="friends-o">简历</TabbarItem>
         </Tabbar>
 
     </section>
@@ -83,6 +81,9 @@
              * */
             onTabbarClick(index) {
                 console.log(index);
+                if (index === 1) {
+                    this.$router.push('/sendOffice')
+                }
             },
         },
     }
