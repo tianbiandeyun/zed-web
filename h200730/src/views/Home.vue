@@ -7,7 +7,10 @@
 <script>
     export default {
         name: 'Home',
-        components: {}
+        components: {},
+        mounted() {
+            this.$Utils.setDocumentTitle('高成名就')
+        }
     }
 </script>
 <style lang="less" scoped>
