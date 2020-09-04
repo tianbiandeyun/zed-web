@@ -5,18 +5,13 @@
         <Tabs
                 sticky
                 animated
+                color="#ff9900"
                 title-inactive-color="#515a6e"
                 title-active-color="#17233d"
-                @click="onClick">
-            <Tab title="标签 1">
-
-                <div style="height: 400px;border: 1px solid black;" v-for="item in 10" :key="index">
-                    {{item}}
-                </div>
-
-            </Tab>
+                @click="onTabClick">
+            <Tab title="标签 1">内容 1</Tab>
             <Tab title="标签 2">内容 2</Tab>
-            <Tab title="标签 2">内容 2</Tab>
+            <Tab title="标签 3">内容 3</Tab>
         </Tabs>
 
         <!--底部导航-->
@@ -24,7 +19,7 @@
                 v-model="active"
                 active-color="#ff9900"
                 inactive-color="#515a6e"
-                @change="onChange">
+                @change="onTabbarClick">
             <TabbarItem icon="home-o">标签1</TabbarItem>
             <TabbarItem icon="search">标签2</TabbarItem>
             <TabbarItem icon="friends-o">标签3</TabbarItem>
@@ -34,11 +29,11 @@
 </template>
 
 <script>
-    import {Tab, Tabs, Tabbar, TabbarItem, Notify, Toast} from 'vant';
+    import {Tab, Tabs, Tabbar, TabbarItem} from 'vant';
 
     export default {
         name: 'Home',
-        components: {Tab, Tabs, Tabbar, TabbarItem, Notify},
+        components: {Tab, Tabs, Tabbar, TabbarItem},
         data() {
             return {
                 active: 0
@@ -48,11 +43,17 @@
             this.$Utils.setDocumentTitle('高成名就')
         },
         methods: {
-            onClick(name, title) {
-                Toast(title);
+            /**
+             * 选项卡
+             * */
+            onTabClick(index) {
+                console.log(index);
             },
-            onChange(index) {
-                Notify({type: 'primary', message: index});
+            /**
+             * 底部导航
+             * */
+            onTabbarClick(index) {
+                console.log(index);
             },
         },
     }
