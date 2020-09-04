@@ -1,6 +1,7 @@
 <template>
     <section class="home-container">
 
+        <!--选项卡-->
         <Tabs
                 sticky
                 animated
@@ -18,7 +19,7 @@
             <Tab title="标签 2">内容 2</Tab>
         </Tabs>
 
-
+        <!--底部导航-->
         <Tabbar
                 v-model="active"
                 active-color="#ff9900"
