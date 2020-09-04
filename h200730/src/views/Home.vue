@@ -10,18 +10,32 @@
                 title-active-color="#17233d"
                 @click="onTabClick">
             <Tab title="标签 1">
-                <section class="tab-first">
 
-                    <Swiper></Swiper>
+                <Swiper></Swiper>
 
-                    <div class="office-list">
-                        <OfficItem></OfficItem>
-                    </div>
+                <div class="office-list">
+                    <OfficItem></OfficItem>
+                </div>
 
-                </section>
             </Tab>
-            <Tab title="标签 2">内容 2</Tab>
-            <Tab title="标签 3">内容 3</Tab>
+            <Tab title="标签 2">
+
+                <Swiper></Swiper>
+
+                <div class="office-list">
+                    <OfficItem></OfficItem>
+                </div>
+
+            </Tab>
+            <Tab title="标签 3">
+
+                <Swiper></Swiper>
+
+                <div class="office-list">
+                    <OfficItem></OfficItem>
+                </div>
+
+            </Tab>
         </Tabs>
 
         <!--底部导航-->
@@ -75,14 +89,5 @@
         height: 100%;
         overflow-y: scroll;
         background-color: @default-app-color-background;
-
-        .tab-first {
-
-            .office-list {
-
-            }
-
-        }
-
     }
 </style>
