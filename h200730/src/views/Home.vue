@@ -43,6 +43,7 @@
                 v-model="active"
                 active-color="#ff9900"
                 inactive-color="#515a6e"
+                safe-area-inset-bottom
                 @change="onTabbarClick">
             <TabbarItem icon="home-o">标签1</TabbarItem>
             <TabbarItem icon="search">标签2</TabbarItem>
