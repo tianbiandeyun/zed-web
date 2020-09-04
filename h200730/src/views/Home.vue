@@ -9,7 +9,17 @@
                 title-inactive-color="#515a6e"
                 title-active-color="#17233d"
                 @click="onTabClick">
-            <Tab title="标签 1">内容 1</Tab>
+            <Tab title="标签 1">
+                <section class="tab-first">
+
+                    <Swiper></Swiper>
+
+                    <div class="office-list">
+                        <OfficItem></OfficItem>
+                    </div>
+
+                </section>
+            </Tab>
             <Tab title="标签 2">内容 2</Tab>
             <Tab title="标签 3">内容 3</Tab>
         </Tabs>
@@ -29,11 +39,13 @@
 </template>
 
 <script>
+    import Swiper from '../components/swiper/swiper';
+    import OfficItem from '../components/officeItem/office_item'
     import {Tab, Tabs, Tabbar, TabbarItem} from 'vant';
 
     export default {
         name: 'Home',
-        components: {Tab, Tabs, Tabbar, TabbarItem},
+        components: {Tab, Tabs, Tabbar, TabbarItem, Swiper, OfficItem},
         data() {
             return {
                 active: 0
@@ -63,5 +75,14 @@
         height: 100%;
         overflow-y: scroll;
         background-color: @default-app-color-background;
+
+        .tab-first {
+
+            .office-list {
+
+            }
+
+        }
+
     }
 </style>
