@@ -26,8 +26,7 @@
                     type="textarea"
                     maxlength="100"
                     placeholder="自我介绍"
-                    show-word-limit
-            />
+                    show-word-limit/>
         </div>
 
         <div class="office-item">
@@ -39,8 +38,7 @@
                     type="textarea"
                     maxlength="100"
                     placeholder="资格证书"
-                    show-word-limit
-            />
+                    show-word-limit/>
         </div>
 
         <div class="save-box">

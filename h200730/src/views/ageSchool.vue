@@ -36,8 +36,7 @@
                     autosize
                     label="详细地址"
                     type="textarea"
-                    placeholder="请输入详细地址"
-            />
+                    placeholder="请输入详细地址"/>
 
         </div>
 

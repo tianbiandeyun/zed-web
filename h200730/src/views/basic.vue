@@ -27,8 +27,7 @@
                         show-toolbar
                         :columns="columns"
                         @confirm="onConfirm"
-                        @cancel="showPicker = false"
-                />
+                        @cancel="showPicker = false"/>
             </Popup>
 
         </div>
@@ -49,8 +48,7 @@
                     clearable
                     type="tel"
                     label="联系电话"
-                    placeholder="请输入联系电话"
-            >
+                    placeholder="请输入联系电话">
                 <template #button>
                     <Button size="small" type="primary" color="#f7931e">发送验证码</Button>
                 </template>
