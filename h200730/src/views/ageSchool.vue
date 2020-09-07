@@ -10,6 +10,29 @@
                     readonly
                     clickable
                     name="picker"
+                    :value="home"
+                    label="籍贯"
+                    placeholder="点击选择籍贯"
+                    @click="home_picker = true"/>
+
+            <Popup v-model="home_picker" position="bottom">
+                <Picker
+                        show-toolbar
+                        :columns="home_columns"
+                        @confirm="getHome"
+                        @cancel="home_picker = false"
+                />
+            </Popup>
+
+        </div>
+
+        <div class="ageSchool-item">
+
+            <Field
+                    required
+                    readonly
+                    clickable
+                    name="picker"
                     :value="age"
                     label="出生日期"
                     placeholder="点击选择出生日期"
@@ -68,15 +91,18 @@
 </template>
 
 <script>
-    import {Field, Button, Picker, Popup} from 'vant';
+    import {Field, Button, Picker, Area, Popup} from 'vant';
 
     export default {
         name: "ageSchool",
-        components: {Field, Button, Picker, Popup},
+        components: {Field, Button, Picker, Area, Popup},
         data() {
             return {
                 school: '',
                 good_at: '',
+                home: '',
+                home_picker: false,
+                home_columns: '',
                 age: '',
                 age_picker: false,
                 age_columns: [
@@ -99,6 +125,10 @@
             }
         },
         methods: {
+            getHome(res) {
+                console.log(res);
+                this.home_picker = false;
+            },
             getAge(res) {
                 console.log(res);
                 this.age_picker = false;
