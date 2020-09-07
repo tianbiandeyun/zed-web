@@ -16,12 +16,13 @@
                     @click="home_picker = true"/>
 
             <Popup v-model="home_picker" position="bottom">
-                <Picker
-                        show-toolbar
-                        :columns="home_columns"
+
+                <Area
+                        title="标题"
+                        :area-list="home_columns"
                         @confirm="getHome"
-                        @cancel="home_picker = false"
-                />
+                        @cancel="home_picker = false"/>
+
             </Popup>
 
         </div>
@@ -43,8 +44,7 @@
                         show-toolbar
                         :columns="age_columns"
                         @confirm="getAge"
-                        @cancel="age_picker = false"
-                />
+                        @cancel="age_picker = false"/>
             </Popup>
 
         </div>
@@ -81,8 +81,7 @@
                         show-toolbar
                         :columns="education_columns"
                         @confirm="getSchool"
-                        @cancel="education_picker = false"
-                />
+                        @cancel="education_picker = false"/>
             </Popup>
 
         </div>
@@ -92,6 +91,7 @@
 
 <script>
     import {Field, Button, Picker, Area, Popup} from 'vant';
+    import aera_json from '../utils/area'
 
     export default {
         name: "ageSchool",
@@ -102,7 +102,7 @@
                 good_at: '',
                 home: '',
                 home_picker: false,
-                home_columns: '',
+                home_columns: aera_json,
                 age: '',
                 age_picker: false,
                 age_columns: [
