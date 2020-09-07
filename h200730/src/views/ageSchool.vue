@@ -31,6 +31,20 @@
 
             <Field
                     required
+                    v-model="message"
+                    rows="1"
+                    autosize
+                    label="详细地址"
+                    type="textarea"
+                    placeholder="请输入详细地址"
+            />
+
+        </div>
+
+        <div class="ageSchool-item">
+
+            <Field
+                    required
                     readonly
                     clickable
                     name="picker"
@@ -86,6 +100,10 @@
 
         </div>
 
+        <div class="save-box">
+            <button class="save">保存年龄及专业</button>
+        </div>
+
     </section>
 </template>
 
@@ -100,6 +118,7 @@
             return {
                 school: '',
                 good_at: '',
+                message: '',
                 home: '',
                 home_picker: false,
                 home_columns: aera_json,
@@ -157,6 +176,23 @@
         .ageSchool-item {
             padding: 10px;
             background-color: #fff;
+        }
+
+        .save-box {
+            width: 100%;
+            position: fixed;
+            bottom: 80px;
+            text-align: center;
+
+            .save {
+                font-size: @default-font-size-30;
+                background-color: @default-app-color-primary;
+                color: #fff;
+                padding: 20px 40px;
+                -webkit-border-radius: @default-element-border-radius;
+                -moz-border-radius: @default-element-border-radius;
+                border-radius: @default-element-border-radius;
+            }
         }
     }
 </style>
