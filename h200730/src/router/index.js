@@ -13,6 +13,11 @@ const routes = [
         path: '/sendOffice',
         name: 'SendOffice',
         component: () => import('../views/sendOffice.vue')
+    },
+    {
+        path: '/basic',
+        name: 'Basic',
+        component: () => import('../views/basic.vue')
     }
 ];
 
