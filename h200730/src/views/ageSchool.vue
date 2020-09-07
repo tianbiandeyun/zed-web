@@ -4,9 +4,32 @@
         <header class="header">年龄及专业</header>
 
         <div class="ageSchool-item">
+
             <Field
                     required
-                    v-model="name"
+                    readonly
+                    clickable
+                    name="picker"
+                    :value="age"
+                    label="出生日期"
+                    placeholder="点击选择出生日期"
+                    @click="age_picker = true"/>
+
+            <Popup v-model="age_picker" position="bottom">
+                <Picker
+                        show-toolbar
+                        :columns="age_columns"
+                        @confirm="getAge"
+                        @cancel="age_picker = false"
+                />
+            </Popup>
+
+        </div>
+
+        <div class="ageSchool-item">
+            <Field
+                    required
+                    v-model="school"
                     label="毕业院校"
                     placeholder="请输入毕业院校"/>
         </div>
@@ -14,7 +37,7 @@
         <div class="ageSchool-item">
             <Field
                     required
-                    v-model="name"
+                    v-model="good_at"
                     label="专业"
                     placeholder="请输入专业"/>
         </div>
@@ -25,17 +48,17 @@
                     readonly
                     clickable
                     name="picker"
-                    :value="sex"
+                    :value="education"
                     label="学历"
                     placeholder="点击选择学历"
-                    @click="showPicker = true"/>
+                    @click="education_picker = true"/>
 
-            <Popup v-model="showPicker" position="bottom">
+            <Popup v-model="education_picker" position="bottom">
                 <Picker
                         show-toolbar
-                        :columns="columns"
-                        @confirm="onConfirm"
-                        @cancel="showPicker = false"
+                        :columns="education_columns"
+                        @confirm="getSchool"
+                        @cancel="education_picker = false"
                 />
             </Popup>
 
@@ -52,19 +75,37 @@
         components: {Field, Button, Picker, Popup},
         data() {
             return {
-                name: '',
-                sex: '',
-                columns: ['男', '女'],
-                showPicker: false,
-                email: '',
-                photo: '',
-                photo_code: ''
+                school: '',
+                good_at: '',
+                age: '',
+                age_picker: false,
+                age_columns: [
+                    {
+                        values: ['周一', '周二', '周三', '周四', '周五'],
+                        defaultIndex: 0,
+                    },
+                    {
+                        values: ['上午', '下午', '晚上'],
+                        defaultIndex: 0,
+                    },
+                    {
+                        values: ['1', '2', '3'],
+                        defaultIndex: 0,
+                    }
+                ],
+                education: '',
+                education_picker: false,
+                education_columns: ['男', '女']
             }
         },
         methods: {
-            onConfirm(value) {
-                this.sex = value;
-                this.showPicker = false;
+            getAge(res) {
+                console.log(res);
+                this.age_picker = false;
+            },
+            getSchool(value) {
+                this.education = value;
+                this.education_picker = false;
             }
         }
     }
