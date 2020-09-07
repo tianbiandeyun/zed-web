@@ -4,7 +4,11 @@
         <header class="header">联系方式</header>
 
         <div class="basic-item">
-            <Field required v-model="name" label="姓名" placeholder="请输入姓名"/>
+            <Field
+                    required
+                    v-model="name"
+                    label="姓名"
+                    placeholder="请输入姓名"/>
         </div>
 
         <div class="basic-item">
@@ -30,7 +34,11 @@
         </div>
 
         <div class="basic-item">
-            <Field required v-model="email" label="电子邮件" placeholder="请输入电子邮件"/>
+            <Field
+                    required
+                    v-model="email"
+                    label="电子邮件"
+                    placeholder="请输入电子邮件"/>
         </div>
 
         <div class="basic-item">
@@ -44,13 +52,22 @@
                     placeholder="请输入联系电话"
             >
                 <template #button>
-                    <Button size="small" type="primary">发送验证码</Button>
+                    <Button size="small" type="primary" color="#f7931e">发送验证码</Button>
                 </template>
             </Field>
         </div>
 
         <div class="basic-item">
-            <Field required v-model="photo_code" type="number" label="验证码" placeholder="请输入验证码"/>
+            <Field
+                    required
+                    v-model="photo_code"
+                    type="number"
+                    label="验证码"
+                    placeholder="请输入验证码"/>
+        </div>
+
+        <div class="save-box">
+            <button class="save">保存联系方式</button>
         </div>
 
     </section>
@@ -98,6 +115,23 @@
         .basic-item {
             padding: 10px;
             background-color: #fff;
+        }
+
+        .save-box {
+            width: 100%;
+            position: fixed;
+            bottom: 80px;
+            text-align: center;
+
+            .save {
+                font-size: @default-font-size-30;
+                background-color: @default-app-color-primary;
+                color: #fff;
+                padding: 20px 40px;
+                -webkit-border-radius: @default-element-border-radius;
+                -moz-border-radius: @default-element-border-radius;
+                border-radius: @default-element-border-radius;
+            }
         }
     }
 </style>
