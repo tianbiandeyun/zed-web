@@ -1,7 +1,7 @@
 <template>
     <section class="offic-container">
 
-        <header class="header">联系方式</header>
+        <header class="header">岗位相关信息（非必填）</header>
 
         <div class="office-item">
             <Field
@@ -43,7 +43,7 @@
 
         <div class="save-box">
             <button class="jump">跳过此信息</button>
-            <button class="save">保存联系方式</button>
+            <button class="save">保存岗位信息</button>
         </div>
 
     </section>
