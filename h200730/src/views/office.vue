@@ -5,7 +5,6 @@
 
         <div class="office-item">
             <Field
-                    required
                     v-model="political"
                     label="政治面貌"
                     placeholder="请输入政治面貌"/>
@@ -13,7 +12,6 @@
 
         <div class="office-item">
             <Field
-                    required
                     v-model="office"
                     label="期望岗位"
                     placeholder="请输入期望岗位"/>
@@ -21,7 +19,6 @@
 
         <div class="office-item">
             <Field
-                    required
                     v-model="self_message"
                     rows="2"
                     autosize
@@ -35,7 +32,6 @@
 
         <div class="office-item">
             <Field
-                    required
                     v-model="certificate"
                     rows="2"
                     autosize
