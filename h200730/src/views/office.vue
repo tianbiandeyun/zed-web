@@ -96,7 +96,8 @@
 
             .jump {
                 font-size: @default-font-size-30;
-                border: 4px solid @default-font-color-content;
+                border: 4px solid @default-font-color-sub;
+                color: @default-font-color-sub;
                 padding: 16px 40px;
                 -webkit-border-radius: @default-element-border-radius;
                 -moz-border-radius: @default-element-border-radius;
