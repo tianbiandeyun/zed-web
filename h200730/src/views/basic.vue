@@ -20,14 +20,14 @@
                     :value="sex"
                     label="性别"
                     placeholder="点击选择性别"
-                    @click="showPicker = true"/>
+                    @click="sex_picker = true"/>
 
-            <Popup v-model="showPicker" position="bottom">
+            <Popup v-model="sex_picker" position="bottom">
                 <Picker
                         show-toolbar
-                        :columns="columns"
-                        @confirm="onConfirm"
-                        @cancel="showPicker = false"/>
+                        :columns="sex_columns"
+                        @confirm="getSex"
+                        @cancel="sex_picker = false"/>
             </Popup>
 
         </div>
@@ -65,7 +65,7 @@
         </div>
 
         <div class="save-box">
-            <button class="save">保存联系方式</button>
+            <button class="save" @click="save">保存联系方式</button>
         </div>
 
     </section>
@@ -81,17 +81,20 @@
             return {
                 name: '',
                 sex: '',
-                columns: ['男', '女'],
-                showPicker: false,
+                sex_columns: ['男', '女'],
+                sex_picker: false,
                 email: '',
                 photo: '',
                 photo_code: ''
             }
         },
         methods: {
-            onConfirm(value) {
+            getSex(value) {
                 this.sex = value;
                 this.showPicker = false;
+            },
+            save() {
+                this.$Toast('提示内容');
             }
         }
     }
