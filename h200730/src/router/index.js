@@ -23,6 +23,11 @@ const routes = [
         path: '/ageSchool',
         name: 'AgeSchool',
         component: () => import('../views/ageSchool.vue')
+    },
+    {
+        path: '/office',
+        name: 'Office',
+        component: () => import('../views/office.vue')
     }
 ];
 
