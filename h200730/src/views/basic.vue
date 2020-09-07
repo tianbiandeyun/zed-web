@@ -50,7 +50,14 @@
                     label="联系电话"
                     placeholder="请输入联系电话">
                 <template #button>
-                    <Button size="small" type="primary" color="#f7931e">发送验证码</Button>
+                    <Button
+                            size="small"
+                            type="primary"
+                            color="#f7931e"
+                            @click="getCode"
+                            :disabled="button_disabled">
+                        {{message}}
+                    </Button>
                 </template>
             </Field>
         </div>
@@ -85,14 +92,45 @@
                 sex_picker: false,
                 email: '',
                 photo: '',
-                photo_code: ''
+                photo_code: '',
+                message: '发送验证码', // 短信验证码按钮文字
+                timer: null, // 定时器清除
+                button_disabled: false, // 按钮禁用
             }
         },
         methods: {
+            /**
+             * 获取验证码
+             * */
+            getCode() {
+                const TIME_COUNT = 10;
+                if (!this.timer) {
+                    let code = TIME_COUNT;
+                    this.button_disabled = true;
+                    this.message = `${TIME_COUNT}s后获取`;
+                    this.timer = setInterval(() => {
+                        if (code > 0 && code <= TIME_COUNT) {
+                            code--;
+                            this.message = `${code}s后获取`;
+                        } else {
+                            clearInterval(this.timer);
+                            this.timer = null;
+                            this.message = '发送验证码';
+                            this.button_disabled = false;
+                        }
+                    }, 1000);
+                }
+            },
+            /**
+             * 选择性别
+             * */
             getSex(value) {
                 this.sex = value;
-                this.showPicker = false;
+                this.sex_picker = false;
             },
+            /**
+             * 保存信息
+             * */
             save() {
                 this.$Toast('提示内容');
             }
