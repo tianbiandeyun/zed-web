@@ -133,6 +133,7 @@
              * */
             save() {
                 this.$Toast('提示内容');
+                this.$router.push('/ageSchool')
             }
         }
     }
