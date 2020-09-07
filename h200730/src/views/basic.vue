@@ -92,10 +92,12 @@
             color: @default-app-color-primary;
             padding: 40px 20px 20px 20px;
             background-color: #fff;
+            margin-bottom: 20px;
         }
 
         .basic-item {
-            border: 1px solid black;
+            padding: 10px;
+            background-color: #fff;
         }
     }
 </style>
