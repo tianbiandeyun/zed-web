@@ -100,7 +100,7 @@
         </div>
 
         <div class="save-box">
-            <button class="save">保存年龄及专业</button>
+            <button class="save" @click="save">保存年龄及专业</button>
         </div>
 
     </section>
@@ -143,6 +143,13 @@
             }
         },
         methods: {
+            /**
+             * 保存信息
+             * */
+            save() {
+                this.$Toast('提示内容');
+                this.$router.push('/office')
+            },
             getHome(res) {
                 console.log(res);
                 this.home_picker = false;

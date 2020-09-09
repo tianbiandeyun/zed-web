@@ -43,7 +43,7 @@
 
         <div class="save-box">
             <button class="jump">跳过此信息</button>
-            <button class="save">保存岗位信息</button>
+            <button class="save" @click="save">保存岗位信息</button>
         </div>
 
     </section>
@@ -62,6 +62,15 @@
                 self_message: '',
                 certificate: ''
             }
+        },
+        methods: {
+            /**
+             * 保存信息
+             * */
+            save() {
+                this.$Toast('提示内容');
+                this.$router.push('/experience')
+            },
         }
     }
 </script>
