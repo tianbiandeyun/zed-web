@@ -67,7 +67,15 @@
             }
         },
         mounted() {
-            this.$Utils.setDocumentTitle('高成名就')
+            this.$Utils.setDocumentTitle('高成名就');
+
+            this.$store.dispatch('getOpenid', {
+                im: this.$Config.PROJECT_INTERFACE.getopenid,
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                console.log(res.back_value.open_id);
+            })
+
         },
         methods: {
             /**
