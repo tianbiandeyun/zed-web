@@ -42,7 +42,7 @@
         </div>
 
         <div class="save-box">
-            <button class="jump">跳过此信息</button>
+            <button class="jump" @click="jump">跳过此信息</button>
             <button class="save" @click="save">保存岗位信息</button>
         </div>
 
@@ -51,6 +51,7 @@
 
 <script>
     import {Field} from 'vant';
+    import {mapGetters} from 'vuex';
 
     export default {
         name: "office",
@@ -64,13 +65,54 @@
             }
         },
         methods: {
+            jump() {
+                this.$router.push('/experience');
+            },
             /**
              * 保存信息
              * */
             save() {
-                this.$Toast('提示内容');
-                this.$router.push('/experience')
-            },
+                if (this.political === '') {
+                    this.$Toast('政治面貌不能为空');
+                    return false;
+                }
+
+                if (this.office === '') {
+                    this.$Toast('期望岗位不能为空');
+                    return false;
+                }
+
+                if (this.self_message === '') {
+                    this.$Toast('自我介绍不能为空');
+                    return false;
+                }
+
+                if (this.certificate === '') {
+                    this.$Toast('资格证书不能为空');
+                    return false;
+                }
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        political_status: this.political,
+                        expected_position: this.office,
+                        self_introduction: this.self_message,
+                        qualification_certificate: this.certificate
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$router.push('/experience');
+                    }
+                })
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
         }
     }
 </script>

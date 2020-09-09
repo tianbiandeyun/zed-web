@@ -36,14 +36,15 @@
         </div>
 
         <div class="save-box">
-            <button class="jump">跳过此信息</button>
-            <button class="save">保存工作经历</button>
+            <button class="jump" @click="jump">跳过此信息</button>
+            <button class="save" @click="save">保存工作经历</button>
         </div>
     </section>
 </template>
 
 <script>
     import {Field} from 'vant';
+    import {mapGetters} from 'vuex';
 
     export default {
         name: "experience",
@@ -56,6 +57,66 @@
                 word: ''
             }
         },
+        methods: {
+            jump() {
+                this.$router.replace('/');
+            },
+            /**
+             * 保存信息
+             * */
+            save() {
+                const that = this;
+
+                if (this.unit === '') {
+                    this.$Toast('工作单位不能为空');
+                    return false;
+                }
+
+                if (this.post === '') {
+                    this.$Toast('岗位名称不能为空');
+                    return false;
+                }
+
+                if (this.industry === '') {
+                    this.$Toast('所属行业不能为空');
+                    return false;
+                }
+
+                if (this.word === '') {
+                    this.$Toast('工作描述不能为空');
+                    return false;
+                }
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        work_unit: this.unit,
+                        name_of_post: this.post,
+                        industry: this.industry,
+                        describe: this.word
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$Alert.show({
+                            yes() {
+                                that.$router.replace('/experience');
+                            },
+                            no() {
+                                that.$router.replace('/');
+                            }
+                        });
+                        // this.$router.push('/experience');
+                    }
+                })
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
+        }
     }
 </script>
 

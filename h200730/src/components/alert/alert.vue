@@ -16,6 +16,14 @@
 <script>
     export default {
         name: "alert",
+        props: {
+            yes: {
+                type: Function
+            },
+            no: {
+                type: Function
+            }
+        },
         data() {
             return {
                 alert_show: false
@@ -27,9 +35,11 @@
             },
             save() {
                 this.alert_show = false;
+                this.yes();
             },
             end() {
                 this.alert_show = false;
+                this.no();
             }
         }
     }
