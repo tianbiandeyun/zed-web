@@ -1,12 +1,12 @@
 <template>
-    <section class="alert-container" v-if="show">
+    <section class="alert-container" v-if="alert_show">
         <div class="alert">
             <h2>是否继续添加工作经历</h2>
             <p>工作经历可以反复添加多次，如果您有其他工作经历请点击继续。</p>
 
             <div class="alert-button">
-                <button class="alert-end">结束添加</button>
-                <button class="alert-save">继续</button>
+                <button class="alert-end" @click="end">结束添加</button>
+                <button class="alert-save" @click="save">继续</button>
             </div>
 
         </div>
@@ -18,12 +18,18 @@
         name: "alert",
         data() {
             return {
-                show: false
+                alert_show: false
             }
         },
         methods: {
             show() {
-                this.show = true;
+                this.alert_show = true;
+            },
+            save() {
+                this.alert_show = false;
+            },
+            end() {
+                this.alert_show = false;
             }
         }
     }

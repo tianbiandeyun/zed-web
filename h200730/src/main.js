@@ -19,9 +19,9 @@ import {Toast} from 'vant'
 
 Vue.prototype.$Toast = Toast;
 
-import alert from './components/alert/alert'
+import Alert from './components/alert/alert'
 
-Vue.prototype.$Alert = alert;
+Vue.prototype.$Alert = Alert;
 
 Vue.config.productionTip = false;
 
