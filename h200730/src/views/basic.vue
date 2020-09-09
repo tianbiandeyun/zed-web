@@ -79,11 +79,12 @@
 </template>
 
 <script>
+    import alert from '../components/alert/alert'
     import {Field, Button, Picker, Popup} from 'vant';
 
     export default {
         name: "basic",
-        components: {Field, Button, Picker, Popup},
+        components: {Field, Button, Picker, Popup, alert},
         data() {
             return {
                 name: '',
@@ -132,8 +133,9 @@
              * 保存信息
              * */
             save() {
-                this.$Toast('提示内容');
-                this.$router.push('/ageSchool')
+                this.$Alert.show();
+                // this.$Toast('提示内容');
+                // this.$router.push('/ageSchool')
             }
         }
     }
