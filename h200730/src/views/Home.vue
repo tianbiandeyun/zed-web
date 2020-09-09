@@ -111,8 +111,17 @@
                         })
                     }
                 }).then(res => {
-                    this.$Toast.clear();
                     this.company_list = res.back_value;
+                    return this.$store.dispatch('fetchData', {
+                        im: this.$Config.PROJECT_INTERFACE.get_banner,
+                        fps: {
+                            page_name: ''
+                        },
+                        url: this.$Config.REQUEST_URL
+                    })
+                }).then(res => {
+                    this.$Toast.clear();
+                    console.log(res);
                 })
 
             }
