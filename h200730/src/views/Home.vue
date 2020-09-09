@@ -95,7 +95,6 @@
                     this.$router.replace('/basic')
                 } else {
                     this.$Toast.clear();
-                    console.log('有简历')
                 }
             });
 

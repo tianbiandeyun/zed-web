@@ -9,7 +9,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        openid_info: ''
+        openid_info: {
+            back_value: {
+                open_id: 'TEST_OPEN_ID_1'
+            }
+        }
     },
     mutations: {
         getOpenid(state, res) {
