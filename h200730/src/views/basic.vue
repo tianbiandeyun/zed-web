@@ -187,6 +187,13 @@
                     return false;
                 }
 
+                this.$Toast.loading({
+                    message: '加载中...',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
                     fps: {
@@ -199,6 +206,7 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
+                    this.$Toast.clear();
                     if (res.back_value) {
                         this.$router.replace('/ageSchool');
                     }
