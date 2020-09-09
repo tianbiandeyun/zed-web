@@ -1,17 +1,15 @@
 <template>
     <section class="office-item-container">
         <div class="office-item-title">
-            <p class="office">我是一个职位</p>
-            <p class="money">我是薪水</p>
+            <p class="office">{{office.job_title}}</p>
+            <p class="money">{{office.salary_cap}}-{{office.salary_floor}}K</p>
         </div>
         <div class="office-item-details">
             <p class="details">
-                <span>你好我是标签</span>
+                <span>{{office.location_area}} | {{office.street}} | {{office.job_nature}} | {{office.job_type}}</span>
             </p>
             <slot>
-                <p class="position">
-                    我是位置
-                </p>
+                <p class="position">没有传入任何东西</p>
             </slot>
         </div>
     </section>
@@ -20,7 +18,12 @@
 <script>
 
     export default {
-        name: "office_item"
+        name: "office_item",
+        props: {
+            office: {
+                type: Object
+            }
+        }
     }
 </script>
 

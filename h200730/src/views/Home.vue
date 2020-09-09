@@ -18,7 +18,9 @@
                 <Swiper :swiperList="swiper_list"></Swiper>
 
                 <div class="office-list">
-                    <OfficItem></OfficItem>
+                    <OfficItem v-for="(item,index) in office_list" :key="index" :office="item">
+                        <p class="position">{{item.recruitment_unit}}</p>
+                    </OfficItem>
                 </div>
 
             </Tab>
@@ -53,7 +55,8 @@
             return {
                 active: 0,
                 company_list: [],
-                swiper_list: []
+                swiper_list: [],
+                office_list: []
             }
         },
         async mounted() {
@@ -139,8 +142,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     this.$Toast.clear();
-
-                    console.log(res);
+                    this.office_list = res.back_value;
                 });
 
             }
