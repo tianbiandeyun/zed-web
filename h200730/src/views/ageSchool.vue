@@ -148,8 +148,38 @@
              * 保存信息
              * */
             save() {
-                this.$Toast('提示内容');
-                this.$router.push('/office')
+
+                if (this.home === '') {
+                    this.$Toast('籍贯不能为空');
+                    return false;
+                }
+
+                if (this.home_details === '') {
+                    this.$Toast('详细地址不能为空');
+                    return false;
+                }
+
+                if (this.age === '') {
+                    this.$Toast('出生日期不能为空');
+                    return false;
+                }
+
+                if (this.school === '') {
+                    this.$Toast('毕业院校不能为空');
+                    return false;
+                }
+
+                if (this.good_at === '') {
+                    this.$Toast('专业不能为空');
+                    return false;
+                }
+
+                if (this.education === '') {
+                    this.$Toast('学历不能为空');
+                    return false;
+                }
+
+                // this.$router.push('/office')
             },
             /**
              * 籍贯
