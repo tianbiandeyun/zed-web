@@ -31,7 +31,7 @@
 
             <Field
                     required
-                    v-model="message"
+                    v-model="home_details"
                     rows="1"
                     autosize
                     label="详细地址"
@@ -109,37 +109,38 @@
 <script>
     import {Field, Button, Picker, Area, Popup} from 'vant';
     import aera_json from '../utils/area'
+    import {mapGetters} from 'vuex'
 
     export default {
         name: "ageSchool",
         components: {Field, Button, Picker, Area, Popup},
         data() {
             return {
+                home: '',
+                home_details: '',
+                age: '',
                 school: '',
                 good_at: '',
-                message: '',
-                home: '',
+                education: '',
                 home_picker: false,
                 home_columns: aera_json,
-                age: '',
                 age_picker: false,
                 age_columns: [
                     {
-                        values: ['周一', '周二', '周三', '周四', '周五'],
+                        values: this.year(),
                         defaultIndex: 0,
                     },
                     {
-                        values: ['上午', '下午', '晚上'],
+                        values: this.month(),
                         defaultIndex: 0,
                     },
                     {
-                        values: ['1', '2', '3'],
+                        values: this.day(),
                         defaultIndex: 0,
                     }
                 ],
-                education: '',
                 education_picker: false,
-                education_columns: ['男', '女']
+                education_columns: ['小学', '初中', '技工学校', '职业高中', '普通高中', '中等专业学校', '大学专科', '大学本科', '硕士研究生', '博士研究生']
             }
         },
         methods: {
@@ -150,18 +151,53 @@
                 this.$Toast('提示内容');
                 this.$router.push('/office')
             },
+            /**
+             * 籍贯
+             * */
             getHome(res) {
-                console.log(res);
+                this.home = `${res[0].name}-${res[1].name}-${res[2].name}`;
                 this.home_picker = false;
             },
+            /**
+             * 年龄
+             * */
             getAge(res) {
-                console.log(res);
+                this.age = `${res[0]}-${res[1]}-${res[2]}`;
                 this.age_picker = false;
             },
-            getSchool(value) {
-                this.education = value;
+            /**
+             * 学校
+             * */
+            getSchool(res) {
+                this.education = res;
                 this.education_picker = false;
-            }
+            },
+            year() {
+                let a = [];
+                for (let i = 1980; i < 2020; i++) {
+                    a.push(i)
+                }
+                return a;
+            },
+            month() {
+                let a = [];
+                for (let i = 1; i < 13; i++) {
+                    a.push(i < 10 ? `0${i}` : i)
+                }
+                return a;
+            },
+            day() {
+                let a = [];
+                for (let i = 1; i < 32; i++) {
+                    a.push(i < 10 ? `0${i}` : i)
+                }
+                return a;
+            },
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
         }
     }
 </script>
