@@ -9,33 +9,19 @@
                 title-inactive-color="#515a6e"
                 title-active-color="#17233d"
                 @click="onTabClick">
-            <Tab title="标签 1">
+
+            <Tab
+                    :title="item.company_name"
+                    :name="item.id"
+                    v-for="(item,index) in company_list" :key="index">
 
                 <Swiper></Swiper>
-
                 <div class="office-list">
                     <OfficItem></OfficItem>
                 </div>
 
             </Tab>
-            <Tab title="标签 2">
 
-                <Swiper></Swiper>
-
-                <div class="office-list">
-                    <OfficItem></OfficItem>
-                </div>
-
-            </Tab>
-            <Tab title="标签 3">
-
-                <Swiper></Swiper>
-
-                <div class="office-list">
-                    <OfficItem></OfficItem>
-                </div>
-
-            </Tab>
         </Tabs>
 
         <!--底部导航-->
@@ -64,7 +50,8 @@
         components: {Tab, Tabs, Tabbar, TabbarItem, Swiper, OfficItem},
         data() {
             return {
-                active: 0
+                active: 0,
+                company_list: []
             }
         },
         async mounted() {
@@ -83,28 +70,15 @@
                 url: this.$Config.REQUEST_URL
             });
 
-            this.$store.dispatch('fetchData', {
-                im: this.$Config.PROJECT_INTERFACE.get_user_resume,
-                fps: {
-                    open_id: this.openid_info.back_value.open_id
-                },
-                url: this.$Config.REQUEST_URL
-            }).then(res => {
-                if (res.back_value.length === 0) {
-                    this.$Toast.clear();
-                    this.$router.replace('/basic')
-                } else {
-                    this.$Toast.clear();
-                }
-            });
+            this.refresh();
 
         },
         methods: {
             /**
              * 选项卡
              * */
-            onTabClick(index) {
-                console.log(index);
+            onTabClick(name, title) {
+                console.log(name);
             },
             /**
              * 底部导航
@@ -115,6 +89,33 @@
                     this.$router.push('/sendOffice')
                 }
             },
+            refresh() {
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value.length === 0) {
+                        this.$Toast.clear();
+                        this.$router.replace('/basic')
+                    } else {
+                        return this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.get_company_list,
+                            fps: {
+                                open_id: this.openid_info.back_value.open_id
+                            },
+                            url: this.$Config.REQUEST_URL
+                        })
+                    }
+                }).then(res => {
+                    this.$Toast.clear();
+                    this.company_list = res.back_value;
+                })
+
+            }
         },
         computed: {
             ...mapGetters([
