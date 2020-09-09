@@ -2,7 +2,7 @@
     <section class="office-item-container">
         <div class="office-item-title">
             <p class="office">{{office.job_title}}</p>
-            <p class="money">{{office.salary_cap}}-{{office.salary_floor}}K</p>
+            <p class="money">{{office.salary_cap}}-{{office.salary_floor}}K/月</p>
         </div>
         <div class="office-item-details">
             <p class="details">
