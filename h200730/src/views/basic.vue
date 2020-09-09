@@ -81,6 +81,7 @@
 <script>
     import alert from '../components/alert/alert'
     import {Field, Button, Picker, Popup} from 'vant';
+    import {mapGetters} from 'vuex';
 
     export default {
         name: "basic",
@@ -104,23 +105,50 @@
              * 获取验证码
              * */
             getCode() {
-                const TIME_COUNT = 10;
-                if (!this.timer) {
-                    let code = TIME_COUNT;
-                    this.button_disabled = true;
-                    this.message = `${TIME_COUNT}s后获取`;
-                    this.timer = setInterval(() => {
-                        if (code > 0 && code <= TIME_COUNT) {
-                            code--;
-                            this.message = `${code}s后获取`;
-                        } else {
-                            clearInterval(this.timer);
-                            this.timer = null;
-                            this.message = '发送验证码';
-                            this.button_disabled = false;
-                        }
-                    }, 1000);
+
+                if (this.photo === '') {
+                    this.$Toast('电话不能为空');
+                    return false;
                 }
+
+                this.$Toast.loading({
+                    message: '发送中...',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.send_phone_identifying_code,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        phonenum: this.photo
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$Toast.clear();
+                        const TIME_COUNT = 60;
+                        if (!this.timer) {
+                            let code = TIME_COUNT;
+                            this.button_disabled = true;
+                            this.message = `${TIME_COUNT}s后获取`;
+                            this.timer = setInterval(() => {
+                                if (code > 0 && code <= TIME_COUNT) {
+                                    code--;
+                                    this.message = `${code}s后获取`;
+                                } else {
+                                    clearInterval(this.timer);
+                                    this.timer = null;
+                                    this.message = '发送验证码';
+                                    this.button_disabled = false;
+                                }
+                            }, 1000);
+                        }
+                    }
+                })
+
+
             },
             /**
              * 选择性别
@@ -133,8 +161,54 @@
              * 保存信息
              * */
             save() {
-                this.$router.push('/ageSchool');
+
+                if (this.name === '') {
+                    this.$Toast('姓名不能为空');
+                    return false;
+                }
+
+                if (this.sex === '') {
+                    this.$Toast('性别不能为空');
+                    return false;
+                }
+
+                if (this.email === '') {
+                    this.$Toast('邮件不能为空');
+                    return false;
+                }
+
+                if (this.photo === '') {
+                    this.$Toast('电话不能为空');
+                    return false;
+                }
+
+                if (this.photo_code === '') {
+                    this.$Toast('验证码不能为空');
+                    return false;
+                }
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        name: this.photo,
+                        sex: this.sex === '男' ? 1 : 2,
+                        mail: this.email,
+                        phone: this.photo,
+                        code: this.photo_code
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$router.push('/ageSchool');
+                    }
+                })
             }
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
         }
     }
 </script>

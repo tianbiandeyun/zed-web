@@ -34,6 +34,7 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
 export const PROJECT_INTERFACE = {
     add_user_resume: 'add_user_resume', // 添加简历
     get_user_resume: 'get_user_resume', // 获取简历
+    send_phone_identifying_code: 'send_phone_identifying_code', // 验证码
     getopenid: 'getopenid'
 };
 
