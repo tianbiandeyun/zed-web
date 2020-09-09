@@ -1,10 +1,9 @@
 <template>
     <section class="swiper-container">
         <Swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-            <SwipeItem>1</SwipeItem>
-            <SwipeItem>2</SwipeItem>
-            <SwipeItem>3</SwipeItem>
-            <SwipeItem>4</SwipeItem>
+            <SwipeItem v-for="(item,index) in swiperList" :key="index">
+                {{item.page_name}}
+            </SwipeItem>
         </Swipe>
     </section>
 </template>
@@ -15,6 +14,14 @@
     export default {
         name: "swiper",
         components: {Swipe, SwipeItem},
+        props: {
+            swiperList: {
+                type: Array,
+                default: () => {
+                    return []
+                }
+            }
+        }
     }
 </script>
 

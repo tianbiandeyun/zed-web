@@ -15,7 +15,8 @@
                     :name="item.id"
                     v-for="(item,index) in company_list" :key="index">
 
-                <Swiper></Swiper>
+                <Swiper :swiperList="swiper_list"></Swiper>
+
                 <div class="office-list">
                     <OfficItem></OfficItem>
                 </div>
@@ -51,7 +52,8 @@
         data() {
             return {
                 active: 0,
-                company_list: []
+                company_list: [],
+                swiper_list: []
             }
         },
         async mounted() {
@@ -89,9 +91,10 @@
                     this.$router.push('/sendOffice')
                 }
             },
-            refresh() {
+            async refresh() {
 
-                this.$store.dispatch('fetchData', {
+                // 是否填写简历
+                await this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_user_resume,
                     fps: {
                         open_id: this.openid_info.back_value.open_id
@@ -102,6 +105,7 @@
                         this.$Toast.clear();
                         this.$router.replace('/basic')
                     } else {
+                        // 单位列表
                         return this.$store.dispatch('fetchData', {
                             im: this.$Config.PROJECT_INTERFACE.get_company_list,
                             fps: {
@@ -112,17 +116,32 @@
                     }
                 }).then(res => {
                     this.company_list = res.back_value;
-                    return this.$store.dispatch('fetchData', {
-                        im: this.$Config.PROJECT_INTERFACE.get_banner,
-                        fps: {
-                            page_name: ''
-                        },
-                        url: this.$Config.REQUEST_URL
-                    })
+                });
+
+                // 轮播图
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_banner,
+                    fps: {
+                        page_name: ''
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.swiper_list = res.back_value;
+                });
+
+                // 职位列表
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_company_job_info_list,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        company_id: this.company_list[0].id
+                    },
+                    url: this.$Config.REQUEST_URL
                 }).then(res => {
                     this.$Toast.clear();
+
                     console.log(res);
-                })
+                });
 
             }
         },

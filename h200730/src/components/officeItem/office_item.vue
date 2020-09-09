@@ -7,8 +7,6 @@
         <div class="office-item-details">
             <p class="details">
                 <span>你好我是标签</span>
-                <span>你好我是标签</span>
-                <span>你好我是标签</span>
             </p>
             <slot>
                 <p class="position">
@@ -57,12 +55,6 @@
 
                 span {
 
-                    &:after {
-                        content: '';
-                        height: 10px;
-                        border-right: 2px solid @default-font-color-sub;
-                        margin: 0 5px;
-                    }
                 }
             }
         }
