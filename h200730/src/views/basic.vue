@@ -133,8 +133,7 @@
              * 保存信息
              * */
             save() {
-                this.$Alert.show();
-                // this.$router.push('/ageSchool')
+                this.$router.push('/ageSchool');
             }
         }
     }
