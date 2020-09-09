@@ -179,31 +179,23 @@
                     return false;
                 }
 
-                console.log(this.home)
-                console.log(this.home_details)
-                console.log(this.age)
-                console.log(this.school)
-                console.log(this.good_at)
-                console.log(this.education)
-
-                // this.$store.dispatch('fetchData', {
-                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                //     fps: {
-                //         open_id: this.openid_info.back_value.open_id,
-                //         native_place: '',
-                //         date_of_birth: '',
-                //         graduate_institutions: '',
-                //         specialty: '',
-                //         education_level: ''
-                //     },
-                //     url: this.$Config.REQUEST_URL
-                // }).then(res => {
-                //     if (res.back_value) {
-                //         this.$router.push('/ageSchool');
-                //     }
-                // })
-
-                // this.$router.push('/office')
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        native_place: this.home,
+                        address: this.home_details,
+                        date_of_birth: this.age,
+                        graduate_institutions: this.school,
+                        specialty: this.good_at,
+                        education_level: this.education
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$router.push('/office');
+                    }
+                })
             },
             /**
              * 籍贯
