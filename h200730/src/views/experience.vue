@@ -101,13 +101,12 @@
                     if (res.back_value) {
                         this.$Alert.show({
                             yes() {
-                                that.$router.replace('/experience');
+                                that.$router.go(0);
                             },
                             no() {
                                 that.$router.replace('/');
                             }
                         });
-                        // this.$router.push('/experience');
                     }
                 })
             }

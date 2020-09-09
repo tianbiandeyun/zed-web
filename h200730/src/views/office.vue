@@ -104,7 +104,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
-                        this.$router.push('/experience');
+                        this.$router.replace('/experience');
                     }
                 })
             }

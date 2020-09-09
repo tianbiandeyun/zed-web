@@ -193,7 +193,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
-                        this.$router.push('/office');
+                        this.$router.replace('/office');
                     }
                 })
             },
