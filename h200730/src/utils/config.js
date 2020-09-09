@@ -32,6 +32,8 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  * 接口名
  * */
 export const PROJECT_INTERFACE = {
+    add_user_resume: 'add_user_resume', // 添加简历
+    get_user_resume: 'get_user_resume', // 获取简历
     getopenid: 'getopenid'
 };
 

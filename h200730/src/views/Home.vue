@@ -57,6 +57,7 @@
     import Swiper from '../components/swiper/swiper';
     import OfficItem from '../components/officeItem/office_item'
     import {Tab, Tabs, Tabbar, TabbarItem} from 'vant';
+    import {mapGetters} from 'vuex'
 
     export default {
         name: 'Home',
@@ -66,15 +67,37 @@
                 active: 0
             }
         },
-        mounted() {
+        async mounted() {
+
+            this.$Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0,
+                overlay: true
+            });
+
             this.$Utils.setDocumentTitle('高成名就');
 
-            this.$store.dispatch('getOpenid', {
+            await this.$store.dispatch('getOpenid', {
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
+            });
+
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.get_user_resume,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id
+                },
+                url: this.$Config.REQUEST_URL
             }).then(res => {
-                console.log(res.back_value.open_id);
-            })
+                if (res.back_value.length === 0) {
+                    this.$Toast.clear();
+                    this.$router.replace('/basic')
+                } else {
+                    this.$Toast.clear();
+                    console.log('有简历')
+                }
+            });
 
         },
         methods: {
@@ -94,6 +117,11 @@
                 }
             },
         },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
+        }
     }
 </script>
 <style lang="less" scoped>
