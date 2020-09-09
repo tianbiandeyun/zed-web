@@ -17,10 +17,13 @@
 
                 <Swiper :swiperList="swiper_list"></Swiper>
 
-                <div class="office-list">
+                <div v-if="office_list.length !== 0">
                     <OfficItem v-for="(item,index) in office_list" :key="index" :office="item">
                         <p class="position">{{item.recruitment_unit}}</p>
                     </OfficItem>
+                </div>
+                <div class="air" v-else>
+                    暂时没有发布任何职位
                 </div>
 
             </Tab>
@@ -83,7 +86,24 @@
              * 选项卡
              * */
             onTabClick(name, title) {
-                console.log(name);
+                this.$Toast.loading({
+                    message: '加载中...',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+                // 职位列表
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_company_job_info_list,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        company_id: name
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.$Toast.clear();
+                    this.office_list = res.back_value;
+                });
             },
             /**
              * 底部导航
@@ -159,5 +179,12 @@
         height: 100%;
         overflow-y: scroll;
         background-color: @default-app-color-background;
+
+        .air {
+            text-align: center;
+            font-size: @default-font-size-46;
+            color: @default-font-color-sub;
+            line-height: 2;
+        }
     }
 </style>
