@@ -10,10 +10,10 @@
             <div class="resume" v-for="(key ,value) in item.content" :key="value">
 
                 <div v-if="typeof key === 'object'" class="resume-exper">
-                    <p v-for="(k ,v) in key" :key="v">
+                    <p v-for="(k ,v) in key" :key="v" v-if="v !== 'id'">
                         {{v}}：<span>{{k}}</span>
                     </p>
-                    <img class="resume-del" src="../assets/images/del.png" alt="">
+                    <img class="resume-del" @click="del(key.id)" src="../assets/images/del.png" alt="">
                 </div>
 
                 <div v-else class="resume-content">
@@ -22,6 +22,11 @@
 
             </div>
 
+        </div>
+
+        <div class="save-box">
+            <button class="jump">下载WORD</button>
+            <button class="save">修改简历</button>
         </div>
 
     </section>
@@ -37,16 +42,55 @@
                 resume: {}
             }
         },
-        mounted() {
-            this.resume = this._setResume();
+        async mounted() {
+            this.$Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0,
+                overlay: true
+            });
+            this.resume = await this._setResume();
+            this.$Toast.clear();
         },
         methods: {
+            del(id) {
+
+                this.$Toast.loading({
+                    message: '加载中...',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.del_work_history,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        work_history_id: id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$store.dispatch('getSelfResume', {
+                            im: this.$Config.PROJECT_INTERFACE.get_user_resume,
+                            fps: {
+                                open_id: this.openid_info.back_value.open_id
+                            },
+                            url: this.$Config.REQUEST_URL
+                        }).then(res => {
+                            this.resume = this._setResume();
+                        })
+                    }
+                });
+
+            },
             _setResume() {
                 let result = this.resume_info.back_value;
                 let work_list = [];
 
                 for (let i = 0; i < result.work_history_list.length; i++) {
                     work_list.push({
+                        id: result.work_history_list[i].id,
                         '工作单位': result.work_history_list[i].work_unit,
                         '职位名称': result.work_history_list[i].name_of_post,
                         '就职日期': result.work_history_list[i].start_date,
@@ -144,6 +188,33 @@
                     top: 0;
                     right: 60px;
                 }
+            }
+        }
+
+        .save-box {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+
+            .jump {
+                font-size: @default-font-size-30;
+                border: 4px solid @default-font-color-sub;
+                color: @default-font-color-sub;
+                padding: 16px 40px;
+                -webkit-border-radius: @default-element-border-radius;
+                -moz-border-radius: @default-element-border-radius;
+                border-radius: @default-element-border-radius;
+                margin-right: 20px;
+            }
+
+            .save {
+                font-size: @default-font-size-30;
+                background-color: @default-app-color-primary;
+                color: #fff;
+                padding: 20px 40px;
+                -webkit-border-radius: @default-element-border-radius;
+                -moz-border-radius: @default-element-border-radius;
+                border-radius: @default-element-border-radius;
             }
         }
     }
