@@ -1,6 +1,12 @@
 <template>
     <section class="resume-container">
-
+        <div v-for="(item,index) in resume" :key="index">
+            <p>{{item.title}}</p>
+            {{item.content.name}}
+            {{item.content.sex}}
+            {{item.content.mail}}
+            {{item.content.phone}}
+        </div>
     </section>
 </template>
 
@@ -9,34 +15,53 @@
 
     export default {
         name: "resume",
+        data() {
+            return {
+                resume: {}
+            }
+        },
         mounted() {
-
-            let _resume = {
-                'contact': {
-                    name: this.resume_info.back_value.name,
-                    sex: this.resume_info.back_value.sex,
-                    mail: this.resume_info.back_value.mail,
-                    phone: this.resume_info.back_value.phone
-                },
-                'age': {
-                    native_place: this.resume_info.back_value.native_place,
-                    address: this.resume_info.back_value.address,
-                    date_of_birth: this.resume_info.back_value.date_of_birth,
-                    graduate_institutions: this.resume_info.back_value.graduate_institutions,
-                    specialty: this.resume_info.back_value.specialty,
-                    education_level: this.resume_info.back_value.education_level
-                },
-                'office': {
-                    political_status: this.resume_info.back_value.political_status,
-                    expected_position: this.resume_info.back_value.expected_position,
-                    self_introduction: this.resume_info.back_value.self_introduction,
-                    qualification_certificate: this.resume_info.back_value.qualification_certificate
-                },
-                'exper': this.resume_info.back_value.work_history_list
-            };
-
-            console.log(_resume);
-
+            this.resume = this._setResume();
+        },
+        methods: {
+            _setResume() {
+                let result = this.resume_info.back_value;
+                return [
+                    {
+                        'title': '联系方式',
+                        'content': {
+                            name: result.name,
+                            sex: result.sex,
+                            mail: result.mail,
+                            phone: result.phone
+                        }
+                    },
+                    {
+                        'title': '年龄及专业',
+                        'content': {
+                            native_place: result.native_place,
+                            address: result.address,
+                            date_of_birth: result.date_of_birth,
+                            graduate_institutions: result.graduate_institutions,
+                            specialty: result.specialty,
+                            education_level: result.education_level
+                        }
+                    },
+                    {
+                        'title': '岗位相关',
+                        'content': {
+                            political_status: result.political_status,
+                            expected_position: result.expected_position,
+                            self_introduction: result.self_introduction,
+                            qualification_certificate: result.qualification_certificate
+                        }
+                    },
+                    {
+                        'title': '工作经历',
+                        'content': result.work_history_list
+                    }
+                ];
+            }
         },
         computed: {
             ...mapGetters([

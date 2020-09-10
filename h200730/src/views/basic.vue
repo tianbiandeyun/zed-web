@@ -198,7 +198,7 @@
                     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
                     fps: {
                         open_id: this.openid_info.back_value.open_id,
-                        name: this.photo,
+                        name: this.name,
                         sex: this.sex === '男' ? 1 : 2,
                         mail: this.email,
                         phone: this.photo,
