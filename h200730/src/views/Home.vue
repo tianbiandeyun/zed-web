@@ -37,9 +37,9 @@
                 inactive-color="#515a6e"
                 safe-area-inset-bottom
                 @change="onTabbarClick">
-            <TabbarItem icon="home-o">职位</TabbarItem>
-            <TabbarItem icon="search">我的投递</TabbarItem>
-            <TabbarItem icon="friends-o">简历</TabbarItem>
+            <TabbarItem icon="pending-payment">职位</TabbarItem>
+            <TabbarItem icon="contact">我的投递</TabbarItem>
+            <TabbarItem icon="records">简历</TabbarItem>
         </Tabbar>
 
     </section>
