@@ -77,8 +77,9 @@
                                 open_id: this.openid_info.back_value.open_id
                             },
                             url: this.$Config.REQUEST_URL
-                        }).then(res => {
-                            this.resume = this._setResume();
+                        }).then(async res => {
+                            this.resume = await this._setResume();
+                            this.$Toast.clear();
                         })
                     }
                 });
@@ -86,6 +87,11 @@
             },
             _setResume() {
                 let result = this.resume_info.back_value;
+
+                if(result.work_history_list.length === 0){
+                    return
+                }
+
                 let work_list = [];
 
                 for (let i = 0; i < result.work_history_list.length; i++) {
