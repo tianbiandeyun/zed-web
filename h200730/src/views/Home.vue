@@ -113,6 +113,9 @@
                 if (index === 1) {
                     this.$router.push('/sendOffice')
                 }
+                if (index === 2) {
+                    this.$router.push('/resume')
+                }
             },
             async refresh() {
 
