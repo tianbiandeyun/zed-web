@@ -13,11 +13,15 @@ export default new Vuex.Store({
             back_value: {
                 open_id: 'TEST_OPEN_ID_1'
             }
-        }
+        },
+        resume_info: ''
     },
     mutations: {
         getOpenid(state, res) {
             state.openid_info = res;
+        },
+        getSelfResume(state, res) {
+            state.resume_info = res;
         }
     },
     actions: {
@@ -37,6 +41,18 @@ export default new Vuex.Store({
                 });
             });
         },
+
+        // 获取个人简历
+        getSelfResume({commit}, params) {
+            const [im, fps = {}, url] = [params.im, params.fps, params.url];
+            const requestUrl = utils.produceRequestUrl(im, fps, url);
+            return new Promise((resolve, reject) => {
+                axios.get(requestUrl).then(res => {
+                    commit('getSelfResume', res.data);
+                    resolve(res.data);
+                });
+            });
+        },
         /**
          * 通用请求：fetchDate
          * 数据不共享，单独局部使用
@@ -52,6 +68,7 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        openid_info: state => state.openid_info
+        openid_info: state => state.openid_info,
+        resume_info: state => state.resume_info
     }
 })

@@ -120,7 +120,7 @@
             async refresh() {
 
                 // 是否填写简历
-                await this.$store.dispatch('fetchData', {
+                await this.$store.dispatch('getSelfResume', {
                     im: this.$Config.PROJECT_INTERFACE.get_user_resume,
                     fps: {
                         open_id: this.openid_info.back_value.open_id
