@@ -63,6 +63,34 @@
             }
         },
         async mounted() {
+            let first = ['我是一级1', '我是一级2', '我是一级3'];
+            let second = [];
+
+            let a = [
+                {
+                    title: '我是一级1',
+                    children: [
+                        {
+                            title: '我是二级1-1',
+                            children: []
+                        }
+                    ]
+                },
+                {
+                    title: '我是一级2',
+                    children: [
+                        {
+                            title: '我是二级2-1',
+                            children: []
+                        }
+                    ]
+                }
+            ];
+
+            console.log(a)
+
+
+            // ----
 
             this.$Toast.loading({
                 message: '加载中...',

@@ -87,22 +87,19 @@
             },
             _setResume() {
                 let result = this.resume_info.back_value;
-
-                if(result.work_history_list.length === 0){
-                    return
-                }
-
                 let work_list = [];
 
-                for (let i = 0; i < result.work_history_list.length; i++) {
-                    work_list.push({
-                        id: result.work_history_list[i].id,
-                        '工作单位': result.work_history_list[i].work_unit,
-                        '职位名称': result.work_history_list[i].name_of_post,
-                        '就职日期': result.work_history_list[i].start_date,
-                        '所属行业': result.work_history_list[i].industry,
-                        '工作描述': result.work_history_list[i].describe
-                    })
+                if (result.work_history_list.length !== 0) {
+                    for (let i = 0; i < result.work_history_list.length; i++) {
+                        work_list.push({
+                            id: result.work_history_list[i].id,
+                            '工作单位': result.work_history_list[i].work_unit,
+                            '职位名称': result.work_history_list[i].name_of_post,
+                            '就职日期': result.work_history_list[i].start_date,
+                            '所属行业': result.work_history_list[i].industry,
+                            '工作描述': result.work_history_list[i].describe
+                        })
+                    }
                 }
 
                 return [
