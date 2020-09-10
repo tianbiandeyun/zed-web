@@ -1,12 +1,16 @@
 <template>
     <section class="resume-container">
+
         <div v-for="(item,index) in resume" :key="index">
-            <p>{{item.title}}</p>
-            {{item.content.name}}
-            {{item.content.sex}}
-            {{item.content.mail}}
-            {{item.content.phone}}
+
+            <h2>{{item.title}}</h2>
+
+            <p v-for="(key ,value) in item.content" :key="value">
+                {{value}}：{{key}}
+            </p>
+
         </div>
+
     </section>
 </template>
 
@@ -30,35 +34,34 @@
                     {
                         'title': '联系方式',
                         'content': {
-                            name: result.name,
-                            sex: result.sex,
-                            mail: result.mail,
-                            phone: result.phone
+                            '姓名': result.name,
+                            '性别': +result.sex === 1 ? '男' : '女',
+                            '电子邮件': result.mail,
+                            '联系电话': result.phone
                         }
                     },
                     {
                         'title': '年龄及专业',
                         'content': {
-                            native_place: result.native_place,
-                            address: result.address,
-                            date_of_birth: result.date_of_birth,
-                            graduate_institutions: result.graduate_institutions,
-                            specialty: result.specialty,
-                            education_level: result.education_level
+                            '籍贯': result.native_place + result.address,
+                            '出生日期': result.date_of_birth,
+                            '毕业院校': result.graduate_institutions,
+                            '所属专业': result.specialty,
+                            '学历': result.education_level
                         }
                     },
                     {
                         'title': '岗位相关',
                         'content': {
-                            political_status: result.political_status,
-                            expected_position: result.expected_position,
-                            self_introduction: result.self_introduction,
-                            qualification_certificate: result.qualification_certificate
+                            '政治面貌': result.political_status,
+                            '期望岗位': result.expected_position,
+                            '自我介绍': result.self_introduction,
+                            '岗位证书': result.qualification_certificate
                         }
                     },
                     {
                         'title': '工作经历',
-                        'content': result.work_history_list
+                        // 'content': result.work_history_list
                     }
                 ];
             }
