@@ -62,6 +62,7 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        openid_info: state => state.openid_info
+        openid_info: state => state.openid_info,
+        wx_config: state => state.wx_config
     }
 })

@@ -79,15 +79,6 @@
                 duration: 0
             });
 
-            let share_info = {
-                title: '我是标题曹二雷',
-                details: '我是内容dd',
-                link: await this.$Utils.makeShareLink()
-            };
-
-            let wxs = new this.$WxShare(this.wx_config.back_value, share_info);
-            wxs.init();
-
             this.$Utils.setDocumentTitle('签到领取福利');
             /**
              * openid
@@ -96,7 +87,16 @@
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
             });
-            this.refresh();
+            await this.refresh();
+
+            let share_info = {
+                title: '我是标题曹二雷',
+                details: '我是内容dd',
+                link: await this.$Utils.makeShareLink()
+            };
+
+            let wxs = new this.$WxShare(this.wx_config.back_value, share_info);
+            wxs.init();
 
         },
         methods: {
@@ -263,6 +263,8 @@
                         url: encodeURIComponent(window.location.href)
                     },
                     url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    console.log(res.back_value)
                 });
 
                 Toast.clear();
