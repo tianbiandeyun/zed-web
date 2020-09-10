@@ -13,6 +13,7 @@
                     <p v-for="(k ,v) in key" :key="v">
                         {{v}}：<span>{{k}}</span>
                     </p>
+                    <img class="resume-del" src="../assets/images/del.png" alt="">
                 </div>
 
                 <div v-else class="resume-content">
@@ -131,8 +132,18 @@
             }
 
             .resume-exper {
-                border: 1px solid red;
+                border-bottom: 2px solid @default-app-color-divider;
                 margin-bottom: 20px;
+                position: relative;
+                padding-bottom: 10px;
+
+                .resume-del {
+                    width: 40px;
+                    height: 40px;
+                    position: absolute;
+                    top: 0;
+                    right: 60px;
+                }
             }
         }
     }
