@@ -73,13 +73,20 @@
         },
         async mounted() {
 
-            console.log(new this.$WxShare().init());
-
             Toast.loading({
                 message: '加载中...',
                 forbidClick: true,
                 duration: 0
             });
+
+            let share_info = {
+                title: '我是标题曹二雷',
+                details: '我是内容dd',
+                link: await this.$Utils.makeShareLink()
+            };
+
+            let wxs = new this.$WxShare(this.wx_config.back_value, share_info);
+            wxs.init();
 
             this.$Utils.setDocumentTitle('签到领取福利');
             /**
@@ -250,13 +257,22 @@
                     this.keep_sign_list = res.back_value;
                 });
 
+                await this.$store.dispatch('getWxConfig', {
+                    im: this.$Config.PROJECT_INTERFACE.get_jsconf,
+                    fps: {
+                        url: encodeURIComponent(window.location.href)
+                    },
+                    url: this.$Config.REQUEST_URL
+                });
+
                 Toast.clear();
 
             }
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'wx_config'
             ])
         }
     }

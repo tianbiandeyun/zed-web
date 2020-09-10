@@ -9,11 +9,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        openid_info: ''
+        openid_info: '',
+        wx_config: ''
     },
     mutations: {
         getOpenid(state, res) {
             state.openid_info = res;
+        },
+        getWxConfig(state, res) {
+            state.wx_config = res;
         }
     },
     actions: {
@@ -29,6 +33,16 @@ export default new Vuex.Store({
             return new Promise((resolve, reject) => {
                 axios.get(requestUrl).then(res => {
                     commit('getOpenid', res.data);
+                    resolve(res.data);
+                });
+            });
+        },
+        getWxConfig({commit}, params) {
+            const [im, fps = {}, url] = [params.im, params.fps, params.url];
+            const requestUrl = utils.produceRequestUrl(im, fps, url);
+            return new Promise((resolve, reject) => {
+                axios.get(requestUrl).then(res => {
+                    commit('getWxConfig', res.data);
                     resolve(res.data);
                 });
             });
