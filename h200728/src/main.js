@@ -18,7 +18,7 @@ import * as Config from './utils/config'
 
 Vue.prototype.$Config = Config;
 
-import wxShare from 'zed_wxshare'
+import wxShare from 'zed_wxshare_vue'
 
 Vue.prototype.$WxShare = wxShare;
 
