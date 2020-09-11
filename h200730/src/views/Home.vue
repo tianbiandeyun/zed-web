@@ -88,7 +88,7 @@
              * 职位详情
              * */
             details(res) {
-
+                this.$router.push(`/officeDetails?id=${res.id}`);
             },
             /**
              * 选项卡
