@@ -1,5 +1,5 @@
 <template>
-    <section class="office-item-container">
+    <section class="office-item-container" @click="officeDetails">
         <div class="office-item-title">
             <p class="office">{{office.job_title}}</p>
             <p class="money">{{office.salary_cap}}-{{office.salary_floor}}K/月</p>
@@ -22,6 +22,11 @@
         props: {
             office: {
                 type: Object
+            }
+        },
+        methods: {
+            officeDetails() {
+                this.$emit('details')
             }
         }
     }
