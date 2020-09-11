@@ -14,7 +14,7 @@
                 im: this.$Config.PROJECT_INTERFACE.get_job_info,
                 fps: {
                     open_id: this.openid_info.back_value.open_id,
-                    job_info_id: res.id
+                    job_info_id: this.$route.query.id
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
