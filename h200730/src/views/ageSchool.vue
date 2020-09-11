@@ -143,6 +143,17 @@
                 education_columns: ['小学', '初中', '技工学校', '职业高中', '普通高中', '中等专业学校', '大学专科', '大学本科', '硕士研究生', '博士研究生']
             }
         },
+        mounted() {
+            let resume = this.resume_info.back_value;
+            if (resume.length !== 0) {
+                this.home = resume.native_place;
+                this.home_details = resume.address;
+                this.age = resume.date_of_birth;
+                this.school = resume.graduate_institutions;
+                this.good_at = resume.specialty;
+                this.education = resume.education_level;
+            }
+        },
         methods: {
             /**
              * 保存信息
@@ -250,7 +261,8 @@
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'resume_info'
             ])
         }
     }

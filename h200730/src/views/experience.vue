@@ -57,6 +57,15 @@
                 word: ''
             }
         },
+        mounted() {
+            let resume = this.resume_info.back_value;
+            if (resume.work_history_list.length !== 0) {
+                this.unit = resume.work_unit;
+                this.post = resume.name_of_post;
+                this.industry = resume.industry;
+                this.word = resume.describe;
+            }
+        },
         methods: {
             jump() {
                 this.$router.replace('/');
@@ -121,7 +130,8 @@
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'resume_info'
             ])
         }
     }

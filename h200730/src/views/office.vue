@@ -64,6 +64,15 @@
                 certificate: ''
             }
         },
+        mounted() {
+            let resume = this.resume_info.back_value;
+            if (resume.length !== 0) {
+                this.political = resume.political_status;
+                this.office = resume.expected_position;
+                this.self_message = resume.self_introduction;
+                this.certificate = resume.qualification_certificate;
+            }
+        },
         methods: {
             jump() {
                 this.$router.push('/experience');
@@ -119,7 +128,8 @@
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'resume_info'
             ])
         }
     }
