@@ -26,7 +26,7 @@
 
         <div class="save-box">
             <button class="jump">下载WORD</button>
-            <button class="save">修改简历</button>
+            <button class="save" @click="modify">修改简历</button>
         </div>
 
     </section>
@@ -53,6 +53,9 @@
             this.$Toast.clear();
         },
         methods: {
+            modify() {
+                this.$router.replace('/basic')
+            },
             del(id) {
 
                 this.$Toast.loading({
