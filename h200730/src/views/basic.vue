@@ -100,6 +100,15 @@
                 button_disabled: false, // 按钮禁用
             }
         },
+        mounted() {
+            let resume = this.resume_info.back_value;
+            if (resume.length !== 0) {
+                this.name = resume.name;
+                this.sex = +resume.sex === 1 ? '男' : '女';
+                this.email = resume.mail;
+                this.phone = resume.photo;
+            }
+        },
         methods: {
             /**
              * 获取验证码
@@ -215,7 +224,8 @@
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'resume_info'
             ])
         }
     }
