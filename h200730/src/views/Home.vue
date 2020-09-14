@@ -117,7 +117,6 @@
              * 底部导航
              * */
             onTabbarClick(index) {
-                console.log(index);
                 if (index === 1) {
                     this.$router.push('/sendOffice')
                 }
