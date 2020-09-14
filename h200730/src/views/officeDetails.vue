@@ -44,7 +44,7 @@
         <div class="save-box">
             <button class="save" @click="sendOffice(office_details)" v-if="+is_office_send === 1">简历直投</button>
             <button class="save" v-else @click="seeOfficeResult">
-                {{+office_send_result === 1 ? '查看投递结果' : '职位详情'}}
+                {{+office_send_result === 1 ? '查看投递结果' : '查看职位详情'}}
             </button>
         </div>
 
@@ -68,6 +68,14 @@
             }
         },
         mounted() {
+
+            this.$Toast.loading({
+                message: '加载中...',
+                forbidClick: true,
+                duration: 0,
+                overlay: true
+            });
+
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_job_info,
                 fps: {
@@ -78,6 +86,7 @@
             }).then(res => {
                 this.is_office_send = res.back_value.status;
                 this.office_details = res.back_value;
+                this.$Toast.clear();
             });
         },
         methods: {
@@ -97,6 +106,14 @@
                     title: '确认提交简历',
                     alertContent: '简历将提交给第三方人力资源部门进行审阅，确认后不可撤回',
                     yes() {
+
+                        that.$Toast.loading({
+                            message: '加载中...',
+                            forbidClick: true,
+                            duration: 0,
+                            overlay: true
+                        });
+
                         that.$store.dispatch('fetchData', {
                             im: that.$Config.PROJECT_INTERFACE.set_application_record,
                             fps: {
@@ -118,6 +135,7 @@
                                     that.office_send_result = this.office_send_result === 1 ? 2 : 1;
                                     that.is_office_send = res.back_value.status;
                                     that.office_details = res.back_value;
+                                    that.$Toast.clear();
                                 });
                             }
                         })
