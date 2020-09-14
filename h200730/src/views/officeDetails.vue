@@ -29,14 +29,14 @@
         <div v-show="+is_office_send === 2 && office_send_result === 2">
             <div class="office">
                 <p class="title">简历送达：</p>
-                <p class="content">333333</p>
+                <p class="content">{{office_details.recruitment_unit}}</p>
             </div>
             <div class="office">
                 <p class="title">阅读状态：</p>
                 <p class="content">
-                    <span>未读</span> |
-                    <span>已读</span> |
-                    <span>不合适</span>
+                    <span :class="{span_active: +office_details.type === 1}">未读</span> |
+                    <span :class="{span_active: +office_details.type === 2}">已读</span> |
+                    <span :class="{span_active: +office_details.type === 3}">不合适</span>
                 </p>
             </div>
         </div>
@@ -167,6 +167,10 @@
                 font-size: @default-font-size-26;
                 line-height: 1.4;
                 color: @default-font-color-sub;
+
+                .span_active {
+                    color: @default-app-color-primary;
+                }
             }
         }
 
