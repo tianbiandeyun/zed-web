@@ -135,6 +135,10 @@
                     this.$Toast.clear();
                     if (res.back_value) {
                         this.$Alert.show({
+                            title: '是否继续添加工作经历',
+                            alertContent: '工作经历可以反复添加多次，如果您有其他工作经历请点击继续。',
+                            yesText: '继续',
+                            noText: '结束添加',
                             yes() {
                                 that.$router.go(0);
                             },

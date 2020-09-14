@@ -1,12 +1,12 @@
 <template>
     <section class="alert-container" v-if="alert_show">
         <div class="alert">
-            <h2>是否继续添加工作经历</h2>
-            <p>工作经历可以反复添加多次，如果您有其他工作经历请点击继续。</p>
+            <h2>{{title}}</h2>
+            <p>{{alertContent}}</p>
 
             <div class="alert-button">
-                <button class="alert-end" @click="end">结束添加</button>
-                <button class="alert-save" @click="save">继续</button>
+                <button class="alert-end" @click="end">{{noText}}</button>
+                <button class="alert-save" @click="save">{{yesText}}</button>
             </div>
 
         </div>
@@ -17,6 +17,22 @@
     export default {
         name: "alert",
         props: {
+            title: {
+                type: String,
+                default: '标题'
+            },
+            alertContent: {
+                type: String,
+                default: '标题内容'
+            },
+            yesText: {
+                type: String,
+                default: '确认'
+            },
+            noText: {
+                type: String,
+                default: '取消'
+            },
             yes: {
                 type: Function
             },
