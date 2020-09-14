@@ -151,6 +151,7 @@
                             im: this.$Config.PROJECT_INTERFACE.update_user_resume,
                             fps: {
                                 open_id: this.openid_info.back_value.open_id,
+                                user_resume_id: this.resume_info.back_value.id,
                                 work_id: resume[this.resume_index].id,
                                 work_unit: this.unit,
                                 name_of_post: this.post,
