@@ -78,30 +78,31 @@
              * */
             save() {
                 const that = this;
+
+                if (this.unit === '') {
+                    this.$Toast('工作单位不能为空');
+                    return false;
+                }
+
+                if (this.post === '') {
+                    this.$Toast('岗位名称不能为空');
+                    return false;
+                }
+
+                if (this.industry === '') {
+                    this.$Toast('所属行业不能为空');
+                    return false;
+                }
+
+                if (this.word === '') {
+                    this.$Toast('工作描述不能为空');
+                    return false;
+                }
+
                 let resume = this.resume_info.back_value.work_history_list;
 
                 // 没填写过工作简历
                 if (resume.length === 0) {
-
-                    if (this.unit === '') {
-                        this.$Toast('工作单位不能为空');
-                        return false;
-                    }
-
-                    if (this.post === '') {
-                        this.$Toast('岗位名称不能为空');
-                        return false;
-                    }
-
-                    if (this.industry === '') {
-                        this.$Toast('所属行业不能为空');
-                        return false;
-                    }
-
-                    if (this.word === '') {
-                        this.$Toast('工作描述不能为空');
-                        return false;
-                    }
 
                     this.$Toast.loading({
                         message: '加载中...',
