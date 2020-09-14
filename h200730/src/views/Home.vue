@@ -137,7 +137,7 @@
                 }).then(res => {
                     if (res.back_value.length === 0) {
                         this.$Toast.clear();
-                        this.$router.replace('/basic')
+                        this.$router.replace('/basic');
                     } else {
                         // 单位列表
                         return this.$store.dispatch('fetchData', {
