@@ -60,9 +60,9 @@
             }
         },
         mounted() {
-            if (this.resume_info.back_value.length !== 0 && resume.length !== 0) {
+            if (this.resume_info.back_value.length !== 0) {
                 let resume = this.resume_info.back_value.work_history_list;
-                this.button = `下一项工作经历${this.resume_index}`;
+                this.button = resume.length === 1 ? `保存工作经历` : `下一项工作经历`;
                 this.unit = resume[this.resume_index].work_unit;
                 this.post = resume[this.resume_index].name_of_post;
                 this.industry = resume[this.resume_index].industry;
@@ -176,6 +176,8 @@
                                     this.industry = resume[this.resume_index].industry;
                                     this.word = resume[this.resume_index].describe;
                                     this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历';
+                                } else {
+                                    this.$router.replace('/');
                                 }
                             }
                         })
