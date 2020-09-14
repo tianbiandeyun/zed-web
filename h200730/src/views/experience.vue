@@ -78,77 +78,101 @@
              * */
             save() {
                 const that = this;
-
                 let resume = this.resume_info.back_value.work_history_list;
-                if (resume.length - 1 !== this.resume_index) {
-                    this.resume_index += 1;
-                    this.unit = resume[this.resume_index].work_unit;
-                    this.post = resume[this.resume_index].name_of_post;
-                    this.industry = resume[this.resume_index].industry;
-                    this.word = resume[this.resume_index].describe;
+
+                // 没填写过工作简历
+                if (resume.length === 0) {
+
+                    if (this.unit === '') {
+                        this.$Toast('工作单位不能为空');
+                        return false;
+                    }
+
+                    if (this.post === '') {
+                        this.$Toast('岗位名称不能为空');
+                        return false;
+                    }
+
+                    if (this.industry === '') {
+                        this.$Toast('所属行业不能为空');
+                        return false;
+                    }
+
+                    if (this.word === '') {
+                        this.$Toast('工作描述不能为空');
+                        return false;
+                    }
+
+                    this.$Toast.loading({
+                        message: '加载中...',
+                        forbidClick: true,
+                        duration: 0,
+                        overlay: true
+                    });
+
+                    this.$store.dispatch('fetchData', {
+                        im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                        fps: {
+                            open_id: this.openid_info.back_value.open_id,
+                            work_unit: this.unit,
+                            name_of_post: this.post,
+                            industry: this.industry,
+                            describe: this.word
+                        },
+                        url: this.$Config.REQUEST_URL
+                    }).then(res => {
+                        this.$Toast.clear();
+                        if (res.back_value) {
+                            this.$Alert.show({
+                                title: '是否继续添加工作经历',
+                                alertContent: '工作经历可以反复添加多次，如果您有其他工作经历请点击继续。',
+                                yesText: '继续',
+                                noText: '结束添加',
+                                yes() {
+                                    that.$router.go(0);
+                                },
+                                no() {
+                                    that.$router.replace('/');
+                                }
+                            });
+                        }
+                    })
                 }
 
-                if (resume.length - 1 === this.resume_index) {
-                    this.button = `保存工作经历${this.resume_index}`;
-                } else {
-                    this.button = `下一项工作经历${this.resume_index}`;
+                // 填写过工作经历
+                if (resume.length !== 0) {
+
+                    // 0 < 1 , 1 <= 1
+                    if (this.resume_index <= resume.length - 1) {
+
+                        // 修改
+                        this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.update_user_resume,
+                            fps: {
+                                open_id: this.openid_info.back_value.open_id,
+                                work_id: '',
+                                work_unit: this.unit,
+                                name_of_post: this.post,
+                                // start_date:'',
+                                // end_date:'',
+                                industry: this.industry,
+                                describe: this.word
+                            },
+                            url: this.$Config.REQUEST_URL
+                        }).then(res => {
+                            if (res.back_value) {
+                                this.resume_index += 1;
+                                this.unit = resume[this.resume_index].work_unit;
+                                this.post = resume[this.resume_index].name_of_post;
+                                this.industry = resume[this.resume_index].industry;
+                                this.word = resume[this.resume_index].describe;
+                                this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历'
+                            }
+                        })
+
+                    }
+
                 }
-
-                // if (this.unit === '') {
-                //     this.$Toast('工作单位不能为空');
-                //     return false;
-                // }
-                //
-                // if (this.post === '') {
-                //     this.$Toast('岗位名称不能为空');
-                //     return false;
-                // }
-                //
-                // if (this.industry === '') {
-                //     this.$Toast('所属行业不能为空');
-                //     return false;
-                // }
-                //
-                // if (this.word === '') {
-                //     this.$Toast('工作描述不能为空');
-                //     return false;
-                // }
-                //
-                // this.$Toast.loading({
-                //     message: '加载中...',
-                //     forbidClick: true,
-                //     duration: 0,
-                //     overlay: true
-                // });
-                //
-                // this.$store.dispatch('fetchData', {
-                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                //     fps: {
-                //         open_id: this.openid_info.back_value.open_id,
-                //         work_unit: this.unit,
-                //         name_of_post: this.post,
-                //         industry: this.industry,
-                //         describe: this.word
-                //     },
-                //     url: this.$Config.REQUEST_URL
-                // }).then(res => {
-                //     this.$Toast.clear();
-                //     if (res.back_value) {
-                //         this.$Alert.show({
-                //             title: '是否继续添加工作经历',
-                //             alertContent: '工作经历可以反复添加多次，如果您有其他工作经历请点击继续。',
-                //             yesText: '继续',
-                //             noText: '结束添加',
-                //             yes() {
-                //                 that.$router.go(0);
-                //             },
-                //             no() {
-                //                 that.$router.replace('/');
-                //             }
-                //         });
-                //     }
-                // })
-
 
             }
         },
