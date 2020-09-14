@@ -60,8 +60,8 @@
             }
         },
         mounted() {
-            let resume = this.resume_info.back_value.work_history_list;
             if (this.resume_info.back_value.length !== 0 && resume.length !== 0) {
+                let resume = this.resume_info.back_value.work_history_list;
                 this.button = `下一项工作经历${this.resume_index}`;
                 this.unit = resume[this.resume_index].work_unit;
                 this.post = resume[this.resume_index].name_of_post;
@@ -128,7 +128,10 @@
                                 yesText: '继续',
                                 noText: '结束添加',
                                 yes() {
-                                    that.$router.go(0);
+                                    that.unit = '';
+                                    that.post = '';
+                                    that.industry = '';
+                                    that.word = '';
                                 },
                                 no() {
                                     that.$router.replace('/');
@@ -140,10 +143,11 @@
                     return false;
                 }
 
-                let resume = this.resume_info.back_value.work_history_list;
 
                 // 填写过工作经历
-                if (resume.length !== 0) {
+                if (this.resume_info.back_value.length !== 0) {
+
+                    let resume = this.resume_info.back_value.work_history_list;
 
                     // 0 < 1 , 1 <= 1
                     if (this.resume_index <= resume.length - 1) {
