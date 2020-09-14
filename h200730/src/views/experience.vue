@@ -79,71 +79,73 @@
             save() {
                 const that = this;
 
-                let resume = this.resume_info.back_value.work_history_list;
-                if (resume.length - 1 !== this.resume_index) {
-                    this.resume_index += 1;
-                    this.unit = resume[this.resume_index].work_unit;
-                    this.post = resume[this.resume_index].name_of_post;
-                    this.industry = resume[this.resume_index].industry;
-                    this.word = resume[this.resume_index].describe;
+                // let resume = this.resume_info.back_value.work_history_list;
+                // if (resume.length - 1 !== this.resume_index) {
+                //     this.resume_index += 1;
+                //     this.unit = resume[this.resume_index].work_unit;
+                //     this.post = resume[this.resume_index].name_of_post;
+                //     this.industry = resume[this.resume_index].industry;
+                //     this.word = resume[this.resume_index].describe;
+                // }
+                //
+                // if (resume.length - 1 === this.resume_index) {
+                //     this.button = `保存工作经历${this.resume_index}`;
+                // } else {
+                //     this.button = `下一项工作经历${this.resume_index}`;
+                // }
+
+                if (this.unit === '') {
+                    this.$Toast('工作单位不能为空');
+                    return false;
                 }
 
-                if (resume.length - 1 === this.resume_index) {
-                    this.button = `保存工作经历${this.resume_index}`;
-                } else {
-                    this.button = `下一项工作经历${this.resume_index}`;
+                if (this.post === '') {
+                    this.$Toast('岗位名称不能为空');
+                    return false;
                 }
 
-                // if (this.unit === '') {
-                //     this.$Toast('工作单位不能为空');
-                //     return false;
-                // }
-                //
-                // if (this.post === '') {
-                //     this.$Toast('岗位名称不能为空');
-                //     return false;
-                // }
-                //
-                // if (this.industry === '') {
-                //     this.$Toast('所属行业不能为空');
-                //     return false;
-                // }
-                //
-                // if (this.word === '') {
-                //     this.$Toast('工作描述不能为空');
-                //     return false;
-                // }
-                //
-                // this.$Toast.loading({
-                //     message: '加载中...',
-                //     forbidClick: true,
-                //     duration: 0,
-                //     overlay: true
-                // });
-                //
-                // this.$store.dispatch('fetchData', {
-                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                //     fps: {
-                //         open_id: this.openid_info.back_value.open_id,
-                //         work_unit: this.unit,
-                //         name_of_post: this.post,
-                //         industry: this.industry,
-                //         describe: this.word
-                //     },
-                //     url: this.$Config.REQUEST_URL
-                // }).then(res => {
-                //     this.$Toast.clear();
-                //     if (res.back_value) {
-                //         this.$Alert.show({
-                //             yes() {
-                //                 that.$router.go(0);
-                //             },
-                //             no() {
-                //                 that.$router.replace('/');
-                //             }
-                //         });
-                //     }
-                // })
+                if (this.industry === '') {
+                    this.$Toast('所属行业不能为空');
+                    return false;
+                }
+
+                if (this.word === '') {
+                    this.$Toast('工作描述不能为空');
+                    return false;
+                }
+
+                this.$Toast.loading({
+                    message: '加载中...',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        work_unit: this.unit,
+                        name_of_post: this.post,
+                        industry: this.industry,
+                        describe: this.word
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.$Toast.clear();
+                    if (res.back_value) {
+                        this.$Alert.show({
+                            yes() {
+                                that.$router.go(0);
+                            },
+                            no() {
+                                that.$router.replace('/');
+                            }
+                        });
+                    }
+                })
+
+
             }
         },
         computed: {

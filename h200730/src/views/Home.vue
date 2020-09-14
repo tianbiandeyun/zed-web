@@ -125,10 +125,10 @@
                     this.$router.push('/resume')
                 }
             },
-            async refresh() {
+            refresh() {
 
                 // 是否填写简历
-                await this.$store.dispatch('getSelfResume', {
+                this.$store.dispatch('getSelfResume', {
                     im: this.$Config.PROJECT_INTERFACE.get_user_resume,
                     fps: {
                         open_id: this.openid_info.back_value.open_id
@@ -139,43 +139,44 @@
                         this.$Toast.clear();
                         this.$router.replace('/basic');
                     } else {
+
                         // 单位列表
-                        return this.$store.dispatch('fetchData', {
+                        this.$store.dispatch('fetchData', {
                             im: this.$Config.PROJECT_INTERFACE.get_company_list,
                             fps: {
                                 open_id: this.openid_info.back_value.open_id
                             },
                             url: this.$Config.REQUEST_URL
-                        })
+                        }).then(res => {
+                            this.company_list = res.back_value;
+                        });
+
+                        // 轮播图
+                        this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.get_banner,
+                            fps: {
+                                page_name: ''
+                            },
+                            url: this.$Config.REQUEST_URL
+                        }).then(res => {
+                            this.swiper_list = res.back_value;
+                        });
+
+                        // 职位列表
+                        this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.get_company_job_info_list,
+                            fps: {
+                                open_id: this.openid_info.back_value.open_id,
+                                company_id: this.company_list[0].id
+                            },
+                            url: this.$Config.REQUEST_URL
+                        }).then(res => {
+                            this.$Toast.clear();
+                            this.office_list = res.back_value;
+                        });
+
                     }
-                }).then(res => {
-                    this.company_list = res.back_value;
                 });
-
-                // 轮播图
-                this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.get_banner,
-                    fps: {
-                        page_name: ''
-                    },
-                    url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    this.swiper_list = res.back_value;
-                });
-
-                // 职位列表
-                this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.get_company_job_info_list,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id,
-                        company_id: this.company_list[0].id
-                    },
-                    url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    this.$Toast.clear();
-                    this.office_list = res.back_value;
-                });
-
             }
         },
         computed: {
