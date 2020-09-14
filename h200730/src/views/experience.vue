@@ -177,21 +177,7 @@
                                     this.word = resume[this.resume_index].describe;
                                     this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历';
                                 } else {
-                                    this.$Alert.show({
-                                        title: '是否继续添加工作经历',
-                                        alertContent: '工作经历可以反复添加多次，如果您有其他工作经历请点击继续。',
-                                        yesText: '继续',
-                                        noText: '结束添加',
-                                        yes() {
-                                            that.unit = '';
-                                            that.post = '';
-                                            that.industry = '';
-                                            that.word = '';
-                                        },
-                                        no() {
-                                            that.$router.replace('/');
-                                        }
-                                    });
+                                    this.$router.replace('/');
                                 }
                             }
                         })
