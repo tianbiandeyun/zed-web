@@ -9,10 +9,12 @@
             <h2>职位描述：</h2>
             <p>{{office_details.job_describe }}</p>
         </div>
+
         <div>
             <h2>技能要求：</h2>
             <p>{{office_details.skill_requirements }}</p>
         </div>
+
         <div>
             <h2>岗位职责：</h2>
             <p>{{office_details.describe }}</p>
