@@ -61,7 +61,7 @@
         },
         mounted() {
             let resume = this.resume_info.back_value.work_history_list;
-            if (resume.length !== 0) {
+            if (this.resume_info.back_value.length !== 0 && resume.length !== 0) {
                 this.button = `下一项工作经历${this.resume_index}`;
                 this.unit = resume[this.resume_index].work_unit;
                 this.post = resume[this.resume_index].name_of_post;
@@ -99,10 +99,8 @@
                     return false;
                 }
 
-                let resume = this.resume_info.back_value.work_history_list;
-
                 // 没填写过工作简历
-                if (resume.length === 0) {
+                if (this.resume_info.back_value.length === 0) {
 
                     this.$Toast.loading({
                         message: '加载中...',
@@ -137,8 +135,12 @@
                                 }
                             });
                         }
-                    })
+                    });
+
+                    return false;
                 }
+
+                let resume = this.resume_info.back_value.work_history_list;
 
                 // 填写过工作经历
                 if (resume.length !== 0) {
@@ -164,16 +166,19 @@
                         }).then(res => {
                             if (res.back_value) {
                                 this.resume_index += 1;
-                                this.unit = resume[this.resume_index].work_unit;
-                                this.post = resume[this.resume_index].name_of_post;
-                                this.industry = resume[this.resume_index].industry;
-                                this.word = resume[this.resume_index].describe;
-                                this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历'
+                                if (this.resume_index <= resume.length - 1) {
+                                    this.unit = resume[this.resume_index].work_unit;
+                                    this.post = resume[this.resume_index].name_of_post;
+                                    this.industry = resume[this.resume_index].industry;
+                                    this.word = resume[this.resume_index].describe;
+                                    this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历';
+                                }
                             }
                         })
 
                     }
 
+                    return false;
                 }
 
             }
