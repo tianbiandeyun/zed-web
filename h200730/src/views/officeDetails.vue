@@ -5,7 +5,7 @@
             <p class="position">发布时间：{{office_details.issuance_date}}</p>
         </OfficItem>
 
-        <div v-show="+office_details.status === 1">
+        <div v-show="+is_office_send === 1 || office_send_result === 1">
             <div class="office">
                 <p class="title">职位描述：</p>
                 <p class="content">{{office_details.describe}}</p>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div v-show="+office_details.status === 2">
+        <div v-show="+is_office_send === 2 && office_send_result === 2">
             <div class="office">
                 <p class="title">简历送达：</p>
                 <p class="content">333333</p>
@@ -42,8 +42,9 @@
         </div>
 
         <div class="save-box">
-            <button class="save" @click="sendOffice(office_details)">
-                {{+office_details.status === 1 ? '简历直投' : '职位详情'}}
+            <button class="save" @click="sendOffice(office_details)" v-if="+is_office_send === 1">简历直投</button>
+            <button class="save" v-else @click="seeOfficeResult">
+                {{+office_send_result === 1 ? '查看投递结果' : '职位详情'}}
             </button>
         </div>
 
@@ -59,7 +60,11 @@
         components: {OfficItem},
         data() {
             return {
-                office_details: {}
+                office_details: {},
+                // 1 没有投递 2 是投递过
+                is_office_send: 1,
+                // 1 查看投递结果 2 职位详情
+                office_send_result: 1
             }
         },
         mounted() {
@@ -71,11 +76,20 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
-                // res.back_value.status 1 没有投递 2 是投递过
+                this.is_office_send = res.back_value.status;
                 this.office_details = res.back_value;
             });
         },
         methods: {
+            /**
+             * 切换查看简历投递进度和职位详情
+             **/
+            seeOfficeResult() {
+                this.office_send_result = this.office_send_result === 1 ? 2 : 1;
+            },
+            /**
+             * 投递简历
+             **/
             sendOffice(office_details) {
                 const that = this;
 
@@ -101,14 +115,12 @@
                                     },
                                     url: that.$Config.REQUEST_URL
                                 }).then(res => {
-                                    // res.back_value.status 1 没有投递 2 是投递过
+                                    that.office_send_result = this.office_send_result === 1 ? 2 : 1;
+                                    that.is_office_send = res.back_value.status;
                                     that.office_details = res.back_value;
                                 });
                             }
                         })
-                    },
-                    no() {
-                        console.log('no')
                     }
                 });
             }
