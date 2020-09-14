@@ -50,6 +50,7 @@
                 overlay: true
             });
             this.resume = await this._setResume();
+            console.log(this.resume);
             this.$Toast.clear();
         },
         methods: {
@@ -109,29 +110,29 @@
                     {
                         'title': '联系方式',
                         'content': {
-                            '姓名': result.name,
+                            '姓名': result.name || '没有填写',
                             '性别': +result.sex === 1 ? '男' : '女',
-                            '电子邮件': result.mail,
-                            '联系电话': result.phone
+                            '电子邮件': result.mail || '没有填写',
+                            '联系电话': result.phone || '没有填写'
                         }
                     },
                     {
                         'title': '年龄及专业',
                         'content': {
-                            '籍贯': result.native_place + result.address,
-                            '出生日期': result.date_of_birth,
-                            '毕业院校': result.graduate_institutions,
-                            '所属专业': result.specialty,
-                            '学历': result.education_level
+                            '籍贯': result.native_place + result.address || '没有填写',
+                            '出生日期': result.date_of_birth || '没有填写',
+                            '毕业院校': result.graduate_institutions || '没有填写',
+                            '所属专业': result.specialty || '没有填写',
+                            '学历': result.education_level || '没有填写'
                         }
                     },
                     {
                         'title': '岗位相关',
                         'content': {
-                            '政治面貌': result.political_status,
-                            '期望岗位': result.expected_position,
-                            '自我介绍': result.self_introduction,
-                            '岗位证书': result.qualification_certificate
+                            '政治面貌': result.political_status || '没有填写',
+                            '期望岗位': result.expected_position || '没有填写',
+                            '自我介绍': result.self_introduction || '没有填写',
+                            '岗位证书': result.qualification_certificate || '没有填写'
                         }
                     },
                     {

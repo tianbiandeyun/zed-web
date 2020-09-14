@@ -134,14 +134,14 @@
                         open_id: this.openid_info.back_value.open_id
                     },
                     url: this.$Config.REQUEST_URL
-                }).then(res => {
+                }).then(async res => {
                     if (res.back_value.length === 0) {
                         this.$Toast.clear();
                         this.$router.replace('/basic');
                     } else {
 
                         // 单位列表
-                        this.$store.dispatch('fetchData', {
+                        await this.$store.dispatch('fetchData', {
                             im: this.$Config.PROJECT_INTERFACE.get_company_list,
                             fps: {
                                 open_id: this.openid_info.back_value.open_id
