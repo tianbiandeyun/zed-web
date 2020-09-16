@@ -44,12 +44,12 @@
 </template>
 
 <script>
-    import share from '../utils/share'
+    // import share from '../utils/share'
     import {mapGetters} from 'vuex'
 
     export default {
         name: "login",
-        mixins: [share],
+        // mixins: [share],
         data() {
             return {
                 show: false,

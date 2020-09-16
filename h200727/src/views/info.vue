@@ -66,13 +66,13 @@
 </template>
 
 <script>
-    import share from '../utils/share';
+    // import share from '../utils/share';
     import {DatetimePicker, Popup} from 'vant';
     import {mapGetters} from 'vuex'
 
     export default {
         name: "info",
-        mixins: [share],
+        // mixins: [share],
         components: {DatetimePicker, Popup},
         data() {
             return {

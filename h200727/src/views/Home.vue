@@ -43,13 +43,13 @@
 </template>
 
 <script>
-    import share from '../utils/share'
+    // import share from '../utils/share'
     import {mapGetters} from 'vuex'
 
     export default {
         name: 'Home',
         components: {},
-        mixins: [share],
+        // mixins: [share],
         data() {
             return {
                 page_show: false,
