@@ -136,6 +136,7 @@
                     }).then(res => {
                         if (res.back_value === false) {
                             this.$router.replace('/login');
+                            return false;
                         } else {
                             // 2 个人信息
                             return this.$store.dispatch('_hasUserInfo_geren', {
