@@ -6,10 +6,16 @@ import 'normalize.css'
 import 'lib-flexible'
 import './assets/css/rest.css'
 
+import animate from 'animate.css'
+
+Vue.use(animate);
+
+import s from 'swiper'
+
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

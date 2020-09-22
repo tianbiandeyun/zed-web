@@ -1,17 +1,23 @@
 <template>
     <section class="home-container">
-        home
+        <p class="animate__animated animate__pulse">Example</p>
     </section>
 </template>
 
 <script>
+    import {swiperAnimateCache, swiperAnimate} from "../utils/swiper.animate1.0.3.min"
+
     export default {
         name: 'Home',
-        components: {}
+        components: {},
+        mounted() {
+        }
     }
 </script>
 <style lang="less" scoped>
     .home-container {
-        font-size: 50px;
+        p {
+            font-size: 50px;
+        }
     }
 </style>
