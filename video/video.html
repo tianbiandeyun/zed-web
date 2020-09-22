@@ -170,6 +170,12 @@
 
     // 程序入口
     (async () => {
+
+        let _qr = await getUrlParam('qr');
+        if (_qr === '' || _qr === undefined || _qr === null) {
+            $('.get-work').hide();
+        }
+
         let _url = await getUrlParam('video_url');
         _PARAMES.opend_id = await getUrlParam('id');
         _PARAMES.video_id = await getUrlParam('video_id');
