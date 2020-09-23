@@ -8,9 +8,7 @@
             </swiper-slide>
 
             <swiper-slide>
-                <div class="second-page">
-                    <second-page></second-page>
-                </div>
+                <second-page></second-page>
             </swiper-slide>
 
         </swiper>
@@ -65,11 +63,6 @@
 
             .swiper-slide {
                 height: 100%;
-
-                .second-page {
-                    height: 100%;
-                    background-color: @default-app-color-primary;
-                }
             }
         }
 
