@@ -14,11 +14,13 @@
                     swiper-animate-effect="animate__zoomIn"
                     swiper-animate-duration="1s"
                     swiper-animate-delay="0s">五星红旗迎风飘扬</p>
+
             <p
                     class="ani"
                     swiper-animate-effect="animate__zoomIn"
                     swiper-animate-duration="1s"
                     swiper-animate-delay="0s">胜利歌声多么响亮</p>
+
             <p
                     class="ani"
                     swiper-animate-effect="animate__zoomIn"
@@ -34,6 +36,7 @@
                     swiper-animate-effect="animate__zoomIn"
                     swiper-animate-duration="1s"
                     swiper-animate-delay="0s">... ...</p>
+
         </div>
 
         <img class="lantern ani"
