@@ -61,11 +61,15 @@
                          swiper-animate-duration="1s"
                          swiper-animate-delay="0s" src="../assets/images/4.png" alt="天安门">
 
+                    <img src="../assets/images/arrow.png" class="array">
+
                 </div>
             </swiper-slide>
 
             <swiper-slide>
-                2
+                <div class="second-page">
+
+                </div>
             </swiper-slide>
 
         </swiper>
@@ -173,6 +177,69 @@
                         left: 50%;
                         margin-left: -250px;
                     }
+
+                    @-webkit-keyframes start {
+                        0%, 30% {
+                            opacity: 0;
+                            -webkit-transform: translate(0, 10px);
+                        }
+                        60% {
+                            opacity: 1;
+                            -webkit-transform: translate(0, 0);
+                        }
+                        100% {
+                            opacity: 0;
+                            -webkit-transform: translate(0, -8px);
+                        }
+                    }
+
+                    @-moz-keyframes start {
+                        0%, 30% {
+                            opacity: 0;
+                            -moz-transform: translate(0, 10px);
+                        }
+                        60% {
+                            opacity: 1;
+                            -moz-transform: translate(0, 0);
+                        }
+                        100% {
+                            opacity: 0;
+                            -moz-transform: translate(0, -8px);
+                        }
+                    }
+
+                    @keyframes start {
+                        0%, 30% {
+                            opacity: 0;
+                            transform: translate(0, 10px);
+                        }
+                        60% {
+                            opacity: 1;
+                            transform: translate(0, 0);
+                        }
+                        100% {
+                            opacity: 0;
+                            transform: translate(0, -8px);
+                        }
+                    }
+
+                    .array {
+                        position: absolute;
+                        width: 60px;
+                        height: 60px;
+                        bottom: 20px;
+                        left: 50%;
+                        margin-left: -30px;
+                        z-index: 999;
+                        -webkit-animation: start 1.5s infinite ease-in-out;
+                        -o-animation: start 1.5s infinite ease-in-out;
+                        animation: start 1.5s infinite ease-in-out;
+                    }
+                }
+
+                .second-page {
+                    height: 100%;
+                    background-color: @default-app-color-primary;
                 }
             }
         }
