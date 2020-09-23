@@ -127,21 +127,21 @@
                 });
 
                 // 1 组织
-                this.$store.dispatch('_hasUserInfo_zuzhi', {
+                await this.$store.dispatch('_hasUserInfo_zuzhi', {
                     im: this.$config.PROJECT_INTERFACE.has_user_info,
                     fps: {
                         open_id: this.getOpenid_info.back_value.open_id,
                         type: 1
                     },
                     url: this.$config.REQUEST_URL
-                }).then(res => {
+                }).then(async res => {
 
                     if (res.back_value === false) {
                         this.$router.replace('/login');
                         return false;
                     } else {
                         // 2 个人信息
-                        this.$store.dispatch('_hasUserInfo_geren', {
+                        await this.$store.dispatch('_hasUserInfo_geren', {
                             im: this.$config.PROJECT_INTERFACE.has_user_info,
                             fps: {
                                 open_id: this.getOpenid_info.back_value.open_id,
@@ -159,6 +159,7 @@
 
                 });
 
+                // 如果个人和组织信息都是 true 则显示，视频列表
                 if (this.hasUserInfo_geren.back_value && this.hasUserInfo_zuzhi.back_value) {
                     this.$store.dispatch('_getVideoList', {
                         im: this.$config.PROJECT_INTERFACE.get_video_list,
