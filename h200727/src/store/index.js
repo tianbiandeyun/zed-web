@@ -11,7 +11,8 @@ export default new Vuex.Store({
     state: {
         getOpenid_info: '',
         hasUserInfo_geren: '',
-        hasUserInfo_zuzhi: ''
+        hasUserInfo_zuzhi: '',
+        wx_config: ''
     },
     mutations: {
         get_openid(state, res) {
@@ -22,9 +23,22 @@ export default new Vuex.Store({
         },
         has_user_info_zuzhi(state, res) {
             state.hasUserInfo_zuzhi = res;
+        },
+        getWxConfig(state, res) {
+            state.wx_config = res;
         }
     },
     actions: {
+        _getWxConfig({commit}, params) {
+            const [im, fps = {}, url] = [params.im, params.fps, params.url];
+            const requestUrl = utils.produceRequestUrl(im, fps, url);
+            return new Promise((resolve, reject) => {
+                axios.get(requestUrl).then(res => {
+                    commit('getWxConfig', res.data);
+                    resolve(res.data);
+                });
+            });
+        },
         _getQuestionResult({commit}, params) {
             const [im, fps = {}, url] = [params.im, params.fps, params.url];
             const requestUrl = utils.produceRequestUrl(im, fps, url);
@@ -149,6 +163,7 @@ export default new Vuex.Store({
     getters: {
         getOpenid_info: state => state.getOpenid_info,
         hasUserInfo_geren: state => state.hasUserInfo_geren,
-        hasUserInfo_zuzhi: state => state.hasUserInfo_zuzhi
+        hasUserInfo_zuzhi: state => state.hasUserInfo_zuzhi,
+        wx_config: state => state.wx_config
     }
 })

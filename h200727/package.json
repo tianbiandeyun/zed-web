@@ -19,7 +19,8 @@
     "vuex": "^3.4.0",
     "weixin-js-sdk": "^1.6.0",
     "weui": "^2.3.0",
-    "weui.js": "^1.2.2"
+    "weui.js": "^1.2.2",
+    "zed_wxshare_vue": "^1.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",

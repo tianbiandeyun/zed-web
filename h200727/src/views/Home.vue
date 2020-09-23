@@ -70,7 +70,16 @@
             }
 
             // 判断是否组册信息
-            this._hasUserInfo();
+            await this._hasUserInfo();
+
+            let share_info = {
+                title: '我是标题曹二雷',
+                details: '我是内容dd',
+                link: await this.$utils.makeShareLink()
+            };
+
+            let wxs = new this.$WxShare(this.wx_config.back_value, share_info);
+            wxs.init();
         },
         methods: {
             /**
@@ -107,6 +116,14 @@
              * 判断是否组册信息
              * */
             async _hasUserInfo() {
+
+                await this.$store.dispatch('_getWxConfig', {
+                    im: this.$config.PROJECT_INTERFACE.get_jsconf,
+                    fps: {
+                        url: encodeURIComponent(window.location.href)
+                    },
+                    url: this.$config.REQUEST_URL
+                });
 
                 // 设置 PV
                 await this.$store.dispatch('_setPv', {
@@ -178,7 +195,8 @@
             ...mapGetters([
                 'getOpenid_info',
                 'hasUserInfo_zuzhi',
-                'hasUserInfo_geren'
+                'hasUserInfo_geren',
+                'wx_config'
             ]),
             /**
              * 日期对比
