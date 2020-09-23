@@ -22,7 +22,7 @@
 
                 <div class="continuous_box__item" v-for="(item,index) in keep_sign_list" :key="index">
                     <div class="continuous_box__item___left">
-                        <img src="../assets/images/t.png" alt="">
+                        <img :src="item.img" alt="">
                     </div>
                     <div class="continuous_box__item___center">
                         <p v-if="typeof reward_type[item.bonustype].reward === 'number'">
@@ -79,23 +79,23 @@
                 duration: 0
             });
 
-            this.$Utils.setDocumentTitle('签到领取福利');
-            /**
-             * openid
-             * */
+            this.$Utils.setDocumentTitle('签到领福利-测试222');
+
+            // openid
             await this.$store.dispatch('getOpenid', {
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
             });
+
+            // 数据请求
             await this.refresh();
 
-            let share_info = {
-                title: '我是标题曹二雷',
-                details: '我是内容dd',
-                link: await this.$Utils.makeShareLink()
-            };
-
-            let wxs = new this.$WxShare(this.wx_config.back_value, share_info);
+            let wxs = new this.$WxShare(this.wx_config.back_value, {
+                title: '范德萨发生范德萨发舒服',
+                details: '99222999',
+                link: await this.$Utils.makeShareLink(),
+                image: 'www'
+            }, true);
             wxs.init();
 
         },
@@ -257,14 +257,13 @@
                     this.keep_sign_list = res.back_value;
                 });
 
+                // 获取 微信配置
                 await this.$store.dispatch('getWxConfig', {
                     im: this.$Config.PROJECT_INTERFACE.get_jsconf,
                     fps: {
-                        url: encodeURIComponent(window.location.href)
+                        url: encodeURIComponent(window.location.href.split('#')[0])
                     },
                     url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    console.log(res.back_value)
                 });
 
                 Toast.clear();

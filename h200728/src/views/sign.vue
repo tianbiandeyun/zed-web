@@ -63,7 +63,7 @@
                 is_reward: true
             }
         },
-       async mounted() {
+        async mounted() {
 
             Toast.loading({
                 message: '加载中...',
@@ -75,7 +75,7 @@
             /**
              * 获取奖品列表
              * */
-           await this.$store.dispatch('fetchData', {
+            await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_luck_draw_list_info,
                 fps: {
                     open_id: this.openid_info.back_value.open_id
@@ -83,11 +83,11 @@
                 url: this.$Config.REQUEST_URL
             }).then(res => {
                 this.reward_list = res.back_value;
+                Toast.clear();
             });
 
             this._getRewardCount();
 
-           Toast.clear();
         },
         methods: {
             /**
@@ -187,11 +187,11 @@
                                 setTimeout(() => {
                                     Toast.clear();
                                     this.$Alert.show({
-                                        title: `恭喜中奖${this.reward_list[i].bonustype}`,
+                                        title: `恭喜中奖`,
                                         content: {
                                             alertType: 'reward',
                                             type: this.reward_list[i].bonustype,
-                                            rewardImg: this.reward_list[i].bonus_img
+                                            rewardImg: this.$Config.REWARD_TYPE[this.reward_list[i].bonustype].image
                                         },
                                         confirmText: '前往领奖',
                                         closeShow: false,

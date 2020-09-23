@@ -56,19 +56,21 @@ export const PROJECT_INTERFACE = {
  * 奖品类别
  * day 需要签到几天
  * reward 奖品类别
+ * image 中奖图片
  * */
 export const REWARD_TYPE = {
     1: {
         reward: '谢谢参与'
     },
     2: {
-        reward: '恋练有词：考研英语词汇识记与应用大全'
+        reward: '恋练有词',
+        image: require('../assets/images/2.png')
     },
     3: {
-        reward: '考研英语一：真题分级教程'
+        reward: '三只松鼠'
     },
     4: {
-        reward: '考研英语二：真题分级教程'
+        reward: '腾讯会员'
     },
     16: {
         day: 30,

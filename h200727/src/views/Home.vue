@@ -72,13 +72,12 @@
             // 判断是否组册信息
             await this._hasUserInfo();
 
-            let share_info = {
-                title: '我是标题曹二雷',
-                details: '我是内容dd',
-                link: await this.$utils.makeShareLink()
-            };
-
-            let wxs = new this.$WxShare(this.wx_config.back_value, share_info);
+            let wxs = new this.$WxShare(this.wx_config.back_value, {
+                title: '测试分享标题',
+                details: '测试分享内容',
+                link: await this.$utils.makeShareLink(),
+                image: 'www'
+            }, true);
             wxs.init();
         },
         methods: {
@@ -120,7 +119,7 @@
                 await this.$store.dispatch('_getWxConfig', {
                     im: this.$config.PROJECT_INTERFACE.get_jsconf,
                     fps: {
-                        url: encodeURIComponent(window.location.href)
+                        url: encodeURIComponent(window.location.href.split('#')[0])
                     },
                     url: this.$config.REQUEST_URL
                 });

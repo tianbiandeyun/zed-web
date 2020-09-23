@@ -28,17 +28,6 @@ Alert.newInstance = (props) => {
     }
 };
 
-// getMessageInstance 函数用来获取实例，它不会重复创建，如果 messageInstance 已经存在，就直接返回了，
-// 只在第一次调用 Notification 的 newInstance 时来创建实例。
-
-// 注意会导致一个问题。就是如果不重新创建组件，则传入的新数据无法更新
-// let messageInstance;
-//
-// let getMessageInstance = (props) => {
-//     messageInstance = messageInstance || Alert.newInstance(props);
-//     return messageInstance;
-// };
-
 export default {
     show(props) {
         Alert.newInstance(props).show();

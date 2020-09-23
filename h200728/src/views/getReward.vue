@@ -5,7 +5,7 @@
         <div class="get_reward_swiper">
             <Swipe class="swiper" :autoplay="3000" indicator-color="white">
                 <SwipeItem v-for="(item,index) in swiper" :key="index">
-                    {{item.id}}
+                    <img :src="item.img_url" alt="">
                 </SwipeItem>
             </Swipe>
         </div>
@@ -108,7 +108,7 @@
             await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_banner,
                 fps: {
-                    page_name: '商品轮播图'
+                    page_name: this.$route.query.bonustype
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
@@ -139,7 +139,10 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
-                console.log(res.back_value)
+                if (res.back_value.length !== 0) {
+                    this.name = res.back_value.username;
+                    this.photo = res.back_value.phonenum;
+                }
             });
 
             Toast.clear();
@@ -276,10 +279,12 @@
 
                 .van-swipe-item {
                     color: #fff;
-                    font-size: 20px;
-                    line-height: 340px;
                     text-align: center;
-                    background-color: #39a9ed;
+                    font-size: 0;
+
+                    img {
+                        width: 100%;
+                    }
                 }
             }
         }
