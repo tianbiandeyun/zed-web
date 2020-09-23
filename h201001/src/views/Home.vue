@@ -6,45 +6,60 @@
             <swiper-slide>
                 <div class="first-page">
 
-                    <div class="first-page_title">
+                    <div class="first-page_title ani"
+                         swiper-animate-effect="animate__zoomIn"
+                         swiper-animate-duration="1s"
+                         swiper-animate-delay="0s">
                         <span>中 秋 节</span> | <span>国 庆 节</span> | <span>建 党 99 周 年</span>
                     </div>
 
                     <div class="first-page_content">
                         <p
                                 class="ani"
-                                swiper-animate-effect="animate__fadeInUpBig"
+                                swiper-animate-effect="animate__zoomIn"
                                 swiper-animate-duration="1s"
                                 swiper-animate-delay="0s">五星红旗迎风飘扬</p>
                         <p
                                 class="ani"
-                                swiper-animate-effect="animate__fadeInUpBig"
+                                swiper-animate-effect="animate__zoomIn"
                                 swiper-animate-duration="1s"
-                                swiper-animate-delay="1s">胜利歌声多么响亮</p>
+                                swiper-animate-delay="0s">胜利歌声多么响亮</p>
                         <p
                                 class="ani"
-                                swiper-animate-effect="animate__fadeInUpBig"
+                                swiper-animate-effect="animate__zoomIn"
                                 swiper-animate-duration="1s"
-                                swiper-animate-delay="2s">歌唱我们亲爱的祖国</p>
+                                swiper-animate-delay="0s">歌唱我们亲爱的祖国</p>
                         <p
                                 class="ani"
-                                swiper-animate-effect="animate__fadeInUpBig"
+                                swiper-animate-effect="animate__zoomIn"
                                 swiper-animate-duration="1s"
-                                swiper-animate-delay="3s">从今走向繁荣富强</p>
+                                swiper-animate-delay="0s">从今走向繁荣富强</p>
                         <p
                                 class="ani"
-                                swiper-animate-effect="animate__fadeInUpBig"
+                                swiper-animate-effect="animate__zoomIn"
                                 swiper-animate-duration="1s"
-                                swiper-animate-delay="4s">... ...</p>
+                                swiper-animate-delay="0s">... ...</p>
                     </div>
 
-                    <img class="lantern" src="../assets/images/1.png" alt="灯笼">
+                    <img class="lantern ani"
+                         swiper-animate-effect="animate__zoomIn"
+                         swiper-animate-duration="1s"
+                         swiper-animate-delay="0s" src="../assets/images/1.png" alt="灯笼">
 
-                    <img class="cloud-right" src="../assets/images/2.png" alt="云">
+                    <img class="cloud-right ani"
+                         swiper-animate-effect="animate__zoomIn"
+                         swiper-animate-duration="1s"
+                         swiper-animate-delay="0s" src="../assets/images/2.png" alt="云">
 
-                    <img class="cloud-left" src="../assets/images/3.png" alt="云">
+                    <img class="cloud-left ani"
+                         swiper-animate-effect="animate__zoomIn"
+                         swiper-animate-duration="1s"
+                         swiper-animate-delay="0s" src="../assets/images/3.png" alt="云">
 
-                    <img class="country" src="../assets/images/4.png" alt="天安门">
+                    <img class="country ani"
+                         swiper-animate-effect="animate__zoomIn"
+                         swiper-animate-duration="1s"
+                         swiper-animate-delay="0s" src="../assets/images/4.png" alt="天安门">
 
                 </div>
             </swiper-slide>
