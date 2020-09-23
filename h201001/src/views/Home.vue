@@ -1,7 +1,7 @@
 <template>
     <section class="home-container">
 
-        <swiper :options="swiperOptions" ref="mySwiper">
+        <swiper :options="swiperOptions">
             <swiper-slide>
 
                 <p
@@ -37,7 +37,7 @@
 
 <script>
     import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
-    import 'swiper/dist/css/swiper.css'
+    import 'swiper/css/swiper.css'
     import {swiperAnimateCache, swiperAnimate} from "../utils/swiper.animate1.0.3.min"
 
     export default {
@@ -80,5 +80,21 @@
     }
 </script>
 <style lang="less" scoped>
+    .home-container {
+        height: 100%;
 
+        .swiper-slide {
+            height: 100%;
+            border: 1px solid black;
+            box-sizing: border-box;
+            font-size: 50px;
+        }
+
+        .swiper-container {
+            height: 100%;
+            --swiper-theme-color: #ff6600;
+            --swiper-pagination-color: #000; /* 两种都可以 */
+        }
+
+    }
 </style>
