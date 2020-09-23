@@ -43,7 +43,7 @@
                         },
                         transitionEnd() {
                             swiperAnimate(this); //初始化完成开始动画
-                        },
+                        }
                     }
                 }
             }
