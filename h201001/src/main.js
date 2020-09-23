@@ -10,6 +10,14 @@ import animate from 'animate.css'
 
 Vue.use(animate);
 
+import Utils from './utils/utils'
+
+Vue.prototype.$Utils = Utils;
+
+import * as Config from './utils/config'
+
+Vue.prototype.$Config = Config;
+
 Vue.config.productionTip = false;
 
 new Vue({

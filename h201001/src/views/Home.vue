@@ -1,6 +1,5 @@
 <template>
     <section class="home-container">
-        <!--<p class="animate__animated animate__pulse">Example</p>-->
 
 
 
@@ -14,9 +13,7 @@
     export default {
         name: 'Home',
         components: {},
-        mounted() {
-
-        }
+        mounted() {}
     }
 </script>
 <style lang="less" scoped>
