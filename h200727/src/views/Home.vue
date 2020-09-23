@@ -115,46 +115,48 @@
                         info_key: '视频列表',
                     },
                     url: this.$config.REQUEST_URL
+                });
+
+                // 设置 UV
+                await this.$store.dispatch('_setUv', {
+                    im: this.$config.PROJECT_INTERFACE.set_uv_statistics,
+                    fps: {
+                        open_id: this.getOpenid_info.back_value.open_id,
+                    },
+                    url: this.$config.REQUEST_URL
+                });
+
+                // 1 组织
+                this.$store.dispatch('_hasUserInfo_zuzhi', {
+                    im: this.$config.PROJECT_INTERFACE.has_user_info,
+                    fps: {
+                        open_id: this.getOpenid_info.back_value.open_id,
+                        type: 1
+                    },
+                    url: this.$config.REQUEST_URL
                 }).then(res => {
-                    // 设置 UV
-                    return this.$store.dispatch('_setUv', {
-                        im: this.$config.PROJECT_INTERFACE.set_uv_statistics,
-                        fps: {
-                            open_id: this.getOpenid_info.back_value.open_id,
-                        },
-                        url: this.$config.REQUEST_URL
-                    })
-                }).then(res => {
-                    // 1 组织
-                    return this.$store.dispatch('_hasUserInfo_zuzhi', {
-                        im: this.$config.PROJECT_INTERFACE.has_user_info,
-                        fps: {
-                            open_id: this.getOpenid_info.back_value.open_id,
-                            type: 1
-                        },
-                        url: this.$config.REQUEST_URL
-                    }).then(res => {
-                        if (res.back_value === false) {
-                            this.$router.replace('/login');
-                            return false;
-                        } else {
-                            // 2 个人信息
-                            return this.$store.dispatch('_hasUserInfo_geren', {
-                                im: this.$config.PROJECT_INTERFACE.has_user_info,
-                                fps: {
-                                    open_id: this.getOpenid_info.back_value.open_id,
-                                    type: 2
-                                },
-                                url: this.$config.REQUEST_URL
-                            })
-                        }
-                    }).then(res => {
-                        if (res.back_value === false) {
-                            this.$router.replace('/info');
-                        } else {
-                            this.page_show = true;
-                        }
-                    });
+
+                    if (res.back_value === false) {
+                        this.$router.replace('/login');
+                        return false;
+                    } else {
+                        // 2 个人信息
+                        this.$store.dispatch('_hasUserInfo_geren', {
+                            im: this.$config.PROJECT_INTERFACE.has_user_info,
+                            fps: {
+                                open_id: this.getOpenid_info.back_value.open_id,
+                                type: 2
+                            },
+                            url: this.$config.REQUEST_URL
+                        }).then(res => {
+                            if (res.back_value === false) {
+                                this.$router.replace('/info');
+                            } else {
+                                this.page_show = true;
+                            }
+                        });
+                    }
+
                 });
 
                 if (this.hasUserInfo_geren.back_value && this.hasUserInfo_zuzhi.back_value) {
