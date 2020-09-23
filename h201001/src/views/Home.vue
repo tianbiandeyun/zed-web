@@ -49,6 +49,15 @@
             }
         },
         mounted() {
+            this.$Toast.loading({
+                message: '请稍后...',
+                forbidClick: true,
+                duration: 0
+            });
+
+            setTimeout(() => {
+                this.$Toast.clear();
+            }, 500)
         }
     }
 </script>

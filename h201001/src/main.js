@@ -18,6 +18,11 @@ import * as Config from './utils/config'
 
 Vue.prototype.$Config = Config;
 
+import {Toast} from 'vant';
+
+Vue.prototype.$Toast = Toast;
+
+
 Vue.config.productionTip = false;
 
 new Vue({
