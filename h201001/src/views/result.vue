@@ -1,6 +1,9 @@
 <template>
     <section class="result-container" id="result">
-        <p class="address">{{address}}</p>
+        <div class="address">
+            <p>{{nickname}} 和 {{sulo}}</p>
+            <p>在{{address}}一起祝福祖国</p>
+        </div>
         <img class="result-bg" :src="result" alt="">
     </section>
 </template>
@@ -13,16 +16,35 @@
         data() {
             return {
                 result_images: {
-                    'ce': require('../assets/images/r_ce.png'),
-                    'wg': require('../assets/images/r_wg.png'),
-                    'yl': require('../assets/images/r_yl.png'),
-                    'yt': require('../assets/images/r_yt.png')
+                    'ce': {
+                        img: require('../assets/images/r_ce.png'),
+                        name: '嫦娥'
+                    },
+                    'wg': {
+                        img: require('../assets/images/r_wg.png'),
+                        name: '吴刚'
+                    },
+                    'yl': {
+                        img: require('../assets/images/r_yl.png'),
+                        name: '月老'
+                    },
+                    'yt': {
+                        img: require('../assets/images/r_yt.png'),
+                        name: '玉兔'
+                    }
                 },
                 result: '',
+                nickname: 'jack',
+                sulo: '',
                 address: ''
             }
         },
         mounted() {
+            this.$Toast.loading({
+                message: '生成中...',
+                forbidClick: true,
+                duration: 0
+            });
             this.init().then(res => {
                 if (res) {
                     this.$nextTick(() => {
@@ -30,14 +52,14 @@
                             window.pageYOffset = 0;
                             document.documentElement.scrollTop = 0;
                             document.body.scrollTop = 0;
-
                             (window.html2canvas || html2canvas)(
                                 document.querySelector("#result"), {
                                     allowTaint: true,
                                     useCORS: true
                                 }).then(canvas => {
-                                console.log(canvas.toDataURL("image/png"));
+                                this.result = '';
                                 this.result = canvas.toDataURL("image/png");
+                                this.$Toast.clear();
                             });
                         }, 500)
                     });
@@ -48,16 +70,12 @@
             init() {
 
                 return new Promise((resolve, reject) => {
-                    let nickname = 'jack';
                     let sulo = this.$route.query.sulo;
                     let address = this.$route.query.address;
 
-
-                    this.result = this.result_images[sulo];
+                    this.result = this.result_images[sulo].img;
                     this.address = address;
-                    // console.log(nickname)
-                    // console.log(this.result_images[sulo]);
-                    // console.log(address)
+                    this.sulo = this.result_images[sulo].name;
 
                     resolve(true);
                 });
@@ -70,13 +88,16 @@
 <style lang="less" scoped>
     .result-container {
         height: 100%;
-        border: 1px solid black;
         position: relative;
 
-        .address{
+        .address {
             position: absolute;
+            top: 80px;
+            left: 40px;
             z-index: 1;
             font-size: 40px;
+            color: #fff;
+            line-height: 1.4;
         }
 
         .result-bg {
