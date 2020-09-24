@@ -25,6 +25,14 @@
 
         <div class="bottom">
 
+            <div>
+                <span>昵称昵称昵称</span>和<span>（选择一个祝福伴侣）</span>
+            </div>
+
+            <div>
+                <div></div>
+            </div>
+
         </div>
 
     </section>
