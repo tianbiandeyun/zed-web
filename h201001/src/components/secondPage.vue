@@ -49,7 +49,7 @@
             </div>
 
             <div class="bottom_submit">
-                <button>一起祝福祖国</button>
+                <button @click="submit">一起祝福祖国</button>
             </div>
 
         </div>
@@ -66,6 +66,14 @@
         data() {
             return {
                 value: ''
+            }
+        },
+        methods: {
+            submit() {
+                if (this.value === '') {
+                    this.$Toast('祝福地点不能为空哦～');
+                    return false;
+                }
             }
         }
     }
