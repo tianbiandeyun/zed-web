@@ -82,6 +82,9 @@
                 address: ''
             }
         },
+        mounted() {
+            this.address = this.user_info.back_value.wx_city
+        },
         methods: {
             chang(res) {
                 this.sulo = res;
