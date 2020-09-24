@@ -57,7 +57,7 @@
             </div>
 
             <div class="bottom_tack">
-                <Field v-model="value" placeholder="请输入祝福地点"/>
+                <Field v-model="address" placeholder="请输入祝福地点"/>
             </div>
 
             <div class="bottom_submit">
@@ -78,7 +78,7 @@
         data() {
             return {
                 sulo: '',
-                value: ''
+                address: ''
             }
         },
         methods: {
@@ -90,12 +90,12 @@
                     this.$Toast('请选择祝福伴侣哦～');
                     return false;
                 }
-                if (this.value === '') {
+                if (this.address === '') {
                     this.$Toast('祝福地点不能为空哦～');
                     return false;
                 }
 
-                this.$router.push(`/result?sulo=${this.sulo}&value=${this.value}`);
+                this.$router.push(`/result?sulo=${this.sulo}&address=${this.address}`);
 
             }
         }
@@ -260,8 +260,8 @@
                         left: 0;
                         background: rgba(0, 0, 0, .5);
                         display: grid;
-                        justify-items: center;
-                        align-items: center;
+                        justify-content: center;
+                        align-content: center;
 
                         img {
                             width: 60px;

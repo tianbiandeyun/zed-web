@@ -1,5 +1,6 @@
 <template>
     <section class="result-container" id="result">
+        <p class="address">{{address}}</p>
         <img class="result-bg" :src="result" alt="">
     </section>
 </template>
@@ -17,7 +18,8 @@
                     'yl': require('../assets/images/r_yl.png'),
                     'yt': require('../assets/images/r_yt.png')
                 },
-                result: ''
+                result: '',
+                address: ''
             }
         },
         mounted() {
@@ -35,6 +37,7 @@
                                     useCORS: true
                                 }).then(canvas => {
                                 console.log(canvas.toDataURL("image/png"));
+                                this.result = canvas.toDataURL("image/png");
                             });
                         }, 500)
                     });
@@ -47,13 +50,14 @@
                 return new Promise((resolve, reject) => {
                     let nickname = 'jack';
                     let sulo = this.$route.query.sulo;
-                    let value = this.$route.query.value;
+                    let address = this.$route.query.address;
 
 
                     this.result = this.result_images[sulo];
+                    this.address = address;
                     // console.log(nickname)
                     // console.log(this.result_images[sulo]);
-                    // console.log(value)
+                    // console.log(address)
 
                     resolve(true);
                 });
@@ -68,6 +72,12 @@
         height: 100%;
         border: 1px solid black;
         position: relative;
+
+        .address{
+            position: absolute;
+            z-index: 1;
+            font-size: 40px;
+        }
 
         .result-bg {
             position: absolute;
