@@ -97,7 +97,7 @@
 
         .address {
             position: absolute;
-            top: 80px;
+            top: 60px;
             left: 40px;
             z-index: 1;
             font-size: 40px;
