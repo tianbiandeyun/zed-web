@@ -8,7 +8,10 @@
 
 <script>
     export default {
-        name: ""
+        name: "",
+        mounted() {
+            this.$Utils.setDocumentTitle('十一送祝福')
+        }
     }
 </script>
 
