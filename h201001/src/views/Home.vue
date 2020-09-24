@@ -1,5 +1,5 @@
 <template>
-    <section class="home-container">
+    <section class="home-container" v-if="isShow">
 
         <swiper :options="swiperOptions">
 
@@ -29,6 +29,7 @@
         components: {Swiper, SwiperSlide, firstPage, secondPage},
         data() {
             return {
+                isShow: false,
                 swiperOptions: {
                     direction: 'vertical',
                     pagination: {
@@ -61,13 +62,15 @@
                 url: this.$Config.REQUEST_URL
             });
 
-            this.$store.dispatch('getUserInfo', {
+            await this.$store.dispatch('getUserInfo', {
                 im: this.$Config.PROJECT_INTERFACE.getplayerinfo,
                 fps: {
                     open_id: this.openid_info.back_value.open_id,
                 },
                 url: this.$Config.REQUEST_URL
             });
+
+            this.isShow = true;
 
             this.$Toast.clear();
         },

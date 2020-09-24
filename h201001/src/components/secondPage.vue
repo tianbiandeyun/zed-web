@@ -57,7 +57,7 @@
             </div>
 
             <div class="bottom_tack">
-                <Field v-model="address" placeholder="请输入祝福地点"/>
+                <Field v-model="address" :value="address" placeholder="请输入祝福地点"/>
             </div>
 
             <div class="bottom_submit">
