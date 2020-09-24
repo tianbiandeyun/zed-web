@@ -32,6 +32,7 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  * 接口名
  * */
 export const PROJECT_INTERFACE = {
+    getplayerinfo: 'getplayerinfo',
     set_user_selection: 'set_user_selection', // 修改工作经历
     getopenid: 'getopenid'
 };

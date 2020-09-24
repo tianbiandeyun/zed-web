@@ -1,7 +1,7 @@
 <template>
     <section class="result-container" id="result">
         <div class="address">
-            <p>{{nickname}} 和 {{sulo}}</p>
+            <p>{{user_info.back_value.nickname}} 和 {{sulo}}</p>
             <p>在{{address}}一起祝福祖国</p>
         </div>
         <img class="result-bg" :src="result" alt="">
@@ -10,6 +10,7 @@
 
 <script>
     import html2canvas from '../utils/html2canvas'
+    import {mapGetters} from 'vuex'
 
     export default {
         name: "result",
@@ -34,7 +35,6 @@
                     }
                 },
                 result: '',
-                nickname: 'jack',
                 sulo: '',
                 address: ''
             }
@@ -81,6 +81,11 @@
                 });
 
             }
+        },
+        computed: {
+            ...mapGetters([
+                'user_info'
+            ])
         }
     }
 </script>

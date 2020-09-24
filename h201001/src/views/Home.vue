@@ -61,6 +61,14 @@
                 url: this.$Config.REQUEST_URL
             });
 
+            this.$store.dispatch('getUserInfo', {
+                im: this.$Config.PROJECT_INTERFACE.getplayerinfo,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id,
+                },
+                url: this.$Config.REQUEST_URL
+            });
+
             this.$Toast.clear();
         },
         computed: {
