@@ -25,12 +25,27 @@
 
         <div class="bottom">
 
-            <div>
+            <div class="bottom_nickname">
                 <span>昵称昵称昵称</span>和<span>（选择一个祝福伴侣）</span>
             </div>
 
-            <div>
-                <div></div>
+            <div class="bottom_sulo">
+                <div>
+                    <img src="../assets/images/ce.png" alt="">
+                </div>
+                <div>
+                    <img src="../assets/images/wg.png" alt="">
+                </div>
+                <div>
+                    <img src="../assets/images/yl.png" alt="">
+                </div>
+                <div>
+                    <img src="../assets/images/yt.png" alt="">
+                </div>
+            </div>
+
+            <div class="bottom_tack">
+
             </div>
 
         </div>
@@ -164,7 +179,38 @@
         }
 
         .bottom {
+            padding: 20px;
 
+            .bottom_nickname {
+                font-size: 36px;
+                color: @default-font-color-content;
+                padding: 20px 0;
+
+                span {
+
+                    &:nth-of-type(2) {
+                        color: @default-font-color-sub;
+                    }
+                }
+            }
+
+            .bottom_sulo {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-column-gap: 10px;
+
+                div {
+                    font-size: 0;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .bottom_tack {
+
+            }
         }
     }
 </style>
