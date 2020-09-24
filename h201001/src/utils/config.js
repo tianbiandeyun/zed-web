@@ -6,8 +6,8 @@
  * 项目编号
  * 分享 ID
  * */
-export const PROJECT_ID = "h200730";
-export const SHARE_ID = "h_200730";
+export const PROJECT_ID = "h201001";
+export const SHARE_ID = "h_201001";
 
 /**
  * 请求域名
@@ -32,17 +32,7 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  * 接口名
  * */
 export const PROJECT_INTERFACE = {
-    update_user_resume: 'update_user_resume', // 修改工作经历
-    set_application_record: 'set_application_record', // 投递简历
-    get_job_info: 'get_job_info', // 职位详情
-    del_work_history: 'del_work_history', // 删除工作经历
-    get_application_record: 'get_application_record', // 获取我的投递记录
-    get_banner: 'get_banner', // 轮播图
-    get_company_job_info_list: 'get_company_job_info_list', // 获取公司发布职位列表
-    get_company_list: 'get_company_list', // 获取公司
-    add_user_resume: 'add_user_resume', // 添加简历
-    get_user_resume: 'get_user_resume', // 获取简历
-    send_phone_identifying_code: 'send_phone_identifying_code', // 验证码
+    set_user_selection: 'set_user_selection', // 修改工作经历
     getopenid: 'getopenid'
 };
 

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
     import 'swiper/css/swiper.css'
     import {swiperAnimateCache, swiperAnimate} from "../utils/swiper.animate1.0.3.min"
@@ -48,16 +49,28 @@
                 }
             }
         },
-        mounted() {
+        async mounted() {
             this.$Toast.loading({
                 message: '请稍后...',
                 forbidClick: true,
                 duration: 0
             });
 
+            await this.$store.dispatch('getOpenid', {
+                im: this.$Config.PROJECT_INTERFACE.getopenid,
+                url: this.$Config.REQUEST_URL
+            });
+
+            console.log(this.openid_info.back_value);
+
             setTimeout(() => {
                 this.$Toast.clear();
             }, 500)
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
         }
     }
 </script>
