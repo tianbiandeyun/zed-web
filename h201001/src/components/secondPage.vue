@@ -32,15 +32,27 @@
             <div class="bottom_sulo">
                 <div @click="chang('ce')">
                     <img src="../assets/images/ce.png" alt="">
+                    <div class="chang_active" v-if="chang_value === 'ce'">
+                        <img src="../assets/images/click.png" alt="">
+                    </div>
                 </div>
                 <div @click="chang('wg')">
                     <img src="../assets/images/wg.png" alt="">
+                    <div class="chang_active" v-if="chang_value === 'wg'">
+                        <img src="../assets/images/click.png" alt="">
+                    </div>
                 </div>
                 <div @click="chang('yl')">
                     <img src="../assets/images/yl.png" alt="">
+                    <div class="chang_active" v-if="chang_value === 'yl'">
+                        <img src="../assets/images/click.png" alt="">
+                    </div>
                 </div>
                 <div @click="chang('yt')">
                     <img src="../assets/images/yt.png" alt="">
+                    <div class="chang_active" v-if="chang_value === 'yt'">
+                        <img src="../assets/images/click.png" alt="">
+                    </div>
                 </div>
             </div>
 
@@ -66,7 +78,14 @@
         data() {
             return {
                 chang_value: '',
-                value: ''
+                value: '',
+                result_images: {
+                    'ce': require('../assets/images/r_ce.png'),
+                    'wg': require('../assets/images/r_wg.png'),
+                    'yl': require('../assets/images/r_yl.png'),
+                    'yt': require('../assets/images/r_yt.png')
+                },
+                result: ''
             }
         },
         methods: {
@@ -82,6 +101,9 @@
                     this.$Toast('祝福地点不能为空哦～');
                     return false;
                 }
+                this.result = '';
+                console.log(this.chang_value)
+                console.log(this.value)
             }
         }
     }
@@ -231,9 +253,26 @@
 
                 div {
                     font-size: 0;
+                    position: relative;
 
                     img {
                         width: 100%;
+                    }
+
+                    .chang_active {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background: rgba(0, 0, 0, .5);
+                        display: grid;
+                        justify-items: center;
+                        align-items: center;
+
+                        img {
+                            width: 60px;
+                        }
                     }
                 }
             }
