@@ -30,16 +30,16 @@
             </div>
 
             <div class="bottom_sulo">
-                <div>
+                <div @click="chang('ce')">
                     <img src="../assets/images/ce.png" alt="">
                 </div>
-                <div>
+                <div @click="chang('wg')">
                     <img src="../assets/images/wg.png" alt="">
                 </div>
-                <div>
+                <div @click="chang('yl')">
                     <img src="../assets/images/yl.png" alt="">
                 </div>
-                <div>
+                <div @click="chang('yt')">
                     <img src="../assets/images/yt.png" alt="">
                 </div>
             </div>
@@ -65,11 +65,19 @@
         components: {Field},
         data() {
             return {
+                chang_value: '',
                 value: ''
             }
         },
         methods: {
+            chang(res) {
+                this.chang_value = res;
+            },
             submit() {
+                if (this.chang_value === '') {
+                    this.$Toast('请选择祝福伴侣哦～');
+                    return false;
+                }
                 if (this.value === '') {
                     this.$Toast('祝福地点不能为空哦～');
                     return false;
