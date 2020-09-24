@@ -45,7 +45,11 @@
             </div>
 
             <div class="bottom_tack">
+                <Field v-model="value" placeholder="请输入祝福地点"/>
+            </div>
 
+            <div class="bottom_submit">
+                <button>一起祝福祖国</button>
             </div>
 
         </div>
@@ -54,8 +58,16 @@
 </template>
 
 <script>
+    import {Field} from 'vant';
+
     export default {
-        name: "secondPage"
+        name: "secondPage",
+        components: {Field},
+        data() {
+            return {
+                value: ''
+            }
+        }
     }
 </script>
 
@@ -180,6 +192,7 @@
 
         .bottom {
             padding: 20px;
+            background-color: @default-app-color-background;
 
             .bottom_nickname {
                 font-size: 36px;
@@ -198,6 +211,7 @@
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 grid-column-gap: 10px;
+                margin-bottom: 20px;
 
                 div {
                     font-size: 0;
@@ -209,7 +223,22 @@
             }
 
             .bottom_tack {
+                margin-bottom: 20px;
+            }
 
+            .bottom_submit {
+                text-align: center;
+                padding: 10px 0;
+
+                button {
+                    font-size: 30px;
+                    background-color: #ee4440;
+                    padding: 20px 40px;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    border-radius: 10px;
+                    color: #fff;
+                }
             }
         }
     }
