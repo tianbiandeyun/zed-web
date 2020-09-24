@@ -70,6 +70,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     import {Field} from 'vant';
 
     export default {
@@ -95,9 +96,33 @@
                     return false;
                 }
 
-                this.$router.push(`/result?sulo=${this.sulo}&address=${this.address}`);
+                let result = {
+                    'ce': '嫦娥',
+                    'wg': '吴刚',
+                    'yl': '月老',
+                    'yt': '玉兔'
+                };
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.set_user_selection,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        img_type: result[this.sulo],
+                        location: this.address
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$router.push(`/result?sulo=${this.sulo}&address=${this.address}`);
+                    }
+                })
 
             }
+        },
+        computed: {
+            ...mapGetters([
+                'openid_info'
+            ])
         }
     }
 </script>

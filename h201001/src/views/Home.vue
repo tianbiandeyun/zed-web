@@ -61,11 +61,7 @@
                 url: this.$Config.REQUEST_URL
             });
 
-            console.log(this.openid_info.back_value);
-
-            setTimeout(() => {
-                this.$Toast.clear();
-            }, 500)
+            this.$Toast.clear();
         },
         computed: {
             ...mapGetters([
