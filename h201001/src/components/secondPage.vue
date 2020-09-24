@@ -26,7 +26,7 @@
         <div class="bottom">
 
             <div class="bottom_nickname">
-                <span>昵称昵称昵称</span>和<span>（选择一个祝福伴侣）</span>
+                <span>{{user_info.back_value.nickname}}</span>和<span>（选择一个祝福伴侣）</span>
             </div>
 
             <div class="bottom_sulo">
@@ -128,7 +128,8 @@
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'user_info'
             ])
         }
     }
