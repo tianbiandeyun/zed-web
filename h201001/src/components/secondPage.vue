@@ -96,6 +96,12 @@
                     return false;
                 }
 
+                this.$Toast.loading({
+                    message: '请稍后...',
+                    forbidClick: true,
+                    duration: 0
+                });
+
                 let result = {
                     'ce': '嫦娥',
                     'wg': '吴刚',
@@ -113,6 +119,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
+                        this.$Toast.clear();
                         this.$router.push(`/result?sulo=${this.sulo}&address=${this.address}`);
                     }
                 })
