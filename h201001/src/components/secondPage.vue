@@ -32,25 +32,25 @@
             <div class="bottom_sulo">
                 <div @click="chang('ce')">
                     <img src="../assets/images/ce.png" alt="">
-                    <div class="chang_active" v-if="chang_value === 'ce'">
+                    <div class="chang_active" v-if="sulo === 'ce'">
                         <img src="../assets/images/click.png" alt="">
                     </div>
                 </div>
                 <div @click="chang('wg')">
                     <img src="../assets/images/wg.png" alt="">
-                    <div class="chang_active" v-if="chang_value === 'wg'">
+                    <div class="chang_active" v-if="sulo === 'wg'">
                         <img src="../assets/images/click.png" alt="">
                     </div>
                 </div>
                 <div @click="chang('yl')">
                     <img src="../assets/images/yl.png" alt="">
-                    <div class="chang_active" v-if="chang_value === 'yl'">
+                    <div class="chang_active" v-if="sulo === 'yl'">
                         <img src="../assets/images/click.png" alt="">
                     </div>
                 </div>
                 <div @click="chang('yt')">
                     <img src="../assets/images/yt.png" alt="">
-                    <div class="chang_active" v-if="chang_value === 'yt'">
+                    <div class="chang_active" v-if="sulo === 'yt'">
                         <img src="../assets/images/click.png" alt="">
                     </div>
                 </div>
@@ -77,23 +77,16 @@
         components: {Field},
         data() {
             return {
-                chang_value: '',
-                value: '',
-                result_images: {
-                    'ce': require('../assets/images/r_ce.png'),
-                    'wg': require('../assets/images/r_wg.png'),
-                    'yl': require('../assets/images/r_yl.png'),
-                    'yt': require('../assets/images/r_yt.png')
-                },
-                result: ''
+                sulo: '',
+                value: ''
             }
         },
         methods: {
             chang(res) {
-                this.chang_value = res;
+                this.sulo = res;
             },
             submit() {
-                if (this.chang_value === '') {
+                if (this.sulo === '') {
                     this.$Toast('请选择祝福伴侣哦～');
                     return false;
                 }
@@ -101,9 +94,9 @@
                     this.$Toast('祝福地点不能为空哦～');
                     return false;
                 }
-                this.result = '';
-                console.log(this.chang_value)
-                console.log(this.value)
+
+                this.$router.push(`/result?sulo=${this.sulo}&value=${this.value}`);
+
             }
         }
     }
