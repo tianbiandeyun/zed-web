@@ -123,7 +123,7 @@
                 }).then(res => {
                     if (res.back_value) {
                         this.$Toast.clear();
-                        this.$router.push(`/result?sulo=${this.sulo}&address=${this.address}`);
+                        this.$router.replace(`/result?sulo=${this.sulo}&address=${this.address}`);
                     }
                 })
 
