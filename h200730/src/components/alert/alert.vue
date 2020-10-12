@@ -34,10 +34,14 @@
                 default: '取消'
             },
             yes: {
-                type: Function
+                type: Function,
+                default: () => {
+                }
             },
             no: {
-                type: Function
+                type: Function,
+                default: () => {
+                }
             }
         },
         data() {
