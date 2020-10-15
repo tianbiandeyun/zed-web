@@ -1,21 +1,7 @@
 <template>
     <section class="offic-container">
 
-        <header class="header">岗位相关信息（非必填）</header>
-
-        <div class="office-item">
-            <Field
-                    v-model="political"
-                    label="政治面貌"
-                    placeholder="请输入政治面貌"/>
-        </div>
-
-        <div class="office-item">
-            <Field
-                    v-model="office"
-                    label="期望岗位"
-                    placeholder="请输入期望岗位"/>
-        </div>
+        <header class="header">自我评价</header>
 
         <div class="office-item">
             <Field
@@ -24,26 +10,13 @@
                     autosize
                     label="自我介绍"
                     type="textarea"
-                    maxlength="100"
+                    maxlength="150"
                     placeholder="自我介绍"
                     show-word-limit/>
         </div>
 
-        <div class="office-item">
-            <Field
-                    v-model="certificate"
-                    rows="2"
-                    autosize
-                    label="资格证书"
-                    type="textarea"
-                    maxlength="100"
-                    placeholder="资格证书"
-                    show-word-limit/>
-        </div>
-
         <div class="save-box">
-            <button class="jump" @click="jump">跳过此信息</button>
-            <button class="save" @click="save">保存岗位信息</button>
+            <button class="save" @click="save">保存自我评价</button>
         </div>
 
     </section>
@@ -58,46 +31,26 @@
         components: {Field},
         data() {
             return {
-                political: '',
-                office: '',
-                self_message: '',
-                certificate: ''
+                self_message: ''
             }
         },
         mounted() {
-            let resume = this.resume_info.back_value;
-            if (resume.length !== 0) {
-                this.political = resume.political_status;
-                this.office = resume.expected_position;
-                this.self_message = resume.self_introduction;
-                this.certificate = resume.qualification_certificate;
-            }
+            // let resume = this.resume_info.back_value;
+            // if (resume.length !== 0) {
+            //     this.political = resume.political_status;
+            //     this.office = resume.expected_position;
+            //     this.self_message = resume.self_introduction;
+            //     this.certificate = resume.qualification_certificate;
+            // }
         },
         methods: {
-            jump() {
-                this.$router.push('/experience');
-            },
             /**
              * 保存信息
              * */
             save() {
-                if (this.political === '') {
-                    this.$Toast('政治面貌不能为空');
-                    return false;
-                }
-
-                if (this.office === '') {
-                    this.$Toast('期望岗位不能为空');
-                    return false;
-                }
 
                 if (this.self_message === '') {
                     this.$Toast('自我介绍不能为空');
-                    return false;
-                }
-
-                if (this.certificate === '') {
-                    this.$Toast('资格证书不能为空');
                     return false;
                 }
 
@@ -108,22 +61,19 @@
                     overlay: true
                 });
 
-                this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id,
-                        political_status: this.political,
-                        expected_position: this.office,
-                        self_introduction: this.self_message,
-                        qualification_certificate: this.certificate
-                    },
-                    url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    this.$Toast.clear();
-                    if (res.back_value) {
-                        this.$router.replace('/experience');
-                    }
-                })
+                // this.$store.dispatch('fetchData', {
+                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                //     fps: {
+                //         open_id: this.openid_info.back_value.open_id,
+                //         self_introduction: this.self_message
+                //     },
+                //     url: this.$Config.REQUEST_URL
+                // }).then(res => {
+                this.$Toast.clear();
+                //     if (res.back_value) {
+                //         this.$router.replace('/experience');
+                //     }
+                // })
             }
         },
         computed: {

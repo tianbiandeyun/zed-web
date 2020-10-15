@@ -69,7 +69,7 @@
         </div>
 
         <div class="save-box">
-            <button class="save" @click="save">保存年龄及专业</button>
+            <button class="save" @click="save">保存教育信息</button>
         </div>
 
     </section>

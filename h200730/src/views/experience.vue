@@ -1,26 +1,26 @@
 <template>
     <section class="experience-container">
-        <header class="header">添加工作经历（非必填）</header>
+        <header class="header">个人经历</header>
 
         <div class="experience-item">
             <Field
                     v-model="unit"
-                    label="工作单位"
-                    placeholder="请输入工作单位"/>
+                    label="公司名称"
+                    placeholder="请输入公司名称"/>
         </div>
 
         <div class="experience-item">
             <Field
                     v-model="post"
-                    label="岗位名称"
-                    placeholder="请输入岗位名称"/>
+                    label="职位类型"
+                    placeholder="请输入职位类型"/>
         </div>
 
         <div class="experience-item">
             <Field
                     v-model="industry"
-                    label="所属行业"
-                    placeholder="请输入所属行业"/>
+                    label="在职时间"
+                    placeholder="请输入在职时间"/>
         </div>
 
         <div class="experience-item">
@@ -30,7 +30,7 @@
                     autosize
                     label="工作描述"
                     type="textarea"
-                    maxlength="100"
+                    maxlength="150"
                     placeholder="工作描述"
                     show-word-limit/>
         </div>
@@ -51,7 +51,7 @@
         components: {Field},
         data() {
             return {
-                button: '保存工作经历',
+                button: '保存个人经历',
                 unit: '',
                 post: '',
                 industry: '',
@@ -60,14 +60,14 @@
             }
         },
         mounted() {
-            if (this.resume_info.back_value.length !== 0) {
-                let resume = this.resume_info.back_value.work_history_list;
-                this.button = resume.length === 1 ? `保存工作经历` : `下一项工作经历`;
-                this.unit = resume[this.resume_index].work_unit;
-                this.post = resume[this.resume_index].name_of_post;
-                this.industry = resume[this.resume_index].industry;
-                this.word = resume[this.resume_index].describe;
-            }
+            // if (this.resume_info.back_value.length !== 0) {
+            //     let resume = this.resume_info.back_value.work_history_list;
+            //     this.button = resume.length === 1 ? `保存工作经历` : `下一项工作经历`;
+            //     this.unit = resume[this.resume_index].work_unit;
+            //     this.post = resume[this.resume_index].name_of_post;
+            //     this.industry = resume[this.resume_index].industry;
+            //     this.word = resume[this.resume_index].describe;
+            // }
         },
         methods: {
             jump() {
@@ -80,17 +80,17 @@
                 const that = this;
 
                 if (this.unit === '') {
-                    this.$Toast('工作单位不能为空');
+                    this.$Toast('公司名称不能为空');
                     return false;
                 }
 
                 if (this.post === '') {
-                    this.$Toast('岗位名称不能为空');
+                    this.$Toast('职位类型不能为空');
                     return false;
                 }
 
                 if (this.industry === '') {
-                    this.$Toast('所属行业不能为空');
+                    this.$Toast('在职时间不能为空');
                     return false;
                 }
 

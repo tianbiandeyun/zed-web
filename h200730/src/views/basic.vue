@@ -114,7 +114,7 @@
         </div>
 
         <div class="save-box">
-            <button class="save" @click="save">保存联系方式</button>
+            <button class="save" @click="save">保存基本信息</button>
         </div>
 
     </section>
