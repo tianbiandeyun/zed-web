@@ -61,19 +61,19 @@
                     overlay: true
                 });
 
-                // this.$store.dispatch('fetchData', {
-                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                //     fps: {
-                //         open_id: this.openid_info.back_value.open_id,
-                //         self_introduction: this.self_message
-                //     },
-                //     url: this.$Config.REQUEST_URL
-                // }).then(res => {
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        self_introduction: this.self_message
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
                 this.$Toast.clear();
-                //     if (res.back_value) {
-                //         this.$router.replace('/experience');
-                //     }
-                // })
+                    if (res.back_value) {
+                        this.$router.replace('/experience');
+                    }
+                })
             }
         },
         computed: {

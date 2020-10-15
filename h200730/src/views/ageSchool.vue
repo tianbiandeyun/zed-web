@@ -145,24 +145,23 @@
                     overlay: true
                 });
 
-                // this.$store.dispatch('fetchData', {
-                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                //     fps: {
-                //         open_id: this.openid_info.back_value.open_id,
-                //         native_place: this.home,
-                //         address: this.home_details,
-                //         date_of_birth: this.age,
-                //         graduate_institutions: this.school,
-                //         specialty: this.good_at,
-                //         education_level: this.education
-                //     },
-                //     url: this.$Config.REQUEST_URL
-                // }).then(res => {
-                this.$Toast.clear();
-                //     if (res.back_value) {
-                //         this.$router.replace('/office');
-                //     }
-                // })
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        graduate_institutions: this.school,
+                        political_status:this.political,
+                        // address: this.home_details,
+                        specialty: this.good_at,
+                        education_level: this.education
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.$Toast.clear();
+                    if (res.back_value) {
+                        this.$router.replace('/office');
+                    }
+                })
             },
             /**
              * 学校
