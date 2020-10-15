@@ -216,9 +216,9 @@
                                 }
                             }, 1000);
                         }
-                    }else {
+                    } else {
                         this.$Toast.clear();
-                        if(res.error_code === 6180516006){
+                        if (res.error_code === 6180516006) {
                             this.$Toast(res.error_info);
                         }
                     }
@@ -259,6 +259,16 @@
 
                 if (this.sex === '') {
                     this.$Toast('性别不能为空');
+                    return false;
+                }
+
+                if (this.home === '') {
+                    this.$Toast('现居地址能为空');
+                    return false;
+                }
+
+                if (this.age === '') {
+                    this.$Toast('出生日期不能为空');
                     return false;
                 }
 
