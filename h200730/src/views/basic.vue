@@ -39,8 +39,8 @@
                     clickable
                     name="picker"
                     :value="home"
-                    label="籍贯"
-                    placeholder="点击选择籍贯"
+                    label="现居地址"
+                    placeholder="点击选择现居地址"
                     @click="home_picker = true"/>
 
             <Popup v-model="home_picker" position="bottom">
@@ -215,6 +215,11 @@
                                     this.button_disabled = false;
                                 }
                             }, 1000);
+                        }
+                    }else {
+                        this.$Toast.clear();
+                        if(res.error_code === 6180516006){
+                            this.$Toast(res.error_info);
                         }
                     }
                 })
