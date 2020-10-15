@@ -1,66 +1,7 @@
 <template>
     <section class="ageSchool-container">
 
-        <header class="header">年龄及专业</header>
-
-        <div class="ageSchool-item">
-
-            <Field
-                    required
-                    readonly
-                    clickable
-                    name="picker"
-                    :value="home"
-                    label="籍贯"
-                    placeholder="点击选择籍贯"
-                    @click="home_picker = true"/>
-
-            <Popup v-model="home_picker" position="bottom">
-
-                <Area
-                        title="标题"
-                        :area-list="home_columns"
-                        @confirm="getHome"
-                        @cancel="home_picker = false"/>
-
-            </Popup>
-
-        </div>
-
-        <div class="ageSchool-item">
-
-            <Field
-                    required
-                    v-model="home_details"
-                    rows="1"
-                    autosize
-                    label="详细地址"
-                    type="textarea"
-                    placeholder="请输入详细地址"/>
-
-        </div>
-
-        <div class="ageSchool-item">
-
-            <Field
-                    required
-                    readonly
-                    clickable
-                    name="picker"
-                    :value="age"
-                    label="出生日期"
-                    placeholder="点击选择出生日期"
-                    @click="age_picker = true"/>
-
-            <Popup v-model="age_picker" position="bottom">
-                <Picker
-                        show-toolbar
-                        :columns="age_columns"
-                        @confirm="getAge"
-                        @cancel="age_picker = false"/>
-            </Popup>
-
-        </div>
+        <header class="header">教育信息</header>
 
         <div class="ageSchool-item">
             <Field
@@ -116,43 +57,24 @@
         components: {Field, Button, Picker, Area, Popup},
         data() {
             return {
-                home: '',
                 home_details: '',
-                age: '',
                 school: '',
                 good_at: '',
                 education: '',
-                home_picker: false,
-                home_columns: aera_json,
-                age_picker: false,
-                age_columns: [
-                    {
-                        values: this.year(),
-                        defaultIndex: 0,
-                    },
-                    {
-                        values: this.month(),
-                        defaultIndex: 0,
-                    },
-                    {
-                        values: this.day(),
-                        defaultIndex: 0,
-                    }
-                ],
                 education_picker: false,
                 education_columns: ['小学', '初中', '技工学校', '职业高中', '普通高中', '中等专业学校', '大学专科', '大学本科', '硕士研究生', '博士研究生']
             }
         },
         mounted() {
-            let resume = this.resume_info.back_value;
-            if (resume.length !== 0) {
-                this.home = resume.native_place;
-                this.home_details = resume.address;
-                this.age = resume.date_of_birth;
-                this.school = resume.graduate_institutions;
-                this.good_at = resume.specialty;
-                this.education = resume.education_level;
-            }
+            // let resume = this.resume_info.back_value;
+            // if (resume.length !== 0) {
+            //     this.home = resume.native_place;
+            //     this.home_details = resume.address;
+            //     this.age = resume.date_of_birth;
+            //     this.school = resume.graduate_institutions;
+            //     this.good_at = resume.specialty;
+            //     this.education = resume.education_level;
+            // }
         },
         methods: {
             /**
@@ -217,47 +139,12 @@
                 })
             },
             /**
-             * 籍贯
-             * */
-            getHome(res) {
-                this.home = `${res[0].name}-${res[1].name}-${res[2].name}`;
-                this.home_picker = false;
-            },
-            /**
-             * 年龄
-             * */
-            getAge(res) {
-                this.age = `${res[0]}-${res[1]}-${res[2]}`;
-                this.age_picker = false;
-            },
-            /**
              * 学校
              * */
             getSchool(res) {
                 this.education = res;
                 this.education_picker = false;
-            },
-            year() {
-                let a = [];
-                for (let i = 1980; i < 2020; i++) {
-                    a.push(i)
-                }
-                return a;
-            },
-            month() {
-                let a = [];
-                for (let i = 1; i < 13; i++) {
-                    a.push(i < 10 ? `0${i}` : i)
-                }
-                return a;
-            },
-            day() {
-                let a = [];
-                for (let i = 1; i < 32; i++) {
-                    a.push(i < 10 ? `0${i}` : i)
-                }
-                return a;
-            },
+            }
         },
         computed: {
             ...mapGetters([

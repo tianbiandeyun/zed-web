@@ -1,7 +1,7 @@
 <template>
     <section class="basic-container">
 
-        <header class="header">联系方式</header>
+        <header class="header">基本信息</header>
 
         <div class="basic-item">
             <Field
