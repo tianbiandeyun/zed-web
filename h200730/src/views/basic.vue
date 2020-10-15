@@ -295,23 +295,25 @@
                 });
 
 
-                // this.$store.dispatch('fetchData', {
-                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                //     fps: {
-                //         open_id: this.openid_info.back_value.open_id,
-                //         name: this.name,
-                //         sex: this.sex === '男' ? 1 : 2,
-                //         mail: this.email,
-                //         phone: this.photo,
-                //         code: this.photo_code
-                //     },
-                //     url: this.$Config.REQUEST_URL
-                // }).then(res => {
-                this.$Toast.clear();
-                //     if (res.back_value) {
-                //         this.$router.replace('/ageSchool');
-                //     }
-                // })
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        name: this.name,
+                        sex: this.sex === '男' ? 1 : 2,
+                        native_place: this.home,
+                        date_of_birth: this.age,
+                        mail: this.email,
+                        phone: this.photo,
+                        code: this.photo_code
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.$Toast.clear();
+                    if (res.back_value) {
+                        this.$router.replace('/ageSchool');
+                    }
+                })
             },
             year() {
                 let a = [];
