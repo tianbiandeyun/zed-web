@@ -35,6 +35,48 @@
         <div class="basic-item">
             <Field
                     required
+                    readonly
+                    clickable
+                    name="picker"
+                    :value="home"
+                    label="籍贯"
+                    placeholder="点击选择籍贯"
+                    @click="home_picker = true"/>
+
+            <Popup v-model="home_picker" position="bottom">
+
+                <Area
+                        title="标题"
+                        :area-list="home_columns"
+                        @confirm="getHome"
+                        @cancel="home_picker = false"/>
+
+            </Popup>
+        </div>
+
+        <div class="basic-item">
+            <Field
+                    required
+                    readonly
+                    clickable
+                    name="picker"
+                    :value="age"
+                    label="出生日期"
+                    placeholder="点击选择出生日期"
+                    @click="age_picker = true"/>
+
+            <Popup v-model="age_picker" position="bottom">
+                <Picker
+                        show-toolbar
+                        :columns="age_columns"
+                        @confirm="getAge"
+                        @cancel="age_picker = false"/>
+            </Popup>
+        </div>
+
+        <div class="basic-item">
+            <Field
+                    required
                     v-model="email"
                     label="电子邮件"
                     placeholder="请输入电子邮件"/>
@@ -80,18 +122,38 @@
 
 <script>
     import alert from '../components/alert/alert'
-    import {Field, Button, Picker, Popup} from 'vant';
+    import {Field, Button, Area, Picker, Popup} from 'vant';
+    import aera_json from '../utils/area'
     import {mapGetters} from 'vuex';
 
     export default {
         name: "basic",
-        components: {Field, Button, Picker, Popup, alert},
+        components: {Field, Button, Area, Picker, Popup, alert},
         data() {
             return {
                 name: '',
                 sex: '',
                 sex_columns: ['男', '女'],
                 sex_picker: false,
+                home: '',
+                home_picker: false,
+                home_columns: aera_json,
+                age: '',
+                age_picker: false,
+                age_columns: [
+                    {
+                        values: this.year(),
+                        defaultIndex: 0,
+                    },
+                    {
+                        values: this.month(),
+                        defaultIndex: 0,
+                    },
+                    {
+                        values: this.day(),
+                        defaultIndex: 0,
+                    }
+                ],
                 email: '',
                 photo: '',
                 photo_code: '',
@@ -101,13 +163,13 @@
             }
         },
         mounted() {
-            let resume = this.resume_info.back_value;
-            if (resume.length !== 0) {
-                this.name = resume.name;
-                this.sex = +resume.sex === 1 ? '男' : '女';
-                this.email = resume.mail;
-                this.phone = resume.photo;
-            }
+            // let resume = this.resume_info.back_value;
+            // if (resume.length !== 0) {
+            //     this.name = resume.name;
+            //     this.sex = +resume.sex === 1 ? '男' : '女';
+            //     this.email = resume.mail;
+            //     this.phone = resume.photo;
+            // }
         },
         methods: {
             /**
@@ -167,6 +229,20 @@
                 this.sex_picker = false;
             },
             /**
+             * 籍贯
+             * */
+            getHome(res) {
+                this.home = `${res[0].name}-${res[1].name}-${res[2].name}`;
+                this.home_picker = false;
+            },
+            /**
+             * 年龄
+             * */
+            getAge(res) {
+                this.age = `${res[0]}-${res[1]}-${res[2]}`;
+                this.age_picker = false;
+            },
+            /**
              * 保存信息
              * */
             save() {
@@ -203,24 +279,46 @@
                     overlay: true
                 });
 
-                this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id,
-                        name: this.name,
-                        sex: this.sex === '男' ? 1 : 2,
-                        mail: this.email,
-                        phone: this.photo,
-                        code: this.photo_code
-                    },
-                    url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    this.$Toast.clear();
-                    if (res.back_value) {
-                        this.$router.replace('/ageSchool');
-                    }
-                })
-            }
+
+                // this.$store.dispatch('fetchData', {
+                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                //     fps: {
+                //         open_id: this.openid_info.back_value.open_id,
+                //         name: this.name,
+                //         sex: this.sex === '男' ? 1 : 2,
+                //         mail: this.email,
+                //         phone: this.photo,
+                //         code: this.photo_code
+                //     },
+                //     url: this.$Config.REQUEST_URL
+                // }).then(res => {
+                this.$Toast.clear();
+                //     if (res.back_value) {
+                //         this.$router.replace('/ageSchool');
+                //     }
+                // })
+            },
+            year() {
+                let a = [];
+                for (let i = 1980; i < 2020; i++) {
+                    a.push(i)
+                }
+                return a;
+            },
+            month() {
+                let a = [];
+                for (let i = 1; i < 13; i++) {
+                    a.push(i < 10 ? `0${i}` : i)
+                }
+                return a;
+            },
+            day() {
+                let a = [];
+                for (let i = 1; i < 32; i++) {
+                    a.push(i < 10 ? `0${i}` : i)
+                }
+                return a;
+            },
         },
         computed: {
             ...mapGetters([
