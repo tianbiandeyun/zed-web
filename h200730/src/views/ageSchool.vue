@@ -14,6 +14,34 @@
         <div class="ageSchool-item">
             <Field
                     required
+                    v-model="political"
+                    label="政治面貌"
+                    placeholder="请输入政治面貌"/>
+        </div>
+
+        <div class="ageSchool-item">
+            <Field
+                    required
+                    readonly
+                    clickable
+                    name="picker"
+                    :value="school_time"
+                    label="毕业年份"
+                    placeholder="点击选择毕业年份"
+                    @click="school_picker = true"/>
+
+            <Popup v-model="school_picker" position="bottom">
+                <Picker
+                        show-toolbar
+                        :columns="school_columns"
+                        @confirm="getSchoolTime"
+                        @cancel="school_picker = false"/>
+            </Popup>
+        </div>
+
+        <div class="ageSchool-item">
+            <Field
+                    required
                     v-model="good_at"
                     label="专业"
                     placeholder="请输入专业"/>
@@ -49,7 +77,6 @@
 
 <script>
     import {Field, Button, Picker, Area, Popup} from 'vant';
-    import aera_json from '../utils/area'
     import {mapGetters} from 'vuex'
 
     export default {
@@ -57,12 +84,16 @@
         components: {Field, Button, Picker, Area, Popup},
         data() {
             return {
+                political: '',
                 home_details: '',
                 school: '',
                 good_at: '',
+                school_time: '',
+                school_picker: false,
+                school_columns: this.year(),
                 education: '',
                 education_picker: false,
-                education_columns: ['小学', '初中', '技工学校', '职业高中', '普通高中', '中等专业学校', '大学专科', '大学本科', '硕士研究生', '博士研究生']
+                education_columns: ['初中', '高中', '大专', '本科']
             }
         },
         mounted() {
@@ -82,23 +113,18 @@
              * */
             save() {
 
-                if (this.home === '') {
-                    this.$Toast('籍贯不能为空');
-                    return false;
-                }
-
-                if (this.home_details === '') {
-                    this.$Toast('详细地址不能为空');
-                    return false;
-                }
-
-                if (this.age === '') {
-                    this.$Toast('出生日期不能为空');
-                    return false;
-                }
-
                 if (this.school === '') {
                     this.$Toast('毕业院校不能为空');
+                    return false;
+                }
+
+                if (this.political === '') {
+                    this.$Toast('政治面貌不能为空');
+                    return false;
+                }
+
+                if (this.school_time === '') {
+                    this.$Toast('毕业年份');
                     return false;
                 }
 
@@ -119,24 +145,24 @@
                     overlay: true
                 });
 
-                this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id,
-                        native_place: this.home,
-                        address: this.home_details,
-                        date_of_birth: this.age,
-                        graduate_institutions: this.school,
-                        specialty: this.good_at,
-                        education_level: this.education
-                    },
-                    url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    this.$Toast.clear();
-                    if (res.back_value) {
-                        this.$router.replace('/office');
-                    }
-                })
+                // this.$store.dispatch('fetchData', {
+                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                //     fps: {
+                //         open_id: this.openid_info.back_value.open_id,
+                //         native_place: this.home,
+                //         address: this.home_details,
+                //         date_of_birth: this.age,
+                //         graduate_institutions: this.school,
+                //         specialty: this.good_at,
+                //         education_level: this.education
+                //     },
+                //     url: this.$Config.REQUEST_URL
+                // }).then(res => {
+                this.$Toast.clear();
+                //     if (res.back_value) {
+                //         this.$router.replace('/office');
+                //     }
+                // })
             },
             /**
              * 学校
@@ -144,7 +170,18 @@
             getSchool(res) {
                 this.education = res;
                 this.education_picker = false;
-            }
+            },
+            getSchoolTime(res) {
+                this.school_time = `${res}年`;
+                this.school_picker = false;
+            },
+            year() {
+                let a = [];
+                for (let i = 1980; i <= 2020; i++) {
+                    a.push(i)
+                }
+                return a;
+            },
         },
         computed: {
             ...mapGetters([
