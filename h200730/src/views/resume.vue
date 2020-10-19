@@ -107,7 +107,7 @@
 
                 return [
                     {
-                        'title': '联系方式',
+                        'title': '基本信息',
                         'content': {
                             '姓名': result.name || '没有填写',
                             '性别': +result.sex === 1 ? '男' : '女',
@@ -118,7 +118,7 @@
                         }
                     },
                     {
-                        'title': '年龄及专业',
+                        'title': '教育信息',
                         'content': {
                             '毕业院校': result.graduate_institutions || '没有填写',
                             '政治面貌': result.political_status || '没有填写',
