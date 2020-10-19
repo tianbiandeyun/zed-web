@@ -132,11 +132,11 @@
             // }
         },
         methods: {
-            getWorkEnd() {
+            getWorkEnd(res) {
                 this.work_end = `${res[0]}-${res[1]}-${res[2]}`;
                 this.work_end_picker = false;
             },
-            getWorkStart() {
+            getWorkStart(res) {
                 this.work_start = `${res[0]}-${res[1]}-${res[2]}`;
                 this.work_start_picker = false;
             },
@@ -169,60 +169,56 @@
                     return false;
                 }
 
-                if (this.industry === '') {
-                    this.$Toast('在职时间不能为空');
-                    return false;
-                }
-
                 if (this.word === '') {
                     this.$Toast('工作描述不能为空');
                     return false;
                 }
 
                 // 没填写过工作简历
-                // if (this.resume_info.back_value.length === 0) {
+                if (this.resume_info.back_value.length === 0) {
 
-                this.$Toast.loading({
-                    message: '加载中...',
-                    forbidClick: true,
-                    duration: 0,
-                    overlay: true
-                });
+                    this.$Toast.loading({
+                        message: '加载中...',
+                        forbidClick: true,
+                        duration: 0,
+                        overlay: true
+                    });
 
-                // this.$store.dispatch('fetchData', {
-                //     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
-                //     fps: {
-                //         open_id: this.openid_info.back_value.open_id,
-                //         work_unit: this.unit,
-                //         name_of_post: this.post,
-                //         industry: this.industry,
-                //         describe: this.word
-                //     },
-                //     url: this.$Config.REQUEST_URL
-                // }).then(res => {
-                //     this.$Toast.clear();
-                //     if (res.back_value) {
-                //         this.$Alert.show({
-                //             title: '是否继续添加工作经历',
-                //             alertContent: '工作经历可以反复添加多次，如果您有其他工作经历请点击继续。',
-                //             yesText: '继续',
-                //             noText: '结束添加',
-                //             yes() {
-                //                 that.unit = '';
-                //                 that.post = '';
-                //                 that.industry = '';
-                //                 that.word = '';
-                //             },
-                //             no() {
-                //                 that.$router.replace('/');
-                //             }
-                //         });
-                //     }
-                // });
+                    this.$store.dispatch('fetchData', {
+                        im: this.$Config.PROJECT_INTERFACE.add_user_resume,
+                        fps: {
+                            open_id: this.openid_info.back_value.open_id,
+                            work_unit: this.unit,
+                            name_of_post: this.post,
+                            start_date: this.work_start,
+                            end_date: this.work_end,
+                            describe: this.word
+                        },
+                        url: this.$Config.REQUEST_URL
+                    }).then(res => {
+                        this.$Toast.clear();
+                        if (res.back_value) {
+                            this.$Alert.show({
+                                title: '是否继续添加工作经历',
+                                alertContent: '工作经历可以反复添加多次，如果您有其他工作经历请点击继续。',
+                                yesText: '继续',
+                                noText: '结束添加',
+                                yes() {
+                                    that.unit = '';
+                                    that.post = '';
+                                    that.work_start = '';
+                                    that.work_end = '';
+                                    that.word = '';
+                                },
+                                no() {
+                                    that.$router.replace('/');
+                                }
+                            });
+                        }
+                    });
 
-                return false;
-                // }
-
+                    return false;
+                }
 
                 // 填写过工作经历
                 // if (this.resume_info.back_value.length !== 0) {
