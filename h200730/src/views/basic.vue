@@ -317,7 +317,7 @@
             },
             year() {
                 let a = [];
-                for (let i = 1980; i < 2020; i++) {
+                for (let i = 1980; i < 2021; i++) {
                     a.push(i)
                 }
                 return a;
