@@ -35,13 +35,10 @@
             }
         },
         mounted() {
-            // let resume = this.resume_info.back_value;
-            // if (resume.length !== 0) {
-            //     this.political = resume.political_status;
-            //     this.office = resume.expected_position;
-            //     this.self_message = resume.self_introduction;
-            //     this.certificate = resume.qualification_certificate;
-            // }
+            let resume = this.resume_info.back_value;
+            if (resume.length !== 0) {
+                this.self_message = resume.self_introduction;
+            }
         },
         methods: {
             /**
@@ -69,7 +66,7 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
-                this.$Toast.clear();
+                    this.$Toast.clear();
                     if (res.back_value) {
                         this.$router.replace('/experience');
                     }

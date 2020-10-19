@@ -163,13 +163,15 @@
             }
         },
         mounted() {
-            // let resume = this.resume_info.back_value;
-            // if (resume.length !== 0) {
-            //     this.name = resume.name;
-            //     this.sex = +resume.sex === 1 ? '男' : '女';
-            //     this.email = resume.mail;
-            //     this.phone = resume.photo;
-            // }
+            let resume = this.resume_info.back_value;
+            if (resume.length !== 0) {
+                this.name = resume.name;
+                this.sex = +resume.sex === 1 ? '男' : '女';
+                this.home = resume.native_place;
+                this.age = resume.date_of_birth;
+                this.email = resume.mail;
+                this.phone = resume.photo;
+            }
         },
         methods: {
             /**

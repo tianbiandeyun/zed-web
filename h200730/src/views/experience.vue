@@ -122,14 +122,15 @@
             }
         },
         mounted() {
-            // if (this.resume_info.back_value.length !== 0) {
-            //     let resume = this.resume_info.back_value.work_history_list;
-            //     this.button = resume.length === 1 ? `保存工作经历` : `下一项工作经历`;
-            //     this.unit = resume[this.resume_index].work_unit;
-            //     this.post = resume[this.resume_index].name_of_post;
-            //     this.industry = resume[this.resume_index].industry;
-            //     this.word = resume[this.resume_index].describe;
-            // }
+            if (this.resume_info.back_value.length !== 0) {
+                let resume = this.resume_info.back_value.work_history_list;
+                this.button = resume.length === 1 ? `保存工作经历` : `下一项工作经历`;
+                this.unit = resume[this.resume_index].work_unit;
+                this.post = resume[this.resume_index].name_of_post;
+                this.work_start = resume[this.resume_index].start_date;
+                this.work_end = resume[this.resume_index].end_date;
+                this.word = resume[this.resume_index].describe;
+            }
         },
         methods: {
             getWorkEnd(res) {
@@ -221,47 +222,47 @@
                 }
 
                 // 填写过工作经历
-                // if (this.resume_info.back_value.length !== 0) {
-                //
-                //     let resume = this.resume_info.back_value.work_history_list;
-                //
-                //     // 0 < 1 , 1 <= 1
-                //     if (this.resume_index <= resume.length - 1) {
-                //
-                //         // 修改
-                //         this.$store.dispatch('fetchData', {
-                //             im: this.$Config.PROJECT_INTERFACE.update_user_resume,
-                //             fps: {
-                //                 open_id: this.openid_info.back_value.open_id,
-                //                 user_resume_id: this.resume_info.back_value.id,
-                //                 work_id: resume[this.resume_index].id,
-                //                 work_unit: this.unit,
-                //                 name_of_post: this.post,
-                //                 // start_date:'',
-                //                 // end_date:'',
-                //                 industry: this.industry,
-                //                 describe: this.word
-                //             },
-                //             url: this.$Config.REQUEST_URL
-                //         }).then(res => {
-                //             if (res.back_value) {
-                //                 this.resume_index += 1;
-                //                 if (this.resume_index <= resume.length - 1) {
-                //                     this.unit = resume[this.resume_index].work_unit;
-                //                     this.post = resume[this.resume_index].name_of_post;
-                //                     this.industry = resume[this.resume_index].industry;
-                //                     this.word = resume[this.resume_index].describe;
-                //                     this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历';
-                //                 } else {
-                //                     this.$router.replace('/');
-                //                 }
-                //             }
-                //         })
-                //
-                //     }
-                //
-                //     return false;
-                // }
+                if (this.resume_info.back_value.length !== 0) {
+
+                    let resume = this.resume_info.back_value.work_history_list;
+
+                    // 0 < 1 , 1 <= 1
+                    if (this.resume_index <= resume.length - 1) {
+
+                        // 修改
+                        this.$store.dispatch('fetchData', {
+                            im: this.$Config.PROJECT_INTERFACE.update_user_resume,
+                            fps: {
+                                open_id: this.openid_info.back_value.open_id,
+                                user_resume_id: this.resume_info.back_value.id,
+                                work_id: resume[this.resume_index].id,
+                                work_unit: this.unit,
+                                name_of_post: this.post,
+                                start_date: this.work_start,
+                                end_date: this.work_end,
+                                describe: this.word
+                            },
+                            url: this.$Config.REQUEST_URL
+                        }).then(res => {
+                            if (res.back_value) {
+                                this.resume_index += 1;
+                                if (this.resume_index <= resume.length - 1) {
+                                    this.unit = resume[this.resume_index].work_unit;
+                                    this.post = resume[this.resume_index].name_of_post;
+                                    this.work_start = resume[this.resume_index].start_date;
+                                    this.work_end = resume[this.resume_index].end_date;
+                                    this.word = resume[this.resume_index].describe;
+                                    this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历';
+                                } else {
+                                    this.$router.replace('/');
+                                }
+                            }
+                        })
+
+                    }
+
+                    return false;
+                }
 
             },
             year() {

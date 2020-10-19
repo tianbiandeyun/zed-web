@@ -97,15 +97,14 @@
             }
         },
         mounted() {
-            // let resume = this.resume_info.back_value;
-            // if (resume.length !== 0) {
-            //     this.home = resume.native_place;
-            //     this.home_details = resume.address;
-            //     this.age = resume.date_of_birth;
-            //     this.school = resume.graduate_institutions;
-            //     this.good_at = resume.specialty;
-            //     this.education = resume.education_level;
-            // }
+            let resume = this.resume_info.back_value;
+            if (resume.length !== 0) {
+                this.political = resume.political_status;
+                this.school_time = resume.graduation_year;
+                this.school = resume.graduate_institutions;
+                this.good_at = resume.specialty;
+                this.education = resume.education_level;
+            }
         },
         methods: {
             /**
