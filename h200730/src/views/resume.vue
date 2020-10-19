@@ -93,53 +93,51 @@
                 let work_list = [];
                 console.log(result);
 
-                // if (result.work_history_list.length !== 0) {
-                //     for (let i = 0; i < result.work_history_list.length; i++) {
-                //         work_list.push({
-                //             id: result.work_history_list[i].id,
-                //             '工作单位': result.work_history_list[i].work_unit,
-                //             '职位名称': result.work_history_list[i].name_of_post,
-                //             '就职日期': result.work_history_list[i].start_date,
-                //             '所属行业': result.work_history_list[i].industry,
-                //             '工作描述': result.work_history_list[i].describe
-                //         })
-                //     }
-                // }
-                //
-                // return [
-                //     {
-                //         'title': '联系方式',
-                //         'content': {
-                //             '姓名': result.name || '没有填写',
-                //             '性别': +result.sex === 1 ? '男' : '女',
-                //             '电子邮件': result.mail || '没有填写',
-                //             '联系电话': result.phone || '没有填写'
-                //         }
-                //     },
-                //     {
-                //         'title': '年龄及专业',
-                //         'content': {
-                //             '籍贯': result.native_place + result.address || '没有填写',
-                //             '出生日期': result.date_of_birth || '没有填写',
-                //             '毕业院校': result.graduate_institutions || '没有填写',
-                //             '所属专业': result.specialty || '没有填写',
-                //             '学历': result.education_level || '没有填写'
-                //         }
-                //     },
-                //     {
-                //         'title': '岗位相关',
-                //         'content': {
-                //             '政治面貌': result.political_status || '没有填写',
-                //             '期望岗位': result.expected_position || '没有填写',
-                //             '自我介绍': result.self_introduction || '没有填写',
-                //             '岗位证书': result.qualification_certificate || '没有填写'
-                //         }
-                //     },
-                //     {
-                //         'title': '工作经历',
-                //         'content': work_list
-                //     }
-                // ];
+                if (result.work_history_list.length !== 0) {
+                    for (let i = 0; i < result.work_history_list.length; i++) {
+                        work_list.push({
+                            id: result.work_history_list[i].id,
+                            '公司名称': result.work_history_list[i].work_unit,
+                            '职位类型': result.work_history_list[i].name_of_post,
+                            '就职日期': `${result.work_history_list[i].start_date} - ${result.work_history_list[i].end_date}`,
+                            '工作描述': result.work_history_list[i].describe
+                        })
+                    }
+                }
+
+                return [
+                    {
+                        'title': '联系方式',
+                        'content': {
+                            '姓名': result.name || '没有填写',
+                            '性别': +result.sex === 1 ? '男' : '女',
+                            '现居地址': result.native_place,
+                            '出生日期': result.date_of_birth,
+                            '电子邮件': result.mail || '没有填写',
+                            '联系电话': result.phone || '没有填写'
+                        }
+                    },
+                    {
+                        'title': '年龄及专业',
+                        'content': {
+                            '毕业院校': result.graduate_institutions || '没有填写',
+                            '政治面貌': result.political_status || '没有填写',
+                            '毕业年份': result.graduation_year || '没有填写',
+                            '专业': result.specialty || '没有填写',
+                            '学历': result.education_level || '没有填写'
+                        }
+                    },
+                    {
+                        'title': '自我介绍',
+                        'content': {
+                            '自我介绍': result.self_introduction || '没有填写'
+                        }
+                    },
+                    {
+                        'title': '个人经历',
+                        'content': work_list
+                    }
+                ];
             }
         },
         computed: {
