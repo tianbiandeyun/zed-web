@@ -335,7 +335,7 @@
                     a.push(i < 10 ? `0${i}` : i)
                 }
                 return a;
-            },
+            }
         },
         computed: {
             ...mapGetters([
