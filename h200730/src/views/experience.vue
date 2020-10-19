@@ -86,7 +86,6 @@
                 resume_index: 0,
                 unit: '', // 公司名称
                 post: '', // 职位类型
-                industry: '',
                 word: '', // 工作描述
                 work_start: '',
                 work_start_picker: false,
@@ -157,6 +156,16 @@
 
                 if (this.post === '') {
                     this.$Toast('职位类型不能为空');
+                    return false;
+                }
+
+                if (this.work_start === '') {
+                    this.$Toast('就职开始时间不能为空');
+                    return false;
+                }
+
+                if (this.work_end === '') {
+                    this.$Toast('就职结束时间不能为空');
                     return false;
                 }
 
