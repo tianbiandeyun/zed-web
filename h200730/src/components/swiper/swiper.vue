@@ -1,19 +1,20 @@
 <template>
     <section class="swiper-container">
-        <Swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-            <SwipeItem v-for="(item,index) in swiperList" :key="index">
-                {{item.page_name}}
-            </SwipeItem>
-        </Swipe>
+        <div class="banner">
+            <img :src="swiperList[0].img_url" alt="">
+        </div>
+
+        <div class="banner-message">
+            <p>今日热招</p>
+            <p>个人信息越完善，得到的岗位机会越多</p>
+        </div>
     </section>
 </template>
 
 <script>
-    import {Swipe, SwipeItem} from 'vant';
 
     export default {
         name: "swiper",
-        components: {Swipe, SwipeItem},
         props: {
             swiperList: {
                 type: Array,
@@ -31,14 +32,30 @@
         background-color: #fff;
         margin-bottom: 20px;
 
-        .my-swipe {
-            .van-swipe-item {
-                height: 300px;
-                text-align: center;
-                line-height: 300px;
-                color: #fff;
-                background-color: #39a9ed;
+        .banner {
+            border: 1px solid black;
+            margin-bottom: 20px;
+
+            img {
+                width: 100%;
             }
         }
+
+        .banner-message {
+
+            p {
+                &:nth-of-type(1) {
+                    color: @default-app-color-primary;
+                    font-size: @default-font-size-34;
+                }
+
+                &:nth-of-type(2) {
+                    font-size: @default-font-size-26;
+                    color: @default-font-color-sub;
+                    line-height: 1.4;
+                }
+            }
+        }
+
     }
 </style>
