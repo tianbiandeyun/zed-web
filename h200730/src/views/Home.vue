@@ -18,10 +18,14 @@
                 <Swiper :swiperList="swiper_list"></Swiper>
 
                 <div v-if="office_list.length !== 0">
-                    <OfficItem v-for="(item,index) in office_list" :key="index"
-                               :office="item"
-                               @details="details(item)">
+                    <OfficItem
+                            v-for="(item,index) in office_list" :key="index"
+                            :office="item"
+                            @details="details(item)">
                         <p class="position">{{item.recruitment_unit}}</p>
+                        <template slot="hot">
+                            <img v-if="index <= 2" class="hot" src="../assets/images/hot.png" alt="">
+                        </template>
                     </OfficItem>
                 </div>
                 <div class="air" v-else>

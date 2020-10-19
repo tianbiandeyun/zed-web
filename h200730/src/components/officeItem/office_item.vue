@@ -12,6 +12,7 @@
                 <p class="position">没有传入任何东西</p>
             </slot>
         </div>
+        <slot name="hot"></slot>
     </section>
 </template>
 
@@ -37,6 +38,7 @@
         background-color: #fff;
         padding: 10px 40px;
         margin-bottom: 20px;
+        position: relative;
 
         .office-item-title {
             display: grid;
@@ -65,6 +67,13 @@
 
                 }
             }
+        }
+
+        .hot{
+            width: 20px;
+            position: absolute;
+            top: 30px;
+            left: 14px;
         }
     }
 </style>
