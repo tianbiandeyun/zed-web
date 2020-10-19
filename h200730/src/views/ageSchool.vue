@@ -150,8 +150,8 @@
                     fps: {
                         open_id: this.openid_info.back_value.open_id,
                         graduate_institutions: this.school,
-                        political_status:this.political,
-                        // address: this.home_details,
+                        political_status: this.political,
+                        graduation_year: this.school_time,
                         specialty: this.good_at,
                         education_level: this.education
                     },
