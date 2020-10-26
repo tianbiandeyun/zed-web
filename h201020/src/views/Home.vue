@@ -8,11 +8,11 @@
 
                     <li class="pullup-list-item" v-for="(item,index) in data" :key="index">
 
-                        <!--多图的-->
                         <div class="pullup-list-item-top-bottom">
                             <h1>{{index}} - {{item.title}}</h1>
-                            <div class="pullup-list-item-top-bottom-images"
-                                 v-if="item.imageArray.length !== 0"
+                            <div
+                                    class="pullup-list-item-top-bottom-images"
+                                    v-if="item.imageArray.length !== 0"
                             >
                                 <img v-for="(it,index) in item.imageArray" :src="it" alt="">
                             </div>
@@ -163,19 +163,6 @@
                             color: #888;
                             margin-top: 20px;
                         }
-
-                        /*.pullup-list-item-left-right {*/
-                        /*border: 1px solid black;*/
-                        /*}*/
-
-                        /*.pullup-list-item-left-right-images {*/
-                        /*border: 1px solid red;*/
-
-                        /*img {*/
-                        /*display: block;*/
-                        /*width: 200px;*/
-                        /*}*/
-                        /*}*/
 
                     }
 
