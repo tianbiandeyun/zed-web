@@ -32,6 +32,7 @@ export const REQUEST_SHARE_URL = `${PROJECT_SHARE_REQUEST}/h/retobridge.html?`;
  * 接口名
  * */
 export const PROJECT_INTERFACE = {
-    get_jsconf: 'get_jsconf'
+    get_special_info: 'get_special_info',
+    get_wjj_article_list: 'get_wjj_article_list'
 };
 

@@ -7,12 +7,15 @@ import 'lib-flexible'
 import './assets/css/rest.css'
 
 import Utils from './utils/utils'
+
 Vue.prototype.$Utils = Utils;
 
 import * as Config from './utils/config'
+
 Vue.prototype.$Config = Config;
 
 import {Toast} from 'vant';
+
 Vue.prototype.$Toast = Toast;
 
 Vue.config.productionTip = false;
