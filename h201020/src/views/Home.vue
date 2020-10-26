@@ -6,15 +6,18 @@
                 <div class="advisory">相关资讯</div>
                 <ul class="pullup-list">
 
-                    <li class="pullup-list-item" v-for="(itme,index) in data" :key="index">
+                    <li class="pullup-list-item" v-for="(item,index) in data" :key="index">
 
                         <!--多图的-->
                         <div class="pullup-list-item-top-bottom">
-                            <h1>{{index}} - {{itme.title}}</h1>
+                            <h1>{{index}} - {{item.title}}</h1>
                             <div class="pullup-list-item-top-bottom-images"
-                                 v-if="itme.imageArray.length !== 0"
+                                 v-if="item.imageArray.length !== 0"
                             >
-                                <img v-for="(item,index) in itme.imageArray" :src="item" alt="">
+                                <img v-for="(it,index) in item.imageArray" :src="it" alt="">
+                            </div>
+                            <div class="time">
+                                {{item.author}}：{{item.publishTime}}
                             </div>
                         </div>
 
@@ -153,6 +156,12 @@
                                 display: block;
                                 width: 200px;
                             }
+                        }
+
+                        .time {
+                            font-size: 30px;
+                            color: #888;
+                            margin-top: 20px;
                         }
 
                         /*.pullup-list-item-left-right {*/
