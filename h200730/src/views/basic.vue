@@ -170,7 +170,7 @@
                 this.home = resume.native_place;
                 this.age = resume.date_of_birth;
                 this.email = resume.mail;
-                this.phone = resume.photo;
+                this.photo = +resume.phone;
             }
         },
         methods: {
@@ -279,14 +279,28 @@
                     return false;
                 }
 
+                if (!this.changEamil()) {
+                    this.$Toast('邮件格式不正确');
+                    return false;
+                }
+
                 if (this.photo === '') {
                     this.$Toast('电话不能为空');
                     return false;
                 }
 
-                if (this.photo_code === '') {
-                    this.$Toast('验证码不能为空');
-                    return false;
+                if (+this.resume_info.back_value.phone) {
+                    if (+this.photo !== +this.resume_info.back_value.phone) {
+                        if (this.photo_code === '') {
+                            this.$Toast('验证码不能为空');
+                            return false;
+                        }
+                    }
+                } else {
+                    if (this.photo_code === '') {
+                        this.$Toast('验证码不能为空');
+                        return false;
+                    }
                 }
 
                 this.$Toast.loading({
@@ -295,7 +309,6 @@
                     duration: 0,
                     overlay: true
                 });
-
 
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.add_user_resume,
@@ -306,7 +319,7 @@
                         native_place: this.home,
                         date_of_birth: this.age,
                         mail: this.email,
-                        phone: this.photo,
+                        phone: +this.photo === +this.resume_info.back_value.phone ? '' : this.photo,
                         code: this.photo_code
                     },
                     url: this.$Config.REQUEST_URL
@@ -337,6 +350,15 @@
                     a.push(i < 10 ? `0${i}` : i)
                 }
                 return a;
+            },
+            changEamil() {
+                let email = this.email;
+                let reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                if (reg.test(email)) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         },
         computed: {

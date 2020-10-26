@@ -1,40 +1,22 @@
 <template>
     <section class="home-container">
 
-        <!--选项卡-->
-        <Tabs
-                sticky
-                animated
-                color="#ff9900"
-                title-inactive-color="#515a6e"
-                title-active-color="#17233d"
-                @click="onTabClick">
+        <Banner :img="img"></Banner>
 
-            <Tab
-                    :title="item.company_name"
-                    :name="item.id"
-                    v-for="(item,index) in company_list" :key="index">
-
-                <Swiper :swiperList="swiper_list"></Swiper>
-
-                <div v-if="office_list.length !== 0">
-                    <OfficItem
-                            v-for="(item,index) in office_list" :key="index"
-                            :office="item"
-                            @details="details(item)">
-                        <p class="position">{{item.recruitment_unit}}</p>
-                        <template slot="hot">
-                            <img v-if="index <= 2" class="hot" src="../assets/images/hot.png" alt="">
-                        </template>
-                    </OfficItem>
-                </div>
-                <div class="air" v-else>
-                    暂时没有发布任何职位
-                </div>
-
-            </Tab>
-
-        </Tabs>
+        <div v-if="office_list.length !== 0">
+            <OfficItem
+                    v-for="(item,index) in office_list" :key="index"
+                    :office="item"
+                    @details="details(item)">
+                <p class="position">{{item.recruitment_unit}}</p>
+                <template slot="hot">
+                    <img v-if="index <= 2" class="hot" src="../assets/images/hot.png" alt="">
+                </template>
+            </OfficItem>
+        </div>
+        <div class="air" v-else>
+            暂时没有发布任何职位
+        </div>
 
         <!--底部导航-->
         <Tabbar
@@ -52,19 +34,19 @@
 </template>
 
 <script>
-    import Swiper from '../components/swiper/swiper';
+    import Banner from '../components/banner/banner';
     import OfficItem from '../components/officeItem/office_item'
     import {Tab, Tabs, Tabbar, TabbarItem} from 'vant';
     import {mapGetters} from 'vuex'
 
     export default {
         name: 'Home',
-        components: {Tab, Tabs, Tabbar, TabbarItem, Swiper, OfficItem},
+        components: {Tab, Tabs, Tabbar, TabbarItem, Banner, OfficItem},
         data() {
             return {
                 active: 0,
                 company_list: [],
-                swiper_list: [],
+                img: '',
                 office_list: []
             }
         },
@@ -79,12 +61,22 @@
 
             this.$Utils.setDocumentTitle('高成名就');
 
+            // 获取 openid
             await this.$store.dispatch('getOpenid', {
                 im: this.$Config.PROJECT_INTERFACE.getopenid,
                 url: this.$Config.REQUEST_URL
             });
 
-            this.refresh();
+            // 请求数据
+            await this.refresh();
+
+            // 微信分享
+            new this.$WxShare(this.wx_config.back_value, {
+                title: '兼职&实习岗位',
+                details: '"课后收入"轻松过万～',
+                link: await this.$Utils.makeShareLink(),
+                image: this.$Config.PROJECT_SHARE_REQUEST + '/h/' + this.$Config.PROJECT_ID + '/dist/share.png'
+            }, false).init();
 
         },
         methods: {
@@ -92,30 +84,7 @@
              * 职位详情
              * */
             details(res) {
-                this.$router.push(`/officeDetails?id=${res.id}`);
-            },
-            /**
-             * 选项卡
-             * */
-            onTabClick(name, title) {
-                this.$Toast.loading({
-                    message: '加载中...',
-                    forbidClick: true,
-                    duration: 0,
-                    overlay: true
-                });
-                // 职位列表
-                this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.get_company_job_info_list,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id,
-                        company_id: name
-                    },
-                    url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    this.$Toast.clear();
-                    this.office_list = res.back_value;
-                });
+                this.$router.push(`/officeDetails?id=${res.id}&openid=${this.openid_info.back_value.open_id}`);
             },
             /**
              * 底部导航
@@ -128,7 +97,39 @@
                     this.$router.push('/resume')
                 }
             },
-            refresh() {
+            async refresh() {
+
+                // banner
+                await this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_banner,
+                    fps: {
+                        page_name: ''
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.img = res.back_value[0].img_url;
+                });
+
+                // 职位列表
+                await this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_company_job_info_list,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        company_id: ''
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.office_list = res.back_value;
+                });
+
+                // 获取 微信配置
+                await this.$store.dispatch('getWxConfig', {
+                    im: this.$Config.PROJECT_INTERFACE.get_jsconf,
+                    fps: {
+                        url: encodeURIComponent(window.location.href.split('#')[0])
+                    },
+                    url: this.$Config.REQUEST_URL
+                });
 
                 // 是否填写简历
                 this.$store.dispatch('getSelfResume', {
@@ -137,54 +138,15 @@
                         open_id: this.openid_info.back_value.open_id
                     },
                     url: this.$Config.REQUEST_URL
-                }).then(async res => {
-                    if (res.back_value.length === 0) {
-                        this.$Toast.clear();
-                        this.$router.replace('/basic');
-                    } else {
-
-                        // 单位列表
-                        await this.$store.dispatch('fetchData', {
-                            im: this.$Config.PROJECT_INTERFACE.get_company_list,
-                            fps: {
-                                open_id: this.openid_info.back_value.open_id
-                            },
-                            url: this.$Config.REQUEST_URL
-                        }).then(res => {
-                            this.company_list = res.back_value;
-                        });
-
-                        // 轮播图
-                        this.$store.dispatch('fetchData', {
-                            im: this.$Config.PROJECT_INTERFACE.get_banner,
-                            fps: {
-                                page_name: ''
-                            },
-                            url: this.$Config.REQUEST_URL
-                        }).then(res => {
-                            this.swiper_list = res.back_value;
-                        });
-
-                        // 职位列表
-                        this.$store.dispatch('fetchData', {
-                            im: this.$Config.PROJECT_INTERFACE.get_company_job_info_list,
-                            fps: {
-                                open_id: this.openid_info.back_value.open_id,
-                                company_id: this.company_list[0].id
-                            },
-                            url: this.$Config.REQUEST_URL
-                        }).then(res => {
-                            this.$Toast.clear();
-                            this.office_list = res.back_value;
-                        });
-
-                    }
                 });
+
+                this.$Toast.clear();
             }
         },
         computed: {
             ...mapGetters([
-                'openid_info'
+                'openid_info',
+                'wx_config'
             ])
         }
     }
@@ -194,6 +156,7 @@
         height: 100%;
         overflow-y: scroll;
         background-color: @default-app-color-background;
+        padding-bottom: 160px;
 
         .air {
             text-align: center;

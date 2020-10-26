@@ -14,9 +14,21 @@
         <div class="ageSchool-item">
             <Field
                     required
-                    v-model="political"
+                    readonly
+                    clickable
+                    name="picker"
+                    :value="political"
                     label="政治面貌"
-                    placeholder="请输入政治面貌"/>
+                    placeholder="点击选择政治面貌"
+                    @click="political_picker = true"/>
+
+            <Popup v-model="political_picker" position="bottom">
+                <Picker
+                        show-toolbar
+                        :columns="political_columns"
+                        @confirm="getPolitical"
+                        @cancel="political_picker = false"/>
+            </Popup>
         </div>
 
         <div class="ageSchool-item">
@@ -84,7 +96,6 @@
         components: {Field, Button, Picker, Area, Popup},
         data() {
             return {
-                political: '',
                 home_details: '',
                 school: '',
                 good_at: '',
@@ -93,7 +104,10 @@
                 school_columns: this.year(),
                 education: '',
                 education_picker: false,
-                education_columns: ['初中', '高中', '大专', '本科']
+                education_columns: ['初中', '高中', '大专', '本科'],
+                political: '',
+                political_picker: false,
+                political_columns: ['中共党员', '共青团员', '普通居民', '其他民众']
             }
         },
         mounted() {
@@ -162,6 +176,10 @@
                     }
                 })
             },
+            getPolitical(res) {
+                this.political = res;
+                this.political_picker = false;
+            },
             /**
              * 学校
              * */
@@ -175,7 +193,7 @@
             },
             year() {
                 let a = [];
-                for (let i = 1980; i <= 2020; i++) {
+                for (let i = 1980; i <= 2023; i++) {
                     a.push(i)
                 }
                 return a;

@@ -124,7 +124,7 @@
         mounted() {
             if (this.resume_info.back_value.length !== 0) {
                 let resume = this.resume_info.back_value.work_history_list;
-                this.button = resume.length === 1 ? `保存工作经历` : `下一项工作经历`;
+                // this.button = resume.length === 1 ? `保存个人经历` : `下一项工作经历`;
                 this.unit = resume[this.resume_index].work_unit;
                 this.post = resume[this.resume_index].name_of_post;
                 this.work_start = resume[this.resume_index].start_date;
@@ -252,7 +252,7 @@
                                     this.work_start = resume[this.resume_index].start_date;
                                     this.work_end = resume[this.resume_index].end_date;
                                     this.word = resume[this.resume_index].describe;
-                                    this.button = this.resume_index === resume.length - 1 ? '保存工作经历' : '下一项工作经历';
+                                    // this.button = this.resume_index === resume.length - 1 ? '保存个人经历' : '下一项工作经历';
                                 } else {
                                     this.$router.replace('/');
                                 }

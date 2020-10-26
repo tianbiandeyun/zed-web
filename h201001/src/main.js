@@ -22,6 +22,9 @@ import {Toast} from 'vant';
 
 Vue.prototype.$Toast = Toast;
 
+import wxShare from 'zed_wxshare_vue'
+
+Vue.prototype.$WxShare = wxShare;
 
 Vue.config.productionTip = false;
 

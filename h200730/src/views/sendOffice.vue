@@ -2,7 +2,7 @@
     <section class="send-office-container">
 
         <div v-if="office_list.length !== 0">
-            <OfficItem v-for="(item,index) in office_list" :key="index" :office="item">
+            <OfficItem v-for="(item,index) in office_list" :key="index" :office="item" @details="details(item)">
                 <p>{{item.recruitment_unit}}</p>
             </OfficItem>
         </div>
@@ -45,6 +45,15 @@
                 console.log(res.back_value);
                 this.office_list = res.back_value;
             });
+        },
+        methods: {
+            /**
+             * 职位详情
+             * */
+            details(res) {
+                let _page = 'yt';
+                this.$router.push(`/officeDetails?id=${res.id}&openid=${this.openid_info.back_value.open_id}&page=${_page}`);
+            },
         },
         computed: {
             ...mapGetters([

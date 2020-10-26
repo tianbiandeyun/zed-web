@@ -14,7 +14,8 @@ export default new Vuex.Store({
                 open_id: 'TEST_OPEN_ID_1'
             }
         },
-        resume_info: ''
+        resume_info: '',
+        wx_config: ''
     },
     mutations: {
         getOpenid(state, res) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
         },
         getSelfResume(state, res) {
             state.resume_info = res;
+        },
+        getWxConfig(state, res) {
+            state.wx_config = res;
         }
     },
     actions: {
@@ -53,6 +57,16 @@ export default new Vuex.Store({
                 });
             });
         },
+        getWxConfig({commit}, params) {
+            const [im, fps = {}, url] = [params.im, params.fps, params.url];
+            const requestUrl = utils.produceRequestUrl(im, fps, url);
+            return new Promise((resolve, reject) => {
+                axios.get(requestUrl).then(res => {
+                    commit('getWxConfig', res.data);
+                    resolve(res.data);
+                });
+            });
+        },
         /**
          * 通用请求：fetchDate
          * 数据不共享，单独局部使用
@@ -69,6 +83,7 @@ export default new Vuex.Store({
     },
     getters: {
         openid_info: state => state.openid_info,
-        resume_info: state => state.resume_info
+        resume_info: state => state.resume_info,
+        wx_config: state => state.wx_config
     }
 })

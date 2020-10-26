@@ -1,10 +1,26 @@
 <template>
-    <section class="result-container" id="result">
-        <div class="address">
-            <p>{{user_info.back_value.nickname}} 和 {{sulo}}</p>
-            <p>在{{address}}一起祝福祖国</p>
+    <section class="result-container">
+
+        <div class="result" id="result">
+
+            <div class="result_content1">
+                <span>{{user_info.back_value.nickname}}</span>
+                <p>&</p>
+                <span>{{sulo}}</span>
+                <img class="zai" src="../assets/images/11.png" alt="">
+            </div>
+
+            <div class="result_content2">
+                <span class="address">{{address}}</span>
+                <p style="top: -4px;">一起</p>
+                <p style="top: 4px;">祝</p>
+                <p style="top: -4px;">福</p>
+                <p style="top: 4px;">祖国</p>
+            </div>
+
+            <img class="result-bg" :src="result" alt="">
         </div>
-        <img class="result-bg" :src="result" alt="">
+
     </section>
 </template>
 
@@ -61,7 +77,7 @@
                                 this.result = canvas.toDataURL("image/png");
                                 this.$Toast.clear();
                             });
-                        }, 500)
+                        }, 1000)
                     });
                 }
             })
@@ -93,24 +109,78 @@
 <style lang="less" scoped>
     .result-container {
         height: 100%;
-        position: relative;
 
-        .address {
-            position: absolute;
-            top: 60px;
-            left: 40px;
-            z-index: 1;
-            font-size: 40px;
-            color: #fff;
-            line-height: 1.4;
-        }
+        .result {
+            position: relative;
+            font-weight: bold;
 
-        .result-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            /*height: 100%;*/
+            p {
+                display: inline-block;
+            }
+
+            div {
+                color: #fff;
+                font-size: 40px;
+
+                span {
+                    color: #F3D665;
+                }
+            }
+
+            .result_content1 {
+                position: absolute;
+                top: 40px;
+                left: 40px;
+
+                p {
+                    position: relative;
+                    top: -10px;
+                    margin: 0 10px;
+                }
+
+                span {
+                    &:nth-of-type(2) {
+                        display: inline-block;
+                        -webkit-transform: rotate(10deg);
+                        -moz-transform: rotate(10deg);
+                        -ms-transform: rotate(10deg);
+                        -o-transform: rotate(10deg);
+                        transform: rotate(10deg);
+                    }
+                }
+
+                .zai {
+                    width: 60px;
+                    position: absolute;
+                    top: 10px;
+                    right: -70px;
+                    -webkit-transform: rotate(45deg);
+                    -moz-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    -o-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            }
+
+            .result_content2 {
+                position: absolute;
+                top: 120px;
+                left: 40px;
+
+                p {
+                    position: relative;
+                    margin: 0 4px;
+                }
+
+                .address {
+                    border-bottom: 2px solid #F3D665;;
+                    padding-bottom: 8px;
+                }
+            }
+
+            .result-bg {
+                width: 100%;
+            }
         }
     }
 </style>

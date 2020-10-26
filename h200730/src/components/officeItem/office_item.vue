@@ -2,11 +2,17 @@
     <section class="office-item-container" @click="officeDetails">
         <div class="office-item-title">
             <p class="office">{{office.job_title}}</p>
-            <p class="money">{{office.salary_cap}}-{{office.salary_floor}}K/月</p>
+            <p class="money">{{office.salary_cap}} /
+                <span v-if="+office.type === 1">次</span>
+                <span v-if="+office.type === 2">小时</span>
+                <span v-if="+office.type === 3">天</span>
+                <span v-if="+office.type === 4">月</span>
+                <span v-if="+office.type === 5">面议</span>
+            </p>
         </div>
         <div class="office-item-details">
             <p class="details">
-                <span>{{office.location_area}} | {{office.street}} | {{office.job_nature}} | {{office.job_type}}</span>
+                <span>{{office.location_area}} | {{office.job_nature}} | {{office.job_type}}</span>
             </p>
             <slot>
                 <p class="position">没有传入任何东西</p>
@@ -69,7 +75,7 @@
             }
         }
 
-        .hot{
+        .hot {
             width: 20px;
             position: absolute;
             top: 30px;

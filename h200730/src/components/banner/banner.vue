@@ -1,7 +1,7 @@
 <template>
     <section class="swiper-container">
         <div class="banner">
-            <img :src="swiperList[0].img_url" alt="">
+            <img :src="img" alt="">
         </div>
 
         <div class="banner-message">
@@ -16,11 +16,8 @@
     export default {
         name: "swiper",
         props: {
-            swiperList: {
-                type: Array,
-                default: () => {
-                    return []
-                }
+            img: {
+                type: String
             }
         }
     }
@@ -33,8 +30,8 @@
         margin-bottom: 20px;
 
         .banner {
-            border: 1px solid black;
             margin-bottom: 20px;
+            font-size: 0;
 
             img {
                 width: 100%;

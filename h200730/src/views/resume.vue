@@ -24,7 +24,7 @@
 
         </div>
 
-        <div class="save-box">
+        <div class="save-box" v-if="is_button">
             <!--<button class="jump">下载WORD</button>-->
             <button class="save" @click="modify">修改简历</button>
         </div>
@@ -39,7 +39,8 @@
         name: "resume",
         data() {
             return {
-                resume: {}
+                resume: {},
+                is_button: false
             }
         },
         async mounted() {
@@ -57,41 +58,73 @@
                 this.$router.replace('/basic')
             },
             del(id) {
+                const that = this;
 
-                this.$Toast.loading({
-                    message: '加载中...',
-                    forbidClick: true,
-                    duration: 0,
-                    overlay: true
-                });
+                that.$Alert.show({
+                    title: '提示',
+                    alertContent: '是否确认删除',
+                    yesText: '确定',
+                    noText: '取消',
+                    yes() {
+                        that.$Toast.loading({
+                            message: '加载中...',
+                            forbidClick: true,
+                            duration: 0,
+                            overlay: true
+                        });
 
-                this.$store.dispatch('fetchData', {
-                    im: this.$Config.PROJECT_INTERFACE.del_work_history,
-                    fps: {
-                        open_id: this.openid_info.back_value.open_id,
-                        work_history_id: id
-                    },
-                    url: this.$Config.REQUEST_URL
-                }).then(res => {
-                    if (res.back_value) {
-                        this.$store.dispatch('getSelfResume', {
-                            im: this.$Config.PROJECT_INTERFACE.get_user_resume,
+                        that.$store.dispatch('fetchData', {
+                            im: that.$Config.PROJECT_INTERFACE.del_work_history,
                             fps: {
-                                open_id: this.openid_info.back_value.open_id
+                                open_id: that.openid_info.back_value.open_id,
+                                work_history_id: id
                             },
-                            url: this.$Config.REQUEST_URL
-                        }).then(async res => {
-                            this.resume = await this._setResume();
-                            this.$Toast.clear();
-                        })
+                            url: that.$Config.REQUEST_URL
+                        }).then(res => {
+                            if (res.back_value) {
+                                that.$store.dispatch('getSelfResume', {
+                                    im: that.$Config.PROJECT_INTERFACE.get_user_resume,
+                                    fps: {
+                                        open_id: that.openid_info.back_value.open_id
+                                    },
+                                    url: that.$Config.REQUEST_URL
+                                }).then(async res => {
+                                    that.resume = await that._setResume();
+                                    that.$Toast.clear();
+                                })
+                            }
+                        });
+                    },
+                    no() {
+
                     }
                 });
 
             },
             _setResume() {
-                let result = this.resume_info.back_value;
+                const that = this;
+                let result = that.resume_info.back_value;
+
+                if (result.length === 0) {
+
+                    that.$Alert.show({
+                        title: '提示',
+                        alertContent: '暂无任何简历，是否添加？',
+                        yesText: '添加',
+                        noText: '取消',
+                        yes() {
+                            that.$router.push('/basic');
+                        },
+                        no() {
+                            that.$router.replace('/');
+                        }
+                    });
+
+                    return false;
+                }
+
                 let work_list = [];
-                console.log(result);
+                that.is_button = true;
 
                 if (result.work_history_list.length !== 0) {
                     for (let i = 0; i < result.work_history_list.length; i++) {

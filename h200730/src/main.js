@@ -19,6 +19,10 @@ import {Toast} from 'vant'
 
 Vue.prototype.$Toast = Toast;
 
+import wxShare from 'zed_wxshare_vue'
+
+Vue.prototype.$WxShare = wxShare;
+
 import Alert from './components/alert/alert'
 
 Vue.prototype.$Alert = Alert;
