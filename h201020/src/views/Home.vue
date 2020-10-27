@@ -76,39 +76,21 @@
             }
         },
         async mounted() {
+
             if (this.$Utils.getUrlParam('lanmuid')) {
                 this.id = this.$Utils.getUrlParam('lanmuid');
                 this.initBscroll();
-                await this.requestData();
             } else {
                 window.alert('没有栏目id');
                 return false;
             }
+
         },
         methods: {
             handler(res) {
                 window.location.href = res.url;
             },
             initBscroll() {
-                this.bscroll = new BScroll(this.$refs.scroll, {
-                    click: true,
-                    pullUpLoad: {
-                        threshold: -50
-                    }
-                });
-
-                this.bscroll.on('pullingUp', this.pullingUpHandler)
-            },
-            async pullingUpHandler() {
-                this.isPullUpLoad = true;
-
-                await this.requestData();
-
-                this.bscroll.finishPullUp();
-                this.bscroll.refresh();
-                this.isPullUpLoad = false
-            },
-            async requestData() {
 
                 Toast.loading({
                     message: '加载中...',
@@ -116,6 +98,25 @@
                     duration: 0,
                     overlay: true
                 });
+
+                this.bscroll = new BScroll(this.$refs.scroll, {
+                    scrollY: true,
+                    click: true,
+                    pullUpLoad: {
+                        threshold: -50
+                    }
+                });
+                this.bscroll.autoPullUpLoad();// 自动执行
+                this.bscroll.on('pullingUp', this.pullingUpHandler)
+            },
+            async pullingUpHandler() {
+                this.isPullUpLoad = true;
+                await this.requestData();
+                this.bscroll.finishPullUp();
+                this.bscroll.refresh();
+                this.isPullUpLoad = false
+            },
+            async requestData() {
 
                 return this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_special_info,
@@ -162,6 +163,7 @@
         .pullup-wrapper {
             height: 100%;
             overflow: hidden;
+            padding-top: 100px;
         }
 
         .advisory {
@@ -180,7 +182,6 @@
 
             .header-left {
                 font-size: 0;
-                height: 320px;
                 border: 2px solid #e8eaec;
 
                 img {
