@@ -72,12 +72,18 @@
                 header_des: '',
                 data: [],
                 page: 1,
-                id: 1094
+                id: ''
             }
         },
         async mounted() {
-            this.initBscroll();
-            await this.requestData();
+            if (this.$Utils.getUrlParam('id')) {
+                this.id = this.$Utils.getUrlParam('id');
+                this.initBscroll();
+                await this.requestData();
+            } else {
+                window.alert('没有栏目id');
+                return false;
+            }
         },
         methods: {
             handler(res) {
