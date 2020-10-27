@@ -1,24 +1,49 @@
 <template>
+
     <div class="pullup">
+
         <div ref="scroll" class="pullup-wrapper">
+
             <div class="pullup-content">
+
+                <div class="header-container">
+                    <div class="header-left">
+                        <img :src="header_des.img_url" alt="">
+                    </div>
+                    <div class="header-right">
+                        <p class="header-right-title">{{header_des.title}}</p>
+                        <p class="header-right-des">{{header_des.describe}}</p>
+                    </div>
+                </div>
 
                 <div class="advisory">相关资讯</div>
                 <ul class="pullup-list">
 
-                    <li class="pullup-list-item" v-for="(item,index) in data" :key="index">
+                    <li class="pullup-list-item" v-for="(item,index) in data" :key="index" @click="handler(item)">
 
-                        <div class="pullup-list-item-top-bottom">
-                            <h1>{{index}} - {{item.title}}</h1>
-                            <div
-                                    class="pullup-list-item-top-bottom-images"
-                                    v-if="item.imageArray.length !== 0"
-                            >
+                        <!--多图-->
+                        <div class="pullup-list-item-top-bottom" v-if="item.imageArray.length !== 0">
+
+                            <h1>{{item.title}}</h1>
+
+                            <div class="pullup-list-item-top-bottom-images">
                                 <img v-for="(it,index) in item.imageArray" :src="it" alt="">
                             </div>
-                            <div class="time">
-                                {{item.author}}：{{item.publishTime}}
+
+                            <div class="time">{{item.author}}：{{item.publishTime}}</div>
+
+                        </div>
+
+                        <!--少图-->
+                        <div class="pullup-list-item-left-right" v-else>
+
+                            <div class="pullup-list-item-left-right-top">
+                                <div class="left"><h1>{{item.title}}</h1></div>
+                                <div class="right"><img :src="item.poster" alt=""></div>
                             </div>
+
+                            <div class="time">{{item.author}}：{{item.publishTime}}</div>
+
                         </div>
 
                     </li>
@@ -37,6 +62,7 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -49,10 +75,11 @@
     export default {
         data() {
             return {
-                d: 0,
                 isPullUpLoad: false,
+                header_des: '',
                 data: [],
-                page: 1
+                page: 1,
+                id: 1094
             }
         },
         async mounted() {
@@ -60,8 +87,12 @@
             await this.requestData();
         },
         methods: {
+            handler(res) {
+                window.location.href = res.url;
+            },
             initBscroll() {
                 this.bscroll = new BScroll(this.$refs.scroll, {
+                    click: true,
                     pullUpLoad: {
                         threshold: -50
                     }
@@ -87,12 +118,23 @@
                     overlay: true
                 });
 
+                await this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.get_special_info,
+                    fps: {
+                        channel_id: this.id
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    this.header_des = res.back_value;
+                    this.$Utils.setDocumentTitle(res.back_value.title)
+                });
+
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_wjj_article_list,
                     fps: {
                         open_id: '1',
                         page: this.page,
-                        channel_id: 1094
+                        channel_id: this.id
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
@@ -115,7 +157,7 @@
 
     .pullup {
         height: 100%;
-        padding: 40px;
+        background-color: #e8eaec;
 
         .pullup-wrapper {
             height: 100%;
@@ -123,25 +165,64 @@
 
             .pullup-content {
 
+                .header-container {
+                    background-color: #fff;
+                    padding: 20px 40px;
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    grid-column-gap: 20px;
+
+                    .header-left {
+                        font-size: 0;
+                        height: 300px;
+                        border: 1px solid #e8eaec;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .header-right {
+
+                        .header-right-title {
+                            font-size: 36px;
+                            font-weight: bold;
+                            margin-bottom: 20px;
+
+                        }
+
+                        .header-right-des {
+                            font-size: 30px;
+                            line-height: 1.24;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 9;
+                            line-clamp: 9;
+                            -webkit-box-orient: vertical;
+                        }
+                    }
+                }
+
                 .advisory {
-                    border: 1px solid red;
+                    font-size: 36px;
+                    font-weight: bold;
+                    padding: 20px 40px;
                 }
 
                 .pullup-list {
 
                     .pullup-list-item {
+                        padding: 10px 40px 0px 40px;
                         margin-bottom: 20px;
-                        border: 2px solid black;
-
-                        .left-right-active {
-                            background-color: black;
-                        }
+                        background-color: #fff;
 
                         .pullup-list-item-top-bottom {
                             padding-bottom: 20px;
 
                             h1 {
-                                font-size: 40px;
+                                font-size: 34px;
                                 margin: 20px 0;
                             }
                         }
@@ -151,10 +232,12 @@
                             grid-template-columns: repeat(3, 1fr);
                             align-items: center;
                             justify-items: center;
+                            height: 160px;
+                            grid-column-gap: 10px;
 
                             img {
-                                display: block;
-                                width: 200px;
+                                width: 100%;
+                                height: 100%;
                             }
                         }
 
@@ -164,6 +247,34 @@
                             margin-top: 20px;
                         }
 
+                        .pullup-list-item-left-right {
+                            padding-bottom: 20px;
+
+                            .pullup-list-item-left-right-top {
+                                display: grid;
+                                grid-template-columns: 3fr 1fr;
+                                grid-column-gap: 10px;
+
+                                .left {
+
+                                    h1 {
+                                        font-size: 36px;
+                                    }
+                                }
+
+                                .right {
+                                    width: 200px;
+                                    font-size: 0;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+
+                            }
+                        }
+
                     }
 
                 }
@@ -171,7 +282,7 @@
         }
 
         .pullup-tips {
-            padding: 20px;
+            padding: 20px 20px 80px 20px;
             text-align: center;
             color: #999;
         }
