@@ -142,11 +142,9 @@
                         Toast.clear();
                         Toast('暂无更多');
                     } else {
-                        setTimeout(() => {
-                            this.data = [...this.data, ...res.back_value];
-                            this.page++;
-                            Toast.clear();
-                        }, 500)
+                        this.data = [...this.data, ...res.back_value];
+                        this.page++;
+                        Toast.clear();
                     }
                 })
             }
