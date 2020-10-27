@@ -25,7 +25,7 @@
                                 <img v-for="(it,index) in item.imageArray" :src="it" alt="">
                             </div>
                             <div class="time">{{item.author}}：{{item.publishTime}}</div>
-                            
+
                         </div>
 
                         <div class="lose-images" v-else>
@@ -155,8 +155,6 @@
 
         .pullup-wrapper {
             height: 100%;
-            padding: 0 10px;
-            border: 1px solid #ccc;
             overflow: hidden;
         }
 
