@@ -76,8 +76,8 @@
             }
         },
         async mounted() {
-            if (this.$Utils.getUrlParam('id')) {
-                this.id = this.$Utils.getUrlParam('id');
+            if (this.$Utils.getUrlParam('lanmuid')) {
+                this.id = this.$Utils.getUrlParam('lanmuid');
                 this.initBscroll();
                 await this.requestData();
             } else {
