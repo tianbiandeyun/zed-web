@@ -176,11 +176,12 @@
             display: grid;
             grid-template-columns: 1.2fr 2fr;
             grid-column-gap: 20px;
+            align-items: center;
 
             .header-left {
                 font-size: 0;
-                height: 280px;
-                border: 1px solid #e8eaec;
+                height: 320px;
+                border: 2px solid #e8eaec;
 
                 img {
                     width: 100%;
@@ -191,7 +192,7 @@
             .header-right {
 
                 .header-right-title {
-                    font-size: 36px;
+                    font-size: 30px;
                     font-weight: bold;
                     margin-bottom: 20px;
 
@@ -199,13 +200,14 @@
 
                 .header-right-des {
                     font-size: 30px;
-                    line-height: 1.24;
+                    line-height: 1.4;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     display: -webkit-box;
-                    -webkit-line-clamp: 6;
-                    line-clamp: 6;
+                    -webkit-line-clamp: 10;
+                    line-clamp: 10;
                     -webkit-box-orient: vertical;
+                    color: #999;
                 }
             }
         }
