@@ -19,20 +19,20 @@
                     <li v-for="(item,index) in data" :key="index" class="pullup-list-item" @click="handler(item)">
 
                         <div class="more-images" v-if="item.imageArray.length !== 0">
-                            <h1>{{index}} - {{item.title}}</h1>
 
+                            <h1>{{item.title}}</h1>
                             <div class="more-images-box">
                                 <img v-for="(it,index) in item.imageArray" :src="it" alt="">
                             </div>
-
                             <div class="time">{{item.author}}：{{item.publishTime}}</div>
+                            
                         </div>
 
                         <div class="lose-images" v-else>
 
                             <div class="lose-images-box">
                                 <div class="lose-images-left">
-                                    <h1>{{index}} - {{item.title}}</h1>
+                                    <h1>{{item.title}}</h1>
                                 </div>
                                 <div class="lose-images-right">
                                     <img :src="item.poster" alt="">
@@ -170,7 +170,7 @@
             background-color: #fff;
             padding: 20px 40px;
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1.2fr 2fr;
             grid-column-gap: 20px;
 
             .header-left {
