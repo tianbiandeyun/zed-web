@@ -174,7 +174,7 @@
 
                     .header-left {
                         font-size: 0;
-                        height: 300px;
+                        height: 280px;
                         border: 1px solid #e8eaec;
 
                         img {
@@ -198,8 +198,8 @@
                             overflow: hidden;
                             text-overflow: ellipsis;
                             display: -webkit-box;
-                            -webkit-line-clamp: 9;
-                            line-clamp: 9;
+                            -webkit-line-clamp: 6;
+                            line-clamp: 6;
                             -webkit-box-orient: vertical;
                         }
                     }
