@@ -16,7 +16,7 @@
                 <div class="advisory">相关资讯</div>
 
                 <ul class="pullup-list">
-                    <li v-for="(item,index) in data" :key="index" class="pullup-list-item">
+                    <li v-for="(item,index) in data" :key="index" class="pullup-list-item" @click="handler(item)">
 
                         <div class="more-images" v-if="item.imageArray.length !== 0">
                             <h1>{{index}} - {{item.title}}</h1>
@@ -46,7 +46,7 @@
                 </ul>
                 <div class="pullup-tips">
                     <div v-if="!isPullUpLoad" class="before-trigger">
-                        <span class="pullup-txt">下拉加载更多</span>
+                        <span class="pullup-txt">{{more}}</span>
                     </div>
                     <div v-else class="after-trigger">
                         <span class="pullup-txt">加载中...</span>
@@ -67,6 +67,7 @@
     export default {
         data() {
             return {
+                more: '上拉加载更多',
                 isPullUpLoad: false,
                 header_des: '',
                 data: [],
@@ -133,6 +134,7 @@
 
                 }).then(res => {
                     if (res.back_value.length === 0) {
+                        this.more = '暂无更多';
                         Toast.clear();
                         Toast('暂无更多');
                     } else {
@@ -141,8 +143,6 @@
                         Toast.clear();
                     }
                 })
-
-
             }
         }
     }
@@ -206,10 +206,6 @@
             }
         }
 
-        .pullup-list {
-            padding: 0
-        }
-
         .pullup-list-item {
             padding: 10px 40px 0 40px;
             margin-bottom: 20px;
@@ -267,6 +263,12 @@
                             height: 100%;
                         }
                     }
+                }
+
+                .time {
+                    font-size: 30px;
+                    color: #888;
+                    margin-top: 20px;
                 }
             }
 
