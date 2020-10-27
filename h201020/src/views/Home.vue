@@ -120,7 +120,7 @@
                 }).then(res => {
 
                     this.header_des = res.back_value;
-                    this.$Utils.setDocumentTitle(res.back_value.title)
+                    this.$Utils.setDocumentTitle(res.back_value.title);
 
                     return this.$store.dispatch('fetchData', {
                         im: this.$Config.PROJECT_INTERFACE.get_wjj_article_list,
