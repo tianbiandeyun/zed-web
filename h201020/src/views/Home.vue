@@ -9,7 +9,7 @@
                     </div>
                     <div class="header-right">
                         <p class="header-right-title">{{header_des.title}}</p>
-                        <p class="header-right-des">{{header_des.describe}}</p>
+                        <p class="header-right-des" @click="des(header_des)">{{header_des.describe}}</p>
                     </div>
                 </div>
 
@@ -54,19 +54,27 @@
                 </div>
             </div>
         </div>
+
+        <Popup v-model="popup_show">
+            <p class="popup_content">{{popup_content}}</p>
+        </Popup>
+
     </div>
 </template>
 
 <script>
     import BScroll from '@better-scroll/core';
     import Pullup from '@better-scroll/pull-up';
-    import {Toast} from 'vant'
+    import {Toast, Popup} from 'vant'
 
     BScroll.use(Pullup);
 
     export default {
+        components: {Popup},
         data() {
             return {
+                popup_content: "",
+                popup_show: false,
                 more: '上拉加载更多',
                 isPullUpLoad: false,
                 header_des: '',
@@ -87,6 +95,10 @@
 
         },
         methods: {
+            des(res) {
+                this.popup_show = true;
+                this.popup_content = res.describe;
+            },
             handler(res) {
                 window.location.href = res.url;
             },
@@ -285,6 +297,12 @@
             padding: 20px 20px 100px 20px;
             text-align: center;
             color: #999;
+        }
+
+        .popup_content {
+            padding: 20px;
+            font-size: 30px;
+            line-height: 1.4;
         }
     }
 
