@@ -27,7 +27,7 @@
                 @change="onTabbarClick">
             <TabbarItem icon="pending-payment">职位</TabbarItem>
             <TabbarItem icon="contact">我的投递</TabbarItem>
-            <TabbarItem icon="records">简历</TabbarItem>
+            <TabbarItem icon="records">我的</TabbarItem>
         </Tabbar>
 
     </section>

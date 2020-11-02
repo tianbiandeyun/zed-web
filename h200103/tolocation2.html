@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+        <!--<script src="https://hztc.dev.hztcapp.com/index.php?r=?r=interface/jsconf3&ac=lett&debug=1&sign=test"></script>-->
+        <script src="https://devphp.hztc.dev.hztcapp.com/test_index.php?r=interface/jsconf3&ac=hxcf&debug=1&sign=test"></script>
+        <script>
+//            var latitude = 39.95933;
+//            var longitude = 116.29845;
+            
+            var latitude = 39.98004150390625;
+            var longitude = 116.3128890991211;
+            
+            wx.ready(() => {
+                console.log('wx ready');
+            wx.openLocation({
+                    latitude: latitude,
+                    longitude: longitude,
+                    scale: 28,
+                    name: '北京新东方南楼',
+                    address: '莱特飞行者体验中心',
+                    success: res => {
+//                        alert('success');
+//                        console.log(res);
+//                        window.location.href="http://www.baidu.com";
+                    },
+                    fail: res => {
+//                        alert('fail');
+//                        console.log(res);
+                    }
+                })
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <div>TODO write content 2</div>
+        <div>
+            <input type="button" value="TEST Location." onclick="" />
+        </div>
+    </body>
+</html>

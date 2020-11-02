@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ac5fc719-1d9e-4e35-9aca-d1e158238d0b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/babel.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/src/views/About.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/h200728/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h200728/src/views/Home.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,20 +27,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/h200727/src/store/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -94,11 +70,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1681" />
-    <option name="y" value="27" />
-    <option name="width" value="1719" />
-    <option name="height" value="1043" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="943" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -108,7 +83,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -119,39 +93,19 @@
             <path>
               <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
               <item name="zed-web" type="462c0819:PsiDirectoryNode" />
-              <item name="h200727" type="462c0819:PsiDirectoryNode" />
+              <item name="h201001" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
               <item name="zed-web" type="462c0819:PsiDirectoryNode" />
-              <item name="h200727" type="462c0819:PsiDirectoryNode" />
+              <item name="h201001" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zed-web" type="462c0819:PsiDirectoryNode" />
-              <item name="h200727" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zed-web" type="462c0819:PsiDirectoryNode" />
-              <item name="h200727" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zed-web" type="462c0819:PsiDirectoryNode" />
-              <item name="h200727" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -185,17 +139,18 @@
       <workItem from="1597206602846" duration="3425000" />
       <workItem from="1597210236153" duration="346000" />
       <workItem from="1597980002000" duration="826000" />
+      <workItem from="1604288951251" duration="91000" />
+      <workItem from="1604289088149" duration="13000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13512000" />
+    <option name="totallyTimeSpent" value="13616000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1681" y="27" width="1719" height="1043" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1680" height="943" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16018845" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16395418" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32980973" />
@@ -214,6 +169,16 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/h200727/src/store/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/h200727/src/utils/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -252,13 +217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1080">
           <caret line="119" column="41" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/h200727/src/views/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="142" column="58" lean-forward="true" selection-start-line="142" selection-start-column="58" selection-end-line="142" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -321,9 +279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -331,10 +286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#94#124#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -342,10 +293,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#29#80#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -378,6 +325,41 @@
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200727/src/views/Home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2649">
+          <caret line="142" column="19" lean-forward="true" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200728/src/views/getReward.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-818">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="e#2215#2246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200728/src/views/reward.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200728/src/views/rule.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-287" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200730/src/views/basic.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h200730/src/views/ageSchool.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-100" />
       </provider>
     </entry>
   </component>

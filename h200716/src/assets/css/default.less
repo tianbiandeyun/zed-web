@@ -1,0 +1,57 @@
+//字体颜色类
+@default-font-color-title: #17233d;
+@default-font-color-content: #515a6e;
+@default-font-color-sub: #808695;
+
+//提示颜色
+@default-tip-color-info: #2db7f5;
+@default-tip-color-success: #19be6b;
+@default-tip-color-warning: #ff9900;
+@default-tip-color-error: #ed4014;
+
+//项目主题配色
+@default-app-color-primary: #2b85e4;
+@default-app-color-primary-c: #5cadff;
+@default-app-color-disabled: #c5c8ce;
+@default-app-color-border: #dcdee2;
+@default-app-color-divider: #e8eaec;
+@default-app-color-background: #f8f8f9;
+
+// 字体大小
+@default-font-size-50: 50px;
+@default-font-size-46: 46px;
+@default-font-size-40: 40px;
+@default-font-size-34: 34px;
+@default-font-size-28: 28px;
+@default-font-size-24: 24px;
+@default-font-size-22: 22px;
+@default-font-size-20: 20px;
+@default-font-size-18: 18px;
+@default-font-size-16: 16px;
+
+.default-box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.default-flex(@jc:space-between,@ai:center,@fw:nowrap) {
+  display: flex;
+  justify-content: @jc;
+  align-items: @ai;
+  flex-wrap: @fw;
+}
+
+@tb: 20px;
+@lr: 40px;
+.default-padding-20-40(@t:@tb,@r:@lr,@b:@tb,@l:@lr) {
+  padding: @t @r @b @l;
+}
+
+// 导航\底部\侧边栏高度
+@default-header-height: 140px;
+@default-footer-height: 140px;
+@default-menu-left-width: 500px;
+
+// main 内容高度
+@main-height: (@default-header-height + @default-footer-height);

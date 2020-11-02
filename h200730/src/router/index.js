@@ -20,19 +20,9 @@ const routes = [
         component: () => import('../views/basic.vue')
     },
     {
-        path: '/ageSchool',
-        name: 'AgeSchool',
-        component: () => import('../views/ageSchool.vue')
-    },
-    {
-        path: '/office',
-        name: 'Office',
-        component: () => import('../views/office.vue')
-    },
-    {
-        path: '/experience',
-        name: 'Experience',
-        component: () => import('../views/experience.vue')
+        path: '/uploader',
+        name: 'Uploader',
+        component: () => import('../views/uploader.vue')
     },
     {
         path: '/resume',

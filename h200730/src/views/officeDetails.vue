@@ -84,8 +84,10 @@
                 overlay: true
             });
 
+            // 获取 职位ID 和 userID
             this.data = await this.init();
 
+            // 获取职位详情
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_job_info,
                 fps: {
@@ -97,6 +99,7 @@
                 this.is_office_send = res.back_value.status;
                 this.office_details = res.back_value;
 
+                // 设置页面title
                 this.$Utils.setDocumentTitle(res.back_value.job_title);
 
                 // 如果是从我的投递进去的则显示，投递结果
@@ -116,6 +119,9 @@
             });
         },
         methods: {
+            /**
+             * 回到首页
+             * */
             goHome() {
                 window.location.replace(`${this.$Config.PROJECT_REQUEST}?r=interface/anycall&k=h_200730&page=dist/index&ac=hxdf&base=0`)
             },
@@ -131,61 +137,31 @@
             sendOffice(office_details) {
                 const that = this;
 
-                this.$Alert.show({
-                    title: '确认提交简历',
-                    alertContent: '简历将提交给第三方人力资源部门进行审阅，确认后不可撤回',
-                    yes() {
+                if (this.resume_info.back_value.length === 0) {
 
-                        that.$Toast.loading({
-                            message: '加载中...',
-                            forbidClick: true,
-                            duration: 0,
-                            overlay: true
-                        });
+                    this.$Alert.show({
+                        title: '提示',
+                        alertContent: '暂无个人信息，是否添加？',
+                        yesText: '添加',
+                        noText: '取消',
+                        yes() {
+                            that.$router.push(`/basic?jobid=${office_details.id}`);
+                        }
+                    });
 
-                        that.$store.dispatch('fetchData', {
-                            im: that.$Config.PROJECT_INTERFACE.set_application_record,
-                            fps: {
-                                open_id: that.data.openid,
-                                company_id: '',
-                                job_info_id: office_details.id
-                            },
-                            url: that.$Config.REQUEST_URL
-                        }).then(res => {
-                            if (res.back_value) {
-                                that.$store.dispatch('fetchData', {
-                                    im: that.$Config.PROJECT_INTERFACE.get_job_info,
-                                    fps: {
-                                        open_id: that.data.openid,
-                                        job_info_id: that.data.task_id
-                                    },
-                                    url: that.$Config.REQUEST_URL
-                                }).then(res => {
-                                    that.office_send_result = this.office_send_result === 1 ? 2 : 1;
-                                    that.is_office_send = res.back_value.status;
-                                    that.office_details = res.back_value;
-                                    that.$Toast.clear();
-                                });
-                            } else {
-                                that.$Toast.clear();
-                                if (res.error_code === 2008191856) {
-                                    that.$Alert.show({
-                                        title: '提示',
-                                        alertContent: '暂无任何简历，无法投递职位，是否添加？',
-                                        yesText: '添加',
-                                        noText: '取消',
-                                        yes() {
-                                            that.$router.push('/basic');
-                                        },
-                                        no() {
-                                            that.$router.replace('/');
-                                        }
-                                    });
-                                }
-                            }
-                        })
-                    }
-                });
+                    return false;
+                }
+
+                that.$router.push(`/uploader?jobid=${office_details.id}`);
+
+                // this.$Alert.show({
+                //     title: '确认提交简历',
+                //     alertContent: '简历将提交给第三方人力资源部门进行审阅，确认后不可撤回',
+                //     yes() {
+                //         that.$router.push(`/uploader?jobid=${office_details.id}`);
+                //     }
+                // });
+
             },
             async init() {
                 if (this.$Utils.getUrlParam('id') && this.$Utils.getUrlParam('openid')) {
@@ -212,7 +188,8 @@
         },
         computed: {
             ...mapGetters([
-                'wx_config'
+                'wx_config',
+                'resume_info'
             ])
         }
     }

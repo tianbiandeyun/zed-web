@@ -38,28 +38,6 @@
                     readonly
                     clickable
                     name="picker"
-                    :value="home"
-                    label="现居地址"
-                    placeholder="点击选择现居地址"
-                    @click="home_picker = true"/>
-
-            <Popup v-model="home_picker" position="bottom">
-
-                <Area
-                        title="标题"
-                        :area-list="home_columns"
-                        @confirm="getHome"
-                        @cancel="home_picker = false"/>
-
-            </Popup>
-        </div>
-
-        <div class="basic-item">
-            <Field
-                    required
-                    readonly
-                    clickable
-                    name="picker"
                     :value="age"
                     label="出生日期"
                     placeholder="点击选择出生日期"
@@ -77,9 +55,37 @@
         <div class="basic-item">
             <Field
                     required
-                    v-model="email"
-                    label="电子邮件"
-                    placeholder="请输入电子邮件"/>
+                    v-model="school"
+                    label="毕业院校"
+                    placeholder="请输入毕业院校"/>
+        </div>
+
+        <div class="basic-item">
+            <Field
+                    required
+                    readonly
+                    clickable
+                    name="picker"
+                    :value="school_time"
+                    label="毕业年份"
+                    placeholder="点击选择毕业年份"
+                    @click="school_picker = true"/>
+
+            <Popup v-model="school_picker" position="bottom">
+                <Picker
+                        show-toolbar
+                        :columns="school_columns"
+                        @confirm="getSchoolTime"
+                        @cancel="school_picker = false"/>
+            </Popup>
+        </div>
+
+        <div class="basic-item">
+            <Field
+                    required
+                    v-model="good_at"
+                    label="专业"
+                    placeholder="请输入专业"/>
         </div>
 
         <div class="basic-item">
@@ -133,11 +139,13 @@
             return {
                 name: '',
                 sex: '',
+                school: '',
+                school_time: '',
+                school_picker: false,
+                school_columns: this.schollYear(),
+                good_at: '',
                 sex_columns: ['男', '女'],
                 sex_picker: false,
-                home: '',
-                home_picker: false,
-                home_columns: aera_json,
                 age: '',
                 age_picker: false,
                 age_columns: [
@@ -154,7 +162,6 @@
                         defaultIndex: 0,
                     }
                 ],
-                email: '',
                 photo: '',
                 photo_code: '',
                 message: '发送验证码', // 短信验证码按钮文字
@@ -167,9 +174,10 @@
             if (resume.length !== 0) {
                 this.name = resume.name;
                 this.sex = +resume.sex === 1 ? '男' : '女';
-                this.home = resume.native_place;
+                this.school_time = resume.graduation_year;
+                this.school = resume.graduate_institutions;
+                this.good_at = resume.specialty;
                 this.age = resume.date_of_birth;
-                this.email = resume.mail;
                 this.photo = +resume.phone;
             }
         },
@@ -236,18 +244,15 @@
                 this.sex_picker = false;
             },
             /**
-             * 籍贯
-             * */
-            getHome(res) {
-                this.home = `${res[0].name}-${res[1].name}-${res[2].name}`;
-                this.home_picker = false;
-            },
-            /**
              * 年龄
              * */
             getAge(res) {
                 this.age = `${res[0]}-${res[1]}-${res[2]}`;
                 this.age_picker = false;
+            },
+            getSchoolTime(res) {
+                this.school_time = `${res}年`;
+                this.school_picker = false;
             },
             /**
              * 保存信息
@@ -264,23 +269,23 @@
                     return false;
                 }
 
-                if (this.home === '') {
-                    this.$Toast('现居地址能为空');
-                    return false;
-                }
-
                 if (this.age === '') {
                     this.$Toast('出生日期不能为空');
                     return false;
                 }
 
-                if (this.email === '') {
-                    this.$Toast('邮件不能为空');
+                if (this.school === '') {
+                    this.$Toast('毕业院校不能为空');
                     return false;
                 }
 
-                if (!this.changEamil()) {
-                    this.$Toast('邮件格式不正确');
+                if (this.school_time === '') {
+                    this.$Toast('毕业年份');
+                    return false;
+                }
+
+                if (this.good_at === '') {
+                    this.$Toast('专业不能为空');
                     return false;
                 }
 
@@ -316,9 +321,10 @@
                         open_id: this.openid_info.back_value.open_id,
                         name: this.name,
                         sex: this.sex === '男' ? 1 : 2,
-                        native_place: this.home,
+                        graduate_institutions: this.school,
                         date_of_birth: this.age,
-                        mail: this.email,
+                        graduation_year: this.school_time,
+                        specialty: this.good_at,
                         phone: +this.photo === +this.resume_info.back_value.phone ? '' : this.photo,
                         code: this.photo_code
                     },
@@ -326,7 +332,14 @@
                 }).then(res => {
                     this.$Toast.clear();
                     if (res.back_value) {
-                        this.$router.replace('/ageSchool');
+
+                        // 如果有 职位ID 则表示是从 职位详情过来的
+                        if (this.$route.query.jobid) {
+                            this.$router.push(`/uploader?jobid=${this.$route.query.jobid}`);
+                        } else {
+                            this.$router.replace('/');
+                        }
+
                     }
                 })
             },
@@ -351,15 +364,13 @@
                 }
                 return a;
             },
-            changEamil() {
-                let email = this.email;
-                let reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-                if (reg.test(email)) {
-                    return true;
-                } else {
-                    return false;
+            schollYear() {
+                let a = [];
+                for (let i = 1980; i <= 2023; i++) {
+                    a.push(i)
                 }
-            }
+                return a;
+            },
         },
         computed: {
             ...mapGetters([
@@ -390,9 +401,10 @@
 
         .save-box {
             width: 100%;
-            position: fixed;
-            bottom: 80px;
+            /*position: fixed;*/
+            /*bottom: 80px;*/
             text-align: center;
+            padding-top: 100px;
 
             .save {
                 font-size: @default-font-size-30;
