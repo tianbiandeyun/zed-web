@@ -90,17 +90,6 @@
               <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
               <item name="zed-web" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zed-web" type="462c0819:PsiDirectoryNode" />
-              <item name="h201001" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zed-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zed-web" type="462c0819:PsiDirectoryNode" />
-              <item name="h201001" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -141,11 +130,13 @@
       <workItem from="1597980002000" duration="826000" />
       <workItem from="1604288951251" duration="91000" />
       <workItem from="1604289088149" duration="13000" />
+      <workItem from="1604289443333" duration="698000" />
+      <workItem from="1604294526090" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13616000" />
+    <option name="totallyTimeSpent" value="14335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="943" extended-state="6" />
@@ -173,9 +164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -321,9 +309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -338,9 +323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-818">
           <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding>
-            <element signature="e#2215#2246#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -360,6 +342,21 @@
     <entry file="file://$PROJECT_DIR$/h200730/src/views/ageSchool.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h90929/src/views/result.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h90929/src/views/question.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-370" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h201020/src/utils/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        </state>
       </provider>
     </entry>
   </component>

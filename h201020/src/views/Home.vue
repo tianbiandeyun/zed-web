@@ -55,8 +55,11 @@
             </div>
         </div>
 
-        <Popup v-model="popup_show">
-            <p class="popup_content">{{popup_content}}</p>
+        <Popup v-model="popup_show" closeable round>
+            <div class="pop-box">
+                <p class="popup_title">{{popup_content.title}}</p>
+                <p class="popup_content">{{popup_content.describe}}</p>
+            </div>
         </Popup>
 
     </div>
@@ -87,6 +90,7 @@
 
             if (this.$Utils.getUrlParam('lanmuid')) {
                 this.id = this.$Utils.getUrlParam('lanmuid');
+                // this.id = 1094;
                 this.initBscroll();
             } else {
                 window.alert('没有栏目id');
@@ -97,7 +101,7 @@
         methods: {
             des(res) {
                 this.popup_show = true;
-                this.popup_content = res.describe;
+                this.popup_content = res;
             },
             handler(res) {
                 window.location.href = res.url;
@@ -299,11 +303,24 @@
             color: #999;
         }
 
-        .popup_content {
-            padding: 20px;
-            font-size: 30px;
-            line-height: 1.4;
+        .pop-box {
+            padding: 20px 30px;
+            width: 600px;
+
+            .popup_title {
+                text-align: center;
+                font-size: 36px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                line-height: 1.4;
+            }
+
+            .popup_content {
+                font-size: 30px;
+                line-height: 1.3;
+            }
         }
+
     }
 
 </style>
