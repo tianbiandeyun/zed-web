@@ -1,0 +1,14 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" /><template name="a5b7c0b6">
+  <view class="_div data-v-175b85ee details-doing-container"><template ord-message="执行日期" data="{{...$root[$kk+'0'], $root}}" is="20385c5e"></template>
+    <view class="_section data-v-175b85ee task-detail-date">
+      <view class="_div data-v-175b85ee date">
+        <view class="_p data-v-175b85ee date-miaoshu">开时时间：</view>
+        <view class="_p data-v-175b85ee date-value">{{data.start_date}}</view>
+      </view>
+      <view class="_div data-v-175b85ee date">
+        <view class="_p data-v-175b85ee date-miaoshu">结束时间：</view>
+        <view class="_p data-v-175b85ee date-value">{{data.end_date}}</view>
+      </view>
+    </view>
+  </view>
+</template>

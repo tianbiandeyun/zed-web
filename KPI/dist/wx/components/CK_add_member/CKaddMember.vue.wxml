@@ -1,0 +1,14 @@
+<template name="32e3c682">
+  <view class="_div data-v-5d0d54c4 addUserContainer" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-5d0d54c4 addUserImg">
+      <image src="/static/images/adduser.png" alt class="_img data-v-5d0d54c4"></image>
+    </view>
+    <view class="_div data-v-5d0d54c4 addUserContent">
+      <view class="_p data-v-5d0d54c4 addUserContentTitle">{{objMessage.title}}</view>
+      <view wx:if="{{objMessage.detail}}" class="_p data-v-5d0d54c4 addUserContentDetail">{{objMessage.detail}}</view>
+    </view>
+    <view class="_div data-v-5d0d54c4 addUserRight">
+      <image src="/static/images/right.png" alt class="_img data-v-5d0d54c4"></image>
+    </view>
+  </view>
+</template>

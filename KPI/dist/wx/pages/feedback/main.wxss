@@ -1,0 +1,59 @@
+@import "../../common/vendor.wxss";
+
+.feedback-radio-item,
+.feedback-textarea,
+.feedback-tip,
+.feedback-industry {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.feedback-container {
+  padding-top: 40rpx;
+}
+.feedback-radio,
+.feedback-industry {
+  background-color: #fff;
+  padding: 8rpx 40rpx;
+  margin-bottom: 20rpx;
+}
+.feedback-radio .feedback-radio-item {
+  border-bottom: 2rpx solid #e8eaec;
+  padding: 20rpx 120rpx 20rpx 0;
+  font-size: 32rpx;
+}
+.feedback-radio .feedback-radio-item:nth-of-type(2) {
+  border: none;
+}
+.feedback-industry-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  color: #515a6e;
+  padding: 20rpx 0;
+}
+.feedback-industry-item .feedback-industry-name {
+  width: 160rpx;
+}
+.feedback-industry-item .feedback-industry-value {
+  color: #808695;
+  width: calc(100% - 180rpx);
+  text-align: left;
+}
+.feedback-textarea {
+  height: 200rpx;
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+  margin-bottom: 20rpx;
+}
+.feedback-textarea ._textarea {
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+}
+.feedback-tip {
+  font-size: 28rpx;
+  color: #808695;
+  padding: 20rpx 40rpx;
+}

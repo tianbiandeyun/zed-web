@@ -1,0 +1,8 @@
+<template name="4d5550e4">
+  <view class="_section data-v-28c38faa">
+    <view wx:key="index" key="{{index}}" style="display: inline-block" wx:for="{{message}}" wx:for-index="index" wx:for-item="item" class="_p data-v-28c38faa">
+      {{item.type === "str" ? item.val : ""}}
+      <ww-open-data wx:if="{{item.type === 'userName'}}" corpid="{{item.val.cid}}" openid="{{item.val.uid}}" type="userName" class="_ww-open-data data-v-28c38faa"></ww-open-data>
+    </view>
+  </view>
+</template>

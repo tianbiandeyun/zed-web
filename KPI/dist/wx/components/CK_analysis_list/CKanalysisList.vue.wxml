@@ -1,0 +1,16 @@
+<template name="648d4c16">
+  <view class="_section data-v-63aa1632 analysis-container">
+    <view class="_div data-v-63aa1632 analysis-photo">
+      <image src="{{data.avatar}}" alt class="_img data-v-63aa1632"></image>
+    </view>
+    <view class="_div data-v-63aa1632 analysis-content">
+      <view class="_p data-v-63aa1632 analysis-content-title" wx:if="{{data.userid && corpid}}">
+        <ww-open-data corpid="{{corpid}}" openid="{{data.userid}}" type="userName" class="_ww-open-data data-v-63aa1632"></ww-open-data>
+      </view>
+      <view class="_p data-v-63aa1632 analysis-content-detail">状态：{{data.task_count}}个相关绩效表</view>
+    </view>
+    <view class="_div data-v-63aa1632 analysis-next">
+      <image src="/static/images/right.png" alt class="_img data-v-63aa1632"></image>
+    </view>
+  </view>
+</template>

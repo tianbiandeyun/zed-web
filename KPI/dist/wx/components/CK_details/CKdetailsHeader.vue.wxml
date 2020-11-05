@@ -1,0 +1,9 @@
+<template name="ec902178">
+  <view class="_div data-v-845778b0 details-header-container" wx:if="{{corpid && data.userid}}">
+    <view class="_section data-v-845778b0 task-detail-header">
+      <view class="_p data-v-845778b0 task-detail-name">{{data.task_name}}</view>
+      <view class="_p data-v-845778b0 task-detail-modify" wx:if="{{loginUserid === data.userid && page !=='review_details' }}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 修改考核目标</view>
+    </view>
+    <view class="_section data-v-845778b0 task-detail-created-user"> 目标创建人： <ww-open-data corpid="{{corpid}}" openid="{{data.userid}}" type="userName" class="_ww-open-data data-v-845778b0"></ww-open-data> <label style="margin-left: 10px" class="_span data-v-845778b0">创建时间：{{data.start_date}}</label></view>
+  </view>
+</template>

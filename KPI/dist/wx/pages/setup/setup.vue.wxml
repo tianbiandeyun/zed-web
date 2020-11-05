@@ -1,0 +1,23 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" />
+<import src="/components/CK_add_member/CKaddMember.vue.wxml" />
+<import src="/components/CK_button/CKbutton.vue.wxml" /><template name="101ea9e8">
+  <view class="_section data-v-f703cf68 setupContainer"><template ord-message="可以查看统计数据的管理人员" data="{{...$root[$kk+'0'], $root}}" is="20385c5e"></template>
+    <view class="_div data-v-f703cf68 setupGlobal">
+      <view class="_div data-v-f703cf68 setupUserTable" wx:key="i" key="{{i}}" wx:for="{{global_user}}" wx:for-index="i" wx:for-item="item">
+        <view class="_div data-v-f703cf68 setupUserTablePhoto">
+          <image src="{{item.avatar}}" alt class="_img data-v-f703cf68"></image>
+        </view>
+        <view class="_div data-v-f703cf68 setupUserTableContent">
+          <view class="_p data-v-f703cf68 setupUserTableContentName">统计管理员</view>
+          <view class="_p data-v-f703cf68 setupUserTableContentDetail">
+            <ww-open-data corpid="{{corpid}}" openid="{{item.userid}}" type="userName" class="_ww-open-data data-v-f703cf68"></ww-open-data>
+          </view>
+        </view>
+        <view class="_div data-v-f703cf68 setupUserTableContentRight" bindtap="handleProxy" data-eventid="{{'0_'+i}}" data-comkey="{{$k}}">
+          <image src="/static/images/more.png" alt class="_img data-v-f703cf68"></image>
+        </view>
+      </view> <template bindaddMember="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="32e3c682"></template>
+    </view> <template bindoperat="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="27ea8c61"></template>
+    <v-overlay show="{{isOverlay}}" class="_v-overlay data-v-f703cf68"></v-overlay>
+  </view>
+</template>

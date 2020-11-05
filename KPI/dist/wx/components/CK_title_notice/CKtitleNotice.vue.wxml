@@ -1,0 +1,6 @@
+<template name="20385c5e">
+  <view class="_section data-v-4cf8fd7a title-notice-container">
+    <view wx:if="{{ordMessage}}" class="_div data-v-4cf8fd7a title-notice">{{ordMessage}}</view>
+    <view wx:else class="_div data-v-4cf8fd7a title-notice">请传入显示信息</view>
+  </view>
+</template>

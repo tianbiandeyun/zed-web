@@ -1,0 +1,3 @@
+<template name="27ea8c61">
+  <view class="_section data-v-7dc384c5 bottom-button-container"><button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-7dc384c5">{{name}}</button></view>
+</template>

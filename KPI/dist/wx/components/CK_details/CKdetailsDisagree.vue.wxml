@@ -1,0 +1,10 @@
+<template name="65a13156">
+  <view class="_div data-v-6b8832b9 details-disagree-container">
+    <view class="_section data-v-6b8832b9 task-detail-disagree" wx:key="index" key="{{index}}" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
+      <view class="_div data-v-6b8832b9 task-detail-disagree-title disagree-active" style="display: flex"><label class="_span data-v-6b8832b9">{{item.type === 2 ? "审查人" : "执行人"}}</label> " <ww-open-data corpid="{{corpid}}" openid="{{item.userid}}" type="userName" class="_ww-open-data data-v-6b8832b9"></ww-open-data> " <label class="_span data-v-6b8832b9">的驳回消息</label></view>
+      <view class="_div data-v-6b8832b9 task-detail-disagree-content disagree-active">
+        {{item.inner_data}}
+      </view>
+    </view>
+  </view>
+</template>

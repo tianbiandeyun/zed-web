@@ -1,0 +1,37 @@
+<template name="475e54b0">
+  <view class="_section data-v-741ef5cc operat-container">
+    <view class="_div data-v-741ef5cc operat-item">
+      <view class="_div data-v-741ef5cc left" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <image wx:if="{{hasNotice.user_task}}" class="_img data-v-741ef5cc tip" src="/static/images/redTip.png" alt></image>
+        <image class="_img data-v-741ef5cc show-img" src="/static/images/assess.png" alt></image>
+        <view class="_p data-v-741ef5cc">我的考核</view>
+      </view>
+      <view class="_div data-v-741ef5cc right" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        <image wx:if="{{hasNotice.review_task}}" class="_img data-v-741ef5cc tip" src="/static/images/redTip.png" alt></image>
+        <image class="_img data-v-741ef5cc show-img" src="/static/images/review.png" alt></image>
+        <view class="_p data-v-741ef5cc">我的审查</view>
+      </view>
+    </view>
+    <view class="_div data-v-741ef5cc operat-item">
+      <view class="_div data-v-741ef5cc left" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+        <image wx:if="{{hasNotice['create']}}" class="_img data-v-741ef5cc tip" src="/static/images/redTip.png" alt></image>
+        <image class="_img data-v-741ef5cc show-img" src="/static/images/created.png" alt></image>
+        <view class="_p data-v-741ef5cc">统计管理</view>
+      </view>
+      <view class="_div data-v-741ef5cc right" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+        <image class="_img data-v-741ef5cc show-img" src="/static/images/analysis.png" alt></image>
+        <view class="_p data-v-741ef5cc">应用设置</view>
+      </view>
+    </view>
+    <view class="_div data-v-741ef5cc operat-item">
+      <view class="_div data-v-741ef5cc left" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">
+        <image class="_img data-v-741ef5cc show-img" src="/static/images/setup.png" alt></image>
+        <view class="_p data-v-741ef5cc">建议反馈</view>
+      </view>
+      <view class="_div data-v-741ef5cc right" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">
+        <image class="_img data-v-741ef5cc show-img" src="/static/images/feedback.png" alt></image>
+        <view class="_p data-v-741ef5cc">系统帮助</view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,5 @@
+<import src="/modules/mpvue-echarts/src/echarts.vue.wxml" /><template name="77be39b8">
+  <view class="_section data-v-6f339640 occupyEchartsContainer"><template wx:if="{{occupyList}}" data="{{...$root[$kk+'0'], $root}}" is="1feea2c8"></template>
+    <view wx:else class="_div data-v-6f339640 occupyEchartsError">图表暂无数据 / 传入错误</view>
+  </view>
+</template>

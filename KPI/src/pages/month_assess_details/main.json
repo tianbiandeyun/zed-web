@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "月审核列表",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "ww-open-data": "plugin://contactPlugin/ww-open-data"
+  }
+}

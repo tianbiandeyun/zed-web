@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "创建考核目标",
+  "usingComponents": {
+    "ww-open-data": "plugin://contactPlugin/ww-open-data",
+    "v-calendar": "../../../static/vant/calendar/index",
+    "v-checkbox": "../../../static/vant/checkbox/index",
+    "v-checkbox-group": "../../../static/vant/checkbox-group/index",
+    "v-picker": "../../../static/vant/picker/index",
+    "v-popup": "../../../static/vant/popup/index",
+    "v-overlay": "../../../static/vant/overlay/index"
+  }
+}

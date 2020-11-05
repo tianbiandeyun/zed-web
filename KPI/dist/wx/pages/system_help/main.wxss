@@ -1,0 +1,40 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-17c0d7f4 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.system-help-container .system-help-title.data-v-17c0d7f4 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #808695;
+  font-size: 28rpx;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.system-help-container .authority-list.data-v-17c0d7f4 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.system-help-container .authority-list .authority-list-item.data-v-17c0d7f4 {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #515a6e;
+  border-bottom: 2rpx solid #e8eaec;
+}
+.system-help-container .authority-list .authority-list-item .authority-list-item-right.data-v-17c0d7f4 {
+  display: flex;
+}

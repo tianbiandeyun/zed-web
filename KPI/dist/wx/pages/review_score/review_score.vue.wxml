@@ -1,0 +1,34 @@
+<import src="/components/CK_details/CKdetailsHeader.vue.wxml" />
+<import src="/components/CK_details/CKdetailsContent.vue.wxml" />
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" /><template name="b6367b68">
+  <view class="_section data-v-2f3d9ca0 review-score-container"><template data="{{...$root[$kk+'0'], $root}}" is="ec902178"></template> <template data="{{...$root[$kk+'1'], $root}}" is="521fadd2"></template> <template ord-message="评审阶段" data="{{...$root[$kk+'2'], $root}}" is="20385c5e"></template>
+    <view class="_section data-v-2f3d9ca0 review-score-stage">{{review_stage.start}} ~ {{review_stage.end}}，共工作{{review_stage.day}}天</view> <template ord-message="等待打分的执行人" data="{{...$root[$kk+'3'], $root}}" is="20385c5e"></template>
+    <view class="_section data-v-2f3d9ca0 review-score-user">
+      <view class="_div data-v-2f3d9ca0 review-score-user-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{review_score_user}}" wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-2f3d9ca0 photo">
+          <image src="{{item.avatar}}" alt class="_img data-v-2f3d9ca0"></image>
+        </view>
+        <view class="_div data-v-2f3d9ca0 name" wx:if="{{corpid && item.executor_userid}}">
+          <ww-open-data corpid="{{corpid}}" openid="{{item.executor_userid}}" type="userName" class="_ww-open-data data-v-2f3d9ca0"></ww-open-data>
+        </view>
+        <view wx:if="{{item.status === 8}}" class="_div data-v-2f3d9ca0 score">{{item.score*100}}分，[点击修改]</view>
+        <view wx:if="{{item.status === 7}}" class="_div data-v-2f3d9ca0 score">[无法打分]</view>
+        <view wx:if="{{item.status === 6}}" class="_div data-v-2f3d9ca0 score">[点击打分]</view>
+        <icon wx:if="{{item.status === 6}}" type="info" color="#ffc300" size="26" class="_icon data-v-2f3d9ca0"></icon>
+        <icon wx:if="{{item.status === 7}}" type="waiting" size="26" class="_icon data-v-2f3d9ca0"></icon>
+        <icon wx:if="{{item.status === 8}}" type="success" size="26" class="_icon data-v-2f3d9ca0"></icon>
+      </view>
+    </view>
+    <v-popup show="{{set_score_show}}" round class="_v-popup data-v-2f3d9ca0">
+      <view class="_section data-v-2f3d9ca0 review_score_set_score">
+        <view class="_div data-v-2f3d9ca0 review_score_set_score_tile"> 考察日期{{review_stage.start}} 到 {{review_stage.end}}
+          <view class="_p data-v-2f3d9ca0">共计{{review_stage.day}}天</view>
+        </view>
+        <view class="_div data-v-2f3d9ca0 review_score_set_score_slider">
+          <view class="_p data-v-2f3d9ca0">完成度{{value}}%</view>
+          <view class="_div data-v-2f3d9ca0">
+            <slider bindchange="handleProxy" step="5" value="{{value}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_slider data-v-2f3d9ca0" />
+          </view>
+          <view class="_p data-v-2f3d9ca0">拖动滑条调整完成度</view>
+        </view>
+        <view class="_div data-v-2f3d9ca0 review_score_set_score_content"><textarea placeholder="备注信息" fixed adjust-position value="{{content}}" bindinput="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_textarea data-v-2f3d9ca0" /></view> <view class="_div data-v-2f3d9ca0 review_score_set_score_button"><view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_p data-v-2f3d9ca0">取消</view> <view bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_p data-v-2f3d9ca0">提交分数</view></view></view></v-popup></view></template>

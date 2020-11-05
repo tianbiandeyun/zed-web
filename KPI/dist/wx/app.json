@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/analysis/main",
+    "pages/assess/main",
+    "pages/created_task/main",
+    "pages/feedback/main",
+    "pages/month_assess_details/main",
+    "pages/review/main",
+    "pages/review_detail/main",
+    "pages/review_score/main",
+    "pages/setup/main",
+    "pages/staff_chart/main",
+    "pages/system_help/main",
+    "pages/task_details/main",
+    "pages/all_notice/main",
+    "pages/video_detail/main"
+  ],
+  "plugins": {
+    "contactPlugin": {
+      "version": "1.2.1",
+      "provider": "wx5917c8c26f85c588"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

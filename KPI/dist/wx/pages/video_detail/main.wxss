@@ -1,0 +1,10 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-792595f0 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.video_detail_container ._video.data-v-792595f0 {
+  width: 100%;
+}

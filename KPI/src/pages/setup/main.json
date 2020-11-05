@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "管理设置",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "ww-open-data": "plugin://contactPlugin/ww-open-data",
+    "v-overlay": "../../../static/vant/overlay/index"
+  }
+}

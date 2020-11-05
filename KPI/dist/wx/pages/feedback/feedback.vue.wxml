@@ -1,0 +1,21 @@
+<import src="/components/CK_button/CKbutton.vue.wxml" /><template name="d4b3d2e8">
+  <view class="_section data-v-c3abac20 feedback-container">
+    <view class="_div data-v-c3abac20 feedback-radio">
+      <v-radio-group value="{{radio}}" bindchange="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_v-radio-group data-v-c3abac20">
+        <view class="_div data-v-c3abac20 feedback-radio-item">
+          <v-radio name="2" checked-color="#07c160" class="_v-radio data-v-c3abac20">意见反馈</v-radio>
+        </view>
+        <view class="_div data-v-c3abac20 feedback-radio-item">
+          <v-radio name="3" checked-color="#07c160" class="_v-radio data-v-c3abac20">BUG反馈</v-radio>
+        </view>
+      </v-radio-group>
+    </view>
+    <view class="_div data-v-c3abac20 feedback-industry">
+      <view class="_div data-v-c3abac20 feedback-industry-item">
+        <view class="_p data-v-c3abac20 feedback-industry-name">选择行业：</view>
+        <picker class="_picker data-v-c3abac20 feedback-industry-value" bindchange="handleProxy" value="{{index}}" range="{{array}}" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+          {{array[index]}}
+        </picker>
+      </view>
+    </view>
+    <view class="_div data-v-c3abac20 feedback-textarea"><textarea adjust-position placeholder="请输入..." bindblur="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_textarea data-v-c3abac20" /></view> <view class="_div data-v-c3abac20 feedback-tip">当前程序版本{{version}}，本程序软件著作及解释权归属“北京慧致天诚企业管理咨询有限公司”所有。</view> <template bindoperat="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="27ea8c61"></template></view></template>

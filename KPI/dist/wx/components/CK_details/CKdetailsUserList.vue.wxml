@@ -1,0 +1,15 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" /><template name="355e1400">
+  <view class="_div data-v-f8ac7d38 details-review-container"><template data="{{...$root[$kk+'0'], $root}}" is="20385c5e"></template>
+    <view class="_section data-v-f8ac7d38 task-detail-user">
+      <view class="_div data-v-f8ac7d38 task-detail-user-item" wx:key="index" key="{{index}}" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
+        <image class="_img data-v-f8ac7d38 task-detail-user-photo" src="{{item.avatar}}" alt></image>
+        <view class="_div data-v-f8ac7d38 task-detail-user-status">
+          <icon wx:if="{{item.attachinfo_of_task.task_icon_status === 1}}" type="info" color="#ffc300" size="16" class="_icon data-v-f8ac7d38"></icon>
+          <icon wx:if="{{item.attachinfo_of_task.task_icon_status === 2}}" type="waiting" size="16" class="_icon data-v-f8ac7d38"></icon>
+          <icon wx:if="{{item.attachinfo_of_task.task_icon_status === 3}}" type="info" color="red" size="16" class="_icon data-v-f8ac7d38"></icon>
+          <icon wx:if="{{item.attachinfo_of_task.task_icon_status === 4}}" type="success" size="16" class="_icon data-v-f8ac7d38"></icon>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

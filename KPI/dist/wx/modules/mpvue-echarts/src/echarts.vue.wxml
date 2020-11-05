@@ -1,0 +1,1 @@
+<template name="1feea2c8"><canvas wx:if="{{canvasId}}" class="_canvas data-v-e4d56e38 ec-canvas" id="{{canvasId}}" canvasId="{{canvasId}}" bindtouchstart="handleProxy" bindtouchmove="handleProxy" bindtouchend="handleProxy" binderror="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></canvas></template>

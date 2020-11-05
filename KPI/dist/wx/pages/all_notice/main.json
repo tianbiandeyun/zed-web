@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "系统消息",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "ww-open-data": "plugin://contactPlugin/ww-open-data"
+  }
+}

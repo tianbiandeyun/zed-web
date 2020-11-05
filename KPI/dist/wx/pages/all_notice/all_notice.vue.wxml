@@ -1,0 +1,13 @@
+<import src="/components/CK_notice_list/CKnoticeList.vue.wxml" /><template name="a559ce28">
+  <view class="_section data-v-35d24b60 all-notice-container">
+    <view class="_div data-v-35d24b60 all-notice-title">
+      <view class="_p data-v-35d24b60">系统消息</view>
+      <view class="_p data-v-35d24b60">共{{all_notice_list.length}}条</view>
+    </view>
+    <view class="_div data-v-35d24b60 all-notice-list" wx:key="index" key="{{index}}" wx:for="{{all_notice_list}}" wx:for-index="index" wx:for-item="item">
+      <view class="_h1 data-v-35d24b60 all-notice-list-title"><template data="{{...$root[$kk+'0_'+index], $root}}" is="4d5550e4"></template></view>
+      <view class="_p data-v-35d24b60 all-notice-list-content"><template data="{{...$root[$kk+'1_'+index], $root}}" is="4d5550e4"></template></view>
+      <view class="_p data-v-35d24b60 all-notice-list-date">时间 {{item.date}}</view>
+    </view>
+  </view>
+</template>

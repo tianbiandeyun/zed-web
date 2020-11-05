@@ -1,0 +1,23 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-daa624e0 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.review-container.data-v-daa624e0 {
+  padding-bottom: 40rpx;
+}
+.review-container .review-tab-item.data-v-daa624e0 {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx 0 40rpx;
+}
+.review-container .no-data.data-v-daa624e0 {
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 4;
+  color: #808695;
+}

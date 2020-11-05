@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "问题反馈",
+  "usingComponents": {
+    "v-radio": "../../../static/vant/radio/index",
+    "v-radio-group": "../../../static/vant/radio-group/index"
+  }
+}

@@ -1,0 +1,9 @@
+<template name="82ba67ec">
+  <view class="_div data-v-b9c17524 details-button-container">
+    <view class="_section data-v-b9c17524 task-detail-operat" wx:if="{{loginUserid !== data.userid}}"><button class="_button data-v-b9c17524 task-detail-operat-no" bindtap="handleProxy" wx:if="{{buttonStatus === 1 || buttonStatus === 2}}" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        {{cancelText}}
+      </button> <button class="_button data-v-b9c17524 task-detail-operat-ok" bindtap="handleProxy" wx:if="{{buttonStatus === 1 || buttonStatus === 3}}" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        {{confirmText}}
+      </button></view>
+  </view>
+</template>

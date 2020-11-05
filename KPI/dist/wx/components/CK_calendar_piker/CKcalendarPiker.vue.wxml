@@ -1,0 +1,16 @@
+<template name="37776a0e">
+  <view class="_section data-v-3aebc5ac calendarPikerContainer">
+    <view class="_div data-v-3aebc5ac calendarPiker">
+      <view class="_div data-v-3aebc5ac calendarPikerWeek" wx:key="week" key="{{week}}" wx:for="{{weekList}}" wx:for-index="week" wx:for-item="item">
+        {{item}}
+      </view>
+      <view class="_div data-v-3aebc5ac calendarPikerRow" wx:key="row" key="{{row}}" wx:for="{{6}}" wx:for-index="row" wx:for-item="item">
+        <view wx:key="col" key="{{col}}" class="_div data-v-3aebc5ac calendarPikerCol" bindtap="handleProxy" data-eventid="{{'0_'+row+'-'+col}}" data-comkey="{{$k}}" wx:for="{{7}}" wx:for-index="col" wx:for-item="item">
+          <view wx:if="{{visibeDays[(row)*7+(col)].nowMonth === visibeDays[(row)*7+(col)].month && visibeDays[(row)*7+(col)].nowYear === visibeDays[(row)*7+(col)].year}}" class="_p data-v-3aebc5ac {{[  [    visibeDays[row * 7 + col].nowMonth === visibeDays[row * 7 + col].month &&    visibeDays[row * 7 + col].nowYear === visibeDays[row * 7 + col].year      ? 'isMonth'      : ''  ],  [    showDate[      visibeDays[row * 7 + col].year +        '-' +        visibeDays[row * 7 + col].month +        '-' +        visibeDays[row * 7 + col].day    ]      ? 'isTody'      : ''  ],  [    onTheDay.day === visibeDays[row * 7 + col].day &&    onTheDay.month === visibeDays[row * 7 + col].month &&    onTheDay.year === visibeDays[row * 7 + col].year      ? 'today'      : ''  ]]}}">
+            {{visibeDays[(row)*7+(col)].day}}</view>
+          <view wx:else class="_p data-v-3aebc5ac notMonth">{{visibeDays[(row)*7+(col)].day}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

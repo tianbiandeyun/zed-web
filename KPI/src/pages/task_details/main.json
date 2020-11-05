@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "任务详情",
+  "usingComponents": {
+    "ww-open-data": "plugin://contactPlugin/ww-open-data",
+    "v-popup": "../../../static/vant/popup/index"
+  }
+}

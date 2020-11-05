@@ -1,0 +1,24 @@
+<import src="/components/CK_index_operat/CKindexOperat.vue.wxml" />
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" />
+<import src="/components/CK_notice_list/CKnoticeList.vue.wxml" /><template name="35312dd2">
+  <view class="_section data-v-acdec794 index-container">
+    <view class="_div data-v-acdec794 index-background"></view> <template bindoperat="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="475e54b0"></template> <template ord-message="系统通知" data="{{...$root[$kk+'1'], $root}}" is="20385c5e"></template>
+    <view wx:key="index" key="{{index}}" wx:for="{{notice_list}}" wx:for-index="index" wx:for-item="item" class="_div data-v-acdec794">
+      <view class="_div data-v-acdec794 notice-list-item-container">
+        <view class="_div data-v-acdec794 notice-list-item" bindtap="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}">
+          <image wx:if="{{item.status === 1}}" class="_img data-v-acdec794 notice-list-item-hd" src="/static/images/redTip.png" alt></image>
+          <view class="_div data-v-acdec794 notice-list-item-text"><template data="{{...$root[$kk+'2_'+index], $root}}" is="4d5550e4"></template></view>
+          <image class="_img data-v-acdec794 notice-list-item-rg" src="/static/images/right.png" alt></image>
+        </view>
+      </view>
+    </view>
+    <v-popup show="{{is_popup}}" class="_v-popup data-v-acdec794">
+      <view class="_div data-v-acdec794 get-avatar">
+        <view class="_div data-v-acdec794 get-avatar-title">
+          <view class="_p data-v-acdec794">程序需要使用您的头像</view>
+          <view class="_p data-v-acdec794">用于展示请授权后使用</view>
+        </view> <button class="_button data-v-acdec794 get-avatar-button" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">再次授权</button>
+      </view>
+    </v-popup>
+  </view>
+</template>

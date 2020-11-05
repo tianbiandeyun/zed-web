@@ -1,0 +1,12 @@
+<import src="/components/CK_details/CKdetailsHeader.vue.wxml" />
+<import src="/components/CK_details/CKdetailsContent.vue.wxml" />
+<import src="/components/CK_details/CKdetailsDisagree.vue.wxml" />
+<import src="/components/CK_details/CKdetailsDate.vue.wxml" />
+<import src="/components/CK_details/CKdetailsUserList.vue.wxml" />
+<import src="/components/CK_details/CKdetailsReviewResult.vue.wxml" />
+<import src="/components/CK_details/CKdetailsOperatButton.vue.wxml" /><template name="0e67cd28">
+  <view class="_section data-v-3c4888d0 task-detail-container" wx:if="{{page_show}}"><template bindmodifyTask="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ec902178"></template> <template data="{{...$root[$kk+'1'], $root}}" is="521fadd2"></template> <template wx:if="{{disagree.length !== 0}}" data="{{...$root[$kk+'2'], $root}}" is="65a13156"></template> <template data="{{...$root[$kk+'3'], $root}}" is="a5b7c0b6"></template> <template title="执行人列表" data="{{...$root[$kk+'4'], $root}}" is="355e1400"></template> <template title="审查人列表" data="{{...$root[$kk+'5'], $root}}" is="355e1400"></template> <template data="{{...$root[$kk+'6'], $root}}" is="6bec41e8"></template> <template cancelText="我有异议" confirmText="接受考核" bindcancel="handleProxy" bindconfirm="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'7'], $root}}" is="82ba67ec"></template>
+    <v-popup show="{{disagree_show}}" round class="_v-popup data-v-3c4888d0">
+      <view class="_section data-v-3c4888d0 disagree">
+        <view class="_div data-v-3c4888d0 disagree-title">请填写拒绝原因</view>
+        <view class="_div data-v-3c4888d0 disagree-content"><textarea class="_textarea data-v-3c4888d0 textarea" value="{{user_disagree}}" bindinput="handleProxy" hold-keyboard adjust-position fixed show-confirm-bar placeholder="请填写拒绝原因" data-eventid="{{'2'}}" data-comkey="{{$k}}" /></view> <view class="_div data-v-3c4888d0 disagree-button"><view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_p data-v-3c4888d0">取消</view> <view bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_p data-v-3c4888d0">提交</view></view></view></v-popup></view></template>

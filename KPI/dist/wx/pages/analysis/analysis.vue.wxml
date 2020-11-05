@@ -1,0 +1,7 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" />
+<import src="/components/CK_analysis_list/CKanalysisList.vue.wxml" /><template name="a5010f28">
+  <view class="_section data-v-93f8e860 analysis-container"><template ord-message="员工统计列表" data="{{...$root[$kk+'0'], $root}}" is="20385c5e"></template>
+    <view class="_div data-v-93f8e860 no-data" wx:if="{{analysi_user_list.length === 0}}">暂无数据</view>
+    <view class="_div data-v-93f8e860 analysis-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{analysi_user_list}}" wx:for-index="index" wx:for-item="item"><template data="{{...$root[$kk+'1_'+index], $root}}" is="648d4c16"></template></view>
+  </view>
+</template>

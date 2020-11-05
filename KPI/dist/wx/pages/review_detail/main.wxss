@@ -1,0 +1,63 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-2e74e342 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.review-details-container.data-v-2e74e342 {
+  padding-bottom: 160rpx;
+}
+.review-details-container ._div.data-v-2e74e342 {
+  background-color: #fff;
+}
+.review-details-container .review-details-time.data-v-2e74e342 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 40rpx 0 40rpx;
+}
+.review-details-container .review-details-time .review-details-time-item.data-v-2e74e342 {
+  border-bottom: 2rpx solid #e8eaec;
+  line-height: 3;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #515a6e;
+}
+.review-details-container .disagree.data-v-2e74e342 {
+  padding: 20rpx 40rpx 20rpx 40rpx;
+}
+.review-details-container .disagree .disagree-title.data-v-2e74e342 {
+  color: #808695;
+  font-size: 28rpx;
+  padding: 20rpx 0 20rpx 0;
+  text-align: center;
+}
+.review-details-container .disagree .disagree-content.data-v-2e74e342 {
+  border: 2rpx solid #e8eaec;
+  height: 280rpx;
+  width: 480rpx;
+}
+.review-details-container .disagree .disagree-content .textarea.data-v-2e74e342 {
+  padding: 10rpx;
+  color: #808695;
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+}
+.review-details-container .disagree .disagree-button.data-v-2e74e342 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.review-details-container .disagree .disagree-button ._p.data-v-2e74e342 {
+  flex: 1;
+  text-align: center;
+  color: #808695;
+  padding: 20rpx 40rpx 0 40rpx;
+}
+.review-details-container .disagree .disagree-button ._p.data-v-2e74e342:nth-of-type(2) {
+  color: #19be6b !important;
+}

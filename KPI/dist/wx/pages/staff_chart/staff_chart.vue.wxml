@@ -1,0 +1,18 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" />
+<import src="/components/CK_task_list/CKtaskList.vue.wxml" /><template name="d72e5d28">
+  <view class="_section data-v-2b7c6c60 staff-chart-container">
+    <view class="_div data-v-2b7c6c60 staff-chart-notice" wx:if="{{corpid && staff_chart_details.userid}}">
+      <ww-open-data corpid="{{corpid}}" openid="{{staff_chart_details.userid}}" type="userName" class="_ww-open-data data-v-2b7c6c60"></ww-open-data> 的员工画像
+    </view>
+    <view class="_div data-v-2b7c6c60 staff-chart-details">
+      <view class="_div data-v-2b7c6c60 staff-chart-details-photo">
+        <image src="{{staff_chart_details.avatar}}" alt class="_img data-v-2b7c6c60"></image>
+      </view>
+      <view class="_div data-v-2b7c6c60 staff-chart-details-content">
+        <view class="_h1 data-v-2b7c6c60">综合评分：{{staff_chart_details.score}}分</view>
+        <view class="_p data-v-2b7c6c60">{{staff_chart_details.task_count}}个考核项，{{staff_chart_details.examine_count}}次评审</view>
+      </view>
+    </view> <template ord-message="考核项列表" data="{{...$root[$kk+'1'], $root}}" is="20385c5e"></template>
+    <view class="_div data-v-2b7c6c60 staff-chart-list" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{staff_chart_details.month_list}}" wx:for-index="index" wx:for-item="item"><template page="staff_chart" data="{{...$root[$kk+'2_'+index], $root}}" is="75595a30"></template></view>
+  </view>
+</template>

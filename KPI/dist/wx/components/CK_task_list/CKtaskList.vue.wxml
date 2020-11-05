@@ -1,0 +1,21 @@
+<template name="75595a30">
+  <view class="_section data-v-32f9f904 task-list">
+    <view class="_div data-v-32f9f904 task-list-content" wx:if="{{page === ''}}">
+      <view class="_p data-v-32f9f904 task-list-content-tile">{{data.task_name}}</view>
+      <view class="_p data-v-32f9f904 task-list-content-detail"> 任务截止时间{{data.end_date}}， 持续{{data.working_day_count}}天<label wx:if="{{score !== 0}}" class="_span data-v-32f9f904">，得{{score}}分</label></view>
+    </view>
+    <view class="_div data-v-32f9f904 task-list-content" wx:if="{{page === 'staff_chart'}}">
+      <view class="_p data-v-32f9f904 task-list-content-tile">{{data.date}}</view>
+      <view class="_p data-v-32f9f904 task-list-content-detail"> 绩效评分{{data.score}}，参与评率{{score2}}% </view>
+    </view>
+    <view class="_div data-v-32f9f904 task-status" wx:if="{{isIcon}}">
+      <icon hidden="{{!(data.attachinfo_of_task.task_icon_status === 1)}}" type="info" color="#ffc300" size="26" class="_icon data-v-32f9f904"></icon>
+      <icon hidden="{{!(data.attachinfo_of_task.task_icon_status === 2)}}" type="waiting" size="26" class="_icon data-v-32f9f904"></icon>
+      <icon hidden="{{!(data.attachinfo_of_task.task_icon_status === 3)}}" type="info" color="red" size="26" class="_icon data-v-32f9f904"></icon>
+      <icon hidden="{{!(data.attachinfo_of_task.task_icon_status === 4)}}" type="success" size="26" class="_icon data-v-32f9f904"></icon>
+    </view>
+    <view class="_div data-v-32f9f904 task-next">
+      <image src="/static/images/right.png" alt class="_img data-v-32f9f904"></image>
+    </view>
+  </view>
+</template>

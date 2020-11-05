@@ -1,0 +1,22 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" /><template name="6bec41e8">
+  <view class="_div data-v-a2f34f20 details-review-result"><template ord-message="审查结果列表" data="{{...$root[$kk+'0'], $root}}" is="20385c5e"></template>
+    <view class="_section data-v-a2f34f20 task-detail-result">
+      <view class="_div data-v-a2f34f20 task-detail-result-item" wx:key="index" key="{{index}}" wx:for="{{data_}}" wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-a2f34f20 task-detail-result-item-title">
+          <view class="_p data-v-a2f34f20 task-detail-result-item-title-date">审查日：{{item.review_date}}</view>
+          <view class="_p data-v-a2f34f20 task-detail-result-item-title-status" wx:if="{{status[index] === 111}}">[未审核]</view>
+          <view class="_p data-v-a2f34f20 task-detail-result-item-title-status {{status[index] === 333 ? 'k_status_active' : ''}}" wx:if="{{status[index] === 333}}">[扣分]</view>
+          <view class="_p data-v-a2f34f20 task-detail-result-item-title-status {{status[index] === 222 ? 'wk_status_active' : ''}}" wx:if="{{status[index] === 222}}">[未扣分]</view>
+        </view>
+        <view class="_div data-v-a2f34f20 task-detail-result-item-details" wx:key="ind" key="{{ind}}" wx:for="{{item.review_result_list}}" wx:for-index="ind" wx:for-item="it">
+          <view style="display: flex" class="_p data-v-a2f34f20">
+            <ww-open-data corpid="{{corpid}}" openid="{{it.userid}}" type="userName" class="_ww-open-data data-v-a2f34f20"></ww-open-data> 给 <label wx:if="{{it.executor_userid !== it.userid}}" class="_span data-v-a2f34f20">
+              <ww-open-data corpid="{{corpid}}" openid="{{it.executor_userid}}" type="userName" class="_ww-open-data data-v-a2f34f20"></ww-open-data>
+            </label><label wx:else class="_span data-v-a2f34f20">自己</label>评{{it.score}}分
+          </view>
+          <view style="padding-left: 10px" class="_p data-v-a2f34f20">备注：{{it.comment}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

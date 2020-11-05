@@ -1,0 +1,19 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" />
+<import src="/components/CK_occupy_echarts/CKoccupyEcharts.vue.wxml" /><template name="7bfb59a8">
+  <view class="_section data-v-91c90ae0 month-assess-details-container" wx:if="{{isShow}}"><template data="{{...$root[$kk+'0'], $root}}" is="20385c5e"></template>
+    <view class="_div data-v-91c90ae0 month-assess-details" wx:if="{{corpid && executor_userid}}">
+      <ww-open-data corpid="{{corpid}}" openid="{{executor_userid}}" type="userName" class="_ww-open-data data-v-91c90ae0"></ww-open-data> 月度评分：{{month_assess_details.aggregate_score}}
+    </view> <template ord-message="考核权重占比图" data="{{...$root[$kk+'2'], $root}}" is="20385c5e"></template>
+    <view wx:if="{{list.length !== 0}}" class="_div data-v-91c90ae0"><template data="{{...$root[$kk+'3'], $root}}" is="77be39b8"></template></view>
+    <view class="_div data-v-91c90ae0 month-assess-details-list" wx:if="{{list.length !== 0}}">
+      <view class="_div data-v-91c90ae0 month-assess-details-list-item" wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-91c90ae0 month-assess-details-list-item-top">
+          <view class="_div data-v-91c90ae0" style=" {{('background-color:' + color[index] + ';')}}"></view>
+          <view class="_p data-v-91c90ae0">{{item.task_name}}</view>
+        </view>
+        <view class="_div data-v-91c90ae0 month-assess-details-list-item-bottom"> 权重{{item.value}}%，评审天数{{item.working_day_count}}，得分{{item.score}}
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

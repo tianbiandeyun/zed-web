@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "我的考核",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "ww-open-data": "plugin://contactPlugin/ww-open-data",
+    "v-tab": "../../../static/vant/tab/index",
+    "v-tabs": "../../../static/vant/tabs/index"
+  }
+}

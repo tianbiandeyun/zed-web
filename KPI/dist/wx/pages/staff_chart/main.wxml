@@ -1,0 +1,1 @@
+<import src="/pages/staff_chart/staff_chart.vue.wxml" /><template is="d72e5d28" data="{{ ...$root['0'], $root }}"/>

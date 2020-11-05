@@ -1,0 +1,1 @@
+<import src="/pages/month_assess_details/month_assess_details.vue.wxml" /><template is="7bfb59a8" data="{{ ...$root['0'], $root }}"/>

@@ -1,0 +1,68 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-91c90ae0 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.month-assess-details-container .month-assess-details.data-v-91c90ae0 {
+  display: flex;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  background-color: #fff;
+  text-align: center;
+  color: #515a6e;
+  font-size: 36rpx;
+}
+.month-assess-details-container .month-assess-details-list.data-v-91c90ae0 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 40rpx 0 40rpx;
+  background-color: #fff;
+}
+.month-assess-details-container .month-assess-details-list .month-assess-details-list-item.data-v-91c90ae0 {
+  border-bottom: 2rpx solid #e8eaec;
+  padding: 20rpx 0 20rpx 0;
+  color: #515a6e;
+}
+.month-assess-details-container .month-assess-details-list .month-assess-details-list-item .month-assess-details-list-item-top.data-v-91c90ae0 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+.month-assess-details-container .month-assess-details-list .month-assess-details-list-item .month-assess-details-list-item-top ._div.data-v-91c90ae0 {
+  width: 80rpx;
+  height: 32rpx;
+  -webkit-border-radius: 8rpx;
+  -moz-border-radius: 8rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.month-assess-details-container .month-assess-details-list .month-assess-details-list-item .month-assess-details-list-item-top ._p.data-v-91c90ae0 {
+  font-size: 32rpx;
+  color: #515a6e;
+}
+.month-assess-details-container .month-assess-details-list .month-assess-details-list-item .month-assess-details-list-item-bottom.data-v-91c90ae0 {
+  font-size: 28rpx;
+  color: #808695;
+}
+.default-box-sizing.data-v-6f339640 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.occupyEchartsContainer.data-v-6f339640 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 400rpx;
+  margin-bottom: 40rpx;
+}
+.occupyEchartsContainer .occupyEchartsError.data-v-6f339640 {
+  text-align: center;
+}
+.ec-canvas.data-v-e4d56e38 {
+  width: 100%;
+  height: 100%;
+}

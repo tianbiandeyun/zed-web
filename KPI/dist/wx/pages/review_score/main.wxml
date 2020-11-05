@@ -1,0 +1,1 @@
+<import src="/pages/review_score/review_score.vue.wxml" /><template is="b6367b68" data="{{ ...$root['0'], $root }}"/>

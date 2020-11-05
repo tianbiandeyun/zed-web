@@ -1,0 +1,54 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-2b7c6c60 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.staff-chart-container .staff-chart-notice.data-v-2b7c6c60 {
+  display: flex;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #808695;
+  font-size: 28rpx;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+}
+.staff-chart-container .staff-chart-details.data-v-2b7c6c60 {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  display: flex;
+  align-items: center;
+}
+.staff-chart-container .staff-chart-details .staff-chart-details-photo.data-v-2b7c6c60 {
+  margin-right: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+  font-size: 0;
+  -webkit-border-radius: 10rpx;
+  -moz-border-radius: 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.staff-chart-container .staff-chart-details .staff-chart-details-photo ._img.data-v-2b7c6c60 {
+  width: 100%;
+  height: 100%;
+}
+.staff-chart-container .staff-chart-details .staff-chart-details-content ._h1.data-v-2b7c6c60 {
+  color: #515a6e;
+  font-size: 32rpx;
+}
+.staff-chart-container .staff-chart-details .staff-chart-details-content ._p.data-v-2b7c6c60 {
+  color: #808695;
+  font-size: 28rpx;
+}
+.staff-chart-container .staff-chart-list.data-v-2b7c6c60 {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx 0 40rpx;
+}

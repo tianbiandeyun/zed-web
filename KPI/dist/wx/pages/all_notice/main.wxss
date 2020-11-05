@@ -1,0 +1,45 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-35d24b60 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.all-notice-container.data-v-35d24b60 {
+  padding-top: 40rpx;
+}
+.all-notice-container .all-notice-title.data-v-35d24b60 {
+  background-color: #fff;
+  padding: 12rpx 40rpx 12rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #515a6e;
+  font-size: 32rpx;
+  margin-bottom: 40rpx;
+}
+.all-notice-container .all-notice-title ._p.data-v-35d24b60:nth-of-type(2) {
+  color: #808695;
+}
+.all-notice-container .all-notice-list.data-v-35d24b60 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  background-color: #fff;
+  margin-bottom: 40rpx;
+}
+.all-notice-container .all-notice-list .all-notice-list-title.data-v-35d24b60 {
+  color: #515a6e;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.all-notice-container .all-notice-list .all-notice-list-content.data-v-35d24b60 {
+  color: #808695;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.all-notice-container .all-notice-list .all-notice-list-date.data-v-35d24b60 {
+  color: #808695;
+  font-size: 24rpx;
+}

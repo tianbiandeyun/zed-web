@@ -1,0 +1,5 @@
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" /><template name="521fadd2">
+  <view class="_div data-v-bce43424 details-content-container"><template ord-message="考核描述" data="{{...$root[$kk+'0'], $root}}" is="20385c5e"></template>
+    <view class="_section data-v-bce43424 task-detail-content">{{data.describe}}</view>
+  </view>
+</template>

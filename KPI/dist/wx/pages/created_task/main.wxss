@@ -1,0 +1,192 @@
+@import "../../common/vendor.wxss";
+
+.default-box-sizing.data-v-795c3550 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.created-task-container.data-v-795c3550 {
+  padding-bottom: 160rpx;
+}
+.created-task-container .created-task-name.data-v-795c3550 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  color: #515a6e;
+}
+.created-task-container .created-task-name .created-task-lable.data-v-795c3550 {
+  width: 180rpx;
+}
+.created-task-container .created-task-name .created-task-name-value.data-v-795c3550 {
+  color: #808695;
+  width: calc(100% - 200rpx);
+  text-align: left;
+}
+.created-task-container .created-textarea.data-v-795c3550 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 200rpx;
+  background-color: #fff;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  margin-bottom: 20rpx;
+}
+.created-task-container .created-textarea .textarea.data-v-795c3550 {
+  color: #808695;
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+}
+.created-task-container .created-task-information.data-v-795c3550 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 0 40rpx 0 40rpx;
+}
+.created-task-container .created-task-information .created-task-information-item.data-v-795c3550 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  padding: 20rpx 0 20rpx 0;
+  border-bottom: 2rpx solid #e8eaec;
+}
+.created-task-container .created-task-information .created-task-information-item .created-task-information-item-lable.data-v-795c3550 {
+  color: #515a6e;
+  width: 180rpx;
+}
+.created-task-container .created-task-information .created-task-information-item .created-task-information-picker.data-v-795c3550 {
+  color: #808695;
+  width: calc(100% - 200rpx);
+  text-align: left;
+}
+.created-task-container .created-task-information .calendar-container.data-v-795c3550 {
+  padding-bottom: 160rpx;
+}
+.created-task-container .created-task-information .calendar-container .calendar-prompt.data-v-795c3550,
+.created-task-container .created-task-information .calendar-container .calendar-prompt-change.data-v-795c3550,
+.created-task-container .created-task-information .calendar-container .calendar-prompt-now.data-v-795c3550 {
+  -webkit-border-radius: 8rpx;
+  -moz-border-radius: 8rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 24rpx;
+  padding: 8rpx;
+}
+.created-task-container .created-task-information .calendar-container .calendar-prompt.data-v-795c3550 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 40rpx 0 40rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.created-task-container .created-task-information .calendar-container .calendar-prompt .calendar-prompt-now.data-v-795c3550 {
+  color: #fff;
+  background-color: #808695;
+  margin-right: 20rpx;
+}
+.created-task-container .created-task-information .calendar-container .calendar-prompt .calendar-prompt-change.data-v-795c3550 {
+  background-color: #19be6b;
+}
+.created-task-container .created-task-information .calendar-container .calendar-get-more-date.data-v-795c3550 {
+  font-size: 28rpx;
+  color: #808695;
+  text-align: center;
+  line-height: 4;
+}
+.created-task-container .created-task-add-user.data-v-795c3550 {
+  margin-bottom: 20rpx;
+}
+.created-task-container .created-task-add-user .created-task-add-user-list.data-v-795c3550 {
+  background-color: #fff;
+  padding: 8rpx 40rpx 8rpx 40rpx;
+}
+.created-task-container .created-task-add-user .created-task-add-user-list .user-item.data-v-795c3550 {
+  border-bottom: 2rpx solid #e8eaec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.created-task-container .created-task-add-user .created-task-add-user-list .user-item .user-item-photo.data-v-795c3550 {
+  width: 70rpx;
+  height: 70rpx;
+  padding: 4rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 0;
+}
+.created-task-container .created-task-add-user .created-task-add-user-list .user-item .user-item-photo ._img.data-v-795c3550 {
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+.created-task-container .created-task-add-user .created-task-add-user-list .user-item .user-item-content.data-v-795c3550 {
+  width: calc(100% - 180rpx);
+  color: #515a6e;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.created-task-container .created-task-add-user .created-task-add-user-list .user-item .user-item-content-next.data-v-795c3550 {
+  font-size: 0;
+}
+.created-task-container .created-task-add-user .created-task-add-user-list .user-item .user-item-content-next ._img.data-v-795c3550 {
+  width: 40rpx;
+  height: 40rpx;
+}
+.calendarPiker.data-v-3aebc5ac {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.calendarPikerRow.data-v-3aebc5ac,
+.calendarPiker.data-v-3aebc5ac {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.calendarPikerWeek.data-v-3aebc5ac {
+  font-weight: bold;
+  color: #000 !important;
+}
+.calendarPikerCol.data-v-3aebc5ac,
+.calendarPikerWeek.data-v-3aebc5ac {
+  width: 92rpx;
+  height: 92rpx;
+  text-align: center;
+  line-height: 92rpx;
+  border-bottom: 2rpx solid #999;
+  color: #909090;
+}
+.isMonth.data-v-3aebc5ac {
+  color: #000;
+  font-weight: normal;
+}
+.isTody.data-v-3aebc5ac {
+  background-color: #19be6b !important;
+  color: #fff;
+}
+.today.data-v-3aebc5ac {
+  background-color: #909090;
+}
+.notMonth.data-v-3aebc5ac {
+  background-color: transparent !important;
+}
+.dad.data-v-3aebc5ac {
+  color: red;
+}

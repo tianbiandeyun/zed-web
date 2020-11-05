@@ -1,0 +1,54 @@
+@import "../../common/vendor.wxss";
+
+.setupContainer.data-v-f703cf68 {
+  padding-bottom: 160rpx;
+}
+.setupGlobal.data-v-f703cf68,
+.setupDepartment.data-v-f703cf68 {
+  background-color: #fff;
+  padding: 8rpx 40rpx;
+}
+.setupUserTable.data-v-f703cf68 {
+  border-bottom: 2rpx solid #e8eaec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.setupUserTablePhoto.data-v-f703cf68 {
+  width: 70rpx;
+  height: 70rpx;
+  padding: 4rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 0;
+}
+.setupUserTablePhoto ._img.data-v-f703cf68 {
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+.setupUserTableContent.data-v-f703cf68 {
+  width: calc(100% - 180rpx);
+}
+.setupUserTableContentName.data-v-f703cf68 {
+  color: #515a6e;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.setupUserTableContentDetail.data-v-f703cf68 {
+  color: #808695;
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.setupUserTableContentRight.data-v-f703cf68 {
+  font-size: 0;
+}
+.setupUserTableContentRight ._img.data-v-f703cf68 {
+  width: 40rpx;
+  height: 40rpx;
+}

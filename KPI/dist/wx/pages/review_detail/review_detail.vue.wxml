@@ -1,0 +1,20 @@
+<import src="/components/CK_details/CKdetailsHeader.vue.wxml" />
+<import src="/components/CK_details/CKdetailsContent.vue.wxml" />
+<import src="/components/CK_details/CKdetailsDisagree.vue.wxml" />
+<import src="/components/CK_details/CKdetailsDate.vue.wxml" />
+<import src="/components/CK_details/CKdetailsUserList.vue.wxml" />
+<import src="/components/CK_title_notice/CKtitleNotice.vue.wxml" />
+<import src="/components/CK_details/CKdetailsReviewResult.vue.wxml" />
+<import src="/components/CK_details/CKdetailsOperatButton.vue.wxml" /><template name="4f528644">
+  <view class="_section data-v-2e74e342 review-details-container" wx:if="{{page_show}}"><template page="review_details" data="{{...$root[$kk+'0'], $root}}" is="ec902178"></template> <template data="{{...$root[$kk+'1'], $root}}" is="521fadd2"></template> <template wx:if="{{disagree.length !== 0}}" data="{{...$root[$kk+'2'], $root}}" is="65a13156"></template> <template data="{{...$root[$kk+'3'], $root}}" is="a5b7c0b6"></template> <template title="执行人列表" data="{{...$root[$kk+'4'], $root}}" is="355e1400"></template> <template title="审查人列表" data="{{...$root[$kk+'5'], $root}}" is="355e1400"></template> <template ord-message="需要我审查的时间点" data="{{...$root[$kk+'6'], $root}}" is="20385c5e"></template>
+    <view class="_div data-v-2e74e342 review-details-time">
+      <view class="_div data-v-2e74e342 review-details-time-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{review_time}}" wx:for-index="index" wx:for-item="item"><label class="_span data-v-2e74e342">{{item.review_date}}</label> <label class="_span data-v-2e74e342">{{item.working_day_count}}天</label> <label wx:if="{{button_status !== 2}}" class="_span data-v-2e74e342">[未确认]</label><label wx:else class="_span data-v-2e74e342"><label wx:if="{{item.status === 6}}" class="_span data-v-2e74e342">[点击评分]</label> <label wx:if="{{item.status === 7}}" class="_span data-v-2e74e342">[未到期]</label> <label wx:if="{{item.status === 8}}" class="_span data-v-2e74e342">[已完成]</label></label>
+        <icon hidden="{{!(item.status === 6)}}" type="info" color="#ffc300" size="26" class="_icon data-v-2e74e342"></icon>
+        <icon hidden="{{!(item.status === 7)}}" type="waiting" size="26" class="_icon data-v-2e74e342"></icon>
+        <icon hidden="{{!(item.status === 8)}}" type="success" size="26" class="_icon data-v-2e74e342"></icon>
+      </view>
+    </view> <template data="{{...$root[$kk+'7'], $root}}" is="6bec41e8"></template> <template cancelText="我有异议" confirmText="同意成为审查人" bindcancel="handleProxy" bindconfirm="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'8'], $root}}" is="82ba67ec"></template>
+    <v-popup show="{{disagree_show}}" round class="_v-popup data-v-2e74e342">
+      <view class="_section data-v-2e74e342 disagree">
+        <view class="_div data-v-2e74e342 disagree-title">请填写拒绝原因</view>
+        <view class="_div data-v-2e74e342 disagree-content"><textarea class="_textarea data-v-2e74e342 textarea" value="{{user_disagree}}" bindinput="handleProxy" hold-keyboard adjust-position fixed show-confirm-bar placeholder="请填写拒绝原因" data-eventid="{{'2'}}" data-comkey="{{$k}}" /></view> <view class="_div data-v-2e74e342 disagree-button"><view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_p data-v-2e74e342">取消</view> <view bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_p data-v-2e74e342">提交</view></view></view></v-popup></view></template>

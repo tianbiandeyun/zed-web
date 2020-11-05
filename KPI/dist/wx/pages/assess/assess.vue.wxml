@@ -1,0 +1,23 @@
+<import src="/components/CK_task_list/CKtaskList.vue.wxml" />
+<import src="/components/CK_button/CKbutton.vue.wxml" /><template name="0c6e3aa8">
+  <view class="_section data-v-57f36fe0 assess-container" wx:if="{{tabShow}}">
+    <v-tabs active="{{active}}" color="green" animated="true" sticky="true" swipeable="true" bindchange="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_v-tabs data-v-57f36fe0">
+      <v-tab title="全部" class="_v-tab data-v-57f36fe0">
+        <view class="_div data-v-57f36fe0 no-data" wx:if="{{all.length === 0}}">暂无数据</view>
+        <view class="_div data-v-57f36fe0 assess-tab-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{all}}" wx:for-index="index" wx:for-item="item"><template data="{{...$root[$kk+'0_'+index], $root}}" is="75595a30"></template></view>
+      </v-tab>
+      <v-tab title="待生效" class="_v-tab data-v-57f36fe0">
+        <view class="_div data-v-57f36fe0 no-data" wx:if="{{wait_effective.length === 0}}">暂无数据</view>
+        <view class="_div data-v-57f36fe0 assess-tab-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" wx:for="{{wait_effective}}" wx:for-index="index" wx:for-item="item"><template data="{{...$root[$kk+'2_'+index], $root}}" is="75595a30"></template></view>
+      </v-tab>
+      <v-tab title="已生效" class="_v-tab data-v-57f36fe0">
+        <view class="_div data-v-57f36fe0 no-data" wx:if="{{effective.length === 0}}">暂无数据</view>
+        <view class="_div data-v-57f36fe0 assess-tab-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'2_'+index}}" data-comkey="{{$k}}" wx:for="{{effective}}" wx:for-index="index" wx:for-item="item"><template data="{{...$root[$kk+'4_'+index], $root}}" is="75595a30"></template></view>
+      </v-tab>
+      <v-tab title="已结束" class="_v-tab data-v-57f36fe0">
+        <view class="_div data-v-57f36fe0 no-data" wx:if="{{end.length === 0}}">暂无数据</view>
+        <view class="_div data-v-57f36fe0 assess-tab-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'3_'+index}}" data-comkey="{{$k}}" wx:for="{{end}}" wx:for-index="index" wx:for-item="item"><template data="{{...$root[$kk+'6_'+index], $root}}" is="75595a30"></template></view>
+      </v-tab>
+    </v-tabs> <template bindoperat="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'9'], $root}}" is="27ea8c61"></template>
+  </view>
+</template>
