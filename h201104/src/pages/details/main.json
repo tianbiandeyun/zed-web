@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "活动详情",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "v-popup": "../../../static/vant/popup/index"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "组织",
+  "usingComponents": {
+    "v-collapse": "../../../static/vant/collapse/index",
+    "v-collapse-item": "../../../static/vant/collapse-item/index"
+  }
+}

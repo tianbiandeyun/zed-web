@@ -81,7 +81,7 @@
             }
         },
         mounted() {
-            this.$utils.setDocumentTitle('职业倾向测评');
+            this.$utils.setDocumentTitle('创新创业大讲堂');
 
             // 获取 答题结果 如果有则跳转答题结果
             this.$store.dispatch('_getQuestionResult', {

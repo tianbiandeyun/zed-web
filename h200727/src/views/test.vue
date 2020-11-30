@@ -21,7 +21,7 @@
         name: "test",
         // mixins: [share],
         mounted() {
-            this.$utils.setDocumentTitle('职业倾向测评')
+            this.$utils.setDocumentTitle('创新创业大讲堂')
         },
         methods: {
             goTest() {

@@ -8,7 +8,7 @@
         <div class="rules">
             <div class="rules-title">一、活动时间</div>
             <div class="rules-content">
-                <p>2020年X月X日起，活动结束时间另行通知。</p>
+                <p>2020年11月17日起，活动结束时间另行通知。</p>
             </div>
 
             <div class="rules-title">二、活动规则</div>

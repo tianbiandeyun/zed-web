@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/details/main",
+    "pages/list/main",
+    "pages/sign_up/main",
+    "pages/user_details/main",
+    "pages/organize/main"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置将用于查看活动位置"
+    }
+  }
+}

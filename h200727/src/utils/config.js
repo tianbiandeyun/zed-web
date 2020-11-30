@@ -8,14 +8,14 @@ export const SHARE_ID = "h_200727";
 /**
  * 请求域名
  * */
-export const PROJECT_REQUEST = 'https://devphp.hztc.dev.hztcapp.com/test_index.php'; // 开发
-// export const PROJECT_REQUEST = 'https://hztc.dev.hztcapp.com/index.php'; // 正式
+// export const PROJECT_REQUEST = 'https://devphp.hztc.dev.hztcapp.com/test_index.php'; // 开发
+export const PROJECT_REQUEST = 'https://hztc.dev.hztcapp.com/index.php'; // 正式
 
 /**
  * 分享域名
  * */
-export const PROJECT_SHARE_REQUEST = 'https://devhtml.f.hztc.dev.hztcapp.com'; // 开发
-// export const PROJECT_SHARE_REQUEST = 'https://f.hztc.dev.hztcapp.com'; // 正式
+// export const PROJECT_SHARE_REQUEST = 'https://devhtml.f.hztc.dev.hztcapp.com'; // 开发
+export const PROJECT_SHARE_REQUEST = 'https://f.hztc.dev.hztcapp.com'; // 正式
 
 /**
  * REQUEST_URL 请求地址（根据 请求域名 的切换来实现，开发和正式）

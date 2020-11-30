@@ -90,7 +90,7 @@
             }
         },
         mounted() {
-            this.$utils.setDocumentTitle('职业倾向测评');
+            this.$utils.setDocumentTitle('创新创业大讲堂');
 
             // 设置 PV
             this.$store.dispatch('_setPv', {

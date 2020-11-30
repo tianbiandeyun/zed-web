@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "报名",
+  "usingComponents": {
+    "v-popup": "../../../static/vant/popup/index",
+    "v-field": "../../../static/vant/field/index",
+    "v-button": "../../../static/vant/button/index"
+  }
+}

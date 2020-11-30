@@ -29,8 +29,8 @@
                 <div class="reservation-main">
                     <div class="qr">
                         <img :src="qr_img" alt="">
-                        <p>长按识别二维码</p>
-                        <p>预约本场直播</p>
+                        <!--<p>长按识别二维码</p>-->
+                        <!--<p>预约本场直播</p>-->
                     </div>
                     <div class="close" @click="show = false">
                         <img src="../assets/images/close.png" alt="">
@@ -59,7 +59,7 @@
             }
         },
         async mounted() {
-            this.$utils.setDocumentTitle('职业倾向测评');
+            this.$utils.setDocumentTitle('创新创业大讲堂');
 
             // 获取 openid
             if (this.getOpenid_info === '') {
@@ -72,13 +72,21 @@
             // 判断是否组册信息
             await this._hasUserInfo();
 
-            let wxs = new this.$WxShare(this.wx_config.back_value, {
-                title: '测试分享标题',
-                details: '测试分享内容',
+            // let wxs = new this.$WxShare(this.wx_config.back_value, {
+            //     title: '创新创业大讲堂',
+            //     details: '为大学生量身打造的创新创业课',
+            //     link: await this.$utils.makeShareLink(),
+            //     image: 'www'
+            // }, false);
+            // wxs.init();
+
+            // 微信分享
+            new this.$WxShare(this.wx_config.back_value, {
+                title: '创新创业大讲堂',
+                details: '为大学生量身打造的创新创业课',
                 link: await this.$utils.makeShareLink(),
-                image: 'www'
-            }, true);
-            wxs.init();
+                image: this.$config.PROJECT_SHARE_REQUEST + '/h/' + this.$config.PROJECT_ID + '/dist/share.png'
+            }, false).init();
         },
         methods: {
             /**
@@ -142,7 +150,7 @@
                     url: this.$config.REQUEST_URL
                 });
 
-                // 1 组织
+                // 1 省 / 学校
                 await this.$store.dispatch('_hasUserInfo_zuzhi', {
                     im: this.$config.PROJECT_INTERFACE.has_user_info,
                     fps: {
@@ -154,29 +162,30 @@
 
                     if (res.back_value === false) {
                         this.$router.replace('/login');
-                        return false;
                     } else {
+                        this.page_show = true;
                         // 2 个人信息
-                        await this.$store.dispatch('_hasUserInfo_geren', {
-                            im: this.$config.PROJECT_INTERFACE.has_user_info,
-                            fps: {
-                                open_id: this.getOpenid_info.back_value.open_id,
-                                type: 2
-                            },
-                            url: this.$config.REQUEST_URL
-                        }).then(res => {
-                            if (res.back_value === false) {
-                                this.$router.replace('/info');
-                            } else {
-                                this.page_show = true;
-                            }
-                        });
+                        // await this.$store.dispatch('_hasUserInfo_geren', {
+                        //     im: this.$config.PROJECT_INTERFACE.has_user_info,
+                        //     fps: {
+                        //         open_id: this.getOpenid_info.back_value.open_id,
+                        //         type: 2
+                        //     },
+                        //     url: this.$config.REQUEST_URL
+                        // }).then(res => {
+                        //     if (res.back_value === false) {
+                        //         this.$router.replace('/info');
+                        //     } else {
+                        //         this.page_show = true;
+                        //     }
+                        // });
                     }
 
                 });
 
                 // 如果个人和组织信息都是 true 则显示，视频列表
-                if (this.hasUserInfo_geren.back_value && this.hasUserInfo_zuzhi.back_value) {
+                // if (this.hasUserInfo_geren.back_value && this.hasUserInfo_zuzhi.back_value) {
+                if (this.hasUserInfo_zuzhi.back_value) {
                     this.$store.dispatch('_getVideoList', {
                         im: this.$config.PROJECT_INTERFACE.get_video_list,
                         fps: {
@@ -294,9 +303,9 @@
             .reservation-main {
                 width: 80%;
                 height: 900px;
-                background-size: 100% auto;
-                background-repeat: no-repeat;
-                background-image: url(../assets/images/tip.png);
+                /*background-size: 100% auto;*/
+                /*background-repeat: no-repeat;*/
+                /*background-image: url(../assets/images/tip.png);*/
                 display: grid;
                 grid-template-rows: 6fr 1fr;
                 justify-items: center;
@@ -305,16 +314,9 @@
                 .qr {
 
                     img {
-                        width: 340px;
-                        height: 340px;
+                        width: 100%;
+                        /*height: 340px;*/
                         margin-bottom: 20px;
-                    }
-
-                    p {
-                        text-align: center;
-                        line-height: 1.4;
-                        color: #fff;
-                        font-size: @default-font-size-30;
                     }
                 }
 
