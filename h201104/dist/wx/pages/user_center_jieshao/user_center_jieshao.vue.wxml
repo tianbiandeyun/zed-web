@@ -1,0 +1,28 @@
+<template name="5d00c15a">
+  <view class="_section data-v-706d9fbe jieshao-container">
+    <view class="_div data-v-706d9fbe jieshao-tip">
+      <view class="_p data-v-706d9fbe tip"> -- 个人信息 -- </view>
+    </view>
+    <view class="_div data-v-706d9fbe jieshao-message">
+      <view class="_div data-v-706d9fbe message">
+        <view class="_div data-v-706d9fbe"><label class="_span data-v-706d9fbe">所属行业：</label>
+          <picker bindchange="handleProxy" value="{{index}}" range="{{industry}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_picker data-v-706d9fbe">
+            <view class="_p data-v-706d9fbe">{{industry[index]}}</view>
+          </picker>
+        </view>
+        <view class="_div data-v-706d9fbe"><label class="_span data-v-706d9fbe">关注行业：</label>
+          <picker bindchange="handleProxy" value="{{w_index}}" range="{{w_industry}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_picker data-v-706d9fbe">
+            <view class="_p data-v-706d9fbe">{{w_industry[w_index]}}</view>
+          </picker>
+        </view>
+        <view class="_div data-v-706d9fbe"><label class="_span data-v-706d9fbe">自我介绍：</label> <textarea value="{{jieshao}}" bindinput="handleProxy" placeholder="请输入自我介绍" maxlength="300" adjust-position show-confirm-bar disable-default-padding data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_textarea data-v-706d9fbe" /></view>
+        <view class="_div data-v-706d9fbe"><label class="_span data-v-706d9fbe">个人照片：</label>
+          <view style="padding-left: 50px" class="_div data-v-706d9fbe">
+            <v-uploader upload-text="点击上传" max-count="1" fileList="{{fileList}}" bindafterRead="handleProxy" binddeleteItem="handleProxy" accept="image" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_v-uploader data-v-706d9fbe"></v-uploader>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-706d9fbe submit"><button bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_button data-v-706d9fbe">保存</button></view>
+  </view>
+</template>

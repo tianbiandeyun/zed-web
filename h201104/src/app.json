@@ -1,9 +1,15 @@
 {
   "pages": [
-    "pages/details/main",
-    "pages/list/main",
-    "pages/sign_up/main",
-    "pages/user_details/main",
+    "pages/index/main",
+    "pages/user_center_jichu/main",
+    "pages/user_center_jieshao/main",
+    "pages/user_center/main",
+    "pages/activity_user_list/main",
+    "pages/activity_end_details/main",
+    "pages/activity_details/main",
+    "pages/subscribe/main",
+    "pages/subscribe_details/main",
+    "pages/participate/main",
     "pages/organize/main"
   ],
   "permission": {

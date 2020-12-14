@@ -1,0 +1,103 @@
+@import "../../common/vendor.wxss";
+
+.sign-up-container.data-v-4f200954 {
+  padding-top: 20rpx;
+}
+.sign-up-container .sign-up-box.data-v-4f200954 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.sign-up-container .sign-up-box > ._div.data-v-4f200954 {
+  display: grid;
+  grid-template-columns: 2.4fr 6fr 1fr;
+  padding: 12rpx 20rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.sign-up-container .sign-up-box > ._div > ._span.data-v-4f200954 {
+  padding: 8rpx 0;
+  font-size: 32rpx;
+}
+.sign-up-container .sign-up-box > ._div > ._span.data-v-4f200954:nth-of-type(1) {
+  color: #17233d;
+  font-weight: bold;
+}
+.sign-up-container .sign-up-box > ._div > ._span.data-v-4f200954:nth-of-type(2) {
+  color: #19be6b;
+}
+.sign-up-container .sign-up-box > ._div > ._span.data-v-4f200954:nth-of-type(3) {
+  text-align: center;
+  color: #17233d;
+}
+.sign-up-container .sign-up-box > ._div.data-v-4f200954:nth-of-type(2) {
+  grid-template-columns: 1.4fr 4fr;
+}
+.sign-up-container .sign-up-box > ._div:nth-of-type(2) > ._span.data-v-4f200954:nth-of-type(2) {
+  color: #515a6e;
+}
+.sign-up-container .sign-up-tip.data-v-4f200954 {
+  margin-bottom: 20rpx;
+}
+.sign-up-container .sign-up-tip .tip.data-v-4f200954 {
+  background-color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  color: #17233d;
+  padding: 20rpx 0;
+}
+.sign-up-container .sign-up-message.data-v-4f200954 {
+  padding: 0 20rpx;
+  background-color: #fff;
+  margin-bottom: 40rpx;
+}
+.sign-up-container .sign-up-message .message ._p.data-v-4f200954 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 60rpx;
+  border-bottom: 2rpx solid #dcdee2;
+  padding: 20rpx 0;
+}
+.sign-up-container .sign-up-message .message ._p ._span.data-v-4f200954 {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #17233d;
+  line-height: 60rpx;
+}
+.sign-up-container .sign-up-message .message ._p ._input.data-v-4f200954 {
+  height: 60rpx;
+}
+.sign-up-container .sign-up-message .phone.data-v-4f200954 {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1.4fr;
+  padding: 20rpx 0;
+}
+.sign-up-container .sign-up-message .phone > ._div ._span.data-v-4f200954 {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #17233d;
+  line-height: 60rpx;
+}
+.sign-up-container .sign-up-message .phone > ._div ._input.data-v-4f200954 {
+  height: 60rpx;
+}
+.sign-up-container .sign-up-message .phone > ._div ._button.data-v-4f200954 {
+  background-color: #19be6b;
+  color: #fff;
+  font-size: 28rpx;
+  width: 240rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.sign-up-container .sign-up-message .phone > ._div .button_active.data-v-4f200954 {
+  background-color: #c5c8ce;
+  color: #808695;
+}
+.sign-up-container .submit ._button.data-v-4f200954 {
+  background-color: #19be6b;
+  color: #fff;
+  width: 600rpx;
+}

@@ -1,0 +1,54 @@
+@import "../../common/vendor.wxss";
+
+.jieshao-container.data-v-706d9fbe {
+  padding-top: 20rpx;
+}
+.jieshao-container .jieshao-tip.data-v-706d9fbe {
+  margin-bottom: 20rpx;
+}
+.jieshao-container .jieshao-tip .tip.data-v-706d9fbe {
+  background-color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  color: #17233d;
+  padding: 20rpx 0;
+}
+.jieshao-container .jieshao-message.data-v-706d9fbe {
+  padding: 0 20rpx 20rpx 20rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.jieshao-container .jieshao-message .message > ._div.data-v-706d9fbe {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border-bottom: 2rpx solid #dcdee2;
+  padding: 20rpx 0;
+}
+.jieshao-container .jieshao-message .message > ._div > ._span.data-v-706d9fbe {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #17233d;
+  line-height: 60rpx;
+}
+.jieshao-container .jieshao-message .message > ._div > ._input.data-v-706d9fbe {
+  height: 60rpx;
+}
+.jieshao-container .jieshao-message .message > ._div > picker.data-v-706d9fbe {
+  font-size: 32rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #17233d;
+}
+.jieshao-container .jieshao-message .message > ._div > ._textarea.data-v-706d9fbe {
+  width: 100%;
+  border: 2rpx solid #dcdee2;
+  padding: 20rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.jieshao-container .submit ._button.data-v-706d9fbe {
+  background-color: #19be6b;
+  color: #fff;
+  width: 600rpx;
+}

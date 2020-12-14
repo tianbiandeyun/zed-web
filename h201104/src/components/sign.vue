@@ -1,5 +1,5 @@
 <template>
-  <section class="sign-container">
+  <section class="sign-container" @click="getUserId">
 
     <div class="sign-header-photo">
       <img :src="item.wx_photo" alt="">
@@ -10,10 +10,12 @@
         <span>{{item.name}}</span>
         <span>（{{item.company}}）</span>
       </p>
-      <p>{{item.status == 2 ? time : "没有签到"}}</p>
+      <p v-if="item.display == 2 && item.status == 1">已报名</p>
+      <p v-else-if="item.display == 2 && item.status == 2">{{time}}</p>
+      <p v-else>审核中</p>
     </div>
 
-    <div v-if="item.status == 2" class="sign-is-sign">
+    <div v-if="item.display == 2 && item.status == 2" class="sign-is-sign">
       <span>已签到</span>
     </div>
 
@@ -26,6 +28,11 @@
     props: {
       item: {
         type: Object
+      }
+    },
+    methods: {
+      getUserId() {
+        this.$emit("getUserId", this.item.u_key);
       }
     },
     computed: {
@@ -85,9 +92,9 @@
               return d_seconds + "秒前";
             }
           } else if (d_days >= 3 && d_days < 30) {
-            return M + "-" + D + "&nbsp;" + H + ":" + m;
+            return M + "-" + D + " | " + H + ":" + m;
           } else if (d_days >= 30) {
-            return Y + "-" + M + "-" + D + "&nbsp;" + H + ":" + m;
+            return Y + "-" + M + "-" + D + " | " + H + ":" + m;
           }
 
         }
@@ -128,6 +135,9 @@
       > p {
         font-size: 14px;
         color: #c5c8ce;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         &:nth-of-type(1) {
 

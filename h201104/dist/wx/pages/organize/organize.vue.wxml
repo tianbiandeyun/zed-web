@@ -1,0 +1,30 @@
+<template name="76906792">
+  <view class="_section data-v-a357ae14 organize-container" wx:if="{{info.length !== 0}}">
+    <v-collapse value="{{activeNames}}" bindchange="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_v-collapse data-v-a357ae14">
+      <v-collapse-item wx:key="index" key="{{index}}" title="{{item.title}}" name="{{index}}" wx:for="{{info}}" wx:for-index="index" wx:for-item="item" class="_v-collapse-item data-v-a357ae14">
+        <view class="_div data-v-a357ae14 organize-content" wx:key="k" key="{{k}}" wx:for="{{item.centont}}" wx:for-index="v" wx:for-item="k">
+          <view class="_p data-v-a357ae14 organize-content-title">{{k.title}}</view>
+          <view wx:if="{{k.describe}}" class="_p data-v-a357ae14 organize-content-message">{{k.describe}}</view>
+          <view wx:else class="_p data-v-a357ae14 organize-content-images">
+            <image src="{{k.images}}" alt class="_img data-v-a357ae14"></image>
+          </view>
+        </view>
+      </v-collapse-item>
+      <v-collapse-item wx:if="{{info.length}}" title="网家家创新中国入驻申请" name="{{info.length}}" class="_v-collapse-item data-v-a357ae14">
+        <view class="_div data-v-a357ae14 organize-message">
+          <view class="_div data-v-a357ae14 message">
+            <view class="_div data-v-a357ae14"><label class="_span data-v-a357ae14">申请类型：</label>
+              <picker bindchange="handleProxy" value="{{index}}" range="{{array}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_picker data-v-a357ae14">
+                <view class="_p data-v-a357ae14">{{array[index]}}</view>
+              </picker>
+            </view>
+            <view class="_div data-v-a357ae14"><label class="_span data-v-a357ae14">对接联系人：</label> <input type="text" hold-keyboard value="{{user}}" bindinput="handleProxy" placeholder="请输入对接联系人（中文）" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_input data-v-a357ae14" /></view>
+            <view class="_div data-v-a357ae14"><label class="_span data-v-a357ae14">联系电话：</label> <input type="text" hold-keyboard value="{{photo}}" bindinput="handleProxy" placeholder="请输入联系电话" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-a357ae14" /></view>
+            <view class="_div data-v-a357ae14"><label class="_span data-v-a357ae14">机构名称：</label> <input type="text" hold-keyboard value="{{complate}}" bindinput="handleProxy" placeholder="请输入机构名称" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_input data-v-a357ae14" /></view>
+          </view>
+          <view class="_div data-v-a357ae14 organize-submit"><button bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_button data-v-a357ae14">提交</button></view>
+        </view>
+      </v-collapse-item>
+    </v-collapse>
+  </view>
+</template>

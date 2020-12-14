@@ -1,0 +1,5 @@
+<import src="/components/sign.vue.wxml" />
+<import src="/components/sign.vue.wxml" />
+<import src="/components/getUserInfo.vue.wxml" />
+<import src="/components/listItem.vue.wxml" />
+<import src="/components/getUserInfo.vue.wxml" />

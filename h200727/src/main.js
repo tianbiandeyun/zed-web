@@ -10,6 +10,11 @@ import global from './utils/global'
 
 Vue.use(global);
 
+
+import {Toast} from 'vant'
+
+Vue.prototype.$Toast = Toast;
+
 Vue.config.productionTip = false;
 
 new Vue({

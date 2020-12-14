@@ -1,0 +1,6 @@
+<import src="/components/sign.vue.wxml" /><template name="e9c4e29c">
+  <view class="_section data-v-ff9293d4 activity_user_list">
+    <view class="_div data-v-ff9293d4 user_list_details-tip">与会嘉宾/签到簿：</view>
+    <view wx:key="index" key="{{index}}" class="_div data-v-ff9293d4 user_list_details-sign" wx:for="{{user_list}}" wx:for-index="index" wx:for-item="item"><template bindgetUserId="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="73a90ab8"></template></view>
+  </view>
+</template>

@@ -1,0 +1,25 @@
+<template name="05413f4e">
+  <view class="_section data-v-86f6209c user_details-container">
+    <view class="_div data-v-86f6209c user_details_tip">签到成功</view>
+    <view class="_div data-v-86f6209c">
+      <view class="_div data-v-86f6209c user_details_name">{{user_details_info.name}}</view>
+      <view style="width: 80px;height: 6px;background-color: #3ba888;margin: 0 auto;" class="_div data-v-86f6209c"></view>
+    </view>
+    <view class="_div data-v-86f6209c user_details_time"><label class="_span data-v-86f6209c">{{day}}</label> <label class="_span data-v-86f6209c">{{week}}</label></view>
+    <view class="_div data-v-86f6209c user_details_start" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <image src="{{user_details_info.map_image}}" alt class="_img data-v-86f6209c"></image>
+    </view>
+    <view class="_div data-v-86f6209c user_details-show-box">
+      <view class="_div data-v-86f6209c user_details_show_1">{{user_details_info.title}}</view>
+      <view class="_div data-v-86f6209c user_details_show_2"></view>
+      <view class="_div data-v-86f6209c user_details_show_3">
+        <view wx:key="index" key="{{index}}" wx:for="{{user_details_info.describe}}" wx:for-index="index" wx:for-item="item" class="_p data-v-86f6209c">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-86f6209c user_details_from">
+      <image src="{{user_details_info.icon}}" alt class="_img data-v-86f6209c"></image>
+    </view>
+  </view>
+</template>

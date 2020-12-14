@@ -1,0 +1,80 @@
+@import "../../common/vendor.wxss";
+
+.index-container.data-v-675665fc {
+  position: relative;
+}
+.index-container .index-header.data-v-675665fc {
+  height: 280rpx;
+  background-image: url("https://f.hztc.dev.hztcapp.com/h/index_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.index-container .index-header .index-header-user-info.data-v-675665fc {
+  padding: 20rpx 20rpx 0 32rpx;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+}
+.index-container .index-header .index-header-user-info .photo.data-v-675665fc {
+  width: 100rpx;
+  height: 100rpx;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2rpx solid #fff;
+}
+.index-container .index-header .index-header-user-info .photo ._img.data-v-675665fc {
+  width: 100%;
+  height: 100%;
+}
+.index-container .index-header .index-header-user-info .message.data-v-675665fc {
+  font-size: 32rpx;
+  color: #fff;
+}
+.index-container .index-activity-list.data-v-675665fc {
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  position: absolute;
+  top: 160rpx;
+  left: 0;
+  width: 100%;
+}
+.index-container .index-activity-list .index-activity-item.data-v-675665fc {
+  background-color: #fff;
+  -webkit-border-radius: 40rpx;
+  -moz-border-radius: 40rpx;
+  border-radius: 40rpx;
+  padding: 32rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+.index-container .index-activity-list .index-activity-item .activity-item-img.data-v-675665fc {
+  height: 280rpx;
+  margin-bottom: 20rpx;
+}
+.index-container .index-activity-list .index-activity-item .activity-item-img ._img.data-v-675665fc {
+  width: 100%;
+  height: 100%;
+}
+.index-container .index-activity-list .index-activity-item .activity-item-info .info-title.data-v-675665fc {
+  font-size: 32rpx;
+  color: #17233d;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+.index-container .index-activity-list .index-activity-item .activity-item-info .info-status_time.data-v-675665fc {
+  font-size: 28rpx;
+  color: #c5c8ce;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+.index-container .index-activity-list .index-activity-item .activity-item-info .info-status_time > ._span.data-v-675665fc {
+  font-size: 28rpx;
+}
+.index-container .index-activity-list .index-activity-item .activity-item-info .info-status_time .active-span.data-v-675665fc {
+  color: #19be6b;
+}
+.index-container .index-activity-list .index-activity-item .activity-item-info .info-status_time .time.data-v-675665fc {
+  text-align: right;
+}

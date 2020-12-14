@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "个人详情",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+  }
+}

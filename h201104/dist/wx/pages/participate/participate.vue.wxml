@@ -1,0 +1,28 @@
+<template name="0dfc3a20">
+  <view class="_section data-v-4f200954 sign-up-container">
+    <view class="_div data-v-4f200954 sign-up-box">
+      <view class="_div data-v-4f200954 sign-up-origin" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"><label class="_span data-v-4f200954">会议名称：</label> <label class="_span data-v-4f200954">{{info.title}}</label> <label class="_span data-v-4f200954"> > </label></view>
+      <view class="_div data-v-4f200954 sign-up-time"><label class="_span data-v-4f200954">会议时间：</label> <label class="_span data-v-4f200954">{{info.meeting_time}}</label></view>
+      <view class="_div data-v-4f200954 sign-up-post" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"><label class="_span data-v-4f200954">会议地点：</label> <label class="_span data-v-4f200954">{{info.congress_venue}}</label> <label class="_span data-v-4f200954"> > </label></view>
+    </view>
+    <view class="_div data-v-4f200954 sign-up-tip">
+      <view class="_p data-v-4f200954 tip"> -- 请如实填写 -- </view>
+    </view>
+    <view class="_div data-v-4f200954 sign-up-message">
+      <view class="_div data-v-4f200954 message">
+        <view class="_p data-v-4f200954"><label class="_span data-v-4f200954">姓名：</label> <input type="text" hold-keyboard value="{{name}}" bindinput="handleProxy" placeholder="请输入姓名" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-4f200954" /></view>
+        <view class="_p data-v-4f200954"><label class="_span data-v-4f200954">单位名称：</label> <input type="text" hold-keyboard value="{{complate}}" bindinput="handleProxy" placeholder="请输入单位名称" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_input data-v-4f200954" /></view>
+        <view class="_p data-v-4f200954"><label class="_span data-v-4f200954">现任职务：</label> <input type="text" hold-keyboard value="{{zhiwei}}" bindinput="handleProxy" placeholder="请输入现任职务" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_input data-v-4f200954" /></view>
+      </view>
+      <view class="_div data-v-4f200954 phone" style="border-bottom: 1px solid #dcdee2;">
+        <view class="_div data-v-4f200954"><label class="_span data-v-4f200954">手机号码：</label></view>
+        <view class="_div data-v-4f200954"><input type="text" hold-keyboard value="{{phone}}" bindinput="handleProxy" disabled placeholder="手机号码" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_input data-v-4f200954" /></view>
+        <view class="_div data-v-4f200954"><button open-type="getPhoneNumber" bindgetphonenumber="handleProxy" disabled="{{disabled}}" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_button data-v-4f200954 {{disabled ? 'button_active' : ''}}">
+            {{phone_message}}
+          </button></view>
+      </view>
+      <view style="padding: 10px 0;font-size: 14px;text-align: center;color: #515a6e;" class="_div data-v-4f200954"> * 手机号隐私保障：仅提交给主办方和好友。 </view>
+    </view>
+    <view class="_div data-v-4f200954 submit"><button bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_button data-v-4f200954">提交</button></view>
+  </view>
+</template>

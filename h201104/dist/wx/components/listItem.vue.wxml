@@ -1,0 +1,21 @@
+<template name="bf79d790">
+  <view class="_section data-v-ae71b0c8 listItem-container">
+    <view class="_div data-v-ae71b0c8 list-item">
+      <view class="_div data-v-ae71b0c8 list-item-left">
+        <image src="{{item.head_portrait}}" alt class="_img data-v-ae71b0c8"></image>
+      </view>
+      <view class="_div data-v-ae71b0c8 list-item-right">
+        <view class="_div data-v-ae71b0c8 list-item-right-top">
+          <view class="_div data-v-ae71b0c8">{{item.name}}</view>
+          <view class="_div data-v-ae71b0c8"><button open-type="getUserInfo" disabled="{{disabled}}" bindgetuserinfo="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-ae71b0c8 {{item.status == 1 ? '' : 'active_p'}}">
+              {{item.status == 1 ?
+            "签到" : "已签到"}}
+            </button></view>
+        </view>
+        <view class="_div data-v-ae71b0c8 list-item-right-bottom">
+          {{item.company}} | {{item.job_description}}
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

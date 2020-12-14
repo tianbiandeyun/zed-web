@@ -1,0 +1,31 @@
+<import src="/components/getUserInfo.vue.wxml" /><template name="26dcc998">
+  <view class="_section data-v-675665fc index-container">
+    <view wx:if="{{is_login}}" class="_div data-v-675665fc index-header">
+      <view class="_div data-v-675665fc index-header-user-info" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-675665fc photo">
+          <image src="{{user_photo}}" alt class="_img data-v-675665fc"></image>
+        </view>
+        <view class="_div data-v-675665fc message">"{{nick_name}}"{{getTimeState}}，参与投研，洞见未来</view>
+      </view>
+    </view>
+    <view wx:else class="_div data-v-675665fc index-header">
+      <view class="_div data-v-675665fc index-header-user-info" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-675665fc photo" style="background-color: #fff">
+          <image src="/static/images/nologin.png" alt class="_img data-v-675665fc"></image>
+        </view>
+        <view class="_div data-v-675665fc message">点击登陆</view>
+      </view>
+    </view>
+    <view class="_div data-v-675665fc index-activity-list">
+      <view class="_div data-v-675665fc index-activity-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'2_'+index}}" data-comkey="{{$k}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-675665fc activity-item-img">
+          <image src="{{item.main_graph}}" alt class="_img data-v-675665fc"></image>
+        </view>
+        <view class="_div data-v-675665fc activity-item-info">
+          <view class="_p data-v-675665fc info-title">{{item.title}}</view>
+          <view class="_div data-v-675665fc info-status_time"><label class="_span data-v-675665fc status active-span" wx:if="{{item.status == 1}}">--- 预约中 ---</label> <label class="_span data-v-675665fc status active-span" wx:if="{{item.status == 2}}">--- 活动中 ---</label> <label class="_span data-v-675665fc status" wx:if="{{item.status == 3}}">--- 已结束 ---</label> <label class="_span data-v-675665fc time">活动时间：{{item.meeting_time}}</label></view>
+        </view>
+      </view>
+    </view> <template message="请授权头像信息，否则无法使用" bindsetUserInfo="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="87aba010"></template>
+  </view>
+</template>

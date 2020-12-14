@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "修改个人基础信息",
+  "usingComponents": {
+    "v-checkbox": "../../../static/vant/checkbox/index",
+    "v-checkbox-group": "../../../static/vant/checkbox-group/index"
+  }
+}

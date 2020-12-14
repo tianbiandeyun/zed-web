@@ -1,0 +1,148 @@
+@import "../../common/vendor.wxss";
+
+.details-container.data-v-2dbb7ad6 {
+  padding-bottom: 160rpx;
+}
+.details-container .details-log.data-v-2dbb7ad6 {
+  font-size: 0;
+  height: 360rpx;
+}
+.details-container .details-log ._img.data-v-2dbb7ad6 {
+  width: 100%;
+  height: 100%;
+}
+.details-container .details-box.data-v-2dbb7ad6 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.details-container .details-box > ._div.data-v-2dbb7ad6 {
+  display: grid;
+  grid-template-columns: 2.4fr 6fr 1fr;
+  padding: 12rpx 20rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.details-container .details-box > ._div > ._span.data-v-2dbb7ad6 {
+  padding: 8rpx 0;
+  font-size: 32rpx;
+}
+.details-container .details-box > ._div > ._span.data-v-2dbb7ad6:nth-of-type(1) {
+  color: #17233d;
+  font-weight: bold;
+}
+.details-container .details-box > ._div > ._span.data-v-2dbb7ad6:nth-of-type(2) {
+  color: #19be6b;
+}
+.details-container .details-box > ._div > ._span.data-v-2dbb7ad6:nth-of-type(3) {
+  text-align: center;
+  color: #17233d;
+}
+.details-container .details-box > ._div.data-v-2dbb7ad6:nth-of-type(1) {
+  grid-template-columns: 1.4fr 4fr;
+}
+.details-container .details-box > ._div:nth-of-type(1) > ._span.data-v-2dbb7ad6:nth-of-type(2) {
+  color: #515a6e;
+}
+.details-container .details-content.data-v-2dbb7ad6 {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.details-container .details-content ._h1.data-v-2dbb7ad6 {
+  color: #17233d;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.details-container .details-content ._p.data-v-2dbb7ad6 {
+  text-indent: 60rpx;
+  font-size: 28rpx;
+  color: #515a6e;
+  line-height: 1.8;
+}
+.details-container .details-content-more.data-v-2dbb7ad6 {
+  margin-bottom: 20rpx;
+}
+.details-container .details-content-more .more.data-v-2dbb7ad6 {
+  background-color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  color: #19be6b;
+  padding: 20rpx 0;
+}
+.details-container .details-content-more .more-box.data-v-2dbb7ad6 {
+  background-color: #fff;
+  margin-bottom: 4rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.details-container .details-content-more .more-box ._h1.data-v-2dbb7ad6 {
+  color: #17233d;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.details-container .details-content-more .more-box ._p.data-v-2dbb7ad6 {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #515a6e;
+}
+.details-container .details-tip.data-v-2dbb7ad6 {
+  background-color: #fff;
+  color: #17233d;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 20rpx;
+}
+.details-container .details-sign.data-v-2dbb7ad6 {
+  background-color: #fff;
+  padding: 20rpx;
+}
+.details-container .details-bottom.data-v-2dbb7ad6 {
+  background-color: #fff;
+  padding: 20rpx 0 40rpx 0;
+  -moz-box-shadow: 0 -6rpx 10rpx #dcdee2;
+  -webkit-box-shadow: 0 -6rpx 10rpx #dcdee2;
+  box-shadow: 0 -6rpx 10rpx #dcdee2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 10fr 2fr;
+  align-items: center;
+  justify-items: flex-end;
+}
+.details-container .details-bottom > ._div.data-v-2dbb7ad6:nth-of-type(1) {
+  padding-right: 68rpx;
+}
+.details-container .details-bottom > ._div:nth-of-type(1) ._button.data-v-2dbb7ad6 {
+  background-color: #19be6b;
+  color: #fff;
+  width: 400rpx;
+}
+.details-container .details-bottom > ._div:nth-of-type(2) ._button.data-v-2dbb7ad6::after {
+  border: none;
+}
+.details-container .details-bottom > ._div:nth-of-type(2) > ._button.data-v-2dbb7ad6 {
+  background-color: transparent;
+  border: none;
+  padding-left: 0;
+  line-height: inherit;
+  border-radius: 0;
+  padding-right: 40rpx;
+}
+.details-container .details-bottom > ._div:nth-of-type(2) > ._button ._img.data-v-2dbb7ad6 {
+  width: 60rpx;
+  height: 52rpx;
+}

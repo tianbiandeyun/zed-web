@@ -6,6 +6,7 @@
         </div>
 
         <div class="content">
+
             <div class="first">
                 <p>请选择区域（省）</p>
                 <label class="option">
@@ -19,6 +20,7 @@
                     </select>
                 </label>
             </div>
+
             <div class="second">
                 <p>{{seconde_tip}}</p>
                 <label class="option" v-show="seconde_tip === '请选择大学'">
@@ -35,6 +37,22 @@
                 <input v-show="seconde_tip !== '请选择大学'" v-model="second_active" type="text" placeholder="请输入大学">
 
             </div>
+
+            <div class="phone">
+                <p>手机号</p>
+                <div class="phone-code">
+                    <input type="text" v-model="photo" placeholder="输入手机号码">
+                    <button @click="getCode" :disabled="button_disabled">{{message}}</button>
+                </div>
+            </div>
+
+            <div class="code">
+                <p>验证码</p>
+                <div class="code-code">
+                    <input maxlength="4" type="text" v-model="photo_code" placeholder="输入验证码">
+                </div>
+            </div>
+
         </div>
 
         <div class="button">
@@ -47,16 +65,16 @@
 </template>
 
 <script>
-    // import share from '../utils/share'
+    import {Field, Button} from 'vant';
     import {mapGetters} from 'vuex'
 
     export default {
         name: "login",
-        // mixins: [share],
+        components: {Field, Button},
         data() {
             return {
                 show: false,
-                first_list: ["北京", '甘肃', "湖北", "黑龙江", "江苏", "浙江", "辽宁", '其他'], // 一级组织
+                first_list: ["北京", '甘肃', "湖北", "黑龙江", "江苏", "浙江", "辽宁", '福建', '广东', '吉林', '四川', '重庆', '天津', '西藏自治区', '其他'], // 一级组织
                 first_active: "北京",
                 seconde_tip: "请选择大学",
                 second_list: { // 二级组织
@@ -814,13 +832,65 @@
                         "辽宁水利职业学院",
                         "辽宁民族师范高等专科学校",
                         "辽宁特殊教育师范高等专科学校"
+                    ],
+                    '福建': [
+                        '福州大学', '厦门大学', '福建师范大学', '福建工程学院', '福建农林大学', '泉州师范学院'
+                    ],
+                    '广东': [
+                        '暨南大学', '华南理工大学', '华南农业大学', '广东技术师范大学', '广东财经大学', '广东白云学院',
+                        '广州大学', '广东金融学院', '广东工业大学', '广东外语外贸大学', '广东培正学院', '南方医科大学',
+                        '华南理工大学广州学院', '广州大学华软软件学院', '中山大学南方学院', '广东外语外贸大学南国商学院', '广东财经大学华商学院', '华南农业大学珠江学院',
+                        '广州理工学院', '广东工业大学华立学院', '广州大学松田学院', '广州商学院', '广州工商学院', '广州科技职业技术大学',
+                        '中山大学新华学院', '广东第二师范学院', '深圳大学', '东莞理工学院', '中山大学'
+                    ],
+                    '河北': [
+                        '河北地质大学', '河北科技大学', '河北医科大学', '河北师范大学', '石家庄学院', '石家庄铁道大学',
+                        '河北体育学院', '河北经贸大学', '邯郸学院'
+                    ],
+                    '吉林': [
+                        '延边大学', '长春理工大学', '东北电力大学', '长春工业大学', '吉林建筑大学', '吉林化工学院',
+                        '吉林农业大学', '长春中医药大学', '北华大学', '通化师范学院', '吉林师范大学', '吉林工程技术师范学院',
+                        '长春师范大学', '白城师范学院', '吉林财经大学', '吉林体育学院', '吉林艺术学院', '吉林外国语大学',
+                        '吉林工商学院', '长春工程学院', '吉林农业科技学院', '吉林警察学院', '长春大学'
+                    ],
+                    '四川': [
+                        '西南石油大学', '成都理工大学', '西南科技大学', '成都信息工程大学', '四川轻化工大学', '西华大学',
+                        '四川农业大学', '西昌学院', '西南医科大学', '成都中医药大学', '川北医学院', '四川师范大学',
+                        '西华师范大学', '绵阳师范学院', '内江师范学院', '宜宾学院', '四川文理学院', '阿坝师范学院',
+                        '乐山师范学院', '成都体育学院', '四川音乐学院', '成都大学', '成都工业学院', '攀枝花学院',
+                        '四川旅游学院', '四川民族学院'
+                    ],
+                    '重庆': [
+                        '重庆邮电大学', '重庆交通大学', '重庆医科大学', '重庆师范大学', '重庆文理学院', '重庆三峡学院',
+                        '长江师范学院', '四川外国语大学', '西南政法大学', '四川美术学院', '重庆科技学院', '重庆理工大学',
+                        '重庆工商大学'
+                    ],
+                    '天津': [
+                        '天津科技大学', '天津工业大学', '天津理工大学', '天津农学院', '天津医科大学', '天津中医药大学',
+                        '天津师范大学', '天津职业技术师范大学', '天津外国语大学', '天津商业大学', '天津财经大学', '天津体育学院',
+                        '天津音乐学院', '天津美术学院', '天津城建大学', '天津大学', '南开大学', '河北工业大学'
+                    ],
+                    '西藏自治区': [
+                        '西藏大学'
                     ]
                 },
-                second_active: '北京大学'
+                second_active: '北京大学',
+                photo: '',
+                photo_code: '',
+                message: '发送验证码', // 短信验证码按钮文字
+                timer: null, // 定时器清除
+                button_disabled: false, // 按钮禁用
             }
         },
-        mounted() {
+        async mounted() {
             this.$utils.setDocumentTitle('创新创业大讲堂');
+            // 获取 openid
+            if (this.getOpenid_info === '') {
+                await this.$store.dispatch('_getOpenid', {
+                    im: this.$config.PROJECT_INTERFACE.getopenid,
+                    url: this.$config.REQUEST_URL
+                })
+            }
 
             // 设置 PV
             this.$store.dispatch('_setPv', {
@@ -833,6 +903,60 @@
 
         },
         methods: {
+            /**
+             * 获取验证码
+             * */
+            getCode() {
+
+                if (this.photo === '') {
+                    this.$Toast('电话不能为空');
+                    return false;
+                }
+
+                this.$Toast.loading({
+                    message: '发送中...',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+
+                this.$store.dispatch('_getPhotoCode', {
+                    im: this.$config.PROJECT_INTERFACE.send_phone_identifying_code,
+                    fps: {
+                        open_id: this.getOpenid_info.back_value.open_id,
+                        phonenum: this.photo
+                    },
+                    url: this.$config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$Toast.clear();
+                        const TIME_COUNT = 60;
+                        if (!this.timer) {
+                            let code = TIME_COUNT;
+                            this.button_disabled = true;
+                            this.message = `${TIME_COUNT}s后获取`;
+                            this.timer = setInterval(() => {
+                                if (code > 0 && code <= TIME_COUNT) {
+                                    code--;
+                                    this.message = `${code}s后获取`;
+                                } else {
+                                    clearInterval(this.timer);
+                                    this.timer = null;
+                                    this.message = '发送验证码';
+                                    this.button_disabled = false;
+                                }
+                            }, 1000);
+                        }
+                    } else {
+                        this.$Toast.clear();
+                        if (res.error_code === 6180516006) {
+                            this.$Toast(res.error_info);
+                        }
+                    }
+                })
+
+
+            },
             /**
              * 选择组织
              * */
@@ -852,19 +976,27 @@
              * 提交选择的组织
              * */
             submit() {
+
+                if (this.photo_code === '') {
+                    this.$Toast('验证码不能为空');
+                    return false;
+                }
+
+
                 this.show = true;
                 this.$store.dispatch('_setOrganization', {
                     im: this.$config.PROJECT_INTERFACE.set_user_organization,
                     fps: {
                         open_id: this.getOpenid_info.back_value.open_id,
                         level_1_organization: this.first_active,
-                        level_2_organization: this.second_active
+                        level_2_organization: this.second_active,
+                        phonenum: this.photo,
+                        phonecode: this.photo_code
                     },
                     url: this.$config.REQUEST_URL
                 }).then(res => {
                     if (res.back_value) {
                         this.show = false;
-                        // this.$router.push('/info')
                         this.$router.push('/')
                     } else {
                         this.show = false;
@@ -886,11 +1018,12 @@
 <style lang="less" scoped>
     .login-container {
         height: 100%;
-        display: grid;
-        grid-template-rows: 3fr 3fr 2fr;
-        justify-items: center;
+        /*display: grid;*/
+        /*grid-template-rows: 1fr 4fr 2fr;*/
+        /*justify-items: center;*/
 
         .logo {
+            margin-bottom: 40px;
 
             img {
                 width: 100%;
@@ -900,6 +1033,7 @@
         .content {
             padding: 0 40px;
             width: 100%;
+            margin-bottom: 40px;
 
             p {
                 font-size: @default-font-size-36;
@@ -920,14 +1054,10 @@
                 border-radius: 6px;
             }
 
-            .first {
-                margin-bottom: 40px;
-            }
-
             .second {
 
                 input {
-                    border: 1px solid black;
+                    border: 2px solid black;
                     width: 100%;
                     background-color: #fff;
                     appearance: none;
@@ -942,9 +1072,65 @@
                 }
             }
 
+            .phone {
+
+                .phone-code {
+                    display: grid;
+                    grid-template-columns: 3fr 1fr;
+
+                    input {
+                        border: 2px solid black;
+                        background-color: #fff;
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        width: 460px;
+                        height: 60px;
+                        padding-left: 10px;
+                        font-size: @default-font-size-36;
+                        -webkit-border-radius: 6px;
+                        -moz-border-radius: 6px;
+                        border-radius: 6px;
+                    }
+
+                    button {
+                        width: 160px;
+                        height: 60px;
+                        background-color: #e70012;
+                        color: #fff;
+                        font-size: @default-font-size-24;
+                        -webkit-border-radius: 6px;
+                        -moz-border-radius: 6px;
+                        border-radius: 6px;
+                    }
+                }
+            }
+
+            .code {
+
+                .code-code {
+                    input {
+                        border: 2px solid black;
+                        width: 100%;
+                        background-color: #fff;
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        height: 60px;
+                        padding-left: 10px;
+                        font-size: @default-font-size-36;
+                        -webkit-border-radius: 6px;
+                        -moz-border-radius: 6px;
+                        border-radius: 6px;
+                    }
+                }
+            }
+
         }
 
         .button {
+            padding-top: 10px;
+            text-align: center;
 
             button {
                 width: 290px;

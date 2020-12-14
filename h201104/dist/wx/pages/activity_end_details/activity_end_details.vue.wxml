@@ -1,0 +1,22 @@
+<template name="2816a972">
+  <view class="_section data-v-13c57ed6 activity-end-details-container">
+    <view class="_div data-v-13c57ed6 activity-end-details-log">
+      <image src="{{details_info.main_graph}}" alt class="_img data-v-13c57ed6"></image>
+    </view>
+    <view class="_div data-v-13c57ed6 activity-end-details-content">
+      <view class="_h1 data-v-13c57ed6">{{title}}</view>
+      <view wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" class="_div data-v-13c57ed6">
+        <view class="_div data-v-13c57ed6 img" wx:if="{{item.img}}">
+          <image mode="widthFix" src="{{item.img}}" alt class="_img data-v-13c57ed6"></image>
+        </view>
+        <view wx:else class="_p data-v-13c57ed6">{{item.content}}</view>
+      </view>
+    </view>
+    <view class="_div data-v-13c57ed6 activity-end-details-bottom">
+      <view class="_div data-v-13c57ed6"><button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-13c57ed6">本次活动人员名单</button></view>
+      <view class="_div data-v-13c57ed6"><button open-type="share" class="_button data-v-13c57ed6">
+          <image src="/static/images/share.png" alt class="_img data-v-13c57ed6"></image>
+        </button></view>
+    </view>
+  </view>
+</template>

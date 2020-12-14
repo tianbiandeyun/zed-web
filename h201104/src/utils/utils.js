@@ -21,7 +21,8 @@ const showErrorInfo = (errorInfo, errorFace, callback = () => "") => {
  * */
 const showWaiting = res => {
   wx.showLoading({
-    title: res || "加载中"
+    title: res || "加载中",
+    mask: true
   });
 };
 /**

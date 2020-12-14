@@ -1,0 +1,34 @@
+<import src="/components/sign.vue.wxml" />
+<import src="/components/getUserInfo.vue.wxml" /><template name="493f0172">
+  <view class="_section data-v-2dbb7ad6 details-container">
+    <view class="_div data-v-2dbb7ad6 details-log">
+      <image src="{{details_info.main_graph}}" alt class="_img data-v-2dbb7ad6"></image>
+    </view>
+    <view class="_div data-v-2dbb7ad6 details-box">
+      <view class="_div data-v-2dbb7ad6 details-time"><label class="_span data-v-2dbb7ad6">会议时间：</label> <label class="_span data-v-2dbb7ad6">{{details_info.meeting_time}}</label></view>
+      <view class="_div data-v-2dbb7ad6 details-post" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"><label class="_span data-v-2dbb7ad6">会议地点：</label> <label class="_span data-v-2dbb7ad6">{{details_info.congress_venue}}</label> <label class="_span data-v-2dbb7ad6"> > </label></view>
+      <view class="_div data-v-2dbb7ad6 details-origin" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"><label class="_span data-v-2dbb7ad6">组织信息：</label> <label class="_span data-v-2dbb7ad6">{{details_info.organizers_title}}</label> <label class="_span data-v-2dbb7ad6"> > </label></view>
+    </view>
+    <view class="_div data-v-2dbb7ad6 details-content">
+      <view class="_h1 data-v-2dbb7ad6">活动介绍：</view>
+      <view class="_p data-v-2dbb7ad6">{{details_info.activity_brief}}</view>
+    </view>
+    <view class="_div data-v-2dbb7ad6 details-content-more">
+      <view class="_div data-v-2dbb7ad6 more-box" hidden="{{!(is_more)}}">
+        <view class="_h1 data-v-2dbb7ad6">活动流程：</view>
+        <view wx:key="index" key="{{index}}" wx:for="{{details_info.activity_flow}}" wx:for-index="index" wx:for-item="item" class="_p data-v-2dbb7ad6">
+          {{item}}
+        </view>
+      </view>
+      <view class="_p data-v-2dbb7ad6 more" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> -- {{more_content}} -- </view>
+    </view>
+    <view class="_div data-v-2dbb7ad6 details-tip">与会嘉宾/签到簿：</view>
+    <view wx:key="index" key="{{index}}" class="_div data-v-2dbb7ad6 details-sign" wx:for="{{user_list}}" wx:for-index="index" wx:for-item="item"><template bindgetUserId="handleProxy" data-eventid="{{'3_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="73a90ab8"></template></view>
+    <view class="_div data-v-2dbb7ad6 details-bottom">
+      <view class="_div data-v-2dbb7ad6"><button bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_button data-v-2dbb7ad6">{{button_msg}}</button></view>
+      <view class="_div data-v-2dbb7ad6"><button open-type="share" class="_button data-v-2dbb7ad6">
+          <image src="/static/images/share.png" alt class="_img data-v-2dbb7ad6"></image>
+        </button></view>
+    </view> <template bindsetUserInfo="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="87aba010"></template>
+  </view>
+</template>

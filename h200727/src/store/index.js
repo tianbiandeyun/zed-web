@@ -29,6 +29,15 @@ export default new Vuex.Store({
         }
     },
     actions: {
+        fetch({commit}, params) {
+            const [im, fps = {}, url] = [params.im, params.fps, params.url];
+            const requestUrl = utils.produceRequestUrl(im, fps, url);
+            return new Promise((resolve, reject) => {
+                axios.get(requestUrl).then(res => {
+                    resolve(res.data);
+                });
+            });
+        },
         _getWxConfig({commit}, params) {
             const [im, fps = {}, url] = [params.im, params.fps, params.url];
             const requestUrl = utils.produceRequestUrl(im, fps, url);

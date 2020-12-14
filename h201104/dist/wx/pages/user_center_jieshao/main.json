@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "修改个人介绍信息",
+  "usingComponents": {
+    "v-uploader": "../../../static/vant/uploader/index"
+  }
+}

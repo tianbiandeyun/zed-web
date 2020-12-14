@@ -1,0 +1,13 @@
+@import "../../common/vendor.wxss";
+
+.activity_user_list .user_list_details-tip.data-v-ff9293d4 {
+  background-color: #fff;
+  color: #17233d;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 20rpx;
+}
+.activity_user_list .user_list_details-sign.data-v-ff9293d4 {
+  background-color: #fff;
+  padding: 20rpx;
+}

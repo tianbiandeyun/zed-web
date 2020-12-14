@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "参与嘉宾",
+  "usingComponents": {
+    "v-popup": "../../../static/vant/popup/index"
+  }
+}

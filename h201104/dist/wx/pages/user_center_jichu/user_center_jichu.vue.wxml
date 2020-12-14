@@ -1,0 +1,39 @@
+<template name="73fea66a">
+  <view class="_section data-v-2b4256ce jichu-container">
+    <view class="_div data-v-2b4256ce jichu-tip">
+      <view class="_p data-v-2b4256ce tip"> -- 请如实填写 -- </view>
+    </view>
+    <view class="_div data-v-2b4256ce jichu-message">
+      <view class="_div data-v-2b4256ce message">
+        <view class="_div data-v-2b4256ce"><label class="_span data-v-2b4256ce">姓名：</label> <input type="text" hold-keyboard value="{{name}}" bindinput="handleProxy" placeholder="请输入姓名" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-2b4256ce" /></view>
+        <view class="_div data-v-2b4256ce"><label class="_span data-v-2b4256ce">性别：</label>
+          <picker bindchange="handleProxy" value="{{index}}" range="{{array}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_picker data-v-2b4256ce">
+            <view class="_p data-v-2b4256ce">{{array[index]}}</view>
+          </picker>
+        </view>
+        <view class="_div data-v-2b4256ce"><label class="_span data-v-2b4256ce">单位名称：</label> <input type="text" hold-keyboard value="{{complate}}" bindinput="handleProxy" placeholder="请输入单位名称" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-2b4256ce" /></view>
+        <view class="_div data-v-2b4256ce"><label class="_span data-v-2b4256ce">现任职务：</label> <input type="text" hold-keyboard value="{{zhiwei}}" bindinput="handleProxy" placeholder="请输入现任职务" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_input data-v-2b4256ce" /></view>
+        <view class="_div data-v-2b4256ce"><label class="_span data-v-2b4256ce">邮箱：</label> <input type="text" hold-keyboard value="{{email}}" bindinput="handleProxy" placeholder="请输入邮箱" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_input data-v-2b4256ce" /></view>
+      </view>
+      <view class="_div data-v-2b4256ce phone" style="border-bottom: 1px solid #dcdee2;">
+        <view class="_div data-v-2b4256ce"><label class="_span data-v-2b4256ce">手机号码：</label></view>
+        <view class="_div data-v-2b4256ce"><input type="text" hold-keyboard value="{{phone}}" bindinput="handleProxy" disabled placeholder="手机号码" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_input data-v-2b4256ce" /></view>
+        <view class="_div data-v-2b4256ce"><button open-type="getPhoneNumber" bindgetphonenumber="handleProxy" disabled="{{disabled}}" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_button data-v-2b4256ce {{disabled ? 'button_active' : ''}}">
+            {{phone_message}}
+          </button></view>
+      </view>
+    </view>
+    <view class="_div data-v-2b4256ce jichu-tip">
+      <view class="_p data-v-2b4256ce tip"> -- 隐私设置 -- </view>
+    </view>
+    <view class="_div data-v-2b4256ce jichu-yinsi">
+      <v-checkbox-group value="{{result}}" bindchange="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_v-checkbox-group data-v-2b4256ce">
+        <view style="margin-bottom: 20px" class="_div data-v-2b4256ce">
+          <v-checkbox name="email" class="_v-checkbox data-v-2b4256ce">公开邮箱信息　　　　　　　　　　　　</v-checkbox>
+        </view>
+        <v-checkbox name="phone" class="_v-checkbox data-v-2b4256ce">公开手机号码信息　　　　　　　　　　　</v-checkbox>
+      </v-checkbox-group>
+    </view>
+    <view class="_div data-v-2b4256ce submit"><button bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}" class="_button data-v-2b4256ce">保存</button></view>
+  </view>
+</template>

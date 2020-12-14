@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "往期活动详情",
+  "usingComponents": {
+    "v-popup": "../../../static/vant/popup/index"
+  }
+}

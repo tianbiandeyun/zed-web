@@ -10,7 +10,7 @@
           <div>
             <button open-type="getUserInfo"
                     :disabled="disabled"
-                    @getuserinfo="info($event,item.name,item.status,item.head_portrait,item.id)"
+                    @getuserinfo="info($event,item.name,item.status,item.head_portrait,item.u_key)"
                     :class="item.status == 1 ? '' : 'active_p'">
               {{item.status == 1 ?
               "签到" : "已签到"}}

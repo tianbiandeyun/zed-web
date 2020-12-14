@@ -1,0 +1,1 @@
+<import src="/pages/user_center_jichu/user_center_jichu.vue.wxml" /><template is="73fea66a" data="{{ ...$root['0'], $root }}"/>

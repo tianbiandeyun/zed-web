@@ -112,14 +112,16 @@
     </div>
 </div>
 
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 
     // 请求域名
-    const _PROJECT_REQUEST = 'https://devphp.hztc.dev.hztcapp.com/test_index.php'; // 开发
-    // const _PROJECT_REQUEST = 'https://hztc.dev.hztcapp.com/index.php'; // 正式
+    // const _PROJECT_REQUEST = 'https://devphp.hztc.dev.hztcapp.com/test_index.php'; // 开发
+    const _PROJECT_REQUEST = 'https://hztc.dev.hztcapp.com/index.php'; // 正式
 
     // 接口
     const _INTERFACE = {
+        get_jsconf: 'get_jsconf',
         set_video_duration: 'set_video_duration',
         set_pv_statistics: 'set_pv_statistics'
     };
@@ -134,6 +136,7 @@
     // 发送观看时间 / pv
     _setVideoWatchTime = (url, video_status = '') => {
         console.log(video_status);
+
         $.ajax({
             type: "GET",
             url: `${url}&fps[video_status]=${video_status}&iv=jsonp&callback=`,
@@ -146,6 +149,26 @@
             url: `${_PROJECT_REQUEST}?r=interface/api&ac=hxdf&ic=h200727&im=${_INTERFACE.set_pv_statistics}&fps[info_key]=网家家&iv=jsonp&callback=`,
             success: res => {
                 console.log(JSON.parse(res));
+            }
+        });
+        $.ajax({
+            type: "GET",
+            url: `${_PROJECT_REQUEST}?r=interface/api&ac=hxdf&ic=h200727&im=${_INTERFACE.get_jsconf}&fps[url]=${encodeURIComponent(window.location.href.split('#')[0])}&iv=jsonp&callback=`,
+            success: res => {
+                console.log(JSON.parse(res).back_value);
+
+                wx.config({
+                    debug: true,
+                    appId: JSON.parse(res).back_value.appId, // 必填，公众号的唯一标识
+                    timestamp: JSON.parse(res).back_value.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: JSON.parse(res).back_value.nonceStr, // 必填，生成签名的随机串
+                    signature: JSON.parse(res).back_value.signature, // 必填，签名，见附录1
+                    jsApiList: [
+                        'updateAppMessageShareData',
+                        'updateTimelineShareData',
+                    ],
+                });
+
             }
         });
     };

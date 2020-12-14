@@ -1,0 +1,78 @@
+@import "../../common/vendor.wxss";
+
+.activity-end-details-container.data-v-13c57ed6 {
+  padding-bottom: 160rpx;
+  background-color: #fff;
+}
+.activity-end-details-container .activity-end-details-log.data-v-13c57ed6 {
+  font-size: 0;
+  height: 360rpx;
+}
+.activity-end-details-container .activity-end-details-log ._img.data-v-13c57ed6 {
+  width: 100%;
+  height: 100%;
+}
+.activity-end-details-container .activity-end-details-content.data-v-13c57ed6 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.activity-end-details-container .activity-end-details-content ._h1.data-v-13c57ed6 {
+  color: #17233d;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 2;
+  text-align: center;
+}
+.activity-end-details-container .activity-end-details-content .img.data-v-13c57ed6 {
+  font-size: 0;
+  text-align: center;
+  margin: 20rpx 0;
+}
+.activity-end-details-container .activity-end-details-content ._p.data-v-13c57ed6 {
+  font-size: 28rpx;
+  line-height: 3;
+  color: #515a6e;
+}
+.activity-end-details-container .activity-end-details-bottom.data-v-13c57ed6 {
+  background-color: #fff;
+  padding: 20rpx 0 40rpx 0;
+  -moz-box-shadow: 0 -6rpx 10rpx #dcdee2;
+  -webkit-box-shadow: 0 -6rpx 10rpx #dcdee2;
+  box-shadow: 0 -6rpx 10rpx #dcdee2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 10fr 2fr;
+  align-items: center;
+  justify-items: flex-end;
+}
+.activity-end-details-container .activity-end-details-bottom > ._div.data-v-13c57ed6:nth-of-type(1) {
+  padding-right: 68rpx;
+}
+.activity-end-details-container .activity-end-details-bottom > ._div:nth-of-type(1) ._button.data-v-13c57ed6 {
+  background-color: #19be6b;
+  color: #fff;
+  width: 400rpx;
+}
+.activity-end-details-container .activity-end-details-bottom > ._div:nth-of-type(2) ._button.data-v-13c57ed6::after {
+  border: none;
+}
+.activity-end-details-container .activity-end-details-bottom > ._div:nth-of-type(2) > ._button.data-v-13c57ed6 {
+  background-color: transparent;
+  border: none;
+  padding-left: 0;
+  line-height: inherit;
+  border-radius: 0;
+  padding-right: 40rpx;
+}
+.activity-end-details-container .activity-end-details-bottom > ._div:nth-of-type(2) > ._button ._img.data-v-13c57ed6 {
+  width: 60rpx;
+  height: 52rpx;
+}

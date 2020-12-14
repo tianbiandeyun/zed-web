@@ -7,18 +7,31 @@
 
         <div v-for="(item,index) in video_list" :key="index">
             <div class="video-list">
-                <div class="details">
+                <div class="details" @click="showDetails(item)">
                     <p class="details-title">{{item.title}}</p>
                     <p class="details-sub">直播时间：{{item.start_date}}</p>
+                    <p class="details-sub">主讲人：{{item.name}}</p>
                 </div>
-                <div class="operat">
-                    <button :class="[
-                            { yyActive: buttonType[index] === '观看直播' },
-                            { zbActive: buttonType[index] === '立即预约' },
-                            { hfActive: buttonType[index] === '直播回放' }
-                        ]"
-                            @click="go(buttonType[index],item)">
-                        {{buttonType[index]}}
+
+                <div class="operat" v-if="buttonType[index] === '观看直播'">
+                    <button class="yyActive" @click="go(buttonType[index],item)">{{buttonType[index]}}
+                    </button>
+                </div>
+
+                <div class="operat" v-if="buttonType[index] === '立即预约'">
+
+                    <button class="zbActive" v-if="buttonType[index] === '立即预约' && video_status_list[index].status">
+                        已预约
+                    </button>
+
+                    <button v-else class="zbActive"
+                            @click="go(buttonType[index],item,index)">{{buttonType[index]}}
+                    </button>
+
+                </div>
+
+                <div class="operat" v-if="buttonType[index] === '直播回放'">
+                    <button class="hfActive" @click="go(buttonType[index],item)">{{buttonType[index]}}
                     </button>
                 </div>
             </div>
@@ -32,7 +45,7 @@
                         <!--<p>长按识别二维码</p>-->
                         <!--<p>预约本场直播</p>-->
                     </div>
-                    <div class="close" @click="show = false">
+                    <div class="close" @click="colsePopup">
                         <img src="../assets/images/close.png" alt="">
                     </div>
                 </div>
@@ -43,19 +56,22 @@
 </template>
 
 <script>
-    // import share from '../utils/share'
+    import {Dialog, Popup} from 'vant';
     import {mapGetters} from 'vuex'
 
     export default {
         name: 'Home',
-        components: {},
-        // mixins: [share],
+        components: {[Dialog.Component.name]: Dialog.Component, Popup},
         data() {
             return {
+                is_popup: false,
                 page_show: false,
                 show: false,
                 qr_img: '',
-                video_list: ''
+                video_list: '', // 视频列表
+                video_status_list: [], // 视频状态列表
+                list_index: '', // 点击的哪一个视频的 下标
+                trigger_key: '' // 用来查询 是否预约的 参数
             }
         },
         async mounted() {
@@ -72,14 +88,6 @@
             // 判断是否组册信息
             await this._hasUserInfo();
 
-            // let wxs = new this.$WxShare(this.wx_config.back_value, {
-            //     title: '创新创业大讲堂',
-            //     details: '为大学生量身打造的创新创业课',
-            //     link: await this.$utils.makeShareLink(),
-            //     image: 'www'
-            // }, false);
-            // wxs.init();
-
             // 微信分享
             new this.$WxShare(this.wx_config.back_value, {
                 title: '创新创业大讲堂',
@@ -89,6 +97,36 @@
             }, false).init();
         },
         methods: {
+            showDetails(res) {
+
+                Dialog.alert({
+                    title: res.title,
+                    message: res.introduce,
+                    confirmButtonText: '关闭'
+                }).then(() => {
+                    // on close
+                });
+
+            },
+            /**
+             * 关闭预约框
+             * */
+            colsePopup() {
+
+                this.$store.dispatch('fetch', {
+                    im: this.$config.PROJECT_INTERFACE.get_appointment_status,
+                    fps: {
+                        open_id: this.getOpenid_info.back_value.open_id,
+                        trigger_key: this.trigger_key
+                    },
+                    url: this.$config.REQUEST_URL
+                }).then(res => {
+
+                    this.video_status_list.splice(this.list_index, 1, {status: res.back_value});
+
+                    this.show = false;
+                });
+            },
             /**
              * 前往测试
              * */
@@ -98,7 +136,7 @@
             /**
              * 前往观看视频
              * */
-            go(type, item) {
+            go(type, item, index = '') {
 
                 this.$store.dispatch('_setVideoClickCount', {
                     im: this.$config.PROJECT_INTERFACE.set_video_click_count,
@@ -110,10 +148,16 @@
                 }).then(res => {
                     if (res.back_value) {
                         if (type === '立即预约') {
-                            this.qr_img = item.fixed_date_qr;
+
+                            this.list_index = index; // 设置 点击 某个 视频 下标
+                            this.trigger_key = item.trigger_key; // 设置 查询某个视频 是否预约
+                            this.qr_img = item.fixed_date_qr; // 设置二维码
                             this.show = true;
+
                             return false;
+
                         }
+                        // this.$router.push(`/video?video_url=${item.url}&video_id=${item.id}&type=${encodeURI(encodeURI(type))}&qr=${item.download_qr}`)
                         window.location.href = `http://f.hztc.dev.hztcapp.com/h/h200727/video/video.html?video_url=${item.url}&id=${this.getOpenid_info.back_value.open_id}&video_id=${item.id}&type=${encodeURI(encodeURI(type))}&qr=${item.download_qr}`
                     }
                 });
@@ -164,27 +208,38 @@
                         this.$router.replace('/login');
                     } else {
                         this.page_show = true;
-                        // 2 个人信息
-                        // await this.$store.dispatch('_hasUserInfo_geren', {
-                        //     im: this.$config.PROJECT_INTERFACE.has_user_info,
-                        //     fps: {
-                        //         open_id: this.getOpenid_info.back_value.open_id,
-                        //         type: 2
-                        //     },
-                        //     url: this.$config.REQUEST_URL
-                        // }).then(res => {
-                        //     if (res.back_value === false) {
-                        //         this.$router.replace('/info');
-                        //     } else {
-                        //         this.page_show = true;
-                        //     }
-                        // });
+
+                        // 获取 是否答题，打过则不现实弹框
+                        this.$store.dispatch('_getQuestionResult', {
+                            im: this.$config.PROJECT_INTERFACE.get_answer_record,
+                            fps: {
+                                open_id: this.getOpenid_info.back_value.open_id,
+                            },
+                            url: this.$config.REQUEST_URL
+                        }).then(res => {
+                            if (res.back_value === '') {
+
+                                setTimeout(() => {
+                                    Dialog.confirm({
+                                        confirmButtonText: '测试',
+                                        cancelButtonText: '否',
+                                        message: '学习之前先做个“职前测试吧”',
+                                    }).then(() => {
+                                        this.$router.push('/test')
+                                    }).catch(() => {
+                                    })
+                                }, 300)
+
+                            }
+                        });
+
+
                     }
 
                 });
 
+
                 // 如果个人和组织信息都是 true 则显示，视频列表
-                // if (this.hasUserInfo_geren.back_value && this.hasUserInfo_zuzhi.back_value) {
                 if (this.hasUserInfo_zuzhi.back_value) {
                     this.$store.dispatch('_getVideoList', {
                         im: this.$config.PROJECT_INTERFACE.get_video_list,
@@ -193,7 +248,24 @@
                         },
                         url: this.$config.REQUEST_URL
                     }).then(res => {
-                        this.video_list = res.back_value;
+                        let result = res.back_value;
+                        this.video_list = result;
+                        let video_list = [];
+
+                        for (let i = 0; i < result.length; i++) {
+                            video_list.push({
+                                // id: result[i].id,
+                                // title: result[i].title,
+                                status: result[i].trigger_key_status
+                            })
+                        }
+
+                        this.video_status_list = video_list;
+
+                        console.log(this.video_status_list)
+
+                        // console.log(res.back_value.trigger_key_status)
+
                     });
                 }
 
