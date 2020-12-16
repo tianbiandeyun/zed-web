@@ -35,7 +35,7 @@ export default class wxShare {
                     // window.alert('分享给朋友-设置成功')
                 },
                 fail() {
-                    window.alert('分享给朋友-设置失败')
+                    // window.alert('分享给朋友-设置失败')
                 }
             });
             /**
@@ -49,7 +49,7 @@ export default class wxShare {
                     // window.alert('分享到朋友圈-设置成功')
                 },
                 fail() {
-                    window.alert('分享到朋友圈-设置失败')
+                    // window.alert('分享到朋友圈-设置失败')
                 }
             });
         });

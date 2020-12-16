@@ -52,7 +52,7 @@ var wxShare = function () {
                         // window.alert('分享给朋友-设置成功')
                     },
                     fail: function fail() {
-                        window.alert('分享给朋友-设置失败');
+                        // window.alert('分享给朋友-设置失败')
                     }
                 });
                 /**
@@ -66,7 +66,7 @@ var wxShare = function () {
                         // window.alert('分享到朋友圈-设置成功')
                     },
                     fail: function fail() {
-                        window.alert('分享到朋友圈-设置失败');
+                        // window.alert('分享到朋友圈-设置失败')
                     }
                 });
             });

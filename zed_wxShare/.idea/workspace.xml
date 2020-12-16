@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9029ee8-a0d2-476a-9e9d-126be10e3377" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../h200727/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/css/chunk-0af5b80b.e60d8282.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/css/chunk-6bbe22b7.20c7a20d.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/css/chunk-6ff36ec1.bf6bbcfd.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/css/chunk-738c53cd.b71c3b81.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/app.151cd8ea.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/app.151cd8ea.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-0af5b80b.c84ab7d3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-0af5b80b.c84ab7d3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-6bbe22b7.b34045b3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-6bbe22b7.b34045b3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-6ff36ec1.99ea2db8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-6ff36ec1.99ea2db8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-738c53cd.f5727016.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/dist/static/js/chunk-738c53cd.f5727016.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../h200727/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/src/utils/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h200727/src/utils/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../h200727/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/src/views/info.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../h200727/src/views/info.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/src/views/question.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../h200727/src/views/question.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h200727/src/views/test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../h200727/src/views/test.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../video/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../video/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,12 +18,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="198">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -87,9 +67,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="17" />
-    <option name="y" value="23" />
+    <option name="y" value="25" />
     <option name="width" value="1608" />
-    <option name="height" value="943" />
+    <option name="height" value="936" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -155,17 +135,18 @@
       <workItem from="1602208449862" duration="1000" />
       <workItem from="1604563274731" duration="44000" />
       <workItem from="1604998796752" duration="148000" />
+      <workItem from="1608012897259" duration="645000" />
+      <workItem from="1608013563287" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10549000" />
+    <option name="totallyTimeSpent" value="11204000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="23" width="1608" height="943" extended-state="0" />
-    <editor active="true" />
+    <frame x="17" y="25" width="1608" height="936" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19470699" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19470699" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -173,7 +154,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.55200946" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.5582233" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -194,22 +175,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        <state relative-caret-position="330">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -220,10 +201,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="198">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
