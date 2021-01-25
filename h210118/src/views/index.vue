@@ -72,7 +72,7 @@
                 <!--获取验证码-->
                 <div class="message-get-phone-code">
                     <input type="text" v-model="phone" placeholder="请输入手机号码">
-                    <button>获取验证码</button>
+                    <button @click="getPhoneCode" :disabled="is_disabled">{{message}}</button>
                 </div>
 
                 <!--验证码-->
@@ -108,7 +108,6 @@
                 // 城市
                 city_list: ["请选择城市", "北京", '甘肃', "湖北", "黑龙江", "江苏", "浙江", "辽宁", '福建', '广东', '吉林', '四川', '重庆', '天津', '西藏自治区', '其他'], // 一级组织
                 city_active: "请选择城市",
-
                 // 学校
                 school_list: {
                     "请选择城市": ["请选择学校"],
@@ -909,11 +908,13 @@
                     ]
                 },
                 school_active: '请选择学校',
-
                 name: '',
                 phone: '',
                 phone_code: '',
-                is_other: true
+                is_other: true,
+                message: '发送验证码', // 短信验证码按钮文字
+                timer: null, // 定时器清除
+                is_disabled: false, // 按钮禁用
             }
         },
         components: {},
@@ -934,6 +935,28 @@
                     this.is_other = true;
                     this.city_active = _city_name;
                     this.school_active = this.school_list[_city_name][0];
+                }
+            },
+            /**
+             * 获取手机验证码
+             * */
+            getPhoneCode() {
+                const TIME_COUNT = 60;
+                if (!this.timer) {
+                    let code = TIME_COUNT;
+                    this.is_disabled = true;
+                    this.message = `${TIME_COUNT}s后获取`;
+                    this.timer = setInterval(() => {
+                        if (code > 0 && code <= TIME_COUNT) {
+                            code--;
+                            this.message = `${code}s后获取`;
+                        } else {
+                            clearInterval(this.timer);
+                            this.timer = null;
+                            this.message = '发送验证码';
+                            this.is_disabled = false;
+                        }
+                    }, 1000);
                 }
             },
             /**
@@ -1017,6 +1040,8 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
             padding: 10px 40px;
+            margin-bottom: 10px;
+
             img {
                 width: 100%;
             }
@@ -1027,10 +1052,13 @@
                 background-color: #dc0c16;
                 margin: 0 auto;
                 width: 660px;
-                padding: 20px;
+                padding: 30px 20px;
                 -webkit-border-radius: 10px;
                 -moz-border-radius: 10px;
                 border-radius: 10px;
+                -moz-box-shadow: 0 0 10px #8b131e;
+                -webkit-box-shadow: 0 0 10px #8b131e;
+                box-shadow: 0 0 10px #8b131e;
 
                 div {
                     margin-bottom: 20px;
