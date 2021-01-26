@@ -31,69 +31,77 @@
             <img src="../assets/images/tomorrow_1.png" alt="tomorrow">
         </div>
 
-        <div class="index-message" v-if="is_sign">
+        <flipper :flipped="is_sign">
 
-            <div class="message">
+            <div slot="front">
+                <div class="index-message">
+                    <div class="message">
 
-                <!--城市-->
-                <div class="message-city-school">
-                    <label>
-                        <select v-model="city_active" @change="changCity($event)">
-                            <option
-                                    v-for="(item,index) in city_list"
-                                    :key="index"
-                                    :value='item'>
-                                {{item}}
-                            </option>
-                        </select>
-                    </label>
+                        <!--城市-->
+                        <div class="message-city-school">
+                            <label>
+                                <select v-model="city_active" @change="changCity($event)">
+                                    <option
+                                            v-for="(item,index) in city_list"
+                                            :key="index"
+                                            :value='item'>
+                                        {{item}}
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <!--学校-->
+                        <div class="message-city-school">
+                            <label v-show="is_other">
+                                <select v-model="school_active">
+                                    <option
+                                            v-for="(item,index) in for_school"
+                                            :key="index"
+                                            :value='item'>
+                                        {{item}}
+                                    </option>
+                                </select>
+                            </label>
+                            <input v-show="!is_other" type="text" v-model="school_active" placeholder="请输入学校">
+                        </div>
+
+                        <!--姓名-->
+                        <div class="message-name">
+                            <input type="text" v-model="name" placeholder="请输入姓名">
+                        </div>
+
+                        <!--获取验证码-->
+                        <div class="message-get-phone-code">
+                            <input type="text" v-model="phone" placeholder="请输入手机号码">
+                            <button @click="getPhoneCode" :disabled="is_disabled">{{message}}</button>
+                        </div>
+
+                        <!--验证码-->
+                        <div class="message-code">
+                            <input type="text" v-model="phone_code" placeholder="请输入验证码">
+                        </div>
+
+                        <!--提交-->
+                        <div class="message-submit">
+                            <button @click="submit">提交</button>
+                        </div>
+
+                        <p class="message-tip">登记信息仅作为身份验证，便于统计参与的学校，并且在获奖之后礼品提供方会主动联系您。</p>
+
+                    </div>
                 </div>
-
-                <!--学校-->
-                <div class="message-city-school">
-                    <label v-show="is_other">
-                        <select v-model="school_active">
-                            <option
-                                    v-for="(item,index) in for_school"
-                                    :key="index"
-                                    :value='item'>
-                                {{item}}
-                            </option>
-                        </select>
-                    </label>
-                    <input v-show="!is_other" type="text" v-model="school_active" placeholder="请输入学校">
-                </div>
-
-                <!--姓名-->
-                <div class="message-name">
-                    <input type="text" v-model="name" placeholder="请输入姓名">
-                </div>
-
-                <!--获取验证码-->
-                <div class="message-get-phone-code">
-                    <input type="text" v-model="phone" placeholder="请输入手机号码">
-                    <button @click="getPhoneCode" :disabled="is_disabled">{{message}}</button>
-                </div>
-
-                <!--验证码-->
-                <div class="message-code">
-                    <input type="text" v-model="phone_code" placeholder="请输入验证码">
-                </div>
-
-                <!--提交-->
-                <div class="message-submit">
-                    <button @click="submit">提交</button>
-                </div>
-
-                <p class="message-tip">登记信息仅作为身份验证，便于统计参与的学校，并且在获奖之后礼品提供方会主动联系您。</p>
-
             </div>
 
-        </div>
+            <figure slot="back">
+                <div class="index-qr">
+                    <img src="../assets/images/qr_1.png" alt="qr">
+                </div>
+            </figure>
 
-        <div class="index-qr" v-else>
-            <img src="../assets/images/qr_1.png" alt="qr">
-        </div>
+        </flipper>
+
+        <div :style="is_sign ? 'height:500px' : 'height:380px'"></div>
 
         <div class="index-map">
             <img src="../assets/images/map_1.png" alt="map">
@@ -103,7 +111,9 @@
 </template>
 
 <script>
+    import Flipper from 'vue-flipper'
     import {mapGetters} from 'vuex'
+    import 'vue-flipper/dist/vue-flipper.css'
 
     export default {
         name: 'index',
@@ -922,7 +932,7 @@
                 is_sign: false // 是否注册
             }
         },
-        components: {},
+        components: {Flipper},
         async mounted() {
 
             // 如果 openid 是空，则获取
@@ -951,7 +961,8 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
-                console.log(res.back_value)
+                this.is_sign = res.back_value;
+                window.alert(this.is_sign)
             })
 
         },
