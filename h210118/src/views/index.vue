@@ -31,7 +31,7 @@
             <img src="../assets/images/tomorrow_1.png" alt="tomorrow">
         </div>
 
-        <div class="index-message">
+        <div class="index-message" v-if="is_sign">
 
             <div class="message">
 
@@ -89,6 +89,10 @@
 
             </div>
 
+        </div>
+
+        <div class="index-qr" v-else>
+            <img src="../assets/images/qr_1.png" alt="qr">
         </div>
 
         <div class="index-map">
@@ -915,10 +919,40 @@
                 message: '发送验证码', // 短信验证码按钮文字
                 timer: null, // 定时器清除
                 is_disabled: false, // 按钮禁用
+                is_sign: false // 是否注册
             }
         },
         components: {},
-        mounted() {
+        async mounted() {
+
+            // 如果 openid 是空，则获取
+            if (this.openid_info === '') {
+                await this.$store.dispatch('getOpenid', {
+                    im: this.$Config.PROJECT_INTERFACE.getopenid,
+                    url: this.$Config.REQUEST_URL
+                });
+            }
+
+            // 统计
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.set_uv_pv_statistics,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id,
+                    info_key: '注册',
+                },
+                url: this.$Config.REQUEST_URL
+            });
+
+            // 是否注册过信息
+            this.$store.dispatch('fetchData', {
+                im: this.$Config.PROJECT_INTERFACE.has_user_info,
+                fps: {
+                    open_id: this.openid_info.back_value.open_id,
+                },
+                url: this.$Config.REQUEST_URL
+            }).then(res => {
+                console.log(res.back_value)
+            })
 
         },
         methods: {
@@ -941,37 +975,118 @@
              * 获取手机验证码
              * */
             getPhoneCode() {
-                const TIME_COUNT = 60;
-                if (!this.timer) {
-                    let code = TIME_COUNT;
-                    this.is_disabled = true;
-                    this.message = `${TIME_COUNT}s后获取`;
-                    this.timer = setInterval(() => {
-                        if (code > 0 && code <= TIME_COUNT) {
-                            code--;
-                            this.message = `${code}s后获取`;
-                        } else {
-                            clearInterval(this.timer);
-                            this.timer = null;
-                            this.message = '发送验证码';
-                            this.is_disabled = false;
-                        }
-                    }, 1000);
+
+                if (this.phone === '') {
+                    this.$Toast('请输入手机号码');
+                    return false;
                 }
+
+                this.$Toast.loading({
+                    message: '发送中...',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.send_phone_identifying_code,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        phonenum: this.phone
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$Toast.clear();
+                        const TIME_COUNT = 60;
+                        if (!this.timer) {
+                            let code = TIME_COUNT;
+                            this.is_disabled = true;
+                            this.message = `${TIME_COUNT}s后获取`;
+                            this.timer = setInterval(() => {
+                                if (code > 0 && code <= TIME_COUNT) {
+                                    code--;
+                                    this.message = `${code}s后获取`;
+                                } else {
+                                    clearInterval(this.timer);
+                                    this.timer = null;
+                                    this.message = '发送验证码';
+                                    this.is_disabled = false;
+                                }
+                            }, 1000);
+                        }
+                    } else {
+                        this.$Toast.clear();
+                        if (res.error_code === 6180516006) {
+                            this.$Toast(res.error_info);
+                        }
+                    }
+                });
+
             },
             /**
              * 提交
              * */
             submit() {
-                console.log(this.city_active)
-                console.log(this.school_active)
+
+                if (this.city_active === '请选择城市') {
+                    this.$Toast('请选择城市');
+                    return false;
+                }
+
+                if (this.school_active === '请选择学校' || this.school_active === '') {
+                    this.$Toast('请选择/输入学校');
+                    return false;
+                }
+
+                if (this.name === '') {
+                    this.$Toast('请输入姓名');
+                    return false;
+                }
+
+                if (this.phone === '') {
+                    this.$Toast('请输入手机号码');
+                    return false;
+                }
+
+                if (this.phone_code === '') {
+                    this.$Toast('请输入验证码');
+                    return false;
+                }
+
+                this.$Toast.loading({
+                    message: '注册中请稍后',
+                    forbidClick: true,
+                    duration: 0,
+                    overlay: true
+                });
+
+                this.$store.dispatch('fetchData', {
+                    im: this.$Config.PROJECT_INTERFACE.set_user_info,
+                    fps: {
+                        open_id: this.openid_info.back_value.open_id,
+                        province: this.city_active,
+                        school: this.school_active,
+                        name: this.name,
+                        phonecode: this.phone_code,
+                        phonenum: this.phone
+                    },
+                    url: this.$Config.REQUEST_URL
+                }).then(res => {
+                    if (res.back_value) {
+                        this.$Toast.clear();
+                    } else {
+                        if (res.error_code === 6180516005) {
+                            this.$Toast(res.error_info);
+                        }
+                    }
+                })
             }
         },
         computed: {
-            // ...mapGetters([
-            //
-            // ]),
-
+            ...mapGetters([
+                "openid_info"
+            ]),
             for_school() {
                 // 计算选中的城市的学校列表
                 return this.school_list[this.city_active]
@@ -1062,6 +1177,19 @@
 
                 div {
                     margin-bottom: 20px;
+
+                    input::-webkit-input-placeholder {
+                        color: #000;
+                    }
+                    input::-moz-placeholder { /* Mozilla Firefox 19+ */
+                        color: #000;
+                    }
+                    input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                        color: #000;
+                    }
+                    input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                        color: #000;
+                    }
                 }
 
                 .message-city-school {
@@ -1160,6 +1288,19 @@
                     font-size: 20px;
                     line-height: 1.4;
                 }
+            }
+        }
+
+        .index-qr {
+            font-size: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px 40px;
+            margin-bottom: 10px;
+
+            img {
+                width: 100%;
             }
         }
 
