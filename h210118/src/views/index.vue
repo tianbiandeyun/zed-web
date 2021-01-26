@@ -106,7 +106,7 @@
     import {mapGetters} from 'vuex'
 
     export default {
-        name: 'Home',
+        name: 'index',
         data() {
             return {
                 // 城市
