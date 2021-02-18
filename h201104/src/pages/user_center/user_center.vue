@@ -121,7 +121,7 @@
         }
       },
       async refreshUserCenter() {
-        await this.$store.dispatch("getUserInfo", {
+        await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
           fps: {
             open_id: this.openid.back_value.open_id,

@@ -254,7 +254,7 @@ if (false) {(function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.$store.dispatch("getUserInfo", {
+                return _this2.$store.dispatch("fetch", {
                   im: _this2.$Config.INTER_FACE.get_member_info,
                   fps: {
                     open_id: _this2.openid.back_value.open_id,

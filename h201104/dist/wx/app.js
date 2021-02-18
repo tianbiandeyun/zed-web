@@ -416,7 +416,7 @@ var CONST_APP_IC = "h201104";
 /**
  * 版本号
  * */
-var VERSION = "v3.0.0";
+var VERSION = "v3.0.2";
 
 /**
  * 请求域名

@@ -44,7 +44,7 @@
           <span>手机号码：</span>
         </div>
         <div>
-          <input type="text" hold-keyboard v-model="phone" disabled placeholder="手机号码">
+          <input type="text" hold-keyboard v-model="phone" disabled placeholder="点击右侧按钮">
         </div>
         <div>
           <button
@@ -283,9 +283,9 @@
         this.$Utils.showWaiting("请稍后");
 
         wx.openLocation({
-          latitude: 39.994041,
-          longitude: 116.333473,
-          name: "太库科技（北京市海淀区五道口东升大厦A座901）",
+          latitude: +that.info.longitude,
+          longitude: +that.info.latitude,
+          name: "光科技馆",
           scale: 18,
           success() {
             that.$Utils.closeWaiting();

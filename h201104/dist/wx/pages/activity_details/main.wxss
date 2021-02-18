@@ -64,7 +64,7 @@
   text-indent: 60rpx;
   font-size: 28rpx;
   color: #515a6e;
-  line-height: 1.8;
+  line-height: 3;
 }
 .details-container .details-content-more.data-v-2dbb7ad6 {
   margin-bottom: 20rpx;
@@ -91,7 +91,7 @@
 }
 .details-container .details-content-more .more-box ._p.data-v-2dbb7ad6 {
   font-size: 28rpx;
-  line-height: 1.8;
+  line-height: 3;
   color: #515a6e;
 }
 .details-container .details-tip.data-v-2dbb7ad6 {

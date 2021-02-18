@@ -394,9 +394,9 @@ if (false) {(function () {
       this.$Utils.showWaiting("请稍后");
 
       wx.openLocation({
-        latitude: 39.994041,
-        longitude: 116.333473,
-        name: "太库科技（北京市海淀区五道口东升大厦A座901）",
+        latitude: +that.info.longitude,
+        longitude: +that.info.latitude,
+        name: "光科技馆",
         scale: 18,
         success: function success() {
           that.$Utils.closeWaiting();
@@ -532,7 +532,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "type": "text",
       "hold-keyboard": "",
       "disabled": "",
-      "placeholder": "手机号码",
+      "placeholder": "点击右侧按钮",
       "eventid": '5'
     },
     domProps: {

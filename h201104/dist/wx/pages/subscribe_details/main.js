@@ -184,7 +184,7 @@ if (false) {(function () {
   methods: {
     goIndex: function goIndex() {
       wx.reLaunch({
-        url: "/pages/index/main"
+        url: "/pages/activity_details/main?activity_id=" + this.$root.$mp.query.activity_id
       });
     }
   },

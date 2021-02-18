@@ -46,7 +46,17 @@
           this.$Utils.closeWaiting();
           this.$Utils.showErrorInfo(res, "get_activity_member_list");
         } else {
-          this.user_list = res.back_value;
+
+          let result = res.back_value;
+
+          for (let i = 0; i < result.length; i++) {
+            if (result[i].display != 2) {
+              result.splice(i, 1);
+            }
+          }
+
+          this.user_list = result;
+
           this.$Utils.closeWaiting();
         }
       });

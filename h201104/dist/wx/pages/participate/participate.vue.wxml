@@ -16,7 +16,7 @@
       </view>
       <view class="_div data-v-4f200954 phone" style="border-bottom: 1px solid #dcdee2;">
         <view class="_div data-v-4f200954"><label class="_span data-v-4f200954">手机号码：</label></view>
-        <view class="_div data-v-4f200954"><input type="text" hold-keyboard value="{{phone}}" bindinput="handleProxy" disabled placeholder="手机号码" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_input data-v-4f200954" /></view>
+        <view class="_div data-v-4f200954"><input type="text" hold-keyboard value="{{phone}}" bindinput="handleProxy" disabled placeholder="点击右侧按钮" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_input data-v-4f200954" /></view>
         <view class="_div data-v-4f200954"><button open-type="getPhoneNumber" bindgetphonenumber="handleProxy" disabled="{{disabled}}" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_button data-v-4f200954 {{disabled ? 'button_active' : ''}}">
             {{phone_message}}
           </button></view>

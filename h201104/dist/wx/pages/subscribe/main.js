@@ -129,7 +129,7 @@ if (false) {(function () {
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: "list",
+  name: "subscribe",
   components: { listItem: __WEBPACK_IMPORTED_MODULE_3__components_listItem__["a" /* default */] },
   mixins: [__WEBPACK_IMPORTED_MODULE_4__utils_login__["a" /* default */]],
   data: function data() {
@@ -220,7 +220,17 @@ if (false) {(function () {
                         _this2.$Utils.closeWaiting();
 
                         if (res.result === "failure") {
-                          _this2.$Utils.showErrorInfo(res, "set_punch_the_clock");
+
+                          if (res.error_code === 2012140710 || res.error_code === "2012140710") {
+                            wx.showModal({
+                              title: "提示",
+                              showCancel: false,
+                              content: "请选择本人，进行签到",
+                              success: function success(res) {}
+                            });
+                          } else {
+                            _this2.$Utils.showErrorInfo(res, "set_punch_the_clock");
+                          }
                         } else {
                           _this2.popup_show = false;
                           _this2.user_info = [];
@@ -318,8 +328,15 @@ if (false) {(function () {
                 _this3.$Utils.closeWaiting();
                 _this3.$Utils.showErrorInfo(res, "get_activity_member_list");
               } else {
-                _this3.list = [];
-                _this3.list = [].concat(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(_this3.list), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(res.back_value));
+                var result = res.back_value;
+
+                for (var i = 0; i < result.length; i++) {
+                  if (result[i].display != 2) {
+                    result.splice(i, 1);
+                  }
+                }
+
+                _this3.list = result;
               }
             });
           }

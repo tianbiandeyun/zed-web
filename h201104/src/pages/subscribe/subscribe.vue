@@ -33,7 +33,7 @@
   import login from "../../utils/login";
 
   export default {
-    name: "list",
+    name: "subscribe",
     components: { listItem },
     mixins: [login],
     data() {
@@ -96,7 +96,19 @@
                 this.$Utils.closeWaiting();
 
                 if (res.result === "failure") {
-                  this.$Utils.showErrorInfo(res, "set_punch_the_clock");
+
+                  if (res.error_code === 2012140710 || res.error_code === "2012140710") {
+                    wx.showModal({
+                      title: "提示",
+                      showCancel: false,
+                      content: "请选择本人，进行签到",
+                      success(res) {
+
+                      }
+                    });
+                  } else {
+                    this.$Utils.showErrorInfo(res, "set_punch_the_clock");
+                  }
                 } else {
                   this.popup_show = false;
                   this.user_info = [];
@@ -182,8 +194,16 @@
                   this.$Utils.closeWaiting();
                   this.$Utils.showErrorInfo(res, "get_activity_member_list");
                 } else {
-                  this.list = [];
-                  this.list = [...this.list, ...res.back_value];
+                  let result = res.back_value;
+
+                  for (let i = 0; i < result.length; i++) {
+                    if (result[i].display != 2) {
+                      result.splice(i, 1);
+                    }
+                  }
+
+                  this.list = result;
+
                 }
               });
 

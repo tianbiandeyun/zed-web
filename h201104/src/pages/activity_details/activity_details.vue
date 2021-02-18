@@ -120,19 +120,32 @@
        * */
       sign() {
 
-        // 判断是否授权获取用户资料
-        wx.getSetting({
-          success: res => {
-            if (res.authSetting["scope.userInfo"]) {
-              // 授权
+        // 获取用户信息
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_member_info,
+          fps: {
+            open_id: this.openid.back_value.open_id,
+            u_key: ""
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+
+          if (res.result === "failure") {
+            if (res.error_code === 2012100231 || res.error_code === "2012100231") {
+              this.is_scope = true;
+            } else {
+              this.$Utils.showErrorInfo(res, "get_member_info");
+            }
+          } else {
+            if (res.back_value.name === "" || res.back_value.name === null) {
+              this.is_scope = true;
+            } else {
               wx.navigateTo({
                 url: `/pages/participate/main?activity_id=${this.$root.$mp.query.activity_id}`
               });
-            } else {
-              // 未授权
-              this.is_scope = true;
             }
           }
+
         });
 
       },
@@ -173,10 +186,12 @@
 
         this.$Utils.showWaiting("请稍后");
 
+        console.log(this.details_info);
+
         wx.openLocation({
-          latitude: 39.994041,
-          longitude: 116.333473,
-          name: "太库科技（北京市海淀区五道口东升大厦A座901）",
+          latitude: +that.details_info.longitude,
+          longitude: +that.details_info.latitude,
+          name: "光科技馆",
           scale: 18,
           success() {
             that.$Utils.closeWaiting();
@@ -360,7 +375,7 @@
         text-indent: 30px;
         font-size: 14px;
         color: #515a6e;
-        line-height: 1.8;
+        line-height: 3;
       }
     }
 
@@ -391,7 +406,7 @@
 
         p {
           font-size: 14px;
-          line-height: 1.8;
+          line-height: 3;
           color: #515a6e;
         }
       }

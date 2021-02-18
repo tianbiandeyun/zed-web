@@ -269,11 +269,11 @@ if (false) {(function () {
                 }).then(function (res) {
                   if (res.result === "failure") {
                     _this3.$Utils.closeWaiting();
-                    // if (res.error_code === 2012100231 || res.error_code === "2012100231") {
-                    //   console.log("未登录");
-                    // } else {
-                    _this3.$Utils.showErrorInfo(res, "get_member_info");
-                    // }
+                    if (res.error_code === 2012100231 || res.error_code === "2012100231") {
+                      console.log("未登录");
+                    } else {
+                      _this3.$Utils.showErrorInfo(res, "get_member_info");
+                    }
                   } else {
                     if (res.back_value.name === "" || res.back_value.name === null) {
                       console.log("未登录");

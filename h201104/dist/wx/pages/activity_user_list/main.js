@@ -157,7 +157,17 @@ if (false) {(function () {
                   _this.$Utils.closeWaiting();
                   _this.$Utils.showErrorInfo(res, "get_activity_member_list");
                 } else {
-                  _this.user_list = res.back_value;
+
+                  var result = res.back_value;
+
+                  for (var i = 0; i < result.length; i++) {
+                    if (result[i].display != 2) {
+                      result.splice(i, 1);
+                    }
+                  }
+
+                  _this.user_list = result;
+
                   _this.$Utils.closeWaiting();
                 }
               });
