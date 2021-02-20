@@ -34,7 +34,7 @@
                                 <div class="lose-images-left">
                                     <h1>{{item.title}}</h1>
                                 </div>
-                                <div class="lose-images-right">
+                                <div class="lose-images-right" v-if="item.poster != null">
                                     <img :src="item.poster" alt="">
                                 </div>
                             </div>
@@ -247,7 +247,7 @@
                     grid-template-columns: repeat(3, 1fr);
                     align-items: center;
                     justify-items: center;
-                    height: 160px;
+                    grid-template-rows: 160px;
                     grid-column-gap: 10px;
 
                     img {
