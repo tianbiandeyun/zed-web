@@ -69,6 +69,12 @@
         },
         async mounted() {
 
+            this.$Toast.loading({
+                message: '加载中...',
+                duration:0,
+                forbidClick: true,
+            });
+
             // 如果 openid 是空，则获取
             if (this.openid_info === '') {
                 await this.$store.dispatch('getOpenid', {
@@ -78,7 +84,7 @@
             }
 
             // 轮播图
-            this.$store.dispatch('fetchData', {
+            await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_banner,
                 fps: {
                     page_name: '青听学院',
@@ -89,7 +95,7 @@
             });
 
             // tab
-            this.$store.dispatch('fetchData', {
+            await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_video_grouping,
                 fps: {
                     open_id: this.openid_info.back_value.open_id,
@@ -100,7 +106,7 @@
             });
 
             // 视频列表
-            this.$store.dispatch('fetchData', {
+            await this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_curriculum_video_list,
                 fps: {
                     open_id: this.openid_info.back_value.open_id,
@@ -111,8 +117,9 @@
                 url: this.$Config.REQUEST_URL
             }).then(res => {
                 this.video_list = res.back_value;
-                console.log(res.back_value)
-            })
+            });
+
+            this.$Toast.clear();
 
         },
         methods: {
@@ -169,10 +176,8 @@
             }
 
             .tab {
-                border: 1px solid red;
 
                 .video-list{
-                    border: 1px solid black;
                     padding: 20px 0;
                     display: grid;
                     grid-template-columns: repeat(2,1fr);
@@ -180,7 +185,45 @@
                     grid-row-gap: 20px;
 
                     .video-item{
-                        border: 1px solid black;
+                        background-color: #e8eaec;
+                        display: grid;
+                        align-items: end;
+
+
+                        .video-item-img{
+                            font-size: 0;
+
+                            img{
+                                width: 100%;
+                            }
+                        }
+
+                        .video-item-details{
+
+                            p{
+                                padding: 10px;
+
+                                &:nth-of-type(1){
+                                    font-size: 26px;
+                                    color: #17233d;
+                                }
+
+                                &:nth-of-type(2){
+                                    border: 1px solid black;
+                                    font-size: 20px;
+                                    color: #515a6e;
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+
+                                    span{
+
+                                        &:nth-of-type(2){
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
