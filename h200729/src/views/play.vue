@@ -21,7 +21,7 @@
             }
         },
         mounted() {
-            
+
             // 视频详情
             this.$store.dispatch('fetchData', {
                 im: this.$Config.PROJECT_INTERFACE.get_video_info,

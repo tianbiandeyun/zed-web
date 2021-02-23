@@ -15,6 +15,7 @@
         <div class="index-tabs">
             <Tabs v-model="active"
                   color="#ff9900"
+                  sticky
                   title-active-color="#17233d"
                   title-inactive-color="#515a6e"
                   @click="clickTab"
