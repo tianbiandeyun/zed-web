@@ -25,7 +25,7 @@
                      :name="item.id"
                      class="tab">
 
-                    <div class="video-list">
+                    <div class="video-list" v-if="video_list.length !== 0">
 
                         <div class="video-item"
                              v-for="(item,index) in video_list"
@@ -36,13 +36,21 @@
                             </div>
                             <div class="video-item-details">
                                 <p>{{item.title}}</p>
+                                <p>主持人：{{item.name}}</p>
                                 <p>
-                                    <span>主持人：{{item.name}}</span>
-                                    <span>播放量：{{item.click_count}}</span>
+                                    <img src="../assets/images/play.png" alt="">
+                                    <span>：99999</span>
                                 </p>
                             </div>
                         </div>
 
+                    </div>
+
+                    <div v-if="video_list.length === 0" class="video-empty">
+                        <Empty class="empty"
+                               image="https://img01.yzcdn.cn/vant/custom-empty-image.png"
+                               description="暂无视频">
+                        </Empty>
                     </div>
 
                 </Tab>
@@ -54,11 +62,11 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import {Swipe, SwipeItem, Tab, Tabs} from 'vant';
+    import {Swipe, SwipeItem, Tab, Tabs, Empty} from 'vant';
 
     export default {
         name: 'Home',
-        components: {Swipe, SwipeItem, Tab, Tabs},
+        components: {Swipe, SwipeItem, Tab, Tabs, Empty},
         data() {
             return {
                 swipe_list: [],
@@ -124,6 +132,11 @@
         },
         methods: {
             clickTab(name) {
+                this.$Toast.loading({
+                    message: '加载中...',
+                    duration:0,
+                    forbidClick: true,
+                });
                 // 视频列表
                 this.$store.dispatch('fetchData', {
                     im: this.$Config.PROJECT_INTERFACE.get_curriculum_video_list,
@@ -136,7 +149,7 @@
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
                     this.video_list = res.back_value;
-                    console.log(res.back_value);
+                    this.$Toast.clear();
                 })
             }
         },
@@ -150,12 +163,12 @@
 <style lang="less" scoped>
 
     .index-container {
-        border: 1px solid black;
-        padding: 20px 40px;
+        background-color: #e8eaec;
 
         .index-swipe {
-            border: 1px solid black;
+            background-color: #fff;
             margin-bottom: 20px;
+            padding: 20px 40px;
 
             .swipe .van-swipe-item {
                 height: 230px;
@@ -168,7 +181,6 @@
         }
 
         .index-tabs {
-            border: 1px solid black;
             margin-bottom: 20px;
 
             .tabs {
@@ -178,17 +190,18 @@
             .tab {
 
                 .video-list{
-                    padding: 20px 0;
                     display: grid;
                     grid-template-columns: repeat(2,1fr);
                     grid-column-gap: 20px;
                     grid-row-gap: 20px;
+                    padding: 20px 40px;
 
                     .video-item{
-                        background-color: #e8eaec;
-                        display: grid;
-                        align-items: end;
-
+                        background-color: #fff;
+                        -webkit-border-radius: 10px;
+                        -moz-border-radius: 10px;
+                        border-radius: 10px;
+                        overflow: hidden;
 
                         .video-item-img{
                             font-size: 0;
@@ -201,7 +214,7 @@
                         .video-item-details{
 
                             p{
-                                padding: 10px;
+                                padding: 8px;
 
                                 &:nth-of-type(1){
                                     font-size: 26px;
@@ -209,22 +222,33 @@
                                 }
 
                                 &:nth-of-type(2){
-                                    border: 1px solid black;
-                                    font-size: 20px;
+                                    font-size: 24px;
+                                    color: #515a6e;
+                                }
+
+                                &:nth-of-type(3){
+                                    font-size: 22px;
                                     color: #515a6e;
                                     display: grid;
-                                    grid-template-columns: 1fr 1fr;
+                                    grid-template-columns: 40px 1fr;
+                                    align-items: center;
 
-                                    span{
-
-                                        &:nth-of-type(2){
-                                            text-align: right;
-                                        }
+                                    img{
+                                        width: 30px;
                                     }
                                 }
                             }
                         }
                     }
+
+                    .video-empty{
+
+                        .empty{
+                            width: 90px;
+                            height: 90px;
+                        }
+                    }
+
                 }
             }
         }
