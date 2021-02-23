@@ -30,6 +30,7 @@
                         <div class="video-item"
                              v-for="(item,index) in video_list"
                              :key="index"
+                             @click="playVideo(item)"
                         >
                             <div class="video-item-img">
                                 <img :src="item.video_img" :alt="item.name">
@@ -39,7 +40,7 @@
                                 <p>主持人：{{item.name}}</p>
                                 <p>
                                     <img src="../assets/images/play.png" alt="">
-                                    <span>：99999</span>
+                                    <span>：{{item.click_count}}</span>
                                 </p>
                             </div>
                         </div>
@@ -71,7 +72,7 @@
             return {
                 swipe_list: [],
                 tab_list: [],
-                video_list:[],
+                video_list: [],
                 active: 0,
             }
         },
@@ -79,7 +80,7 @@
 
             this.$Toast.loading({
                 message: '加载中...',
-                duration:0,
+                duration: 0,
                 forbidClick: true,
             });
 
@@ -134,7 +135,7 @@
             clickTab(name) {
                 this.$Toast.loading({
                     message: '加载中...',
-                    duration:0,
+                    duration: 0,
                     forbidClick: true,
                 });
                 // 视频列表
@@ -151,6 +152,9 @@
                     this.video_list = res.back_value;
                     this.$Toast.clear();
                 })
+            },
+            playVideo(res) {
+                this.$router.push(`/play?video_url=${res.video_url}&video_id=${res.id}`)
             }
         },
         computed: {
@@ -189,51 +193,51 @@
 
             .tab {
 
-                .video-list{
+                .video-list {
                     display: grid;
-                    grid-template-columns: repeat(2,1fr);
+                    grid-template-columns: repeat(2, 1fr);
                     grid-column-gap: 20px;
                     grid-row-gap: 20px;
                     padding: 20px 40px;
 
-                    .video-item{
+                    .video-item {
                         background-color: #fff;
                         -webkit-border-radius: 10px;
                         -moz-border-radius: 10px;
                         border-radius: 10px;
                         overflow: hidden;
 
-                        .video-item-img{
+                        .video-item-img {
                             font-size: 0;
 
-                            img{
+                            img {
                                 width: 100%;
                             }
                         }
 
-                        .video-item-details{
+                        .video-item-details {
 
-                            p{
+                            p {
                                 padding: 8px;
 
-                                &:nth-of-type(1){
+                                &:nth-of-type(1) {
                                     font-size: 26px;
                                     color: #17233d;
                                 }
 
-                                &:nth-of-type(2){
+                                &:nth-of-type(2) {
                                     font-size: 24px;
                                     color: #515a6e;
                                 }
 
-                                &:nth-of-type(3){
+                                &:nth-of-type(3) {
                                     font-size: 22px;
                                     color: #515a6e;
                                     display: grid;
                                     grid-template-columns: 40px 1fr;
                                     align-items: center;
 
-                                    img{
+                                    img {
                                         width: 30px;
                                     }
                                 }
@@ -241,9 +245,9 @@
                         }
                     }
 
-                    .video-empty{
+                    .video-empty {
 
-                        .empty{
+                        .empty {
                             width: 90px;
                             height: 90px;
                         }
