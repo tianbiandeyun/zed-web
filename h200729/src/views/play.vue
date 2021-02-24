@@ -21,8 +21,23 @@
                     <span>观看人数：{{video_info.click_count}}</span>
                 </p>
             </div>
-            <div class="go-back">
+            <div class="go-back" @click="goBack">
                 <p>返回首页</p>
+            </div>
+        </div>
+
+        <div class="teacher-info">
+            <div class="teacher-left">
+                <div class="header">
+                    <img :src="video_info.head_picture" alt="">
+                </div>
+                <div class="details">
+                    <p>{{video_info.name}}</p>
+                    <p>{{video_info.introduce}}</p>
+                </div>
+            </div>
+            <div class="teacher-details">
+                <p>{{video_info.describe}}</p>
             </div>
         </div>
 
@@ -77,6 +92,11 @@
 
                 this.$Toast.clear();
             })
+        },
+        methods: {
+            goBack() {
+                this.$router.replace(`/`)
+            }
         }
     }
 </script>
@@ -98,7 +118,6 @@
         }
 
         .video-mp4 {
-            border: 1px solid black;
 
             video {
                 width: 100%;
@@ -110,7 +129,6 @@
             height: 380px;
             overflow: hidden;
             background-color: #fff;
-            border-bottom: 1px solid black;
 
             .min {
                 width: 100%;
@@ -124,7 +142,6 @@
             display: grid;
             grid-template-columns: 2.2fr 1fr;
             grid-column-gap: 10px;
-            border: 1px solid black;
             padding: 20px 40px;
             margin-bottom: 20px;
 
@@ -171,6 +188,64 @@
                     color: #515a6e;
                 }
             }
+        }
+
+        .teacher-info {
+            background-color: #fff;
+            padding: 20px 40px;
+
+            .teacher-left {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #dcdee2;
+
+                .header {
+                    width: 140px;
+                    height: 140px;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: grid;
+                    grid-template-columns: 100%;
+                    align-items: center;
+                    justify-items: center;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .details {
+                    display: grid;
+                    align-content: center;
+                    grid-row-gap: 10px;
+
+                    p {
+
+                        &:nth-of-type(1) {
+                            font-size: 34px;
+                            color: #17233d;
+                            font-weight: 600;
+                        }
+
+                        &:nth-of-type(2) {
+                            font-size: 28px;
+                            color: #515a6e;
+                        }
+                    }
+                }
+            }
+
+            .teacher-details {
+                font-size: 28px;
+                color: #515a6e;
+                line-height: 1.6;
+            }
+
         }
     }
 </style>
