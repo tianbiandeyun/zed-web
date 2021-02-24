@@ -10,10 +10,7 @@
         </div>
 
         <div v-if="video_type === 3" class="video-mp4">
-            <video
-                    controls
-                    :src="video_url">
-            </video>
+            <video controls :src="video_url"></video>
         </div>
 
         <div class="video-info">
@@ -60,8 +57,6 @@
             }).then(res => {
 
                 this.video_info = res.back_value;
-
-                console.log(res.back_value);
 
                 if (+res.back_value.status === 1) {
                     this.video_type = +res.back_value.status;
