@@ -6,8 +6,8 @@
                    :autoplay="3000"
                    indicator-color="white"
             >
-                <SwipeItem v-for="(image, index) in swipe_list" :key="index">
-                    <img :src="image.video_img" :alt="image.title">
+                <SwipeItem v-for="(item, index) in swipe_list" :key="index" @click="clickSwipe(item)">
+                    <img :src="item.video_img" :alt="item.title">
                 </SwipeItem>
             </Swipe>
         </div>
@@ -133,6 +133,9 @@
 
         },
         methods: {
+            clickSwipe(res) {
+                this.$router.push(`/search?search_id=${res.video_grouping_id}`)
+            },
             clickTab(name) {
                 this.$Toast.loading({
                     message: '加载中...',
