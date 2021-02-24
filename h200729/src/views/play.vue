@@ -9,16 +9,23 @@
             <iframe class="max" id="max" frameborder=0 name="max" scrolling=auto></iframe>
         </div>
 
+        <div v-if="video_type === 3" class="video-mp4">
+            <video
+                    controls
+                    :src="video_url">
+            </video>
+        </div>
+
         <div class="video-info">
             <div class="video-info-details">
-                <p>标题</p>
+                <p>{{video_info.title}}</p>
                 <p>
-                    <span>主持人：嘟嘟嘟</span>
-                    <span>观看：3333</span>
+                    <span>主持人：{{video_info.name}}</span>
+                    <span>观看人数：{{video_info.click_count}}</span>
                 </p>
             </div>
             <div class="go-back">
-                <p>返回</p>
+                <p>返回首页</p>
             </div>
         </div>
 
@@ -32,6 +39,7 @@
             return {
                 video_type: 1,
                 video_info: '',
+                video_url: ''
             }
         },
         mounted() {
@@ -56,20 +64,20 @@
                 console.log(res.back_value);
 
                 if (+res.back_value.status === 1) {
+                    this.video_type = +res.back_value.status;
                     const MIN = document.getElementById('min');
                     MIN.src = this.$route.query.video_url;
-                    this.video_type = +res.back_value.status
                 }
 
                 if (+res.back_value.status === 2) {
+                    this.video_type = +res.back_value.status;
                     const MAX = document.getElementById('max');
                     MAX.src = this.$route.query.video_url;
-                    this.video_type = +res.back_value.status
                 }
 
                 if (+res.back_value.status === 3) {
-                    // .mp4
-
+                    this.video_type = +res.back_value.status;
+                    this.video_url = this.$route.query.video_url;
                 }
 
                 this.$Toast.clear();
@@ -80,6 +88,7 @@
 
 <style lang="less" scoped>
     .play-container {
+        background-color: #e8eaec;
 
         .play-video-max {
             width: 100%;
@@ -90,6 +99,14 @@
                 width: 100%;
                 height: 900px;
                 transform: translateY(-119px);
+            }
+        }
+
+        .video-mp4 {
+            border: 1px solid black;
+
+            video {
+                width: 100%;
             }
         }
 
@@ -108,32 +125,56 @@
         }
 
         .video-info {
-            border: 1px solid red;
+            background-color: #fff;
             display: grid;
-            grid-template-columns: 3fr 1fr;
-
-            div {
-                border: 1px solid black;
-            }
+            grid-template-columns: 2.2fr 1fr;
+            grid-column-gap: 10px;
+            border: 1px solid black;
+            padding: 20px 40px;
+            margin-bottom: 20px;
 
             .video-info-details {
 
                 p {
 
+                    line-height: 1.4;
+
                     &:nth-of-type(1) {
-                        font-size: 26px;
+                        font-size: 34px;
                         color: #17233d;
+                        margin-bottom: 10px;
                     }
 
                     &:nth-of-type(2) {
-                        font-size: 24px;
+                        font-size: 26px;
                         color: #515a6e;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+
+                        span {
+
+                            &:nth-of-type(2) {
+                                text-align: right;
+                            }
+                        }
                     }
                 }
             }
 
             .go-back {
+                display: grid;
+                align-items: center;
+                justify-items: center;
 
+                p {
+                    border: 4px solid #dcdee2;
+                    padding: 14px 30px;
+                    font-size: 24px;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    border-radius: 10px;
+                    color: #515a6e;
+                }
             }
         }
     }
