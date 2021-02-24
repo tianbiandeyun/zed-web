@@ -172,7 +172,6 @@
 <style lang="less" scoped>
 
     .index-container {
-        background-color: #e8eaec;
 
         .index-swipe {
             background-color: #fff;
@@ -209,6 +208,9 @@
                         -moz-border-radius: 10px;
                         border-radius: 10px;
                         overflow: hidden;
+                        box-shadow: 0px 0px 5px 5px rgb(220,215,215);
+                        -webkit-box-shadow: 0px 0px 5px 5px rgb(220,215,215);
+                        -moz-box-shadow: 0px 0px 5px 5px rgb(220,215,215);
 
                         .video-item-img {
                             font-size: 0;
