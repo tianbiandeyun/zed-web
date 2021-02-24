@@ -150,6 +150,7 @@
                     },
                     url: this.$Config.REQUEST_URL
                 }).then(res => {
+                    this.video_list = [];
                     this.video_list = res.back_value;
                     this.$Toast.clear();
                 })
@@ -176,11 +177,9 @@
             padding: 20px 40px;
 
             .swipe .van-swipe-item {
-                height: 230px;
 
                 img {
                     width: 100%;
-                    height: 100%;
                 }
             }
         }
