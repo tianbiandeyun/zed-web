@@ -134,7 +134,7 @@
         },
         methods: {
             clickSwipe(res) {
-                this.$router.push(`/search?search_id=${res.video_grouping_id}`)
+                this.$router.push(`/search?search_id=${res.video_grouping_id}&title=${res.title}`)
             },
             clickTab(name) {
                 this.$Toast.loading({

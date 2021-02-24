@@ -1,6 +1,8 @@
 <template>
     <section class="search-container">
-        search-container
+        <div>
+            <p>{{title}}</p>
+        </div>
     </section>
 </template>
 
@@ -11,6 +13,7 @@
         name: "search",
         data() {
             return {
+                title: '',
                 video_list: []
             }
         },
@@ -41,6 +44,7 @@
                 },
                 url: this.$Config.REQUEST_URL
             }).then(res => {
+                this.title = this.$route.query.title;
                 this.video_list = res.back_value;
             });
 
