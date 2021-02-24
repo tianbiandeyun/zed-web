@@ -172,6 +172,7 @@
 <style lang="less" scoped>
 
     .index-container {
+        padding-bottom: 40px;
 
         .index-swipe {
             background-color: #fff;
@@ -188,10 +189,6 @@
 
         .index-tabs {
             margin-bottom: 20px;
-
-            .tabs {
-                font-size: 60px;
-            }
 
             .tab {
 
