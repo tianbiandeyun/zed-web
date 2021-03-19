@@ -1,0 +1,17 @@
+<template name="0b134d4a">
+  <view class="_section data-v-56988282 line-container">
+    <view class="_div data-v-56988282 line-header">
+      <view class="_div data-v-56988282 line-header-photo">
+        <image src="/static/images/details_log.png" alt class="_img data-v-56988282"></image>
+      </view>
+      <view class="_div data-v-56988282 line-header-name">
+        <view class="_p data-v-56988282">姓名</view>
+        <view class="_p data-v-56988282">十几分钟之前，给你留言</view>
+      </view>
+      <view class="_div data-v-56988282 line-header-options" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_p data-v-56988282">移除</view>
+      </view>
+    </view>
+    <view class="_div data-v-56988282 line-message" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"> 我是留言.我是留言.我是留言.我是留言.我是留言.我是留言. 我是留言.我是留言.我是留言.我是留言.我是留言.我是留言. 我是留言.我是留言 </view>
+  </view>
+</template>

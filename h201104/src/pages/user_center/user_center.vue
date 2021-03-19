@@ -65,6 +65,8 @@
 
     </div>
 
+    <button @click="goReply">留言</button>
+
     <div class="user-e">
       <h1>形象照片</h1>
       <div>
@@ -109,14 +111,20 @@
 
     },
     methods: {
+      goReply() {
+        console.log(this.$root.$mp.query.u_key);
+        wx.navigateTo({
+          url: `/pages/call_line/main?u_key=${this.$root.$mp.query.u_key}`
+        });
+      },
       goEdit(res) {
         if (res === 1) {
           wx.navigateTo({
-            url: `/pages/user_center_jichu/main`
+            url: `/pages/user_center_jichu/main?u_key=${this.$root.$mp.query.u_key}`
           });
         } else {
           wx.navigateTo({
-            url: `/pages/user_center_jieshao/main`
+            url: `/pages/user_center_jieshao/main?u_key=${this.$root.$mp.query.u_key}`
           });
         }
       },

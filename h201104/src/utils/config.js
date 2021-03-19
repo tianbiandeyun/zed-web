@@ -11,8 +11,8 @@ const VERSION = "v3.0.2";
 /**
  * 请求域名
  * */
-// const CONST_REQUEST_URI = "https://testphp.hztc.dev.hztcapp.com/test_index.php"; // 开发
-const CONST_REQUEST_URI = "https://hztc.dev.hztcapp.com/index.php"; // 正式
+const CONST_REQUEST_URI = "https://testphp.hztc.dev.hztcapp.com/test_index.php"; // 开发
+// const CONST_REQUEST_URI = "https://hztc.dev.hztcapp.com/index.php"; // 正式
 
 /**
  * 请求地址
@@ -23,6 +23,7 @@ const REQUEST_URI = `${CONST_REQUEST_URI}?r=interface/api&ic=${CONST_APP_IC}`;
  * 接口列表
  * */
 const INTER_FACE = {
+  get_chat_record_list: "get_chat_record_list",
   get_activity_id: "get_activity_id",
   get_member_info: "get_member_info",
   make_img_route: "make_img_route",

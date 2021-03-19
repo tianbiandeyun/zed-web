@@ -2,7 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac5fc719-1d9e-4e35-9aca-d1e158238d0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/common/manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/common/manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/common/vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/common/vendor.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/common/vendor.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/components/slots.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/components/slots.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/activity_details/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/activity_details/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/activity_end_details/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/activity_end_details/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/activity_user_list/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/activity_user_list/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/index/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/index/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/organize/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/organize/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/participate/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/participate/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/subscribe/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/subscribe/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/subscribe_details/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/subscribe_details/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center/user_center.vue.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center/user_center.vue.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center_jichu/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center_jichu/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center_jieshao/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/pages/user_center_jieshao/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/dist/wx/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/dist/wx/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/src/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/src/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/src/pages/user_center/user_center.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/src/pages/user_center/user_center.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/src/pages/user_center_jichu/user_center_jichu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/src/pages/user_center_jichu/user_center_jichu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/src/pages/user_center_jieshao/user_center_jieshao.vue" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/src/pages/user_center_jieshao/user_center_jieshao.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h201104/src/utils/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/h201104/src/utils/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newbee-mall-vue3-app" beforeDir="false" afterPath="$PROJECT_DIR$/newbee-mall-vue3-app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/.idea/test_vue_jquery.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/jquery.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_vue_jquery/vue.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xyk.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/xyk.xlsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -176,11 +209,12 @@
       <workItem from="1614149832648" duration="778000" />
       <workItem from="1614826925026" duration="57000" />
       <workItem from="1614827105788" duration="2000" />
+      <workItem from="1615536115152" duration="2000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19257000" />
+    <option name="totallyTimeSpent" value="19259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="6" />

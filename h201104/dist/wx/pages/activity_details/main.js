@@ -1,149 +1,17 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([12],{
+global.webpackJsonpMpvue([15],{
 
-/***/ 108:
+/***/ 100:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', {
-    staticClass: "details-container"
-  }, [_c('div', {
-    staticClass: "details-log"
-  }, [_c('img', {
-    attrs: {
-      "src": _vm.details_info.main_graph,
-      "alt": ""
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "details-box"
-  }, [_c('div', {
-    staticClass: "details-time"
-  }, [_c('span', [_vm._v("会议时间：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.details_info.meeting_time))])]), _vm._v(" "), _c('div', {
-    staticClass: "details-post",
-    attrs: {
-      "eventid": '0'
-    },
-    on: {
-      "click": _vm.getLocation
-    }
-  }, [_c('span', [_vm._v("会议地点：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.details_info.congress_venue))]), _vm._v(" "), _c('span', [_vm._v(" > ")])]), _vm._v(" "), _c('div', {
-    staticClass: "details-origin",
-    attrs: {
-      "eventid": '1'
-    },
-    on: {
-      "click": _vm.organize
-    }
-  }, [_c('span', [_vm._v("组织信息：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.details_info.organizers_title))]), _vm._v(" "), _c('span', [_vm._v(" > ")])])]), _vm._v(" "), _c('div', {
-    staticClass: "details-content"
-  }, [_c('h1', [_vm._v("活动介绍：")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.details_info.activity_brief))])], 1), _vm._v(" "), _c('div', {
-    staticClass: "details-content-more"
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.is_more),
-      expression: "is_more"
-    }],
-    staticClass: "more-box"
-  }, [_c('h1', [_vm._v("活动流程：")]), _vm._v(" "), _vm._l((_vm.details_info.activity_flow), function(item, index) {
-    return _c('p', {
-      key: index
-    }, [_vm._v("\n        " + _vm._s(item) + "\n      ")])
-  })], 2), _vm._v(" "), _c('p', {
-    staticClass: "more",
-    attrs: {
-      "eventid": '2'
-    },
-    on: {
-      "click": _vm.more
-    }
-  }, [_vm._v(" -- " + _vm._s(_vm.more_content) + " -- ")])], 1), _vm._v(" "), _c('div', {
-    staticClass: "details-tip"
-  }, [_vm._v("与会嘉宾/签到簿：")]), _vm._v(" "), _vm._l((_vm.user_list), function(item, index) {
-    return _c('div', {
-      key: index,
-      staticClass: "details-sign"
-    }, [_c('signItem', {
-      attrs: {
-        "item": item,
-        "eventid": '3_' + index,
-        "mpcomid": '0_' + index
-      },
-      on: {
-        "getUserId": _vm.getUserId
-      }
-    })], 1)
-  }), _vm._v(" "), _c('div', {
-    staticClass: "details-bottom"
-  }, [_c('div', [_c('button', {
-    attrs: {
-      "eventid": '4'
-    },
-    on: {
-      "click": _vm.sign
-    }
-  }, [_vm._v(_vm._s(_vm.button_msg))])], 1), _vm._v(" "), _c('div', [_c('button', {
-    attrs: {
-      "open-type": "share"
-    }
-  }, [_c('img', {
-    attrs: {
-      "src": "../../../static/images/share.png",
-      "alt": ""
-    }
-  })])], 1)]), _vm._v(" "), _c('getUserInfo', {
-    attrs: {
-      "isScope": _vm.is_scope,
-      "eventid": '5',
-      "mpcomid": '1'
-    },
-    on: {
-      "setUserInfo": _vm.setUserInfo
-    }
-  })], 2)
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-2dbb7ad6", esExports)
-  }
-}
-
-/***/ }),
-
-/***/ 96:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__activity_details__ = __webpack_require__(97);
-
-
-
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__activity_details__["a" /* default */]);
-app.$mount();
-
-/***/ }),
-
-/***/ 97:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_activity_details_vue__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2dbb7ad6_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_activity_details_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_activity_details_vue__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2dbb7ad6_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_activity_details_vue__ = __webpack_require__(111);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(98)
+  __webpack_require__(101)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -188,14 +56,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 98:
+/***/ 101:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 99:
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -205,8 +73,8 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_sign__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_getUserInfo__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_sign__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_getUserInfo__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_login__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vuex__ = __webpack_require__(5);
 
@@ -561,6 +429,138 @@ if (false) {(function () {
 
 });
 
+/***/ }),
+
+/***/ 111:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    staticClass: "details-container"
+  }, [_c('div', {
+    staticClass: "details-log"
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.details_info.main_graph,
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "details-box"
+  }, [_c('div', {
+    staticClass: "details-time"
+  }, [_c('span', [_vm._v("会议时间：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.details_info.meeting_time))])]), _vm._v(" "), _c('div', {
+    staticClass: "details-post",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.getLocation
+    }
+  }, [_c('span', [_vm._v("会议地点：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.details_info.congress_venue))]), _vm._v(" "), _c('span', [_vm._v(" > ")])]), _vm._v(" "), _c('div', {
+    staticClass: "details-origin",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.organize
+    }
+  }, [_c('span', [_vm._v("组织信息：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.details_info.organizers_title))]), _vm._v(" "), _c('span', [_vm._v(" > ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "details-content"
+  }, [_c('h1', [_vm._v("活动介绍：")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.details_info.activity_brief))])], 1), _vm._v(" "), _c('div', {
+    staticClass: "details-content-more"
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.is_more),
+      expression: "is_more"
+    }],
+    staticClass: "more-box"
+  }, [_c('h1', [_vm._v("活动流程：")]), _vm._v(" "), _vm._l((_vm.details_info.activity_flow), function(item, index) {
+    return _c('p', {
+      key: index
+    }, [_vm._v("\n        " + _vm._s(item) + "\n      ")])
+  })], 2), _vm._v(" "), _c('p', {
+    staticClass: "more",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": _vm.more
+    }
+  }, [_vm._v(" -- " + _vm._s(_vm.more_content) + " -- ")])], 1), _vm._v(" "), _c('div', {
+    staticClass: "details-tip"
+  }, [_vm._v("与会嘉宾/签到簿：")]), _vm._v(" "), _vm._l((_vm.user_list), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "details-sign"
+    }, [_c('signItem', {
+      attrs: {
+        "item": item,
+        "eventid": '3_' + index,
+        "mpcomid": '0_' + index
+      },
+      on: {
+        "getUserId": _vm.getUserId
+      }
+    })], 1)
+  }), _vm._v(" "), _c('div', {
+    staticClass: "details-bottom"
+  }, [_c('div', [_c('button', {
+    attrs: {
+      "eventid": '4'
+    },
+    on: {
+      "click": _vm.sign
+    }
+  }, [_vm._v(_vm._s(_vm.button_msg))])], 1), _vm._v(" "), _c('div', [_c('button', {
+    attrs: {
+      "open-type": "share"
+    }
+  }, [_c('img', {
+    attrs: {
+      "src": "../../../static/images/share.png",
+      "alt": ""
+    }
+  })])], 1)]), _vm._v(" "), _c('getUserInfo', {
+    attrs: {
+      "isScope": _vm.is_scope,
+      "eventid": '5',
+      "mpcomid": '1'
+    },
+    on: {
+      "setUserInfo": _vm.setUserInfo
+    }
+  })], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-2dbb7ad6", esExports)
+  }
+}
+
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__activity_details__ = __webpack_require__(100);
+
+
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__activity_details__["a" /* default */]);
+app.$mount();
+
 /***/ })
 
-},[96]);
+},[99]);

@@ -91,20 +91,42 @@
     },
     mounted() {
 
-      let _index = this.user_info.back_value.industry_involved || this.industry[0];
-      let __index = this.user_info.back_value.interest || this.w_industry[0];
+      this.$Utils.showWaiting();
 
-      this.index = this.industry.indexOf(_index);
-      this.w_index = this.w_industry.indexOf(__index);
-      this.jieshao = this.user_info.back_value.brief_introduction || "";
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_member_info,
+        fps: {
+          open_id: this.openid.back_value.open_id,
+          u_key: this.$root.$mp.query.u_key || ""
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(res => {
+        if (res.result === "failure") {
+          this.$Utils.closeWaiting();
+          this.$Utils.showErrorInfo(res, "get_member_info");
+        } else {
+          let _user_info = res.back_value;
 
-      if (this.user_info.back_value.head_portrait !== null || this.user_info.back_value.head_portrait !== "") {
-        this.fileList.push({
-          url: this.user_info.back_value.head_portrait
-        });
-      } else {
-        this.fileList = [];
-      }
+          let _index = _user_info.industry_involved || this.industry[0];
+          let __index = _user_info.interest || this.w_industry[0];
+
+          this.index = this.industry.indexOf(_index);
+          this.w_index = this.w_industry.indexOf(__index);
+          this.jieshao = _user_info.brief_introduction || "";
+
+          if (_user_info.head_portrait !== null || _user_info.head_portrait !== "") {
+            this.fileList.push({
+              url: _user_info.head_portrait
+            });
+          } else {
+            this.fileList = [];
+          }
+
+          this.$Utils.closeWaiting();
+
+        }
+      });
+
 
     },
     methods: {
@@ -235,8 +257,8 @@
     },
     computed: {
       ...mapGetters([
-        "openid",
-        "user_info"
+        "openid"
+        // "user_info"
       ])
     },
     onUnload() {

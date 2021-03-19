@@ -96,16 +96,38 @@
     },
     mounted() {
 
-      if (this.user_info.back_value.phone) {
-        this.disabled = true;
-      }
+      this.$Utils.showWaiting();
 
-      this.name = this.user_info.back_value.name || "";
-      +this.user_info.back_value.sex === 1 ? this.index = 0 : this.index = 1 || 0;
-      this.complate = this.user_info.back_value.company || "";
-      this.zhiwei = this.user_info.back_value.job_description || "";
-      this.email = this.user_info.back_value.mail || "";
-      this.phone = this.user_info.back_value.phone || "";
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_member_info,
+        fps: {
+          open_id: this.openid.back_value.open_id,
+          u_key: this.$root.$mp.query.u_key || ""
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(res => {
+        if (res.result === "failure") {
+          this.$Utils.closeWaiting();
+          this.$Utils.showErrorInfo(res, "get_member_info");
+        } else {
+          let _user_info = res.back_value;
+
+          if (_user_info.phone) {
+            this.disabled = true;
+          }
+
+          this.name = _user_info.name || "";
+          +_user_info.sex === 1 ? this.index = 0 : this.index = 1 || 0;
+          this.complate = _user_info.company || "";
+          this.zhiwei = _user_info.job_description || "";
+          this.email = _user_info.mail || "";
+          this.phone = _user_info.phone || "";
+
+          this.$Utils.closeWaiting();
+
+        }
+      });
+
     },
     methods: {
       submit() {
@@ -251,8 +273,8 @@
     },
     computed: {
       ...mapGetters([
-        "openid",
-        "user_info"
+        "openid"
+        // "user_info"
       ])
     },
     onUnload() {

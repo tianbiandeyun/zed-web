@@ -1,0 +1,1 @@
+<import src="/pages/send_call/send_call.vue.wxml" /><template is="6477e21e" data="{{ ...$root['0'], $root }}"/>

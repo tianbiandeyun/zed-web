@@ -1,0 +1,39 @@
+@import "../../common/vendor.wxss";
+
+.call_line-container.data-v-bf8108fc {
+  background-color: #fff;
+}
+.call_line-container .call.data-v-bf8108fc {
+  border-bottom: 2rpx solid #dcdee2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 28rpx 20rpx 28rpx;
+}
+.create_line-container .created-line-header.data-v-0ec57eb0 {
+  display: grid;
+  grid-template-columns: 60rpx 4fr 1fr;
+  grid-column-gap: 12rpx;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+.create_line-container .created-line-header ._p.data-v-0ec57eb0:nth-of-type(1),
+.create_line-container .created-line-header ._p.data-v-0ec57eb0:nth-of-type(3) {
+  text-align: center;
+}
+.create_line-container .created-line-header ._p.data-v-0ec57eb0:nth-of-type(1) {
+  color: #17233d;
+  font-size: 36rpx;
+}
+.create_line-container .created-line-header ._p.data-v-0ec57eb0:nth-of-type(2) {
+  color: #808695;
+  font-size: 28rpx;
+}
+.create_line-container .created-line-header ._p.data-v-0ec57eb0:nth-of-type(3) {
+  color: #FF0000;
+  font-size: 28rpx;
+}
+.create_line-container .created-line-message.data-v-0ec57eb0 {
+  color: #515a6e;
+  font-size: 32rpx;
+}

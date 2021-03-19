@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <script>
+        let setHtmlFontSize = () => {
+            // 设计稿默认基准字体
+            const fontSize = 16;
+            // 设计稿宽度
+            const draftWidth = 750;
+            // 设备的宽度
+            let systemWidth = document.documentElement.clientWidth;
+            let htmlFontSize = (fontSize * (systemWidth / draftWidth) > 40 ? 40 + 'px' : (fontSize * (systemWidth / draftWidth) + 'px'));
+            document.documentElement.style.fontSize = htmlFontSize;
+        };
+
+        window.addEventListener('load', setHtmlFontSize);
+        window.addEventListener('resize', setHtmlFontSize);
+
+        let redirect = () => {
+
+            let userAgent = navigator.userAgent.toLowerCase();
+
+            let device = /ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/;
+
+            if (device.test(userAgent)) {
+                // 到移动页面
+                console.log('到移动页面')
+            } else {
+                // 到PC
+                console.log('到 PC')
+            }
+        };
+
+        redirect();
+
+    </script>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        #box > P:nth-of-type(1) {
+            font-size: .4rem;
+        }
+
+        #box > P:nth-of-type(2) {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+
+<section id="box">
+    <p>我是一个文字</p>
+
+    <p>我是第二行文字</p>
+</section>
+
+</body>
+</html>

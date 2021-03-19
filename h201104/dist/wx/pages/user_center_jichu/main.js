@@ -1,15 +1,15 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([4],{
+global.webpackJsonpMpvue([5],{
 
-/***/ 152:
+/***/ 183:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_center_jichu__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_center_jichu__ = __webpack_require__(184);
 
 
 
@@ -18,16 +18,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 153:
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_user_center_jichu_vue__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2b4256ce_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_user_center_jichu_vue__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_user_center_jichu_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2b4256ce_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_user_center_jichu_vue__ = __webpack_require__(187);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(154)
+  __webpack_require__(185)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -72,14 +72,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 154:
+/***/ 185:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 155:
+/***/ 186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -184,22 +184,43 @@ if (false) {(function () {
     };
   },
   mounted: function mounted() {
+    var _this = this;
 
-    if (this.user_info.back_value.phone) {
-      this.disabled = true;
-    }
+    this.$Utils.showWaiting();
 
-    this.name = this.user_info.back_value.name || "";
-    +this.user_info.back_value.sex === 1 ? this.index = 0 : this.index = 1 || 0;
-    this.complate = this.user_info.back_value.company || "";
-    this.zhiwei = this.user_info.back_value.job_description || "";
-    this.email = this.user_info.back_value.mail || "";
-    this.phone = this.user_info.back_value.phone || "";
+    this.$store.dispatch("fetch", {
+      im: this.$Config.INTER_FACE.get_member_info,
+      fps: {
+        open_id: this.openid.back_value.open_id,
+        u_key: this.$root.$mp.query.u_key || ""
+      },
+      url: this.$Config.REQUEST_URI
+    }).then(function (res) {
+      if (res.result === "failure") {
+        _this.$Utils.closeWaiting();
+        _this.$Utils.showErrorInfo(res, "get_member_info");
+      } else {
+        var _user_info = res.back_value;
+
+        if (_user_info.phone) {
+          _this.disabled = true;
+        }
+
+        _this.name = _user_info.name || "";
+        +_user_info.sex === 1 ? _this.index = 0 : _this.index = 1 || 0;
+        _this.complate = _user_info.company || "";
+        _this.zhiwei = _user_info.job_description || "";
+        _this.email = _user_info.mail || "";
+        _this.phone = _user_info.phone || "";
+
+        _this.$Utils.closeWaiting();
+      }
+    });
   },
 
   methods: {
     submit: function submit() {
-      var _this = this;
+      var _this2 = this;
 
       if (this.name === "") {
 
@@ -268,8 +289,8 @@ if (false) {(function () {
       }).then(function (res) {
 
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "update_user_info");
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "update_user_info");
         } else {
           wx.showModal({
             title: "提示",
@@ -281,7 +302,7 @@ if (false) {(function () {
               });
             }
           });
-          _this.$Utils.closeWaiting();
+          _this2.$Utils.closeWaiting();
         }
       });
     },
@@ -290,7 +311,7 @@ if (false) {(function () {
      * 获取手机号码
      * */
     getPhone: function getPhone(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (e.mp.detail.errMsg === "getPhoneNumber:ok") {
 
@@ -312,12 +333,12 @@ if (false) {(function () {
           url: this.$Config.REQUEST_URI
         }).then(function (res) {
           if (res.result === "failure") {
-            _this2.$Utils.showErrorInfo(res, "get_user_phone");
+            _this3.$Utils.showErrorInfo(res, "get_user_phone");
           } else {
-            _this2.phone = res.back_value.phoneNumber;
-            _this2.phone_message = "已获取";
-            _this2.disabled = true;
-            _this2.$Utils.closeWaiting();
+            _this3.phone = res.back_value.phoneNumber;
+            _this3.phone_message = "已获取";
+            _this3.disabled = true;
+            _this3.$Utils.closeWaiting();
           }
         });
       } else {
@@ -337,7 +358,9 @@ if (false) {(function () {
       console.log(this.result);
     }
   },
-  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(["openid", "user_info"])),
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(["openid"
+  // "user_info"
+  ])),
   onUnload: function onUnload() {
     this.$Utils.restData(this);
   }
@@ -345,7 +368,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 156:
+/***/ 187:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -548,4 +571,4 @@ if (false) {
 
 /***/ })
 
-},[152]);
+},[183]);

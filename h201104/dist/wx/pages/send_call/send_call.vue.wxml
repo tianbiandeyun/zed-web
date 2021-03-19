@@ -1,0 +1,9 @@
+<import src="/components/get_line.vue.wxml" />
+<import src="/components/reply.vue.wxml" />
+<import src="/components/input_group.vue.wxml" /><template name="6477e21e">
+  <view class="_section data-v-8b5e4afc send-call-container">
+    <view class="_div data-v-8b5e4afc call"><template bindgetCall="handleProxy" binddelGetCall="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="249846b8"></template></view>
+    <view class="_div data-v-8b5e4afc call"><template data="{{...$root[$kk+'1'], $root}}" is="afad6cda"></template></view>
+    <view class="_div data-v-8b5e4afc call"><template data="{{...$root[$kk+'2'], $root}}" is="0aae27b3"></template></view>
+  </view>
+</template>

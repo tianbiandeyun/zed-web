@@ -10,7 +10,10 @@
     "pages/subscribe/main",
     "pages/subscribe_details/main",
     "pages/participate/main",
-    "pages/organize/main"
+    "pages/organize/main",
+    "pages/call_line/main",
+    "pages/get_call/main",
+    "pages/send_call/main"
   ],
   "permission": {
     "scope.userLocation": {

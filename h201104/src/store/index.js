@@ -11,7 +11,7 @@ export default new Vuex.Store({
   state: {
     openid: "",
     is_registration: "",
-    user_info: ""
+    // user_info: ""
   },
   actions: {
     /**
@@ -64,16 +64,16 @@ export default new Vuex.Store({
     /**
      * 获取用户填写的信息
      * */
-    getUserInfo({ commit }, params) {
-      const [im, fps, url] = [params.im, params.fps, params.url];
-      const requestUrl = unit.produceRequestUrl(im, fps, url);
-      return new Promise((resolve, reject) => {
-        fly.get(requestUrl).then(res => {
-          commit("getUserInfo", res.data);
-          resolve(res.data);
-        });
-      });
-    }
+    // getUserInfo({ commit }, params) {
+    //   const [im, fps, url] = [params.im, params.fps, params.url];
+    //   const requestUrl = unit.produceRequestUrl(im, fps, url);
+    //   return new Promise((resolve, reject) => {
+    //     fly.get(requestUrl).then(res => {
+    //       commit("getUserInfo", res.data);
+    //       resolve(res.data);
+    //     });
+    //   });
+    // }
   },
   mutations: {
     setOpenid(state, res) {
@@ -82,13 +82,13 @@ export default new Vuex.Store({
     setRegistration(state, res) {
       state.is_registration = res;
     },
-    getUserInfo(state, res) {
-      state.user_info = res;
-    }
+    // getUserInfo(state, res) {
+    //   state.user_info = res;
+    // }
   },
   getters: {
     openid: state => state.openid,
     is_registration: state => state.is_registration,
-    user_info: state => state.user_info
+    // user_info: state => state.user_info
   }
 });

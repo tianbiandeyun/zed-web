@@ -1,15 +1,15 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([5],{
+global.webpackJsonpMpvue([6],{
 
-/***/ 162:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_center__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_center__ = __webpack_require__(194);
 
 
 
@@ -18,16 +18,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 163:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_user_center_vue__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_29f06caa_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_user_center_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_user_center_vue__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_29f06caa_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_user_center_vue__ = __webpack_require__(197);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(164)
+  __webpack_require__(195)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -72,14 +72,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 164:
+/***/ 195:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 165:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -94,6 +94,8 @@ if (false) {(function () {
 
 
 
+//
+//
 //
 //
 //
@@ -234,14 +236,20 @@ if (false) {(function () {
   },
 
   methods: {
+    goReply: function goReply() {
+      console.log(this.$root.$mp.query.u_key);
+      wx.navigateTo({
+        url: "/pages/call_line/main?u_key=" + this.$root.$mp.query.u_key
+      });
+    },
     goEdit: function goEdit(res) {
       if (res === 1) {
         wx.navigateTo({
-          url: "/pages/user_center_jichu/main"
+          url: "/pages/user_center_jichu/main?u_key=" + this.$root.$mp.query.u_key
         });
       } else {
         wx.navigateTo({
-          url: "/pages/user_center_jieshao/main"
+          url: "/pages/user_center_jieshao/main?u_key=" + this.$root.$mp.query.u_key
         });
       }
     },
@@ -322,7 +330,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -389,14 +397,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "user-g-other"
   }, [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.interest === null || _vm.user_info.interest === "" ? "暂无关注行业" : _vm.user_info.interest))])]), _vm._v(" "), _c('div', {
     staticClass: "user-g-text"
-  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), _c('button', {
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": _vm.goReply
+    }
+  }, [_vm._v("留言")]), _vm._v(" "), _c('div', {
     staticClass: "user-e"
   }, [_c('h1', [_vm._v("形象照片")]), _vm._v(" "), _c('div', [(!_vm.user_info.head_portrait) ? _c('p', [_vm._v("暂无可以通过编辑添加")]) : _c('img', {
     attrs: {
       "src": _vm.user_info.head_portrait,
       "alt": ""
     }
-  })], 1)], 1)]) : _vm._e()
+  })], 1)], 1)], 1) : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -411,4 +426,4 @@ if (false) {
 
 /***/ })
 
-},[162]);
+},[193]);

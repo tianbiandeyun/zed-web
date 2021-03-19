@@ -1,0 +1,10 @@
+@import "../../common/vendor.wxss";
+
+.get-call-container .call.data-v-6ab4ad76 {
+  background-color: #FFF;
+  border-bottom: 2rpx solid #dcdee2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20rpx 28rpx 20rpx 28rpx;
+}

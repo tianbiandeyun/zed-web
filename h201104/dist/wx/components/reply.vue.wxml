@@ -1,0 +1,12 @@
+<template name="afad6cda">
+  <view class="_section data-v-159890af reply">
+    <view class="_div data-v-159890af reply-who">
+      <view class="_p data-v-159890af">我</view>
+    </view>
+    <view class="_div data-v-159890af reply-details">
+      <view class="_p data-v-159890af">十几分钟，之前给xxx留言 | 未读</view>
+      <view class="_p data-v-159890af">移除</view>
+    </view>
+    <view class="_div data-v-159890af reply-message"> 我是留言。我是留言。我是留言。我是留言。我是留言。我是留言。 我是留言。我是留言。 </view>
+  </view>
+</template>

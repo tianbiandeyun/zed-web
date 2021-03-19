@@ -1,0 +1,157 @@
+
+/*大赛展示图*/
+
+.game-box {
+    height: 75rem;
+    width: auto;
+    background: url("../images/game.png") no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.game-box > .game-details {
+    position: absolute;
+    left: 46rem;
+    top: 50%;
+    margin-top: -24rem;
+    color: #fff;
+    font-size: 4.8rem;
+    font-weight: bold;
+}
+
+.game-details > p {
+    line-height: 1.2;
+}
+
+.game-details > .p-1 {
+    line-height: normal;
+    font-size: 2.8rem;
+    color: #ccd6dd;
+    margin-bottom: 3rem;
+}
+
+.game-details > .p-2 {
+    margin-top: 5rem;
+    font-weight: normal;
+    width: 19.4rem;
+    height: 5.6rem;
+    border: 4px solid #fff;
+    text-align: center;
+    line-height: 5.6rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.game-details > .p-2:hover {
+    background-color: #028bb2;
+    border: 4px solid #028bb2;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+/*time*/
+
+.time-box {
+    height: 53.4rem;
+    width: auto;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1.4fr 2fr;
+}
+
+.time-box > .time-title {
+    background-color: #eaf4f6;
+    padding: 16rem 0 0 50rem;
+}
+
+.time-box > .time-title > p {
+    color: #00305b;
+}
+
+.time-box > .time-title > p:nth-of-type(1) {
+    font-size: 4.4rem;
+    margin-bottom: 1.6rem;
+}
+
+.time-box > .time-title > p:nth-of-type(2) {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+}
+
+.time-box > .time-title > p:nth-of-type(3) {
+    width: 7.4rem;
+    height: .2rem;
+    background-color: #00305b;
+}
+
+.time-box > .time-details {
+    padding: 16rem 0 0 0;
+}
+
+.details-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-left: 6rem;
+}
+
+.details-item:nth-of-type(1) {
+    margin-bottom: 9rem;
+}
+
+.time-line {
+    color: #00305b;
+}
+
+.time-line > span:nth-of-type(1) {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #00305b;
+    margin-right: 2rem;
+}
+
+.time-line > span:nth-of-type(2) {
+    font-size: 1.8rem;
+}
+
+.time-line > span:nth-of-type(2) > b {
+    font-size: 3.6rem;
+}
+
+.time-line > p {
+    margin-top: 2rem;
+    color: #515a6e;
+    font-size: 2rem;
+}
+
+/*game-introduce*/
+
+.introduce-box {
+    width: auto;
+    height: 64rem;
+    background-color: #00305b;
+    color: #fff;
+    text-align: center;
+    display: grid;
+    align-items: center;
+}
+
+.introduce-box > div > h1 {
+    font-size: 4.8rem;
+    margin-bottom: 1.6rem;
+}
+
+.introduce-box > div > span {
+    font-size: 1.4rem;
+    display: block;
+    color: #ccd6dd;
+    margin-bottom: 10rem;
+}
+
+.introduce-box > div > p {
+    font-size: 2rem;
+    line-height: 5.6rem;
+}

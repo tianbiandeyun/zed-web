@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "通讯",
+  "usingComponents": {
+    "v-tab": "../../../static/vant/tab/index",
+    "v-tabs": "../../../static/vant/tabs/index"
+  }
+}
