@@ -2,43 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/common/manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/common/manifest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/common/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/common/vendor.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/common/vendor.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/components/slots.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/components/slots.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/activity_details/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/activity_details/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/activity_end_details/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/activity_end_details/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/activity_user_list/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/activity_user_list/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/index/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/index/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/organize/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/organize/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/participate/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/participate/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/subscribe/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/subscribe/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/subscribe_details/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/subscribe_details/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center/user_center.vue.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center/user_center.vue.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center_jichu/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center_jichu/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center_jieshao/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/pages/user_center_jieshao/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/dist/wx/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/dist/wx/project.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/src/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/src/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/src/pages/user_center/user_center.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/src/pages/user_center/user_center.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/src/pages/user_center_jichu/user_center_jichu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/src/pages/user_center_jichu/user_center_jichu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/src/pages/user_center_jieshao/user_center_jieshao.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/src/pages/user_center_jieshao/user_center_jieshao.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../h201104/src/utils/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../h201104/src/utils/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../newbee-mall-vue3-app" beforeDir="false" afterPath="$PROJECT_DIR$/../newbee-mall-vue3-app" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/.idea/test_vue_jquery.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/jquery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_vue_jquery/vue.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../xyk.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../xyk.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/game_introduce.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/rest.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_Introduce.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/er.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/game.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaScript/flowup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaScript/initFontSize.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,22 +24,38 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="component.css" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/game_introduce/css/component.css">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="620">
+                    <caret line="377" column="19" selection-start-line="377" selection-start-column="19" selection-end-line="377" selection-end-column="19" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game_Introduce.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game_Introduce.html">
+      <file leaf-file-name="game_Introduce.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="component.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+            <state relative-caret-position="276">
+              <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
+              <folding>
+                <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +74,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>sub</find>
+      <find>time</find>
+      <find>introduce</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,8 +90,11 @@
         <option value="$PROJECT_DIR$/css/home.css" />
         <option value="$PROJECT_DIR$/home.html" />
         <option value="$PROJECT_DIR$/css/game_introduce.css" />
-        <option value="$PROJECT_DIR$/game_Introduce.html" />
         <option value="$PROJECT_DIR$/css/component.css" />
+        <option value="$PROJECT_DIR$/game_Introduce.html" />
+        <option value="$PROJECT_DIR$/home/css/home.css" />
+        <option value="$PROJECT_DIR$/game_introduce/game_Introduce.html" />
+        <option value="$PROJECT_DIR$/game_introduce/css/component.css" />
       </list>
     </option>
   </component>
@@ -112,11 +107,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="33" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="25" />
-    <option name="width" value="1583" />
-    <option name="height" value="924" />
+    <option name="width" value="1680" />
+    <option name="height" value="925" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -137,6 +131,17 @@
             <path>
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="game_introduce" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
+              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
+              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -177,12 +182,12 @@
       <updated>1616034692590</updated>
       <workItem from="1616034693881" duration="80000" />
       <workItem from="1616035105041" duration="21302000" />
-      <workItem from="1616132017381" duration="2630000" />
+      <workItem from="1616132017381" duration="8914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24012000" />
+    <option name="totallyTimeSpent" value="30296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="6" />
@@ -288,17 +293,60 @@
     <entry file="file://$PROJECT_DIR$/css/game_introduce.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_Introduce.html">
+    <entry file="file://$PROJECT_DIR$/css/component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
+        <state relative-caret-position="384">
+          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/component.css">
+    <entry file="file://$PROJECT_DIR$/game_Introduce.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+        <state relative-caret-position="396">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#4;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="118" selection-start-line="118" selection-end-line="133" selection-end-column="10" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/css/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="128" selection-start-line="128" selection-end-line="155" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_introduce/css/component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="377" column="19" selection-start-line="377" selection-start-column="19" selection-end-line="377" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

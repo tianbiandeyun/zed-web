@@ -57,7 +57,6 @@
 .time-box {
     height: 53.4rem;
     width: auto;
-    border: 1px solid black;
     display: grid;
     grid-template-columns: 1.4fr 2fr;
 }
