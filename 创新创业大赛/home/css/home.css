@@ -1,5 +1,5 @@
 
-/*大赛展示图*/
+/*前往报名*/
 
 .game-box {
     height: 75rem;
@@ -52,7 +52,7 @@
     transition: all .3s ease-in-out;
 }
 
-/*time*/
+/*时间安排*/
 
 .time-box {
     height: 53.4rem;
@@ -126,7 +126,7 @@
     font-size: 2rem;
 }
 
-/*game-introduce*/
+/*大赛介绍*/
 
 .introduce-box {
     width: auto;
