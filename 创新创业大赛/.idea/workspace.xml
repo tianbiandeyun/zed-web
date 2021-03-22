@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/training/css/training.css" beforeDir="false" afterPath="$PROJECT_DIR$/training/css/training.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/training/training.html" beforeDir="false" afterPath="$PROJECT_DIR$/training/training.html" afterDir="false" />
     </list>
@@ -24,8 +23,8 @@
             <file leaf-file-name="training.css" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/training/css/training.css">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="338">
-                    <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+                  <state relative-caret-position="598">
+                    <caret line="220" column="24" lean-forward="true" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
                   </state>
                 </provider>
               </entry>
@@ -40,8 +39,8 @@
       <file leaf-file-name="training.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/training/training.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="104" column="28" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="28" />
+            <state relative-caret-position="444">
+              <caret line="183" column="24" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
               <folding>
                 <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
@@ -94,8 +93,8 @@
         <option value="$PROJECT_DIR$/home/css/home.css" />
         <option value="$PROJECT_DIR$/home/css/component.css" />
         <option value="$PROJECT_DIR$/home/home.html" />
-        <option value="$PROJECT_DIR$/training/training.html" />
         <option value="$PROJECT_DIR$/training/css/training.css" />
+        <option value="$PROJECT_DIR$/training/training.html" />
       </list>
     </option>
   </component>
@@ -179,12 +178,12 @@
       <workItem from="1616034693881" duration="80000" />
       <workItem from="1616035105041" duration="21302000" />
       <workItem from="1616132017381" duration="8914000" />
-      <workItem from="1616377953615" duration="16543000" />
+      <workItem from="1616377953615" duration="16734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46839000" />
+    <option name="totallyTimeSpent" value="47030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1680" height="924" extended-state="6" />
@@ -332,8 +331,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/training/training.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="104" column="28" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="28" />
+        <state relative-caret-position="444">
+          <caret line="183" column="24" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
           <folding>
             <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
@@ -345,8 +344,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/training/css/training.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+        <state relative-caret-position="598">
+          <caret line="220" column="24" lean-forward="true" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
         </state>
       </provider>
     </entry>
