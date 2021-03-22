@@ -6,3 +6,64 @@
 .img-box > img {
     width: 100%;
 }
+
+/*注册*/
+.login-box {
+    background-color: #f1fafc;
+    padding: 7rem 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.login-box > h1 {
+    font-size: 4rem;
+    color: #888888;
+    margin-bottom: 2rem;
+}
+
+.login-box > form > div {
+    width: 50rem;
+    margin-bottom: 2rem;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+    color: #888888;
+    border: 2px solid #888888;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 1rem;
+}
+
+.code {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 2rem;
+}
+
+.code > button {
+    background-color: #00305b;
+    color: #fff;
+}
+
+.radio {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.radio > label {
+    color: #888888;
+}
+
+input[type = submit] {
+    width: 100%;
+    height: 6rem;
+    background-color: #00305b;
+    color: #fff;
+}
