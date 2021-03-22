@@ -128,29 +128,11 @@
 
 /*大赛介绍*/
 
-.introduce-box {
+.img-box {
+    font-size: 0;
     width: auto;
-    height: 64rem;
-    background-color: #00305b;
-    color: #fff;
-    text-align: center;
-    display: grid;
-    align-items: center;
 }
 
-.introduce-box > div > h1 {
-    font-size: 4.8rem;
-    margin-bottom: 1.6rem;
-}
-
-.introduce-box > div > span {
-    font-size: 1.4rem;
-    display: block;
-    color: #ccd6dd;
-    margin-bottom: 10rem;
-}
-
-.introduce-box > div > p {
-    font-size: 2rem;
-    line-height: 5.6rem;
+.img-box > img {
+    width: 100%;
 }
