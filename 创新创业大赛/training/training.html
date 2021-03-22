@@ -102,13 +102,82 @@
         <div>
             <input type="password" name="password" placeholder="请再次输入登陆密码"/>
         </div>
-        <div class="radio">
+        <div class="checkbox">
             <input id="checkbox" name="Fruit" type="checkbox" value=""/>
             <label for="checkbox">勾选同意《安全（应急）产业创新创业大赛报名须知》 </label>
         </div>
         <input type="submit" value="注册"/>
     </form>
 
+</section>
+
+<!--报名-->
+<section class="sign-box">
+    <h1>参赛报名</h1>
+    <form class="form" action="#">
+
+        <div class="form-item">
+            <div>
+                <p>*公司/组织/高校名称</p>
+                <input type="text" name="company" placeholder="公司/组织/高校名称">
+            </div>
+            <div>
+                <p>*选择组别</p>
+                <select name="zb">
+                    <option value="创新组（高校）">创新组（高校）</option>
+                    <option value="创业组">创业组</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div>
+                <p>*创始人姓名</p>
+                <input type="text" name="name" placeholder="创始人姓名">
+            </div>
+            <div>
+                <p>*创始人手机号</p>
+                <input type="text" name="phone" placeholder="创始人手机号">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div>
+                <p>*联系邮箱</p>
+                <input type="email" name="email" placeholder="联系邮箱">
+            </div>
+            <div>
+                <p>*信息来源</p>
+                <select name="xxly">
+                    <option value="工信部/工信厅/经信局通知">工信部/工信厅/经信局通知</option>
+                    <option value="学校通知">学校通知</option>
+                    <option value="媒体">媒体</option>
+                    <option value="产业园/服花期通知">产业园/服花期通知</option>
+                    <option value="投资机构">投资机构</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="tips">请下载报名表，填写完毕上传</div>
+
+        <div class="dow">
+            <p>报名表格下载：</p>
+            <button type="button">下载</button>
+        </div>
+
+        <div class="send">
+            <p>*上传报名表格（文件格式为WORD/PDF，文件大小不超过15MB，内容不能为空）</p>
+            <div></div>
+            <div>上传<input type="file" name="bg" id="bg"></div>
+        </div>
+
+        <div class="send">
+            <p>*企业LOGO（文件格式可为AI/EPS/PNG，文件大小不超过5MB，内容不能为空）</p>
+            <div></div>
+            <div>上传<input type="file" name="bg" id="log"></div>
+        </div>
+
+    </form>
 </section>
 
 <!--footer-->

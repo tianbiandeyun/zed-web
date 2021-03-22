@@ -19,7 +19,7 @@
 .login-box > h1 {
     font-size: 4rem;
     color: #888888;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .login-box > form > div {
@@ -27,7 +27,7 @@
     margin-bottom: 2rem;
 }
 
-input[type=text], input[type=password] {
+.login-box > .form > div > input[type=text], .login-box > .form > div > input[type=password] {
     width: 100%;
     height: 6rem;
     font-size: 2rem;
@@ -39,31 +39,176 @@ input[type=text], input[type=password] {
     padding-left: 1rem;
 }
 
-.code {
+.login-box > .form > .code {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-column-gap: 2rem;
 }
 
-.code > button {
+.login-box > .form > .code > button {
     background-color: #00305b;
     color: #fff;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #00305b;
 }
 
-.radio {
+.login-box > .form > .checkbox {
     display: grid;
     grid-template-columns: 1fr 10fr;
     align-items: center;
     justify-items: center;
 }
 
-.radio > label {
-    color: #888888;
+.login-box > .form > .checkbox > input[type=checkbox] {
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
-input[type = submit] {
+.login-box > .form > .checkbox > label {
+    color: #888888;
+    font-size: 1.8rem;
+}
+
+.login-box > .form > input[type = submit] {
     width: 100%;
     height: 6rem;
     background-color: #00305b;
     color: #fff;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #00305b;
+}
+
+/*报名*/
+.sign-box {
+    background-color: #f1fafc;
+    padding: 7rem 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.sign-box > h1 {
+    font-size: 4rem;
+    color: #888888;
+    margin-bottom: 4rem;
+}
+
+.sign-box > .form {
+    width: 80rem;
+}
+
+.sign-box > .form > .form-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sign-box > .form > .form-item > div > p {
+    font-size: 2rem;
+    color: #888888;
+    margin-bottom: 1rem;
+}
+
+.sign-box > .form > .form-item > div > input[type=text], .sign-box > .form > .form-item > div > input[type=email] {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+    color: #888888;
+    border: 2px solid #888888;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 1rem;
+}
+
+.sign-box > .form > .form-item > div > select {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+    color: #888888;
+    border: 2px solid #888888;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 1rem;
+}
+
+.sign-box > .form > .tips {
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.sign-box > .form > .dow {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sign-box > .form > .dow > p {
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.sign-box > .form > .dow > button {
+    float: left;
+    width: 20rem;
+    height: 6rem;
+    background-color: #00305b;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #00305b;
+}
+
+.sign-box > .form > .send {
+    margin-bottom: 2rem;
+}
+
+.sign-box > .form > .send > p {
+    font-size: 2rem;
+    color: #888888;
+    margin-bottom: 1rem;
+}
+
+.sign-box > .form > .send > p::before {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.sign-box > .form > .send > div:nth-of-type(1) {
+    width: 50rem;
+    height: 6rem;
+    border: 2px solid #888888;
+    float: left;
+    margin-right: 4rem;
+}
+
+.sign-box > .form > .send > div:nth-of-type(2) {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #00305b;
+    border-radius: 1rem;
+    padding: 2rem 8rem;
+    overflow: hidden;
+    text-decoration: none;
+    text-indent: 0;
+    background-color: #00305b;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.sign-box > .form > .send > div:nth-of-type(2) > input[type=file] {
+    position: absolute;
+    font-size: 10rem;
+    right: 0;
+    top: 0;
+    opacity: 0;
 }
