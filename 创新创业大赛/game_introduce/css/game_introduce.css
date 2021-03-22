@@ -29,7 +29,7 @@
 
 .organization-box > .organization-title {
     background-color: #eaf4f6;
-    padding: 12rem 0 0 50rem;
+    padding: 12rem 0 4rem 50rem;
 }
 
 .organization-box > .organization-title > p {
@@ -53,7 +53,7 @@
 }
 
 .organization-box > .organization-details {
-    padding: 12rem 0 0 6rem;
+    padding: 12rem 0 4rem 6rem;
 }
 
 .organization-details > div {
@@ -177,7 +177,7 @@
     font-size: 1.8rem;
     color: #fff;
     text-align: left;
-    line-height: 2.4rem;
+    line-height: 3rem;
     display: grid;
     align-items: center;
     padding: 2rem;
