@@ -1,25 +1,15 @@
-/*introduce-box*/
+/*大赛主题*/
 .introduce-box {
     font-size: 0;
     width: auto;
+    border: 2px solid red;
 }
 
 .introduce-box > img {
     width: 100%;
 }
 
-/*requirementsin-box*/
-.requirementsin-box {
-    width: auto;
-    height: 68rem;
-    font-size: 0;
-}
-
-.requirementsin-box > img {
-    width: 100%;
-}
-
-/*organization*/
+/*组织机构*/
 
 .organization-box {
     width: auto;
@@ -72,7 +62,7 @@
     line-height: 1.4;
 }
 
-/*requirementsin-box*/
+/*参赛要求*/
 
 .requirementsin-box {
     width: auto;
@@ -135,7 +125,7 @@
     transform: rotate(45deg);
 }
 
-/*rule-box*/
+/*赛程赛制*/
 
 .rule-box {
     width: auto;
@@ -189,3 +179,5 @@
     font-size: 2rem;
     color: #555555;
 }
+
+/*时间安排*/
