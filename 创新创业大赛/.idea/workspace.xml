@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/game_introduce/css/component.css" beforeDir="false" afterPath="$PROJECT_DIR$/game_introduce/css/component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_introduce/css/game_introduce.css" beforeDir="false" afterPath="$PROJECT_DIR$/game_introduce/css/game_introduce.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_introduce/game_Introduce.html" beforeDir="false" afterPath="$PROJECT_DIR$/game_introduce/game_Introduce.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +18,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="component.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/game_introduce/css/component.css">
+      <file leaf-file-name="game_Introduce.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
-              <caret line="219" column="1" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
+            <state relative-caret-position="374">
+              <caret line="159" column="39" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
+              <folding>
+                <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_introduce.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/game_introduce/css/game_introduce.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="183" column="1" selection-start-line="183" selection-start-column="1" selection-end-line="183" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -60,9 +75,9 @@
         <option value="$PROJECT_DIR$/css/component.css" />
         <option value="$PROJECT_DIR$/game_Introduce.html" />
         <option value="$PROJECT_DIR$/home/css/home.css" />
+        <option value="$PROJECT_DIR$/game_introduce/css/component.css" />
         <option value="$PROJECT_DIR$/game_introduce/game_Introduce.html" />
         <option value="$PROJECT_DIR$/game_introduce/css/game_introduce.css" />
-        <option value="$PROJECT_DIR$/game_introduce/css/component.css" />
       </list>
     </option>
   </component>
@@ -76,6 +91,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
     <option name="y" value="25" />
     <option name="width" value="1680" />
     <option name="height" value="924" />
@@ -105,17 +121,6 @@
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
               <item name="game_introduce" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
-              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
-              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -157,15 +162,15 @@
       <workItem from="1616034693881" duration="80000" />
       <workItem from="1616035105041" duration="21302000" />
       <workItem from="1616132017381" duration="8914000" />
-      <workItem from="1616377953615" duration="1218000" />
+      <workItem from="1616377953615" duration="2607000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31514000" />
+    <option name="totallyTimeSpent" value="32903000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1680" height="924" extended-state="6" />
+    <frame x="-1" y="25" width="1680" height="924" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15129596" />
@@ -263,29 +268,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="108" column="25" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
-          <folding>
-            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="806">
           <caret line="132" column="18" lean-forward="true" selection-start-line="131" selection-start-column="4" selection-end-line="132" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game_introduce/css/game_introduce.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -300,6 +286,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="642">
           <caret line="219" column="1" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="159" column="39" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_introduce/css/game_introduce.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="183" column="1" selection-start-line="183" selection-start-column="1" selection-end-line="183" selection-end-column="1" />
         </state>
       </provider>
     </entry>

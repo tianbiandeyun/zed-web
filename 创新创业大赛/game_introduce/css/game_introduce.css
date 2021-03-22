@@ -22,7 +22,6 @@
 /*organization*/
 
 .organization-box {
-    height: 53.4rem;
     width: auto;
     display: grid;
     grid-template-columns: 1.4fr 2fr;
@@ -161,8 +160,25 @@
 }
 
 .rule-box > div > .details {
-    border: 1px solid black;
     width: 80rem;
     height: auto;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+}
+
+.rule-box > div > .details > div {
+    background-color: #555555;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    color: #fff;
+    text-align: left;
+    line-height: 2.4rem;
+    display: grid;
+    align-items: center;
+    padding: 2rem;
 }
