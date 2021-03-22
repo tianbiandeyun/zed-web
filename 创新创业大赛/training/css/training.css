@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.none {
+    display: none !important;
+}
+
 /*注册*/
 .login-box {
     background-color: #f1fafc;
