@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/inform/css/inform.css" beforeDir="false" afterPath="$PROJECT_DIR$/inform/css/inform.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inform/inform.html" beforeDir="false" afterPath="$PROJECT_DIR$/inform/inform.html" afterDir="false" />
-    </list>
+    <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -17,16 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="inform.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inform.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="inform.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inform/inform.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
@@ -185,12 +173,12 @@
       <workItem from="1616377953615" duration="20582000" />
       <workItem from="1616463449754" duration="212000" />
       <workItem from="1616463972099" duration="1590000" />
-      <workItem from="1616465922406" duration="4919000" />
+      <workItem from="1616465922406" duration="5112000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57599000" />
+    <option name="totallyTimeSpent" value="57792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="0" />
@@ -430,6 +418,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inform/inform.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -438,13 +433,6 @@
             <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
