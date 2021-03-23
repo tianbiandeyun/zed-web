@@ -11,7 +11,173 @@
 /*成绩公告*/
 .results-box {
     width: 100rem;
-    border: 1px solid black;
     margin: 0 auto;
-    padding: 8rem 0;
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4rem;
 }
+
+.results-box > .results-item > .item-title {
+    margin-bottom: 2rem;
+}
+
+.results-box > .results-item > .item-title > span {
+    display: inline-block;
+}
+
+.results-box > .results-item > .item-title > span:nth-of-type(1) {
+    background-color: #00305b;
+    color: #fff;
+    font-size: 2.4rem;
+    padding: 1rem 2rem;
+}
+
+.results-box > .results-item > .item-title > span:nth-of-type(2) {
+    font-size: 2rem;
+    color: #17233d;
+}
+
+.results-box > .results-item > .item-details {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border-bottom: 1px solid #515a6e;
+    padding: 2rem 0;
+    cursor: pointer;
+}
+
+.results-box > .results-item > .item-details:hover {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.results-box > .results-item > .item-details:last-child {
+    border: none;
+}
+
+.results-box > .results-item > .item-details > div:nth-of-type(1) > p:nth-of-type(1) {
+    font-size: 2.4rem;
+    color: #17233d;
+    margin-bottom: 1rem;
+}
+
+.results-box > .results-item > .item-details > div:nth-of-type(1) > p:nth-of-type(2) {
+    font-size: 2rem;
+    color: #515a6e;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    word-break: break-all; /*追加这一行代码*/
+}
+
+.results-box > .results-item > .item-details > div:nth-of-type(2) {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.results-box > .results-item > .item-details > div:nth-of-type(2) > button {
+    font-size: 2rem;
+    color: #515a6e;
+    background-color: transparent;
+    border: 1px solid #515a6e;
+    outline: none;
+    cursor: pointer;
+}
+
+/*优秀项目展示*/
+.project-box {
+    width: 100rem;
+    margin: 0 auto;
+}
+
+.project-title {
+    text-align: center;
+    background-color: #00305b;
+    color: #fff;
+    font-size: 2.4rem;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.project {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(3, 30rem);
+    justify-content: space-between;
+}
+
+.project > div {
+    border: 1px solid #515a6e;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+.project > .project-item {
+    cursor: pointer;
+}
+
+.project > .project-item > .item-img {
+    width: 30rem;
+    height: 18rem;
+    background-color: #00305b;
+}
+
+.project > .project-item:hover {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.project > .project-item > .item-details {
+    padding: 1rem;
+}
+
+.project > .project-item > .item-details > h1 {
+    font-size: 2.4rem;
+    color: #17233d;
+    margin-bottom: 1rem;
+}
+
+.project > .project-item > .item-details > p:nth-of-type(1) {
+    font-size: 2rem;
+    color: #515a6e;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-break: break-all; /*追加这一行代码*/
+}
+
+.project > .project-item > .item-details > p:nth-of-type(2) {
+    font-size: 2rem;
+    color: #515a6e;
+    background-color: transparent;
+    border: 1px solid #515a6e;
+    padding: 1rem 0;
+    text-align: center;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    border-radius: .5rem;
+}
+
