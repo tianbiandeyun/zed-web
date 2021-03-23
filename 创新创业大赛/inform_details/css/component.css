@@ -1,0 +1,220 @@
+body {
+    padding-top: 8.5rem;
+}
+
+.nav-box {
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 8.4rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.nav-box > nav {
+    height: auto;
+    max-width: 100rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-content: space-around;
+}
+
+/*logo*/
+
+nav > .nav-logo {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+nav > .nav-logo > img {
+    width: 20rem;
+    height: 5.5rem;
+}
+
+/*导航部分*/
+nav > .nav-menu {
+    height: auto;
+}
+
+nav > .nav-menu > .menu {
+    float: right;
+}
+
+nav > .nav-menu > .menu > ul::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+nav > .nav-menu > .menu > ul > li {
+    position: relative;
+    float: left;
+    width: auto;
+}
+
+nav > .nav-menu > .menu > ul > li > a {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 8.4rem;
+    padding: 0 2rem;
+    text-decoration: none;
+    color: #515a6e;
+}
+
+nav > .nav-menu > .menu > ul > li:hover > a {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    color: #00305b;
+}
+
+nav > .nav-menu > .menu > ul > li > .active {
+    color: #00305b;
+}
+
+/*二级菜单*/
+
+.sub-menu {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    box-shadow: 0 0 1.5rem 0 #808695;
+    -webkit-box-shadow: 0 0 1.5rem 0 #808695;
+    -moz-box-shadow: 0 0 1.5rem 0 #808695;
+    -webkit-transform: translateY(-10%);
+    -moz-transform: translateY(-10%);
+    -ms-transform: translateY(-10%);
+    -o-transform: translateY(-10%);
+    transform: translateY(-10%);
+}
+
+.menu > ul > li:hover > .sub-menu {
+    height: auto;
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.sub-menu > li > a {
+    display: block;
+    background-color: #fff;
+    color: #515a6e;
+    font-size: 1.6rem;
+    padding: 1.4rem 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sub-menu > li > a:hover {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    background-color: #00305b;
+    color: #fff;
+}
+
+/*footer*/
+.footer-box {
+    width: auto;
+    padding: 6rem 0;
+}
+
+.footer-box > div {
+    max-width: 100rem;
+    margin: 0 auto;
+}
+
+.address-box {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    color: #515a6e;
+    padding-bottom: 4.4rem;
+    margin-bottom: 4.4rem !important;
+    border-bottom: 1px solid #515a6e;
+}
+
+.address > h1 {
+    color: #17233d;
+    font-size: 2rem;
+    margin-bottom: 2.4rem;
+}
+
+.address > p {
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+}
+
+.call {
+    font-size: 1.6rem;
+    display: grid;
+    align-content: center;
+}
+
+.call > p {
+    line-height: 2;
+}
+
+.network {
+    font-size: 1.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.network > div {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    align-items: center;
+}
+
+.network > div > P {
+    text-align: center;
+}
+
+.network > div > P:nth-of-type(2) img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.friend-box > h1 {
+    color: #17233d;
+    font-size: 2rem;
+    margin-bottom: 2.4rem;
+}
+
+.friend-box > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.friend-box > div > p {
+    color: #515a6e;
+    text-align: center;
+    border-right: 1px solid #515a6e;
+    font-size: 1.6rem;
+}
+
+.friend-box > div > p:last-child {
+    border-right: none;
+}
