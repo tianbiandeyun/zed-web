@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="" />
+    <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training/css/training.css" beforeDir="false" afterPath="$PROJECT_DIR$/training/css/training.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training/training.html" beforeDir="false" afterPath="$PROJECT_DIR$/training/training.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -16,12 +20,12 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file leaf-file-name="training.css" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/training/css/training.css">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="295">
-                    <caret line="162" column="19" lean-forward="true" selection-start-line="162" selection-start-column="19" selection-end-line="162" selection-end-column="19" />
+                  <state relative-caret-position="-18">
+                    <caret line="163" column="23" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="23" />
                   </state>
                 </provider>
               </entry>
@@ -36,22 +40,17 @@
       <file leaf-file-name="training.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/training/training.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="162" column="14" lean-forward="true" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+            <state relative-caret-position="637">
+              <caret line="172" column="29" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
               <folding>
-                <element signature="n#section#0;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#section#1;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#section#2;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#div#0;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#div#1;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#div#2;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#div#3;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+                <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
-                <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
+                <element signature="n#div#9;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -100,8 +99,8 @@
         <option value="$PROJECT_DIR$/home/css/component.css" />
         <option value="$PROJECT_DIR$/home/home.html" />
         <option value="$PROJECT_DIR$/training/javaScript/http.js" />
-        <option value="$PROJECT_DIR$/training/training.html" />
         <option value="$PROJECT_DIR$/training/css/training.css" />
+        <option value="$PROJECT_DIR$/training/training.html" />
       </list>
     </option>
   </component>
@@ -128,6 +127,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -156,7 +156,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -200,26 +199,27 @@
       <workItem from="1616377953615" duration="20582000" />
       <workItem from="1616463449754" duration="212000" />
       <workItem from="1616463972099" duration="1590000" />
+      <workItem from="1616465922406" duration="901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52680000" />
+    <option name="totallyTimeSpent" value="53581000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1680" height="924" extended-state="6" />
+    <frame x="0" y="25" width="1680" height="925" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15129596" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32886723" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32886723" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -238,22 +238,34 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/training/training.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3498">
+          <caret line="162" column="14" lean-forward="true" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#9;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/training/training.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1606">
           <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
           <folding>
-            <element signature="n#section#0;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#1;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#2;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#0;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#1;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#2;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#3;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#div#9;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -263,19 +275,14 @@
         <state relative-caret-position="1870">
           <caret line="85" column="18" lean-forward="true" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
           <folding>
-            <element signature="n#section#0;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#1;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#2;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#0;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#1;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#2;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#3;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#div#9;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -394,29 +401,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/training/css/training.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="162" column="19" lean-forward="true" selection-start-line="162" selection-start-column="19" selection-end-line="162" selection-end-column="19" />
+        <state relative-caret-position="-18">
+          <caret line="163" column="23" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/training/training.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="162" column="14" lean-forward="true" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+        <state relative-caret-position="637">
+          <caret line="172" column="29" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
           <folding>
-            <element signature="n#section#0;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#1;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#2;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#0;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#1;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#2;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#3;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
-            <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#div#9;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

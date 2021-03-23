@@ -88,11 +88,11 @@
         <div class="form-item">
             <div>
                 <p>*公司/组织/高校名称</p>
-                <input type="text" name="company" placeholder="公司/组织/高校名称">
+                <input type="text" name="company" id="company" placeholder="公司/组织/高校名称">
             </div>
             <div>
                 <p>*选择组别</p>
-                <select name="zb">
+                <select name="zb" id="zb">
                     <option value="创新组（高校）">创新组（高校）</option>
                     <option value="创业组">创业组</option>
                 </select>
@@ -102,39 +102,39 @@
         <div class="form-item">
             <div>
                 <p>*创始人姓名</p>
-                <input type="text" name="name" placeholder="创始人姓名">
+                <input type="text" name="name" id="name" placeholder="创始人姓名">
             </div>
             <div>
                 <p>*创始人手机号</p>
-                <input type="text" name="phone" placeholder="创始人手机号">
+                <input type="text" name="phone" id="phone" placeholder="创始人手机号">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div>
+                <p>*请输入手机验证码</p>
+                <input type="text" name="phone" id="code" placeholder="请输入手机验证码">
+            </div>
+            <div>
+                <p>*发送验证码</p>
+                <button type="button" id="getCode">发送验证码</button>
             </div>
         </div>
 
         <div class="form-item">
             <div>
                 <p>*联系邮箱</p>
-                <input type="email" name="email" placeholder="联系邮箱">
+                <input type="email" name="email" id="email" placeholder="联系邮箱">
             </div>
             <div>
                 <p>*信息来源</p>
-                <select name="xxly">
+                <select name="xxly" id="xxly">
                     <option value="工信部/工信厅/经信局通知">工信部/工信厅/经信局通知</option>
                     <option value="学校通知">学校通知</option>
                     <option value="媒体">媒体</option>
                     <option value="产业园/服花期通知">产业园/服花期通知</option>
                     <option value="投资机构">投资机构</option>
                 </select>
-            </div>
-        </div>
-
-        <div class="form-item">
-            <div>
-                <p>*请输入手机号码</p>
-                <input type="text" name="name" placeholder="请输入手机号码">
-            </div>
-            <div>
-                <p>*发送验证码</p>
-                <button type="button" id="getCode">发送验证码</button>
             </div>
         </div>
 
@@ -162,11 +162,15 @@
             <label for="checkbox">勾选同意《安全（应急）产业创新创业大赛报名须知》 </label>
         </div>
 
+        <div class="submit">
+            <input type="submit" id="submit" value="提交"/>
+        </div>
+
     </form>
 </section>
 
 <!--报名成功-->
-<section class="sign-yes">
+<section class="sign-yes none">
     <img src="./images/bmcg.png" alt="">
 </section>
 
@@ -229,6 +233,18 @@
             }, 1000);
         });
 
+        // 选择组别
+        const zb = $("#zb");
+        zb.change(function () {
+            console.log($(this).val());
+        });
+
+        // 选择信息来源
+        const xxly = $("#xxly");
+        xxly.change(function () {
+            console.log($(this).val());
+        });
+
         // 获取是否选中协议
         const check = $("#checkbox");
         let isCheck = false;
@@ -238,23 +254,24 @@
         });
 
         // 获取发送表单按钮
+        // $('类名 / ID').addClass('none'); 用来隐藏某个元素
         const submit = $("#submit");
         submit.click((event) => {
             event.preventDefault();
+            let company = $("#company").val();
             let name = $("#name").val();
             let phone = $("#phone").val();
             let code = $("#code").val();
-            let password_1 = $("#password_1").val();
-            let password_2 = $("#password_2").val();
-            if (name === '' || phone === '' || code === '' || password_1 === '' || password_2 === '' || isCheck === false) {
+            let email = $("#email").val();
+            if (name === '' || phone === '' || code === '' || company === '' || email === '' || isCheck === false) {
                 window.alert('请完整填写信息');
                 return false;
             }
+            console.log(company)
             console.log(name)
             console.log(phone)
             console.log(code)
-            console.log(password_1)
-            console.log(password_2)
+            console.log(email)
             console.log(isCheck)
         });
 
