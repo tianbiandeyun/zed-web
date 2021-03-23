@@ -7,3 +7,11 @@
 .img-box > img {
     width: 100%;
 }
+
+/*成绩公告*/
+.results-box {
+    width: 100rem;
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 8rem 0;
+}
