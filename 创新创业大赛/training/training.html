@@ -80,39 +80,8 @@
     <img src="./images/xmzj.png" alt="">
 </section>
 
-<!--注册-->
-<section class="login-box">
-
-    <h1>新用户注册</h1>
-
-    <form class="form" action="#">
-        <div>
-            <input type="text" name="name" id="name" placeholder="请输入真实姓名"/>
-        </div>
-        <div>
-            <input type="text" name="phone" id="phone" placeholder="请输入手机号码"/>
-        </div>
-        <div class="code">
-            <button type="button" id="getCode">发送验证码</button>
-            <input type="text" name="code" id="code" placeholder="请输入短信验证码">
-        </div>
-        <div>
-            <input type="password" name="password" id="password_1" placeholder="设置6至20位登陆密码"/>
-        </div>
-        <div>
-            <input type="password" name="password" id="password_2" placeholder="请再次输入登陆密码"/>
-        </div>
-        <div class="checkbox">
-            <input id="checkbox" name="Fruit" type="checkbox" value="勾选同意《安全（应急）产业创新创业大赛报名须知》 "/>
-            <label for="checkbox">勾选同意《安全（应急）产业创新创业大赛报名须知》 </label>
-        </div>
-        <input type="submit" id="submit" value="注册"/>
-    </form>
-
-</section>
-
 <!--报名-->
-<section class="sign-box none">
+<section class="sign-box">
     <h1>参赛报名</h1>
     <form class="form" action="#">
 
@@ -158,6 +127,17 @@
             </div>
         </div>
 
+        <div class="form-item">
+            <div>
+                <p>*请输入手机号码</p>
+                <input type="text" name="name" placeholder="请输入手机号码">
+            </div>
+            <div>
+                <p>*发送验证码</p>
+                <button type="button" id="getCode">发送验证码</button>
+            </div>
+        </div>
+
         <div class="tips">请下载报名表，填写完毕上传</div>
 
         <div class="dow">
@@ -181,7 +161,7 @@
 </section>
 
 <!--报名成功-->
-<section class="sign-yes none">
+<section class="sign-yes">
     <img src="./images/bmcg.png" alt="">
 </section>
 

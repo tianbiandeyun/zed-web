@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/training/css/training.css" beforeDir="false" afterPath="$PROJECT_DIR$/training/css/training.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/training/training.html" beforeDir="false" afterPath="$PROJECT_DIR$/training/training.html" afterDir="false" />
     </list>
@@ -17,28 +18,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="training.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="training.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/training/training.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="276" column="11" selection-start-line="276" selection-start-column="11" selection-end-line="276" selection-end-column="11" />
+            <state relative-caret-position="275">
+              <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
               <folding>
                 <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#4;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="http.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/training/javaScript/http.js">
+      <file leaf-file-name="training.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/training/css/training.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="22">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -85,9 +84,9 @@
         <option value="$PROJECT_DIR$/home/css/home.css" />
         <option value="$PROJECT_DIR$/home/css/component.css" />
         <option value="$PROJECT_DIR$/home/home.html" />
-        <option value="$PROJECT_DIR$/training/css/training.css" />
         <option value="$PROJECT_DIR$/training/javaScript/http.js" />
         <option value="$PROJECT_DIR$/training/training.html" />
+        <option value="$PROJECT_DIR$/training/css/training.css" />
       </list>
     </option>
   </component>
@@ -100,7 +99,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-1" />
     <option name="y" value="25" />
     <option name="width" value="1680" />
@@ -114,7 +113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,12 +129,19 @@
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
               <item name="training" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
+              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="training" type="462c0819:PsiDirectoryNode" />
               <item name="javaScript" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,27 +182,29 @@
       <workItem from="1616034693881" duration="80000" />
       <workItem from="1616035105041" duration="21302000" />
       <workItem from="1616132017381" duration="8914000" />
-      <workItem from="1616377953615" duration="20311000" />
+      <workItem from="1616377953615" duration="20582000" />
+      <workItem from="1616463449754" duration="212000" />
+      <workItem from="1616463972099" duration="163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50607000" />
+    <option name="totallyTimeSpent" value="51253000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="25" width="1680" height="924" extended-state="6" />
+    <frame x="0" y="25" width="1680" height="924" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15129596" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32886723" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32886723" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -214,14 +221,36 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/training/training.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1606">
+          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/training/training.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="85" column="18" lean-forward="true" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
-          <folding>
-            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#6;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -296,10 +325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
-          <folding>
-            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#4;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -307,10 +332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="831">
           <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
-          <folding>
-            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#6;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -328,13 +349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training/css/training.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/training/javaScript/jquery3.0.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -347,16 +361,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/training/training.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="276" column="11" selection-start-line="276" selection-start-column="11" selection-end-line="276" selection-end-column="11" />
+        <state relative-caret-position="275">
+          <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
           <folding>
             <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#4;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#5;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/training/css/training.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
