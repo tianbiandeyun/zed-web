@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/training/css/training.css" beforeDir="false" afterPath="$PROJECT_DIR$/training/css/training.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/training.html" beforeDir="false" afterPath="$PROJECT_DIR$/training/training.html" afterDir="false" />
-    </list>
+    <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -39,8 +36,8 @@
       <file leaf-file-name="training.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/training/training.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="162" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+            <state relative-caret-position="478">
+              <caret line="162" column="14" lean-forward="true" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
               <folding>
                 <element signature="n#section#0;n#body#0;n#html#1;n#!!top" />
                 <element signature="n#section#1;n#body#0;n#html#1;n#!!top" />
@@ -52,6 +49,7 @@
                 <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
                 <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
                 <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+                <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
                 <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
               </folding>
@@ -201,12 +199,12 @@
       <workItem from="1616132017381" duration="8914000" />
       <workItem from="1616377953615" duration="20582000" />
       <workItem from="1616463449754" duration="212000" />
-      <workItem from="1616463972099" duration="1347000" />
+      <workItem from="1616463972099" duration="1590000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52437000" />
+    <option name="totallyTimeSpent" value="52680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="6" />
@@ -253,6 +251,7 @@
             <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
             <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
             <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
             <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
           </folding>
@@ -274,6 +273,7 @@
             <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
             <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
             <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
             <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
           </folding>
@@ -392,10 +392,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/training/css/training.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="162" column="19" lean-forward="true" selection-start-line="162" selection-start-column="19" selection-end-line="162" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/training/training.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="162" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+        <state relative-caret-position="478">
+          <caret line="162" column="14" lean-forward="true" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
           <folding>
             <element signature="n#section#0;n#body#0;n#html#1;n#!!top" />
             <element signature="n#section#1;n#body#0;n#html#1;n#!!top" />
@@ -407,16 +414,10 @@
             <element signature="n#div#5;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
             <element signature="n#div#6;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
             <element signature="n#div#7;n#form#0;n#section#3;n#body#0;n#html#1;n#!!top" />
+            <element signature="n#div#8;n#form#0;n#section#3;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#4;n#body#0;n#html#1;n#!!top" />
             <element signature="n#section#5;n#body#0;n#html#1;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/training/css/training.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="162" column="19" lean-forward="true" selection-start-line="162" selection-start-column="19" selection-end-line="162" selection-end-column="19" />
         </state>
       </provider>
     </entry>
