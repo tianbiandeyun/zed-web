@@ -1,0 +1,8 @@
+.img-box {
+    font-size: 0;
+    width: auto;
+}
+
+.img-box > img {
+    width: 100%;
+}
