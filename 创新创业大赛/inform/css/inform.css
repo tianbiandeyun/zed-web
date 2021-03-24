@@ -44,6 +44,7 @@
     border-bottom: 1px solid #515a6e;
     padding: 2rem 0;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .results-box > .results-item > .item-details:hover {
@@ -117,7 +118,7 @@
     justify-content: space-between;
 }
 
-.project > div {
+.project > a {
     border: 1px solid #515a6e;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
@@ -125,12 +126,17 @@
 
 .project > .project-item {
     cursor: pointer;
+    text-decoration: none;
 }
 
 .project > .project-item > .item-img {
     width: 30rem;
-    height: 18rem;
+    /*height: 18rem;*/
     background-color: #00305b;
+}
+
+.project > .project-item > .item-img > img {
+    width: 100%;
 }
 
 .project > .project-item:hover {
