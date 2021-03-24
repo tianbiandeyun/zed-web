@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/inform/css/inform.css" beforeDir="false" afterPath="$PROJECT_DIR$/inform/css/inform.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inform/inform.html" beforeDir="false" afterPath="$PROJECT_DIR$/inform/inform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inform_details/css/inform_details.css" beforeDir="false" afterPath="$PROJECT_DIR$/inform_details/css/inform_details.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inform_details/inform_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/inform_details/inform_details.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +24,8 @@
             <file leaf-file-name="inform_details.css" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="88">
-                    <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+                  <state relative-caret-position="176">
+                    <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
                   </state>
                 </provider>
               </entry>
@@ -36,24 +37,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="inform.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
+      <file leaf-file-name="inform_details.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inform_details/inform_details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inform.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inform/inform.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+            <state relative-caret-position="539">
+              <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
               <folding>
                 <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#4;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -108,10 +99,10 @@
         <option value="$PROJECT_DIR$/training/training.html" />
         <option value="$PROJECT_DIR$/serve/serve.html" />
         <option value="$PROJECT_DIR$/serve/css/serve.css" />
-        <option value="$PROJECT_DIR$/inform_details/inform_details.html" />
-        <option value="$PROJECT_DIR$/inform_details/css/inform_details.css" />
         <option value="$PROJECT_DIR$/inform/inform.html" />
         <option value="$PROJECT_DIR$/inform/css/inform.css" />
+        <option value="$PROJECT_DIR$/inform_details/inform_details.html" />
+        <option value="$PROJECT_DIR$/inform_details/css/inform_details.css" />
       </list>
     </option>
   </component>
@@ -149,6 +140,17 @@
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
               <item name="inform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
+              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="inform" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
+              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="inform_details" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -199,12 +201,12 @@
       <workItem from="1616463972099" duration="1590000" />
       <workItem from="1616465922406" duration="11003000" />
       <workItem from="1616489040669" duration="669000" />
-      <workItem from="1616550643140" duration="5881000" />
+      <workItem from="1616550643140" duration="9776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70233000" />
+    <option name="totallyTimeSpent" value="74128000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="0" />
@@ -352,13 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training/training.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2090">
-          <caret line="272" column="29" selection-start-line="272" selection-start-column="29" selection-end-line="272" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/training/javaScript/initFontSize.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -411,29 +406,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inform_details/inform_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="114" column="10" lean-forward="true" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
-          <folding>
-            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -446,7 +422,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inform/inform.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="-257">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
           <folding>
             <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
@@ -456,10 +432,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/training/training.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="102" column="12" lean-forward="true" selection-start-line="102" selection-start-column="12" selection-end-line="105" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
+        <state relative-caret-position="114">
+          <caret line="166" column="19" lean-forward="true" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inform_details/inform_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>

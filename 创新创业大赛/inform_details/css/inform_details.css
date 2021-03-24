@@ -1,5 +1,89 @@
 .details-box {
     width: 100rem;
     margin: 0 auto;
-    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.details-box > div {
+    padding: 4rem 2rem;
+}
+
+.details-box > .details-left > h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #17233d;
+    margin-bottom: 2rem;
+}
+
+.details-box > .details-left > div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    margin-bottom: 2rem;
+}
+
+.details-box > .details-left > div > p {
+    font-size: 1.8rem;
+    color: #515a6e;
+    line-height: 2;
+}
+
+.details-box > .details-left > p {
+    font-size: 1.8rem;
+    color: #515a6e;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.details-box > .details-left > p:last-child {
+    margin-bottom: 0;
+}
+
+.details-box > .details-left > img {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.details-box > .details-right {
+    background-color: #f8f8f8;
+}
+
+.details-box > .details-right > .form-box {
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #515a6e;
+}
+
+.details-box > .details-right > .form-box > .form {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.details-box > .details-right > .form-box > .form > input {
+    height: 4rem;
+    box-sizing: border-box;
+    border: 1px solid #515a6e;
+}
+
+.details-box > .details-right > .form-box > .form > button[type=button] {
+    width: 4rem;
+    height: 4rem;
+    background: url("../images/ss.png") no-repeat;
+    border: none;
+    outline: none;
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.details-box > .details-right > .announcements > h1 {
+    font-size: 2rem;
+    color: #17233d;
+    margin-bottom: 1rem;
+}
+
+.details-box > .details-right > .announcements > p {
+    font-size: 1.8rem;
+    color: #515a6e;
+    line-height: 1.4;
 }
