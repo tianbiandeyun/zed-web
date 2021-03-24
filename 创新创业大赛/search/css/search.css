@@ -10,7 +10,95 @@
 }
 
 .search-box > .search-left {
-    border: 1px solid black;
+    position: relative;
+}
+
+.search-box > .search-left > .result > .item {
+    border-bottom: 1px solid #515a6e;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.search-box > .search-left > .result > .item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.search-box > .search-left > .result > .item > h1 {
+    font-size: 2rem;
+    color: #17233d;
+    margin-bottom: 1rem;
+}
+
+.search-box > .search-left > .result > .item > p {
+    font-size: 1.8rem;
+    color: #515a6e;
+    line-height: 1.4;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all; /*追加这一行代码*/
+}
+
+.search-box > .search-left > .option {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.search-box > .search-left > .option > div:nth-of-type(1) {
+    background-color: #f8f8f8;
+    background: url("../images/l.png") no-repeat;
+    background-position: center;
+    background-size: 50%;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+}
+
+.search-box > .search-left > .option > div:nth-of-type(2) {
+    background-color: #f8f8f8;
+    display: flex;
+}
+
+.search-box > .search-left > .option > div:nth-of-type(2) > div {
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    line-height: 4rem;
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.search-box > .search-left > .option > div:nth-of-type(2) > div:hover {
+    background-color: #00305b;
+    color: #fff;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.search-box > .search-left > .option > div:nth-of-type(3) {
+    background-color: #f8f8f8;
+    background: url("../images/r.png") no-repeat;
+    background-position: center;
+    background-size: 50%;
+    width: 4rem;
+    height: 4rem;
+}
+
+.option .active {
+    background-color: #00305b;
+    color: #fff;
 }
 
 .search-box > .search-right {
