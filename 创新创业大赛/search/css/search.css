@@ -63,6 +63,16 @@
     margin-right: 1rem;
 }
 
+.search-box > .search-left > .option > div:nth-of-type(1):hover {
+    background-color: #00305b;
+    color: #fff;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
 .search-box > .search-left > .option > div:nth-of-type(2) {
     background-color: #f8f8f8;
     display: flex;
@@ -94,6 +104,16 @@
     background-size: 50%;
     width: 4rem;
     height: 4rem;
+}
+
+.search-box > .search-left > .option > div:nth-of-type(3):hover {
+    background-color: #00305b;
+    color: #fff;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .option .active {
