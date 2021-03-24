@@ -173,6 +173,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     word-break: break-all; /*追加这一行代码*/
+    height: 8.4rem;
 }
 
 .project > .project-item > .item-details > p:nth-of-type(2) {
