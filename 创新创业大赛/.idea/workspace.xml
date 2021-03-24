@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inform_details/css/inform_details.css" beforeDir="false" afterPath="$PROJECT_DIR$/inform_details/css/inform_details.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inform_details/inform_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/inform_details/inform_details.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,7 +22,11 @@
           <leaf>
             <file leaf-file-name="inform_details.css" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
-                <provider selected="true" editor-type-id="text-editor" />
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="66">
+                    <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+                  </state>
+                </provider>
               </entry>
             </file>
           </leaf>
@@ -35,10 +39,11 @@
       <file leaf-file-name="inform_details.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inform_details/inform_details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="396">
+              <caret line="72" column="27" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="27" />
               <folding>
                 <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -93,8 +98,8 @@
         <option value="$PROJECT_DIR$/serve/css/serve.css" />
         <option value="$PROJECT_DIR$/inform/inform.html" />
         <option value="$PROJECT_DIR$/inform/css/inform.css" />
-        <option value="$PROJECT_DIR$/inform_details/css/inform_details.css" />
         <option value="$PROJECT_DIR$/inform_details/inform_details.html" />
+        <option value="$PROJECT_DIR$/inform_details/css/inform_details.css" />
       </list>
     </option>
   </component>
@@ -127,6 +132,17 @@
             <path>
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
+              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="inform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
+              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
+              <item name="inform" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
@@ -188,12 +204,12 @@
       <workItem from="1616463972099" duration="1590000" />
       <workItem from="1616465922406" duration="11003000" />
       <workItem from="1616489040669" duration="669000" />
-      <workItem from="1616550643140" duration="982000" />
+      <workItem from="1616550643140" duration="1485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65334000" />
+    <option name="totallyTimeSpent" value="65837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="0" />
@@ -231,6 +247,7 @@
           <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
           <folding>
             <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -422,20 +439,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="144" column="30" lean-forward="true" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
+        <state relative-caret-position="425">
+          <caret line="100" column="19" lean-forward="true" selection-start-line="99" selection-start-column="4" selection-end-line="100" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inform_details/inform_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="396">
+          <caret line="72" column="27" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="27" />
           <folding>
             <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
