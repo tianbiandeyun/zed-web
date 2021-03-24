@@ -39,8 +39,8 @@
       <file leaf-file-name="inform.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="173" column="26" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+            <state relative-caret-position="288">
+              <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -48,8 +48,8 @@
       <file leaf-file-name="inform.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inform/inform.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="175" column="31" selection-start-line="175" selection-start-column="31" selection-end-line="175" selection-end-column="31" />
+            <state relative-caret-position="220">
+              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
               <folding>
                 <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
@@ -110,8 +110,8 @@
         <option value="$PROJECT_DIR$/serve/css/serve.css" />
         <option value="$PROJECT_DIR$/inform_details/inform_details.html" />
         <option value="$PROJECT_DIR$/inform_details/css/inform_details.css" />
-        <option value="$PROJECT_DIR$/inform/css/inform.css" />
         <option value="$PROJECT_DIR$/inform/inform.html" />
+        <option value="$PROJECT_DIR$/inform/css/inform.css" />
       </list>
     </option>
   </component>
@@ -149,12 +149,6 @@
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
               <item name="inform" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
-              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
-              <item name="inform" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -205,12 +199,12 @@
       <workItem from="1616463972099" duration="1590000" />
       <workItem from="1616465922406" duration="11003000" />
       <workItem from="1616489040669" duration="669000" />
-      <workItem from="1616550643140" duration="4765000" />
+      <workItem from="1616550643140" duration="5881000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69117000" />
+    <option name="totallyTimeSpent" value="70233000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="0" />
@@ -341,13 +335,6 @@
     <entry file="file://$PROJECT_DIR$/game_introduce/images/zzjg.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="831">
-          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/css/component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
@@ -424,17 +411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inform_details/inform_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding>
-            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -449,10 +425,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inform_details/inform_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="114" column="10" lean-forward="true" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
+          <folding>
+            <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_introduce/game_Introduce.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2034">
+          <caret line="103" column="28" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inform/inform.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="175" column="31" selection-start-line="175" selection-start-column="31" selection-end-line="175" selection-end-column="31" />
+        <state relative-caret-position="220">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
           <folding>
             <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
@@ -463,8 +458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="173" column="26" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+        <state relative-caret-position="288">
+          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
         </state>
       </provider>
     </entry>

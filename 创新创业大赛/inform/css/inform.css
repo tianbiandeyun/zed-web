@@ -130,9 +130,9 @@
 }
 
 .project > .project-item > .item-img {
-    width: 30rem;
+    /*width: 30rem;*/
     /*height: 18rem;*/
-    background-color: #00305b;
+    /*background-color: #00305b;*/
 }
 
 .project > .project-item > .item-img > img {
