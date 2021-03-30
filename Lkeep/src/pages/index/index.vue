@@ -10,6 +10,11 @@
       </div>
     </div>
 
+    <div class="add-box">
+      <v-icon name="add" color="#19be6b" size="40"></v-icon>
+      <p>健康生活，控制体重</p>
+    </div>
+
   </section>
 </template>
 
@@ -39,7 +44,7 @@
 
 <style lang="less" scoped>
   .index-container {
-    padding: 20px;
+    padding: 10px 20px 80px 20px;
 
     .record-box {
       margin-bottom: 10px;
@@ -66,6 +71,32 @@
         margin-bottom: 0;
       }
 
+    }
+
+    .add-box {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -moz-box-shadow: 0 0 10px #dddee1;
+      -webkit-box-shadow: 0 0 10px #dddee1;
+      box-shadow: 0 0 10px #dddee1;
+      position: fixed;
+      left: 50%;
+      bottom: 10px;
+      margin-left: -150px;
+      width: 300px;
+      z-index: 999;
+      background-color: #fff;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 0;
+
+      p {
+        font-size: 10px;
+        line-height: 2;
+        color: #495060;
+      }
     }
   }
 </style>
