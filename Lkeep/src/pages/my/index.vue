@@ -5,24 +5,36 @@
       <div class="photo">
         <img src="../../../static/images/photo.png" alt="张琳">
       </div>
-      <div class="name">名字</div>
+      <div class="name">
+        <p>名字</p>
+        <v-icon name="edit" size="18"></v-icon>
+      </div>
+    </div>
+
+    <div class="curves-box">
+      <p>一周体重趋势</p>
+      <ZedEchart :t="t"></ZedEchart>
     </div>
 
   </section>
 </template>
 
 <script>
+  import ZedEchart from "../../components/ZedEchart";
 
   export default {
+    components: { ZedEchart },
     data() {
-      return {};
+      return {
+        t: [83, 90, 99, 102, 110, 92, 89]
+      };
     }
   };
 </script>
 
 <style lang="less" scoped>
   .my-container {
-    padding: 10px 20px 80px 20px;
+    padding: 10px 20px 20px 20px;
 
     .photo-box {
       -webkit-border-radius: 4px;
@@ -31,6 +43,7 @@
       -moz-box-shadow: 0 0 10px #dddee1;
       -webkit-box-shadow: 0 0 10px #dddee1;
       box-shadow: 0 0 10px #dddee1;
+      margin-bottom: 10px;
 
       div {
         display: grid;
@@ -52,10 +65,33 @@
       }
 
       .name {
-        font-size: 18px;
-        font-weight: bold;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+
+        p {
+          font-size: 18px;
+          font-weight: bold;
+          color: #495060;
+          line-height: 2;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .curves-box {
+      padding-top: 20px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -moz-box-shadow: 0 0 10px #dddee1;
+      -webkit-box-shadow: 0 0 10px #dddee1;
+      box-shadow: 0 0 10px #dddee1;
+
+      p {
+        font-size: 16px;
         color: #495060;
-        line-height: 2;
+        text-align: center;
       }
     }
   }
