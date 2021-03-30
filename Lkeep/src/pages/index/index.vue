@@ -10,7 +10,6 @@
       </div>
     </div>
 
-
   </section>
 </template>
 
