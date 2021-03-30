@@ -20,7 +20,7 @@
 
 <script>
   import ZedRecordItem from "../../components/ZedRecordItem";
-  import echart from "../../components/echart";
+  import echart from "../../components/ZedEchart";
 
   export default {
     components: { ZedRecordItem, echart },
