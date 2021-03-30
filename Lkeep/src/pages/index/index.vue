@@ -15,7 +15,7 @@
       <v-divider></v-divider>
       <div class="content">
         <p>一周体重变化</p>
-        <echart :t="t"></echart>
+        <echart :t="t" id="1"></echart>
       </div>
 
     </div>
@@ -34,7 +34,7 @@
       <v-divider></v-divider>
       <div class="content">
         <p>一周体重变化</p>
-        <echart :t="t"></echart>
+        <echart :t="t" id="2"></echart>
       </div>
 
     </div>
