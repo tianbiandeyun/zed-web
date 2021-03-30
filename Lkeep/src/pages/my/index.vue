@@ -5,9 +5,7 @@
       <div class="photo">
         <img src="../../../static/images/photo.png" alt="张琳">
       </div>
-      <div class="name">
-        <p>名字</p>
-      </div>
+      <div class="name">名字</div>
     </div>
 
   </section>
@@ -27,10 +25,14 @@
     padding: 10px 20px 80px 20px;
 
     .photo-box {
-      border: 1px solid black;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -moz-box-shadow: 0 0 10px #dddee1;
+      -webkit-box-shadow: 0 0 10px #dddee1;
+      box-shadow: 0 0 10px #dddee1;
 
       div {
-        border: 1px solid red;
         display: grid;
         align-items: center;
         justify-items: center;
@@ -38,6 +40,7 @@
 
       .photo {
         font-size: 0;
+        padding: 10px 0;
 
         img {
           width: 80px;
@@ -52,6 +55,7 @@
         font-size: 18px;
         font-weight: bold;
         color: #495060;
+        line-height: 2;
       }
     }
   }
