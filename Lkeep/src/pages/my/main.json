@@ -3,6 +3,7 @@
   "navigationBarTitleText": "我的信息",
   "usingComponents": {
     "v-tabs": "../../../static/vant/tabs/index",
-    "v-icon": "../../../static/vant/icon/index"
+    "v-icon": "../../../static/vant/icon/index",
+    "v-action-sheet": "./../../static/vant/action-sheet/index"
   }
 }

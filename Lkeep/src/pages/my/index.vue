@@ -3,11 +3,11 @@
 
     <div class="photo-box">
       <div class="photo">
-        <img src="../../../static/images/photo.png" alt="张琳">
+        <img @click="show = true" src="../../../static/images/photo.png" alt="张琳">
       </div>
       <div class="name">
         <p>名字</p>
-        <v-icon name="edit" size="18"></v-icon>
+        <v-icon name="edit" size="18" color="#495060"></v-icon>
       </div>
     </div>
 
@@ -16,6 +16,14 @@
       <ZedEchart :t="t"></ZedEchart>
     </div>
 
+    <!--点击头像菜单-->
+    <v-action-sheet
+      :show="show"
+      :actions="actions"
+      description="头像操作"
+      z-index="9999"
+      @close="close"
+      @select="select"></v-action-sheet>
   </section>
 </template>
 
@@ -26,8 +34,32 @@
     components: { ZedEchart },
     data() {
       return {
-        t: [83, 90, 99, 102, 110, 92, 89]
+        t: [83, 90, 99, 102, 110, 92, 89],
+        show: false,
+        actions: [
+          {
+            name: "查看大图"
+          },
+          {
+            name: "更换头像"
+          }
+        ]
       };
+    },
+    methods: {
+      close() {
+        this.show = false;
+      },
+
+      select(event) {
+        let name = event.mp.detail;
+        if (name === "查看大图") {
+
+        }
+        if (name === "更换头像") {
+
+        }
+      }
     }
   };
 </script>
@@ -65,7 +97,6 @@
       }
 
       .name {
-        border: 1px solid black;
         display: flex;
         justify-content: center;
 
