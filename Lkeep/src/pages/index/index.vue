@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="add-box">
+    <div class="add-box" @click="add">
       <v-icon name="add" color="#19be6b" size="40"></v-icon>
       <p>健康生活，控制体重</p>
     </div>
@@ -38,7 +38,13 @@
         ]
       };
     },
-    methods: {}
+    methods: {
+      add() {
+        wx.navigateTo({
+          url: `/pages/add/main`
+        });
+      }
+    }
   };
 </script>
 
