@@ -42,6 +42,7 @@
     padding: 20px;
 
     .record-box {
+      margin-bottom: 10px;
 
       .title {
         padding-left: 20px;
@@ -59,6 +60,10 @@
         &:last-child {
           margin-bottom: 0;
         }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
       }
 
     }
