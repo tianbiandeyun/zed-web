@@ -1,0 +1,54 @@
+/* 公共变量 */
+
+// 内边距
+@default-padding-bottom-80: 80px;
+
+// 标题颜色
+@default-title-color: #17233d;
+
+// 正文颜色
+@default-content-color: #515a6e;
+
+// 辅助颜色
+@default-sub-color: #808695;
+
+// 边框颜色
+@default-border-color: #dcdee2;
+
+// 分割线颜色
+@default-divider-color: #e8eaec;
+
+// 背景颜色
+@default-background-color: #f8f8f9;
+
+// 字体大小
+@default-font-size-20: 20px;
+@default-font-size-18: 18px;
+@default-font-size-16: 16px;
+@default-font-size-14: 14px;
+@default-font-size-12: 12px;
+
+// 按钮绿色
+@default-button-color: #19be6b;
+
+/* 公共样式 */
+
+// 盒子模式
+.default-box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// flex布局
+.default-flex(@jc:space-between,@ai:center) {
+  display: flex;
+  justify-content: @jc;
+  align-items: @ai;
+}
+
+// 列表类的样式左右内边距
+.default-padding-10-20(@t:10px,@r:20px,@b:10px,@l:20px) {
+  padding: @t @r @b @l;
+}
+
