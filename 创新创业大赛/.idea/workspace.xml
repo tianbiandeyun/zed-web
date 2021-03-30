@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea792f27-e5fd-4611-8b0c-b2b20050fcba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lkeep/src/pages/index/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../Lkeep/src/pages/index/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,7 +15,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="inform.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="169" column="3" lean-forward="true" selection-start-line="169" selection-start-column="3" selection-end-line="174" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -114,18 +123,13 @@
             <path>
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
-              <item name="404" type="462c0819:PsiDirectoryNode" />
+              <item name="inform" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
               <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
-              <item name="training" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="创新创业大赛" type="b2602c69:ProjectViewProjectNode" />
-              <item name="创新创业大赛" type="462c0819:PsiDirectoryNode" />
-              <item name="training" type="462c0819:PsiDirectoryNode" />
-              <item name="javaScript" type="462c0819:PsiDirectoryNode" />
+              <item name="inform" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -182,14 +186,16 @@
       <workItem from="1616728442184" duration="2408000" />
       <workItem from="1616980599113" duration="4615000" />
       <workItem from="1617012594691" duration="1249000" />
+      <workItem from="1617092861165" duration="36000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92978000" />
+    <option name="totallyTimeSpent" value="93014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="924" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17661242" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -391,13 +397,6 @@
     <entry file="file://$USER_HOME$/Downloads/jqueryPager/js/pager.js" />
     <entry file="file://$USER_HOME$/Downloads/jqueryPager/css/pager.css" />
     <entry file="file://$USER_HOME$/Downloads/jqueryPager/index.html" />
-    <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="174" column="38" lean-forward="true" selection-start-line="169" selection-start-column="4" selection-end-line="174" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search/css/search.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -426,13 +425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -489,11 +481,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="664">
           <caret line="38" column="11" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="38" selection-end-column="11" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inform_details/css/inform_details.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1029">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inform/css/inform.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="169" column="3" lean-forward="true" selection-start-line="169" selection-start-column="3" selection-end-line="174" selection-end-column="38" />
         </state>
       </provider>
     </entry>
