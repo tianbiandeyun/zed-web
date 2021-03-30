@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ul id="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+<a href="javaScript:void(0)" id="p1"
+   style="display:block;border: 1px solid black;height: 400px;width: 100%">1</a>
+
+<a href="javaScript:void(0)" id="p2" style="display:block;border: 1px solid black;height: 400px;width: 100%">2</a>
+
+<a href="javaScript:void(0)" id="p3" style="display:block;border: 1px solid black;height: 400px;width: 100%">3</a>
+
+
+<script src="./training/javaScript/jquery3.0.js"></script>
+<script>
+    $(function () {
+        $('#ul').children('li').click(function () {
+            console.log($(this).text());
+            let a = {
+                '1': 'p1',
+                '2': 'p2',
+                '3': 'p3'
+            }
+            console.log(a[$(this).text()])
+            $('html,body').animate({scrollTop: $('#'+a[$(this).text()]+'').offset().top}, 1000);
+        });
+
+
+    })
+</script>
+</body>
+</html>
