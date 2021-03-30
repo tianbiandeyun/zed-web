@@ -7,25 +7,25 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color": "#999",
-    "backgroundColor": "#fafafa",
-    "selectedColor": "#333",
-    "borderStyle": "white",
+    "color": "#495060",
+    "selectedColor": "#1c2438",
+    "backgroundColor": "#f8f8f9",
+    "borderStyle": "black",
     "list": [
       {
         "text": "首页",
         "pagePath": "pages/index/main",
-        "iconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png",
-        "selectedIconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        "iconPath": "static/images/hn.png",
+        "selectedIconPath": "static/images/hy.png"
       },
       {
-        "text": "订单",
+        "text": "我的",
         "pagePath": "pages/my/main",
-        "iconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png",
-        "selectedIconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        "iconPath": "static/images/mn.png",
+        "selectedIconPath": "static/images/my.png"
       }
     ],
     "position": "bottom"
