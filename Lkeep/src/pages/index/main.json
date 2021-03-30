@@ -4,6 +4,7 @@
   "usingComponents": {
     "v-panel": "../../../static/vant/panel/index",
     "v-icon": "../../../static/vant/icon/index",
-    "v-divider": "../../../static/vant/divider/index"
+    "v-divider": "../../../static/vant/divider/index",
+    "v-sticky": "../../../static/vant/sticky/index"
   }
 }
