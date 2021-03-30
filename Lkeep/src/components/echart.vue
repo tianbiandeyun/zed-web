@@ -9,6 +9,12 @@
   import mpvueEcharts from "mpvue-echarts";
 
   export default {
+    props: {
+      t: {
+        type: Array,
+        default: [70, 70, 70, 70, 70, 70, 70]
+      }
+    },
     components: { mpvueEcharts },
     data() {
       return {
@@ -26,24 +32,27 @@
 
         chart.setOption({
 
-          title: {
-            left: "center",
-            text: "大数据量面积图"
-          },
           xAxis: {
             type: "category",
             data: ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期七"]
           },
           yAxis: {
             type: "value",
-            splitNumber: 3
+            splitNumber: 3,
+            max: 130,
+            min: 70
           },
           series: [{
-            data: [80, 90, 100, 110, 84, 98, 92],
-            type: "line"
+            data: this.t,
+            type: "line",
+            label: {
+              show: true,
+              formatter: "{c}"
+            }
           }]
 
         });
+
         return chart;
       },
       echartInit(canvas, width, height) {

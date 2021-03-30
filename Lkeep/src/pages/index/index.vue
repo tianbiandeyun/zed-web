@@ -14,7 +14,27 @@
       </div>
       <v-divider></v-divider>
       <div class="content">
-        <echart></echart>
+        <p>一周体重变化</p>
+        <echart :t="t"></echart>
+      </div>
+
+    </div>
+
+    <div class="record">
+
+      <div class="header">
+        <div>
+          <p>2020年03月29日，星期一</p>
+          <p>上午</p>
+        </div>
+        <div>
+          <v-icon name="arrow" size="26px" color="#495060"></v-icon>
+        </div>
+      </div>
+      <v-divider></v-divider>
+      <div class="content">
+        <p>一周体重变化</p>
+        <echart :t="t"></echart>
       </div>
 
     </div>
@@ -28,7 +48,9 @@
   export default {
     components: { echart },
     data() {
-      return {};
+      return {
+        t: [80, 97, 99, 104, 111, 101, 87]
+      };
     },
     methods: {}
   };
@@ -77,6 +99,11 @@
 
       .content {
 
+        p {
+          text-align: center;
+          color: #495060;
+          font-size: 14px;
+        }
       }
     }
   }
