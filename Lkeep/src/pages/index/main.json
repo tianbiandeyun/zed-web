@@ -2,6 +2,8 @@
   "navigationBarBackgroundColor": "#000",
   "navigationBarTitleText": "首页",
   "usingComponents": {
-    "v-tabs": "../../../static/vant/tabs/index"
+    "v-panel": "../../../static/vant/panel/index",
+    "v-icon": "../../../static/vant/icon/index",
+    "v-divider": "../../../static/vant/divider/index"
   }
 }
