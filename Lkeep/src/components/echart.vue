@@ -1,5 +1,5 @@
 <template>
-  <section class="echart-container" :id="id">
+  <section class="echart-container">
     <mpvue-echarts :echarts="echarts" :onInit="echartInit"/>
   </section>
 </template>
@@ -13,9 +13,6 @@
       t: {
         type: Array,
         default: [70, 70, 70, 70, 70, 70, 70]
-      },
-      id: {
-        type: Number
       }
     },
     components: { mpvueEcharts },
