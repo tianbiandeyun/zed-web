@@ -4,6 +4,8 @@
   "usingComponents": {
     "v-tabs": "../../../static/vant/tabs/index",
     "v-icon": "../../../static/vant/icon/index",
-    "v-action-sheet": "./../../static/vant/action-sheet/index"
+    "v-action-sheet": "./../../static/vant/action-sheet/index",
+    "v-dialog": "./../../static/vant/dialog/index",
+    "v-field": "./../../static/vant/field/index"
   }
 }

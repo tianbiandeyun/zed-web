@@ -3,27 +3,43 @@
 
     <div class="photo-box">
       <div class="photo">
-        <img @click="show = true" src="../../../static/images/photo.png" alt="张琳">
+        <img @click="openSheet" src="../../../static/images/photo.png" alt="张琳">
       </div>
-      <div class="name">
+      <div class="name" @click="openDialog">
         <p>名字</p>
         <v-icon name="edit" size="18" color="#495060"></v-icon>
       </div>
     </div>
 
-    <div class="curves-box">
+    <div class="curves-box" v-show="is_echart">
       <p>一周体重趋势</p>
       <ZedEchart :t="t"></ZedEchart>
     </div>
 
     <!--点击头像菜单-->
     <v-action-sheet
-      :show="show"
+      :show="is_sheet"
       :actions="actions"
       description="头像操作"
       z-index="9999"
-      @close="close"
-      @select="select"></v-action-sheet>
+      @close="closeSheet"
+      @select="selectSheet"></v-action-sheet>
+
+    <!--修改名字-->
+    <v-dialog
+      use-slot
+      title="修改名字"
+      :show="is_dialog"
+      show-cancel-button
+      confirm-button-color="#1c2438"
+      cancel-button-color="#495060"
+      @close="closeDialog"
+      @confirm="confirmDialog"
+    >
+      <v-field
+        placeholder="请输入用户名"
+      ></v-field>
+    </v-dialog>
   </section>
 </template>
 
@@ -34,8 +50,9 @@
     components: { ZedEchart },
     data() {
       return {
+        is_echart: true,
         t: [83, 90, 99, 102, 110, 92, 89],
-        show: false,
+        is_sheet: false,
         actions: [
           {
             name: "查看大图"
@@ -43,15 +60,28 @@
           {
             name: "更换头像"
           }
-        ]
+        ],
+        is_dialog: false
       };
     },
     methods: {
-      close() {
-        this.show = false;
+      openSheet() {
+        this.is_sheet = true;
+        this.is_echart = false;
       },
-
-      select(event) {
+      closeSheet() {
+        this.is_sheet = false;
+        this.is_echart = true;
+      },
+      openDialog() {
+        this.is_dialog = true;
+        this.is_echart = false;
+      },
+      closeDialog() {
+        this.is_dialog = false;
+        this.is_echart = true;
+      },
+      selectSheet(event) {
         let name = event.mp.detail;
         if (name === "查看大图") {
 
@@ -59,6 +89,9 @@
         if (name === "更换头像") {
 
         }
+      },
+      confirmDialog() {
+        console.log("确认");
       }
     }
   };
