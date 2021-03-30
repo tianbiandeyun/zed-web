@@ -1,5 +1,33 @@
 {
   "pages": [
-    "pages/index/main"
-  ]
+    "pages/index/main",
+    "pages/my/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#333",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/main",
+        "iconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png",
+        "selectedIconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png"
+      },
+      {
+        "text": "订单",
+        "pagePath": "pages/my/main",
+        "iconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png",
+        "selectedIconPath": "https://b.yzcdn.cn/vant/icon-demo-1126.png"
+      }
+    ],
+    "position": "bottom"
+  }
 }
