@@ -14,7 +14,7 @@
       </div>
       <v-divider></v-divider>
       <div class="content">
-        我是一些内容
+        <echart></echart>
       </div>
 
     </div>
@@ -23,11 +23,14 @@
 </template>
 
 <script>
+  import echart from "../../components/echart";
 
   export default {
+    components: { echart },
     data() {
       return {};
-    }
+    },
+    methods: {}
   };
 </script>
 
