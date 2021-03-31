@@ -18,25 +18,25 @@
       <div class="item">
         <p>身高：</p>
         <div>
-          <input type="number" v-model="shenggao" placeholder="请输入身高">
+          <input type="digit" v-model="shenggao" placeholder="请输入身高">
         </div>
       </div>
       <div class="item">
         <p>当前体重：</p>
         <div>
-          <input type="number" v-model="tizhong" placeholder="请输入当前体重">
+          <input type="digit" v-model="tizhong" placeholder="请输入当前体重">
         </div>
       </div>
       <div class="item">
         <p>BMI：</p>
         <div>
-          <p>24.1</p>
+          <p>{{bmi}}</p>
         </div>
       </div>
       <div class="item">
         <p>今日目标：</p>
         <div>
-          <input type="number" v-model="mubiao" placeholder="请输入今日目标">
+          <input type="digit" v-model="mubiao" placeholder="请输入今日目标">
         </div>
       </div>
       <div class="item">
@@ -174,6 +174,11 @@
       },
       selectDuanLian: function(e) {
         this.duanlian = e.mp.detail.value;
+      }
+    },
+    computed: {
+      bmi() {
+        return Math.floor(this.tizhong / ((this.shenggao * this.shenggao) / 10000) * 100) / 100 || 0;
       }
     }
   };
