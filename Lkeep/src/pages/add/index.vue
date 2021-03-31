@@ -2,8 +2,8 @@
   <section class="add-container">
 
     <div class="time-box">
-      <p>2020年03月31日</p>
-      <p>星期三</p>
+      <p>{{ymd}}</p>
+      <p>{{week}}</p>
     </div>
 
     <div class="add-box">
@@ -140,8 +140,14 @@
         a7: ["请选择健身情况", "1次", "2次", "3次", "4次", "5次", "6次", "7次"],
         shenggao: "",
         tizhong: "",
-        mubiao: ""
+        mubiao: "",
+        ymd: "",
+        week: ""
       };
+    },
+    created() {
+      this.ymd = this.$Utils.format("YYYY年MM月DD日");
+      this.week = this.$Utils.format("星期W");
     },
     methods: {
       selectSex: function(e) {

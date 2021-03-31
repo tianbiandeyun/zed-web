@@ -140,6 +140,7 @@ export default {
   closeWaiting,
   produceRequestUrl,
   getDays,
+  format,
   getErrorCode,
   getMaxDate,
   restData
