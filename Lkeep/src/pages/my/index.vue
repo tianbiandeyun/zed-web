@@ -21,39 +21,39 @@
       <div class="data">
         <div>
           <p>年龄：</p>
-          <p>30</p>
+          <p>30<span>岁</span></p>
         </div>
         <div>
           <p>身高：</p>
-          <p>30</p>
+          <p>180<span>CM</span></p>
         </div>
         <div>
           <p>体重：</p>
-          <p>30</p>
+          <p>78<span>Kj</span></p>
         </div>
         <div>
           <p>BMI：</p>
-          <p>30</p>
+          <p>24.1</p>
         </div>
         <div>
           <p>睡眠状态：</p>
-          <p>30</p>
+          <p>好</p>
         </div>
         <div>
           <p>健身记录：</p>
-          <p>30</p>
+          <p>2次<span>/周</span></p>
         </div>
         <div>
           <p>生理期：</p>
-          <p>30</p>
+          <p>无</p>
         </div>
         <div>
           <p>情绪状态：</p>
-          <p>30</p>
+          <p>良好</p>
         </div>
         <div>
           <p>身体症状：</p>
-          <p>30</p>
+          <p>无</p>
         </div>
       </div>
     </div>
@@ -223,11 +223,15 @@
         div {
           display: grid;
           grid-template-columns: 4fr 6fr;
+          margin-bottom: 6px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
 
           p {
             font-size: 16px;
             color: #1c2438;
-            line-height: 2;
             text-align: center;
 
             &:nth-of-type(1) {
@@ -239,6 +243,11 @@
               -webkit-box-sizing: border-box;
               -moz-box-sizing: border-box;
               box-sizing: border-box;
+
+              span {
+                margin-left: 5px;
+                font-size: 12px;
+              }
             }
           }
         }
