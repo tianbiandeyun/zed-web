@@ -16,6 +16,48 @@
       <ZedEchart :t="t"></ZedEchart>
     </div>
 
+    <div class="myself-box">
+      <p>个人身体数据</p>
+      <div class="data">
+        <div>
+          <p>年龄：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>身高：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>体重：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>BMI：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>睡眠状态：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>健身记录：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>生理期：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>情绪状态：</p>
+          <p>30</p>
+        </div>
+        <div>
+          <p>身体症状：</p>
+          <p>30</p>
+        </div>
+      </div>
+    </div>
+
     <!--点击头像菜单-->
     <v-action-sheet
       :show="is_sheet"
@@ -151,11 +193,55 @@
       -moz-box-shadow: 0 0 10px #dddee1;
       -webkit-box-shadow: 0 0 10px #dddee1;
       box-shadow: 0 0 10px #dddee1;
+      margin-bottom: 10px;
 
       p {
         font-size: 16px;
         color: #495060;
         text-align: center;
+      }
+    }
+
+    .myself-box {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -moz-box-shadow: 0 0 10px #dddee1;
+      -webkit-box-shadow: 0 0 10px #dddee1;
+      box-shadow: 0 0 10px #dddee1;
+      padding: 20px 0;
+
+      > p {
+        font-size: 16px;
+        color: #495060;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .data {
+
+        div {
+          display: grid;
+          grid-template-columns: 4fr 6fr;
+
+          p {
+            font-size: 16px;
+            color: #1c2438;
+            line-height: 2;
+            text-align: center;
+
+            &:nth-of-type(1) {
+              text-align: right;
+            }
+
+            &:nth-of-type(2) {
+              color: #495060;
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+            }
+          }
+        }
       }
     }
   }
