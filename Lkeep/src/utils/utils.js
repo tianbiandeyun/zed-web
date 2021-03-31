@@ -56,22 +56,6 @@ const produceRequestUrl = (im, fps, url, method = "get") => {
   return baseUrl;
 };
 /**
- * 获取年 / 月 /日
- * */
-const getYearMonthDay = date => {
-  let year = date.getFullYear();
-  let month = date.getMonth();
-  let day = date.getDate();
-  return { year, month, day };
-};
-/**
- * 获取日期对象
- * */
-const getDate = (...res) => {
-  let [year, month, day] = [...res];
-  return new Date(year, month, day);
-};
-/**
  * 获取日期之间相隔几天
  * */
 const getDays = (strDateStart, strDateEnd) => {
@@ -87,19 +71,6 @@ const getDays = (strDateStart, strDateEnd) => {
   return iDays;
 };
 /**
- * 错误号码
- * */
-const getErrorCode = code => {
-  const errorCode = {
-    2000920: "openid 错误",
-    2011130201: "未报名参加此次活动",
-    1100852: "参数错误"
-  };
-  let error_code = code;
-  let error_message = errorCode[code];
-  return { error_code, error_message };
-};
-/**
  * 获取选择的日期中日期最大的一个
  * */
 const getMaxDate = (arr) => {
@@ -113,6 +84,49 @@ const getMaxDate = (arr) => {
   let a = {};
   a[v[maxDate]] = v[maxDate];
   return a;
+};
+/**
+ * 格式化日期
+ * */
+const format = (fmt) => {
+  const date = new Date();
+  const o = {
+    "Y+": date.getFullYear(),
+    "M+": date.getMonth() + 1,     // 月
+    "D+": date.getDate(),          // 日
+    "h+": date.getHours(),         // 时
+    "m+": date.getMinutes(),       // 分
+    "s+": date.getSeconds(),       // 秒
+    "W": date.getDay()             // 周
+  };
+  for (var k in o) {
+    if (new RegExp("(" + k + ")").test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, () => {
+        if (k === "W") {                                    // 星期几
+          const week = ["日", "一", "二", "三", "四", "五", "六"];
+          return week[o[k]];
+        } else if (k === "Y+" || RegExp.$1.length == 1) {    // 年份 or 小于10不加0
+          return o[k];
+        } else {
+          return ("00" + o[k]).substr(("" + o[k]).length);  // 小于10补位0
+        }
+      });
+    }
+  }
+  return fmt;
+};
+/**
+ * 错误号码
+ * */
+const getErrorCode = code => {
+  const errorCode = {
+    2000920: "openid 错误",
+    2011130201: "未报名参加此次活动",
+    1100852: "参数错误"
+  };
+  let error_code = code;
+  let error_message = errorCode[code];
+  return { error_code, error_message };
 };
 /**
  * 重置数据

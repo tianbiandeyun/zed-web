@@ -109,6 +109,10 @@
       </div>
     </div>
 
+    <div class="add-button">
+      <button>添加</button>
+    </div>
+
   </section>
 </template>
 
