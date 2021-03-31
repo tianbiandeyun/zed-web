@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/my/main",
     "pages/index/main",
+    "pages/my/main",
     "pages/add/main"
   ],
   "window": {

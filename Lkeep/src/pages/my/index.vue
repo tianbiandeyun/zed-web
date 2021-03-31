@@ -14,7 +14,6 @@
     <div class="myself-box">
       <div class="title">
         <p>个人身体数据</p>
-        <v-icon name="edit" size="18" color="#495060"></v-icon>
       </div>
       <div class="data">
         <div>
@@ -220,8 +219,6 @@
       margin-bottom: 10px;
 
       .title {
-        display: flex;
-        justify-content: center;
         margin-bottom: 10px;
 
         p {

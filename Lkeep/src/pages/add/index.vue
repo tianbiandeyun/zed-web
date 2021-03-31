@@ -110,7 +110,7 @@
     </div>
 
     <div class="add-button">
-      <button>添加</button>
+      <button @click="add">添加</button>
     </div>
 
   </section>
@@ -150,9 +150,14 @@
       this.week = this.$Utils.format("星期W");
     },
     methods: {
+      add() {
+        console.log(this.shenggao);
+        console.log(this.tizhong);
+        console.log(this.mubiao);
+        console.log(this.bmi);
+      },
       selectSex: function(e) {
         this.sex = e.mp.detail.value;
-        console.log(this.sex);
       },
       selectTime: function(e) {
         this.time = e.mp.detail.value;
@@ -222,6 +227,7 @@
       -webkit-box-shadow: 0 0 10px #dddee1;
       box-shadow: 0 0 10px #dddee1;
       padding: 10px 20px;
+      margin-bottom: 10px;
 
       .item {
         display: grid;
@@ -254,6 +260,16 @@
             padding-left: 10px;
           }
         }
+      }
+    }
+
+    .add-button {
+
+      button {
+        font-size: 16px;
+        color: #fff;
+        background-color: #19be6b;
+        width: 200px;
       }
     }
 
