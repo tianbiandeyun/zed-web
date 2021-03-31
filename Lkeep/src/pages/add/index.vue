@@ -16,7 +16,11 @@
       <div class="item">
         <p>时间段：</p>
         <div>
-          <p @click="is_popup = true">点击选择时间段</p>
+          <picker @change="bindPickerChange" :value="index" :range="array">
+            <p>
+              当前选择：{{array[index]}}
+            </p>
+          </picker>
         </div>
       </div>
     </div>
@@ -27,13 +31,15 @@
       position="bottom"
       @close="closePopup"
     >
-      <v-picker
-        show-toolbar
-        title="选择时间段"
-        :columns="columns"
-        @cancel="closeDayTime"
-        @confirm="getDayTime">
-      </v-picker>
+      <!--<v-picker-->
+      <!--show-toolbar-->
+      <!--title="选择时间段"-->
+      <!--:columns="columns"-->
+      <!--@cancel="closeDayTime"-->
+      <!--@confirm="getDayTime">-->
+      <!--</v-picker>-->
+
+
     </v-popup>
 
   </section>
@@ -45,11 +51,16 @@
     components: {},
     data() {
       return {
+        index: 0,
+        array: ["美国", "中国", "巴西", "日本"],
         is_popup: false,
         columns: ["上午", "中午", "下午", "晚上"]
       };
     },
     methods: {
+      bindPickerChange: function(e) {
+        console.log("picker发送选择改变，携带值为", e);
+      },
       closePopup() {
         this.is_popup = false;
       },
