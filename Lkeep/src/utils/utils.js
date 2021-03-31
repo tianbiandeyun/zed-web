@@ -139,8 +139,6 @@ export default {
   showWaiting,
   closeWaiting,
   produceRequestUrl,
-  getYearMonthDay,
-  getDate,
   getDays,
   getErrorCode,
   getMaxDate,
