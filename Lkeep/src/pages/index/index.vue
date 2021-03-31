@@ -38,6 +38,24 @@
         ]
       };
     },
+    created() {
+
+      // 获取活动信息
+      this.$store.dispatch("fetch", {
+        url: "ww.baidu.com"
+      });
+
+      // .then(res => {
+      //   console.log(res);
+      //   // if (res.result === "failure") {
+      //   //   this.$Utils.closeWaiting();
+      //   //   this.$Utils.showErrorInfo(res, "get_salon_activity_info");
+      //   // } else {
+      //   //   this.info = res.back_value;
+      //   // }
+      // });
+
+    },
     methods: {
       add() {
         wx.navigateTo({
