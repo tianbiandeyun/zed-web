@@ -11,13 +11,11 @@
       </div>
     </div>
 
-    <div class="curves-box" v-show="is_echart">
-      <p>一周体重趋势</p>
-      <ZedEchart :t="t"></ZedEchart>
-    </div>
-
     <div class="myself-box">
-      <p>个人身体数据</p>
+      <div class="title">
+        <p>个人身体数据</p>
+        <v-icon name="edit" size="18" color="#495060"></v-icon>
+      </div>
       <div class="data">
         <div>
           <p>年龄：</p>
@@ -56,6 +54,11 @@
           <p>无</p>
         </div>
       </div>
+    </div>
+
+    <div class="curves-box" v-show="is_echart">
+      <p>一周体重趋势</p>
+      <ZedEchart :t="t"></ZedEchart>
     </div>
 
     <!--点击头像菜单-->
@@ -211,11 +214,17 @@
       box-shadow: 0 0 10px #dddee1;
       padding: 20px 0;
 
-      > p {
-        font-size: 16px;
-        color: #495060;
-        text-align: center;
+      .title {
+        display: flex;
+        justify-content: center;
         margin-bottom: 10px;
+
+        p {
+          font-size: 16px;
+          color: #495060;
+          text-align: center;
+          margin-right: 10px;
+        }
       }
 
       .data {
