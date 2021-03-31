@@ -18,6 +18,10 @@
       </div>
       <div class="data">
         <div>
+          <p>性别：</p>
+          <p>男</p>
+        </div>
+        <div>
           <p>年龄：</p>
           <p>30<span>岁</span></p>
         </div>
@@ -196,12 +200,12 @@
       -moz-box-shadow: 0 0 10px #dddee1;
       -webkit-box-shadow: 0 0 10px #dddee1;
       box-shadow: 0 0 10px #dddee1;
-      margin-bottom: 10px;
 
       p {
         font-size: 16px;
         color: #495060;
         text-align: center;
+        font-weight: bold;
       }
     }
 
@@ -213,6 +217,7 @@
       -webkit-box-shadow: 0 0 10px #dddee1;
       box-shadow: 0 0 10px #dddee1;
       padding: 20px 0;
+      margin-bottom: 10px;
 
       .title {
         display: flex;
@@ -224,6 +229,7 @@
           color: #495060;
           text-align: center;
           margin-right: 10px;
+          font-weight: bold;
         }
       }
 
