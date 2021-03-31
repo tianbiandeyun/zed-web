@@ -18,43 +18,43 @@
       <div class="data">
         <div>
           <p>性别：</p>
-          <p>男</p>
+          <p>{{message.xingbie}}</p>
         </div>
         <div>
           <p>年龄：</p>
-          <p>30<span>岁</span></p>
+          <p>{{message.nianling}}<span>岁</span></p>
         </div>
         <div>
           <p>身高：</p>
-          <p>180<span>CM</span></p>
+          <p>{{message.shengao}}<span>CM</span></p>
         </div>
         <div>
           <p>体重：</p>
-          <p>78<span>Kj</span></p>
+          <p>{{message.tizhong}}<span>Kj</span></p>
         </div>
         <div>
           <p>BMI：</p>
-          <p>24.1</p>
+          <p>{{message.bmi}}</p>
         </div>
         <div>
           <p>睡眠状态：</p>
-          <p>好</p>
+          <p>{{message.shuimian}}</p>
         </div>
         <div>
           <p>健身记录：</p>
-          <p>2次<span>/周</span></p>
+          <p>{{message.jianshen}}次<span>/周</span></p>
         </div>
-        <div>
+        <div v-if="message.xingbie == '女'">
           <p>生理期：</p>
-          <p>无</p>
+          <p>{{message.shengli}}</p>
         </div>
         <div>
           <p>情绪状态：</p>
-          <p>良好</p>
+          <p>{{message.qingxu}}</p>
         </div>
         <div>
           <p>身体症状：</p>
-          <p>无</p>
+          <p>{{message.zhengzhuang}}</p>
         </div>
       </div>
     </div>
@@ -109,8 +109,24 @@
             name: "更换头像"
           }
         ],
-        is_dialog: false
+        is_dialog: false,
+        message: ""
       };
+    },
+    created() {
+      // 获取活动信息
+      this.$store.dispatch("fetch", {
+        url: "http://1.13.14.153/1.php?page=wodexinxi"
+      }).then(res => {
+        this.message = res;
+        console.log(res);
+        // if (res.result === "failure") {
+        //   this.$Utils.closeWaiting();
+        //   this.$Utils.showErrorInfo(res, "get_salon_activity_info");
+        // } else {
+        //   this.info = res.back_value;
+        // }
+      });
     },
     methods: {
       openSheet() {
