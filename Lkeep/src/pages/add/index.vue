@@ -8,6 +8,12 @@
 
     <div class="add-box">
       <div class="item">
+        <p>年龄：</p>
+        <div>
+          <input type="number" v-model="shenggao" placeholder="请输入年龄">
+        </div>
+      </div>
+      <div class="item">
         <p>性别：</p>
         <div>
           <picker @change="selectSex" :value="sex" :range="a0">
