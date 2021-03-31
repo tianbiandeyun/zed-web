@@ -17,12 +17,11 @@ export default new Vuex.Store({
      * */
     fetch({ commit }, params) {
       let { url } = { ...params };
-      console.log(url);
-      // return new Promise((resolve, reject) => {
-      //   fly.get(url).then(res => {
-      //     resolve(res.data);
-      //   });
-      // });
+      return new Promise((resolve, reject) => {
+        fly.get(url).then(res => {
+          resolve(res.data);
+        });
+      });
     }
 
     // fetch({ commit }, params) {
