@@ -61,7 +61,26 @@
           },
           url: this.$Config.CONST_REQUEST_URI
         }).then(res => {
-          console.log(res);
+          let result = res.data;
+          let new_data = [];
+          let _o = {};
+          result.forEach(item => {
+            let _m = new Date(item.riqi).getMonth() + 1;
+            if (undefined === _o[_m]) {
+              _o[_m] = [];
+            }
+            _o[_m].push(item);
+          });
+
+          Object.keys(_o).forEach((item, index) => {
+            new_data.push({
+              "month": item,
+              "lis": Object.values(_o)[index]
+            });
+          });
+
+          console.log(new_data);
+
         });
 
         this.$Utils.closeWaiting();
