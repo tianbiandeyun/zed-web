@@ -41,6 +41,9 @@
     created() {
 
     },
+    onTabItemTap(res){
+      console.log(res);
+    },
     methods: {
       add() {
         wx.navigateTo({

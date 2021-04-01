@@ -125,6 +125,9 @@
       });
 
     },
+    onTabItemTap(res){
+      console.log(res);
+    },
     methods: {
       openSheet() {
         this.is_sheet = true;
