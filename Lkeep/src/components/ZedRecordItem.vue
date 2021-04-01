@@ -3,8 +3,8 @@
 
     <div class="header">
       <div>
-        <p>2020年03月30日，星期二</p>
-        <p>上午</p>
+        <p>{{n}}，{{w}}</p>
+        <p>{{item.shijianduan}}</p>
       </div>
       <div>
         <v-icon name="arrow" size="26px" color="#495060"></v-icon>
@@ -24,6 +24,16 @@
     props: {
       item: {
         type: Object
+      }
+    },
+    computed: {
+      n() {
+        let _item = this.item;
+        return this.$Utils.assignDate("YYYY年MM月DD日", _item.riqi);
+      },
+      w() {
+        let _item = this.item;
+        return this.$Utils.assignDate("星期W", _item.riqi);
       }
     }
   };
