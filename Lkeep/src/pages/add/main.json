@@ -2,6 +2,6 @@
   "navigationBarBackgroundColor": "#000",
   "navigationBarTitleText": "添加记录",
   "usingComponents": {
-    "v-popup": "./../../static/vant/popup/index"
+    "v-notify": "./../../static/vant/notify/index"
   }
 }
