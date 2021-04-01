@@ -42,7 +42,7 @@
         </div>
         <div>
           <p>健身记录：</p>
-          <p>{{message.jianshen}}次<span>/周</span></p>
+          <p>{{message.jianshen}}<span>/周</span></p>
         </div>
         <div v-if="message.xingbie == '女'">
           <p>生理期：</p>
@@ -115,24 +115,27 @@
     },
     created() {
 
-      this.$Utils.showWaiting();
-
-      this.$store.dispatch("fetch", {
-        im: "getMesssage",
-        fps: {
-          "page": "wodexinxi"
-        },
-        url: this.$Config.CONST_REQUEST_URI
-      }).then(res => {
-        this.message = res.data;
-        this.$Utils.closeWaiting();
-      });
-
     },
     onTabItemTap(res) {
-      console.log(res);
+      this.refresh();
     },
     methods: {
+      async refresh() {
+
+        this.$Utils.showWaiting();
+
+        await this.$store.dispatch("fetch", {
+          im: "getMesssage",
+          fps: {
+            "page": "wodexinxi"
+          },
+          url: this.$Config.CONST_REQUEST_URI
+        }).then(res => {
+          this.message = res.data;
+        });
+
+        this.$Utils.closeWaiting();
+      },
       openSheet() {
         this.is_sheet = true;
         this.is_echart = false;

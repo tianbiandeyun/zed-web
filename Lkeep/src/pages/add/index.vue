@@ -148,6 +148,7 @@
         shenggao: "",
         tizhong: "",
         mubiao: "",
+        beizhu: "",
         ymd: "",
         week: ""
       };
@@ -158,13 +159,48 @@
     },
     methods: {
       add() {
-        console.log(this.shenggao);
-        console.log(this.tizhong);
-        console.log(this.mubiao);
-        console.log(this.bmi);
+
+        let date = this.$Utils.format("YYYY年MM月DD日 星期W");
+
+        let fps = {
+          "page": "tianjiajilu",
+          "xingbie": this.a0[this.sex],
+          "nianling": this.nianling,
+          "shengao": this.shenggao,
+          "tizhong": this.tizhong,
+          "bmi": this.bmi,
+          "mubiao": this.mubiao,
+          "shijianduan": this.a1[this.time],
+          "yongcan": this.a2[this.eat],
+          "zhengzhuang": this.a3[this.disease],
+          "qingxu": this.a4[this.moody],
+          "shuimian": this.a6[this.sleep],
+          "jianshen": this.a7[this.duanlian],
+          "beizhu": this.beizhu,
+          "riqi": date
+        };
+
+        if (this.sex == 2) {
+          fps["shengli"] = this.a5[this.to];
+        }
+
+        this.$Utils.showWaiting();
+
+        this.$store.dispatch("fetch", {
+          im: "setUserInfo",
+          fps,
+          url: this.$Config.CONST_REQUEST_URI
+        }).then(res => {
+          console.log(res);
+          this.$Utils.closeWaiting();
+        });
+
       },
       selectSex: function(e) {
         this.sex = e.mp.detail.value;
+        if (this.sex != 2) {
+          this.to = 0;
+        }
       },
       selectTime: function(e) {
         this.time = e.mp.detail.value;
