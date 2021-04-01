@@ -211,7 +211,7 @@
           return false;
         }
 
-        if (this.shijianduan == 0) {
+        if (this.time == 0) {
           wx.showToast({
             title: "请选择体重记录时间段",
             icon: "none",
@@ -221,7 +221,7 @@
           return false;
         }
 
-        if (this.yongcan == 0) {
+        if (this.eat == 0) {
           wx.showToast({
             title: "请选择用餐记录",
             icon: "none",
@@ -231,7 +231,7 @@
           return false;
         }
 
-        if (this.zhengzhuang == 0) {
+        if (this.disease == 0) {
           wx.showToast({
             title: "请选择今日身体症状",
             icon: "none",
@@ -241,7 +241,7 @@
           return false;
         }
 
-        if (this.qingxu == 0) {
+        if (this.moody == 0) {
           wx.showToast({
             title: "请选择今日情绪状况",
             icon: "none",
@@ -251,7 +251,19 @@
           return false;
         }
 
-        if (this.shuimian == 0) {
+        if (this.sex == 2) {
+          if (this.sleep == 0) {
+            wx.showToast({
+              title: "请选择生理期阶段",
+              icon: "none",
+              mask: true,
+              duration: 1000
+            });
+            return false;
+          }
+        }
+
+        if (this.sleep == 0) {
           wx.showToast({
             title: "请选择今日睡眠状况",
             icon: "none",
@@ -261,7 +273,7 @@
           return false;
         }
 
-        if (this.jianshen == 0) {
+        if (this.duanlian == 0) {
           wx.showToast({
             title: "请选择本周健身预计次数",
             icon: "none",
