@@ -160,6 +160,117 @@
     methods: {
       add() {
 
+
+        if (this.nianling === "") {
+          wx.showToast({
+            title: "请输入年龄",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.sex == 0) {
+          wx.showToast({
+            title: "请选择性别",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.shenggao == "") {
+          wx.showToast({
+            title: "请输入身高",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.tizhong == "") {
+          wx.showToast({
+            title: "请输入当前体重",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.mubiao == "") {
+          wx.showToast({
+            title: "请输入目标体重",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.shijianduan == 0) {
+          wx.showToast({
+            title: "请选择体重记录时间段",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.yongcan == 0) {
+          wx.showToast({
+            title: "请选择用餐记录",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.zhengzhuang == 0) {
+          wx.showToast({
+            title: "请选择今日身体症状",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.qingxu == 0) {
+          wx.showToast({
+            title: "请选择今日情绪状况",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.shuimian == 0) {
+          wx.showToast({
+            title: "请选择今日睡眠状况",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
+        if (this.jianshen == 0) {
+          wx.showToast({
+            title: "请选择本周健身预计次数",
+            icon: "none",
+            mask: true,
+            duration: 1000
+          });
+          return false;
+        }
+
         let date = this.$Utils.format("YYYY年MM月DD日 星期W");
 
         let fps = {
@@ -176,7 +287,7 @@
           "qingxu": this.a4[this.moody],
           "shuimian": this.a6[this.sleep],
           "jianshen": this.a7[this.duanlian],
-          "beizhu": this.beizhu,
+          "beizhu": this.beizhu || "今日比较无语，没有写备注。",
           "riqi": date
         };
 
@@ -193,8 +304,15 @@
         }).then(res => {
           console.log(res);
           if (res.success) {
-            wx.navigateBack({
-              delta: 1
+            wx.showModal({
+              title: "祝贺你",
+              content: "今日健康添加完成，努力完成吧！",
+              showCancel: false,
+              success() {
+                wx.navigateBack({
+                  delta: 1
+                });
+              }
             });
           }
           this.$Utils.closeWaiting();
