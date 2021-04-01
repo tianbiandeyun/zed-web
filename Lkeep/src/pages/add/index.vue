@@ -192,6 +192,11 @@
           url: this.$Config.CONST_REQUEST_URI
         }).then(res => {
           console.log(res);
+          if (res.success) {
+            wx.navigateBack({
+              delta: 1
+            });
+          }
           this.$Utils.closeWaiting();
         });
 
@@ -223,6 +228,9 @@
       selectDuanLian: function(e) {
         this.duanlian = e.mp.detail.value;
       }
+    },
+    onUnload() {
+      this.$Utils.restData(this);
     },
     computed: {
       bmi() {
