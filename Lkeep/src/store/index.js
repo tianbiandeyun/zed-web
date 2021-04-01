@@ -16,9 +16,10 @@ export default new Vuex.Store({
      * 通用
      * */
     fetch({ commit }, params) {
-      let { url } = { ...params };
+      const { im, fps, url, method } = { ...params };
+      const requestUrl = unit.produceRequestUrl(im, fps, url, method);
       return new Promise((resolve, reject) => {
-        fly.get(url).then(res => {
+        fly.get(requestUrl).then(res => {
           resolve(res.data);
         });
       });

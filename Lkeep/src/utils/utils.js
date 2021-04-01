@@ -48,9 +48,8 @@ const produceRequestUrl = (im, fps, url, method = "get") => {
   // 如果是 get 则走这个参数拼接
   if (method === "get") {
     for (let name in fps) {
-      baseUrl += "&fps[" + name + "]=" + encodeURIComponent(fps[name]).replace(/[!'()]/g, escape).replace(/\*/g, "%2A");
+      baseUrl += `&${name}=${encodeURIComponent(fps[name])}`;
     }
-    baseUrl += "&iv=jsonp&callback=";
   }
   // 如果是 post 则直接返回
   return baseUrl;

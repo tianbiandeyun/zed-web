@@ -30,7 +30,7 @@
         </div>
         <div>
           <p>体重：</p>
-          <p>{{message.tizhong}}<span>Kj</span></p>
+          <p>{{message.tizhong}}<span>Kg</span></p>
         </div>
         <div>
           <p>BMI：</p>
@@ -118,14 +118,18 @@
       this.$Utils.showWaiting();
 
       this.$store.dispatch("fetch", {
-        url: `${this.$Config.CONST_REQUEST_URI}?page=wodexinxi&im=getMesssage`
+        im: "getMesssage",
+        fps: {
+          "page": "wodexinxi"
+        },
+        url: this.$Config.CONST_REQUEST_URI
       }).then(res => {
         this.message = res.data;
         this.$Utils.closeWaiting();
       });
 
     },
-    onTabItemTap(res){
+    onTabItemTap(res) {
       console.log(res);
     },
     methods: {
