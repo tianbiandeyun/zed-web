@@ -33,7 +33,7 @@
       this.refresh();
     },
     onTabItemTap(res) {
-      console.log(res);
+      this.refresh();
     },
     methods: {
       add() {
