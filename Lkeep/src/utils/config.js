@@ -11,13 +11,7 @@ const VERSION = "v3.0.2";
 /**
  * 请求域名
  * */
-const CONST_REQUEST_URI = "https://testphp.hztc.dev.hztcapp.com/test_index.php"; // 开发
-// const CONST_REQUEST_URI = "https://hztc.dev.hztcapp.com/index.php"; // 正式
-
-/**
- * 请求地址
- * */
-const REQUEST_URI = `${CONST_REQUEST_URI}?r=interface/api&ic=${CONST_APP_IC}`;
+const CONST_REQUEST_URI = "https://bfl.cancanyou.com/1.php"; // 开发
 
 /**
  * 接口列表
@@ -25,6 +19,6 @@ const REQUEST_URI = `${CONST_REQUEST_URI}?r=interface/api&ic=${CONST_APP_IC}`;
 const INTER_FACE = {};
 
 export {
-  REQUEST_URI,
+  CONST_REQUEST_URI,
   INTER_FACE
 };

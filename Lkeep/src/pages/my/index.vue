@@ -114,19 +114,18 @@
       };
     },
     created() {
-      // 获取活动信息
+
+      this.$Utils.showWaiting();
+
       this.$store.dispatch("fetch", {
-        url: "https://bfl.cancanyou.com//1.php?page=wodexinxi"
+        url: "https://bfl.cancanyou.com/1.php?page=wodexinxi&im=getMesssage"
       }).then(res => {
         this.message = res;
         console.log(res);
-        // if (res.result === "failure") {
-        //   this.$Utils.closeWaiting();
-        //   this.$Utils.showErrorInfo(res, "get_salon_activity_info");
-        // } else {
-        //   this.info = res.back_value;
-        // }
+
+        this.$Utils.closeWaiting();
       });
+
     },
     methods: {
       openSheet() {
