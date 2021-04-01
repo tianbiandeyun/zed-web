@@ -118,11 +118,9 @@
       this.$Utils.showWaiting();
 
       this.$store.dispatch("fetch", {
-        url: "https://bfl.cancanyou.com/1.php?page=wodexinxi&im=getMesssage"
+        url: `${this.$Config.CONST_REQUEST_URI}?page=wodexinxi&im=getMesssage`
       }).then(res => {
-        this.message = res;
-        console.log(res);
-
+        this.message = res.data;
         this.$Utils.closeWaiting();
       });
 
