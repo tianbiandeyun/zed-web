@@ -12,7 +12,7 @@
     </div>
     <v-divider></v-divider>
     <div class="content">
-      <p>一周体重变化一周体重变化一周体重变化一周体重变化</p>
+      <p>{{item.beizhu}}</p>
     </div>
 
   </section>
@@ -20,7 +20,12 @@
 
 <script>
   export default {
-    name: "ZedRecordItem"
+    name: "ZedRecordItem",
+    props: {
+      item: {
+        type: Object
+      }
+    }
   };
 </script>
 

@@ -6,7 +6,7 @@
         <h1 class="title">{{item.month}}月</h1>
       </v-sticky>
       <div class="item" v-for="(i,k) in item.list" :key="k">
-        <ZedRecordItem></ZedRecordItem>
+        <ZedRecordItem :item="i"></ZedRecordItem>
       </div>
     </div>
 
@@ -26,16 +26,7 @@
     components: { ZedRecordItem, echart },
     data() {
       return {
-        list: [
-          {
-            month: 3,
-            list: [1, 2, 4]
-          },
-          {
-            month: 4,
-            list: [1, 2, 4, 5, 6, 7]
-          }
-        ]
+        list: []
       };
     },
     created() {
@@ -75,11 +66,13 @@
           Object.keys(_o).forEach((item, index) => {
             new_data.push({
               "month": item,
-              "lis": Object.values(_o)[index]
+              "list": Object.values(_o)[index]
             });
           });
 
-          console.log(new_data);
+          this.list = new_data;
+
+          console.log(this.list);
 
         });
 
