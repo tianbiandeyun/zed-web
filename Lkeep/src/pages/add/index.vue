@@ -283,8 +283,6 @@
           return false;
         }
 
-        let date = this.$Utils.format("YYYY年MM月DD日 星期W");
-
         let fps = {
           "page": "tianjiajilu",
           "xingbie": this.a0[this.sex],
@@ -299,8 +297,7 @@
           "qingxu": this.a4[this.moody],
           "shuimian": this.a6[this.sleep],
           "jianshen": this.a7[this.duanlian],
-          "beizhu": this.beizhu || "今日比较无语，没有写备注。",
-          "riqi": date
+          "beizhu": this.beizhu || "今日比较无语，没有写备注。"
         };
 
         if (this.sex == 2) {

@@ -39,9 +39,9 @@
       };
     },
     created() {
-
+      this.refresh();
     },
-    onTabItemTap(res){
+    onTabItemTap(res) {
       console.log(res);
     },
     methods: {
@@ -49,6 +49,22 @@
         wx.navigateTo({
           url: `/pages/add/main`
         });
+      },
+      async refresh() {
+
+        this.$Utils.showWaiting();
+
+        await this.$store.dispatch("fetch", {
+          im: "getProjectList",
+          fps: {
+            "page": "shouye"
+          },
+          url: this.$Config.CONST_REQUEST_URI
+        }).then(res => {
+          console.log(res);
+        });
+
+        this.$Utils.closeWaiting();
       }
     }
   };
