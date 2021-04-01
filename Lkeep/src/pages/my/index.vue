@@ -116,7 +116,7 @@
     created() {
       // 获取活动信息
       this.$store.dispatch("fetch", {
-        url: "http://1.13.14.153/1.php?page=wodexinxi"
+        url: "https://bfl.cancanyou.com//1.php?page=wodexinxi"
       }).then(res => {
         this.message = res;
         console.log(res);

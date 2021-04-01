@@ -10,7 +10,7 @@
       <div class="item">
         <p>年龄：</p>
         <div>
-          <input type="number" v-model="shenggao" placeholder="请输入年龄">
+          <input type="number" v-model="nianling" placeholder="请输入年龄">
         </div>
       </div>
       <div class="item">
@@ -144,6 +144,7 @@
         a6: ["请选择睡眠情况", "良好", "没睡醒", "还可以", "困"],
         duanlian: 0,
         a7: ["请选择健身情况", "1次", "2次", "3次", "4次", "5次", "6次", "7次"],
+        nianling: "",
         shenggao: "",
         tizhong: "",
         mubiao: "",
