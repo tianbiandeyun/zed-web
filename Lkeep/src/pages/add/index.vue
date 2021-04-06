@@ -356,9 +356,9 @@
         this.duanlian = e.mp.detail.value;
       }
     },
-    onUnload() {
-      this.$Utils.restData(this);
-    },
+    // onUnload() {
+    //   this.$Utils.restData(this);
+    // },
     computed: {
       bmi() {
         return Math.floor(this.tizhong / ((this.shenggao * this.shenggao) / 10000) * 100) / 100 || 0;
