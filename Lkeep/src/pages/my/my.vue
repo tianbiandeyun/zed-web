@@ -6,7 +6,7 @@
         <img @click="openSheet" src="../../../static/images/photo.png" alt="张琳">
       </div>
       <div class="name" @click="openDialog">
-        <p>名字</p>
+        <p>{{message.username}}</p>
         <v-icon name="edit" size="18" color="#495060"></v-icon>
       </div>
     </div>
@@ -85,6 +85,7 @@
       @confirm="confirmDialog"
     >
       <v-field
+        v-model="username"
         placeholder="请输入用户名"
       ></v-field>
     </v-dialog>
@@ -111,10 +112,11 @@
           }
         ],
         is_dialog: false,
-        message: ""
+        message: "",
+        username: ""
       };
     },
-    onTabItemTap(res) {
+    onTabItemTap() {
       this.refresh();
     },
     methods: {
@@ -161,6 +163,7 @@
         }
       },
       confirmDialog() {
+        console.log(this.username);
         console.log("确认");
       }
     },
