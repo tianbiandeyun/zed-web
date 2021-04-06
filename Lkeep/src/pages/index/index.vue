@@ -30,15 +30,13 @@
     components: { ZedRecordItem, echart },
     data() {
       return {
-        list: [],
-        dd: ""
+        list: []
       };
     },
     async created() {
       this.refresh();
       let openidInfo = await this.getOpenid();
       console.log(openidInfo);
-      this.dd = openidInfo.data.openid;
     },
     onTabItemTap(res) {
       this.refresh();
