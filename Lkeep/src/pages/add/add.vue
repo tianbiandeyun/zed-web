@@ -157,7 +157,6 @@
     mounted() {
       this.ymd = this.$Utils.format("YYYY年MM月DD日");
       this.week = this.$Utils.format("星期W");
-      console.log(this.openidInfo.data.openid);
     },
     methods: {
       add() {
@@ -298,7 +297,8 @@
           "qingxu": this.a4[this.moody],
           "shuimian": this.a6[this.sleep],
           "jianshen": this.a7[this.duanlian],
-          "beizhu": this.beizhu || "今日比较无语，没有写备注。"
+          "beizhu": this.beizhu || "今日比较无语，没有写备注。",
+          "openid": this.openidInfo.data.openid
         };
 
         if (this.sex == 2) {
