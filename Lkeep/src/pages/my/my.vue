@@ -93,6 +93,7 @@
 
 <script>
   import ZedEchart from "../../components/ZedEchart";
+  import { mapGetters } from "vuex";
 
   export default {
     components: { ZedEchart },
@@ -124,7 +125,8 @@
         await this.$store.dispatch("fetch", {
           im: "getMesssage",
           fps: {
-            "page": "wodexinxi"
+            "page": "wodexinxi",
+            "openid": this.openidInfo.data.openid
           },
           url: this.$Config.CONST_REQUEST_URI
         }).then(res => {
@@ -161,6 +163,11 @@
       confirmDialog() {
         console.log("确认");
       }
+    },
+    computed: {
+      ...mapGetters([
+        "openidInfo"
+      ])
     }
   };
 </script>
