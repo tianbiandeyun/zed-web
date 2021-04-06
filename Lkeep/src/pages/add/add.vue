@@ -123,6 +123,7 @@
 </template>
 
 <script>
+  import { mapGetters } from "vuex";
 
   export default {
     components: {},
@@ -156,10 +157,10 @@
     created() {
       this.ymd = this.$Utils.format("YYYY年MM月DD日");
       this.week = this.$Utils.format("星期W");
+      console.log('add')
     },
     methods: {
       add() {
-
 
         if (this.nianling === "") {
           wx.showToast({
@@ -362,7 +363,10 @@
     computed: {
       bmi() {
         return Math.floor(this.tizhong / ((this.shenggao * this.shenggao) / 10000) * 100) / 100 || 0;
-      }
+      },
+      ...mapGetters([
+        "openid"
+      ])
     }
   };
 </script>

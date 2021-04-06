@@ -45,7 +45,7 @@
           // 获取code
           wx.login({
             success(res) {
-              that.$store.dispatch("fetch", {
+              that.$store.dispatch("getOpenid", {
                 im: "getOpenid",
                 fps: { code: res.code },
                 url: that.$Config.CONST_REQUEST_URI
