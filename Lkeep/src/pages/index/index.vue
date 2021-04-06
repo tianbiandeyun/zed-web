@@ -1,6 +1,10 @@
 <template>
   <section class="index-container">
 
+    <p>
+      {{dd}}
+    </p>
+
     <div class="record-box" v-for="(item,index) in list" :key="index">
       <v-sticky>
         <h1 class="title">{{item.month}}月</h1>
@@ -26,13 +30,15 @@
     components: { ZedRecordItem, echart },
     data() {
       return {
-        list: []
+        list: [],
+        dd: ""
       };
     },
     async created() {
       this.refresh();
       let openidInfo = await this.getOpenid();
       console.log(openidInfo);
+      this.dd = openidInfo.data.openid;
     },
     onTabItemTap(res) {
       this.refresh();
