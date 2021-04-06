@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    openid: ""
+    openidInfo: ""
   },
   actions: {
     /**
@@ -41,10 +41,10 @@ export default new Vuex.Store({
   },
   mutations: {
     GETOPENID(state, res) {
-      state.openid = res;
+      state.openidInfo = res;
     }
   },
   getters: {
-    openid: state => state.openid
+    openidInfo: state => state.openidInfo
   }
 });
