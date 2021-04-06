@@ -29,48 +29,36 @@
         list: []
       };
     },
-    created() {
+    async created() {
       this.refresh();
+      let openidInfo = await this.getOpenid();
+      console.log(openidInfo);
     },
     onTabItemTap(res) {
       this.refresh();
     },
     methods: {
 
-      // async getOpenid() {
-      //
-      //   let code = await this.wxLogin();
-      //
-      //   // 获取openid
-      //   return new Promise((resolve, reject) => {
-      //     this.$store.dispatch("getOpenid", {
-      //       im: this.$Config.INTER_FACE.xi_login,
-      //       fps: { xicode: code },
-      //       url: this.$Config.REQUEST_URI
-      //     }).then(res => {
-      //       if (res.result === "failure") {
-      //         this.$Utils.showErrorInfo(res, "xi_login");
-      //       } else {
-      //         resolve(res);
-      //       }
-      //     });
-      //   });
-      //
-      // },
-      // wxLogin() {
-      //   return new Promise((resolve, reject) => {
-      //     // 获取code
-      //     wx.login({
-      //       success(res) {
-      //         resolve(res.code);
-      //       },
-      //       fail(error) {
-      //         reject(error);
-      //       }
-      //     });
-      //   });
-      // },
-
+      getOpenid() {
+        let that = this;
+        return new Promise((resolve, reject) => {
+          // 获取code
+          wx.login({
+            success(res) {
+              that.$store.dispatch("fetch", {
+                im: "getOpenid",
+                fps: { code: res.code },
+                url: that.$Config.CONST_REQUEST_URI
+              }).then(res => {
+                resolve(res);
+              });
+            },
+            fail(error) {
+              reject(error);
+            }
+          });
+        });
+      },
       add() {
         wx.navigateTo({
           url: `/pages/add/main`
