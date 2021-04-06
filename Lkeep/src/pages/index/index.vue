@@ -27,15 +27,12 @@
     components: { ZedRecordItem, echart },
     data() {
       return {
-        list: [],
-        openid: ""
+        list: []
       };
     },
-    async created() {
+    async mounted() {
       this.refresh();
-      let openidInfo = await this.getOpenid();
-      this.openid = openidInfo.data.openid;
-      console.log(this.openidInfo.data.openid);
+      await this.getOpenid();
     },
     onTabItemTap(res) {
       this.refresh();
@@ -94,11 +91,7 @@
               "list": Object.values(_o)[index]
             });
           });
-
           this.list = new_data;
-
-          console.log(this.list);
-
         });
 
         this.$Utils.closeWaiting();
