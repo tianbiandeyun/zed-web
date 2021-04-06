@@ -35,7 +35,7 @@
       this.refresh();
       let openidInfo = await this.getOpenid();
       this.openid = openidInfo.data.openid;
-      console.log(this.openidInfo.data.data.openid)
+      console.log(this.openidInfo.data.openid);
     },
     onTabItemTap(res) {
       this.refresh();

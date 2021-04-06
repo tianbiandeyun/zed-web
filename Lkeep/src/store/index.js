@@ -45,6 +45,6 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    openidInfo: state => state.openidInfo
+    openidInfo: state => state.openidInfo.data
   }
 });
