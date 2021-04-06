@@ -31,8 +31,8 @@
       };
     },
     async mounted() {
-      this.refresh();
       await this.getOpenid();
+      this.refresh();
     },
     onTabItemTap(res) {
       this.refresh();
@@ -70,7 +70,8 @@
         await this.$store.dispatch("fetch", {
           im: "getProjectList",
           fps: {
-            "page": "shouye"
+            "page": "shouye",
+            "openid": this.openidInfo.data.openid
           },
           url: this.$Config.CONST_REQUEST_URI
         }).then(res => {
