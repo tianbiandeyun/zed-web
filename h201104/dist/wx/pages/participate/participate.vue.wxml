@@ -1,4 +1,4 @@
-<template name="0dfc3a20">
+<template name="4dea3592">
   <view class="_section data-v-4f200954 sign-up-container">
     <view class="_div data-v-4f200954 sign-up-box">
       <view class="_div data-v-4f200954 sign-up-origin" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"><label class="_span data-v-4f200954">会议名称：</label> <label class="_span data-v-4f200954">{{info.title}}</label> <label class="_span data-v-4f200954"> > </label></view>

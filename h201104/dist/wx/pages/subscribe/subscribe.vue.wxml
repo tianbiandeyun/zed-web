@@ -1,7 +1,7 @@
-<import src="/components/listItem.vue.wxml" /><template name="dcb11ff0">
+<import src="/components/listItem.vue.wxml" /><template name="f75338ac">
   <view class="_section data-v-30ff2f28 list-container">
     <view class="_div data-v-30ff2f28 list-tip">嘉宾列表（请点击签到）：</view>
-    <view wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" class="_div data-v-30ff2f28"><template bindsignIn="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="bf79d790"></template></view>
+    <view wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" class="_div data-v-30ff2f28"><template bindsignIn="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="2f91e95a"></template></view>
     <v-popup show="{{popup_show}}" closeable round bindclose="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_v-popup data-v-30ff2f28">
       <view class="_div data-v-30ff2f28 popup-container">
         <view class="_div data-v-30ff2f28 popup-photo">

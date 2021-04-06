@@ -21,6 +21,7 @@
 <script>
   import ZedRecordItem from "../../components/ZedRecordItem";
   import echart from "../../components/ZedEchart";
+  import { mapGetters } from "vuex";
 
   export default {
     components: { ZedRecordItem, echart },
@@ -34,7 +35,7 @@
       this.refresh();
       let openidInfo = await this.getOpenid();
       this.openid = openidInfo.data.openid;
-      console.log('index')
+      console.log(this.openidInfo.data.data.openid)
     },
     onTabItemTap(res) {
       this.refresh();
@@ -102,6 +103,11 @@
 
         this.$Utils.closeWaiting();
       }
+    },
+    computed: {
+      ...mapGetters([
+        "openidInfo"
+      ])
     }
   };
 </script>

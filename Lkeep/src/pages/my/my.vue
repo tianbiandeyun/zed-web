@@ -113,9 +113,6 @@
         message: ""
       };
     },
-    created() {
-      console.log('my')
-    },
     onTabItemTap(res) {
       this.refresh();
     },

@@ -157,7 +157,8 @@
     created() {
       this.ymd = this.$Utils.format("YYYY年MM月DD日");
       this.week = this.$Utils.format("星期W");
-      console.log("add");
+
+      console.log(this.openidInfo.data.data.openid)
     },
     methods: {
       add() {
