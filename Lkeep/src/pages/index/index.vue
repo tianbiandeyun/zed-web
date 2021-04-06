@@ -38,7 +38,6 @@
       this.refresh();
     },
     methods: {
-
       getOpenid() {
         let that = this;
         return new Promise((resolve, reject) => {
