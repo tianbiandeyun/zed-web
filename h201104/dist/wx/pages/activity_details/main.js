@@ -152,10 +152,7 @@ if (false) {(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "details",
-  components: {
-    signItem: __WEBPACK_IMPORTED_MODULE_3__components_sign__["a" /* default */],
-    getUserInfo: __WEBPACK_IMPORTED_MODULE_4__components_getUserInfo__["a" /* default */]
-  },
+  components: { signItem: __WEBPACK_IMPORTED_MODULE_3__components_sign__["a" /* default */], getUserInfo: __WEBPACK_IMPORTED_MODULE_4__components_getUserInfo__["a" /* default */] },
   mixins: [__WEBPACK_IMPORTED_MODULE_5__utils_login__["a" /* default */]],
   data: function data() {
     return {
@@ -304,7 +301,7 @@ if (false) {(function () {
       wx.openLocation({
         latitude: +that.details_info.longitude,
         longitude: +that.details_info.latitude,
-        name: "光科技馆",
+        name: that.details_info.congress_venue,
         scale: 18,
         success: function success() {
           that.$Utils.closeWaiting();

@@ -1,4 +1,4 @@
-<template name="67bf50d8">
+<template name="2816a972">
   <view class="_section data-v-13c57ed6 activity-end-details-container">
     <view class="_div data-v-13c57ed6 activity-end-details-log">
       <image src="{{details_info.main_graph}}" alt class="_img data-v-13c57ed6"></image>

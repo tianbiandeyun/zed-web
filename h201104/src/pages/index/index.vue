@@ -66,8 +66,27 @@
     },
     async onShow() {
       this.$Utils.showWaiting();
+
       this.openid_info = await this.getOpenid();
+
       this.refreshIndex();
+
+      // 判断是否授权获取用户资料
+      // wx.getSetting({
+      //   success: res => {
+      //     if (res.authSetting["scope.userInfo"]) {
+      //       // 授权
+      //       this.refreshIndex();
+      //
+      //     } else {
+      //       // 未授权
+      //       // this.is_scope = true;
+      //       console.log("未登录");
+      //       this.$Utils.closeWaiting();
+      //     }
+      //   }
+      // });
+
     },
     methods: {
       login_wx() {
@@ -98,24 +117,23 @@
       setUserInfo(res) {
         this.$Utils.showWaiting();
 
-        this.$store
-          .dispatch("fetch", {
-            im: this.$Config.INTER_FACE.set_update_user_info,
-            fps: {
-              open_id: this.openid_info.back_value.open_id,
-              encrypted_data: res.encryptedData,
-              iv: res.iv
-            },
-            url: this.$Config.REQUEST_URI
-          }).then(res => {
-            if (res.result === "failure") {
-              this.$Utils.closeWaiting();
-              this.$Utils.showErrorInfo(res, "set_update_user_info");
-            } else {
-              this.is_scope = false;
-              this.refreshIndex();
-            }
-          });
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.set_update_user_info,
+          fps: {
+            open_id: this.openid_info.back_value.open_id,
+            encrypted_data: res.encryptedData,
+            iv: res.iv
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "set_update_user_info");
+          } else {
+            this.is_scope = false;
+            this.refreshIndex();
+          }
+        });
 
       },
       async refreshIndex() {

@@ -82,11 +82,7 @@ var getYearMonthDay = function getYearMonthDay(date) {
   var year = date.getFullYear();
   var month = date.getMonth();
   var day = date.getDate();
-  return {
-    year: year,
-    month: month,
-    day: day
-  };
+  return { year: year, month: month, day: day };
 };
 /**
  * 获取日期对象
@@ -129,10 +125,7 @@ var getErrorCode = function getErrorCode(code) {
   };
   var error_code = code;
   var error_message = errorCode[code];
-  return {
-    error_code: error_code,
-    error_message: error_message
-  };
+  return { error_code: error_code, error_message: error_message };
 };
 /**
  * 获取选择的日期中日期最大的一个
@@ -262,6 +255,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
@@ -397,13 +391,13 @@ var CONST_APP_IC = "h201104";
 /**
  * 版本号
  * */
-var VERSION = "v3.0.2";
+var VERSION = "v3.0.3";
 
 /**
  * 请求域名
  * */
-var CONST_REQUEST_URI = "https://testphp.hztc.dev.hztcapp.com/test_index.php"; // 开发
-// const CONST_REQUEST_URI = "https://hztc.dev.hztcapp.com/index.php"; // 正式
+// const CONST_REQUEST_URI = "https://testphp.hztc.dev.hztcapp.com/test_index.php"; // 开发
+var CONST_REQUEST_URI = "https://hztc.dev.hztcapp.com/index.php"; // 正式
 
 /**
  * 请求地址

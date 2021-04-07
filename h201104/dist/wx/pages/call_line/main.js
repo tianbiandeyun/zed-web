@@ -113,10 +113,7 @@ if (false) {(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_line",
-  components: {
-    getLine: __WEBPACK_IMPORTED_MODULE_1__components_get_line__["a" /* default */],
-    createdLine: __WEBPACK_IMPORTED_MODULE_2__components_create_lline__["a" /* default */]
-  },
+  components: { getLine: __WEBPACK_IMPORTED_MODULE_1__components_get_line__["a" /* default */], createdLine: __WEBPACK_IMPORTED_MODULE_2__components_create_lline__["a" /* default */] },
   data: function data() {
     return {
       active: 0,

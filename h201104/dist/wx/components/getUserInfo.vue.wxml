@@ -1,4 +1,4 @@
-<template name="ba02a0d4">
+<template name="87aba010">
   <view class="_section data-v-84129bd8 getUserInfo-container" wx:if="{{isScope}}">
     <view class="_div data-v-84129bd8 getUserInfo-logo">
       <image src="/static/images/logo.png" alt class="_img data-v-84129bd8"></image>

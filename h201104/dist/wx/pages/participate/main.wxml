@@ -1,1 +1,1 @@
-<import src="/pages/participate/participate.vue.wxml" /><template is="4dea3592" data="{{ ...$root['0'], $root }}"/>
+<import src="/pages/participate/participate.vue.wxml" /><template is="0dfc3a20" data="{{ ...$root['0'], $root }}"/>

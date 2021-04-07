@@ -196,7 +196,7 @@
         wx.openLocation({
           latitude: +that.details_info.longitude,
           longitude: +that.details_info.latitude,
-          name: "光科技馆",
+          name: that.details_info.congress_venue,
           scale: 18,
           success() {
             that.$Utils.closeWaiting();

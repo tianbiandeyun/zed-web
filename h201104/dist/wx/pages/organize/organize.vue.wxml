@@ -1,4 +1,4 @@
-<template name="6a4bdbb4">
+<template name="76906792">
   <view class="_section data-v-a357ae14 organize-container" wx:if="{{info.length !== 0}}">
     <v-collapse value="{{activeNames}}" bindchange="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_v-collapse data-v-a357ae14">
       <v-collapse-item wx:key="index" key="{{index}}" title="{{item.title}}" name="{{index}}" wx:for="{{info}}" wx:for-index="index" wx:for-item="item" class="_v-collapse-item data-v-a357ae14">

@@ -65,7 +65,7 @@
 
     </div>
 
-    <button @click="goReply">留言</button>
+    <!--<button @click="goReply">留言</button>-->
 
     <div class="user-e">
       <h1>形象照片</h1>

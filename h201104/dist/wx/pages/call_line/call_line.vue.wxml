@@ -1,12 +1,12 @@
 <import src="/components/get_line.vue.wxml" />
-<import src="/components/create_lline.vue.wxml" /><template name="3d1576c0">
+<import src="/components/create_lline.vue.wxml" /><template name="4a66831e">
   <view class="_section data-v-bf8108fc call_line-container">
     <v-tabs active="{{active}}" color="#19be6b" animated swipeable bindchange="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_v-tabs data-v-bf8108fc">
       <v-tab title="我收到的会话" class="_v-tab data-v-bf8108fc">
-        <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item"><template bindgetCall="handleProxy" binddelGetCall="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="7d02b1c6"></template></view>
+        <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item"><template bindgetCall="handleProxy" binddelGetCall="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="249846b8"></template></view>
       </v-tab>
       <v-tab title="我建立的会话" class="_v-tab data-v-bf8108fc">
-        <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item"><template data="{{...$root[$kk+'2_'+index], $root}}" is="96d61934"></template></view>
+        <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item"><template data="{{...$root[$kk+'2_'+index], $root}}" is="7e4d0178"></template></view>
       </v-tab>
     </v-tabs>
   </view>

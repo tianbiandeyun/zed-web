@@ -143,9 +143,7 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "index",
   mixins: [__WEBPACK_IMPORTED_MODULE_2__utils_login__["a" /* default */]],
-  components: {
-    getUserInfo: __WEBPACK_IMPORTED_MODULE_3__components_getUserInfo__["a" /* default */]
-  },
+  components: { getUserInfo: __WEBPACK_IMPORTED_MODULE_3__components_getUserInfo__["a" /* default */] },
   data: function data() {
     return {
       is_login: false,
@@ -166,13 +164,31 @@ if (false) {(function () {
           switch (_context.prev = _context.next) {
             case 0:
               _this.$Utils.showWaiting();
+
               _context.next = 3;
               return _this.getOpenid();
 
             case 3:
               _this.openid_info = _context.sent;
 
+
               _this.refreshIndex();
+
+              // 判断是否授权获取用户资料
+              // wx.getSetting({
+              //   success: res => {
+              //     if (res.authSetting["scope.userInfo"]) {
+              //       // 授权
+              //       this.refreshIndex();
+              //
+              //     } else {
+              //       // 未授权
+              //       // this.is_scope = true;
+              //       console.log("未登录");
+              //       this.$Utils.closeWaiting();
+              //     }
+              //   }
+              // });
 
             case 5:
             case "end":
@@ -274,9 +290,7 @@ if (false) {(function () {
                 _context2.next = 4;
                 return _this3.$store.dispatch("fetch", {
                   im: _this3.$Config.INTER_FACE.get_salon_activity_list,
-                  fps: {
-                    open_id: _this3.openid_info.back_value.open_id
-                  },
+                  fps: { open_id: _this3.openid_info.back_value.open_id },
                   url: _this3.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {

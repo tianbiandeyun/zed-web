@@ -1,4 +1,4 @@
-<template name="88339e74">
+<template name="73a90ab8">
   <view class="_section data-v-bf2e3ff0 sign-container" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
     <view class="_div data-v-bf2e3ff0 sign-header-photo">
       <image src="{{item.wx_photo}}" alt class="_img data-v-bf2e3ff0"></image>

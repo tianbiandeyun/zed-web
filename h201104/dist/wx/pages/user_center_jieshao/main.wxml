@@ -1,1 +1,1 @@
-<import src="/pages/user_center_jieshao/user_center_jieshao.vue.wxml" /><template is="56838ffc" data="{{ ...$root['0'], $root }}"/>
+<import src="/pages/user_center_jieshao/user_center_jieshao.vue.wxml" /><template is="5d00c15a" data="{{ ...$root['0'], $root }}"/>

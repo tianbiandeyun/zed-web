@@ -114,9 +114,7 @@ if (false) {(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "activity_user_list",
-  components: {
-    signItem: __WEBPACK_IMPORTED_MODULE_3__components_sign__["a" /* default */]
-  },
+  components: { signItem: __WEBPACK_IMPORTED_MODULE_3__components_sign__["a" /* default */] },
   mixins: [__WEBPACK_IMPORTED_MODULE_5__utils_login__["a" /* default */]],
   data: function data() {
     return {
