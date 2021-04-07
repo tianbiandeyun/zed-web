@@ -5,8 +5,8 @@
       <div class="photo">
         <img @click="openSheet" src="../../../static/images/photo.png" alt="张琳">
       </div>
-      <div class="name" @click="openDialog">
-        <p>{{message.username}}</p>
+      <div class="name" @click="midName">
+        <p>{{adminInfo.admin_name}}</p>
         <v-icon name="edit" size="18" color="#495060"></v-icon>
       </div>
     </div>
@@ -69,10 +69,7 @@
       @select="selectSheet"></v-action-sheet>
 
     <!--修改名字-->
-    <v-dialog use-slot title="修改名字" :show="is_dialog" show-cancel-button confirm-button-color="#1c2438"
-      cancel-button-color="#495060" @close="closeDialog" @confirm="confirmDialog">
-      <v-field v-model="username" placeholder="请输入用户名"></v-field>
-    </v-dialog>
+
   </section>
 </template>
 
@@ -100,7 +97,7 @@
         ],
         is_dialog: false,
         message: "",
-        username: ""
+        adminInfo: ''
       };
     },
     onTabItemTap() {
@@ -122,36 +119,41 @@
           this.message = res.data;
         });
 
+        this.$store.dispatch("fetch", {
+          im: "getAdmin",
+          fps: {
+            "page": "wodexinxi",
+            "openid": this.openidInfo.data.openid
+          },
+          url: this.$Config.CONST_REQUEST_URI
+        }).then(res => {
+          this.adminInfo = res.data;
+        });
+
         this.$Utils.closeWaiting();
       },
+      // 打开头像
       openSheet() {
         this.is_sheet = true;
         this.is_echart = false;
       },
+      // 关闭头像
       closeSheet() {
         this.is_sheet = false;
         this.is_echart = true;
       },
-      openDialog() {
-        this.is_dialog = true;
-        this.is_echart = false;
-      },
-      closeDialog() {
-        this.is_dialog = false;
-        this.is_echart = true;
-      },
+      // 头像-菜单操作
       selectSheet(event) {
         let name = event.mp.detail;
         if (name === "查看大图") {
-
+          console.log('查看大图');
         }
         if (name === "更换头像") {
-
+          console.log('更换头像');
         }
       },
-      confirmDialog() {
-        console.log(this.username);
-        console.log("确认");
+      midName() {
+        console.log('修改名字');
       }
     },
     computed: {
