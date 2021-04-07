@@ -166,33 +166,16 @@ if (false) {(function () {
           switch (_context.prev = _context.next) {
             case 0:
               _this.$Utils.showWaiting();
-
               _context.next = 3;
               return _this.getOpenid();
 
             case 3:
               _this.openid_info = _context.sent;
 
-
               _this.refreshIndex();
+              console.log('33');
 
-              // 判断是否授权获取用户资料
-              // wx.getSetting({
-              //   success: res => {
-              //     if (res.authSetting["scope.userInfo"]) {
-              //       // 授权
-              //       this.refreshIndex();k
-              //
-              //     } else {
-              //       // 未授权
-              //       // this.is_scope = true;
-              //       console.log("未登录");
-              //       this.$Utils.closeWaiting();
-              //     }
-              //   }
-              // });
-
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
