@@ -68,7 +68,6 @@
       this.$Utils.showWaiting();
       this.openid_info = await this.getOpenid();
       this.refreshIndex();
-      console.log('33')
     },
     methods: {
       login_wx() {

@@ -173,9 +173,8 @@ if (false) {(function () {
               _this.openid_info = _context.sent;
 
               _this.refreshIndex();
-              console.log('33');
 
-            case 6:
+            case 5:
             case "end":
               return _context.stop();
           }
