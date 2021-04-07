@@ -39,20 +39,26 @@
       this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
     },
     methods: {
+      /**
+       * 删除留言
+       */
       delGetCall(res) {
         console.log("delGetCall");
       },
+      /**
+       * 留言详情
+       */
       getCall(res) {
         wx.navigateTo({
           url: `/pages/get_call/main`
         });
       },
+      /**
+       * tab 点击
+       */
       clickTabs(event) {
-
         this.$Utils.showWaiting();
-
         this.call_line_list = [];
-
         if (event.mp.detail.index === 0) {
           // 我收到的 accepter_ukey
           this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
@@ -60,8 +66,10 @@
           // 我建立的 trigger_ukey
           this.refreshCallLine("trigger_ukey", this.$root.$mp.query.u_key);
         }
-
       },
+      /**
+       * 获取留言信息
+       */
       refreshCallLine(...res) {
         let [type, key] = [...res];
         this.$store.dispatch("fetch", {

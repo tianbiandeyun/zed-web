@@ -130,20 +130,28 @@ if (false) {(function () {
   },
 
   methods: {
+    /**
+     * 删除留言
+     */
     delGetCall: function delGetCall(res) {
       console.log("delGetCall");
     },
+
+    /**
+     * 留言详情
+     */
     getCall: function getCall(res) {
       wx.navigateTo({
         url: "/pages/get_call/main"
       });
     },
+
+    /**
+     * tab 点击
+     */
     clickTabs: function clickTabs(event) {
-
       this.$Utils.showWaiting();
-
       this.call_line_list = [];
-
       if (event.mp.detail.index === 0) {
         // 我收到的 accepter_ukey
         this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
@@ -152,6 +160,10 @@ if (false) {(function () {
         this.refreshCallLine("trigger_ukey", this.$root.$mp.query.u_key);
       }
     },
+
+    /**
+     * 获取留言信息
+     */
     refreshCallLine: function refreshCallLine() {
       var _this = this;
 
