@@ -77,7 +77,7 @@
 </template>
 
 <script>
-  import ZedEchart from "../../components/ZedEchart";
+  import ZedEchart from "@/components/ZedEchart";
   import {
     mapGetters
   } from "vuex";

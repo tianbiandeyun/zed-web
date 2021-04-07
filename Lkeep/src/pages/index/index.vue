@@ -17,8 +17,8 @@
 </template>
 
 <script>
-  import ZedRecordItem from "../../components/ZedRecordItem";
-  import echart from "../../components/ZedEchart";
+  import ZedRecordItem from "@/components/ZedRecordItem";
+  import echart from "@/components/ZedEchart";
   import {
     mapGetters
   } from "vuex";
