@@ -121,7 +121,7 @@ if (false) {(function () {
   },
   mounted: function mounted() {
     this.$Utils.showWaiting();
-
+    // 获取对话详情
     this.refreshMessageDetails(this.$root.$mp.query.u_key, this.$root.$mp.query.trigger_ukey);
   },
 
