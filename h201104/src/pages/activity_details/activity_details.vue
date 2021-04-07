@@ -66,11 +66,16 @@
   import signItem from "../../components/sign";
   import getUserInfo from "../../components/getUserInfo";
   import login from "../../utils/login";
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
     name: "details",
-    components: { signItem, getUserInfo },
+    components: {
+      signItem,
+      getUserInfo
+    },
     mixins: [login],
     data() {
       return {
@@ -276,11 +281,10 @@
       this.$Utils.closeWaiting();
       wx.stopPullDownRefresh();
     },
-    onShareAppMessage: function(res) {
+    onShareAppMessage: function (res) {
       if (res.from === "button") {
         console.log("来自页面内转发按钮");
-      }
-      else {
+      } else {
         console.log("来自右上角转发菜单");
       }
       return {
@@ -291,10 +295,10 @@
     }
 
   };
+
 </script>
 
 <style lang="less" scoped>
-
   .details-container {
     padding-bottom: 80px;
 
@@ -315,7 +319,7 @@
       background-color: #fff;
       margin-bottom: 10px;
 
-      > div {
+      >div {
         display: grid;
         grid-template-columns: 2.4fr 6fr 1fr;
         padding: 6px 10px;
@@ -323,7 +327,7 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;
 
-        > span {
+        >span {
           padding: 4px 0;
           font-size: 16px;
 
@@ -345,7 +349,7 @@
         &:nth-of-type(1) {
           grid-template-columns: 1.4fr 4fr;
 
-          > span {
+          >span {
 
             &:nth-of-type(2) {
               color: #515a6e;
@@ -443,7 +447,7 @@
       align-items: center;
       justify-items: flex-end;
 
-      > div {
+      >div {
 
         &:nth-of-type(1) {
           padding-right: 34px;
@@ -460,7 +464,7 @@
             border: none;
           }
 
-          > button {
+          >button {
             background-color: transparent;
             border: none;
             padding-left: 0;
@@ -478,4 +482,5 @@
     }
 
   }
+
 </style>

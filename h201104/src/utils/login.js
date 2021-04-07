@@ -14,7 +14,9 @@ export default {
       return new Promise((resolve, reject) => {
         this.$store.dispatch("getOpenid", {
           im: this.$Config.INTER_FACE.xi_login,
-          fps: { xicode: code },
+          fps: {
+            xicode: code
+          },
           url: this.$Config.REQUEST_URI
         }).then(res => {
           if (res.result === "failure") {

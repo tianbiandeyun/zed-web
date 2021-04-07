@@ -42,12 +42,8 @@
           <input type="text" hold-keyboard v-model="phone" disabled placeholder="手机号码">
         </div>
         <div>
-          <button
-            open-type="getPhoneNumber"
-            @getphonenumber="getPhone"
-            :disabled="disabled"
-            :class="disabled ? 'button_active' : ''"
-          >
+          <button open-type="getPhoneNumber" @getphonenumber="getPhone" :disabled="disabled"
+            :class="disabled ? 'button_active' : ''">
             {{phone_message}}
           </button>
         </div>
@@ -76,7 +72,9 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
     name: "sign_up",
@@ -116,8 +114,8 @@
             this.disabled = true;
           }
 
-          this.name = _user_info.name || "";
-          +_user_info.sex === 1 ? this.index = 0 : this.index = 1 || 0;
+          this.name = _user_info.name || ""; +
+          _user_info.sex === 1 ? this.index = 0 : this.index = 1 || 0;
           this.complate = _user_info.company || "";
           this.zhiwei = _user_info.job_description || "";
           this.email = _user_info.mail || "";
@@ -138,8 +136,7 @@
             title: "提示",
             showCancel: false,
             content: "姓名不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -151,8 +148,7 @@
             title: "提示",
             showCancel: false,
             content: "公司不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -164,8 +160,7 @@
             title: "提示",
             showCancel: false,
             content: "职位不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -177,8 +172,7 @@
             title: "提示",
             showCancel: false,
             content: "电话不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -230,7 +224,10 @@
 
           this.$Utils.showWaiting();
 
-          let { encryptedData, iv } = e.mp.detail;
+          let {
+            encryptedData,
+            iv
+          } = e.mp.detail;
 
           this.$store.dispatch("fetch", {
             im: this.$Config.INTER_FACE.get_user_phone,
@@ -257,8 +254,7 @@
             title: "提示",
             showCancel: false,
             content: "未授权手机号码，无法提交。",
-            success(res) {
-            }
+            success(res) {}
           });
         }
 
@@ -281,6 +277,7 @@
       this.$Utils.restData(this);
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -312,25 +309,25 @@
 
       .message {
 
-        > div {
+        >div {
           display: grid;
           grid-template-columns: 1fr 3fr;
           height: 30px;
           border-bottom: 1px solid #dcdee2;
           padding: 10px 0;
 
-          > span {
+          >span {
             font-size: 16px;
             font-weight: bold;
             color: #17233d;
             line-height: 30px;
           }
 
-          > input {
+          >input {
             height: 30px;
           }
 
-          > picker {
+          >picker {
             font-size: 16px;
             height: 30px;
             line-height: 30px;
@@ -344,7 +341,7 @@
         grid-template-columns: .8fr 1fr 1.4fr;
         padding: 10px 0;
 
-        > div {
+        >div {
 
           span {
             font-size: 16px;
@@ -385,4 +382,5 @@
     }
 
   }
+
 </style>

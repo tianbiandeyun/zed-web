@@ -5,7 +5,10 @@
  * errorMessage 错误信息
  * */
 const showErrorInfo = (errorInfo, errorFace, callback = () => "") => {
-  let { error_code, error_message } = getErrorCode(errorInfo.error_code);
+  let {
+    error_code,
+    error_message
+  } = getErrorCode(errorInfo.error_code);
   wx.showModal({
     title: `${errorFace}`,
     showCancel: false,
@@ -62,7 +65,11 @@ const getYearMonthDay = date => {
   let year = date.getFullYear();
   let month = date.getMonth();
   let day = date.getDate();
-  return { year, month, day };
+  return {
+    year,
+    month,
+    day
+  };
 };
 /**
  * 获取日期对象
@@ -83,7 +90,7 @@ const getDays = (strDateStart, strDateEnd) => {
   oDate2 = strDateEnd.split(strSeparator);
   let strDateS = new Date(oDate1[0], oDate1[1] - 1, oDate1[2]);
   let strDateE = new Date(oDate2[0], oDate2[1] - 1, oDate2[2]);
-  iDays = parseInt(Math.abs(strDateS - strDateE) / 1000 / 60 / 60 / 24);//把相差的毫秒数转换为天数
+  iDays = parseInt(Math.abs(strDateS - strDateE) / 1000 / 60 / 60 / 24); //把相差的毫秒数转换为天数
   return iDays;
 };
 /**
@@ -97,7 +104,10 @@ const getErrorCode = code => {
   };
   let error_code = code;
   let error_message = errorCode[code];
-  return { error_code, error_message };
+  return {
+    error_code,
+    error_message
+  };
 };
 /**
  * 获取选择的日期中日期最大的一个

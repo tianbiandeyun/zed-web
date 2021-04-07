@@ -3,11 +3,7 @@
 
     <v-collapse :value="activeNames" @change="onChange">
 
-      <v-collapse-item
-        v-for="(item,index) in info"
-        :key="index"
-        :title="item.title"
-        :name="index">
+      <v-collapse-item v-for="(item,index) in info" :key="index" :title="item.title" :name="index">
 
         <div class="organize-content" v-for="(k,v) in item.centont" :key="k">
           <p class="organize-content-title">{{k.title}}</p>
@@ -58,7 +54,9 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
     name: "organize",
@@ -107,8 +105,7 @@
             title: "提示",
             showCancel: false,
             content: "对接联系人不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -120,8 +117,7 @@
             title: "提示",
             showCancel: false,
             content: "联系电话不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -133,8 +129,7 @@
             title: "提示",
             showCancel: false,
             content: "机构名称不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -188,6 +183,7 @@
       ])
     }
   };
+
 </script>
 
 <style lang="less">
@@ -239,30 +235,30 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
 
-      > .message {
+      >.message {
         margin-bottom: 10px;
 
-        > div {
+        >div {
           display: grid;
           grid-template-columns: 1.2fr 3fr;
           height: 30px;
           border-bottom: 1px solid #dcdee2;
           padding: 10px 0;
 
-          > span {
+          >span {
             font-size: 16px;
             font-weight: bold;
             color: #17233d;
             line-height: 30px;
           }
 
-          > input {
+          >input {
             font-size: 16px;
             height: 30px;
             color: #17233d;
           }
 
-          > picker {
+          >picker {
             font-size: 16px;
             height: 30px;
             line-height: 30px;
@@ -283,4 +279,5 @@
     }
 
   }
+
 </style>

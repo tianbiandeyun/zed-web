@@ -101,6 +101,7 @@
       }
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -132,7 +133,7 @@
       display: grid;
       grid-template-rows: repeat(2, 1fr);
 
-      > p {
+      >p {
         font-size: 14px;
         color: #c5c8ce;
         overflow: hidden;
@@ -158,4 +159,5 @@
       color: #19be6b;
     }
   }
+
 </style>

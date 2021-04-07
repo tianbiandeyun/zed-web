@@ -25,13 +25,13 @@
       <div class="user-j-other">
         <span>电话：</span>
         <span>{{user_info.phone === null || user_info.phone === "" ? "暂无电话" : user_info.phone}} <span
-          v-if="openid.back_value.open_id === user_info.open_id">{{is_phone == 1 ? "（公开）" : "（仅自己可见）"}}</span></span>
+            v-if="openid.back_value.open_id === user_info.open_id">{{is_phone == 1 ? "（公开）" : "（仅自己可见）"}}</span></span>
       </div>
 
       <div class="user-j-other">
         <span>邮箱：</span>
         <span>{{user_info.mail === null || user_info.mail === "" ? "暂无邮箱" : user_info.mail}} <span
-          v-if="openid.back_value.open_id === user_info.open_id">{{is_mail == 1 ? "（公开）" : "（仅自己可见）"}}</span></span>
+            v-if="openid.back_value.open_id === user_info.open_id">{{is_mail == 1 ? "（公开）" : "（仅自己可见）"}}</span></span>
       </div>
 
     </div>
@@ -79,7 +79,9 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
   import login from "../../utils/login";
 
   export default {
@@ -162,7 +164,7 @@
       this.$Utils.closeWaiting();
       wx.stopPullDownRefresh();
     },
-    onShareAppMessage: function(res) {
+    onShareAppMessage: function (res) {
       console.log(this.$root.$mp.query.u_key);
       return {
         title: "创新投研会",
@@ -171,10 +173,10 @@
       };
     }
   };
+
 </script>
 
 <style lang="less" scoped>
-
   .user-center-container {
 
     .user-j {
@@ -187,7 +189,7 @@
         align-items: center;
         margin-bottom: 10px;
 
-        > span {
+        >span {
           font-size: 24px;
           font-weight: bold;
           color: #17233d;
@@ -195,7 +197,7 @@
           border-bottom: 4px solid #808695;
         }
 
-        > img {
+        >img {
           width: 20px;
           height: 20px;
         }
@@ -207,7 +209,7 @@
         align-items: center;
         margin-bottom: 10px;
 
-        > span {
+        >span {
           font-size: 16px;
           color: #17233d;
 
@@ -233,7 +235,7 @@
         font-size: 16px;
         margin-bottom: 10px;
 
-        > span {
+        >span {
           color: #17233d;
 
           &:nth-of-type(2) {
@@ -256,7 +258,7 @@
         align-items: center;
         margin-bottom: 10px;
 
-        > span {
+        >span {
           font-size: 16px;
           color: #17233d;
 
@@ -282,7 +284,7 @@
         font-size: 16px;
         margin-bottom: 10px;
 
-        > span {
+        >span {
           color: #17233d;
 
           &:nth-of-type(2) {
@@ -291,13 +293,14 @@
           }
         }
       }
+
       .user-g-text {
         display: grid;
         grid-template-columns: 2fr 6fr;
         font-size: 16px;
         margin-bottom: 10px;
 
-        > span {
+        >span {
           color: #17233d;
 
           &:nth-of-type(2) {

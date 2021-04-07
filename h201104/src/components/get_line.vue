@@ -26,17 +26,21 @@
 <script>
   export default {
     name: "line",
-    props:{
-      item:{
-        type:Object
+    props: {
+      item: {
+        type: Object
       }
     },
     methods: {
       getCall() {
-        this.$emit("getCall", { result: true });
+        this.$emit("getCall", {
+          result: true
+        });
       },
       delGetCall() {
-        this.$emit("delGetCall", { result: true });
+        this.$emit("delGetCall", {
+          result: true
+        });
       }
     },
     computed: {
@@ -105,10 +109,10 @@
       }
     }
   };
+
 </script>
 
 <style lang="less" scoped>
-
   .line-container {
 
     .line-header {
@@ -141,6 +145,7 @@
             color: #17233d;
             font-size: 18px;
           }
+
           &:nth-of-type(2) {
             color: #808695;
             font-size: 14px;

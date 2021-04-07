@@ -1,10 +1,10 @@
-<import src="/components/get_line.vue.wxml" />
-<import src="/components/reply.vue.wxml" />
-<import src="/components/input_group.vue.wxml" />
-<import src="/components/sign.vue.wxml" />
-<import src="/components/getUserInfo.vue.wxml" />
 <import src="/components/sign.vue.wxml" />
 <import src="/components/get_line.vue.wxml" />
 <import src="/components/create_lline.vue.wxml" />
+<import src="/components/sign.vue.wxml" />
+<import src="/components/getUserInfo.vue.wxml" />
+<import src="/components/get_line.vue.wxml" />
+<import src="/components/reply.vue.wxml" />
+<import src="/components/input_group.vue.wxml" />
 <import src="/components/getUserInfo.vue.wxml" />
 <import src="/components/listItem.vue.wxml" />

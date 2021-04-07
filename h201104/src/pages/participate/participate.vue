@@ -47,12 +47,8 @@
           <input type="text" hold-keyboard v-model="phone" disabled placeholder="点击右侧按钮">
         </div>
         <div>
-          <button
-            open-type="getPhoneNumber"
-            @getphonenumber="getPhone"
-            :disabled="disabled"
-            :class="disabled ? 'button_active' : ''"
-          >
+          <button open-type="getPhoneNumber" @getphonenumber="getPhone" :disabled="disabled"
+            :class="disabled ? 'button_active' : ''">
             {{phone_message}}
           </button>
         </div>
@@ -72,7 +68,9 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
     name: "sign_up",
@@ -147,8 +145,7 @@
             title: "提示",
             showCancel: false,
             content: "姓名不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -160,8 +157,7 @@
             title: "提示",
             showCancel: false,
             content: "公司不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -173,8 +169,7 @@
             title: "提示",
             showCancel: false,
             content: "职位不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -186,8 +181,7 @@
             title: "提示",
             showCancel: false,
             content: "电话不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -241,7 +235,10 @@
 
           this.$Utils.showWaiting();
 
-          let { encryptedData, iv } = e.mp.detail;
+          let {
+            encryptedData,
+            iv
+          } = e.mp.detail;
 
           this.$store.dispatch("fetch", {
             im: this.$Config.INTER_FACE.get_user_phone,
@@ -268,8 +265,7 @@
             title: "提示",
             showCancel: false,
             content: "未授权手机号码，无法提交。",
-            success(res) {
-            }
+            success(res) {}
           });
         }
 
@@ -306,6 +302,7 @@
       this.$Utils.restData(this);
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -319,7 +316,7 @@
       background-color: #fff;
       margin-bottom: 10px;
 
-      > div {
+      >div {
         display: grid;
         grid-template-columns: 2.4fr 6fr 1fr;
         padding: 6px 10px;
@@ -327,7 +324,7 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;
 
-        > span {
+        >span {
           padding: 4px 0;
           font-size: 16px;
 
@@ -349,7 +346,7 @@
         &:nth-of-type(2) {
           grid-template-columns: 1.4fr 4fr;
 
-          > span {
+          >span {
 
             &:nth-of-type(2) {
               color: #515a6e;
@@ -405,7 +402,7 @@
         grid-template-columns: .8fr 1fr 1.4fr;
         padding: 10px 0;
 
-        > div {
+        >div {
 
           span {
             font-size: 16px;
@@ -446,4 +443,5 @@
     }
 
   }
+
 </style>

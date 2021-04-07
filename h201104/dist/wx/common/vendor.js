@@ -7551,7 +7551,9 @@ module.exports = {};
                 return _context.abrupt("return", new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
                   _this.$store.dispatch("getOpenid", {
                     im: _this.$Config.INTER_FACE.xi_login,
-                    fps: { xicode: code },
+                    fps: {
+                      xicode: code
+                    },
                     url: _this.$Config.REQUEST_URI
                   }).then(function (res) {
                     if (res.result === "failure") {
@@ -11402,10 +11404,14 @@ module.exports = function (object, index, value) {
   },
   methods: {
     getCall: function getCall() {
-      this.$emit("getCall", { result: true });
+      this.$emit("getCall", {
+        result: true
+      });
     },
     delGetCall: function delGetCall() {
-      this.$emit("delGetCall", { result: true });
+      this.$emit("delGetCall", {
+        result: true
+      });
     }
   },
   computed: {
@@ -11613,12 +11619,6 @@ if (false) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "input_group",
@@ -11744,7 +11744,28 @@ if (false) {
 /* 195 */,
 /* 196 */,
 /* 197 */,
-/* 198 */,
+/* 198 */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
+}
+
+
+/***/ }),
 /* 199 */,
 /* 200 */
 /***/ (function(module, exports) {

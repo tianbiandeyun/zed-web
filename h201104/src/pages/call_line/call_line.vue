@@ -23,11 +23,14 @@
 
   export default {
     name: "call_line",
-    components: { getLine, createdLine },
+    components: {
+      getLine,
+      createdLine
+    },
     data() {
       return {
         active: 0,
-        call_line_list:[]
+        call_line_list: []
       };
     },
     mounted() {
@@ -80,6 +83,7 @@
       }
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -94,4 +98,5 @@
       padding: 10px 14px 10px 14px;
     }
   }
+
 </style>

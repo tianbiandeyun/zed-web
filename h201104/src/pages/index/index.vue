@@ -50,7 +50,9 @@
   export default {
     name: "index",
     mixins: [login],
-    components: { getUserInfo },
+    components: {
+      getUserInfo
+    },
     data() {
       return {
         is_login: false,
@@ -74,7 +76,7 @@
       //   success: res => {
       //     if (res.authSetting["scope.userInfo"]) {
       //       // 授权
-      //       this.refreshIndex();
+      //       this.refreshIndex();k
       //
       //     } else {
       //       // 未授权
@@ -167,7 +169,9 @@
         // 获取首页活动列表
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_salon_activity_list,
-          fps: { open_id: this.openid_info.back_value.open_id },
+          fps: {
+            open_id: this.openid_info.back_value.open_id
+          },
           url: this.$Config.REQUEST_URI
         }).then(res => {
           if (res.result === "failure") {
@@ -211,11 +215,10 @@
         return text;
       }
     },
-    onShareAppMessage: function(res) {
+    onShareAppMessage: function (res) {
       if (res.from === "button") {
         console.log("来自页面内转发按钮");
-      }
-      else {
+      } else {
         console.log("来自右上角转发菜单");
       }
       return {
@@ -225,6 +228,7 @@
       };
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -307,7 +311,7 @@
             grid-template-columns: 1fr 2fr;
             align-items: center;
 
-            > span {
+            >span {
               font-size: 14px;
             }
 
@@ -325,4 +329,5 @@
     }
 
   }
+
 </style>

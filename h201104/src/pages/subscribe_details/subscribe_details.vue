@@ -38,7 +38,9 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
     name: "user_details",
@@ -86,8 +88,7 @@
           title: "错误",
           showCancel: false,
           content: "没有活动ID",
-          success(res) {
-          }
+          success(res) {}
         });
       }
     },
@@ -104,6 +105,7 @@
       ])
     }
   };
+
 </script>
 
 <style lang="less">
@@ -122,7 +124,7 @@
     display: grid;
     align-items: center;
 
-    > div {
+    >div {
       text-align: center;
     }
 
@@ -191,4 +193,5 @@
     }
 
   }
+
 </style>

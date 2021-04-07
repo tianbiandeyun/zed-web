@@ -120,17 +120,15 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "subscribe",
-  components: { listItem: __WEBPACK_IMPORTED_MODULE_3__components_listItem__["a" /* default */] },
+  components: {
+    listItem: __WEBPACK_IMPORTED_MODULE_3__components_listItem__["a" /* default */]
+  },
   mixins: [__WEBPACK_IMPORTED_MODULE_4__utils_login__["a" /* default */]],
   data: function data() {
     return {
@@ -280,7 +278,9 @@ if (false) {(function () {
       // 获取 活动 ID
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_activity_id,
-        fps: { open_id: this.openid_info.back_value.open_id },
+        fps: {
+          open_id: this.openid_info.back_value.open_id
+        },
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
 
@@ -440,7 +440,6 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
 
-//
 //
 //
 //

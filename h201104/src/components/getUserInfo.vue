@@ -29,13 +29,13 @@
             title: "提示",
             showCancel: false,
             content: this.message,
-            success(res) {
-            }
+            success(res) {}
           });
         }
       }
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -69,4 +69,5 @@
       color: #fff;
     }
   }
+
 </style>

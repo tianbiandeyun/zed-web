@@ -23,12 +23,16 @@
 
   export default {
     name: "get_call",
-    components: { getLine, reply,inputGroup }
+    components: {
+      getLine,
+      reply,
+      inputGroup
+    }
   };
+
 </script>
 
 <style lang="less" scoped>
-
   .get-call-container {
 
     .call {
@@ -41,4 +45,5 @@
     }
 
   }
+
 </style>

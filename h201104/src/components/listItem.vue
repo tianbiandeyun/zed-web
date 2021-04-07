@@ -8,10 +8,9 @@
         <div class="list-item-right-top">
           <div>{{item.name}}</div>
           <div>
-            <button open-type="getUserInfo"
-                    :disabled="disabled"
-                    @getuserinfo="info($event,item.name,item.status,item.head_portrait,item.u_key)"
-                    :class="item.status == 1 ? '' : 'active_p'">
+            <button open-type="getUserInfo" :disabled="disabled"
+              @getuserinfo="info($event,item.name,item.status,item.head_portrait,item.u_key)"
+              :class="item.status == 1 ? '' : 'active_p'">
               {{item.status == 1 ?
               "签到" : "已签到"}}
             </button>
@@ -53,17 +52,16 @@
             title: "提示",
             showCancel: false,
             content: "请授权头像信息，否则无法签到",
-            success(res) {
-            }
+            success(res) {}
           });
         }
       }
     }
   };
+
 </script>
 
 <style lang="less" scoped>
-
   .listItem-container {
 
     .list-item {
@@ -74,7 +72,7 @@
       grid-column-gap: 12px;
       margin-bottom: 10px;
 
-      > div {
+      >div {
         height: 100px;
 
         &:nth-of-type(1) {
@@ -117,7 +115,7 @@
                 border: none;
               }
 
-              > button {
+              >button {
                 font-size: 14px;
                 text-align: center;
                 width: 60px;

@@ -25,26 +25,15 @@
 
         <div>
           <span>自我介绍：</span>
-          <textarea
-            v-model="jieshao"
-            placeholder="请输入自我介绍"
-            maxlength="300"
-            adjust-position
-            show-confirm-bar
-            disable-default-padding
-          ></textarea>
+          <textarea v-model="jieshao" placeholder="请输入自我介绍" maxlength="300" adjust-position show-confirm-bar
+            disable-default-padding></textarea>
         </div>
 
         <div>
           <span>个人照片：</span>
           <div style="padding-left: 50px">
-            <v-uploader
-              upload-text="点击上传"
-              max-count="1"
-              :fileList="fileList"
-              @afterRead="afterRead"
-              @deleteItem="deleteItem"
-              accept="image"></v-uploader>
+            <v-uploader upload-text="点击上传" max-count="1" :fileList="fileList" @afterRead="afterRead"
+              @deleteItem="deleteItem" accept="image"></v-uploader>
           </div>
         </div>
 
@@ -60,7 +49,9 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
     name: "sign_up",
@@ -140,7 +131,8 @@
 
         let path = event.mp.detail.file.path;
 
-        const requestUrl = this.$Utils.produceRequestUrl(this.$Config.INTER_FACE.make_img_route, {}, this.$Config.REQUEST_URI, "post");
+        const requestUrl = this.$Utils.produceRequestUrl(this.$Config.INTER_FACE.make_img_route, {}, this.$Config
+          .REQUEST_URI, "post");
 
         wx.uploadFile({
           url: requestUrl,
@@ -180,8 +172,7 @@
             title: "提示",
             showCancel: false,
             content: "所属行业不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -193,8 +184,7 @@
             title: "提示",
             showCancel: false,
             content: "关注行业不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -207,8 +197,7 @@
             title: "提示",
             showCancel: false,
             content: "自我介绍不能为空",
-            success(res) {
-            }
+            success(res) {}
           });
 
           return false;
@@ -265,6 +254,7 @@
       this.$Utils.restData(this);
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -290,31 +280,31 @@
 
       .message {
 
-        > div {
+        >div {
           display: grid;
           grid-template-columns: 1fr 3fr;
           border-bottom: 1px solid #dcdee2;
           padding: 10px 0;
 
-          > span {
+          >span {
             font-size: 16px;
             font-weight: bold;
             color: #17233d;
             line-height: 30px;
           }
 
-          > input {
+          >input {
             height: 30px;
           }
 
-          > picker {
+          >picker {
             font-size: 16px;
             height: 30px;
             line-height: 30px;
             color: #17233d;
           }
 
-          > textarea {
+          >textarea {
             width: 100%;
             border: 1px solid #dcdee2;
             padding: 10px;
@@ -338,4 +328,5 @@
     }
 
   }
+
 </style>

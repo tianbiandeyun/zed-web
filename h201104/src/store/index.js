@@ -17,7 +17,9 @@ export default new Vuex.Store({
     /**
      * 通用
      * */
-    fetch({ commit }, params) {
+    fetch({
+      commit
+    }, params) {
       const [im, fps, url, method] = [params.im, params.fps, params.url, params.method];
       const requestUrl = unit.produceRequestUrl(im, fps, url, method);
       return new Promise((resolve, reject) => {
@@ -36,7 +38,9 @@ export default new Vuex.Store({
     /**
      * 获取 openid
      * */
-    getOpenid({ commit }, params) {
+    getOpenid({
+      commit
+    }, params) {
       const [im, fps, url] = [params.im, params.fps, params.url];
       const requestUrl = unit.produceRequestUrl(im, fps, url);
       return new Promise((resolve, reject) => {
@@ -50,7 +54,9 @@ export default new Vuex.Store({
     /**
      * 是否 报名
      * */
-    isRegistration({ commit }, params) {
+    isRegistration({
+      commit
+    }, params) {
       const [im, fps, url] = [params.im, params.fps, params.url];
       const requestUrl = unit.produceRequestUrl(im, fps, url);
       return new Promise((resolve, reject) => {

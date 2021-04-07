@@ -12,12 +12,16 @@
 
 <script>
   import signItem from "../../components/sign";
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
   import login from "../../utils/login";
 
   export default {
     name: "activity_user_list",
-    components: { signItem },
+    components: {
+      signItem
+    },
     mixins: [login],
     data() {
       return {
@@ -73,11 +77,10 @@
         "openid"
       ])
     },
-    onShareAppMessage: function(res) {
+    onShareAppMessage: function (res) {
       if (res.from === "button") {
         console.log("来自页面内转发按钮");
-      }
-      else {
+      } else {
         console.log("来自右上角转发菜单");
       }
       return {
@@ -87,6 +90,7 @@
       };
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -104,4 +108,5 @@
       padding: 10px;
     }
   }
+
 </style>

@@ -18,6 +18,7 @@
   export default {
     name: "reply"
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -61,4 +62,5 @@
     }
 
   }
+
 </style>

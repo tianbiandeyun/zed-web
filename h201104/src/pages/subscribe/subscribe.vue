@@ -7,11 +7,7 @@
       <listItem @signIn="signIn" :item="item"></listItem>
     </div>
 
-    <v-popup
-      :show="popup_show"
-      closeable
-      round
-      @close="closePopup">
+    <v-popup :show="popup_show" closeable round @close="closePopup">
 
       <div class="popup-container">
         <div class="popup-photo">
@@ -34,14 +30,16 @@
 
   export default {
     name: "subscribe",
-    components: { listItem },
+    components: {
+      listItem
+    },
     mixins: [login],
     data() {
       return {
         popup_show: false,
         list: [],
         openid_info: "",
-        user_info: [],// 打开签到之后展示的 name status photo id
+        user_info: [], // 打开签到之后展示的 name status photo id
         activity_id: "" // 活动 id
       };
     },
@@ -146,7 +144,9 @@
         // 获取 活动 ID
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_activity_id,
-          fps: { open_id: this.openid_info.back_value.open_id },
+          fps: {
+            open_id: this.openid_info.back_value.open_id
+          },
           url: this.$Config.REQUEST_URI
         }).then(res => {
 
@@ -220,6 +220,7 @@
       wx.stopPullDownRefresh();
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -279,4 +280,5 @@
       }
     }
   }
+
 </style>

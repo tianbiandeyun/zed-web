@@ -160,10 +160,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -206,8 +202,7 @@ if (false) {(function () {
           _this.disabled = true;
         }
 
-        _this.name = _user_info.name || "";
-        +_user_info.sex === 1 ? _this.index = 0 : _this.index = 1 || 0;
+        _this.name = _user_info.name || "";+_user_info.sex === 1 ? _this.index = 0 : _this.index = 1 || 0;
         _this.complate = _user_info.company || "";
         _this.zhiwei = _user_info.job_description || "";
         _this.email = _user_info.mail || "";

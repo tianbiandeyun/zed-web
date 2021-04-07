@@ -100,11 +100,10 @@
     onUnload() {
       this.$Utils.restData(this);
     },
-    onShareAppMessage: function(res) {
+    onShareAppMessage: function (res) {
       if (res.from === "button") {
         console.log("来自页面内转发按钮");
-      }
-      else {
+      } else {
         console.log("来自右上角转发菜单");
       }
       return {
@@ -114,10 +113,10 @@
       };
     }
   };
+
 </script>
 
 <style lang="less" scoped>
-
   .activity-end-details-container {
     padding-bottom: 80px;
     background-color: #fff;
@@ -177,7 +176,7 @@
       align-items: center;
       justify-items: flex-end;
 
-      > div {
+      >div {
 
         &:nth-of-type(1) {
           padding-right: 34px;
@@ -194,7 +193,7 @@
             border: none;
           }
 
-          > button {
+          >button {
             background-color: transparent;
             border: none;
             padding-left: 0;
@@ -212,4 +211,5 @@
     }
 
   }
+
 </style>

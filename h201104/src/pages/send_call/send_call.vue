@@ -21,8 +21,13 @@
 
   export default {
     name: "send-call",
-    components: { getLine, reply,inputGroup }
+    components: {
+      getLine,
+      reply,
+      inputGroup
+    }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -38,4 +43,5 @@
     }
 
   }
+
 </style>

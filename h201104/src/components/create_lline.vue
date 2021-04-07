@@ -1,20 +1,20 @@
 <template>
-    <section class="create_line-container">
-      <div class="created-line-header">
-        <p>我</p>
-        <p>{{time}}，给"{{item.name}}"留言</p>
-        <p>移除</p>
-      </div>
-      <div class="created-line-message">{{item.content}}</div>
-    </section>
+  <section class="create_line-container">
+    <div class="created-line-header">
+      <p>我</p>
+      <p>{{time}}，给"{{item.name}}"留言</p>
+      <p>移除</p>
+    </div>
+    <div class="created-line-message">{{item.content}}</div>
+  </section>
 </template>
 
 <script>
   export default {
     name: "create_lline",
-    props:{
-      item:{
-        type:Object
+    props: {
+      item: {
+        type: Object
       }
     },
     computed: {
@@ -83,44 +83,47 @@
       }
     }
   };
+
 </script>
 
 <style lang="less" scoped>
-  .create_line-container{
+  .create_line-container {
 
-    .created-line-header{
+    .created-line-header {
       display: grid;
       grid-template-columns: 30px 4fr 1fr;
       grid-column-gap: 6px;
       margin-bottom: 10px;
       align-items: center;
 
-      p{
+      p {
 
-        &:nth-of-type(1),&:nth-of-type(3){
+        &:nth-of-type(1),
+        &:nth-of-type(3) {
           text-align: center;
         }
 
-        &:nth-of-type(1){
+        &:nth-of-type(1) {
           color: #17233d;
           font-size: 18px;
         }
 
-        &:nth-of-type(2){
+        &:nth-of-type(2) {
           color: #808695;
           font-size: 14px;
         }
 
-        &:nth-of-type(3){
+        &:nth-of-type(3) {
           color: #FF0000;
           font-size: 14px;
         }
       }
     }
 
-    .created-line-message{
+    .created-line-message {
       color: #515a6e;
       font-size: 16px;
     }
   }
+
 </style>
