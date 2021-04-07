@@ -113,7 +113,6 @@
     },
     methods: {
       goReply() {
-        console.log(this.$root.$mp.query.u_key);
         wx.navigateTo({
           url: `/pages/call_line/main?u_key=${this.$root.$mp.query.u_key}`
         });
