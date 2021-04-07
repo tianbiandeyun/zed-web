@@ -65,46 +65,33 @@
     </div>
 
     <!--点击头像菜单-->
-    <v-action-sheet
-      :show="is_sheet"
-      :actions="actions"
-      description="头像操作"
-      z-index="9999"
-      @close="closeSheet"
+    <v-action-sheet :show="is_sheet" :actions="actions" description="头像操作" z-index="9999" @close="closeSheet"
       @select="selectSheet"></v-action-sheet>
 
     <!--修改名字-->
-    <v-dialog
-      use-slot
-      title="修改名字"
-      :show="is_dialog"
-      show-cancel-button
-      confirm-button-color="#1c2438"
-      cancel-button-color="#495060"
-      @close="closeDialog"
-      @confirm="confirmDialog"
-    >
-      <v-field
-        v-model="username"
-        placeholder="请输入用户名"
-      ></v-field>
+    <v-dialog use-slot title="修改名字" :show="is_dialog" show-cancel-button confirm-button-color="#1c2438"
+      cancel-button-color="#495060" @close="closeDialog" @confirm="confirmDialog">
+      <v-field v-model="username" placeholder="请输入用户名"></v-field>
     </v-dialog>
   </section>
 </template>
 
 <script>
   import ZedEchart from "../../components/ZedEchart";
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
-    components: { ZedEchart },
+    components: {
+      ZedEchart
+    },
     data() {
       return {
         is_echart: true,
         t: [83, 90, 99, 102, 110, 92, 89],
         is_sheet: false,
-        actions: [
-          {
+        actions: [{
             name: "查看大图"
           },
           {
@@ -173,6 +160,7 @@
       ])
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -296,4 +284,5 @@
       }
     }
   }
+
 </style>

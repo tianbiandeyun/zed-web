@@ -15,8 +15,17 @@ export default new Vuex.Store({
     /**
      * 通用
      * */
-    fetch({ commit }, params) {
-      const { im, fps, url, method } = { ...params };
+    fetch({
+      commit
+    }, params) {
+      const {
+        im,
+        fps,
+        url,
+        method
+      } = {
+        ...params
+      };
       const requestUrl = utils.produceRequestUrl(im, fps, url, method);
       return new Promise((resolve, reject) => {
         fly.get(requestUrl).then(res => {
@@ -27,8 +36,17 @@ export default new Vuex.Store({
     /**
      * 获取openid
      * */
-    getOpenid({ commit }, params) {
-      const { im, fps, url, method } = { ...params };
+    getOpenid({
+      commit
+    }, params) {
+      const {
+        im,
+        fps,
+        url,
+        method
+      } = {
+        ...params
+      };
       const requestUrl = utils.produceRequestUrl(im, fps, url, method);
       return new Promise((resolve, reject) => {
         fly.get(requestUrl).then(res => {

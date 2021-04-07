@@ -1,6 +1,6 @@
 <template>
   <section class="echart-container">
-    <mpvue-echarts :echarts="echarts" :onInit="echartInit"/>
+    <mpvue-echarts :echarts="echarts" :onInit="echartInit" />
   </section>
 </template>
 
@@ -15,7 +15,9 @@
         default: [70, 70, 70, 70, 70, 70, 70]
       }
     },
-    components: { mpvueEcharts },
+    components: {
+      mpvueEcharts
+    },
     data() {
       return {
         echarts
@@ -61,6 +63,7 @@
 
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -68,4 +71,5 @@
     width: 100%;
     height: 200px;
   }
+
 </style>

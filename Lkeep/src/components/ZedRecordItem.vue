@@ -37,6 +37,7 @@
       }
     }
   };
+
 </script>
 
 <style lang="less" scoped>
@@ -87,8 +88,10 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
-        word-break: break-all; /*追加这一行代码*/
+        word-break: break-all;
+        /*追加这一行代码*/
       }
     }
   }
+
 </style>

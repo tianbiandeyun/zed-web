@@ -104,12 +104,7 @@
       <div class="item">
         <p>备注：</p>
         <div style="height: auto;display: flex;align-items: center">
-          <textarea
-            maxlength="-1"
-            adjust-position
-            auto-height
-            placeholder="请输入备注"
-            v-model="beizhu">
+          <textarea maxlength="-1" adjust-position auto-height placeholder="请输入备注" v-model="beizhu">
           </textarea>
         </div>
       </div>
@@ -123,7 +118,9 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
 
   export default {
     components: {},
@@ -329,31 +326,31 @@
         });
 
       },
-      selectSex: function(e) {
+      selectSex: function (e) {
         this.sex = e.mp.detail.value;
         if (this.sex != 2) {
           this.to = 0;
         }
       },
-      selectTime: function(e) {
+      selectTime: function (e) {
         this.time = e.mp.detail.value;
       },
-      selectEat: function(e) {
+      selectEat: function (e) {
         this.eat = e.mp.detail.value;
       },
-      selectDisease: function(e) {
+      selectDisease: function (e) {
         this.disease = e.mp.detail.value;
       },
-      selectMoody: function(e) {
+      selectMoody: function (e) {
         this.moody = e.mp.detail.value;
       },
-      selectTo: function(e) {
+      selectTo: function (e) {
         this.to = e.mp.detail.value;
       },
-      selectSleep: function(e) {
+      selectSleep: function (e) {
         this.sleep = e.mp.detail.value;
       },
-      selectDuanLian: function(e) {
+      selectDuanLian: function (e) {
         this.duanlian = e.mp.detail.value;
       }
     },
@@ -369,10 +366,10 @@
       ])
     }
   };
+
 </script>
 
 <style lang="less" scoped>
-
   .add-container {
     padding: 10px 20px 20px 20px;
 
@@ -415,7 +412,7 @@
         display: grid;
         grid-template-columns: 3fr 7fr;
 
-        > p {
+        >p {
           line-height: 40px;
           font-size: 16px;
           color: #1c2438;
@@ -425,7 +422,8 @@
         div {
           height: 40px;
 
-          input, textarea {
+          input,
+          textarea {
             width: 100%;
             height: 100%;
             box-sizing: border-box;
@@ -433,7 +431,8 @@
             color: #495060;
           }
 
-          picker, p {
+          picker,
+          p {
             width: 100%;
             height: 100%;
             color: #495060;

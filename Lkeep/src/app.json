@@ -15,8 +15,7 @@
     "selectedColor": "#1c2438",
     "backgroundColor": "#f8f8f9",
     "borderStyle": "black",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/main",
         "iconPath": "static/images/hn.png",
         "selectedIconPath": "static/images/hy.png"
