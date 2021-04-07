@@ -52,7 +52,7 @@
       getCall(res) {
         let trigger_ukey = res.trigger_ukey;
         wx.navigateTo({
-          url: `/pages/get_call/main?triggser_ukey=${trigger_ukey}&u_key=${this.$root.$mp.query.u_key}`
+          url: `/pages/get_call/main?trigger_ukey=${trigger_ukey}&u_key=${this.$root.$mp.query.u_key}`
         });
       },
       /**

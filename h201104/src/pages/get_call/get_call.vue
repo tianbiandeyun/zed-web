@@ -29,11 +29,31 @@
       inputGroup
     },
     mounted() {
-      console.log('33');
       this.$Utils.showWaiting();
 
-      this.$Utils.closeWaiting();
+      this.refreshMessageDetails(this.$root.$mp.query.u_key, this.$root.$mp.query.trigger_ukey);
 
+    },
+    methods: {
+      refreshMessageDetails(...res) {
+        let [u_key, trigger_ukey] = [...res];
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_chat_record_info,
+          fps: {
+            u_key,
+            second_ukey: trigger_ukey
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "get_chat_record_info");
+          } else {
+            console.log(res);
+            this.$Utils.closeWaiting();
+          }
+        });
+      }
     }
   };
 
