@@ -115,6 +115,12 @@ if (false) {(function () {
     getLine: __WEBPACK_IMPORTED_MODULE_0__components_get_line__["a" /* default */],
     reply: __WEBPACK_IMPORTED_MODULE_1__components_reply__["a" /* default */],
     inputGroup: __WEBPACK_IMPORTED_MODULE_2__components_input_group__["a" /* default */]
+  },
+  mounted: function mounted() {
+    console.log('33');
+    this.$Utils.showWaiting();
+
+    this.$Utils.closeWaiting();
   }
 });
 
@@ -127,30 +133,7 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', {
     staticClass: "get-call-container"
-  }, [_c('div', {
-    staticClass: "call"
-  }, [_c('get-line', {
-    attrs: {
-      "eventid": '0',
-      "mpcomid": '0'
-    },
-    on: {
-      "getCall": _vm.getCall,
-      "delGetCall": _vm.delGetCall
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticClass: "call"
-  }, [_c('reply', {
-    attrs: {
-      "mpcomid": '1'
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticClass: "call"
-  }, [_c('input-group', {
-    attrs: {
-      "mpcomid": '2'
-    }
-  })], 1)])
+  })
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -4,7 +4,7 @@
     <v-tabs :active="active" color="#19be6b" animated swipeable @change="clickTabs">
       <v-tab title="我收到的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <get-line :item="item" @getCall="getCall" @delGetCall="delGetCall"></get-line>
+          <get-line :item="item" @getCall="getCall(item)" @delGetCall="delGetCall"></get-line>
         </div>
       </v-tab>
       <v-tab title="我建立的会话">
@@ -35,6 +35,7 @@
     },
     mounted() {
       this.$Utils.showWaiting();
+
       // 先获取一下 我收到的留言
       this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
     },
@@ -49,8 +50,9 @@
        * 留言详情
        */
       getCall(res) {
+        let trigger_ukey = res.trigger_ukey;
         wx.navigateTo({
-          url: `/pages/get_call/main`
+          url: `/pages/get_call/main?triggser_ukey=${trigger_ukey}&u_key=${this.$root.$mp.query.u_key}`
         });
       },
       /**

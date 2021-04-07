@@ -1,7 +1,7 @@
 <template>
   <section class="get-call-container">
 
-    <div class="call">
+    <!-- <div class="call">
       <get-line @getCall="getCall" @delGetCall="delGetCall"></get-line>
     </div>
 
@@ -11,7 +11,7 @@
 
     <div class="call">
       <input-group></input-group>
-    </div>
+    </div> -->
 
   </section>
 </template>
@@ -27,6 +27,13 @@
       getLine,
       reply,
       inputGroup
+    },
+    mounted() {
+      console.log('33');
+      this.$Utils.showWaiting();
+
+      this.$Utils.closeWaiting();
+
     }
   };
 

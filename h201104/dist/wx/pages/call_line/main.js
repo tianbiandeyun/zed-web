@@ -125,6 +125,7 @@ if (false) {(function () {
   },
   mounted: function mounted() {
     this.$Utils.showWaiting();
+
     // 先获取一下 我收到的留言
     this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
   },
@@ -141,8 +142,9 @@ if (false) {(function () {
      * 留言详情
      */
     getCall: function getCall(res) {
+      var trigger_ukey = res.trigger_ukey;
       wx.navigateTo({
-        url: "/pages/get_call/main"
+        url: "/pages/get_call/main?triggser_ukey=" + trigger_ukey + "&u_key=" + this.$root.$mp.query.u_key
       });
     },
 
@@ -409,7 +411,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "mpcomid": '0_' + index
       },
       on: {
-        "getCall": _vm.getCall,
+        "getCall": function($event) {
+          _vm.getCall(item)
+        },
         "delGetCall": _vm.delGetCall
       }
     })], 1)
