@@ -63,8 +63,8 @@
 </template>
 
 <script>
-  import signItem from "../../components/sign";
-  import getUserInfo from "../../components/getUserInfo";
+  import signItem from "@/components/sign";
+  import getUserInfo from "@/components/getUserInfo";
   import login from "../../utils/login";
   import {
     mapGetters

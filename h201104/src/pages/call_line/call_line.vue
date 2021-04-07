@@ -18,8 +18,8 @@
 </template>
 
 <script>
-  import getLine from "../../components/get_line";
-  import createdLine from "../../components/create_lline";
+  import getLine from "@/components/get_line";
+  import createdLine from "@/components/create_lline";
 
   export default {
     name: "call_line",

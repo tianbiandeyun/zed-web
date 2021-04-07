@@ -45,7 +45,7 @@
 
 <script>
   import login from "../../utils/login";
-  import getUserInfo from "../../components/getUserInfo";
+  import getUserInfo from "@/components/getUserInfo";
 
   export default {
     name: "index",

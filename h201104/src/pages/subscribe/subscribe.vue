@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import listItem from "../../components/listItem";
+  import listItem from "@/components/listItem";
   import login from "../../utils/login";
 
   export default {

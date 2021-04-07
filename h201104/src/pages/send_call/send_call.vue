@@ -15,9 +15,9 @@
 </template>
 
 <script>
-  import getLine from "../../components/get_line";
-  import reply from "../../components/reply";
-  import inputGroup from '../../components/input_group'
+  import getLine from "@/components/get_line";
+  import reply from "@/components/reply";
+  import inputGroup from '@/components/input_group'
 
   export default {
     name: "send-call",

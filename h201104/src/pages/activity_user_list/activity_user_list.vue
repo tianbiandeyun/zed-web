@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import signItem from "../../components/sign";
+  import signItem from "@/components/sign";
   import {
     mapGetters
   } from "vuex";
