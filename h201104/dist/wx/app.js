@@ -82,7 +82,11 @@ var getYearMonthDay = function getYearMonthDay(date) {
   var year = date.getFullYear();
   var month = date.getMonth();
   var day = date.getDate();
-  return { year: year, month: month, day: day };
+  return {
+    year: year,
+    month: month,
+    day: day
+  };
 };
 /**
  * 获取日期对象
@@ -125,7 +129,10 @@ var getErrorCode = function getErrorCode(code) {
   };
   var error_code = code;
   var error_message = errorCode[code];
-  return { error_code: error_code, error_message: error_message };
+  return {
+    error_code: error_code,
+    error_message: error_message
+  };
 };
 /**
  * 获取选择的日期中日期最大的一个
@@ -255,7 +262,6 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
 
 /* harmony default export */ __webpack_exports__["a"] = ({});
 

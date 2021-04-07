@@ -1,4 +1,4 @@
-<template name="585b7374">
+<template name="28ba98e8">
   <view class="_section data-v-29f06caa user-center-container" wx:if="{{is_page}}">
     <view class="_div data-v-29f06caa user-j">
       <view class="_div data-v-29f06caa user-j-name"><label class="_span data-v-29f06caa">{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</label>

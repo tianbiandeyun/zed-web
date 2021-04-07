@@ -109,7 +109,11 @@ if (false) {(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "send-call",
-  components: { getLine: __WEBPACK_IMPORTED_MODULE_0__components_get_line__["a" /* default */], reply: __WEBPACK_IMPORTED_MODULE_1__components_reply__["a" /* default */], inputGroup: __WEBPACK_IMPORTED_MODULE_2__components_input_group__["a" /* default */] }
+  components: {
+    getLine: __WEBPACK_IMPORTED_MODULE_0__components_get_line__["a" /* default */],
+    reply: __WEBPACK_IMPORTED_MODULE_1__components_reply__["a" /* default */],
+    inputGroup: __WEBPACK_IMPORTED_MODULE_2__components_input_group__["a" /* default */]
+  }
 });
 
 /***/ }),

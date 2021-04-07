@@ -143,7 +143,9 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "index",
   mixins: [__WEBPACK_IMPORTED_MODULE_2__utils_login__["a" /* default */]],
-  components: { getUserInfo: __WEBPACK_IMPORTED_MODULE_3__components_getUserInfo__["a" /* default */] },
+  components: {
+    getUserInfo: __WEBPACK_IMPORTED_MODULE_3__components_getUserInfo__["a" /* default */]
+  },
   data: function data() {
     return {
       is_login: false,
@@ -290,7 +292,9 @@ if (false) {(function () {
                 _context2.next = 4;
                 return _this3.$store.dispatch("fetch", {
                   im: _this3.$Config.INTER_FACE.get_salon_activity_list,
-                  fps: { open_id: _this3.openid_info.back_value.open_id },
+                  fps: {
+                    open_id: _this3.openid_info.back_value.open_id
+                  },
                   url: _this3.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
