@@ -21,7 +21,9 @@
     },
     methods: {
       submit() {
-        console.log(this.value)
+        this.$emit('submit', {
+          message: this.value
+        })
       }
     }
   };

@@ -414,6 +414,7 @@ var REQUEST_URI = CONST_REQUEST_URI + "?r=interface/api&ic=" + CONST_APP_IC;
  * 接口列表
  * */
 var INTER_FACE = {
+  set_reply_to_message: 'set_reply_to_message',
   get_chat_record_info: 'get_chat_record_info',
   get_chat_record_list: "get_chat_record_list",
   get_activity_id: "get_activity_id",

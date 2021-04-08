@@ -133,14 +133,39 @@ if (false) {(function () {
     // 获取对话详情
     this.refreshMessageDetails(this.$root.$mp.query.id);
     console.log(this.u_key);
-    this.list.forEach(function (element) {
-      console.log(element);
-    });
   },
 
   methods: {
-    refreshMessageDetails: function refreshMessageDetails() {
+    submit: function submit(res) {
       var _this = this;
+
+      var _id = this.$root.$mp.query.id;
+      var _u_key = this.$root.$mp.query.u_key;
+      var _trigger_ukey = this.list[0].trigger_ukey;
+      var _message = res.message;
+
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.set_reply_to_message,
+        fps: {
+          'message_id': _id,
+          'u_key': _u_key,
+          'second_ukey': _trigger_ukey,
+          'content': _message,
+          'receive_message': 1
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "set_reply_to_message");
+        } else {
+          console.log(res);
+          _this.$Utils.closeWaiting();
+        }
+      });
+    },
+    refreshMessageDetails: function refreshMessageDetails() {
+      var _this2 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -157,12 +182,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "get_chat_record_info");
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          _this.list = res.back_value;
-          console.log(_this.list);
-          _this.$Utils.closeWaiting();
+          _this2.list = res.back_value;
+          _this2.$Utils.closeWaiting();
         }
       });
     }
@@ -199,7 +223,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
+      "eventid": '0',
       "mpcomid": '2'
+    },
+    on: {
+      "submit": _vm.submit
     }
   })], 1)], 2)
 }

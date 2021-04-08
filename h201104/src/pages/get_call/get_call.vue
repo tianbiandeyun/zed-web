@@ -11,7 +11,7 @@
     </div>
 
     <div class="call">
-      <input-group></input-group>
+      <input-group @submit='submit'></input-group>
     </div>
 
   </section>
@@ -42,12 +42,36 @@
       // 获取对话详情
       this.refreshMessageDetails(this.$root.$mp.query.id);
       console.log(this.u_key);
-      this.list.forEach(element => {
-        console.log(element);
-      });
-
     },
     methods: {
+      submit(res) {
+
+        let _id = this.$root.$mp.query.id;
+        let _u_key = this.$root.$mp.query.u_key;
+        let _trigger_ukey = this.list[0].trigger_ukey;
+        let _message = res.message;
+
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.set_reply_to_message,
+          fps: {
+            'message_id': _id,
+            'u_key': _u_key,
+            'second_ukey': _trigger_ukey,
+            'content': _message,
+            'receive_message': 1
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "set_reply_to_message");
+          } else {
+            console.log(res);
+            this.$Utils.closeWaiting();
+          }
+        });
+
+      },
       refreshMessageDetails(...res) {
         let [id] = [...res];
         this.$store.dispatch("fetch", {
@@ -62,7 +86,6 @@
             this.$Utils.showErrorInfo(res, "get_chat_record_info");
           } else {
             this.list = res.back_value;
-            console.log(this.list);
             this.$Utils.closeWaiting();
           }
         });
