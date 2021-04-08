@@ -31,16 +31,15 @@
     mounted() {
       this.$Utils.showWaiting();
       // 获取对话详情
-      this.refreshMessageDetails(this.$root.$mp.query.u_key, this.$root.$mp.query.trigger_ukey);
+      this.refreshMessageDetails(this.$root.$mp.query.id);
     },
     methods: {
       refreshMessageDetails(...res) {
-        let [u_key, trigger_ukey] = [...res];
+        let [id] = [...res];
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_chat_record_info,
           fps: {
-            u_key,
-            second_ukey: trigger_ukey
+            message_id: id
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {

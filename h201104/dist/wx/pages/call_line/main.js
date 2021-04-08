@@ -83,7 +83,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_get_line__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_create_lline__ = __webpack_require__(133);
@@ -142,9 +142,10 @@ if (false) {(function () {
      * 留言详情
      */
     getCall: function getCall(res) {
-      var trigger_ukey = res.trigger_ukey;
+      console.log(res.id);
+      var id = res.id;
       wx.navigateTo({
-        url: "/pages/get_call/main?trigger_ukey=" + trigger_ukey + "&u_key=" + this.$root.$mp.query.u_key
+        url: "/pages/get_call/main?id=" + id + "&u_key=" + this.$root.$mp.query.u_key
       });
     },
 

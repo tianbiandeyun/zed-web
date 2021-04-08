@@ -83,7 +83,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_get_line__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_reply__ = __webpack_require__(58);
@@ -122,7 +122,7 @@ if (false) {(function () {
   mounted: function mounted() {
     this.$Utils.showWaiting();
     // 获取对话详情
-    this.refreshMessageDetails(this.$root.$mp.query.u_key, this.$root.$mp.query.trigger_ukey);
+    this.refreshMessageDetails(this.$root.$mp.query.id);
   },
 
   methods: {
@@ -134,14 +134,12 @@ if (false) {(function () {
       }
 
       var _ref = [].concat(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(res)),
-          u_key = _ref[0],
-          trigger_ukey = _ref[1];
+          id = _ref[0];
 
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_chat_record_info,
         fps: {
-          u_key: u_key,
-          second_ukey: trigger_ukey
+          message_id: id
         },
         url: this.$Config.REQUEST_URI
       }).then(function (res) {

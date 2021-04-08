@@ -50,9 +50,10 @@
        * 留言详情
        */
       getCall(res) {
-        let trigger_ukey = res.trigger_ukey;
+        console.log(res.id);
+        let id = res.id;
         wx.navigateTo({
-          url: `/pages/get_call/main?trigger_ukey=${trigger_ukey}&u_key=${this.$root.$mp.query.u_key}`
+          url: `/pages/get_call/main?id=${id}&u_key=${this.$root.$mp.query.u_key}`
         });
       },
       /**
