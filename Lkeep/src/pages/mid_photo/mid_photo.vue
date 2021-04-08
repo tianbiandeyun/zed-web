@@ -68,15 +68,10 @@
 </script>
 <style lang="less" scoped>
   .photo_container {
-    border: 1px solid black;
     padding: 20px 10px;
     display: grid;
     justify-items: center;
     grid-row-gap: 10px;
-
-    .photo_box {
-      border: 1px solid red;
-    }
 
     .submit {
       button {
