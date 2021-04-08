@@ -180,11 +180,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [(_vm.u_key != item.trigger_ukey) ? _c('div', [_c('get-line', {
       attrs: {
         "item": item,
+        "del-content": "举报此消息",
         "mpcomid": '0_' + index
       }
     })], 1) : _c('div', [_c('reply', {
       attrs: {
         "item": item,
+        "del-content": "撤回",
         "mpcomid": '1_' + index
       }
     })], 1)])

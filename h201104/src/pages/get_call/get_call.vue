@@ -3,10 +3,10 @@
 
     <div class="call" v-for="(item,index) in list" :key="index">
       <div v-if="u_key != item.trigger_ukey">
-        <get-line :item='item'></get-line>
+        <get-line :item='item' del-content='举报此消息'></get-line>
       </div>
       <div v-else>
-        <reply :item='item'></reply>
+        <reply :item='item' del-content='撤回'></reply>
       </div>
     </div>
 

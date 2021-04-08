@@ -407,6 +407,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('get-line', {
       attrs: {
         "item": item,
+        "del-content": "移除",
         "eventid": '0_' + index,
         "mpcomid": '0_' + index
       },

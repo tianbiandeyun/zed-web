@@ -5,7 +5,7 @@
     </div>
     <div class="reply-details">
       <p>{{item.creation_time}} | 未读</p>
-      <p>移除</p>
+      <p>{{delContent}}</p>
     </div>
     <div class="reply-message">
       {{item.content}}
@@ -19,6 +19,9 @@
     props: {
       item: {
         type: Object
+      },
+      delContent: {
+        type: String
       }
     }
   };
