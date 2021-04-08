@@ -132,12 +132,13 @@ if (false) {(function () {
 
     // 获取对话详情
     this.refreshMessageDetails(this.$root.$mp.query.id);
-    console.log(this.u_key);
   },
 
   methods: {
     submit: function submit(res) {
       var _this = this;
+
+      this.$Utils.showWaiting();
 
       var _id = this.$root.$mp.query.id;
       var _u_key = this.$root.$mp.query.u_key;
@@ -159,8 +160,9 @@ if (false) {(function () {
           _this.$Utils.closeWaiting();
           _this.$Utils.showErrorInfo(res, "set_reply_to_message");
         } else {
-          console.log(res);
-          _this.$Utils.closeWaiting();
+          if (res.back_value) {
+            _this.refreshMessageDetails(_this.$root.$mp.query.id);
+          }
         }
       });
     },

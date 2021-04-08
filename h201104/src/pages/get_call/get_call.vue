@@ -41,10 +41,11 @@
 
       // 获取对话详情
       this.refreshMessageDetails(this.$root.$mp.query.id);
-      console.log(this.u_key);
     },
     methods: {
       submit(res) {
+
+        this.$Utils.showWaiting();
 
         let _id = this.$root.$mp.query.id;
         let _u_key = this.$root.$mp.query.u_key;
@@ -66,8 +67,9 @@
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "set_reply_to_message");
           } else {
-            console.log(res);
-            this.$Utils.closeWaiting();
+            if (res.back_value) {
+              this.refreshMessageDetails(this.$root.$mp.query.id);
+            }
           }
         });
 

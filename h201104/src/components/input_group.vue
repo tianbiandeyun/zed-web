@@ -23,7 +23,8 @@
       submit() {
         this.$emit('submit', {
           message: this.value
-        })
+        });
+        this.value = '';
       }
     }
   };
