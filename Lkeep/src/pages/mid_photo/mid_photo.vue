@@ -14,11 +14,12 @@
     methods: {
       afterRead(event) {
 
+        console.log('afterRead');
+
         // this.$Utils.showWaiting();
 
-        let path = event.mp.detail.file.path;
-        console.log(path);
-        console.log('afterRead');
+        // let path = event.mp.detail.file.path;
+        // console.log(path);
 
         // const requestUrl = this.$Utils.produceRequestUrl(this.$Config.INTER_FACE.make_img_route, {}, this.$Config
         //   .REQUEST_URI, "post");
