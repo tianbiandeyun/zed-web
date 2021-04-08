@@ -1,14 +1,6 @@
 <template>
   <section class="get-call-container">
 
-    <!-- <div class="call">
-      <get-line @getCall="getCall" @delGetCall="delGetCall"></get-line>
-    </div>
-
-    <div class="call">
-      <reply></reply>
-    </div> -->
-
     <div class="call" v-for="(item,index) in list" :key="index">
       <div v-if="u_key != item.trigger_ukey">
         <get-line :item='item'></get-line>
