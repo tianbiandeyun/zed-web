@@ -7,11 +7,20 @@
 
     <div class="call">
       <reply></reply>
+    </div> -->
+
+    <div class="call" v-for="(item,index) in list" :key="index">
+      <div v-if="u_key != item.trigger_ukey">
+        <get-line :item='item'></get-line>
+      </div>
+      <div v-else>
+        <reply :item='item'></reply>
+      </div>
     </div>
 
     <div class="call">
       <input-group></input-group>
-    </div> -->
+    </div>
 
   </section>
 </template>
@@ -28,12 +37,18 @@
       reply,
       inputGroup
     },
+    data() {
+      return {
+        u_key: '',
+        list: []
+      }
+    },
     mounted() {
       this.$Utils.showWaiting();
+      this.u_key = this.$root.$mp.query.u_key;
       // 获取对话详情
       this.refreshMessageDetails(this.$root.$mp.query.id);
 
-      console.log(this.$root.$mp.query.u_key);
     },
     methods: {
       refreshMessageDetails(...res) {
@@ -49,7 +64,8 @@
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "get_chat_record_info");
           } else {
-            console.log(res);
+            this.list = res.back_value;
+            console.log(this.list);
             this.$Utils.closeWaiting();
           }
         });

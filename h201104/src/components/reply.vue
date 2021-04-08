@@ -1,22 +1,26 @@
 <template>
   <section class="reply">
     <div class="reply-who">
-      <p>我</p>
+      <p>我的回复</p>
     </div>
     <div class="reply-details">
-      <p>十几分钟，之前给xxx留言 | 未读</p>
+      <p>{{item.creation_time}} | 未读</p>
       <p>移除</p>
     </div>
     <div class="reply-message">
-      我是留言。我是留言。我是留言。我是留言。我是留言。我是留言。
-      我是留言。我是留言。
+      {{item.content}}
     </div>
   </section>
 </template>
 
 <script>
   export default {
-    name: "reply"
+    name: "reply",
+    props: {
+      item: {
+        type: Object
+      }
+    }
   };
 
 </script>

@@ -50,7 +50,6 @@
        * 留言详情
        */
       getCall(res) {
-        console.log(res.id);
         let id = res.id;
         wx.navigateTo({
           url: `/pages/get_call/main?id=${id}&u_key=${this.$root.$mp.query.u_key}`

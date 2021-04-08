@@ -107,6 +107,15 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -119,12 +128,17 @@ if (false) {(function () {
     reply: __WEBPACK_IMPORTED_MODULE_2__components_reply__["a" /* default */],
     inputGroup: __WEBPACK_IMPORTED_MODULE_3__components_input_group__["a" /* default */]
   },
+  data: function data() {
+    return {
+      u_key: '',
+      list: []
+    };
+  },
   mounted: function mounted() {
     this.$Utils.showWaiting();
+    this.u_key = this.$root.$mp.query.u_key;
     // 获取对话详情
     this.refreshMessageDetails(this.$root.$mp.query.id);
-
-    console.log(this.$root.$mp.query.u_key);
   },
 
   methods: {
@@ -149,7 +163,8 @@ if (false) {(function () {
           _this.$Utils.closeWaiting();
           _this.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          console.log(res);
+          _this.list = res.back_value;
+          console.log(_this.list);
           _this.$Utils.closeWaiting();
         }
       });
@@ -166,7 +181,28 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', {
     staticClass: "get-call-container"
-  })
+  }, [_vm._l((_vm.list), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "call"
+    }, [(_vm.u_key != item.trigger_ukey) ? _c('div', [_c('get-line', {
+      attrs: {
+        "item": item,
+        "mpcomid": '0_' + index
+      }
+    })], 1) : _c('div', [_c('reply', {
+      attrs: {
+        "item": item,
+        "mpcomid": '1_' + index
+      }
+    })], 1)])
+  }), _vm._v(" "), _c('div', {
+    staticClass: "call"
+  }, [_c('input-group', {
+    attrs: {
+      "mpcomid": '2'
+    }
+  })], 1)], 2)
 }
 var staticRenderFns = []
 render._withStripped = true

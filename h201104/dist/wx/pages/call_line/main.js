@@ -142,7 +142,6 @@ if (false) {(function () {
      * 留言详情
      */
     getCall: function getCall(res) {
-      console.log(res.id);
       var id = res.id;
       wx.navigateTo({
         url: "/pages/get_call/main?id=" + id + "&u_key=" + this.$root.$mp.query.u_key
