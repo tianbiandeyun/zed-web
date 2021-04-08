@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "修改头像",
+  "usingComponents": {
+    "v-panel": "../../../static/vant/panel/index"
+  }
+}

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/main",
     "pages/my/main",
-    "pages/add/main"
+    "pages/add/main",
+    "pages/mid_photo/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

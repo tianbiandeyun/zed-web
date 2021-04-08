@@ -3,7 +3,7 @@
 
     <div class="photo-box">
       <div class="photo">
-        <img @click="openSheet" src="../../../static/images/photo.png" alt="张琳">
+        <img @click="midPhoto" src="../../../static/images/photo.png" alt="张琳">
       </div>
       <div class="name" @click="midName">
         <p>{{adminInfo.admin_name}}</p>
@@ -59,14 +59,12 @@
       </div>
     </div>
 
-    <div class="curves-box" v-show="is_echart">
+    <div class="curves-box">
       <p>一周体重趋势</p>
       <ZedEchart :t="t"></ZedEchart>
     </div>
 
     <!--点击头像菜单-->
-    <v-action-sheet :show="is_sheet" :actions="actions" description="头像操作" z-index="9999" @close="closeSheet"
-      @select="selectSheet"></v-action-sheet>
 
     <!--修改名字-->
 
@@ -85,17 +83,7 @@
     },
     data() {
       return {
-        is_echart: true,
         t: [83, 90, 99, 102, 110, 92, 89],
-        is_sheet: false,
-        actions: [{
-            name: "查看大图"
-          },
-          {
-            name: "更换头像"
-          }
-        ],
-        is_dialog: false,
         message: "",
         adminInfo: ''
       };
@@ -133,25 +121,13 @@
         this.$Utils.closeWaiting();
       },
       // 打开头像
-      openSheet() {
-        this.is_sheet = true;
-        this.is_echart = false;
+      midPhoto() {
+        console.log('打开头像');
+        wx.navigateTo({
+          url: `/pages/mid_photo/main`,
+        });
       },
-      // 关闭头像
-      closeSheet() {
-        this.is_sheet = false;
-        this.is_echart = true;
-      },
-      // 头像-菜单操作
-      selectSheet(event) {
-        let name = event.mp.detail;
-        if (name === "查看大图") {
-          console.log('查看大图');
-        }
-        if (name === "更换头像") {
-          console.log('更换头像');
-        }
-      },
+      // 修改名字
       midName() {
         console.log('修改名字');
       }
