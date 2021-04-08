@@ -122,7 +122,6 @@
       },
       // 打开头像
       midPhoto() {
-        console.log('打开头像');
         wx.navigateTo({
           url: `/pages/mid_photo/main`,
         });
