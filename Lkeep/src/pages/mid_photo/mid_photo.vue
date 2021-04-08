@@ -1,7 +1,13 @@
 <template>
-  <section class="photo-container">
-    <v-uploader upload-text="点击上传" accept="image" max-count="1" :fileList="fileList" @afterRead="afterRead">
-    </v-uploader>
+  <section class="photo_container">
+    <div class="photo_box">
+      <v-uploader upload-text="请点击选择头像" preview-size='200' accept="image" max-count="1" :fileList="fileList"
+        @afterRead="afterRead" @deleteItem="deleteItem">
+      </v-uploader>
+    </div>
+    <div class="submit">
+      <button>上传</button>
+    </div>
   </section>
 </template>
 <script>
@@ -12,14 +18,16 @@
       }
     },
     methods: {
+      deleteItem(event) {
+        const index = event.mp.detail.index;
+        this.fileList.splice(index, 1);
+      },
       afterRead(event) {
-
-        console.log('afterRead');
 
         // this.$Utils.showWaiting();
 
-        // let path = event.mp.detail.file.path;
-        // console.log(path);
+        let path = event.mp.detail.file.path;
+        console.log(path);
 
         // const requestUrl = this.$Utils.produceRequestUrl(this.$Config.INTER_FACE.make_img_route, {}, this.$Config
         //   .REQUEST_URI, "post");
@@ -49,9 +57,9 @@
         //   }
         // });
 
-        // this.fileList.push({
-        //   url: path
-        // });
+        this.fileList.push({
+          url: path
+        });
 
       }
     }
@@ -59,5 +67,25 @@
 
 </script>
 <style lang="less" scoped>
+  .photo_container {
+    border: 1px solid black;
+    padding: 20px 10px;
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 10px;
+
+    .photo_box {
+      border: 1px solid red;
+    }
+
+    .submit {
+      button {
+        font-size: 16px;
+        color: #fff;
+        background-color: #19be6b;
+        width: 200px;
+      }
+    }
+  }
 
 </style>
