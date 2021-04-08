@@ -129,8 +129,13 @@ if (false) {(function () {
   mounted: function mounted() {
     this.$Utils.showWaiting();
     this.u_key = this.$root.$mp.query.u_key;
+
     // 获取对话详情
     this.refreshMessageDetails(this.$root.$mp.query.id);
+    console.log(this.u_key);
+    this.list.forEach(function (element) {
+      console.log(element);
+    });
   },
 
   methods: {
