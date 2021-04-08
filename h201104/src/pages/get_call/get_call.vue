@@ -32,6 +32,8 @@
       this.$Utils.showWaiting();
       // 获取对话详情
       this.refreshMessageDetails(this.$root.$mp.query.id);
+
+      console.log(this.$root.$mp.query.u_key);
     },
     methods: {
       refreshMessageDetails(...res) {
