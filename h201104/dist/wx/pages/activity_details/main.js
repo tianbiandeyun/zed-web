@@ -209,7 +209,7 @@ if (false) {(function () {
   methods: {
     getUserId: function getUserId(res) {
       wx.navigateTo({
-        url: "/pages/user_center/main?u_key=" + res
+        url: "/pages/user_center/main?u_key=" + res + "&m_key=" + this.$root.$mp.query.m_key
       });
     },
     more: function more() {

@@ -25,11 +25,46 @@
     mounted() {
       this.$Utils.showWaiting();
       this.u_key = this.$root.$mp.query.u_key;
-      this.title = `给（${this.$root.$mp.query.name}）留言：`
-      // set_initiate_a_session
-      this.$Utils.closeWaiting();
+      this.title = `给（${this.$root.$mp.query.name}）留言：`;
     },
-    methods: {}
+    methods: {
+      submit(res) {
+
+        console.log('u_key =' + this.$root.$mp.query.m_key);
+        console.log('second_ukey =' + this.$root.$mp.query.u_key);
+
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.set_initiate_a_session,
+          fps: {
+            'u_key': this.$root.$mp.query.m_key,
+            'second_ukey': this.$root.$mp.query.u_key,
+            'content': res.message,
+            'receive_message': 1
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "set_initiate_a_session");
+          } else {
+            if (res.back_value) {
+              wx.showModal({
+                title: "提交",
+                content: `发送成功`,
+                showCancel: false,
+                confirmText: "好的",
+                success() {
+                  wx.navigateBack({
+                    delta: 1
+                  });
+                }
+              });
+            }
+          }
+        });
+
+      }
+    }
   };
 
 </script>

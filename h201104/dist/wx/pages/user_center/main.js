@@ -181,6 +181,7 @@ if (false) {(function () {
 //
 
 // 这里面所有的u_key都是，点击谁就是谁的
+// m_key 永远都是登录人的，也就是首页个人信息的
 
 
 
@@ -242,11 +243,10 @@ if (false) {(function () {
 
   methods: {
     createdReply: function createdReply() {
-      console.log(this.$root.$mp.query.u_key);
-      console.log(this.user_info);
-      // wx.navigateTo({
-      //   url: `/pages/created/main?u_key=${this.$root.$mp.query.u_key}&name=${this.user_info.name}`
-      // });
+      var m_key = this.$root.$mp.query.m_key;
+      wx.navigateTo({
+        url: "/pages/created/main?m_key=" + m_key + "&u_key=" + this.$root.$mp.query.u_key + "&name=" + this.user_info.name
+      });
     },
     goReply: function goReply() {
       wx.navigateTo({

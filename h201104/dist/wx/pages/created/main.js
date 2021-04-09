@@ -112,11 +112,46 @@ if (false) {(function () {
     this.$Utils.showWaiting();
     this.u_key = this.$root.$mp.query.u_key;
     this.title = '\u7ED9\uFF08' + this.$root.$mp.query.name + '\uFF09\u7559\u8A00\uFF1A';
-    // set_initiate_a_session
-    this.$Utils.closeWaiting();
   },
 
-  methods: {}
+  methods: {
+    submit: function submit(res) {
+      var _this = this;
+
+      console.log('u_key =' + this.$root.$mp.query.m_key);
+      console.log('second_ukey =' + this.$root.$mp.query.u_key);
+
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.set_initiate_a_session,
+        fps: {
+          'u_key': this.$root.$mp.query.m_key,
+          'second_ukey': this.$root.$mp.query.u_key,
+          'content': res.message,
+          'receive_message': 1
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "set_initiate_a_session");
+        } else {
+          if (res.back_value) {
+            wx.showModal({
+              title: "提交",
+              content: '\u53D1\u9001\u6210\u529F',
+              showCancel: false,
+              confirmText: "好的",
+              success: function success() {
+                wx.navigateBack({
+                  delta: 1
+                });
+              }
+            });
+          }
+        }
+      });
+    }
+  }
 });
 
 /***/ }),

@@ -217,7 +217,7 @@ if (false) {(function () {
     goActivity: function goActivity(res) {
       if (res.status != 3) {
         wx.navigateTo({
-          url: "/pages/activity_details/main?activity_id=" + res.id
+          url: "/pages/activity_details/main?activity_id=" + res.id + "&m_key=" + this.u_key
         });
       } else {
         wx.navigateTo({
