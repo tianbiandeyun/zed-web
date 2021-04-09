@@ -11394,12 +11394,17 @@ module.exports = function (object, index, value) {
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "line",
   props: {
     item: {
       type: Object
+    },
+    delMessage: {
+      type: String,
+      default: '移除'
     }
   },
   methods: {
@@ -11506,7 +11511,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.delGetCall
     }
-  }, [_c('p', [_vm._v("全是别人说的（举报）")])], 1)]), _vm._v(" "), _c('div', {
+  }, [_c('p', [_vm._v(_vm._s(_vm.delMessage))])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "line-message",
     attrs: {
       "eventid": '1'

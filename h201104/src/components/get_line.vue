@@ -13,7 +13,8 @@
       </div>
 
       <div class="line-header-options" @click="delGetCall">
-        <p>全是别人说的（举报）</p>
+        <!-- <p>全是别人说的（举报）</p> -->
+        <p>{{delMessage}}</p>
       </div>
 
     </div>
@@ -29,6 +30,10 @@
     props: {
       item: {
         type: Object
+      },
+      delMessage: {
+        type: String,
+        default: '移除'
       }
     },
     methods: {

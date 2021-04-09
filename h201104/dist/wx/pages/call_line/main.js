@@ -295,7 +295,14 @@ if (false) {(function () {
   },
   methods: {
     sendCall: function sendCall() {
-      this.$emit('sendCall');
+      this.$emit('sendCall', {
+        result: true
+      });
+    },
+    delGetCall: function delGetCall() {
+      this.$emit("delGetCall", {
+        result: true
+      });
     }
   },
   computed: {
@@ -374,10 +381,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "create_line-container"
   }, [_c('div', {
     staticClass: "created-line-header"
-  }, [_c('p', [_vm._v("我")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), _c('p', [_vm._v("移除")])], 1), _vm._v(" "), _c('div', {
-    staticClass: "created-line-message",
+  }, [_c('p', [_vm._v("我")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), _c('p', {
     attrs: {
       "eventid": '0'
+    },
+    on: {
+      "click": _vm.delGetCall
+    }
+  }, [_vm._v("移除")])], 1), _vm._v(" "), _c('div', {
+    staticClass: "created-line-message",
+    attrs: {
+      "eventid": '1'
     },
     on: {
       "click": _vm.sendCall

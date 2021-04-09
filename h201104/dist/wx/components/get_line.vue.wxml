@@ -9,7 +9,7 @@
         <view class="_p data-v-13901ff0">{{time}}</view>
       </view>
       <view class="_div data-v-13901ff0 line-header-options" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
-        <view class="_p data-v-13901ff0">全是别人说的（举报）</view>
+        <view class="_p data-v-13901ff0">{{delMessage}}</view>
       </view>
     </view>
     <view class="_div data-v-13901ff0 line-message" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">{{item.content}}</view>
