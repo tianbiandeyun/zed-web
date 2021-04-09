@@ -239,8 +239,6 @@ if (false) {(function () {
               }
             });
           }
-        },
-        fail: function fail(res) {
           if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
             that.$store.dispatch("fetch", {
               im: that.$Config.INTER_FACE.set_reply_to_message,
