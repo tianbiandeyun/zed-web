@@ -11567,6 +11567,12 @@ if (false) {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "input_group",
+  props: {
+    title: {
+      type: String,
+      default: '新增回复'
+    }
+  },
   data: function data() {
     return {
       value: ''
@@ -11599,7 +11605,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "input_group-container"
   }, [_c('div', {
     staticClass: "group-title"
-  }, [_vm._v("新增回复")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
     staticClass: "group"
   }, [_c('textarea', {
     attrs: {

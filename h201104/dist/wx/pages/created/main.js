@@ -110,6 +110,8 @@ if (false) {(function () {
   mounted: function mounted() {
     this.$Utils.showWaiting();
     this.u_key = this.$root.$mp.query.u_key;
+    console.log(this.$root.$mp.query.name);
+    this.$Utils.closeWaiting();
   },
 
   methods: {}

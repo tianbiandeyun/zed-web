@@ -1,6 +1,6 @@
 <template>
   <section class="input_group-container">
-    <div class="group-title">新增回复</div>
+    <div class="group-title">{{title}}</div>
     <div class="group">
       <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
         @blur="operatGetContent" :value='value'></textarea>
@@ -14,6 +14,12 @@
 <script>
   export default {
     name: "input_group",
+    props: {
+      title: {
+        type: String,
+        default: '新增回复'
+      }
+    },
     data() {
       return {
         value: ''

@@ -242,7 +242,7 @@ if (false) {(function () {
   methods: {
     createdReply: function createdReply() {
       wx.navigateTo({
-        url: "/pages/created/main?u_key=" + this.$root.$mp.query.u_key
+        url: "/pages/created/main?u_key=" + this.$root.$mp.query.u_key + "&name=" + this.user_info.name
       });
     },
     goReply: function goReply() {
