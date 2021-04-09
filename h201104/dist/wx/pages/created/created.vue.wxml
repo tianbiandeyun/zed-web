@@ -1,5 +1,5 @@
 <import src="/components/input_group.vue.wxml" /><template name="21e85c26">
   <view class="_section data-v-22c711e8 created-container">
-    <view class="_div data-v-22c711e8 call"><template bindsubmit="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="1cfab15e"></template></view>
+    <view class="_div data-v-22c711e8 call"><template bindsubmit="handleProxy" btn-message="发送对话" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="1cfab15e"></template></view>
   </view>
 </template>

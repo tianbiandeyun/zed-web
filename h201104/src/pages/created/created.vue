@@ -2,7 +2,7 @@
   <section class="created-container">
 
     <div class="call">
-      <input-group @submit='submit' :title='title'></input-group>
+      <input-group @submit='submit' :title='title' btn-message='发送对话'></input-group>
     </div>
 
   </section>

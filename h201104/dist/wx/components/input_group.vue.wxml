@@ -2,6 +2,6 @@
   <view class="_section data-v-0c7aa9cf input_group-container">
     <view class="_div data-v-0c7aa9cf group-title">{{title}}</view>
     <view class="_div data-v-0c7aa9cf group"><textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding bindblur="handleProxy" value="{{value}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_textarea data-v-0c7aa9cf" /></view>
-    <view class="_div data-v-0c7aa9cf group-btn"><button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-0c7aa9cf">提交回复</button></view>
+    <view class="_div data-v-0c7aa9cf group-btn"><button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-0c7aa9cf">{{btnMseeage}}</button></view>
   </view>
 </template>

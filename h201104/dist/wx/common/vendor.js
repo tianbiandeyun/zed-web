@@ -11571,6 +11571,10 @@ if (false) {
     title: {
       type: String,
       default: '新增回复'
+    },
+    btnMseeage: {
+      type: String,
+      default: '提交回复'
     }
   },
   data: function data() {
@@ -11629,7 +11633,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.submit
     }
-  }, [_vm._v("提交回复")])], 1)])
+  }, [_vm._v(_vm._s(_vm.btnMseeage))])], 1)])
 }
 var staticRenderFns = []
 render._withStripped = true

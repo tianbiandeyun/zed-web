@@ -6,7 +6,7 @@
         @blur="operatGetContent" :value='value'></textarea>
     </div>
     <div class="group-btn">
-      <button @click="submit">提交回复</button>
+      <button @click="submit">{{btnMseeage}}</button>
     </div>
   </section>
 </template>
@@ -18,6 +18,10 @@
       title: {
         type: String,
         default: '新增回复'
+      },
+      btnMseeage: {
+        type: String,
+        default: '提交回复'
       }
     },
     data() {
