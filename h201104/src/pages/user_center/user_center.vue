@@ -65,7 +65,12 @@
 
     </div>
 
-    <button @click="goReply">留言</button>
+    <div v-if="openid.back_value.open_id === user_info.open_id">
+      <button @click="goReply">我的信息</button>
+    </div>
+    <div v-else>
+      <button @click="goReply">创建留言</button>
+    </div>
 
     <div class="user-e">
       <h1>形象照片</h1>

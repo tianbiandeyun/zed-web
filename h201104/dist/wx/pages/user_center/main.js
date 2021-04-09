@@ -174,6 +174,11 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -395,21 +400,28 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "user-g-other"
   }, [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.interest === null || _vm.user_info.interest === "" ? "暂无关注行业" : _vm.user_info.interest))])]), _vm._v(" "), _c('div', {
     staticClass: "user-g-text"
-  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), _c('button', {
+  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('div', [_c('button', {
     attrs: {
       "eventid": '2'
     },
     on: {
       "click": _vm.goReply
     }
-  }, [_vm._v("留言")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("我的信息")])], 1) : _c('div', [_c('button', {
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": _vm.goReply
+    }
+  }, [_vm._v("创建留言")])], 1), _vm._v(" "), _c('div', {
     staticClass: "user-e"
   }, [_c('h1', [_vm._v("形象照片")]), _vm._v(" "), _c('div', [(!_vm.user_info.head_portrait) ? _c('p', [_vm._v("暂无可以通过编辑添加")]) : _c('img', {
     attrs: {
       "src": _vm.user_info.head_portrait,
       "alt": ""
     }
-  })], 1)], 1)], 1) : _vm._e()
+  })], 1)], 1)]) : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
