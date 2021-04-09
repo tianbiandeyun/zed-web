@@ -5,7 +5,7 @@
       <p>{{time}}，给"{{item.name}}"留言</p>
       <p>移除</p>
     </div>
-    <div class="created-line-message">{{item.content}}</div>
+    <div class="created-line-message" @click='sendCall'>{{item.content}}</div>
   </section>
 </template>
 
@@ -15,6 +15,11 @@
     props: {
       item: {
         type: Object
+      }
+    },
+    methods: {
+      sendCall() {
+        this.$emit('sendCall');
       }
     },
     computed: {

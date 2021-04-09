@@ -1,12 +1,14 @@
 <template>
   <section class="send-call-container">
-    <div class="call">
+    <!-- <div class="call">
       <get-line @getCall="getCall" @delGetCall="delGetCall"></get-line>
     </div>
 
     <div class="call">
       <reply></reply>
-    </div>
+    </div> -->
+
+    pp
 
     <div class="call">
       <input-group></input-group>

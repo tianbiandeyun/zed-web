@@ -102,6 +102,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 
@@ -125,28 +127,11 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', {
     staticClass: "send-call-container"
-  }, [_c('div', {
-    staticClass: "call"
-  }, [_c('get-line', {
-    attrs: {
-      "eventid": '0',
-      "mpcomid": '0'
-    },
-    on: {
-      "getCall": _vm.getCall,
-      "delGetCall": _vm.delGetCall
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticClass: "call"
-  }, [_c('reply', {
-    attrs: {
-      "mpcomid": '1'
-    }
-  })], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n\n  pp\n\n  "), _c('div', {
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
-      "mpcomid": '2'
+      "mpcomid": '0'
     }
   })], 1)])
 }

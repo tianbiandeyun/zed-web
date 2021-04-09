@@ -132,14 +132,23 @@ if (false) {(function () {
 
   methods: {
     /**
-     * 删除留言
+     * 我发出的 留言详情
+     */
+    sendCall: function sendCall() {
+      wx.navigateTo({
+        url: "/pages/send_call/main"
+      });
+    },
+
+    /**
+     * 我收到的 删除留言
      */
     delGetCall: function delGetCall(res) {
       console.log("delGetCall");
     },
 
     /**
-     * 留言详情
+     * 我收到的 留言详情
      */
     getCall: function getCall(res) {
       var id = res.id;
@@ -283,6 +292,11 @@ if (false) {(function () {
       type: Object
     }
   },
+  methods: {
+    sendCall: function sendCall() {
+      this.$emit('sendCall');
+    }
+  },
   computed: {
     time: function time() {
       var time = this.item.creation_time;
@@ -360,7 +374,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "created-line-header"
   }, [_c('p', [_vm._v("我")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), _c('p', [_vm._v("移除")])], 1), _vm._v(" "), _c('div', {
-    staticClass: "created-line-message"
+    staticClass: "created-line-message",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.sendCall
+    }
   }, [_vm._v(_vm._s(_vm.item.content))])])
 }
 var staticRenderFns = []
@@ -389,7 +409,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "color": "#19be6b",
       "animated": "",
       "swipeable": "",
-      "eventid": '1',
+      "eventid": '2',
       "mpcomid": '4'
     },
     on: {
@@ -430,7 +450,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('created-line', {
       attrs: {
         "item": item,
+        "eventid": '1_' + index,
         "mpcomid": '2_' + index
+      },
+      on: {
+        "sendCall": _vm.sendCall
       }
     })], 1)
   }))], 1)], 1)
