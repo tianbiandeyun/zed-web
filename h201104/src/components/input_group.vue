@@ -3,7 +3,7 @@
     <div class="group-title">新增回复</div>
     <div class="group">
       <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
-        v-model="value"></textarea>
+        @blur="operatGetContent" :value='value'></textarea>
     </div>
     <div class="group-btn">
       <button @click="submit">提交回复</button>
@@ -20,6 +20,12 @@
       }
     },
     methods: {
+      /**
+       * 输入框文本
+       * */
+      operatGetContent(e) {
+        this.value = e.mp.detail.value;
+      },
       submit() {
         this.$emit('submit', {
           message: this.value
