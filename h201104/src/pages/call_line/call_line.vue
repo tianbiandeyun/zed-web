@@ -87,9 +87,10 @@
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "conceal_message");
           } else {
-            console.log(res);
-            // 我收到的 accepter_ukey
-            this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
+            if (res.back_value) {
+              // 我收到的 accepter_ukey
+              this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
+            }
           }
         });
       },

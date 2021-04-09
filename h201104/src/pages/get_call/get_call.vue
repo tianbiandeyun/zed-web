@@ -6,7 +6,7 @@
         <get-line :item='item' del-message='举报此消息'></get-line>
       </div>
       <div v-else>
-        <reply :item='item'></reply>
+        <reply :item='item' @revoke='revoke(item)'></reply>
       </div>
     </div>
 
@@ -43,10 +43,30 @@
       this.refreshMessageDetails(this.$root.$mp.query.id);
     },
     methods: {
+      revoke(res) {
+        let id = res.id;
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.revoke_message,
+          fps: {
+            id,
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "revoke_message");
+          } else {
+            console.log(res);
+            if (res.back_value) {
+              // 获取对话详情
+              this.refreshMessageDetails(this.$root.$mp.query.id);
+            }
+          }
+        });
+      },
       submit(res) {
-
         this.$Utils.showWaiting();
-
         let _id = this.$root.$mp.query.id;
         let _u_key = this.$root.$mp.query.u_key;
         let _trigger_ukey = this.list[0].trigger_ukey;
@@ -72,7 +92,6 @@
             }
           }
         });
-
       },
       refreshMessageDetails(...res) {
         let [id] = [...res];

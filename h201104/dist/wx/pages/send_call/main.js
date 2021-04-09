@@ -134,8 +134,32 @@ if (false) {(function () {
   },
 
   methods: {
-    submit: function submit(res) {
+    revoke: function revoke(res) {
       var _this = this;
+
+      var id = res.id;
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.revoke_message,
+        fps: {
+          id: id,
+          u_key: this.u_key
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "revoke_message");
+        } else {
+          console.log(res);
+          if (res.back_value) {
+            // 获取对话详情
+            _this.refreshMessageDetails(_this.$root.$mp.query.id);
+          }
+        }
+      });
+    },
+    submit: function submit(res) {
+      var _this2 = this;
 
       this.$Utils.showWaiting();
 
@@ -156,17 +180,17 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "set_reply_to_message");
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "set_reply_to_message");
         } else {
           if (res.back_value) {
-            _this.refreshMessageDetails(_this.$root.$mp.query.id);
+            _this2.refreshMessageDetails(_this2.$root.$mp.query.id);
           }
         }
       });
     },
     refreshMessageDetails: function refreshMessageDetails() {
-      var _this2 = this;
+      var _this3 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -183,12 +207,12 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "get_chat_record_info");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          _this2.list = res.back_value;
-          console.log(_this2.list);
-          _this2.$Utils.closeWaiting();
+          _this3.list = res.back_value;
+          console.log(_this3.list);
+          _this3.$Utils.closeWaiting();
         }
       });
     }
@@ -218,14 +242,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "item": item,
         "speak": "我说",
+        "eventid": '0_' + index,
         "mpcomid": '1_' + index
+      },
+      on: {
+        "revoke": function($event) {
+          _vm.revoke(item)
+        }
       }
     })], 1)])
   }), _vm._v(" "), _c('div', {
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
-      "eventid": '0',
+      "eventid": '1',
       "mpcomid": '2'
     },
     on: {

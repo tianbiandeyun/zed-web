@@ -5,7 +5,7 @@
     </div>
     <div class="reply-details">
       <p>{{item.creation_time}} | 未读</p>
-      <p>撤销</p>
+      <p @click='revoke'>撤销</p>
     </div>
     <div class="reply-message">
       {{item.content}}
@@ -23,6 +23,11 @@
       speak: {
         type: String,
         default: '我的回复'
+      }
+    },
+    methods: {
+      revoke() {
+        this.$emit('revoke');
       }
     }
   };
