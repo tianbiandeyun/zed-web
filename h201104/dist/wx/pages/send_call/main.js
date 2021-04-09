@@ -134,8 +134,31 @@ if (false) {(function () {
   },
 
   methods: {
-    revoke: function revoke(res) {
+    delCall: function delCall() {
       var _this = this;
+
+      var id = res.id;
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.accuse_message,
+        fps: {
+          id: id,
+          u_key: this.u_key
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "accuse_message");
+        } else {
+          if (res.back_value) {
+            // 获取对话详情
+            _this.refreshMessageDetails(_this.$root.$mp.query.id);
+          }
+        }
+      });
+    },
+    revoke: function revoke(res) {
+      var _this2 = this;
 
       var id = res.id;
       this.$store.dispatch("fetch", {
@@ -147,19 +170,19 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "revoke_message");
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "revoke_message");
         } else {
           console.log(res);
           if (res.back_value) {
             // 获取对话详情
-            _this.refreshMessageDetails(_this.$root.$mp.query.id);
+            _this2.refreshMessageDetails(_this2.$root.$mp.query.id);
           }
         }
       });
     },
     submit: function submit(res) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$Utils.showWaiting();
 
@@ -180,17 +203,17 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "set_reply_to_message");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "set_reply_to_message");
         } else {
           if (res.back_value) {
-            _this2.refreshMessageDetails(_this2.$root.$mp.query.id);
+            _this3.refreshMessageDetails(_this3.$root.$mp.query.id);
           }
         }
       });
     },
     refreshMessageDetails: function refreshMessageDetails() {
-      var _this3 = this;
+      var _this4 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -207,12 +230,12 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this3.$Utils.closeWaiting();
-          _this3.$Utils.showErrorInfo(res, "get_chat_record_info");
+          _this4.$Utils.closeWaiting();
+          _this4.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          _this3.list = res.back_value;
-          console.log(_this3.list);
-          _this3.$Utils.closeWaiting();
+          _this4.list = res.back_value;
+          console.log(_this4.list);
+          _this4.$Utils.closeWaiting();
         }
       });
     }
@@ -236,13 +259,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "item": item,
         "del-message": "举报此消息",
+        "eventid": '0_' + index,
         "mpcomid": '0_' + index
+      },
+      on: {
+        "delCall": function($event) {
+          _vm.delCall(item)
+        }
       }
     })], 1) : _c('div', [_c('reply', {
       attrs: {
         "item": item,
         "speak": "我说",
-        "eventid": '0_' + index,
+        "eventid": '1_' + index,
         "mpcomid": '1_' + index
       },
       on: {
@@ -255,7 +284,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
-      "eventid": '1',
+      "eventid": '2',
       "mpcomid": '2'
     },
     on: {
