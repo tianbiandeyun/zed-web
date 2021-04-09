@@ -5,7 +5,7 @@
     </div>
     <div class="reply-details">
       <p>{{item.creation_time}} | 未读</p>
-      <p @click='revoke'>撤销</p>
+      <p v-if="index != 0" @click='revoke'>撤销</p>
     </div>
     <div class="reply-message">
       {{item.content}}
@@ -23,7 +23,11 @@
       speak: {
         type: String,
         default: '我的回复'
-      }
+      },
+      // 控制我发送的信息，第一个没有撤回按钮
+      index: {
+        type: Number
+      },
     },
     methods: {
       revoke() {

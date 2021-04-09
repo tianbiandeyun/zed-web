@@ -295,6 +295,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "item": item,
         "speak": "我说",
+        "index": index,
         "eventid": '1_' + index,
         "mpcomid": '1_' + index
       },

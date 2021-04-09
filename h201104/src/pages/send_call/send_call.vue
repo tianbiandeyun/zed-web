@@ -6,7 +6,7 @@
         <get-line :item='item' del-message='举报消息' @delCall='delCall(item)'></get-line>
       </div>
       <div v-else>
-        <reply :item='item' speak='我说' @revoke='revoke(item)'></reply>
+        <reply :item='item' speak='我说' @revoke='revoke(item)' :index='index'></reply>
       </div>
     </div>
 
