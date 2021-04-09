@@ -136,54 +136,78 @@ if (false) {(function () {
 
   methods: {
     delCall: function delCall(res) {
-      var _this = this;
 
       var id = res.id;
-      this.$store.dispatch("fetch", {
-        im: this.$Config.INTER_FACE.accuse_message,
-        fps: {
-          id: id,
-          u_key: this.u_key
-        },
-        url: this.$Config.REQUEST_URI
-      }).then(function (res) {
-        if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "accuse_message");
-        } else {
-          if (res.back_value) {
-            // 获取对话详情
-            _this.refreshMessageDetails(_this.$root.$mp.query.id);
+      var that = this;
+
+      wx.showModal({
+        title: '提示',
+        content: '确定举报吗？',
+        success: function success(res) {
+          if (res.confirm) {
+            that.$Utils.showWaiting();
+            that.$store.dispatch("fetch", {
+              im: that.$Config.INTER_FACE.accuse_message,
+              fps: {
+                id: id,
+                u_key: that.u_key
+              },
+              url: that.$Config.REQUEST_URI
+            }).then(function (res) {
+              if (res.result === "failure") {
+                that.$Utils.closeWaiting();
+                that.$Utils.showErrorInfo(res, "accuse_message");
+              } else {
+                if (res.back_value) {
+                  // 获取对话详情
+                  that.refreshMessageDetails(that.$root.$mp.query.id);
+                }
+              }
+            });
+          } else if (res.cancel) {
+            console.log('用户点击取消');
           }
         }
       });
     },
     revoke: function revoke(res) {
-      var _this2 = this;
 
       var id = res.id;
-      this.$store.dispatch("fetch", {
-        im: this.$Config.INTER_FACE.revoke_message,
-        fps: {
-          id: id,
-          u_key: this.u_key
-        },
-        url: this.$Config.REQUEST_URI
-      }).then(function (res) {
-        if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "revoke_message");
-        } else {
-          console.log(res);
-          if (res.back_value) {
-            // 获取对话详情
-            _this2.refreshMessageDetails(_this2.$root.$mp.query.id);
+      var that = this;
+
+      wx.showModal({
+        title: '提示',
+        content: '确定撤回吗？',
+        success: function success(res) {
+          if (res.confirm) {
+            that.$Utils.showWaiting();
+            that.$store.dispatch("fetch", {
+              im: that.$Config.INTER_FACE.revoke_message,
+              fps: {
+                id: id,
+                u_key: that.u_key
+              },
+              url: that.$Config.REQUEST_URI
+            }).then(function (res) {
+              if (res.result === "failure") {
+                that.$Utils.closeWaiting();
+                that.$Utils.showErrorInfo(res, "revoke_message");
+              } else {
+                console.log(res);
+                if (res.back_value) {
+                  // 获取对话详情
+                  that.refreshMessageDetails(that.$root.$mp.query.id);
+                }
+              }
+            });
+          } else if (res.cancel) {
+            console.log('用户点击取消');
           }
         }
       });
     },
     submit: function submit(res) {
-      var _this3 = this;
+      var _this = this;
 
       this.$Utils.showWaiting();
       var _id = this.$root.$mp.query.id;
@@ -203,17 +227,17 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this3.$Utils.closeWaiting();
-          _this3.$Utils.showErrorInfo(res, "set_reply_to_message");
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "set_reply_to_message");
         } else {
           if (res.back_value) {
-            _this3.refreshMessageDetails(_this3.$root.$mp.query.id);
+            _this.refreshMessageDetails(_this.$root.$mp.query.id);
           }
         }
       });
     },
     refreshMessageDetails: function refreshMessageDetails() {
-      var _this4 = this;
+      var _this2 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -230,11 +254,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this4.$Utils.closeWaiting();
-          _this4.$Utils.showErrorInfo(res, "get_chat_record_info");
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          _this4.list = res.back_value;
-          _this4.$Utils.closeWaiting();
+          _this2.list = res.back_value;
+          _this2.$Utils.closeWaiting();
         }
       });
     }

@@ -44,47 +44,77 @@
     },
     methods: {
       delCall(res) {
+
         let id = res.id;
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.accuse_message,
-          fps: {
-            id,
-            u_key: this.u_key
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "accuse_message");
-          } else {
-            if (res.back_value) {
-              // 获取对话详情
-              this.refreshMessageDetails(this.$root.$mp.query.id);
+        const that = this;
+
+        wx.showModal({
+          title: '提示',
+          content: '确定举报吗？',
+          success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.accuse_message,
+                fps: {
+                  id,
+                  u_key: that.u_key
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(res => {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "accuse_message");
+                } else {
+                  if (res.back_value) {
+                    // 获取对话详情
+                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                  }
+                }
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
             }
           }
-        });
+        })
+
       },
       revoke(res) {
+
         let id = res.id;
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.revoke_message,
-          fps: {
-            id,
-            u_key: this.u_key
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "revoke_message");
-          } else {
-            console.log(res);
-            if (res.back_value) {
-              // 获取对话详情
-              this.refreshMessageDetails(this.$root.$mp.query.id);
+        const that = this;
+
+        wx.showModal({
+          title: '提示',
+          content: '确定撤回吗？',
+          success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.revoke_message,
+                fps: {
+                  id,
+                  u_key: that.u_key
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(res => {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "revoke_message");
+                } else {
+                  console.log(res);
+                  if (res.back_value) {
+                    // 获取对话详情
+                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                  }
+                }
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消')
             }
           }
-        });
+        })
+
       },
       submit(res) {
         this.$Utils.showWaiting();
