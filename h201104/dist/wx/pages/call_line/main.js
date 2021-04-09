@@ -134,9 +134,10 @@ if (false) {(function () {
     /**
      * 我发出的 留言详情
      */
-    sendCall: function sendCall() {
+    sendCall: function sendCall(res) {
+      var id = res.id;
       wx.navigateTo({
-        url: "/pages/send_call/main"
+        url: "/pages/send_call/main?id=" + id + "&u_key=" + this.$root.$mp.query.u_key
       });
     },
 
@@ -454,7 +455,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "mpcomid": '2_' + index
       },
       on: {
-        "sendCall": _vm.sendCall
+        "sendCall": function($event) {
+          _vm.sendCall(item)
+        }
       }
     })], 1)
   }))], 1)], 1)

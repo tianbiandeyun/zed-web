@@ -9,7 +9,7 @@
       </v-tab>
       <v-tab title="我建立的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <created-line :item="item" @sendCall='sendCall'></created-line>
+          <created-line :item="item" @sendCall='sendCall(item)'></created-line>
         </div>
       </v-tab>
     </v-tabs>
@@ -43,9 +43,10 @@
       /**
        * 我发出的 留言详情
        */
-      sendCall() {
+      sendCall(res) {
+        let id = res.id;
         wx.navigateTo({
-          url: `/pages/send_call/main`
+          url: `/pages/send_call/main?id=${id}&u_key=${this.$root.$mp.query.u_key}`
         });
       },
       /**
