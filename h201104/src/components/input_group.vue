@@ -2,8 +2,12 @@
   <section class="input_group-container">
     <div class="group-title">{{title}}</div>
     <div class="group">
+      <!-- <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
+        @blur="operatGetContent" :value='value'></textarea> -->
       <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
-        @blur="operatGetContent" :value='value'></textarea>
+        @input='operatGetContent'></textarea>
+
+      <!-- textarea 取值问题 -->
     </div>
     <div class="group-btn">
       <button @click="submit">{{btnMseeage}}</button>
@@ -37,10 +41,22 @@
         this.value = e.mp.detail.value;
       },
       submit() {
-        this.$emit('submit', {
-          message: this.value
+
+        wx.showModal({
+          title: "提交",
+          content: this.value,
+          showCancel: false,
+          confirmText: "好的",
+          success() {}
         });
-        this.value = '';
+
+        console.log(this.value);
+
+
+        // this.$emit('submit', {
+        //   message: this.value
+        // });
+        // this.value = '';
       }
     }
   };
