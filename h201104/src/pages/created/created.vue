@@ -77,7 +77,7 @@
                 fps: {
                   'u_key': that.$root.$mp.query.m_key,
                   'second_ukey': that.$root.$mp.query.u_key,
-                  'content': res.message,
+                  'content': p.message,
                   'receive_message': 2
                 },
                 url: that.$Config.REQUEST_URI
