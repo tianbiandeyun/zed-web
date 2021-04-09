@@ -1,7 +1,7 @@
 <template name="69c557b1">
   <view class="_section data-v-159890af reply">
     <view class="_div data-v-159890af reply-who">
-      <view class="_p data-v-159890af">我的回复</view>
+      <view class="_p data-v-159890af">{{speak}}</view>
     </view>
     <view class="_div data-v-159890af reply-details">
       <view class="_p data-v-159890af">{{item.creation_time}} | 未读</view>

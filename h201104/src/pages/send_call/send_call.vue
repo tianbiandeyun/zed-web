@@ -6,7 +6,7 @@
         <get-line :item='item' del-message='举报此消息'></get-line>
       </div>
       <div v-else>
-        <reply :item='item'></reply>
+        <reply :item='item' speak='我说'></reply>
       </div>
     </div>
 

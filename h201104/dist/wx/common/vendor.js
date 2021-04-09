@@ -11572,6 +11572,10 @@ if (false) {
   props: {
     item: {
       type: Object
+    },
+    speak: {
+      type: String,
+      default: '我的回复'
     }
   }
 });
@@ -11586,7 +11590,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "reply"
   }, [_c('div', {
     staticClass: "reply-who"
-  }, [_c('p', [_vm._v("我的回复")])], 1), _vm._v(" "), _c('div', {
+  }, [_c('p', [_vm._v(_vm._s(_vm.speak))])], 1), _vm._v(" "), _c('div', {
     staticClass: "reply-details"
   }, [_c('p', [_vm._v(_vm._s(_vm.item.creation_time) + " | 未读")]), _vm._v(" "), _c('p', [_vm._v("撤销")])], 1), _vm._v(" "), _c('div', {
     staticClass: "reply-message"

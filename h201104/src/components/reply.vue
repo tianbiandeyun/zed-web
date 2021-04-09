@@ -1,7 +1,7 @@
 <template>
   <section class="reply">
     <div class="reply-who">
-      <p>我的回复</p>
+      <p>{{speak}}</p>
     </div>
     <div class="reply-details">
       <p>{{item.creation_time}} | 未读</p>
@@ -19,6 +19,10 @@
     props: {
       item: {
         type: Object
+      },
+      speak: {
+        type: String,
+        default: '我的回复'
       }
     }
   };

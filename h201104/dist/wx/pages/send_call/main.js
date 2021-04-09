@@ -217,6 +217,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })], 1) : _c('div', [_c('reply', {
       attrs: {
         "item": item,
+        "speak": "我说",
         "mpcomid": '1_' + index
       }
     })], 1)])
