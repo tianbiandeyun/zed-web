@@ -71,15 +71,6 @@
 
       this.refreshIndex();
 
-      // 判断是否授权获取用户资料
-      // wx.getSetting({
-      //   success: res => {
-      //     console.log(res);
-      //     // if (res.authSetting["scope.userInfo"]) {
-      //     // } 
-      //   }
-      // });
-
     },
     methods: {
       login_wx() {

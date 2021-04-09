@@ -176,15 +176,6 @@ if (false) {(function () {
 
               _this.refreshIndex();
 
-              // 判断是否授权获取用户资料
-              // wx.getSetting({
-              //   success: res => {
-              //     console.log(res);
-              //     // if (res.authSetting["scope.userInfo"]) {
-              //     // } 
-              //   }
-              // });
-
             case 5:
             case "end":
               return _context.stop();
