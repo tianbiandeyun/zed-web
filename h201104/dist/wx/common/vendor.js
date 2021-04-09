@@ -11414,8 +11414,7 @@ module.exports = function (object, index, value) {
     },
     delCall: function delCall() {
       this.$emit("delCall", {
-        item: this.item,
-        delMessage: this.delMessage
+        result: true
       });
     }
   },

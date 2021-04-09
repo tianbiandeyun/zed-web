@@ -43,8 +43,7 @@
       },
       delCall() {
         this.$emit("delCall", {
-          item: this.item,
-          delMessage: this.delMessage
+          result: true
         });
       }
     },

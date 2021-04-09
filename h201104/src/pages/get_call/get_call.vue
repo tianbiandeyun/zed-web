@@ -3,7 +3,7 @@
 
     <div class="call" v-for="(item,index) in list" :key="index">
       <div v-if="u_key != item.trigger_ukey">
-        <get-line :item='item' del-message='举报此消息'></get-line>
+        <get-line :item='item' del-message='举报此消息' @delCall='delCall(item)'></get-line>
       </div>
       <div v-else>
         <reply :item='item' @revoke='revoke(item)'></reply>
@@ -43,6 +43,27 @@
       this.refreshMessageDetails(this.$root.$mp.query.id);
     },
     methods: {
+      delCall() {
+        let id = res.id;
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.accuse_message,
+          fps: {
+            id,
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "accuse_message");
+          } else {
+            if (res.back_value) {
+              // 获取对话详情
+              this.refreshMessageDetails(this.$root.$mp.query.id);
+            }
+          }
+        });
+      },
       revoke(res) {
         let id = res.id;
         this.$store.dispatch("fetch", {

@@ -170,25 +170,26 @@ if (false) {(function () {
      * 我收到的 删除留言
      */
     delGetLine: function delGetLine(res) {
-      console.log(res);
+      var _this2 = this;
 
-      // this.$store.dispatch("fetch", {
-      //   im: this.$Config.INTER_FACE.conceal_message,
-      //   fps: {
-      //     id,
-      //   },
-      //   url: this.$Config.REQUEST_URI
-      // }).then(res => {
-      //   if (res.result === "failure") {
-      //     this.$Utils.closeWaiting();
-      //     this.$Utils.showErrorInfo(res, "conceal_message");
-      //   } else {
-      //     if (res.back_value) {
-      //       // 我收到的 accepter_ukey
-      //       this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
-      //     }
-      //   }
-      // });
+      var id = res.id;
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.conceal_message,
+        fps: {
+          id: id
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "conceal_message");
+        } else {
+          if (res.back_value) {
+            // 我收到的 accepter_ukey
+            _this2.refreshCallLine("accepter_ukey", _this2.$root.$mp.query.u_key);
+          }
+        }
+      });
     },
 
     /**
@@ -220,7 +221,7 @@ if (false) {(function () {
      * 获取留言信息
      */
     refreshCallLine: function refreshCallLine() {
-      var _this2 = this;
+      var _this3 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -239,11 +240,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "get_chat_record_list");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "get_chat_record_list");
         } else {
-          _this2.call_line_list = res.back_value;
-          _this2.$Utils.closeWaiting();
+          _this3.call_line_list = res.back_value;
+          _this3.$Utils.closeWaiting();
         }
       });
     }
@@ -492,7 +493,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "getCall": function($event) {
           _vm.getCall(item)
         },
-        "delCall": _vm.delGetLine
+        "delCall": function($event) {
+          _vm.delGetLine(item)
+        }
       }
     })], 1)
   })), _vm._v(" "), _c('v-tab', {
