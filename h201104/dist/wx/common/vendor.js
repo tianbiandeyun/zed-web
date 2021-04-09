@@ -11412,9 +11412,10 @@ module.exports = function (object, index, value) {
         result: true
       });
     },
-    delGetCall: function delGetCall() {
-      this.$emit("delGetCall", {
-        result: true
+    delCall: function delCall() {
+      this.$emit("delCall", {
+        item: this.item,
+        delMessage: this.delMessage
       });
     }
   },
@@ -11508,7 +11509,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '0'
     },
     on: {
-      "click": _vm.delGetCall
+      "click": _vm.delCall
     }
   }, [_c('p', [_vm._v(_vm._s(_vm.delMessage))])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "line-message",

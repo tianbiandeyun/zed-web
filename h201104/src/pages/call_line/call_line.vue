@@ -4,12 +4,12 @@
     <v-tabs :active="active" color="#19be6b" animated swipeable @change="clickTabs">
       <v-tab title="我收到的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <get-line :item="item" @getCall="getCall(item)" @delGetCall="delGetLine(item)"></get-line>
+          <get-line :item="item" @getCall="getCall(item)" @delCall="delGetLine"></get-line>
         </div>
       </v-tab>
       <v-tab title="我建立的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <created-line :item="item" @sendCall='sendCall(item)' @delGetCall="delCreatedLine(item)"></created-line>
+          <created-line :item="item" @sendCall='sendCall(item)' @delCall="delCreatedLine(item)"></created-line>
         </div>
       </v-tab>
     </v-tabs>
@@ -75,24 +75,25 @@
        * 我收到的 删除留言
        */
       delGetLine(res) {
-        let id = res.id;
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.conceal_message,
-          fps: {
-            id,
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "conceal_message");
-          } else {
-            if (res.back_value) {
-              // 我收到的 accepter_ukey
-              this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
-            }
-          }
-        });
+        console.log(res);
+
+        // this.$store.dispatch("fetch", {
+        //   im: this.$Config.INTER_FACE.conceal_message,
+        //   fps: {
+        //     id,
+        //   },
+        //   url: this.$Config.REQUEST_URI
+        // }).then(res => {
+        //   if (res.result === "failure") {
+        //     this.$Utils.closeWaiting();
+        //     this.$Utils.showErrorInfo(res, "conceal_message");
+        //   } else {
+        //     if (res.back_value) {
+        //       // 我收到的 accepter_ukey
+        //       this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
+        //     }
+        //   }
+        // });
       },
       /**
        * 我收到的 留言详情

@@ -3,7 +3,7 @@
     <div class="created-line-header">
       <p>我</p>
       <p>{{time}}，给"{{item.name}}"留言</p>
-      <p @click="delGetCall">移除</p>
+      <p @click="delCall">移除</p>
     </div>
     <div class="created-line-message" @click='sendCall'>{{item.content}}</div>
   </section>
@@ -23,8 +23,8 @@
           result: true
         });
       },
-      delGetCall() {
-        this.$emit("delGetCall", {
+      delCall() {
+        this.$emit("delCall", {
           result: true
         });
       }

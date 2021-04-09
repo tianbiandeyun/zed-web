@@ -12,7 +12,7 @@
         <p>{{time}}</p>
       </div>
 
-      <div class="line-header-options" @click="delGetCall">
+      <div class="line-header-options" @click="delCall">
         <p>{{delMessage}}</p>
       </div>
 
@@ -41,9 +41,10 @@
           result: true
         });
       },
-      delGetCall() {
-        this.$emit("delGetCall", {
-          result: true
+      delCall() {
+        this.$emit("delCall", {
+          item: this.item,
+          delMessage: this.delMessage
         });
       }
     },
