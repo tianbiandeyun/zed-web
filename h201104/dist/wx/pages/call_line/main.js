@@ -144,7 +144,7 @@ if (false) {(function () {
         content: '确定移除吗？',
         success: function success(res) {
           if (res.confirm) {
-
+            that.$Utils.showWaiting();
             that.$store.dispatch("fetch", {
               im: that.$Config.INTER_FACE.conceal_message,
               fps: {
@@ -191,7 +191,7 @@ if (false) {(function () {
         content: '确定移除吗？',
         success: function success(res) {
           if (res.confirm) {
-
+            that.$Utils.showWaiting();
             that.$store.dispatch("fetch", {
               im: that.$Config.INTER_FACE.conceal_message,
               fps: {

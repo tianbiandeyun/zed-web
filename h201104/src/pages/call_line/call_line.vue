@@ -53,7 +53,7 @@
           content: '确定移除吗？',
           success(res) {
             if (res.confirm) {
-
+              that.$Utils.showWaiting();
               that.$store.dispatch("fetch", {
                 im: that.$Config.INTER_FACE.conceal_message,
                 fps: {
@@ -100,7 +100,7 @@
           content: '确定移除吗？',
           success(res) {
             if (res.confirm) {
-
+              that.$Utils.showWaiting();
               that.$store.dispatch("fetch", {
                 im: that.$Config.INTER_FACE.conceal_message,
                 fps: {
