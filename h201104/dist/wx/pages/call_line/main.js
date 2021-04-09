@@ -132,7 +132,32 @@ if (false) {(function () {
 
   methods: {
     /**
-     * 我发出的 留言详情
+     * 我建立的 删除留言
+     */
+    delCreatedLine: function delCreatedLine(res) {
+      var _this = this;
+
+      var id = res.id;
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.conceal_message,
+        fps: {
+          id: id
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "conceal_message");
+        } else {
+          console.log(res);
+          // 我建立的 trigger_ukey
+          _this.refreshCallLine("trigger_ukey", _this.$root.$mp.query.u_key);
+        }
+      });
+    },
+
+    /**
+     * 我建立的 留言详情
      */
     sendCall: function sendCall(res) {
       var id = res.id;
@@ -144,8 +169,26 @@ if (false) {(function () {
     /**
      * 我收到的 删除留言
      */
-    delGetCall: function delGetCall(res) {
-      console.log("delGetCall");
+    delGetLine: function delGetLine(res) {
+      var _this2 = this;
+
+      var id = res.id;
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.conceal_message,
+        fps: {
+          id: id
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "conceal_message");
+        } else {
+          console.log(res);
+          // 我收到的 accepter_ukey
+          _this2.refreshCallLine("accepter_ukey", _this2.$root.$mp.query.u_key);
+        }
+      });
     },
 
     /**
@@ -177,7 +220,7 @@ if (false) {(function () {
      * 获取留言信息
      */
     refreshCallLine: function refreshCallLine() {
-      var _this = this;
+      var _this3 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -196,11 +239,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "get_chat_record_list");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "get_chat_record_list");
         } else {
-          _this.call_line_list = res.back_value;
-          _this.$Utils.closeWaiting();
+          _this3.call_line_list = res.back_value;
+          _this3.$Utils.closeWaiting();
         }
       });
     }
@@ -449,7 +492,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "getCall": function($event) {
           _vm.getCall(item)
         },
-        "delGetCall": _vm.delGetCall
+        "delGetCall": function($event) {
+          _vm.delGetLine(item)
+        }
       }
     })], 1)
   })), _vm._v(" "), _c('v-tab', {
@@ -470,6 +515,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       on: {
         "sendCall": function($event) {
           _vm.sendCall(item)
+        },
+        "delGetCall": function($event) {
+          _vm.delCreatedLine(item)
         }
       }
     })], 1)
