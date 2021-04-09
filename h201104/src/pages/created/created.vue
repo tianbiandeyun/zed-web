@@ -26,6 +26,7 @@
       this.$Utils.showWaiting();
       this.u_key = this.$root.$mp.query.u_key;
       this.title = `给（${this.$root.$mp.query.name}）留言：`
+      // set_initiate_a_session
       this.$Utils.closeWaiting();
     },
     methods: {}

@@ -414,6 +414,7 @@ var REQUEST_URI = CONST_REQUEST_URI + "?r=interface/api&ic=" + CONST_APP_IC;
  * 接口列表
  * */
 var INTER_FACE = {
+  set_initiate_a_session: 'set_initiate_a_session',
   accuse_message: 'accuse_message',
   revoke_message: 'revoke_message',
   conceal_message: 'conceal_message',

@@ -112,6 +112,7 @@ if (false) {(function () {
     this.$Utils.showWaiting();
     this.u_key = this.$root.$mp.query.u_key;
     this.title = '\u7ED9\uFF08' + this.$root.$mp.query.name + '\uFF09\u7559\u8A00\uFF1A';
+    // set_initiate_a_session
     this.$Utils.closeWaiting();
   },
 

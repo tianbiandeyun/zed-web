@@ -118,9 +118,11 @@
     },
     methods: {
       createdReply() {
-        wx.navigateTo({
-          url: `/pages/created/main?u_key=${this.$root.$mp.query.u_key}&name=${this.user_info.name}`
-        });
+        console.log(this.$root.$mp.query.u_key);
+        console.log(this.user_info);
+        // wx.navigateTo({
+        //   url: `/pages/created/main?u_key=${this.$root.$mp.query.u_key}&name=${this.user_info.name}`
+        // });
       },
       goReply() {
         wx.navigateTo({
