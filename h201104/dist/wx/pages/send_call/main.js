@@ -211,6 +211,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [(_vm.u_key != item.trigger_ukey) ? _c('div', [_c('get-line', {
       attrs: {
         "item": item,
+        "del-message": "举报此消息",
         "mpcomid": '0_' + index
       }
     })], 1) : _c('div', [_c('reply', {

@@ -3,7 +3,7 @@
 <import src="/components/input_group.vue.wxml" /><template name="5726d5c0">
   <view class="_section data-v-8b5e4afc send-call-container">
     <view class="_div data-v-8b5e4afc call" wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
-      <view wx:if="{{u_key != item.trigger_ukey}}" class="_div data-v-8b5e4afc"><template data="{{...$root[$kk+'0_'+index], $root}}" is="7d02b1c6"></template></view>
+      <view wx:if="{{u_key != item.trigger_ukey}}" class="_div data-v-8b5e4afc"><template del-message="举报此消息" data="{{...$root[$kk+'0_'+index], $root}}" is="7d02b1c6"></template></view>
       <view wx:else class="_div data-v-8b5e4afc"><template data="{{...$root[$kk+'1_'+index], $root}}" is="69c557b1"></template></view>
     </view>
     <view class="_div data-v-8b5e4afc call"><template bindsubmit="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="1cfab15e"></template></view>
