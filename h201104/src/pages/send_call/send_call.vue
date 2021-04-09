@@ -11,7 +11,7 @@
     </div>
 
     <div class="call">
-      <input-group></input-group>
+      <input-group @submit='submit'></input-group>
     </div>
   </section>
 </template>
@@ -42,6 +42,37 @@
       this.refreshMessageDetails(this.$root.$mp.query.id);
     },
     methods: {
+      submit(res) {
+
+        this.$Utils.showWaiting();
+
+        let _id = this.$root.$mp.query.id;
+        let _u_key = this.$root.$mp.query.u_key;
+        let _trigger_ukey = this.list[0].trigger_ukey;
+        let _message = res.message;
+
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.set_reply_to_message,
+          fps: {
+            'message_id': _id,
+            'u_key': _u_key,
+            'second_ukey': _trigger_ukey,
+            'content': _message,
+            'receive_message': 1
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "set_reply_to_message");
+          } else {
+            if (res.back_value) {
+              this.refreshMessageDetails(this.$root.$mp.query.id);
+            }
+          }
+        });
+
+      },
       refreshMessageDetails(...res) {
         let [id] = [...res];
         this.$store.dispatch("fetch", {
