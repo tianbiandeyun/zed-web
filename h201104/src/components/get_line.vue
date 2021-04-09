@@ -13,7 +13,7 @@
       </div>
 
       <div class="line-header-options" @click="delGetCall">
-        <p>我收到的信息</p>
+        <p>全是别人说的（举报）</p>
       </div>
 
     </div>
