@@ -153,28 +153,30 @@
             }
           },
           fail: res => {
-            if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
-              that.$store.dispatch("fetch", {
-                im: that.$Config.INTER_FACE.set_reply_to_message,
-                fps: {
-                  'message_id': _id,
-                  'u_key': _u_key,
-                  'second_ukey': _trigger_ukey,
-                  'content': _message,
-                  'receive_message': 2
-                },
-                url: that.$Config.REQUEST_URI
-              }).then(res => {
-                if (res.result === "failure") {
-                  that.$Utils.closeWaiting();
-                  that.$Utils.showErrorInfo(res, "set_reply_to_message");
-                } else {
-                  if (res.back_value) {
-                    that.refreshMessageDetails(that.$root.$mp.query.id);
-                  }
-                }
-              });
-            }
+            console.log('fail');
+            that.$Utils.closeWaiting();
+            // if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+            //   that.$store.dispatch("fetch", {
+            //     im: that.$Config.INTER_FACE.set_reply_to_message,
+            //     fps: {
+            //       'message_id': _id,
+            //       'u_key': _u_key,
+            //       'second_ukey': _trigger_ukey,
+            //       'content': _message,
+            //       'receive_message': 2
+            //     },
+            //     url: that.$Config.REQUEST_URI
+            //   }).then(res => {
+            //     if (res.result === "failure") {
+            //       that.$Utils.closeWaiting();
+            //       that.$Utils.showErrorInfo(res, "set_reply_to_message");
+            //     } else {
+            //       if (res.back_value) {
+            //         that.refreshMessageDetails(that.$root.$mp.query.id);
+            //       }
+            //     }
+            //   });
+            // }
           }
         })
 
