@@ -13,7 +13,7 @@
       </div>
 
       <div class="line-header-options" @click="delGetCall">
-        <p>{{delContent}}</p>
+        <p>我收到的信息</p>
       </div>
 
     </div>
@@ -29,9 +29,6 @@
     props: {
       item: {
         type: Object
-      },
-      delContent: {
-        type: String
       }
     },
     methods: {

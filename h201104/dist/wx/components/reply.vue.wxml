@@ -5,7 +5,7 @@
     </view>
     <view class="_div data-v-159890af reply-details">
       <view class="_p data-v-159890af">{{item.creation_time}} | 未读</view>
-      <view class="_p data-v-159890af">{{delContent}}</view>
+      <view class="_p data-v-159890af">删除 或者其他的</view>
     </view>
     <view class="_div data-v-159890af reply-message">
       {{item.content}}
