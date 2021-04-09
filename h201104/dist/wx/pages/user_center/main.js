@@ -240,6 +240,11 @@ if (false) {(function () {
   },
 
   methods: {
+    createdReply: function createdReply() {
+      wx.navigateTo({
+        url: "/pages/created/main?u_key=" + this.$root.$mp.query.u_key
+      });
+    },
     goReply: function goReply() {
       wx.navigateTo({
         url: "/pages/call_line/main?u_key=" + this.$root.$mp.query.u_key
@@ -412,7 +417,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '3'
     },
     on: {
-      "click": _vm.goReply
+      "click": _vm.createdReply
     }
   }, [_vm._v("创建留言")])], 1), _vm._v(" "), _c('div', {
     staticClass: "user-e"

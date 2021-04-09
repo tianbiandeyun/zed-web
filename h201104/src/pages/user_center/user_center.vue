@@ -69,7 +69,7 @@
       <button @click="goReply">我的信息</button>
     </div>
     <div v-else>
-      <button @click="goReply">创建留言</button>
+      <button @click="createdReply">创建留言</button>
     </div>
 
     <div class="user-e">
@@ -117,6 +117,11 @@
 
     },
     methods: {
+      createdReply() {
+        wx.navigateTo({
+          url: `/pages/created/main?u_key=${this.$root.$mp.query.u_key}`
+        });
+      },
       goReply() {
         wx.navigateTo({
           url: `/pages/call_line/main?u_key=${this.$root.$mp.query.u_key}`
