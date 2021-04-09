@@ -116,7 +116,7 @@
 
 
       },
-      submit(res) {
+      submit(p) {
         const that = this;
         that.$Utils.showWaiting();
 

@@ -205,7 +205,7 @@ if (false) {(function () {
         }
       });
     },
-    submit: function submit(res) {
+    submit: function submit(p) {
       var that = this;
       that.$Utils.showWaiting();
 
