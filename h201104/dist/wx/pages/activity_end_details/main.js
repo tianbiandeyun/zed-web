@@ -179,7 +179,7 @@ if (false) {(function () {
   methods: {
     goUserList: function goUserList() {
       wx.navigateTo({
-        url: "/pages/activity_user_list/main?activity_id=" + this.$root.$mp.query.activity_id
+        url: "/pages/activity_user_list/main?activity_id=" + this.$root.$mp.query.activity_id + "&m_key=" + this.$root.$mp.query.m_key
       });
     }
   },

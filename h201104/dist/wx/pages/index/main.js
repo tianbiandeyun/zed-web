@@ -221,7 +221,7 @@ if (false) {(function () {
         });
       } else {
         wx.navigateTo({
-          url: "/pages/activity_end_details/main?activity_id=" + res.id
+          url: "/pages/activity_end_details/main?activity_id=" + res.id + "&m_key=" + this.u_key
         });
       }
     },
