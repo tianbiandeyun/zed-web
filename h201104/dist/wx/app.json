@@ -13,11 +13,13 @@
     "pages/organize/main",
     "pages/call_line/main",
     "pages/get_call/main",
-    "pages/send_call/main"
+    "pages/send_call/main",
+    "pages/created/main"
   ],
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置将用于查看活动位置"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

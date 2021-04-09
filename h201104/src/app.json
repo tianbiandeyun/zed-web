@@ -13,7 +13,8 @@
     "pages/organize/main",
     "pages/call_line/main",
     "pages/get_call/main",
-    "pages/send_call/main"
+    "pages/send_call/main",
+    "pages/created/main"
   ],
   "permission": {
     "scope.userLocation": {
