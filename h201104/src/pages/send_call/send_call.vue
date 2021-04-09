@@ -42,7 +42,7 @@
       this.refreshMessageDetails(this.$root.$mp.query.id);
     },
     methods: {
-      delCall() {
+      delCall(res) {
         let id = res.id;
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.accuse_message,

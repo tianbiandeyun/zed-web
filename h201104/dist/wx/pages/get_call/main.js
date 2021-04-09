@@ -135,7 +135,7 @@ if (false) {(function () {
   },
 
   methods: {
-    delCall: function delCall() {
+    delCall: function delCall(res) {
       var _this = this;
 
       var id = res.id;
