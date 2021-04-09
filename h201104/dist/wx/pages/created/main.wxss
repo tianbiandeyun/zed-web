@@ -1,6 +1,6 @@
-@import "../../../common/vendor.wxss";
+@import "../../common/vendor.wxss";
 
-.created-container .call.data-v-23c741b0 {
+.created-container .call.data-v-22c711e8 {
   background-color: #FFF;
   border-bottom: 2rpx solid #dcdee2;
   -webkit-box-sizing: border-box;

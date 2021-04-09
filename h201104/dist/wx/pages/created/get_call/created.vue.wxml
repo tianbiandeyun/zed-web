@@ -1,5 +1,0 @@
-<import src="/components/input_group.vue.wxml" /><template name="037ac59c">
-  <view class="_section data-v-23c741b0 created-container">
-    <view class="_div data-v-23c741b0 call"><template bindsubmit="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="1cfab15e"></template></view>
-  </view>
-</template>
