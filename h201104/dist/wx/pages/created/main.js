@@ -169,7 +169,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('input-group', {
     attrs: {
       "title": _vm.title,
-      "btn-message": "发送对话",
+      "btn-mseeage": "发送对话",
       "eventid": '0',
       "mpcomid": '0'
     },
