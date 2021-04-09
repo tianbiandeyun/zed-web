@@ -44,23 +44,40 @@
        * 我建立的 删除留言
        */
       delCreatedLine(res) {
+
         let id = res.id;
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.conceal_message,
-          fps: {
-            id,
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "conceal_message");
-          } else {
-            console.log(res);
-            // 我建立的 trigger_ukey
-            this.refreshCallLine("trigger_ukey", this.$root.$mp.query.u_key);
+
+        const that = this;
+        wx.showModal({
+          title: '提示',
+          content: '确定移除吗？',
+          success(res) {
+            if (res.confirm) {
+
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.conceal_message,
+                fps: {
+                  id,
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(res => {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "conceal_message");
+                } else {
+                  if (res.back_value) {
+                    // 我建立的 trigger_ukey
+                    that.refreshCallLine("trigger_ukey", that.$root.$mp.query.u_key);
+                  }
+                }
+              });
+
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
           }
-        });
+        })
+
       },
       /**
        * 我建立的 留言详情
@@ -76,23 +93,38 @@
        */
       delGetLine(res) {
         let id = res.id;
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.conceal_message,
-          fps: {
-            id,
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "conceal_message");
-          } else {
-            if (res.back_value) {
-              // 我收到的 accepter_ukey
-              this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
+
+        const that = this;
+        wx.showModal({
+          title: '提示',
+          content: '确定移除吗？',
+          success(res) {
+            if (res.confirm) {
+
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.conceal_message,
+                fps: {
+                  id,
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(res => {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "conceal_message");
+                } else {
+                  if (res.back_value) {
+                    // 我收到的 accepter_ukey
+                    that.refreshCallLine("accepter_ukey", that.$root.$mp.query.u_key);
+                  }
+                }
+              });
+
+            } else if (res.cancel) {
+              console.log('用户点击取消')
             }
           }
-        });
+        })
+
       },
       /**
        * 我收到的 留言详情
