@@ -104,13 +104,14 @@ if (false) {(function () {
   },
   data: function data() {
     return {
-      u_key: ''
+      u_key: '',
+      title: ''
     };
   },
   mounted: function mounted() {
     this.$Utils.showWaiting();
     this.u_key = this.$root.$mp.query.u_key;
-    console.log(this.$root.$mp.query.name);
+    this.title = '\u7ED9\uFF08' + this.$root.$mp.query.name + '\uFF09\u7559\u8A00\uFF1A';
     this.$Utils.closeWaiting();
   },
 
@@ -130,6 +131,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
+      "title": _vm.title,
       "eventid": '0',
       "mpcomid": '0'
     },

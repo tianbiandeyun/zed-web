@@ -2,7 +2,7 @@
   <section class="created-container">
 
     <div class="call">
-      <input-group @submit='submit'></input-group>
+      <input-group @submit='submit' :title='title'></input-group>
     </div>
 
   </section>
@@ -19,12 +19,13 @@
     data() {
       return {
         u_key: '',
+        title: ''
       }
     },
     mounted() {
       this.$Utils.showWaiting();
       this.u_key = this.$root.$mp.query.u_key;
-      console.log(this.$root.$mp.query.name);
+      this.title = `给（${this.$root.$mp.query.name}）留言：`
       this.$Utils.closeWaiting();
     },
     methods: {}
