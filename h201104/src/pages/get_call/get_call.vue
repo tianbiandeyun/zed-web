@@ -116,33 +116,68 @@
         })
 
       },
-      submit(res) {
-        this.$Utils.showWaiting();
-        let _id = this.$root.$mp.query.id;
-        let _u_key = this.$root.$mp.query.u_key;
-        let _trigger_ukey = this.list[0].trigger_ukey;
-        let _message = res.message;
+      submit(p) {
 
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.set_reply_to_message,
-          fps: {
-            'message_id': _id,
-            'u_key': _u_key,
-            'second_ukey': _trigger_ukey,
-            'content': _message,
-            'receive_message': 1
+        const that = this;
+        that.$Utils.showWaiting();
+
+        let _id = that.$root.$mp.query.id;
+        let _u_key = that.$root.$mp.query.u_key;
+        let _trigger_ukey = that.list[0].trigger_ukey;
+        let _message = p.message;
+
+        wx.requestSubscribeMessage({
+          tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
+          success: res => {
+            if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.set_reply_to_message,
+                fps: {
+                  'message_id': _id,
+                  'u_key': _u_key,
+                  'second_ukey': _trigger_ukey,
+                  'content': _message,
+                  'receive_message': 1
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(res => {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "set_reply_to_message");
+                } else {
+                  if (res.back_value) {
+                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                  }
+                }
+              });
+            }
           },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "set_reply_to_message");
-          } else {
-            if (res.back_value) {
-              this.refreshMessageDetails(this.$root.$mp.query.id);
+          fail: res => {
+            if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.set_reply_to_message,
+                fps: {
+                  'message_id': _id,
+                  'u_key': _u_key,
+                  'second_ukey': _trigger_ukey,
+                  'content': _message,
+                  'receive_message': 2
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(res => {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "set_reply_to_message");
+                } else {
+                  if (res.back_value) {
+                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                  }
+                }
+              });
             }
           }
-        });
+        })
+
       },
       refreshMessageDetails(...res) {
         let [id] = [...res];

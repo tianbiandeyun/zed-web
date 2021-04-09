@@ -206,38 +206,70 @@ if (false) {(function () {
         }
       });
     },
-    submit: function submit(res) {
-      var _this = this;
+    submit: function submit(p) {
 
-      this.$Utils.showWaiting();
-      var _id = this.$root.$mp.query.id;
-      var _u_key = this.$root.$mp.query.u_key;
-      var _trigger_ukey = this.list[0].trigger_ukey;
-      var _message = res.message;
+      var that = this;
+      that.$Utils.showWaiting();
 
-      this.$store.dispatch("fetch", {
-        im: this.$Config.INTER_FACE.set_reply_to_message,
-        fps: {
-          'message_id': _id,
-          'u_key': _u_key,
-          'second_ukey': _trigger_ukey,
-          'content': _message,
-          'receive_message': 1
+      var _id = that.$root.$mp.query.id;
+      var _u_key = that.$root.$mp.query.u_key;
+      var _trigger_ukey = that.list[0].trigger_ukey;
+      var _message = p.message;
+
+      wx.requestSubscribeMessage({
+        tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
+        success: function success(res) {
+          if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
+            that.$store.dispatch("fetch", {
+              im: that.$Config.INTER_FACE.set_reply_to_message,
+              fps: {
+                'message_id': _id,
+                'u_key': _u_key,
+                'second_ukey': _trigger_ukey,
+                'content': _message,
+                'receive_message': 1
+              },
+              url: that.$Config.REQUEST_URI
+            }).then(function (res) {
+              if (res.result === "failure") {
+                that.$Utils.closeWaiting();
+                that.$Utils.showErrorInfo(res, "set_reply_to_message");
+              } else {
+                if (res.back_value) {
+                  that.refreshMessageDetails(that.$root.$mp.query.id);
+                }
+              }
+            });
+          }
         },
-        url: this.$Config.REQUEST_URI
-      }).then(function (res) {
-        if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "set_reply_to_message");
-        } else {
-          if (res.back_value) {
-            _this.refreshMessageDetails(_this.$root.$mp.query.id);
+        fail: function fail(res) {
+          if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+            that.$store.dispatch("fetch", {
+              im: that.$Config.INTER_FACE.set_reply_to_message,
+              fps: {
+                'message_id': _id,
+                'u_key': _u_key,
+                'second_ukey': _trigger_ukey,
+                'content': _message,
+                'receive_message': 2
+              },
+              url: that.$Config.REQUEST_URI
+            }).then(function (res) {
+              if (res.result === "failure") {
+                that.$Utils.closeWaiting();
+                that.$Utils.showErrorInfo(res, "set_reply_to_message");
+              } else {
+                if (res.back_value) {
+                  that.refreshMessageDetails(that.$root.$mp.query.id);
+                }
+              }
+            });
           }
         }
       });
     },
     refreshMessageDetails: function refreshMessageDetails() {
-      var _this2 = this;
+      var _this = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -254,11 +286,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "get_chat_record_info");
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          _this2.list = res.back_value;
-          _this2.$Utils.closeWaiting();
+          _this.list = res.back_value;
+          _this.$Utils.closeWaiting();
         }
       });
     }

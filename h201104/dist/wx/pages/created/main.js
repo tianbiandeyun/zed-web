@@ -116,36 +116,78 @@ if (false) {(function () {
   },
 
   methods: {
-    submit: function submit(res) {
-      var _this = this;
+    submit: function submit(p) {
 
-      console.log('u_key =' + this.$root.$mp.query.m_key);
-      console.log('second_ukey =' + this.$root.$mp.query.u_key);
+      var that = this;
 
-      this.$store.dispatch("fetch", {
-        im: this.$Config.INTER_FACE.set_initiate_a_session,
-        fps: {
-          'u_key': this.$root.$mp.query.m_key,
-          'second_ukey': this.$root.$mp.query.u_key,
-          'content': res.message,
-          'receive_message': 1
+      console.log('u_key =' + that.$root.$mp.query.m_key);
+      console.log('second_ukey =' + that.$root.$mp.query.u_key);
+      that.$Utils.showWaiting();
+
+      wx.requestSubscribeMessage({
+        tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
+        success: function success(res) {
+          if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
+            that.$store.dispatch("fetch", {
+              im: that.$Config.INTER_FACE.set_initiate_a_session,
+              fps: {
+                'u_key': that.$root.$mp.query.m_key,
+                'second_ukey': that.$root.$mp.query.u_key,
+                'content': p.message,
+                'receive_message': 1
+              },
+              url: that.$Config.REQUEST_URI
+            }).then(function (res) {
+              if (res.result === "failure") {
+                that.$Utils.closeWaiting();
+                that.$Utils.showErrorInfo(res, "set_initiate_a_session");
+              } else {
+                if (res.back_value) {
+                  wx.showModal({
+                    title: "提交",
+                    content: '\u53D1\u9001\u6210\u529F',
+                    showCancel: false,
+                    confirmText: "好的",
+                    success: function success() {
+                      wx.navigateBack({
+                        delta: 1
+                      });
+                    }
+                  });
+                }
+              }
+            });
+          }
         },
-        url: this.$Config.REQUEST_URI
-      }).then(function (res) {
-        if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "set_initiate_a_session");
-        } else {
-          if (res.back_value) {
-            wx.showModal({
-              title: "提交",
-              content: '\u53D1\u9001\u6210\u529F',
-              showCancel: false,
-              confirmText: "好的",
-              success: function success() {
-                wx.navigateBack({
-                  delta: 1
-                });
+        fail: function fail(res) {
+          if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+            that.$store.dispatch("fetch", {
+              im: that.$Config.INTER_FACE.set_initiate_a_session,
+              fps: {
+                'u_key': that.$root.$mp.query.m_key,
+                'second_ukey': that.$root.$mp.query.u_key,
+                'content': res.message,
+                'receive_message': 2
+              },
+              url: that.$Config.REQUEST_URI
+            }).then(function (res) {
+              if (res.result === "failure") {
+                that.$Utils.closeWaiting();
+                that.$Utils.showErrorInfo(res, "set_initiate_a_session");
+              } else {
+                if (res.back_value) {
+                  wx.showModal({
+                    title: "提交",
+                    content: '\u53D1\u9001\u6210\u529F',
+                    showCancel: false,
+                    confirmText: "好的",
+                    success: function success() {
+                      wx.navigateBack({
+                        delta: 1
+                      });
+                    }
+                  });
+                }
               }
             });
           }
