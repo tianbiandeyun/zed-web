@@ -74,16 +74,9 @@
       // 判断是否授权获取用户资料
       // wx.getSetting({
       //   success: res => {
-      //     if (res.authSetting["scope.userInfo"]) {
-      //       // 授权
-      //       this.refreshIndex();
-      //
-      //     } else {
-      //       // 未授权
-      //       // this.is_scope = true;
-      //       console.log("未登录");
-      //       this.$Utils.closeWaiting();
-      //     }
+      //     console.log(res);
+      //     // if (res.authSetting["scope.userInfo"]) {
+      //     // } 
       //   }
       // });
 
