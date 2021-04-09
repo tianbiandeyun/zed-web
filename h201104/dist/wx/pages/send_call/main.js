@@ -83,9 +83,12 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_get_line__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_reply__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_input_group__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_get_line__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_reply__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_input_group__ = __webpack_require__(59);
+
 //
 //
 //
@@ -112,9 +115,52 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "send-call",
   components: {
-    getLine: __WEBPACK_IMPORTED_MODULE_0__components_get_line__["a" /* default */],
-    reply: __WEBPACK_IMPORTED_MODULE_1__components_reply__["a" /* default */],
-    inputGroup: __WEBPACK_IMPORTED_MODULE_2__components_input_group__["a" /* default */]
+    getLine: __WEBPACK_IMPORTED_MODULE_1__components_get_line__["a" /* default */],
+    reply: __WEBPACK_IMPORTED_MODULE_2__components_reply__["a" /* default */],
+    inputGroup: __WEBPACK_IMPORTED_MODULE_3__components_input_group__["a" /* default */]
+  },
+  data: function data() {
+    return {
+      u_key: '',
+      list: []
+    };
+  },
+  mounted: function mounted() {
+    this.$Utils.showWaiting();
+    this.u_key = this.$root.$mp.query.u_key;
+
+    // 获取对话详情
+    this.refreshMessageDetails(this.$root.$mp.query.id);
+  },
+
+  methods: {
+    refreshMessageDetails: function refreshMessageDetails() {
+      var _this = this;
+
+      for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
+        res[_key] = arguments[_key];
+      }
+
+      var _ref = [].concat(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(res)),
+          id = _ref[0];
+
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_chat_record_info,
+        fps: {
+          message_id: id
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "get_chat_record_info");
+        } else {
+          _this.list = res.back_value;
+          console.log(_this.list);
+          _this.$Utils.closeWaiting();
+        }
+      });
+    }
   }
 });
 
@@ -127,13 +173,30 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', {
     staticClass: "send-call-container"
-  }, [_vm._v("\n\n  pp\n\n  "), _c('div', {
+  }, [_vm._l((_vm.list), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "call"
+    }, [(_vm.u_key != item.trigger_ukey) ? _c('div', [_c('get-line', {
+      attrs: {
+        "item": item,
+        "del-content": "举报此消息",
+        "mpcomid": '0_' + index
+      }
+    })], 1) : _c('div', [_c('reply', {
+      attrs: {
+        "item": item,
+        "del-content": "撤回",
+        "mpcomid": '1_' + index
+      }
+    })], 1)])
+  }), _vm._v(" "), _c('div', {
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
-      "mpcomid": '0'
+      "mpcomid": '2'
     }
-  })], 1)])
+  })], 1)], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
