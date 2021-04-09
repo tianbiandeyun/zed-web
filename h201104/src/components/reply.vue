@@ -5,7 +5,7 @@
     </div>
     <div class="reply-details">
       <p>{{item.creation_time}} | 未读</p>
-      <p>全是我说的（我的回复/我说）</p>
+      <p>撤销</p>
     </div>
     <div class="reply-message">
       {{item.content}}
