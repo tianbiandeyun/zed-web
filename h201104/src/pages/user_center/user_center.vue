@@ -84,6 +84,7 @@
 </template>
 
 <script>
+  // 这里面所有的u_key都是，点击谁就是谁的
   import {
     mapGetters
   } from "vuex";
