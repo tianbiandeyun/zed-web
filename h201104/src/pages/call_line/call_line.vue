@@ -30,24 +30,27 @@
     data() {
       return {
         active: 0,
-        call_line_list: []
+        call_line_list: [],
+        u_key: ''
       };
     },
     mounted() {
       this.$Utils.showWaiting();
 
+      // 本页面用到的所有 u_key 在此修改
+      this.u_key = this.$root.$mp.query.u_key;
+
       // 先获取一下 我收到的留言
-      this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
+      this.refreshCallLine("accepter_ukey", this.u_key);
     },
     methods: {
       /**
        * 我建立的 删除留言
        */
       delCreatedLine(res) {
-
         let id = res.id;
-
         const that = this;
+
         wx.showModal({
           title: '提示',
           content: '确定移除吗？',
@@ -67,7 +70,7 @@
                 } else {
                   if (res.back_value) {
                     // 我建立的 trigger_ukey
-                    that.refreshCallLine("trigger_ukey", that.$root.$mp.query.u_key);
+                    that.refreshCallLine("trigger_ukey", that.u_key);
                   }
                 }
               });
@@ -84,11 +87,11 @@
        */
       sendCall(res) {
         let id = res.id;
-        let u_key = this.$root.$mp.query.u_key;
+
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,
           fps: {
-            u_key,
+            u_key: this.u_key,
             id
           },
           url: this.$Config.REQUEST_URI
@@ -99,7 +102,7 @@
           } else {
             if (res.back_value) {
               wx.navigateTo({
-                url: `/pages/send_call/main?id=${id}&u_key=${u_key}`
+                url: `/pages/send_call/main?id=${id}&u_key=${this.u_key}`
               });
             }
             this.$Utils.closeWaiting();
@@ -111,8 +114,8 @@
        */
       delGetLine(res) {
         let id = res.id;
-
         const that = this;
+
         wx.showModal({
           title: '提示',
           content: '确定移除吗？',
@@ -132,7 +135,7 @@
                 } else {
                   if (res.back_value) {
                     // 我收到的 accepter_ukey
-                    that.refreshCallLine("accepter_ukey", that.$root.$mp.query.u_key);
+                    that.refreshCallLine("accepter_ukey", that.u_key);
                   }
                 }
               });
@@ -149,12 +152,11 @@
        */
       getCall(res) {
         let id = res.id;
-        let u_key = this.$root.$mp.query.u_key;
 
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,
           fps: {
-            u_key,
+            u_key: this.u_key,
             id
           },
           url: this.$Config.REQUEST_URI
@@ -165,7 +167,7 @@
           } else {
             if (res.back_value) {
               wx.navigateTo({
-                url: `/pages/get_call/main?id=${id}&u_key=${u_key}`
+                url: `/pages/get_call/main?id=${id}&u_key=${this.u_key}`
               });
             }
             this.$Utils.closeWaiting();
@@ -180,10 +182,10 @@
         this.call_line_list = [];
         if (event.mp.detail.index === 0) {
           // 我收到的 accepter_ukey
-          this.refreshCallLine("accepter_ukey", this.$root.$mp.query.u_key);
+          this.refreshCallLine("accepter_ukey", this.u_key);
         } else {
           // 我建立的 trigger_ukey
-          this.refreshCallLine("trigger_ukey", this.$root.$mp.query.u_key);
+          this.refreshCallLine("trigger_ukey", this.u_key);
         }
       },
       /**
