@@ -22,7 +22,7 @@
           {{user_info.brief_introduction === null || user_info.brief_introduction === "" ? "暂无自我介绍" : user_info.brief_introduction}}
         </label></view>
     </view>
-    <view wx:if="{{openid.back_value.open_id === user_info.open_id}}" class="_div data-v-29f06caa"><button bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_button data-v-29f06caa">我的信息</button></view>
+    <view wx:if="{{openid.back_value.open_id === user_info.open_id}}" class="_div data-v-29f06caa"><button bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_button data-v-29f06caa">我的信息（{{message_count}}）</button></view>
     <view wx:else class="_div data-v-29f06caa"><button bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-29f06caa">创建留言</button></view>
     <view class="_div data-v-29f06caa user-e">
       <view class="_h1 data-v-29f06caa">形象照片</view>

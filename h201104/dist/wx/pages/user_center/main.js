@@ -448,7 +448,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.goReply
     }
-  }, [_vm._v("我的信息")])], 1) : _c('div', [_c('button', {
+  }, [_vm._v("我的信息（" + _vm._s(_vm.message_count) + "）")])], 1) : _c('div', [_c('button', {
     attrs: {
       "eventid": '3'
     },

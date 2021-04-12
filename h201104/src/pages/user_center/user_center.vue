@@ -66,7 +66,7 @@
     </div>
 
     <div v-if="openid.back_value.open_id === user_info.open_id">
-      <button @click="goReply">我的信息</button>
+      <button @click="goReply">我的信息（{{message_count}}）</button>
     </div>
     <div v-else>
       <button @click="createdReply">创建留言</button>
@@ -174,6 +174,7 @@
           }
         });
 
+        // 信息条数
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_unread_message,
           fps: {
