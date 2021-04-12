@@ -114,7 +114,7 @@
         this.is_page = true;
       }
 
-      await this.refreshUserCenter();
+      await this.refreshUserCenter(this.$root.$mp.query.u_key);
       this.$Utils.closeWaiting();
 
     },
@@ -123,39 +123,43 @@
        * 创建留言
        */
       createdReply() {
-        let m_key = this.$root.$mp.query.m_key
+        let m_key = this.$root.$mp.query.m_key;
+        let u_key = this.$root.$mp.query.u_key;
+        let name = this.user_info.name;
         wx.navigateTo({
-          url: `/pages/created/main?m_key=${m_key}&u_key=${this.$root.$mp.query.u_key}&name=${this.user_info.name}`
+          url: `/pages/created/main?m_key=${m_key}&u_key=${u_key}&name=${name}`
         });
       },
       /**
        * 我的消息
        */
       goReply() {
+        let u_key = this.$root.$mp.query.u_key;
         wx.navigateTo({
-          url: `/pages/call_line/main?u_key=${this.$root.$mp.query.u_key}`
+          url: `/pages/call_line/main?u_key=${u_key}`
         });
       },
       /**
        * 编辑信息
        */
       goEdit(res) {
+        let u_key = this.$root.$mp.query.u_key;
         if (res === 1) {
           wx.navigateTo({
-            url: `/pages/user_center_jichu/main?u_key=${this.$root.$mp.query.u_key}`
+            url: `/pages/user_center_jichu/main?u_key=${u_key}`
           });
         } else {
           wx.navigateTo({
-            url: `/pages/user_center_jieshao/main?u_key=${this.$root.$mp.query.u_key}`
+            url: `/pages/user_center_jieshao/main?u_key=${u_key}`
           });
         }
       },
-      async refreshUserCenter() {
+      async refreshUserCenter(u_key) {
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
           fps: {
             open_id: this.openid.back_value.open_id,
-            u_key: this.$root.$mp.query.u_key || ""
+            u_key: u_key || ""
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
@@ -180,7 +184,7 @@
     },
     async onPullDownRefresh() {
       this.$Utils.showWaiting();
-      await this.refreshUserCenter();
+      await this.refreshUserCenter(this.$root.$mp.query.u_key);
       this.$Utils.closeWaiting();
       wx.stopPullDownRefresh();
     },

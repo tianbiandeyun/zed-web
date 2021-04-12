@@ -227,7 +227,7 @@ if (false) {(function () {
 
             case 8:
               _context.next = 10;
-              return _this.refreshUserCenter();
+              return _this.refreshUserCenter(_this.$root.$mp.query.u_key);
 
             case 10:
               _this.$Utils.closeWaiting();
@@ -247,8 +247,10 @@ if (false) {(function () {
      */
     createdReply: function createdReply() {
       var m_key = this.$root.$mp.query.m_key;
+      var u_key = this.$root.$mp.query.u_key;
+      var name = this.user_info.name;
       wx.navigateTo({
-        url: "/pages/created/main?m_key=" + m_key + "&u_key=" + this.$root.$mp.query.u_key + "&name=" + this.user_info.name
+        url: "/pages/created/main?m_key=" + m_key + "&u_key=" + u_key + "&name=" + name
       });
     },
 
@@ -256,8 +258,9 @@ if (false) {(function () {
      * 我的消息
      */
     goReply: function goReply() {
+      var u_key = this.$root.$mp.query.u_key;
       wx.navigateTo({
-        url: "/pages/call_line/main?u_key=" + this.$root.$mp.query.u_key
+        url: "/pages/call_line/main?u_key=" + u_key
       });
     },
 
@@ -265,17 +268,18 @@ if (false) {(function () {
      * 编辑信息
      */
     goEdit: function goEdit(res) {
+      var u_key = this.$root.$mp.query.u_key;
       if (res === 1) {
         wx.navigateTo({
-          url: "/pages/user_center_jichu/main?u_key=" + this.$root.$mp.query.u_key
+          url: "/pages/user_center_jichu/main?u_key=" + u_key
         });
       } else {
         wx.navigateTo({
-          url: "/pages/user_center_jieshao/main?u_key=" + this.$root.$mp.query.u_key
+          url: "/pages/user_center_jieshao/main?u_key=" + u_key
         });
       }
     },
-    refreshUserCenter: function refreshUserCenter() {
+    refreshUserCenter: function refreshUserCenter(u_key) {
       var _this2 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
@@ -288,7 +292,7 @@ if (false) {(function () {
                   im: _this2.$Config.INTER_FACE.get_member_info,
                   fps: {
                     open_id: _this2.openid.back_value.open_id,
-                    u_key: _this2.$root.$mp.query.u_key || ""
+                    u_key: u_key || ""
                   },
                   url: _this2.$Config.REQUEST_URI
                 }).then(function (res) {
@@ -325,7 +329,7 @@ if (false) {(function () {
             case 0:
               _this3.$Utils.showWaiting();
               _context3.next = 3;
-              return _this3.refreshUserCenter();
+              return _this3.refreshUserCenter(_this3.$root.$mp.query.u_key);
 
             case 3:
               _this3.$Utils.closeWaiting();
