@@ -173,9 +173,29 @@ if (false) {(function () {
      * 我建立的 留言详情
      */
     sendCall: function sendCall(res) {
+      var _this = this;
+
       var id = res.id;
-      wx.navigateTo({
-        url: "/pages/send_call/main?id=" + id + "&u_key=" + this.$root.$mp.query.u_key
+      var u_key = this.$root.$mp.query.u_key;
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.read_message,
+        fps: {
+          u_key: u_key,
+          id: id
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "read_message");
+        } else {
+          if (res.back_value) {
+            wx.navigateTo({
+              url: "/pages/send_call/main?id=" + id + "&u_key=" + u_key
+            });
+          }
+          _this.$Utils.closeWaiting();
+        }
       });
     },
 
@@ -220,9 +240,30 @@ if (false) {(function () {
      * 我收到的 留言详情
      */
     getCall: function getCall(res) {
+      var _this2 = this;
+
       var id = res.id;
-      wx.navigateTo({
-        url: "/pages/get_call/main?id=" + id + "&u_key=" + this.$root.$mp.query.u_key
+      var u_key = this.$root.$mp.query.u_key;
+
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.read_message,
+        fps: {
+          u_key: u_key,
+          id: id
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "read_message");
+        } else {
+          if (res.back_value) {
+            wx.navigateTo({
+              url: "/pages/get_call/main?id=" + id + "&u_key=" + u_key
+            });
+          }
+          _this2.$Utils.closeWaiting();
+        }
       });
     },
 
@@ -245,7 +286,7 @@ if (false) {(function () {
      * 获取留言信息
      */
     refreshCallLine: function refreshCallLine() {
-      var _this = this;
+      var _this3 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -264,11 +305,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "get_chat_record_list");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "get_chat_record_list");
         } else {
-          _this.call_line_list = res.back_value;
-          _this.$Utils.closeWaiting();
+          _this3.call_line_list = res.back_value;
+          _this3.$Utils.closeWaiting();
         }
       });
     }

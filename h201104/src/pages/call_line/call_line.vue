@@ -84,8 +84,26 @@
        */
       sendCall(res) {
         let id = res.id;
-        wx.navigateTo({
-          url: `/pages/send_call/main?id=${id}&u_key=${this.$root.$mp.query.u_key}`
+        let u_key = this.$root.$mp.query.u_key;
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.read_message,
+          fps: {
+            u_key,
+            id
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "read_message");
+          } else {
+            if (res.back_value) {
+              wx.navigateTo({
+                url: `/pages/send_call/main?id=${id}&u_key=${u_key}`
+              });
+            }
+            this.$Utils.closeWaiting();
+          }
         });
       },
       /**
@@ -131,8 +149,27 @@
        */
       getCall(res) {
         let id = res.id;
-        wx.navigateTo({
-          url: `/pages/get_call/main?id=${id}&u_key=${this.$root.$mp.query.u_key}`
+        let u_key = this.$root.$mp.query.u_key;
+
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.read_message,
+          fps: {
+            u_key,
+            id
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "read_message");
+          } else {
+            if (res.back_value) {
+              wx.navigateTo({
+                url: `/pages/get_call/main?id=${id}&u_key=${u_key}`
+              });
+            }
+            this.$Utils.closeWaiting();
+          }
         });
       },
       /**
