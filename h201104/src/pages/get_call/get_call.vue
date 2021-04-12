@@ -32,15 +32,17 @@
     data() {
       return {
         u_key: '',
+        id: '',
         list: []
       }
     },
     mounted() {
       this.$Utils.showWaiting();
       this.u_key = this.$root.$mp.query.u_key;
+      this.id = this.$root.$mp.query.id;
 
       // 获取对话详情
-      this.refreshMessageDetails(this.$root.$mp.query.id);
+      this.refreshMessageDetails(this.id);
     },
     methods: {
       delCall(res) {
@@ -68,7 +70,7 @@
                 } else {
                   if (res.back_value) {
                     // 获取对话详情
-                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                    that.refreshMessageDetails(that.id);
                   }
                 }
               });
@@ -105,7 +107,7 @@
                   console.log(res);
                   if (res.back_value) {
                     // 获取对话详情
-                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                    that.refreshMessageDetails(that.id);
                   }
                 }
               });
@@ -121,7 +123,7 @@
         const that = this;
 
         let _id = that.$root.$mp.query.id;
-        let _u_key = that.$root.$mp.query.u_key;
+        let _u_key = that.u_key;
         let _trigger_ukey = that.list[0].trigger_ukey;
         let _message = p.message;
 
@@ -146,7 +148,7 @@
                   that.$Utils.showErrorInfo(res, "set_reply_to_message");
                 } else {
                   if (res.back_value) {
-                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                    that.refreshMessageDetails(that.id);
                   }
                 }
               });
@@ -169,7 +171,7 @@
                   that.$Utils.showErrorInfo(res, "set_reply_to_message");
                 } else {
                   if (res.back_value) {
-                    that.refreshMessageDetails(that.$root.$mp.query.id);
+                    that.refreshMessageDetails(that.id);
                   }
                 }
               });
