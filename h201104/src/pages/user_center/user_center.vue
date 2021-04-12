@@ -119,17 +119,26 @@
 
     },
     methods: {
+      /**
+       * 创建留言
+       */
       createdReply() {
         let m_key = this.$root.$mp.query.m_key
         wx.navigateTo({
           url: `/pages/created/main?m_key=${m_key}&u_key=${this.$root.$mp.query.u_key}&name=${this.user_info.name}`
         });
       },
+      /**
+       * 我的消息
+       */
       goReply() {
         wx.navigateTo({
           url: `/pages/call_line/main?u_key=${this.$root.$mp.query.u_key}`
         });
       },
+      /**
+       * 编辑信息
+       */
       goEdit(res) {
         if (res === 1) {
           wx.navigateTo({
