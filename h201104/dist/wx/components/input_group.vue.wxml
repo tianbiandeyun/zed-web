@@ -1,7 +1,9 @@
 <template name="1cfab15e">
   <view class="_section data-v-0c7aa9cf input_group-container">
     <view class="_div data-v-0c7aa9cf group-title">{{title}}</view>
-    <view class="_div data-v-0c7aa9cf group"><textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_textarea data-v-0c7aa9cf" /></view>
+    <view class="_div data-v-0c7aa9cf group">
+      <v-field value="{{value}}" type="textarea" placeholder="请输入留言" bindchange="handleProxy" autosize data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_v-field data-v-0c7aa9cf"></v-field>
+    </view>
     <view class="_div data-v-0c7aa9cf group-btn"><button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-0c7aa9cf">{{btnMseeage}}</button></view>
   </view>
 </template>

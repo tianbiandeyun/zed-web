@@ -2,12 +2,9 @@
   <section class="input_group-container">
     <div class="group-title">{{title}}</div>
     <div class="group">
-      <!-- <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
-        @blur="operatGetContent" :value='value'></textarea> -->
-      <!-- <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
-        @input='operatGetContent'></textarea> -->
 
-      <!-- textarea 取值问题 -->
+      <v-field :value="value" type="textarea" placeholder="请输入留言" @change="operatGetContent" autosize></v-field>
+
     </div>
     <div class="group-btn">
       <button @click="submit">{{btnMseeage}}</button>
@@ -37,8 +34,8 @@
       /**
        * 输入框文本
        * */
-      operatGetContent(e) {
-        this.value = e.mp.detail.value;
+      operatGetContent(event) {
+        this.value = event.mp.detail;
       },
       submit() {
 

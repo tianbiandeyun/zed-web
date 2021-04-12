@@ -11565,9 +11565,6 @@ if (false) {
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "input_group",
@@ -11591,8 +11588,8 @@ if (false) {
     /**
      * 输入框文本
      * */
-    operatGetContent: function operatGetContent(e) {
-      this.value = e.mp.detail.value;
+    operatGetContent: function operatGetContent(event) {
+      this.value = event.mp.detail;
     },
     submit: function submit() {
 
@@ -11626,19 +11623,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "group-title"
   }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
     staticClass: "group"
-  }, [_c('textarea', {
+  }, [_c('v-field', {
     attrs: {
-      "placeholder": "请输入内容",
-      "maxlength": "-1",
-      "show-confirm-bar": "",
-      "adjust-position": "",
-      "disable-default-padding": "",
-      "eventid": '0'
+      "value": _vm.value,
+      "type": "textarea",
+      "placeholder": "请输入留言",
+      "autosize": "",
+      "eventid": '0',
+      "mpcomid": '0'
     },
     on: {
-      "input": _vm.operatGetContent
+      "change": _vm.operatGetContent
     }
-  })]), _vm._v(" "), _c('div', {
+  })], 1), _vm._v(" "), _c('div', {
     staticClass: "group-btn"
   }, [_c('button', {
     attrs: {
