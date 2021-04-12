@@ -119,7 +119,6 @@
       submit(p) {
 
         const that = this;
-        that.$Utils.showWaiting();
 
         let _id = that.$root.$mp.query.id;
         let _u_key = that.$root.$mp.query.u_key;
@@ -130,6 +129,7 @@
           tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
           success: res => {
             if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
+              that.$Utils.showWaiting();
               that.$store.dispatch("fetch", {
                 im: that.$Config.INTER_FACE.set_reply_to_message,
                 fps: {
@@ -152,6 +152,7 @@
               });
             }
             if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+              that.$Utils.showWaiting();
               that.$store.dispatch("fetch", {
                 im: that.$Config.INTER_FACE.set_reply_to_message,
                 fps: {

@@ -207,7 +207,6 @@ if (false) {(function () {
     },
     submit: function submit(p) {
       var that = this;
-      that.$Utils.showWaiting();
 
       var _id = that.$root.$mp.query.id;
       var _u_key = that.$root.$mp.query.u_key;
@@ -218,6 +217,7 @@ if (false) {(function () {
         tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
         success: function success(res) {
           if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
+            that.$Utils.showWaiting();
             that.$store.dispatch("fetch", {
               im: that.$Config.INTER_FACE.set_reply_to_message,
               fps: {
@@ -240,6 +240,7 @@ if (false) {(function () {
             });
           }
           if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+            that.$Utils.showWaiting();
             that.$store.dispatch("fetch", {
               im: that.$Config.INTER_FACE.set_reply_to_message,
               fps: {

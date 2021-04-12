@@ -11604,21 +11604,23 @@ if (false) {
       this.value = event.mp.detail;
     },
     submit: function submit() {
-
-      wx.showModal({
-        title: "提交",
-        content: this.value,
-        showCancel: false,
-        confirmText: "好的",
-        success: function success() {}
-      });
-
       console.log(this.value);
+      if (this.value === '') {
 
-      // this.$emit('submit', {
-      //   message: this.value
-      // });
-      // this.value = '';
+        wx.showModal({
+          title: "提示",
+          content: '留言不能为空',
+          showCancel: false,
+          confirmText: "继续",
+          success: function success() {}
+        });
+
+        return false;
+      }
+      this.$emit('submit', {
+        message: this.value
+      });
+      this.value = '';
     }
   }
 });

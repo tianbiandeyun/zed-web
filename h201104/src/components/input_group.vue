@@ -38,22 +38,23 @@
         this.value = event.mp.detail;
       },
       submit() {
-
-        wx.showModal({
-          title: "提交",
-          content: this.value,
-          showCancel: false,
-          confirmText: "好的",
-          success() {}
-        });
-
         console.log(this.value);
+        if (this.value === '') {
 
+          wx.showModal({
+            title: "提示",
+            content: '留言不能为空',
+            showCancel: false,
+            confirmText: "继续",
+            success() {}
+          });
 
-        // this.$emit('submit', {
-        //   message: this.value
-        // });
-        // this.value = '';
+          return false;
+        }
+        this.$emit('submit', {
+          message: this.value
+        });
+        this.value = '';
       }
     }
   };
