@@ -4,8 +4,8 @@
     <div class="group">
       <!-- <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
         @blur="operatGetContent" :value='value'></textarea> -->
-      <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
-        @input='operatGetContent'></textarea>
+      <!-- <textarea placeholder="请输入内容" maxlength="-1" show-confirm-bar adjust-position disable-default-padding
+        @input='operatGetContent'></textarea> -->
 
       <!-- textarea 取值问题 -->
     </div>
