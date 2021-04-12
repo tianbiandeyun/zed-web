@@ -3,11 +3,11 @@
 
     <div class="line-header">
 
-      <div class="line-header-photo">
+      <div class="line-header-photo" @click="getCall">
         <img :src="item.wx_photo" alt="">
       </div>
 
-      <div class="line-header-name">
+      <div class="line-header-name" @click="getCall">
         <p>{{item.name}}</p>
         <p>{{time}}</p>
       </div>

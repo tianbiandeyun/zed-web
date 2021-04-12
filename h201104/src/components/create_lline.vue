@@ -1,8 +1,8 @@
 <template>
   <section class="create_line-container">
     <div class="created-line-header">
-      <p>我</p>
-      <p>{{time}}，给"{{item.name}}"留言</p>
+      <p @click='sendCall'>我</p>
+      <p @click='sendCall'>{{time}}，给"{{item.name}}"留言</p>
       <p @click="delCall">移除</p>
     </div>
     <div class="created-line-message" @click='sendCall'>{{item.content}}</div>
