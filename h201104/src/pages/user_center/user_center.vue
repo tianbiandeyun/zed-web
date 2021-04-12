@@ -99,7 +99,8 @@
         is_page: false,
         user_info: "",
         is_phone: 1,
-        is_mail: 1
+        is_mail: 1,
+        message_count: 0
       };
     },
     async onShow() {
@@ -114,8 +115,7 @@
         this.is_page = true;
       }
 
-      await this.refreshUserCenter(this.$root.$mp.query.u_key);
-      this.$Utils.closeWaiting();
+      this.refreshUserCenter(this.$root.$mp.query.u_key);
 
     },
     methods: {
@@ -155,6 +155,7 @@
         }
       },
       async refreshUserCenter(u_key) {
+
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
           fps: {
@@ -172,6 +173,24 @@
             this.user_info = res.back_value;
           }
         });
+
+        await this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_unread_message,
+          fps: {
+            u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "get_unread_message");
+          } else {
+            this.message_count = res.back_value;
+          }
+        });
+
+        this.$Utils.closeWaiting();
+
       }
     },
     computed: {
@@ -185,7 +204,6 @@
     async onPullDownRefresh() {
       this.$Utils.showWaiting();
       await this.refreshUserCenter(this.$root.$mp.query.u_key);
-      this.$Utils.closeWaiting();
       wx.stopPullDownRefresh();
     },
     onShareAppMessage: function (res) {

@@ -193,7 +193,8 @@ if (false) {(function () {
       is_page: false,
       user_info: "",
       is_phone: 1,
-      is_mail: 1
+      is_mail: 1,
+      message_count: 0
     };
   },
   onShow: function onShow() {
@@ -226,13 +227,10 @@ if (false) {(function () {
               _this.is_page = true;
 
             case 8:
-              _context.next = 10;
-              return _this.refreshUserCenter(_this.$root.$mp.query.u_key);
 
-            case 10:
-              _this.$Utils.closeWaiting();
+              _this.refreshUserCenter(_this.$root.$mp.query.u_key);
 
-            case 11:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -307,6 +305,27 @@ if (false) {(function () {
                 });
 
               case 2:
+                _context2.next = 4;
+                return _this2.$store.dispatch("fetch", {
+                  im: _this2.$Config.INTER_FACE.get_unread_message,
+                  fps: {
+                    u_key: u_key
+                  },
+                  url: _this2.$Config.REQUEST_URI
+                }).then(function (res) {
+                  if (res.result === "failure") {
+                    _this2.$Utils.closeWaiting();
+                    _this2.$Utils.showErrorInfo(res, "get_unread_message");
+                  } else {
+                    _this2.message_count = res.back_value;
+                  }
+                });
+
+              case 4:
+
+                _this2.$Utils.closeWaiting();
+
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -332,10 +351,9 @@ if (false) {(function () {
               return _this3.refreshUserCenter(_this3.$root.$mp.query.u_key);
 
             case 3:
-              _this3.$Utils.closeWaiting();
               wx.stopPullDownRefresh();
 
-            case 5:
+            case 4:
             case "end":
               return _context3.stop();
           }
