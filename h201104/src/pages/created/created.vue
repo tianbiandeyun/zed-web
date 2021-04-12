@@ -19,12 +19,14 @@
     data() {
       return {
         u_key: '',
+        m_key: '',
         title: ''
       }
     },
     mounted() {
       this.$Utils.showWaiting();
       this.u_key = this.$root.$mp.query.u_key;
+      this.m_key = this.$root.$mp.query.m_key;
       this.title = `给（${this.$root.$mp.query.name}）留言：`;
       this.$Utils.closeWaiting();
     },
@@ -33,8 +35,6 @@
 
         const that = this;
 
-        console.log('u_key =' + that.$root.$mp.query.m_key);
-        console.log('second_ukey =' + that.$root.$mp.query.u_key);
         that.$Utils.showWaiting();
 
         wx.requestSubscribeMessage({
@@ -44,8 +44,8 @@
               that.$store.dispatch("fetch", {
                 im: that.$Config.INTER_FACE.set_initiate_a_session,
                 fps: {
-                  'u_key': that.$root.$mp.query.m_key,
-                  'second_ukey': that.$root.$mp.query.u_key,
+                  'u_key': that.m_key,
+                  'second_ukey': that.u_key,
                   'content': p.message,
                   'receive_message': 1
                 },
@@ -75,8 +75,8 @@
               that.$store.dispatch("fetch", {
                 im: that.$Config.INTER_FACE.set_initiate_a_session,
                 fps: {
-                  'u_key': that.$root.$mp.query.m_key,
-                  'second_ukey': that.$root.$mp.query.u_key,
+                  'u_key': that.m_key,
+                  'second_ukey': that.u_key,
                   'content': p.message,
                   'receive_message': 2
                 },
