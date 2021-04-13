@@ -10,7 +10,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     openid: "",
-    is_registration: "",
+    // is_registration: "",
     // user_info: ""
   },
   actions: {
@@ -54,23 +54,25 @@ export default new Vuex.Store({
     /**
      * 是否 报名
      * */
-    isRegistration({
-      commit
-    }, params) {
-      const [im, fps, url] = [params.im, params.fps, params.url];
-      const requestUrl = unit.produceRequestUrl(im, fps, url);
-      return new Promise((resolve, reject) => {
-        fly.get(requestUrl).then(res => {
-          commit("setRegistration", res.data);
-          resolve(res.data);
-        });
-      });
-    },
+    // isRegistration({
+    //   commit
+    // }, params) {
+    //   const [im, fps, url] = [params.im, params.fps, params.url];
+    //   const requestUrl = unit.produceRequestUrl(im, fps, url);
+    //   return new Promise((resolve, reject) => {
+    //     fly.get(requestUrl).then(res => {
+    //       commit("setRegistration", res.data);
+    //       resolve(res.data);
+    //     });
+    //   });
+    // },
 
     /**
-     * 获取用户填写的信息
+     * 获取用户信息
      * */
-    // getUserInfo({ commit }, params) {
+    // getUserInfo({
+    //   commit
+    // }, params) {
     //   const [im, fps, url] = [params.im, params.fps, params.url];
     //   const requestUrl = unit.produceRequestUrl(im, fps, url);
     //   return new Promise((resolve, reject) => {
@@ -85,16 +87,16 @@ export default new Vuex.Store({
     setOpenid(state, res) {
       state.openid = res;
     },
-    setRegistration(state, res) {
-      state.is_registration = res;
-    },
+    // setRegistration(state, res) {
+    //   state.is_registration = res;
+    // },
     // getUserInfo(state, res) {
     //   state.user_info = res;
     // }
   },
   getters: {
     openid: state => state.openid,
-    is_registration: state => state.is_registration,
+    // is_registration: state => state.is_registration,
     // user_info: state => state.user_info
   }
 });

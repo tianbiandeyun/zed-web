@@ -356,7 +356,7 @@ if (false) {(function () {
 
               case 2:
                 _context2.next = 4;
-                return _this4.$store.dispatch("isRegistration", {
+                return _this4.$store.dispatch("fetch", {
                   im: _this4.$Config.INTER_FACE.get_user_sign_up_status,
                   fps: {
                     open_id: _this4.openid.back_value.open_id,

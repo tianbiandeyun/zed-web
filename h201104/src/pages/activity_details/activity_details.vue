@@ -227,7 +227,7 @@
         });
 
         // 获取是否报名
-        await this.$store.dispatch("isRegistration", {
+        await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_user_sign_up_status,
           fps: {
             open_id: this.openid.back_value.open_id,
