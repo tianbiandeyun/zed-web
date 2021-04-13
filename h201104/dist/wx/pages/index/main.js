@@ -193,7 +193,7 @@ if (false) {(function () {
       this.is_scope = true;
     },
     goUserInfo: function goUserInfo() {
-      wx.switchTab({
+      wx.navigateTo({
         url: "/pages/user_center/main?u_key=" + this.u_key
       });
     },
@@ -248,7 +248,7 @@ if (false) {(function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this3.$store.dispatch("getUserInfo", {
+                return _this3.$store.dispatch("fetch", {
                   im: _this3.$Config.INTER_FACE.get_member_info,
                   fps: {
                     open_id: _this3.openid_info.back_value.open_id,

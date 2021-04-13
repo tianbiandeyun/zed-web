@@ -233,10 +233,7 @@ if (false) {(function () {
 
               _this.refreshUserCenter(_this.$root.$mp.query.u_key);
 
-              console.log(_this.openid);
-              console.log(_this.user_info);
-
-            case 11:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -340,7 +337,7 @@ if (false) {(function () {
       }))();
     }
   },
-  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_3_vuex__["b" /* mapGetters */])(["openid", "user_info"])),
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_3_vuex__["b" /* mapGetters */])(["openid"])),
   onUnload: function onUnload() {
     this.$Utils.restData(this);
   },

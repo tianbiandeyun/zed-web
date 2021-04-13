@@ -80,7 +80,7 @@
         this.is_scope = true;
       },
       goUserInfo() {
-        wx.switchTab({
+        wx.navigateTo({
           url: `/pages/user_center/main?u_key=${this.u_key}`
         });
       },
@@ -126,7 +126,7 @@
       async refreshIndex() {
 
         // 获取用户信息
-        await this.$store.dispatch("getUserInfo", {
+        await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
           fps: {
             open_id: this.openid_info.back_value.open_id,
