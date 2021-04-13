@@ -8,7 +8,7 @@
     <div class="call" v-for="(item,index) in list.reply" :key="index">
 
       <div v-if='u_key == item.trigger_ukey'>
-        <reply :item='item' @revoke='revoke(item)' speak='我说'></reply>
+        <reply :item='item' @revoke='revoke(item,index)' speak='我说'></reply>
       </div>
       <div v-else>
         <get-line :item='item' @delCall='delCall(index)'></get-line>
@@ -141,46 +141,15 @@
         }
         this.is_dialog = true;
       },
-      revoke(res) {
+      revoke(res, index = '') {
 
         let id = res.id;
         let operation_status = res.operation_status;
         const that = this;
 
         if (operation_status === 2) {
-
-          wx.showModal({
-            title: '提示',
-            content: '确定举报吗？',
-            success(res) {
-              if (res.confirm) {
-                that.$Utils.showWaiting();
-                that.$store.dispatch("fetch", {
-                  im: that.$Config.INTER_FACE.accuse_message,
-                  fps: {
-                    id,
-                    u_key: that.u_key,
-                    // 举报内容 - 新增
-                    content: ''
-                  },
-                  url: that.$Config.REQUEST_URI
-                }).then(res => {
-                  if (res.result === "failure") {
-                    that.$Utils.closeWaiting();
-                    that.$Utils.showErrorInfo(res, "accuse_message");
-                  } else {
-                    if (res.back_value) {
-                      // 获取对话详情
-                      that.refreshMessageDetails(that.id);
-                    }
-                  }
-                });
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
-            }
-          })
-
+          this.index = index;
+          this.is_dialog = true;
         }
 
         if (operation_status === 4) {

@@ -235,44 +235,16 @@ if (false) {(function () {
       this.is_dialog = true;
     },
     revoke: function revoke(res) {
+      var index = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
 
       var id = res.id;
       var operation_status = res.operation_status;
       var that = this;
 
       if (operation_status === 2) {
-
-        wx.showModal({
-          title: '提示',
-          content: '确定举报吗？',
-          success: function success(res) {
-            if (res.confirm) {
-              that.$Utils.showWaiting();
-              that.$store.dispatch("fetch", {
-                im: that.$Config.INTER_FACE.accuse_message,
-                fps: {
-                  id: id,
-                  u_key: that.u_key,
-                  // 举报内容 - 新增
-                  content: ''
-                },
-                url: that.$Config.REQUEST_URI
-              }).then(function (res) {
-                if (res.result === "failure") {
-                  that.$Utils.closeWaiting();
-                  that.$Utils.showErrorInfo(res, "accuse_message");
-                } else {
-                  if (res.back_value) {
-                    // 获取对话详情
-                    that.refreshMessageDetails(that.id);
-                  }
-                }
-              });
-            } else if (res.cancel) {
-              console.log('用户点击取消');
-            }
-          }
-        });
+        this.index = index;
+        this.is_dialog = true;
       }
 
       if (operation_status === 4) {
@@ -433,7 +405,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       on: {
         "revoke": function($event) {
-          _vm.revoke(item)
+          _vm.revoke(item, index)
         }
       }
     })], 1) : _c('div', [_c('get-line', {
