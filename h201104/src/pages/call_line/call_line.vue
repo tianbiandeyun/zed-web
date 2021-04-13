@@ -89,6 +89,7 @@
       sendCall(res) {
         let id = res.id;
 
+        this.$Utils.showWaiting();
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,
           fps: {
@@ -155,6 +156,7 @@
       getCall(res) {
         let id = res.id;
 
+        this.$Utils.showWaiting();
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,
           fps: {
