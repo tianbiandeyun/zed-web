@@ -6,8 +6,8 @@
       <cover-view v-for="(item,index) in list" :key="index" class="tab-bar-item" :data-path='item.pagePath'
         :data-index='index' @click='switchTab'>
 
-        <cover-image :src="selected === index ? item.selectedIconPath : item.iconPath"></cover-image>
-        <cover-view :style="{color: selected === index ? selectedColor : color}">{{item.text}}</cover-view>
+        <cover-image :src="_index === index ? item.selectedIconPath : item.iconPath"></cover-image>
+        <cover-view :style="{color: _index === index ? selectedColor : color}">{{item.text}}</cover-view>
 
       </cover-view>
 
@@ -17,9 +17,14 @@
 </template>
 <script>
   export default {
+    props: {
+      selected: {
+        type: Number,
+        default: 0
+      }
+    },
     data() {
       return {
-        selected: 0,
         color: "#7A7E83",
         selectedColor: "#3cc51f",
         list: [{
@@ -43,7 +48,11 @@
         wx.switchTab({
           url
         })
-        this.selected = data.index;
+      }
+    },
+    computed: {
+      _index() {
+        return +this.selected
       }
     }
   }

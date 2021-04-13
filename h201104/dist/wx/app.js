@@ -86,9 +86,14 @@ if (false) {(function () {
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+  props: {
+    selected: {
+      type: Number,
+      default: 0
+    }
+  },
   data: function data() {
     return {
-      selected: 0,
       color: "#7A7E83",
       selectedColor: "#3cc51f",
       list: [{
@@ -113,7 +118,11 @@ if (false) {(function () {
       wx.switchTab({
         url: url
       });
-      this.selected = data.index;
+    }
+  },
+  computed: {
+    _index: function _index() {
+      return +this.selected;
     }
   }
 });
@@ -150,12 +159,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('cover-image', {
       attrs: {
-        "src": _vm.selected === index ? item.selectedIconPath : item.iconPath,
+        "src": _vm._index === index ? item.selectedIconPath : item.iconPath,
         "mpcomid": '1_' + index
       }
     }), _vm._v(" "), _c('cover-view', {
       style: ({
-        color: _vm.selected === index ? _vm.selectedColor : _vm.color
+        color: _vm._index === index ? _vm.selectedColor : _vm.color
       }),
       attrs: {
         "mpcomid": '2_' + index
@@ -440,11 +449,7 @@ if (false) {(function () {
 
 "use strict";
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  mounted: function mounted() {
-    wx.hideTabBar();
-  }
-});
+/* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
 

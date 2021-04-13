@@ -1,9 +1,5 @@
 <script>
-  export default {
-    mounted() {
-      wx.hideTabBar()
-    }
-  };
+  export default {};
 
 </script>
 

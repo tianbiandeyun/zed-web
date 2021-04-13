@@ -179,6 +179,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 // 这里面所有的u_key都是，点击谁就是谁的
 // m_key 永远都是登录人的，也就是首页个人信息的
@@ -462,7 +465,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.user_info.head_portrait,
       "alt": ""
     }
-  })], 1)], 1)]) : _vm._e()
+  })], 1)], 1), _vm._v(" "), _c('tab', {
+    attrs: {
+      "selected": "1",
+      "mpcomid": '0'
+    }
+  })], 1) : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
