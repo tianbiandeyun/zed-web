@@ -1,6 +1,5 @@
 <template>
   <section>
-    <!--miniprogram/custom-tab-bar/index.wxml-->
     <cover-view class="tab-bar">
       <cover-view class="tab-bar-border"></cover-view>
 
@@ -24,12 +23,12 @@
         color: "#7A7E83",
         selectedColor: "#3cc51f",
         list: [{
-          pagePath: "pages/index/main",
+          pagePath: "/pages/index/main",
           iconPath: "../../static/images/icon_component.png",
           selectedIconPath: "../../static/images/icon_component_HL.png",
           text: "首页"
         }, {
-          pagePath: "pages/user_center/main",
+          pagePath: "/pages/user_center/main",
           iconPath: "../../static/images/icon_API.png",
           selectedIconPath: "../../static/images/icon_API_HL.png",
           text: "我的"
@@ -38,15 +37,13 @@
     },
     methods: {
       switchTab(e) {
-        console.log('e :>> ', e);
-        // const data = e.currentTarget.dataset
-        // const url = data.path
-        // wx.switchTab({
-        //   url
-        // })
-        // this.setData({
-        //   selected: data.index
-        // })
+        console.log('e :>> ', e.mp.currentTarget.dataset);
+        const data = e.mp.currentTarget.dataset
+        const url = data.path
+        wx.switchTab({
+          url
+        })
+        this.selected = data.index;
       }
     }
   }
