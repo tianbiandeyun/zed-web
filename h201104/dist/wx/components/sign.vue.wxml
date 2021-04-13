@@ -6,8 +6,8 @@
     <view class="_div data-v-bf2e3ff0 sign-plo-details">
       <view class="_p data-v-bf2e3ff0"><label class="_span data-v-bf2e3ff0">{{item.name}}</label> <label class="_span data-v-bf2e3ff0">（{{item.company}}）</label></view>
       <view wx:if="{{item.display == 2 && item.status == 1}}" class="_p data-v-bf2e3ff0">已报名</view>
-      <view wx:elif="{{item.display == 2 && item.status == 2}}" class="_view data-v-bf2e3ff0 _p data-v-bf2e3ff0">{{time}}</view>
-      <view wx:else class="_view data-v-bf2e3ff0 _p data-v-bf2e3ff0">审核中</view>
+      <view wx:elif="{{item.display == 2 && item.status == 2}}" class="_p data-v-bf2e3ff0">{{time}}</view>
+      <view wx:else class="_p data-v-bf2e3ff0">审核中</view>
     </view>
     <view wx:if="{{item.display == 2 && item.status == 2}}" class="_div data-v-bf2e3ff0 sign-is-sign"><label class="_span data-v-bf2e3ff0">已签到</label></view>
   </view>
