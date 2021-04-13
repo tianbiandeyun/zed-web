@@ -152,7 +152,9 @@ if (false) {(function () {
               im: that.$Config.INTER_FACE.accuse_message,
               fps: {
                 id: id,
-                u_key: that.u_key
+                u_key: that.u_key,
+                // 举报内容 - 新增
+                content: ''
               },
               url: that.$Config.REQUEST_URI
             }).then(function (res) {
@@ -282,7 +284,8 @@ if (false) {(function () {
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_chat_record_info,
         fps: {
-          message_id: id
+          message_id: id,
+          u_key: this.u_key
         },
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
