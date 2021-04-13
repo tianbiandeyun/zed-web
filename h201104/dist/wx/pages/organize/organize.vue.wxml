@@ -5,8 +5,8 @@
         <view class="_div data-v-a357ae14 organize-content" wx:key="k" key="{{k}}" wx:for="{{item.centont}}" wx:for-index="v" wx:for-item="k">
           <view class="_p data-v-a357ae14 organize-content-title">{{k.title}}</view>
           <view wx:if="{{k.describe}}" class="_p data-v-a357ae14 organize-content-message">{{k.describe}}</view>
-          <view wx:else class="_p data-v-a357ae14 organize-content-images">
-            <image src="{{k.images}}" alt class="_img data-v-a357ae14"></image>
+          <view wx:else class="_view data-v-a357ae14 _p data-v-a357ae14 organize-content-images">
+            <image src="{{k.images}}" alt class="_image data-v-a357ae14 _img data-v-a357ae14"></image>
           </view>
         </view>
       </v-collapse-item>

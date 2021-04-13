@@ -9,7 +9,7 @@
         <view class="_div data-v-13c57ed6 img" wx:if="{{item.img}}">
           <image mode="widthFix" src="{{item.img}}" alt class="_img data-v-13c57ed6"></image>
         </view>
-        <view wx:else class="_p data-v-13c57ed6">{{item.content}}</view>
+        <view wx:else class="_view data-v-13c57ed6 _p data-v-13c57ed6">{{item.content}}</view>
       </view>
     </view>
     <view class="_div data-v-13c57ed6 activity-end-details-bottom">

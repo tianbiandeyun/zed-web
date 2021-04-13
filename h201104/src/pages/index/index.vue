@@ -48,14 +48,12 @@
 <script>
   import login from "../../utils/login";
   import getUserInfo from "@/components/getUserInfo";
-  import tab from '@/custom-tab-bar/'
 
   export default {
     name: "index",
     mixins: [login],
     components: {
-      getUserInfo,
-      tab
+      getUserInfo
     },
     data() {
       return {
