@@ -57,8 +57,6 @@
 
         if (operation_status === 5) {
 
-
-
           wx.showModal({
             title: '提示',
             content: '确定移除吗？',

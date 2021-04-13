@@ -330,7 +330,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     },
     on: {
       "revoke": function($event) {
-        _vm.revoke(_vm.item)
+        _vm.revoke(_vm.list.conversation)
       }
     }
   })], 1) : _vm._e(), _vm._v(" "), _vm._l((_vm.list.reply), function(item, index) {

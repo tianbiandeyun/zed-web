@@ -2,7 +2,7 @@
   <section class="send-call-container">
 
     <div class="call" v-if="list != ''">
-      <reply :item='list.conversation' @revoke='revoke(item)' speak='我说'></reply>
+      <reply :item='list.conversation' @revoke='revoke(list.conversation)' speak='我说'></reply>
     </div>
 
     <div class="call" v-for="(item,index) in list.reply" :key="index">

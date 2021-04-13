@@ -333,7 +333,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     },
     on: {
       "delCall": function($event) {
-        _vm.delCall(_vm.item)
+        _vm.delCall(_vm.list.conversation)
       }
     }
   })], 1) : _vm._e(), _vm._v(" "), _vm._l((_vm.list.reply), function(item, index) {

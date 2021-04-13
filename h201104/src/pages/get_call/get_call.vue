@@ -2,7 +2,7 @@
   <section class="get-call-container">
 
     <div class="call" v-if="list != ''">
-      <get-line :item='list.conversation' @delCall='delCall(item)'></get-line>
+      <get-line :item='list.conversation' @delCall='delCall(list.conversation)'></get-line>
     </div>
 
     <div class="call" v-for="(item,index) in list.reply" :key="index">
