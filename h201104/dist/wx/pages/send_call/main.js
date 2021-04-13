@@ -145,74 +145,80 @@ if (false) {(function () {
     delCall: function delCall(res) {
 
       var id = res.id;
+      var operation_status = res.operation_status;
       var that = this;
 
-      wx.showModal({
-        title: '提示',
-        content: '确定举报吗？',
-        success: function success(res) {
-          if (res.confirm) {
-            that.$Utils.showWaiting();
-            that.$store.dispatch("fetch", {
-              im: that.$Config.INTER_FACE.accuse_message,
-              fps: {
-                id: id,
-                u_key: that.u_key,
-                // 举报内容 - 新增
-                content: ''
-              },
-              url: that.$Config.REQUEST_URI
-            }).then(function (res) {
-              if (res.result === "failure") {
-                that.$Utils.closeWaiting();
-                that.$Utils.showErrorInfo(res, "accuse_message");
-              } else {
-                if (res.back_value) {
-                  // 获取对话详情
-                  that.refreshMessageDetails(that.id);
+      if (operation_status === 2) {
+        wx.showModal({
+          title: '提示',
+          content: '确定举报吗？',
+          success: function success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.accuse_message,
+                fps: {
+                  id: id,
+                  u_key: that.u_key,
+                  // 举报内容 - 新增
+                  content: ''
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "accuse_message");
+                } else {
+                  if (res.back_value) {
+                    // 获取对话详情
+                    that.refreshMessageDetails(that.id);
+                  }
                 }
-              }
-            });
-          } else if (res.cancel) {
-            console.log('用户点击取消');
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消');
+            }
           }
-        }
-      });
+        });
+      }
     },
     revoke: function revoke(res) {
 
       var id = res.id;
+      var operation_status = res.operation_status;
       var that = this;
 
-      wx.showModal({
-        title: '提示',
-        content: '确定撤回吗？',
-        success: function success(res) {
-          if (res.confirm) {
-            that.$Utils.showWaiting();
-            that.$store.dispatch("fetch", {
-              im: that.$Config.INTER_FACE.revoke_message,
-              fps: {
-                id: id,
-                u_key: that.u_key
-              },
-              url: that.$Config.REQUEST_URI
-            }).then(function (res) {
-              if (res.result === "failure") {
-                that.$Utils.closeWaiting();
-                that.$Utils.showErrorInfo(res, "revoke_message");
-              } else {
-                if (res.back_value) {
-                  // 获取对话详情
-                  that.refreshMessageDetails(that.id);
+      if (operation_status === 4) {
+        wx.showModal({
+          title: '提示',
+          content: '确定撤回吗？',
+          success: function success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.revoke_message,
+                fps: {
+                  id: id,
+                  u_key: that.u_key
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "revoke_message");
+                } else {
+                  if (res.back_value) {
+                    // 获取对话详情
+                    that.refreshMessageDetails(that.id);
+                  }
                 }
-              }
-            });
-          } else if (res.cancel) {
-            console.log('用户点击取消');
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消');
+            }
           }
-        }
-      });
+        });
+      }
     },
     submit: function submit(p) {
       var that = this;

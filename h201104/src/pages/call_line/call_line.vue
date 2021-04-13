@@ -52,38 +52,45 @@
        */
       delCreatedLine(res) {
         let id = res.id;
+        let operation_status = res.operation_status;
         const that = this;
 
-        wx.showModal({
-          title: '提示',
-          content: '确定移除吗？',
-          success(res) {
-            if (res.confirm) {
-              that.$Utils.showWaiting();
-              that.$store.dispatch("fetch", {
-                im: that.$Config.INTER_FACE.conceal_message,
-                fps: {
-                  id,
-                  u_key: this.u_key
-                },
-                url: that.$Config.REQUEST_URI
-              }).then(res => {
-                if (res.result === "failure") {
-                  that.$Utils.closeWaiting();
-                  that.$Utils.showErrorInfo(res, "conceal_message");
-                } else {
-                  if (res.back_value) {
-                    // 我建立的 trigger_ukey
-                    that.refreshCallLine("trigger_ukey", that.u_key);
-                  }
-                }
-              });
+        if (operation_status === 5) {
 
-            } else if (res.cancel) {
-              console.log('用户点击取消')
+
+
+          wx.showModal({
+            title: '提示',
+            content: '确定移除吗？',
+            success(res) {
+              if (res.confirm) {
+                that.$Utils.showWaiting();
+                that.$store.dispatch("fetch", {
+                  im: that.$Config.INTER_FACE.conceal_message,
+                  fps: {
+                    id,
+                    u_key: this.u_key
+                  },
+                  url: that.$Config.REQUEST_URI
+                }).then(res => {
+                  if (res.result === "failure") {
+                    that.$Utils.closeWaiting();
+                    that.$Utils.showErrorInfo(res, "conceal_message");
+                  } else {
+                    if (res.back_value) {
+                      // 我建立的 trigger_ukey
+                      that.refreshCallLine("trigger_ukey", that.u_key);
+                    }
+                  }
+                });
+
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
             }
-          }
-        })
+          })
+
+        }
 
       },
       /**
@@ -119,38 +126,43 @@
        */
       delGetLine(res) {
         let id = res.id;
+        let operation_status = res.operation_status;
         const that = this;
 
-        wx.showModal({
-          title: '提示',
-          content: '确定移除吗？',
-          success(res) {
-            if (res.confirm) {
-              that.$Utils.showWaiting();
-              that.$store.dispatch("fetch", {
-                im: that.$Config.INTER_FACE.conceal_message,
-                fps: {
-                  id,
-                  u_key: this.u_key
-                },
-                url: that.$Config.REQUEST_URI
-              }).then(res => {
-                if (res.result === "failure") {
-                  that.$Utils.closeWaiting();
-                  that.$Utils.showErrorInfo(res, "conceal_message");
-                } else {
-                  if (res.back_value) {
-                    // 我收到的 accepter_ukey
-                    that.refreshCallLine("accepter_ukey", that.u_key);
-                  }
-                }
-              });
+        if (operation_status === 5) {
 
-            } else if (res.cancel) {
-              console.log('用户点击取消')
+          wx.showModal({
+            title: '提示',
+            content: '确定移除吗？',
+            success(res) {
+              if (res.confirm) {
+                that.$Utils.showWaiting();
+                that.$store.dispatch("fetch", {
+                  im: that.$Config.INTER_FACE.conceal_message,
+                  fps: {
+                    id,
+                    u_key: this.u_key
+                  },
+                  url: that.$Config.REQUEST_URI
+                }).then(res => {
+                  if (res.result === "failure") {
+                    that.$Utils.closeWaiting();
+                    that.$Utils.showErrorInfo(res, "conceal_message");
+                  } else {
+                    if (res.back_value) {
+                      // 我收到的 accepter_ukey
+                      that.refreshCallLine("accepter_ukey", that.u_key);
+                    }
+                  }
+                });
+
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
             }
-          }
-        })
+          })
+
+        }
 
       },
       /**

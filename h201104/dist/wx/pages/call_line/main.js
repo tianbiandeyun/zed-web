@@ -143,37 +143,41 @@ if (false) {(function () {
      */
     delCreatedLine: function delCreatedLine(res) {
       var id = res.id;
+      var operation_status = res.operation_status;
       var that = this;
 
-      wx.showModal({
-        title: '提示',
-        content: '确定移除吗？',
-        success: function success(res) {
-          if (res.confirm) {
-            that.$Utils.showWaiting();
-            that.$store.dispatch("fetch", {
-              im: that.$Config.INTER_FACE.conceal_message,
-              fps: {
-                id: id,
-                u_key: this.u_key
-              },
-              url: that.$Config.REQUEST_URI
-            }).then(function (res) {
-              if (res.result === "failure") {
-                that.$Utils.closeWaiting();
-                that.$Utils.showErrorInfo(res, "conceal_message");
-              } else {
-                if (res.back_value) {
-                  // 我建立的 trigger_ukey
-                  that.refreshCallLine("trigger_ukey", that.u_key);
+      if (operation_status === 5) {
+
+        wx.showModal({
+          title: '提示',
+          content: '确定移除吗？',
+          success: function success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.conceal_message,
+                fps: {
+                  id: id,
+                  u_key: this.u_key
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "conceal_message");
+                } else {
+                  if (res.back_value) {
+                    // 我建立的 trigger_ukey
+                    that.refreshCallLine("trigger_ukey", that.u_key);
+                  }
                 }
-              }
-            });
-          } else if (res.cancel) {
-            console.log('用户点击取消');
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消');
+            }
           }
-        }
-      });
+        });
+      }
     },
 
     /**
@@ -212,37 +216,41 @@ if (false) {(function () {
      */
     delGetLine: function delGetLine(res) {
       var id = res.id;
+      var operation_status = res.operation_status;
       var that = this;
 
-      wx.showModal({
-        title: '提示',
-        content: '确定移除吗？',
-        success: function success(res) {
-          if (res.confirm) {
-            that.$Utils.showWaiting();
-            that.$store.dispatch("fetch", {
-              im: that.$Config.INTER_FACE.conceal_message,
-              fps: {
-                id: id,
-                u_key: this.u_key
-              },
-              url: that.$Config.REQUEST_URI
-            }).then(function (res) {
-              if (res.result === "failure") {
-                that.$Utils.closeWaiting();
-                that.$Utils.showErrorInfo(res, "conceal_message");
-              } else {
-                if (res.back_value) {
-                  // 我收到的 accepter_ukey
-                  that.refreshCallLine("accepter_ukey", that.u_key);
+      if (operation_status === 5) {
+
+        wx.showModal({
+          title: '提示',
+          content: '确定移除吗？',
+          success: function success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.conceal_message,
+                fps: {
+                  id: id,
+                  u_key: this.u_key
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "conceal_message");
+                } else {
+                  if (res.back_value) {
+                    // 我收到的 accepter_ukey
+                    that.refreshCallLine("accepter_ukey", that.u_key);
+                  }
                 }
-              }
-            });
-          } else if (res.cancel) {
-            console.log('用户点击取消');
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消');
+            }
           }
-        }
-      });
+        });
+      }
     },
 
     /**
