@@ -40,9 +40,9 @@
         console.log('e :>> ', e.mp.currentTarget.dataset);
         const data = e.mp.currentTarget.dataset
         const url = data.path
-        wx.switchTab({
-          url
-        })
+        // wx.switchTab({
+        //   url
+        // })
         this.selected = data.index;
       }
     }

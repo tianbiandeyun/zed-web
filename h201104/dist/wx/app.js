@@ -110,9 +110,9 @@ if (false) {(function () {
       console.log('e :>> ', e.mp.currentTarget.dataset);
       var data = e.mp.currentTarget.dataset;
       var url = data.path;
-      wx.switchTab({
-        url: url
-      });
+      // wx.switchTab({
+      //   url
+      // })
       this.selected = data.index;
     }
   }
