@@ -11479,6 +11479,16 @@ module.exports = function (object, index, value) {
           return Y + "-" + M + "-" + D + " | " + H + ":" + m;
         }
       }
+    },
+    status: function status() {
+      var _status = {
+        1: '',
+        2: '举报信息',
+        3: '已经举报',
+        4: '撤回',
+        5: '删除'
+      };
+      return _status[this.item.operation_status];
     }
   }
 });
@@ -11523,7 +11533,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.delCall($event)
       }
     }
-  }, [_c('p', [_vm._v("删除")])], 1)]), _vm._v(" "), _c('div', {
+  }, [_c('p', [_vm._v(_vm._s(_vm.status))])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "line-message",
     attrs: {
       "hover-class": "b",

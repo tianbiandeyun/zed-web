@@ -3,7 +3,7 @@
     <div hover-class='b' class="created-line-header" @click.stop='sendCall'>
       <p>我</p>
       <p>{{time}}，给"{{item.name}}"留言</p>
-      <p @click.stop="delCall">删除</p>
+      <p @click.stop="delCall">{{status}}</p>
     </div>
     <div hover-class='b' class="created-line-message" @click.stop='sendCall'>{{item.content}}</div>
   </section>
@@ -92,6 +92,16 @@
           }
 
         }
+      },
+      status() {
+        let _status = {
+          1: '',
+          2: '举报信息',
+          3: '已经举报',
+          4: '撤回',
+          5: '删除'
+        }
+        return _status[this.item.operation_status];
       }
     }
   };

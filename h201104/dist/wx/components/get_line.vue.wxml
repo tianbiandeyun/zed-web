@@ -9,7 +9,7 @@
         <view class="_p data-v-13901ff0">{{time}}</view>
       </view>
       <view class="_div data-v-13901ff0 line-header-options" catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
-        <view class="_p data-v-13901ff0">删除</view>
+        <view class="_p data-v-13901ff0">{{status}}</view>
       </view>
     </view>
     <view hover-class="b" class="_div data-v-13901ff0 line-message" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">{{item.content}}</view>

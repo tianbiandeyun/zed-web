@@ -13,7 +13,7 @@
       </div>
 
       <div class="line-header-options" @click.stop="delCall">
-        <p>删除</p>
+        <p>{{status}}</p>
       </div>
 
     </div>
@@ -106,6 +106,16 @@
           }
 
         }
+      },
+      status() {
+        let _status = {
+          1: '',
+          2: '举报信息',
+          3: '已经举报',
+          4: '撤回',
+          5: '删除'
+        }
+        return _status[this.item.operation_status];
       }
     }
   };

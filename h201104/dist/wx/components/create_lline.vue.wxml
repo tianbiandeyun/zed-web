@@ -3,7 +3,7 @@
     <view hover-class="b" class="_div data-v-0ec57eb0 created-line-header" catchtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
       <view class="_p data-v-0ec57eb0">我</view>
       <view class="_p data-v-0ec57eb0">{{time}}，给"{{item.name}}"留言</view>
-      <view catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_p data-v-0ec57eb0">删除</view>
+      <view catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_p data-v-0ec57eb0">{{status}}</view>
     </view>
     <view hover-class="b" class="_div data-v-0ec57eb0 created-line-message" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">{{item.content}}</view>
   </view>
