@@ -8,7 +8,7 @@
     <div class="call" v-for="(item,index) in list.reply" :key="index">
 
       <div v-if='u_key == item.trigger_ukey'>
-        <reply :item='item' @revoke='revoke(item,index)' speak='我说'></reply>
+        <reply :item='item' @revoke='revoke(item)' speak='我说'></reply>
       </div>
       <div v-else>
         <get-line :item='item' @delCall='delCall(index)'></get-line>
@@ -141,16 +141,14 @@
         }
         this.is_dialog = true;
       },
-      revoke(res, index = '') {
+      /**
+       * 我说的
+       */
+      revoke(res) {
 
         let id = res.id;
         let operation_status = res.operation_status;
         const that = this;
-
-        if (operation_status === 2) {
-          this.index = index;
-          this.is_dialog = true;
-        }
 
         if (operation_status === 4) {
           wx.showModal({

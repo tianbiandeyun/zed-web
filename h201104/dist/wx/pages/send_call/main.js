@@ -234,18 +234,15 @@ if (false) {(function () {
       }
       this.is_dialog = true;
     },
-    revoke: function revoke(res) {
-      var index = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
+    /**
+     * 我说的
+     */
+    revoke: function revoke(res) {
 
       var id = res.id;
       var operation_status = res.operation_status;
       var that = this;
-
-      if (operation_status === 2) {
-        this.index = index;
-        this.is_dialog = true;
-      }
 
       if (operation_status === 4) {
         wx.showModal({
@@ -405,7 +402,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       on: {
         "revoke": function($event) {
-          _vm.revoke(item, index)
+          _vm.revoke(item)
         }
       }
     })], 1) : _c('div', [_c('get-line', {
