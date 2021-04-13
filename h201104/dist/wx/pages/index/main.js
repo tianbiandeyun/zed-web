@@ -169,13 +169,11 @@ if (false) {(function () {
           switch (_context.prev = _context.next) {
             case 0:
               _this.$Utils.showWaiting();
-
               _context.next = 3;
               return _this.getOpenid();
 
             case 3:
               _this.openid_info = _context.sent;
-
 
               _this.refreshIndex();
 

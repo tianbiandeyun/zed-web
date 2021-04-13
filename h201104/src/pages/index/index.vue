@@ -69,11 +69,8 @@
     },
     async onShow() {
       this.$Utils.showWaiting();
-
       this.openid_info = await this.getOpenid();
-
       this.refreshIndex();
-
     },
     methods: {
       login_wx() {

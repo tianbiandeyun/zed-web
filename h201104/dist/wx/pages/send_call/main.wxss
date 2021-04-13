@@ -8,3 +8,12 @@
   box-sizing: border-box;
   padding: 20rpx 28rpx 20rpx 28rpx;
 }
+.send-call-container .jubao.data-v-8b5e4afc {
+  padding: 20rpx 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.send-call-container .jubao .item.data-v-8b5e4afc {
+  margin-bottom: 20rpx !important;
+}

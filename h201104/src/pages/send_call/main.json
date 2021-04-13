@@ -2,6 +2,9 @@
   "navigationBarBackgroundColor": "#000",
   "navigationBarTitleText": "通讯",
   "usingComponents": {
-    "v-field": "../../../static/vant/field/index"
+    "v-field": "../../../static/vant/field/index",
+    "v-dialog": "../../../static/vant/dialog/index",
+    "v-checkbox": "../../../static/vant/checkbox/index",
+    "v-checkbox-group": "../../../static/vant/checkbox-group/index"
   }
 }
