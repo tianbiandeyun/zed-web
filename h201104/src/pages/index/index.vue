@@ -126,7 +126,7 @@
       async refreshIndex() {
 
         // 获取用户信息
-        await this.$store.dispatch("fetch", {
+        await this.$store.dispatch("getUserInfo", {
           im: this.$Config.INTER_FACE.get_member_info,
           fps: {
             open_id: this.openid_info.back_value.open_id,

@@ -423,9 +423,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
   state: {
-    openid: ""
-    // is_registration: "",
-    // user_info: ""
+    openid: "",
+    user_info: ""
   },
   actions: {
     /**
@@ -471,19 +470,42 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
           resolve(res.data);
         });
       });
+    },
+
+    /**
+     * 获取用户信息
+     * */
+    getUserInfo: function getUserInfo(_ref5, params) {
+      var commit = _ref5.commit;
+      var _ref6 = [params.im, params.fps, params.url],
+          im = _ref6[0],
+          fps = _ref6[1],
+          url = _ref6[2];
+
+      var requestUrl = __WEBPACK_IMPORTED_MODULE_3__utils_utils__["a" /* default */].produceRequestUrl(im, fps, url);
+      return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        fly.get(requestUrl).then(function (res) {
+          commit("getUserInfo", res.data);
+          resolve(res.data);
+        });
+      });
     }
   },
   mutations: {
     setOpenid: function setOpenid(state, res) {
       state.openid = res;
+    },
+    getUserInfo: function getUserInfo(state, res) {
+      state.user_info = res;
     }
   },
   getters: {
     openid: function openid(state) {
       return state.openid;
+    },
+    user_info: function user_info(state) {
+      return state.user_info;
     }
-    // is_registration: state => state.is_registration,
-    // user_info: state => state.user_info
   }
 }));
 
