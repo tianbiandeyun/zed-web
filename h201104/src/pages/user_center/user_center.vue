@@ -120,6 +120,9 @@
 
       this.refreshUserCenter(this.$root.$mp.query.u_key);
 
+      console.log(this.openid);
+      console.log(this.user_info);
+
     },
     methods: {
       /**
@@ -199,7 +202,8 @@
     },
     computed: {
       ...mapGetters([
-        "openid"
+        "openid",
+        "user_info"
       ])
     },
     onUnload() {

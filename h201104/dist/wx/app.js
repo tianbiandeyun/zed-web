@@ -485,7 +485,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
       var requestUrl = __WEBPACK_IMPORTED_MODULE_3__utils_utils__["a" /* default */].produceRequestUrl(im, fps, url);
       return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
         fly.get(requestUrl).then(function (res) {
-          commit("getUserInfo", res.data);
+          commit("setUserInfo", res.data);
           resolve(res.data);
         });
       });
@@ -495,7 +495,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
     setOpenid: function setOpenid(state, res) {
       state.openid = res;
     },
-    getUserInfo: function getUserInfo(state, res) {
+    setUserInfo: function setUserInfo(state, res) {
       state.user_info = res;
     }
   },

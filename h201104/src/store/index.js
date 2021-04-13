@@ -59,7 +59,7 @@ export default new Vuex.Store({
       const requestUrl = unit.produceRequestUrl(im, fps, url);
       return new Promise((resolve, reject) => {
         fly.get(requestUrl).then(res => {
-          commit("getUserInfo", res.data);
+          commit("setUserInfo", res.data);
           resolve(res.data);
         });
       });
@@ -69,7 +69,7 @@ export default new Vuex.Store({
     setOpenid(state, res) {
       state.openid = res;
     },
-    getUserInfo(state, res) {
+    setUserInfo(state, res) {
       state.user_info = res;
     }
   },
