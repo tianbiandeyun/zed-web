@@ -3,7 +3,7 @@
     <view class="_div data-v-29f06caa user-j">
       <view class="_div data-v-29f06caa user-j-name"><label class="_span data-v-29f06caa">{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</label>
         <image wx:if="{{user_info.sex == 1}}" src="/static/images/nan.png" alt class="_img data-v-29f06caa"></image>
-        <image wx:else src="/static/images/nv.png" alt class="_image data-v-29f06caa _img data-v-29f06caa"></image>
+        <image wx:else src="/static/images/nv.png" alt class="_img data-v-29f06caa"></image>
       </view>
       <view class="_div data-v-29f06caa user-j-company"><label class="_span data-v-29f06caa">{{user_info.company === null || user_info.company === "" ? "暂无企业" : user_info.company}}</label> <label wx:if="{{openid.back_value.open_id === user_info.open_id}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_span data-v-29f06caa">
           <image src="/static/images/bianji.png" alt class="_img data-v-29f06caa"></image> 编辑
@@ -23,12 +23,12 @@
         </label></view>
     </view>
     <view wx:if="{{openid.back_value.open_id === user_info.open_id}}" class="_div data-v-29f06caa"><button bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_button data-v-29f06caa">我的信息（{{message_count}}）</button></view>
-    <view wx:else class="_view data-v-29f06caa _div data-v-29f06caa"><button bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-29f06caa _button data-v-29f06caa">创建留言</button></view>
+    <view wx:else class="_div data-v-29f06caa"><button bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-29f06caa">创建留言</button></view>
     <view class="_div data-v-29f06caa user-e">
       <view class="_h1 data-v-29f06caa">形象照片</view>
       <view class="_div data-v-29f06caa">
         <view wx:if="{{!user_info.head_portrait}}" class="_p data-v-29f06caa">暂无可以通过编辑添加</view>
-        <image wx:else src="{{user_info.head_portrait}}" alt class="_image data-v-29f06caa _img data-v-29f06caa"></image>
+        <image wx:else src="{{user_info.head_portrait}}" alt class="_img data-v-29f06caa"></image>
       </view>
     </view>
   </view>

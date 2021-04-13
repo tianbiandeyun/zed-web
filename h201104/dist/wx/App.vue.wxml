@@ -1,0 +1,3 @@
+<import src="/custom-tab-bar/index.vue.wxml" /><template name="55340031">
+  <view class="_section data-v-6a3bfb1a"><template data="{{...$root[$kk+'0'], $root}}" is="55f19ec2"></template></view>
+</template>
