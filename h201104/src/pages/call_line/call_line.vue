@@ -2,16 +2,19 @@
   <section class="call_line-container">
 
     <v-tabs :active="active" color="#19be6b" animated swipeable @change="clickTabs">
+
       <v-tab title="我收到的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
           <get-line :item="item" @getCall="getCall(item)" @delCall="delGetLine(item)"></get-line>
         </div>
       </v-tab>
+
       <v-tab title="我建立的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
           <created-line :item="item" @sendCall='sendCall(item)' @delCall="delCreatedLine(item)"></created-line>
         </div>
       </v-tab>
+
     </v-tabs>
 
   </section>
