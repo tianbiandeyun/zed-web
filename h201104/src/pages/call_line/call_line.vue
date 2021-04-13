@@ -92,8 +92,8 @@
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,
           fps: {
-            u_key: this.u_key,
-            id
+            id,
+            u_key: this.u_key
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
@@ -158,8 +158,8 @@
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,
           fps: {
-            u_key: this.u_key,
-            id
+            id,
+            u_key: this.u_key
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
