@@ -55,6 +55,40 @@
         let operation_status = res.operation_status;
         const that = this;
 
+        if (operation_status === 4) {
+
+          wx.showModal({
+            title: '提示',
+            content: '确定撤回吗？',
+            success(res) {
+              if (res.confirm) {
+                that.$Utils.showWaiting();
+                that.$store.dispatch("fetch", {
+                  im: that.$Config.INTER_FACE.revoke_message,
+                  fps: {
+                    id,
+                    u_key: that.u_key
+                  },
+                  url: that.$Config.REQUEST_URI
+                }).then(res => {
+                  if (res.result === "failure") {
+                    that.$Utils.closeWaiting();
+                    that.$Utils.showErrorInfo(res, "revoke_message");
+                  } else {
+                    console.log(res);
+                    if (res.back_value) {
+                      // 我建立的 trigger_ukey
+                      that.refreshCallLine("trigger_ukey", that.u_key);
+                    }
+                  }
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+
         if (operation_status === 5) {
 
           wx.showModal({

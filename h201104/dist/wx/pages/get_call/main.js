@@ -229,7 +229,7 @@ if (false) {(function () {
 
       var _id = that.$root.$mp.query.id;
       var _u_key = that.u_key;
-      var _trigger_ukey = that.list[0].trigger_ukey;
+      var _trigger_ukey = that.list.conversation.trigger_ukey;
       var _message = p.message;
 
       wx.requestSubscribeMessage({
