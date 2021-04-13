@@ -193,7 +193,7 @@ if (false) {(function () {
       this.is_scope = true;
     },
     goUserInfo: function goUserInfo() {
-      wx.navigateTo({
+      wx.switchTab({
         url: "/pages/user_center/main?u_key=" + this.u_key
       });
     },

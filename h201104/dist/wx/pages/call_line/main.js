@@ -151,7 +151,8 @@ if (false) {(function () {
             that.$store.dispatch("fetch", {
               im: that.$Config.INTER_FACE.conceal_message,
               fps: {
-                id: id
+                id: id,
+                u_key: this.u_key
               },
               url: that.$Config.REQUEST_URI
             }).then(function (res) {
@@ -218,7 +219,8 @@ if (false) {(function () {
             that.$store.dispatch("fetch", {
               im: that.$Config.INTER_FACE.conceal_message,
               fps: {
-                id: id
+                id: id,
+                u_key: this.u_key
               },
               url: that.$Config.REQUEST_URI
             }).then(function (res) {

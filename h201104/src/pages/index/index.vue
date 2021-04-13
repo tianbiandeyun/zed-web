@@ -80,7 +80,7 @@
         this.is_scope = true;
       },
       goUserInfo() {
-        wx.navigateTo({
+        wx.switchTab({
           url: `/pages/user_center/main?u_key=${this.u_key}`
         });
       },
