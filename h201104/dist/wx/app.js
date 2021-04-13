@@ -110,9 +110,9 @@ if (false) {(function () {
       console.log('e :>> ', e.mp.currentTarget.dataset);
       var data = e.mp.currentTarget.dataset;
       var url = data.path;
-      // wx.switchTab({
-      //   url
-      // })
+      wx.switchTab({
+        url: url
+      });
       this.selected = data.index;
     }
   }
@@ -440,7 +440,11 @@ if (false) {(function () {
 
 "use strict";
 
-/* harmony default export */ __webpack_exports__["a"] = ({});
+/* harmony default export */ __webpack_exports__["a"] = ({
+  mounted: function mounted() {
+    wx.hideTabBar();
+  }
+});
 
 /***/ }),
 
