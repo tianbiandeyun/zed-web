@@ -5,7 +5,7 @@
     </div>
     <div class="reply-details">
       <p>{{item.creation_time}} | 未读</p>
-      <p v-if="index != 0" @click='revoke'>撤销</p>
+      <p v-if="index != 0" @click='revoke'>{{status}}</p>
     </div>
     <div class="reply-message">
       {{item.content}}
@@ -32,6 +32,18 @@
     methods: {
       revoke() {
         this.$emit('revoke');
+      }
+    },
+    computed: {
+      status() {
+        let _status = {
+          1: '',
+          2: '举报信息',
+          3: '已经举报',
+          4: '撤回',
+          5: '删除'
+        }
+        return _status[this.item.operation_status];
       }
     }
   };

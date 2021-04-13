@@ -3,7 +3,7 @@
 
     <div class="call" v-for="(item,index) in list" :key="index">
       <div v-if="u_key != item.trigger_ukey">
-        <get-line :item='item' del-message='举报消息' @delCall='delCall(item)'></get-line>
+        <get-line :item='item' @delCall='delCall(item)'></get-line>
       </div>
       <div v-else>
         <reply :item='item' @revoke='revoke(item)'></reply>

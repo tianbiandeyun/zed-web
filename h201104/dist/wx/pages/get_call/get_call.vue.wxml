@@ -3,7 +3,7 @@
 <import src="/components/input_group.vue.wxml" /><template name="26ac6034">
   <view class="_section data-v-6ab4ad76 get-call-container">
     <view class="_div data-v-6ab4ad76 call" wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
-      <view wx:if="{{u_key != item.trigger_ukey}}" class="_div data-v-6ab4ad76"><template del-message="举报消息" binddelCall="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="7d02b1c6"></template></view>
+      <view wx:if="{{u_key != item.trigger_ukey}}" class="_div data-v-6ab4ad76"><template binddelCall="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="7d02b1c6"></template></view>
       <view wx:else class="_div data-v-6ab4ad76"><template bindrevoke="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1_'+index], $root}}" is="69c557b1"></template></view>
     </view>
     <view class="_div data-v-6ab4ad76 call"><template bindsubmit="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="1cfab15e"></template></view>

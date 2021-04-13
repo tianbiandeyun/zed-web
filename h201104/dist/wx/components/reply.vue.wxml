@@ -5,7 +5,7 @@
     </view>
     <view class="_div data-v-159890af reply-details">
       <view class="_p data-v-159890af">{{item.creation_time}} | 未读</view>
-      <view wx:if="{{index != 0}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_p data-v-159890af">撤销</view>
+      <view wx:if="{{index != 0}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_p data-v-159890af">{{status}}</view>
     </view>
     <view class="_div data-v-159890af reply-message">
       {{item.content}}
