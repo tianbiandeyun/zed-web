@@ -1,7 +1,9 @@
 <template>
-  <section class="user-center-container" v-if="is_page">
+  <section class="user-center-container" v-if="!is_page">
 
-    <div class="user-j">
+    my_center
+
+    <!-- <div class="user-j">
 
       <div class="user-j-name">
         <span>{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</span>
@@ -78,7 +80,10 @@
         <p v-if="!user_info.head_portrait">暂无可以通过编辑添加</p>
         <img v-else :src="user_info.head_portrait" alt="">
       </div>
-    </div>
+    </div> -->
+
+    <!-- 自定义 tab -->
+    <tab selected='1'></tab>
 
   </section>
 </template>
@@ -86,135 +91,135 @@
 <script>
   // 这里面所有的u_key都是，点击谁就是谁的
   // m_key 永远都是登录人的，也就是首页个人信息的
-  import {
-    mapGetters
-  } from "vuex";
-  import login from "../../utils/login";
+  // import {
+  //   mapGetters
+  // } from "vuex";
+  // import login from "../../utils/login";
 
   export default {
-    name: "user_center",
-    mixins: [login],
-    data() {
-      return {
-        is_page: false,
-        user_info: "",
-        is_phone: 1,
-        is_mail: 1,
-        message_count: 0
-      };
-    },
-    async onShow() {
+    // name: "my_center",
+    // mixins: [login],
+    // data() {
+    //   return {
+    //     is_page: false,
+    //     user_info: "",
+    //     is_phone: 1,
+    //     is_mail: 1,
+    //     message_count: 0
+    //   };
+    // },
+    // async onShow() {
 
-      this.$Utils.showWaiting();
+    //   this.$Utils.showWaiting();
 
-      // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
-      if (!this.openid.back_value) {
-        await this.getOpenid();
-        this.is_page = true;
-      } else {
-        this.is_page = true;
-      }
+    //   // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
+    //   if (!this.openid.back_value) {
+    //     await this.getOpenid();
+    //     this.is_page = true;
+    //   } else {
+    //     this.is_page = true;
+    //   }
 
-      this.refreshUserCenter(this.$root.$mp.query.u_key);
+    //   this.refreshUserCenter(this.$root.$mp.query.u_key);
 
-    },
-    methods: {
-      /**
-       * 创建留言
-       */
-      createdReply() {
-        let m_key = this.$root.$mp.query.m_key;
-        let u_key = this.$root.$mp.query.u_key;
-        let name = this.user_info.name;
-        wx.navigateTo({
-          url: `/pages/created/main?m_key=${m_key}&u_key=${u_key}&name=${name}`
-        });
-      },
-      /**
-       * 我的消息
-       */
-      goReply() {
-        let u_key = this.$root.$mp.query.u_key;
-        wx.navigateTo({
-          url: `/pages/call_line/main?u_key=${u_key}`
-        });
-      },
-      /**
-       * 编辑信息
-       */
-      goEdit(res) {
-        let u_key = this.$root.$mp.query.u_key;
-        if (res === 1) {
-          wx.navigateTo({
-            url: `/pages/user_center_jichu/main?u_key=${u_key}`
-          });
-        } else {
-          wx.navigateTo({
-            url: `/pages/user_center_jieshao/main?u_key=${u_key}`
-          });
-        }
-      },
-      async refreshUserCenter(u_key) {
+    // },
+    // methods: {
+    //   /**
+    //    * 创建留言
+    //    */
+    //   createdReply() {
+    //     let m_key = this.$root.$mp.query.m_key;
+    //     let u_key = this.$root.$mp.query.u_key;
+    //     let name = this.user_info.name;
+    //     wx.navigateTo({
+    //       url: `/pages/created/main?m_key=${m_key}&u_key=${u_key}&name=${name}`
+    //     });
+    //   },
+    //   /**
+    //    * 我的消息
+    //    */
+    //   goReply() {
+    //     let u_key = this.$root.$mp.query.u_key;
+    //     wx.navigateTo({
+    //       url: `/pages/call_line/main?u_key=${u_key}`
+    //     });
+    //   },
+    //   /**
+    //    * 编辑信息
+    //    */
+    //   goEdit(res) {
+    //     let u_key = this.$root.$mp.query.u_key;
+    //     if (res === 1) {
+    //       wx.navigateTo({
+    //         url: `/pages/user_center_jichu/main?u_key=${u_key}`
+    //       });
+    //     } else {
+    //       wx.navigateTo({
+    //         url: `/pages/user_center_jieshao/main?u_key=${u_key}`
+    //       });
+    //     }
+    //   },
+    //   async refreshUserCenter(u_key) {
 
-        await this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.get_member_info,
-          fps: {
-            open_id: this.openid.back_value.open_id,
-            u_key: u_key || ""
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "get_member_info");
-          } else {
-            this.is_phone = res.back_value.inner_data.phone_restrict;
-            this.is_mail = res.back_value.inner_data.mail_restrict;
-            this.user_info = res.back_value;
-          }
-        });
+    //     await this.$store.dispatch("fetch", {
+    //       im: this.$Config.INTER_FACE.get_member_info,
+    //       fps: {
+    //         open_id: this.openid.back_value.open_id,
+    //         u_key: u_key || ""
+    //       },
+    //       url: this.$Config.REQUEST_URI
+    //     }).then(res => {
+    //       if (res.result === "failure") {
+    //         this.$Utils.closeWaiting();
+    //         this.$Utils.showErrorInfo(res, "get_member_info");
+    //       } else {
+    //         this.is_phone = res.back_value.inner_data.phone_restrict;
+    //         this.is_mail = res.back_value.inner_data.mail_restrict;
+    //         this.user_info = res.back_value;
+    //       }
+    //     });
 
-        // 信息条数
-        await this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.get_unread_message,
-          fps: {
-            u_key
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "get_unread_message");
-          } else {
-            this.message_count = res.back_value;
-          }
-        });
+    //     // 信息条数
+    //     await this.$store.dispatch("fetch", {
+    //       im: this.$Config.INTER_FACE.get_unread_message,
+    //       fps: {
+    //         u_key
+    //       },
+    //       url: this.$Config.REQUEST_URI
+    //     }).then(res => {
+    //       if (res.result === "failure") {
+    //         this.$Utils.closeWaiting();
+    //         this.$Utils.showErrorInfo(res, "get_unread_message");
+    //       } else {
+    //         this.message_count = res.back_value;
+    //       }
+    //     });
 
-        this.$Utils.closeWaiting();
+    //     this.$Utils.closeWaiting();
 
-      }
-    },
-    computed: {
-      ...mapGetters([
-        "openid"
-      ])
-    },
-    onUnload() {
-      this.$Utils.restData(this);
-    },
-    async onPullDownRefresh() {
-      this.$Utils.showWaiting();
-      await this.refreshUserCenter(this.$root.$mp.query.u_key);
-      wx.stopPullDownRefresh();
-    },
-    onShareAppMessage: function (res) {
-      console.log(this.$root.$mp.query.u_key);
-      return {
-        title: "创新投研会",
-        path: `/pages/user_center/main?u_key=${this.$root.$mp.query.u_key}`,
-        imageUrl: ""
-      };
-    }
+    //   }
+    // },
+    // computed: {
+    //   ...mapGetters([
+    //     "openid"
+    //   ])
+    // },
+    // onUnload() {
+    //   this.$Utils.restData(this);
+    // },
+    // async onPullDownRefresh() {
+    //   this.$Utils.showWaiting();
+    //   await this.refreshUserCenter(this.$root.$mp.query.u_key);
+    //   wx.stopPullDownRefresh();
+    // },
+    // onShareAppMessage: function (res) {
+    //   console.log(this.$root.$mp.query.u_key);
+    //   return {
+    //     title: "创新投研会",
+    //     path: `/pages/user_center/main?u_key=${this.$root.$mp.query.u_key}`,
+    //     imageUrl: ""
+    //   };
+    // }
   };
 
 </script>
