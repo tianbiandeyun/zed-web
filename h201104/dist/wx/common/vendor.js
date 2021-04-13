@@ -11404,10 +11404,6 @@ module.exports = function (object, index, value) {
   props: {
     item: {
       type: Object
-    },
-    delMessage: {
-      type: String,
-      default: '移除'
     }
   },
   methods: {
@@ -11496,43 +11492,48 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('section', {
     staticClass: "line-container"
   }, [_c('div', {
-    staticClass: "line-header"
-  }, [_c('div', {
-    staticClass: "line-header-photo",
+    staticClass: "line-header",
     attrs: {
-      "eventid": '0'
+      "hover-class": "b",
+      "eventid": '1'
     },
     on: {
-      "click": _vm.getCall
+      "click": function($event) {
+        $event.stopPropagation();
+        _vm.getCall($event)
+      }
     }
+  }, [_c('div', {
+    staticClass: "line-header-photo"
   }, [_c('img', {
     attrs: {
       "src": _vm.item.wx_photo,
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
-    staticClass: "line-header-name",
-    attrs: {
-      "eventid": '1'
-    },
-    on: {
-      "click": _vm.getCall
-    }
+    staticClass: "line-header-name"
   }, [_c('p', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.time))])], 1), _vm._v(" "), _c('div', {
     staticClass: "line-header-options",
     attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        $event.stopPropagation();
+        _vm.delCall($event)
+      }
+    }
+  }, [_c('p', [_vm._v("删除")])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "line-message",
+    attrs: {
+      "hover-class": "b",
       "eventid": '2'
     },
     on: {
-      "click": _vm.delCall
-    }
-  }, [_c('p', [_vm._v(_vm._s(_vm.delMessage))])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "line-message",
-    attrs: {
-      "eventid": '3'
-    },
-    on: {
-      "click": _vm.getCall
+      "click": function($event) {
+        $event.stopPropagation();
+        _vm.getCall($event)
+      }
     }
   }, [_vm._v(_vm._s(_vm.item.content))])])
 }

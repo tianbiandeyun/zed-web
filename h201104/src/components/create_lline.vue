@@ -1,11 +1,11 @@
 <template>
   <section class="create_line-container">
-    <div class="created-line-header">
-      <p @click='sendCall'>我</p>
-      <p @click='sendCall'>{{time}}，给"{{item.name}}"留言</p>
-      <p @click="delCall">移除</p>
+    <div hover-class='b' class="created-line-header" @click.stop='sendCall'>
+      <p>我</p>
+      <p>{{time}}，给"{{item.name}}"留言</p>
+      <p @click.stop="delCall">删除</p>
     </div>
-    <div class="created-line-message" @click='sendCall'>{{item.content}}</div>
+    <div hover-class='b' class="created-line-message" @click.stop='sendCall'>{{item.content}}</div>
   </section>
 </template>
 
@@ -135,6 +135,10 @@
     .created-line-message {
       color: #515a6e;
       font-size: 16px;
+    }
+
+    .b {
+      background-color: #e8eaec !important;
     }
   }
 

@@ -1,24 +1,24 @@
 <template>
   <section class="line-container">
 
-    <div class="line-header">
+    <div hover-class='b' class="line-header" @click.stop="getCall">
 
-      <div class="line-header-photo" @click="getCall">
+      <div class="line-header-photo">
         <img :src="item.wx_photo" alt="">
       </div>
 
-      <div class="line-header-name" @click="getCall">
+      <div class="line-header-name">
         <p>{{item.name}}</p>
         <p>{{time}}</p>
       </div>
 
-      <div class="line-header-options" @click="delCall">
-        <p>{{delMessage}}</p>
+      <div class="line-header-options" @click.stop="delCall">
+        <p>删除</p>
       </div>
 
     </div>
 
-    <div class="line-message" @click="getCall">{{item.content}}</div>
+    <div hover-class='b' class="line-message" @click.stop="getCall">{{item.content}}</div>
 
   </section>
 </template>
@@ -29,10 +29,6 @@
     props: {
       item: {
         type: Object
-      },
-      delMessage: {
-        type: String,
-        default: '移除'
       }
     },
     methods: {
@@ -173,6 +169,10 @@
     .line-message {
       color: #515a6e;
       font-size: 16px;
+    }
+
+    .b {
+      background-color: #e8eaec !important;
     }
   }
 

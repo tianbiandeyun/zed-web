@@ -111,6 +111,9 @@
   color: #515a6e;
   font-size: 32rpx;
 }
+.line-container .b.data-v-13901ff0 {
+  background-color: #e8eaec !important;
+}
 .input_group-container .group-title.data-v-0c7aa9cf {
   color: #17233d;
   font-size: 28rpx;

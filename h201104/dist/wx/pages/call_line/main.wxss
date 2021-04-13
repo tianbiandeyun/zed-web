@@ -37,3 +37,6 @@
   color: #515a6e;
   font-size: 32rpx;
 }
+.create_line-container .b.data-v-0ec57eb0 {
+  background-color: #e8eaec !important;
+}

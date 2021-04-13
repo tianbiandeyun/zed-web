@@ -1,17 +1,17 @@
 <template name="7d02b1c6">
   <view class="_section data-v-13901ff0 line-container">
-    <view class="_div data-v-13901ff0 line-header">
-      <view class="_div data-v-13901ff0 line-header-photo" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view hover-class="b" class="_div data-v-13901ff0 line-header" catchtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-13901ff0 line-header-photo">
         <image src="{{item.wx_photo}}" alt class="_img data-v-13901ff0"></image>
       </view>
-      <view class="_div data-v-13901ff0 line-header-name" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-13901ff0 line-header-name">
         <view class="_p data-v-13901ff0">{{item.name}}</view>
         <view class="_p data-v-13901ff0">{{time}}</view>
       </view>
-      <view class="_div data-v-13901ff0 line-header-options" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
-        <view class="_p data-v-13901ff0">{{delMessage}}</view>
+      <view class="_div data-v-13901ff0 line-header-options" catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_p data-v-13901ff0">删除</view>
       </view>
     </view>
-    <view class="_div data-v-13901ff0 line-message" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">{{item.content}}</view>
+    <view hover-class="b" class="_div data-v-13901ff0 line-message" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">{{item.content}}</view>
   </view>
 </template>
