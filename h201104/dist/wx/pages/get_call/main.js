@@ -107,6 +107,13 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -326,7 +333,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       key: index,
       staticClass: "call"
-    }, [_c('reply', {
+    }, [(_vm.u_key == item.trigger_ukey) ? _c('div', [_c('reply', {
       attrs: {
         "item": item,
         "eventid": '1_' + index,
@@ -337,13 +344,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.revoke(item)
         }
       }
-    })], 1)
+    })], 1) : _c('div', [_c('get-line', {
+      attrs: {
+        "item": item,
+        "eventid": '2_' + index,
+        "mpcomid": '2_' + index
+      },
+      on: {
+        "delCall": function($event) {
+          _vm.delCall(item)
+        }
+      }
+    })], 1)])
   }), _vm._v(" "), _c('div', {
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
-      "eventid": '2',
-      "mpcomid": '2'
+      "eventid": '3',
+      "mpcomid": '3'
     },
     on: {
       "submit": _vm.submit

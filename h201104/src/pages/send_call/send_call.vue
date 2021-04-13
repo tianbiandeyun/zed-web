@@ -2,11 +2,18 @@
   <section class="send-call-container">
 
     <div class="call" v-if="list != ''">
-      <get-line :item='list.conversation' @delCall='delCall(item)'></get-line>
+      <reply :item='list.conversation' @revoke='revoke(item)' speak='我说'></reply>
     </div>
 
     <div class="call" v-for="(item,index) in list.reply" :key="index">
-      <reply :item='item' @revoke='revoke(item)'></reply>
+
+      <div v-if='u_key == item.trigger_ukey'>
+        <reply :item='item' @revoke='revoke(item)' speak='我说'></reply>
+      </div>
+      <div v-else>
+        <get-line :item='item' @delCall='delCall(item)'></get-line>
+      </div>
+
     </div>
 
     <div class="call">

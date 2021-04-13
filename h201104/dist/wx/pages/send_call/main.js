@@ -106,6 +106,13 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -308,24 +315,26 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "send-call-container"
   }, [(_vm.list != '') ? _c('div', {
     staticClass: "call"
-  }, [_c('get-line', {
+  }, [_c('reply', {
     attrs: {
       "item": _vm.list.conversation,
+      "speak": "我说",
       "eventid": '0',
       "mpcomid": '0'
     },
     on: {
-      "delCall": function($event) {
-        _vm.delCall(_vm.item)
+      "revoke": function($event) {
+        _vm.revoke(_vm.item)
       }
     }
   })], 1) : _vm._e(), _vm._v(" "), _vm._l((_vm.list.reply), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "call"
-    }, [_c('reply', {
+    }, [(_vm.u_key == item.trigger_ukey) ? _c('div', [_c('reply', {
       attrs: {
         "item": item,
+        "speak": "我说",
         "eventid": '1_' + index,
         "mpcomid": '1_' + index
       },
@@ -334,13 +343,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.revoke(item)
         }
       }
-    })], 1)
+    })], 1) : _c('div', [_c('get-line', {
+      attrs: {
+        "item": item,
+        "eventid": '2_' + index,
+        "mpcomid": '2_' + index
+      },
+      on: {
+        "delCall": function($event) {
+          _vm.delCall(item)
+        }
+      }
+    })], 1)])
   }), _vm._v(" "), _c('div', {
     staticClass: "call"
   }, [_c('input-group', {
     attrs: {
-      "eventid": '2',
-      "mpcomid": '2'
+      "eventid": '3',
+      "mpcomid": '3'
     },
     on: {
       "submit": _vm.submit
