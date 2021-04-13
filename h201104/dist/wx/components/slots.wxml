@@ -12,3 +12,5 @@
 <import src="/components/getUserInfo.vue.wxml" />
 <import src="/custom-tab-bar/index.vue.wxml" />
 <import src="/custom-tab-bar/index.vue.wxml" />
+<import src="/components/reply.vue.wxml" />
+<import src="/components/input_group.vue.wxml" />

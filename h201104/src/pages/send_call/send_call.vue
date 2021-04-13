@@ -1,13 +1,12 @@
 <template>
   <section class="send-call-container">
 
-    <div class="call" v-for="(item,index) in list" :key="index">
-      <div v-if="u_key != item.trigger_ukey">
-        <get-line :item='item' del-message='举报消息' @delCall='delCall(item)'></get-line>
-      </div>
-      <div v-else>
-        <reply :item='item' speak='我说' @revoke='revoke(item)' :index='index'></reply>
-      </div>
+    <div class="call" v-if="list != ''">
+      <get-line :item='list.conversation' @delCall='delCall(item)'></get-line>
+    </div>
+
+    <div class="call" v-for="(item,index) in list.reply" :key="index">
+      <reply :item='item' @revoke='revoke(item)'></reply>
     </div>
 
     <div class="call">
@@ -32,7 +31,7 @@
       return {
         u_key: '',
         id: '',
-        list: []
+        list: ''
       }
     },
     mounted() {
@@ -105,7 +104,6 @@
                   that.$Utils.closeWaiting();
                   that.$Utils.showErrorInfo(res, "revoke_message");
                 } else {
-                  console.log(res);
                   if (res.back_value) {
                     // 获取对话详情
                     that.refreshMessageDetails(that.id);
@@ -196,7 +194,6 @@
             this.$Utils.showErrorInfo(res, "get_chat_record_info");
           } else {
             this.list = res.back_value;
-            console.log(this.list);
             this.$Utils.closeWaiting();
           }
         });

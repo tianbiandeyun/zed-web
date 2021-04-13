@@ -107,7 +107,6 @@ if (false) {(function () {
 //
 //
 //
-//
 
 
 
@@ -124,7 +123,7 @@ if (false) {(function () {
     return {
       u_key: '',
       id: '',
-      list: []
+      list: ''
     };
   },
   mounted: function mounted() {
@@ -310,22 +309,24 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', {
     staticClass: "get-call-container"
-  }, [_vm._l((_vm.list), function(item, index) {
+  }, [(_vm.list != '') ? _c('div', {
+    staticClass: "call"
+  }, [_c('get-line', {
+    attrs: {
+      "item": _vm.list.conversation,
+      "eventid": '0',
+      "mpcomid": '0'
+    },
+    on: {
+      "delCall": function($event) {
+        _vm.delCall(_vm.item)
+      }
+    }
+  })], 1) : _vm._e(), _vm._v(" "), _vm._l((_vm.list.reply), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "call"
-    }, [(_vm.u_key != item.trigger_ukey) ? _c('div', [_c('get-line', {
-      attrs: {
-        "item": item,
-        "eventid": '0_' + index,
-        "mpcomid": '0_' + index
-      },
-      on: {
-        "delCall": function($event) {
-          _vm.delCall(item)
-        }
-      }
-    })], 1) : _c('div', [_c('reply', {
+    }, [_c('reply', {
       attrs: {
         "item": item,
         "eventid": '1_' + index,
@@ -336,7 +337,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.revoke(item)
         }
       }
-    })], 1)])
+    })], 1)
   }), _vm._v(" "), _c('div', {
     staticClass: "call"
   }, [_c('input-group', {

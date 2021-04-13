@@ -1,13 +1,12 @@
 <template>
   <section class="get-call-container">
 
-    <div class="call" v-for="(item,index) in list" :key="index">
-      <div v-if="u_key != item.trigger_ukey">
-        <get-line :item='item' @delCall='delCall(item)'></get-line>
-      </div>
-      <div v-else>
-        <reply :item='item' @revoke='revoke(item)'></reply>
-      </div>
+    <div class="call" v-if="list != ''">
+      <get-line :item='list.conversation' @delCall='delCall(item)'></get-line>
+    </div>
+
+    <div class="call" v-for="(item,index) in list.reply" :key="index">
+      <reply :item='item' @revoke='revoke(item)'></reply>
     </div>
 
     <div class="call">
@@ -33,7 +32,7 @@
       return {
         u_key: '',
         id: '',
-        list: []
+        list: ''
       }
     },
     mounted() {
