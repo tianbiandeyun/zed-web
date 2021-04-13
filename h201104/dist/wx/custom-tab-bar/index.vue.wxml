@@ -1,0 +1,11 @@
+<template name="55f19ec2">
+  <view class="_section data-v-036428c0">
+    <cover-view class="_cover-view data-v-036428c0 tab-bar">
+      <cover-view class="_cover-view data-v-036428c0 tab-bar-border"></cover-view>
+      <cover-view wx:key="index" key="{{index}}" class="_cover-view data-v-036428c0 tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+        <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}" class="_cover-image data-v-036428c0"></cover-image>
+        <cover-view class="_cover-view data-v-036428c0" style=" {{('color:' + (selected === index ? selectedColor : color) + ';')}}">{{item.text}}</cover-view>
+      </cover-view>
+    </cover-view>
+  </view>
+</template>

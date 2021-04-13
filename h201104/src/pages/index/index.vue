@@ -40,18 +40,22 @@
 
     <getUserInfo :isScope="is_scope" message="请授权头像信息，否则无法使用" @setUserInfo="setUserInfo"></getUserInfo>
 
+    <tab></tab>
+
   </section>
 </template>
 
 <script>
   import login from "../../utils/login";
   import getUserInfo from "@/components/getUserInfo";
+  import tab from '@/custom-tab-bar/'
 
   export default {
     name: "index",
     mixins: [login],
     components: {
-      getUserInfo
+      getUserInfo,
+      tab
     },
     data() {
       return {
