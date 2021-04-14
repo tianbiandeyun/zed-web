@@ -115,10 +115,6 @@
         background-color: red;
       }
 
-      &:nth-of-type(3) {
-        border: 1px solid red;
-      }
-
       cover-image {
         width: 30px;
         height: 30px;

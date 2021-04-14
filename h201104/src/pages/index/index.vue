@@ -84,11 +84,11 @@
       /**
        * 前往用户中心
        */
-      goUserCenter() {
-        wx.navigateTo({
-          url: `/pages/user_center/main?u_key=${this.u_key}`
-        });
-      },
+      // goUserCenter() {
+      //   wx.navigateTo({
+      //     url: `/pages/user_center/main?u_key=${this.u_key}`
+      //   });
+      // },
       /**
        * 前往单个活动详情
        * */

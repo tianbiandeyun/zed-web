@@ -1,3 +1,33 @@
-<import src="/custom-tab-bar/index.vue.wxml" /><template name="60862bb4">
-  <view class="_section data-v-32e6eee8 user-center-container" wx:if="{{!is_page}}"> my_center <template selected="2" message-count="0" data="{{...$root[$kk+'0'], $root}}" is="55f19ec2"></template></view>
+<template name="60862bb4">
+  <view class="_section data-v-32e6eee8 user-center-container" wx:if="{{is_page}}">
+    <view class="_div data-v-32e6eee8 user-j">
+      <view class="_div data-v-32e6eee8 user-j-name"><label class="_span data-v-32e6eee8">{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</label>
+        <image wx:if="{{user_info.sex == 1}}" src="/static/images/nan.png" alt class="_img data-v-32e6eee8"></image>
+        <image wx:else src="/static/images/nv.png" alt class="_img data-v-32e6eee8"></image>
+      </view>
+      <view class="_div data-v-32e6eee8 user-j-company"><label class="_span data-v-32e6eee8">{{user_info.company === null || user_info.company === "" ? "暂无企业" : user_info.company}}</label> <label wx:if="{{openid.back_value.open_id === user_info.open_id}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_span data-v-32e6eee8">
+          <image src="/static/images/bianji.png" alt class="_img data-v-32e6eee8"></image> 编辑
+        </label></view>
+      <view class="_div data-v-32e6eee8 user-j-other"><label class="_span data-v-32e6eee8">职务：</label> <label class="_span data-v-32e6eee8">{{user_info.job_description === null || user_info.job_description === "" ? "无" : user_info.job_description}}</label></view>
+      <view class="_div data-v-32e6eee8 user-j-other"><label class="_span data-v-32e6eee8">电话：</label> <label class="_span data-v-32e6eee8">{{user_info.phone === null || user_info.phone === "" ? "暂无电话" : user_info.phone}} <label wx:if="{{openid.back_value.open_id === user_info.open_id}}" class="_span data-v-32e6eee8">{{is_phone == 1 ? "（公开）" : "（仅自己可见）"}}</label></label></view>
+      <view class="_div data-v-32e6eee8 user-j-other"><label class="_span data-v-32e6eee8">邮箱：</label> <label class="_span data-v-32e6eee8">{{user_info.mail === null || user_info.mail === "" ? "暂无邮箱" : user_info.mail}} <label wx:if="{{openid.back_value.open_id === user_info.open_id}}" class="_span data-v-32e6eee8">{{is_mail == 1 ? "（公开）" : "（仅自己可见）"}}</label></label></view>
+    </view>
+    <view class="_div data-v-32e6eee8 user-g">
+      <view class="_div data-v-32e6eee8 user-g-edit"><label class="_span data-v-32e6eee8">个人介绍：</label> <label wx:if="{{openid.back_value.open_id === user_info.open_id}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_span data-v-32e6eee8">
+          <image src="/static/images/bianji.png" alt class="_img data-v-32e6eee8"></image> 编辑
+        </label></view>
+      <view class="_div data-v-32e6eee8 user-g-other"><label class="_span data-v-32e6eee8">所在行业：</label> <label class="_span data-v-32e6eee8">{{user_info.industry_involved === null || user_info.industry_involved === "" ? "暂无所在行业" : user_info.industry_involved}}</label></view>
+      <view class="_div data-v-32e6eee8 user-g-other"><label class="_span data-v-32e6eee8">关注行业：</label> <label class="_span data-v-32e6eee8">{{user_info.interest === null || user_info.interest === "" ? "暂无关注行业" : user_info.interest}}</label></view>
+      <view class="_div data-v-32e6eee8 user-g-text"><label class="_span data-v-32e6eee8">自我介绍：</label> <label class="_span data-v-32e6eee8">
+          {{user_info.brief_introduction === null || user_info.brief_introduction === "" ? "暂无自我介绍" : user_info.brief_introduction}}
+        </label></view>
+    </view>
+    <view class="_div data-v-32e6eee8 user-e">
+      <view class="_h1 data-v-32e6eee8">形象照片</view>
+      <view class="_div data-v-32e6eee8">
+        <view wx:if="{{!user_info.head_portrait}}" class="_p data-v-32e6eee8">暂无可以通过编辑添加</view>
+        <image wx:else src="{{user_info.head_portrait}}" alt class="_img data-v-32e6eee8"></image>
+      </view>
+    </view>
+  </view>
 </template>
