@@ -19,10 +19,6 @@
   ],
   "tabBar": {
     "custom": true,
-    "color": "#707070",
-    "selectedColor": "#2c2c2c",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
     "list": [{
         "pagePath": "pages/index/main",
         "iconPath": "/static/images/shouye_n.png",
