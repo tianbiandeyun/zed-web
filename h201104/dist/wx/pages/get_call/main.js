@@ -181,6 +181,7 @@ if (false) {(function () {
 
       var content = that.checkbox.join('|');
 
+      // 因为要共用一个选择举报理由的选框，所以如果是 9999 的话，说明点击的是顶部的举报信息
       if (that.index === 9999) {
 
         var id = that.list.conversation.id;
