@@ -188,6 +188,8 @@ if (false) {(function () {
           title: '提示',
           content: '确定举报吗？',
           success: function success(res) {
+            var _this = this;
+
             if (res.confirm) {
               that.$Utils.showWaiting();
               that.$store.dispatch("fetch", {
@@ -205,6 +207,7 @@ if (false) {(function () {
                   that.$Utils.showErrorInfo(res, "accuse_message");
                 } else {
                   if (res.back_value) {
+                    _this.checkbox = [];
                     // 获取对话详情
                     that.refreshMessageDetails(that.id);
                   }
@@ -260,6 +263,23 @@ if (false) {(function () {
                 url: that.$Config.REQUEST_URI
               }).then(function (res) {
                 if (res.result === "failure") {
+
+                  if (res.error_code === 2012240131) {
+
+                    wx.showModal({
+                      title: "提交",
+                      content: "消息对方已阅读无法撤回",
+                      showCancel: false,
+                      confirmText: "好的",
+                      success: function success() {
+                        wx.navigateBack({
+                          delta: 1
+                        });
+                      }
+                    });
+                    return false;
+                  }
+
                   that.$Utils.closeWaiting();
                   that.$Utils.showErrorInfo(res, "revoke_message");
                 } else {
@@ -284,60 +304,98 @@ if (false) {(function () {
       var _trigger_ukey = that.list.conversation.accepter_ukey;
       var _message = p.message;
 
-      wx.requestSubscribeMessage({
-        tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
-        success: function success(res) {
-          if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
-            that.$Utils.showWaiting();
-            that.$store.dispatch("fetch", {
-              im: that.$Config.INTER_FACE.set_reply_to_message,
-              fps: {
-                'message_id': _id,
-                'u_key': _u_key,
-                'second_ukey': _trigger_ukey,
-                'content': _message,
-                'receive_message': 1
-              },
-              url: that.$Config.REQUEST_URI
-            }).then(function (res) {
-              if (res.result === "failure") {
-                that.$Utils.closeWaiting();
-                that.$Utils.showErrorInfo(res, "set_reply_to_message");
-              } else {
-                if (res.back_value) {
-                  that.refreshMessageDetails(that.id);
-                }
+      that.$store.dispatch("fetch", {
+        im: that.$Config.INTER_FACE.set_reply_to_message,
+        fps: {
+          'message_id': _id,
+          'u_key': _u_key,
+          'second_ukey': _trigger_ukey,
+          'content': _message,
+          'receive_message': ''
+        },
+        url: that.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+
+          if (res.error_code === 201204121753) {
+
+            wx.showModal({
+              title: "提交",
+              content: "对方已结束本次会话，无法回复",
+              showCancel: false,
+              confirmText: "好的",
+              success: function success() {
+                wx.navigateBack({
+                  delta: 1
+                });
               }
             });
+            return false;
           }
-          if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
-            that.$Utils.showWaiting();
-            that.$store.dispatch("fetch", {
-              im: that.$Config.INTER_FACE.set_reply_to_message,
-              fps: {
-                'message_id': _id,
-                'u_key': _u_key,
-                'second_ukey': _trigger_ukey,
-                'content': _message,
-                'receive_message': 2
-              },
-              url: that.$Config.REQUEST_URI
-            }).then(function (res) {
-              if (res.result === "failure") {
-                that.$Utils.closeWaiting();
-                that.$Utils.showErrorInfo(res, "set_reply_to_message");
-              } else {
-                if (res.back_value) {
-                  that.refreshMessageDetails(that.id);
-                }
-              }
-            });
+
+          that.$Utils.closeWaiting();
+          that.$Utils.showErrorInfo(res, "set_reply_to_message");
+        } else {
+          if (res.back_value) {
+            that.refreshMessageDetails(that.id);
           }
         }
       });
+
+      // wx.requestSubscribeMessage({
+      //   tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
+      //   success: res => {
+      //     if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
+      //       that.$Utils.showWaiting();
+      //       that.$store.dispatch("fetch", {
+      //         im: that.$Config.INTER_FACE.set_reply_to_message,
+      //         fps: {
+      //           'message_id': _id,
+      //           'u_key': _u_key,
+      //           'second_ukey': _trigger_ukey,
+      //           'content': _message,
+      //           'receive_message': 1
+      //         },
+      //         url: that.$Config.REQUEST_URI
+      //       }).then(res => {
+      //         if (res.result === "failure") {
+      //           that.$Utils.closeWaiting();
+      //           that.$Utils.showErrorInfo(res, "set_reply_to_message");
+      //         } else {
+      //           if (res.back_value) {
+      //             that.refreshMessageDetails(that.id);
+      //           }
+      //         }
+      //       });
+      //     }
+      //     if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+      //       that.$Utils.showWaiting();
+      //       that.$store.dispatch("fetch", {
+      //         im: that.$Config.INTER_FACE.set_reply_to_message,
+      //         fps: {
+      //           'message_id': _id,
+      //           'u_key': _u_key,
+      //           'second_ukey': _trigger_ukey,
+      //           'content': _message,
+      //           'receive_message': 2
+      //         },
+      //         url: that.$Config.REQUEST_URI
+      //       }).then(res => {
+      //         if (res.result === "failure") {
+      //           that.$Utils.closeWaiting();
+      //           that.$Utils.showErrorInfo(res, "set_reply_to_message");
+      //         } else {
+      //           if (res.back_value) {
+      //             that.refreshMessageDetails(that.id);
+      //           }
+      //         }
+      //       });
+      //     }
+      //   }
+      // })
     },
     refreshMessageDetails: function refreshMessageDetails() {
-      var _this = this;
+      var _this2 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -355,11 +413,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "get_chat_record_info");
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          _this.list = res.back_value;
-          _this.$Utils.closeWaiting();
+          _this2.list = res.back_value;
+          _this2.$Utils.closeWaiting();
         }
       });
     }

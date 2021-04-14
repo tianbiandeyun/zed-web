@@ -157,6 +157,7 @@
                       that.$Utils.showErrorInfo(res, "accuse_message");
                     } else {
                       if (res.back_value) {
+                        this.checkbox = [];
                         // 获取对话详情
                         that.refreshMessageDetails(that.id);
                       }
@@ -226,6 +227,21 @@
                   url: that.$Config.REQUEST_URI
                 }).then(res => {
                   if (res.result === "failure") {
+                    if (res.error_code === 2012240131) {
+
+                      wx.showModal({
+                        title: "提交",
+                        content: "消息对方已阅读无法撤回",
+                        showCancel: false,
+                        confirmText: "好的",
+                        success() {
+                          wx.navigateBack({
+                            delta: 1
+                          });
+                        }
+                      });
+                      return false;
+                    }
                     that.$Utils.closeWaiting();
                     that.$Utils.showErrorInfo(res, "revoke_message");
                   } else {
@@ -254,57 +270,96 @@
         let _trigger_ukey = that.list.conversation.trigger_ukey;
         let _message = p.message;
 
-        wx.requestSubscribeMessage({
-          tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
-          success: res => {
-            if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
-              that.$Utils.showWaiting();
-              that.$store.dispatch("fetch", {
-                im: that.$Config.INTER_FACE.set_reply_to_message,
-                fps: {
-                  'message_id': _id,
-                  'u_key': _u_key,
-                  'second_ukey': _trigger_ukey,
-                  'content': _message,
-                  'receive_message': 1
-                },
-                url: that.$Config.REQUEST_URI
-              }).then(res => {
-                if (res.result === "failure") {
-                  that.$Utils.closeWaiting();
-                  that.$Utils.showErrorInfo(res, "set_reply_to_message");
-                } else {
-                  if (res.back_value) {
-                    that.refreshMessageDetails(that.id);
-                  }
+        that.$Utils.showWaiting();
+        that.$store.dispatch("fetch", {
+          im: that.$Config.INTER_FACE.set_reply_to_message,
+          fps: {
+            'message_id': _id,
+            'u_key': _u_key,
+            'second_ukey': _trigger_ukey,
+            'content': _message,
+            'receive_message': ''
+          },
+          url: that.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+
+            if (res.error_code === 201204121753) {
+
+              wx.showModal({
+                title: "提交",
+                content: "对方已结束本次会话，无法回复",
+                showCancel: false,
+                confirmText: "好的",
+                success() {
+                  wx.navigateBack({
+                    delta: 1
+                  });
                 }
               });
+              return false;
             }
-            if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
-              that.$Utils.showWaiting();
-              that.$store.dispatch("fetch", {
-                im: that.$Config.INTER_FACE.set_reply_to_message,
-                fps: {
-                  'message_id': _id,
-                  'u_key': _u_key,
-                  'second_ukey': _trigger_ukey,
-                  'content': _message,
-                  'receive_message': 2
-                },
-                url: that.$Config.REQUEST_URI
-              }).then(res => {
-                if (res.result === "failure") {
-                  that.$Utils.closeWaiting();
-                  that.$Utils.showErrorInfo(res, "set_reply_to_message");
-                } else {
-                  if (res.back_value) {
-                    that.refreshMessageDetails(that.id);
-                  }
-                }
-              });
+
+            that.$Utils.closeWaiting();
+            that.$Utils.showErrorInfo(res, "set_reply_to_message");
+          } else {
+            if (res.back_value) {
+              that.refreshMessageDetails(that.id);
             }
           }
-        })
+        });
+
+        // wx.requestSubscribeMessage({
+        //   tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
+        //   success: res => {
+        //     if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
+        //       that.$Utils.showWaiting();
+        //       that.$store.dispatch("fetch", {
+        //         im: that.$Config.INTER_FACE.set_reply_to_message,
+        //         fps: {
+        //           'message_id': _id,
+        //           'u_key': _u_key,
+        //           'second_ukey': _trigger_ukey,
+        //           'content': _message,
+        //           'receive_message': 1
+        //         },
+        //         url: that.$Config.REQUEST_URI
+        //       }).then(res => {
+        //         if (res.result === "failure") {
+        //           that.$Utils.closeWaiting();
+        //           that.$Utils.showErrorInfo(res, "set_reply_to_message");
+        //         } else {
+        //           if (res.back_value) {
+        //             that.refreshMessageDetails(that.id);
+        //           }
+        //         }
+        //       });
+        //     }
+        //     if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
+        //       that.$Utils.showWaiting();
+        //       that.$store.dispatch("fetch", {
+        //         im: that.$Config.INTER_FACE.set_reply_to_message,
+        //         fps: {
+        //           'message_id': _id,
+        //           'u_key': _u_key,
+        //           'second_ukey': _trigger_ukey,
+        //           'content': _message,
+        //           'receive_message': 2
+        //         },
+        //         url: that.$Config.REQUEST_URI
+        //       }).then(res => {
+        //         if (res.result === "failure") {
+        //           that.$Utils.closeWaiting();
+        //           that.$Utils.showErrorInfo(res, "set_reply_to_message");
+        //         } else {
+        //           if (res.back_value) {
+        //             that.refreshMessageDetails(that.id);
+        //           }
+        //         }
+        //       });
+        //     }
+        //   }
+        // })
       },
       refreshMessageDetails(...res) {
         let [id] = [...res];
