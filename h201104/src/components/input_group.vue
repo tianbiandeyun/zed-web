@@ -38,7 +38,6 @@
         this.value = event.mp.detail;
       },
       submit() {
-        console.log(this.value);
         if (this.value === '') {
 
           wx.showModal({
