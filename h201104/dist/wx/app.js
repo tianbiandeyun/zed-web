@@ -46,12 +46,12 @@ global.webpackJsonpMpvue([1],{
         pagePath: "/pages/index/main",
         iconPath: "../../static/images/icon_component.png",
         selectedIconPath: "../../static/images/icon_component_HL.png",
-        text: "首页"
+        text: "1"
       }, {
         pagePath: "/pages/my_center/main",
         iconPath: "../../static/images/icon_API.png",
         selectedIconPath: "../../static/images/icon_API_HL.png",
-        text: "我的"
+        text: "2"
       }]
     };
   },
