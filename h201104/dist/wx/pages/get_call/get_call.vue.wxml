@@ -8,5 +8,18 @@
       <view wx:else class="_div data-v-6ab4ad76"><template binddelCall="handleProxy" data-eventid="{{'2_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2_'+index], $root}}" is="7d02b1c6"></template></view>
     </view>
     <view class="_div data-v-6ab4ad76 call"><template bindsubmit="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="1cfab15e"></template></view>
+    <v-dialog use-slot title="请选择举报原因" confirm-button-color="#19be6b" show="{{is_dialog}}" show-cancel-button bindcancel="handleProxy" bindconfirm="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_v-dialog data-v-6ab4ad76">
+      <view class="_div data-v-6ab4ad76 jubao">
+        <v-checkbox-group value="{{checkbox}}" bindchange="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_v-checkbox-group data-v-6ab4ad76">
+          <v-checkbox name="发布不适内容对我造成骚扰" class="_v-checkbox data-v-6ab4ad76">发布不适内容对我造成骚扰</v-checkbox>
+          <view class="_div data-v-6ab4ad76 item"></view>
+          <v-checkbox name="存在欺诈骗钱行为" class="_v-checkbox data-v-6ab4ad76">存在欺诈骗钱行为</v-checkbox>
+          <view class="_div data-v-6ab4ad76 item"></view>
+          <v-checkbox name="存在侵权行文" class="_v-checkbox data-v-6ab4ad76">存在侵权行文</v-checkbox>
+          <view class="_div data-v-6ab4ad76 item"></view>
+          <v-checkbox name="存在煽动反动色情内容" class="_v-checkbox data-v-6ab4ad76">存在煽动反动色情内容</v-checkbox>
+        </v-checkbox-group>
+      </view>
+    </v-dialog>
   </view>
 </template>

@@ -2,7 +2,7 @@
   <section class="get-call-container">
 
     <div class="call" v-if="list != ''">
-      <get-line :item='list.conversation' @delCall='delCall(list.conversation)'></get-line>
+      <get-line :item='list.conversation' @delCall='delCall2(list.conversation)'></get-line>
     </div>
 
     <div class="call" v-for="(item,index) in list.reply" :key="index">
@@ -11,7 +11,7 @@
         <reply :item='item' @revoke='revoke(item)'></reply>
       </div>
       <div v-else>
-        <get-line :item='item' @delCall='delCall(item)'></get-line>
+        <get-line :item='item' @delCall='delCall(index)'></get-line>
       </div>
 
     </div>
@@ -19,6 +19,22 @@
     <div class="call">
       <input-group @submit='submit'></input-group>
     </div>
+
+    <!-- 请选择举报原因 -->
+    <v-dialog use-slot title="请选择举报原因" confirm-button-color='#19be6b' :show="is_dialog" show-cancel-button
+      @cancel='is_dialog = false;checkbox = []' @confirm="confirm">
+      <div class="jubao">
+        <v-checkbox-group :value="checkbox" @change="onChange">
+          <v-checkbox name="发布不适内容对我造成骚扰">发布不适内容对我造成骚扰</v-checkbox>
+          <div class="item"></div>
+          <v-checkbox name="存在欺诈骗钱行为">存在欺诈骗钱行为</v-checkbox>
+          <div class="item"></div>
+          <v-checkbox name="存在侵权行文">存在侵权行文</v-checkbox>
+          <div class="item"></div>
+          <v-checkbox name="存在煽动反动色情内容">存在煽动反动色情内容</v-checkbox>
+        </v-checkbox-group>
+      </div>
+    </v-dialog>
 
   </section>
 </template>
@@ -39,7 +55,10 @@
       return {
         u_key: '',
         id: '',
-        list: ''
+        list: '',
+        is_dialog: false,
+        checkbox: [],
+        index: '' // 举报信息的index
       }
     },
     mounted() {
@@ -51,48 +70,138 @@
       this.refreshMessageDetails(this.id);
     },
     methods: {
-      delCall(res) {
-
-        let id = res.id;
-        let operation_status = res.operation_status;
+      /**
+       * 举报信息
+       */
+      confirm() {
         const that = this;
-        if (operation_status === 2) {
+        that.is_dialog = false;
 
+        if (that.checkbox.length === 0) {
           wx.showModal({
-            title: '提示',
-            content: '确定举报吗？',
-            success(res) {
-              if (res.confirm) {
-                that.$Utils.showWaiting();
-                that.$store.dispatch("fetch", {
-                  im: that.$Config.INTER_FACE.accuse_message,
-                  fps: {
-                    id,
-                    u_key: that.u_key,
-                    // 举报内容 - 新增
-                    content: ''
-                  },
-                  url: that.$Config.REQUEST_URI
-                }).then(res => {
-                  if (res.result === "failure") {
-                    that.$Utils.closeWaiting();
-                    that.$Utils.showErrorInfo(res, "accuse_message");
-                  } else {
-                    if (res.back_value) {
-                      // 获取对话详情
-                      that.refreshMessageDetails(that.id);
-                    }
-                  }
-                });
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
-            }
-          })
-
+            title: "提示",
+            showCancel: false,
+            content: "请选择举报原因",
+            success(res) {}
+          });
+          return false;
         }
 
+        let content = that.checkbox.join('|');
+
+        if (that.index === 9999) {
+
+          let id = that.list.conversation.id;
+          let operation_status = that.list.conversation.operation_status;
+
+          if (operation_status === 2) {
+            wx.showModal({
+              title: '提示',
+              content: '确定举报吗？',
+              success(res) {
+                if (res.confirm) {
+                  that.$Utils.showWaiting();
+                  that.$store.dispatch("fetch", {
+                    im: that.$Config.INTER_FACE.accuse_message,
+                    fps: {
+                      id,
+                      u_key: that.u_key,
+                      // 举报内容 - 新增
+                      content: content
+                    },
+                    url: that.$Config.REQUEST_URI
+                  }).then(res => {
+                    if (res.result === "failure") {
+                      that.$Utils.closeWaiting();
+                      that.$Utils.showErrorInfo(res, "accuse_message");
+                    } else {
+                      if (res.back_value) {
+                        // 获取对话详情
+                        that.refreshMessageDetails(that.id);
+                      }
+                    }
+                  });
+                } else if (res.cancel) {
+                  that.checkbox = [];
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+
+        } else {
+
+          let id = that.list.reply[that.index].id;
+          let operation_status = that.list.reply[that.index].operation_status;
+
+          if (operation_status === 2) {
+            wx.showModal({
+              title: '提示',
+              content: '确定举报吗？',
+              success(res) {
+                if (res.confirm) {
+                  that.$Utils.showWaiting();
+                  that.$store.dispatch("fetch", {
+                    im: that.$Config.INTER_FACE.accuse_message,
+                    fps: {
+                      id,
+                      u_key: that.u_key,
+                      // 举报内容 - 新增
+                      content: content
+                    },
+                    url: that.$Config.REQUEST_URI
+                  }).then(res => {
+                    if (res.result === "failure") {
+                      that.$Utils.closeWaiting();
+                      that.$Utils.showErrorInfo(res, "accuse_message");
+                    } else {
+                      if (res.back_value) {
+                        // 获取对话详情
+                        that.refreshMessageDetails(that.id);
+                      }
+                    }
+                  });
+                } else if (res.cancel) {
+                  that.checkbox = [];
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+
+        }
       },
+      onChange(event) {
+        this.checkbox = event.mp.detail;
+      },
+      /**
+       * 打开举报信息
+       */
+      delCall(index) {
+
+        this.index = index;
+        let operation_status = this.list.reply[this.index].operation_status;
+        // 如果已经举报则退出
+        if (operation_status === 3) {
+          return false;
+        }
+        this.is_dialog = true;
+
+      },
+      delCall2(res) {
+
+        this.index = 9999;
+        let operation_status = res.operation_status;
+        // 如果已经举报则退出
+        if (operation_status === 3) {
+          return false;
+        }
+        this.is_dialog = true;
+
+      },
+      /**
+       * 我说的
+       */
       revoke(res) {
 
         let id = res.id;
@@ -230,6 +339,17 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       padding: 10px 14px 10px 14px;
+    }
+
+    .jubao {
+      padding: 10px 0;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+
+      .item {
+        margin-bottom: 10px !important;
+      }
     }
 
   }
