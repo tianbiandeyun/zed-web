@@ -46,7 +46,7 @@
     async onShow() {
       this.$Utils.showWaiting();
 
-      // 获取用户信息
+      // 获取 u_key
       await this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_member_info,
         fps: {
@@ -72,7 +72,7 @@
       });
 
       if (this.active === 1) {
-        // 如果点击的是我创建的对话，并且从上一个页面回来的
+        // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
         this.refreshCallLine("trigger_ukey");
       } else {
         // 先获取一下 我收到的留言
@@ -88,9 +88,7 @@
         let id = res.id;
         let operation_status = res.operation_status;
         const that = this;
-
         if (operation_status === 4) {
-
           wx.showModal({
             title: '提示',
             content: '确定撤回吗？',
@@ -108,7 +106,6 @@
                   if (res.result === "failure") {
                     that.$Utils.closeWaiting();
                     if (res.error_code === 2012240131) {
-
                       wx.showModal({
                         title: "提交",
                         content: "消息对方已阅读无法撤回",
@@ -137,9 +134,7 @@
             }
           })
         }
-
         if (operation_status === 5) {
-
           wx.showModal({
             title: '提示',
             content: '确定移除吗？',
@@ -164,22 +159,18 @@
                     }
                   }
                 });
-
               } else if (res.cancel) {
                 console.log('用户点击取消')
               }
             }
           })
-
         }
-
       },
       /**
        * 我建立的 留言详情
        */
       sendCall(res) {
         let id = res.id;
-
         this.$Utils.showWaiting();
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,
@@ -209,9 +200,7 @@
         let id = res.id;
         let operation_status = res.operation_status;
         const that = this;
-
         if (operation_status === 5) {
-
           wx.showModal({
             title: '提示',
             content: '确定移除吗？',
@@ -236,22 +225,18 @@
                     }
                   }
                 });
-
               } else if (res.cancel) {
                 console.log('用户点击取消')
               }
             }
           })
-
         }
-
       },
       /**
        * 我收到的 留言详情
        */
       getCall(res) {
         let id = res.id;
-
         this.$Utils.showWaiting();
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.read_message,

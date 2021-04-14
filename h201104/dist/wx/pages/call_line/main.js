@@ -151,7 +151,7 @@ if (false) {(function () {
             case 0:
               _this.$Utils.showWaiting();
 
-              // 获取用户信息
+              // 获取 u_key
               _context.next = 3;
               return _this.$store.dispatch("fetch", {
                 im: _this.$Config.INTER_FACE.get_member_info,
@@ -180,7 +180,7 @@ if (false) {(function () {
             case 3:
 
               if (_this.active === 1) {
-                // 如果点击的是我创建的对话，并且从上一个页面回来的
+                // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
                 _this.refreshCallLine("trigger_ukey");
               } else {
                 // 先获取一下 我收到的留言
@@ -204,9 +204,7 @@ if (false) {(function () {
       var id = res.id;
       var operation_status = res.operation_status;
       var that = this;
-
       if (operation_status === 4) {
-
         wx.showModal({
           title: '提示',
           content: '确定撤回吗？',
@@ -224,7 +222,6 @@ if (false) {(function () {
                 if (res.result === "failure") {
                   that.$Utils.closeWaiting();
                   if (res.error_code === 2012240131) {
-
                     wx.showModal({
                       title: "提交",
                       content: "消息对方已阅读无法撤回",
@@ -253,9 +250,7 @@ if (false) {(function () {
           }
         });
       }
-
       if (operation_status === 5) {
-
         wx.showModal({
           title: '提示',
           content: '确定移除吗？',
@@ -295,7 +290,6 @@ if (false) {(function () {
       var _this2 = this;
 
       var id = res.id;
-
       this.$Utils.showWaiting();
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.read_message,
@@ -326,9 +320,7 @@ if (false) {(function () {
       var id = res.id;
       var operation_status = res.operation_status;
       var that = this;
-
       if (operation_status === 5) {
-
         wx.showModal({
           title: '提示',
           content: '确定移除吗？',
@@ -368,7 +360,6 @@ if (false) {(function () {
       var _this3 = this;
 
       var id = res.id;
-
       this.$Utils.showWaiting();
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.read_message,
