@@ -297,7 +297,7 @@ if (false) {(function () {
     },
     submit: function submit(p) {
       var that = this;
-
+      that.$Utils.showWaiting();
       var _id = that.$root.$mp.query.id;
       var _u_key = that.u_key;
       var _trigger_ukey = that.list.conversation.accepter_ukey;

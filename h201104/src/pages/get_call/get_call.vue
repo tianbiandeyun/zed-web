@@ -265,13 +265,12 @@
       submit(p) {
 
         const that = this;
-
+        that.$Utils.showWaiting();
         let _id = that.$root.$mp.query.id;
         let _u_key = that.u_key;
         let _trigger_ukey = that.list.conversation.trigger_ukey;
         let _message = p.message;
 
-        that.$Utils.showWaiting();
         that.$store.dispatch("fetch", {
           im: that.$Config.INTER_FACE.set_reply_to_message,
           fps: {

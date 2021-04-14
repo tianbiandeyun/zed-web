@@ -203,7 +203,7 @@
       },
       submit(p) {
         const that = this;
-
+        that.$Utils.showWaiting();
         let _id = that.$root.$mp.query.id;
         let _u_key = that.u_key;
         let _trigger_ukey = that.list.conversation.accepter_ukey;
