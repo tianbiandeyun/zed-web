@@ -65,10 +65,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 48px;
+    height: 50px;
     background: white;
     display: flex;
     padding-bottom: env(safe-area-inset-bottom);
+    border: 1px solid red;
   }
 
   .tab-bar-border {
@@ -88,15 +89,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 1px solid black;
   }
 
   .tab-bar-item cover-image {
-    width: 27px;
-    height: 27px;
+    width: 30px;
+    height: 30px;
   }
 
   .tab-bar-item cover-view {
-    font-size: 10px;
+    font-size: 14px;
   }
 
 </style>

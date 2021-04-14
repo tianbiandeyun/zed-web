@@ -176,9 +176,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
 
 // 这里面所有的u_key都是，点击谁就是谁的
 // m_key 永远都是登录人的，也就是首页个人信息的
@@ -190,11 +187,11 @@ if (false) {(function () {
   mixins: [__WEBPACK_IMPORTED_MODULE_4__utils_login__["a" /* default */]],
   data: function data() {
     return {
-      is_page: false,
-      user_info: "",
-      is_phone: 1,
-      is_mail: 1,
-      message_count: 0
+      u_key: '', // 这里面所有的u_key都是，点击谁就是谁的
+      is_page: false, // 等待接口加载完毕之后显示页面
+      user_info: "", // 获取个人信息
+      is_phone: 1, // 电话是否公开 
+      is_mail: 1 // 邮箱是否公开
     };
   },
   onShow: function onShow() {
@@ -208,29 +205,31 @@ if (false) {(function () {
 
               _this.$Utils.showWaiting();
 
+              _this.u_key = _this.$root.$mp.query.u_key;
+
               // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
 
               if (_this.openid.back_value) {
-                _context.next = 7;
+                _context.next = 8;
                 break;
               }
 
-              _context.next = 4;
+              _context.next = 5;
               return _this.getOpenid();
 
-            case 4:
+            case 5:
               _this.is_page = true;
-              _context.next = 8;
+              _context.next = 9;
               break;
 
-            case 7:
+            case 8:
               _this.is_page = true;
 
-            case 8:
-
-              _this.refreshUserCenter(_this.$root.$mp.query.u_key);
-
             case 9:
+
+              _this.refreshUserCenter(_this.u_key);
+
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -245,20 +244,9 @@ if (false) {(function () {
      */
     createdReply: function createdReply() {
       var m_key = this.$root.$mp.query.m_key;
-      var u_key = this.$root.$mp.query.u_key;
       var name = this.user_info.name;
       wx.navigateTo({
-        url: "/pages/created/main?m_key=" + m_key + "&u_key=" + u_key + "&name=" + name
-      });
-    },
-
-    /**
-     * 我的消息
-     */
-    goReply: function goReply() {
-      var u_key = this.$root.$mp.query.u_key;
-      wx.navigateTo({
-        url: "/pages/call_line/main?u_key=" + u_key
+        url: "/pages/created/main?m_key=" + m_key + "&u_key=" + this.u_key + "&name=" + name
       });
     },
 
@@ -266,14 +254,13 @@ if (false) {(function () {
      * 编辑信息
      */
     goEdit: function goEdit(res) {
-      var u_key = this.$root.$mp.query.u_key;
       if (res === 1) {
         wx.navigateTo({
-          url: "/pages/user_center_jichu/main?u_key=" + u_key
+          url: "/pages/user_center_jichu/main?u_key=" + this.u_key
         });
       } else {
         wx.navigateTo({
-          url: "/pages/user_center_jieshao/main?u_key=" + u_key
+          url: "/pages/user_center_jieshao/main?u_key=" + this.u_key
         });
       }
     },
@@ -305,27 +292,26 @@ if (false) {(function () {
                 });
 
               case 2:
-                _context2.next = 4;
-                return _this2.$store.dispatch("fetch", {
-                  im: _this2.$Config.INTER_FACE.get_unread_message,
-                  fps: {
-                    u_key: u_key
-                  },
-                  url: _this2.$Config.REQUEST_URI
-                }).then(function (res) {
-                  if (res.result === "failure") {
-                    _this2.$Utils.closeWaiting();
-                    _this2.$Utils.showErrorInfo(res, "get_unread_message");
-                  } else {
-                    _this2.message_count = res.back_value;
-                  }
-                });
 
-              case 4:
+                // // 信息条数
+                // await this.$store.dispatch("fetch", {
+                //   im: this.$Config.INTER_FACE.get_unread_message,
+                //   fps: {
+                //     u_key
+                //   },
+                //   url: this.$Config.REQUEST_URI
+                // }).then(res => {
+                //   if (res.result === "failure") {
+                //     this.$Utils.closeWaiting();
+                //     this.$Utils.showErrorInfo(res, "get_unread_message");
+                //   } else {
+                //     this.message_count = res.back_value;
+                //   }
+                // });
 
                 _this2.$Utils.closeWaiting();
 
-              case 5:
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -441,21 +427,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "user-g-other"
   }, [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.interest === null || _vm.user_info.interest === "" ? "暂无关注行业" : _vm.user_info.interest))])]), _vm._v(" "), _c('div', {
     staticClass: "user-g-text"
-  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('div', [_c('button', {
+  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), (_vm.openid.back_value.open_id !== _vm.user_info.open_id) ? _c('div', [_c('button', {
     attrs: {
       "eventid": '2'
     },
     on: {
-      "click": _vm.goReply
-    }
-  }, [_vm._v("我的信息（" + _vm._s(_vm.message_count) + "）")])], 1) : _c('div', [_c('button', {
-    attrs: {
-      "eventid": '3'
-    },
-    on: {
       "click": _vm.createdReply
     }
-  }, [_vm._v("创建留言")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("创建留言")])], 1) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "user-e"
   }, [_c('h1', [_vm._v("形象照片")]), _vm._v(" "), _c('div', [(!_vm.user_info.head_portrait) ? _c('p', [_vm._v("暂无可以通过编辑添加")]) : _c('img', {
     attrs: {

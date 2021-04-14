@@ -65,10 +65,7 @@
 
     </div>
 
-    <div v-if="openid.back_value.open_id === user_info.open_id">
-      <button @click="goReply">我的信息（{{message_count}}）</button>
-    </div>
-    <div v-else>
+    <div v-if="openid.back_value.open_id !== user_info.open_id">
       <button @click="createdReply">创建留言</button>
     </div>
 
@@ -96,16 +93,18 @@
     mixins: [login],
     data() {
       return {
-        is_page: false,
-        user_info: "",
-        is_phone: 1,
-        is_mail: 1,
-        message_count: 0
+        u_key: '', // 这里面所有的u_key都是，点击谁就是谁的
+        is_page: false, // 等待接口加载完毕之后显示页面
+        user_info: "", // 获取个人信息
+        is_phone: 1, // 电话是否公开 
+        is_mail: 1 // 邮箱是否公开
       };
     },
     async onShow() {
 
       this.$Utils.showWaiting();
+
+      this.u_key = this.$root.$mp.query.u_key;
 
       // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
       if (!this.openid.back_value) {
@@ -115,7 +114,7 @@
         this.is_page = true;
       }
 
-      this.refreshUserCenter(this.$root.$mp.query.u_key);
+      this.refreshUserCenter(this.u_key);
 
     },
     methods: {
@@ -124,38 +123,26 @@
        */
       createdReply() {
         let m_key = this.$root.$mp.query.m_key;
-        let u_key = this.$root.$mp.query.u_key;
         let name = this.user_info.name;
         wx.navigateTo({
-          url: `/pages/created/main?m_key=${m_key}&u_key=${u_key}&name=${name}`
-        });
-      },
-      /**
-       * 我的消息
-       */
-      goReply() {
-        let u_key = this.$root.$mp.query.u_key;
-        wx.navigateTo({
-          url: `/pages/call_line/main?u_key=${u_key}`
+          url: `/pages/created/main?m_key=${m_key}&u_key=${this.u_key}&name=${name}`
         });
       },
       /**
        * 编辑信息
        */
       goEdit(res) {
-        let u_key = this.$root.$mp.query.u_key;
         if (res === 1) {
           wx.navigateTo({
-            url: `/pages/user_center_jichu/main?u_key=${u_key}`
+            url: `/pages/user_center_jichu/main?u_key=${this.u_key}`
           });
         } else {
           wx.navigateTo({
-            url: `/pages/user_center_jieshao/main?u_key=${u_key}`
+            url: `/pages/user_center_jieshao/main?u_key=${this.u_key}`
           });
         }
       },
       async refreshUserCenter(u_key) {
-
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
           fps: {
@@ -174,21 +161,21 @@
           }
         });
 
-        // 信息条数
-        await this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.get_unread_message,
-          fps: {
-            u_key
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "get_unread_message");
-          } else {
-            this.message_count = res.back_value;
-          }
-        });
+        // // 信息条数
+        // await this.$store.dispatch("fetch", {
+        //   im: this.$Config.INTER_FACE.get_unread_message,
+        //   fps: {
+        //     u_key
+        //   },
+        //   url: this.$Config.REQUEST_URI
+        // }).then(res => {
+        //   if (res.result === "failure") {
+        //     this.$Utils.closeWaiting();
+        //     this.$Utils.showErrorInfo(res, "get_unread_message");
+        //   } else {
+        //     this.message_count = res.back_value;
+        //   }
+        // });
 
         this.$Utils.closeWaiting();
 
