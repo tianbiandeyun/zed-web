@@ -175,10 +175,7 @@ if (false) {(function () {
 //
 //
 //
-//
 
-// 这里面所有的u_key都是，点击谁就是谁的
-// m_key 永远都是登录人的，也就是首页个人信息的
 
 
 
@@ -187,8 +184,8 @@ if (false) {(function () {
   mixins: [__WEBPACK_IMPORTED_MODULE_4__utils_login__["a" /* default */]],
   data: function data() {
     return {
-      u_key: '', // 这里面所有的u_key都是，点击谁就是谁的
-      is_page: false, // 等待接口加载完毕之后显示页面
+      message_count: 0, // 信息条数
+      u_key: '', // 本人 key
       user_info: "", // 获取个人信息
       is_phone: 1, // 电话是否公开 
       is_mail: 1 // 邮箱是否公开
@@ -205,26 +202,8 @@ if (false) {(function () {
 
               _this.$Utils.showWaiting();
 
-              // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
-
-              if (_this.openid.back_value) {
-                _context.next = 7;
-                break;
-              }
-
-              _context.next = 4;
-              return _this.getOpenid();
-
-            case 4:
-              _this.is_page = true;
-              _context.next = 8;
-              break;
-
-            case 7:
-              _this.is_page = true;
-
-            case 8:
-              _context.next = 10;
+              // 获取 u_key
+              _context.next = 3;
               return _this.$store.dispatch("fetch", {
                 im: _this.$Config.INTER_FACE.get_member_info,
                 fps: {
@@ -249,11 +228,11 @@ if (false) {(function () {
                 }
               });
 
-            case 10:
+            case 3:
 
               _this.refreshUserCenter(_this.u_key);
 
-            case 11:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -263,16 +242,6 @@ if (false) {(function () {
   },
 
   methods: {
-    /**
-     * 创建留言
-     */
-    // createdReply() {
-    //   let m_key = this.$root.$mp.query.m_key;
-    //   let name = this.user_info.name;
-    //   wx.navigateTo({
-    //     url: `/pages/created/main?m_key=${m_key}&u_key=${this.u_key}&name=${name}`
-    //   });
-    // },
     /**
      * 编辑信息
      */
@@ -315,9 +284,26 @@ if (false) {(function () {
                 });
 
               case 2:
+                _context2.next = 4;
+                return _this2.$store.dispatch("fetch", {
+                  im: _this2.$Config.INTER_FACE.get_unread_message,
+                  fps: {
+                    u_key: _this2.u_key
+                  },
+                  url: _this2.$Config.REQUEST_URI
+                }).then(function (res) {
+                  if (res.result === "failure") {
+                    _this2.$Utils.closeWaiting();
+                    _this2.$Utils.showErrorInfo(res, "get_unread_message");
+                  } else {
+                    _this2.message_count = res.back_value;
+                  }
+                });
+
+              case 4:
                 _this2.$Utils.closeWaiting();
 
-              case 3:
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -352,15 +338,6 @@ if (false) {(function () {
         }
       }, _callee3, _this3);
     }))();
-  },
-
-  onShareAppMessage: function onShareAppMessage(res) {
-    console.log(this.u_key);
-    return {
-      title: "创新投研会",
-      path: "/pages/user_center/main?u_key=" + this.u_key,
-      imageUrl: ""
-    };
   }
 });
 
@@ -371,7 +348,7 @@ if (false) {(function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.is_page) ? _c('section', {
+  return _c('section', {
     staticClass: "user-center-container"
   }, [_c('div', {
     staticClass: "user-j"
@@ -440,7 +417,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.user_info.head_portrait,
       "alt": ""
     }
-  })], 1)], 1)]) : _vm._e()
+  })], 1)], 1), _vm._v(" "), _c('tab', {
+    attrs: {
+      "selected": "2",
+      "message-count": _vm.message_count,
+      "mpcomid": '0'
+    }
+  })], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

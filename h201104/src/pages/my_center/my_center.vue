@@ -1,5 +1,5 @@
 <template>
-  <section class="user-center-container" v-if="is_page">
+  <section class="user-center-container">
 
     <div class="user-j">
 
@@ -65,10 +65,6 @@
 
     </div>
 
-    <!-- <div v-if="openid.back_value.open_id !== user_info.open_id">
-      <button @click="createdReply">创建留言</button>
-    </div> -->
-
     <div class="user-e">
       <h1>形象照片</h1>
       <div>
@@ -77,12 +73,13 @@
       </div>
     </div>
 
+    <!-- 自定义 tab -->
+    <tab selected='2' :message-count='message_count'></tab>
+
   </section>
 </template>
 
 <script>
-  // 这里面所有的u_key都是，点击谁就是谁的
-  // m_key 永远都是登录人的，也就是首页个人信息的
   import {
     mapGetters
   } from "vuex";
@@ -93,8 +90,8 @@
     mixins: [login],
     data() {
       return {
-        u_key: '', // 这里面所有的u_key都是，点击谁就是谁的
-        is_page: false, // 等待接口加载完毕之后显示页面
+        message_count: 0, // 信息条数
+        u_key: '', // 本人 key
         user_info: "", // 获取个人信息
         is_phone: 1, // 电话是否公开 
         is_mail: 1 // 邮箱是否公开
@@ -103,14 +100,6 @@
     async onShow() {
 
       this.$Utils.showWaiting();
-
-      // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
-      if (!this.openid.back_value) {
-        await this.getOpenid();
-        this.is_page = true;
-      } else {
-        this.is_page = true;
-      }
 
       // 获取 u_key
       await this.$store.dispatch("fetch", {
@@ -141,16 +130,6 @@
 
     },
     methods: {
-      /**
-       * 创建留言
-       */
-      // createdReply() {
-      //   let m_key = this.$root.$mp.query.m_key;
-      //   let name = this.user_info.name;
-      //   wx.navigateTo({
-      //     url: `/pages/created/main?m_key=${m_key}&u_key=${this.u_key}&name=${name}`
-      //   });
-      // },
       /**
        * 编辑信息
        */
@@ -183,6 +162,21 @@
             this.user_info = res.back_value;
           }
         });
+        // 信息条数
+        await this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_unread_message,
+          fps: {
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "get_unread_message");
+          } else {
+            this.message_count = res.back_value;
+          }
+        });
         this.$Utils.closeWaiting();
       }
     },
@@ -198,14 +192,6 @@
       this.$Utils.showWaiting();
       await this.refreshUserCenter(this.u_key);
       wx.stopPullDownRefresh();
-    },
-    onShareAppMessage: function (res) {
-      console.log(this.u_key);
-      return {
-        title: "创新投研会",
-        path: `/pages/user_center/main?u_key=${this.u_key}`,
-        imageUrl: ""
-      };
     }
   };
 
