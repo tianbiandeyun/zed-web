@@ -64,9 +64,13 @@ global.webpackJsonpMpvue([1],{
       }]
     };
   },
+  mounted: function mounted() {
+    console.log('teb');
+  },
 
   methods: {
     switchTab: function switchTab(e) {
+      console.log('e :>> ', e);
       var data = e.mp.currentTarget.dataset;
       var url = data.path;
       wx.switchTab({

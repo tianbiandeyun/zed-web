@@ -52,8 +52,12 @@
         ]
       }
     },
+    mounted() {
+      console.log('teb');
+    },
     methods: {
       switchTab(e) {
+        console.log('e :>> ', e);
         const data = e.mp.currentTarget.dataset
         const url = data.path
         wx.switchTab({
