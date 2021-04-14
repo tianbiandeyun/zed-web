@@ -173,7 +173,7 @@
                   im: that.$Config.INTER_FACE.conceal_message,
                   fps: {
                     id,
-                    u_key: this.u_key
+                    u_key: that.u_key
                   },
                   url: that.$Config.REQUEST_URI
                 }).then(res => {
