@@ -18,7 +18,7 @@
     </v-tabs>
 
     <!-- 自定义 tab -->
-    <tab selected='1'></tab>
+    <tab selected='1' message-count=100></tab>
 
   </section>
 </template>
@@ -38,6 +38,7 @@
     },
     data() {
       return {
+        message_count: '', // 信息条数
         active: 0, // tab 下标
         call_line_list: [], // 列表
         u_key: '' // 本人 key
@@ -278,10 +279,8 @@
        * 获取留言信息
        */
       async refreshCallLine(...res) {
-
         let [type] = [...res];
-
-        this.$store.dispatch("fetch", {
+        await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_chat_record_list,
           fps: {
             u_key: this.u_key,
@@ -294,10 +293,24 @@
             this.$Utils.showErrorInfo(res, "get_chat_record_list");
           } else {
             this.call_line_list = res.back_value;
-            this.$Utils.closeWaiting();
           }
         });
-
+        // 信息条数
+        await this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_unread_message,
+          fps: {
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "get_unread_message");
+          } else {
+            this.message_count = res.back_value;
+          }
+        });
+        this.$Utils.closeWaiting();
       }
     },
     computed: {

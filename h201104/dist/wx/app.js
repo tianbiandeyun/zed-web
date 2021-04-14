@@ -30,12 +30,16 @@ global.webpackJsonpMpvue([1],{
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   props: {
     selected: {
       type: Number,
       default: 0
+    },
+    messageCount: {
+      type: Number
     }
   },
   data: function data() {
@@ -87,7 +91,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('section', [_c('cover-view', {
     staticClass: "tab-bar",
     attrs: {
-      "mpcomid": '4'
+      "mpcomid": '5'
     }
   }, [_c('cover-view', {
     staticClass: "tab-bar-border",
@@ -102,7 +106,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "data-path": item.pagePath,
         "data-index": index,
         "eventid": '0_' + index,
-        "mpcomid": '3_' + index
+        "mpcomid": '4_' + index
       },
       on: {
         "click": _vm.switchTab
@@ -119,7 +123,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "mpcomid": '2_' + index
       }
-    }, [_vm._v(_vm._s(item.text))])], 1)
+    }, [_vm._v(_vm._s(item.text))]), _vm._v(" "), (index === 1) ? _c('cover-view', {
+      attrs: {
+        "mpcomid": '3_' + index
+      }
+    }, [_vm._v(_vm._s(_vm.messageCount))]) : _vm._e()], 1)
   })], 2)], 1)
 }
 var staticRenderFns = []

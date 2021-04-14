@@ -5,6 +5,7 @@
       <cover-view wx:key="index" key="{{index}}" class="_cover-view data-v-036428c0 tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
         <cover-image src="{{_index === index ? item.selectedIconPath : item.iconPath}}" class="_cover-image data-v-036428c0"></cover-image>
         <cover-view class="_cover-view data-v-036428c0" style=" {{('color:' + (_index === index ? selectedColor : color) + ';')}}">{{item.text}}</cover-view>
+        <cover-view wx:if="{{index === 1}}" class="_cover-view data-v-036428c0">{{messageCount}}</cover-view>
       </cover-view>
     </cover-view>
   </view>

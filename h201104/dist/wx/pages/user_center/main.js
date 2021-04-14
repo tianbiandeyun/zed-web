@@ -292,23 +292,6 @@ if (false) {(function () {
                 });
 
               case 2:
-
-                // // 信息条数
-                // await this.$store.dispatch("fetch", {
-                //   im: this.$Config.INTER_FACE.get_unread_message,
-                //   fps: {
-                //     u_key
-                //   },
-                //   url: this.$Config.REQUEST_URI
-                // }).then(res => {
-                //   if (res.result === "failure") {
-                //     this.$Utils.closeWaiting();
-                //     this.$Utils.showErrorInfo(res, "get_unread_message");
-                //   } else {
-                //     this.message_count = res.back_value;
-                //   }
-                // });
-
                 _this2.$Utils.closeWaiting();
 
               case 3:

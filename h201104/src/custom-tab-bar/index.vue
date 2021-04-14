@@ -8,6 +8,7 @@
 
         <cover-image :src="_index === index ? item.selectedIconPath : item.iconPath"></cover-image>
         <cover-view :style="{color: _index === index ? selectedColor : color}">{{item.text}}</cover-view>
+        <cover-view v-if="index === 1">{{messageCount}}</cover-view>
 
       </cover-view>
 
@@ -21,6 +22,9 @@
       selected: {
         type: Number,
         default: 0
+      },
+      messageCount: {
+        type: Number
       }
     },
     data() {

@@ -136,6 +136,7 @@ if (false) {(function () {
   },
   data: function data() {
     return {
+      message_count: '', // 信息条数
       active: 0, // tab 下标
       call_line_list: [], // 列表
       u_key: '' // 本人 key
@@ -417,9 +418,8 @@ if (false) {(function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _ref = [].concat(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_toConsumableArray___default()(res)), type = _ref[0];
-
-
-                _this4.$store.dispatch("fetch", {
+                _context2.next = 3;
+                return _this4.$store.dispatch("fetch", {
                   im: _this4.$Config.INTER_FACE.get_chat_record_list,
                   fps: {
                     u_key: _this4.u_key,
@@ -432,11 +432,30 @@ if (false) {(function () {
                     _this4.$Utils.showErrorInfo(res, "get_chat_record_list");
                   } else {
                     _this4.call_line_list = res.back_value;
-                    _this4.$Utils.closeWaiting();
                   }
                 });
 
-              case 2:
+              case 3:
+                _context2.next = 5;
+                return _this4.$store.dispatch("fetch", {
+                  im: _this4.$Config.INTER_FACE.get_unread_message,
+                  fps: {
+                    u_key: _this4.u_key
+                  },
+                  url: _this4.$Config.REQUEST_URI
+                }).then(function (res) {
+                  if (res.result === "failure") {
+                    _this4.$Utils.closeWaiting();
+                    _this4.$Utils.showErrorInfo(res, "get_unread_message");
+                  } else {
+                    _this4.message_count = res.back_value;
+                  }
+                });
+
+              case 5:
+                _this4.$Utils.closeWaiting();
+
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -750,6 +769,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }))], 1), _vm._v(" "), _c('tab', {
     attrs: {
       "selected": "1",
+      "message-count": "100",
       "mpcomid": '5'
     }
   })], 1)

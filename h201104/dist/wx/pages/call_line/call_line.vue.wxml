@@ -9,6 +9,6 @@
       <v-tab title="我建立的会话" class="_v-tab data-v-bf8108fc">
         <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item"><template bindsendCall="handleProxy" binddelCall="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2_'+index], $root}}" is="96d61934"></template></view>
       </v-tab>
-    </v-tabs> <template selected="1" data="{{...$root[$kk+'5'], $root}}" is="55f19ec2"></template>
+    </v-tabs> <template selected="1" message-count="100" data="{{...$root[$kk+'5'], $root}}" is="55f19ec2"></template>
   </view>
 </template>

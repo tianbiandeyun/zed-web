@@ -27,6 +27,6 @@
           <view class="_div data-v-675665fc info-status_time"><label class="_span data-v-675665fc status active-span" wx:if="{{item.status == 1}}">--- 预约中 ---</label> <label class="_span data-v-675665fc status active-span" wx:if="{{item.status == 2}}">--- 活动中 ---</label> <label class="_span data-v-675665fc status" wx:if="{{item.status == 3}}">--- 已结束 ---</label> <label class="_span data-v-675665fc time">活动时间：{{item.meeting_time}}</label></view>
         </view>
       </view>
-    </view> <template message="请授权头像信息，否则无法使用" bindsetUserInfo="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ba02a0d4"></template> <template data="{{...$root[$kk+'1'], $root}}" is="55f19ec2"></template>
+    </view> <template message="请授权头像信息，否则无法使用" bindsetUserInfo="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ba02a0d4"></template> <template message-count="100" data="{{...$root[$kk+'1'], $root}}" is="55f19ec2"></template>
   </view>
 </template>
