@@ -17,6 +17,9 @@
 
     </v-tabs>
 
+    <!-- 自定义 tab -->
+    <tab selected='1'></tab>
+
   </section>
 </template>
 

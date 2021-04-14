@@ -110,6 +110,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
@@ -681,7 +684,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     })], 1)
-  }))], 1)], 1)
+  }))], 1), _vm._v(" "), _c('tab', {
+    attrs: {
+      "selected": "1",
+      "mpcomid": '5'
+    }
+  })], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

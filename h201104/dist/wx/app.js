@@ -48,7 +48,7 @@ global.webpackJsonpMpvue([1],{
         selectedIconPath: "../../static/images/shouye_y.png",
         text: "首页"
       }, {
-        pagePath: "/pages/user_center/main",
+        pagePath: "/pages/call_line/main",
         iconPath: "../../static/images/xinxi_n.png",
         selectedIconPath: "../../static/images/xinxi_y.png",
         text: "信息"

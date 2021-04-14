@@ -1,4 +1,4 @@
-<import src="/custom-tab-bar/index.vue.wxml" /><template name="28ba98e8">
+<template name="28ba98e8">
   <view class="_section data-v-29f06caa user-center-container" wx:if="{{is_page}}">
     <view class="_div data-v-29f06caa user-j">
       <view class="_div data-v-29f06caa user-j-name"><label class="_span data-v-29f06caa">{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</label>
@@ -29,6 +29,6 @@
         <view wx:if="{{!user_info.head_portrait}}" class="_p data-v-29f06caa">暂无可以通过编辑添加</view>
         <image wx:else src="{{user_info.head_portrait}}" alt class="_img data-v-29f06caa"></image>
       </view>
-    </view> <template selected="1" data="{{...$root[$kk+'0'], $root}}" is="55f19ec2"></template>
+    </view>
   </view>
 </template>
