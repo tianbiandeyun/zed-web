@@ -83,10 +83,20 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_get_line__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_create_lline__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_get_line__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_create_lline__ = __webpack_require__(137);
+
+
+
 
 //
 //
@@ -113,6 +123,7 @@ if (false) {(function () {
 //
 //
 //
+
 
 
 
@@ -120,24 +131,21 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_line",
   components: {
-    getLine: __WEBPACK_IMPORTED_MODULE_1__components_get_line__["a" /* default */],
-    createdLine: __WEBPACK_IMPORTED_MODULE_2__components_create_lline__["a" /* default */]
+    getLine: __WEBPACK_IMPORTED_MODULE_5__components_get_line__["a" /* default */],
+    createdLine: __WEBPACK_IMPORTED_MODULE_6__components_create_lline__["a" /* default */]
   },
   data: function data() {
     return {
-      active: 0,
-      call_line_list: [],
-      u_key: ''
+      active: 0, // tab 下标
+      call_line_list: [], // 列表
+      u_key: '' // 本人 key
     };
   },
   mounted: function mounted() {
     this.$Utils.showWaiting();
 
-    // 本页面用到的所有 u_key 在此修改
-    this.u_key = this.$root.$mp.query.u_key;
-
     // 先获取一下 我收到的留言
-    this.refreshCallLine("accepter_ukey", this.u_key);
+    this.refreshCallLine("accepter_ukey");
   },
 
   methods: {
@@ -361,28 +369,71 @@ if (false) {(function () {
         res[_key] = arguments[_key];
       }
 
-      var _ref = [].concat(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(res)),
-          type = _ref[0],
-          key = _ref[1];
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var _ref, type;
 
-      this.$store.dispatch("fetch", {
-        im: this.$Config.INTER_FACE.get_chat_record_list,
-        fps: {
-          u_key: key,
-          type_str: type
-        },
-        url: this.$Config.REQUEST_URI
-      }).then(function (res) {
-        if (res.result === "failure") {
-          _this3.$Utils.closeWaiting();
-          _this3.$Utils.showErrorInfo(res, "get_chat_record_list");
-        } else {
-          _this3.call_line_list = res.back_value;
-          _this3.$Utils.closeWaiting();
-        }
-      });
+        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _ref = [].concat(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray___default()(res)), type = _ref[0];
+
+                // 获取用户信息
+
+                _context.next = 3;
+                return _this3.$store.dispatch("fetch", {
+                  im: _this3.$Config.INTER_FACE.get_member_info,
+                  fps: {
+                    open_id: _this3.openid.back_value.open_id,
+                    u_key: ""
+                  },
+                  url: _this3.$Config.REQUEST_URI
+                }).then(function (res) {
+                  if (res.result === "failure") {
+                    _this3.$Utils.closeWaiting();
+                    if (res.error_code === 2012100231 || res.error_code === "2012100231") {
+                      console.log("未登录");
+                    } else {
+                      _this3.$Utils.showErrorInfo(res, "get_member_info");
+                    }
+                  } else {
+                    if (res.back_value.name === "" || res.back_value.name === null) {
+                      console.log("未登录");
+                    } else {
+                      _this3.u_key = res.back_value.u_key;
+                    }
+                  }
+                });
+
+              case 3:
+
+                _this3.$store.dispatch("fetch", {
+                  im: _this3.$Config.INTER_FACE.get_chat_record_list,
+                  fps: {
+                    u_key: _this3.key,
+                    type_str: type
+                  },
+                  url: _this3.$Config.REQUEST_URI
+                }).then(function (res) {
+                  if (res.result === "failure") {
+                    _this3.$Utils.closeWaiting();
+                    _this3.$Utils.showErrorInfo(res, "get_chat_record_list");
+                  } else {
+                    _this3.call_line_list = res.back_value;
+                    _this3.$Utils.closeWaiting();
+                  }
+                });
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, _this3);
+      }))();
     }
-  }
+  },
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_4_vuex__["b" /* mapGetters */])(["openid"]))
 });
 
 /***/ }),

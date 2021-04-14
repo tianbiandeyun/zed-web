@@ -50,7 +50,6 @@
     },
     methods: {
       switchTab(e) {
-        console.log('e :>> ', e.mp.currentTarget.dataset);
         const data = e.mp.currentTarget.dataset
         const url = data.path
         wx.switchTab({

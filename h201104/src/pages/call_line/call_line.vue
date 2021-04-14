@@ -24,6 +24,9 @@
 </template>
 
 <script>
+  import {
+    mapGetters
+  } from "vuex";
   import getLine from "@/components/get_line";
   import createdLine from "@/components/create_lline";
 
@@ -35,19 +38,16 @@
     },
     data() {
       return {
-        active: 0,
-        call_line_list: [],
-        u_key: ''
+        active: 0, // tab 下标
+        call_line_list: [], // 列表
+        u_key: '' // 本人 key
       };
     },
     mounted() {
       this.$Utils.showWaiting();
 
-      // 本页面用到的所有 u_key 在此修改
-      this.u_key = this.$root.$mp.query.u_key;
-
       // 先获取一下 我收到的留言
-      this.refreshCallLine("accepter_ukey", this.u_key);
+      this.refreshCallLine("accepter_ukey");
     },
     methods: {
       /**
@@ -260,12 +260,39 @@
       /**
        * 获取留言信息
        */
-      refreshCallLine(...res) {
-        let [type, key] = [...res];
+      async refreshCallLine(...res) {
+
+        let [type] = [...res];
+
+        // 获取用户信息
+        await this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_member_info,
+          fps: {
+            open_id: this.openid.back_value.open_id,
+            u_key: ""
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            if (res.error_code === 2012100231 || res.error_code === "2012100231") {
+              console.log("未登录");
+            } else {
+              this.$Utils.showErrorInfo(res, "get_member_info");
+            }
+          } else {
+            if (res.back_value.name === "" || res.back_value.name === null) {
+              console.log("未登录");
+            } else {
+              this.u_key = res.back_value.u_key;
+            }
+          }
+        });
+
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_chat_record_list,
           fps: {
-            u_key: key,
+            u_key: this.key,
             type_str: type
           },
           url: this.$Config.REQUEST_URI
@@ -278,7 +305,13 @@
             this.$Utils.closeWaiting();
           }
         });
+
       }
+    },
+    computed: {
+      ...mapGetters([
+        "openid"
+      ])
     }
   };
 

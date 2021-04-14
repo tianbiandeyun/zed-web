@@ -63,7 +63,6 @@ global.webpackJsonpMpvue([1],{
 
   methods: {
     switchTab: function switchTab(e) {
-      console.log('e :>> ', e.mp.currentTarget.dataset);
       var data = e.mp.currentTarget.dataset;
       var url = data.path;
       wx.switchTab({
