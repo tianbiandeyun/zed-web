@@ -1,4 +1,5 @@
 <template>
+  <!-- 对话回复 / 对话创建 -->
   <section class="input_group-container">
     <div class="group-title">{{title}}</div>
     <div class="group">

@@ -1,4 +1,5 @@
 <template>
+  <!-- 我创建的对话 -->
   <section class="create_line-container">
     <div hover-class='b' class="created-line-header" @click.stop='sendCall'>
       <p>我</p>

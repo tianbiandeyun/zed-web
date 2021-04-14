@@ -1,4 +1,5 @@
 <template>
+  <!-- 我收到的对话 / 对话详情 -->
   <section class="reply">
     <div class="reply-who">
       <p>{{speak}}</p>
