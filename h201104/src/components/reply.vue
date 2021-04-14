@@ -4,7 +4,7 @@
       <p>{{speak}}</p>
     </div>
     <div class="reply-details">
-      <p>{{item.creation_time}} | 未读</p>
+      <p>{{item.creation_time}}</p>
       <p v-if="index != 0" @click='revoke'>{{status}}</p>
     </div>
     <div class="reply-message">
