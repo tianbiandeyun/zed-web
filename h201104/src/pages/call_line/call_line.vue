@@ -18,7 +18,7 @@
     </v-tabs>
 
     <!-- 自定义 tab -->
-    <tab selected='1' message-count=100></tab>
+    <tab selected='1' :message-count='message_count'></tab>
 
   </section>
 </template>
@@ -38,7 +38,7 @@
     },
     data() {
       return {
-        message_count: '', // 信息条数
+        message_count: 0, // 信息条数
         active: 0, // tab 下标
         call_line_list: [], // 列表
         u_key: '' // 本人 key

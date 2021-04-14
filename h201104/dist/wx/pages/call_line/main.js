@@ -136,7 +136,7 @@ if (false) {(function () {
   },
   data: function data() {
     return {
-      message_count: '', // 信息条数
+      message_count: 0, // 信息条数
       active: 0, // tab 下标
       call_line_list: [], // 列表
       u_key: '' // 本人 key
@@ -769,7 +769,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }))], 1), _vm._v(" "), _c('tab', {
     attrs: {
       "selected": "1",
-      "message-count": "100",
+      "message-count": _vm.message_count,
       "mpcomid": '5'
     }
   })], 1)

@@ -437,7 +437,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
   state: {
     openid: "",
-    user_info: ""
+    message_count: ""
   },
   actions: {
     /**
@@ -486,9 +486,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
     },
 
     /**
-     * 获取用户信息
+     * 获取信息条数
      * */
-    getUserInfo: function getUserInfo(_ref5, params) {
+    getMessageCount: function getMessageCount(_ref5, params) {
       var commit = _ref5.commit;
       var _ref6 = [params.im, params.fps, params.url],
           im = _ref6[0],
@@ -498,7 +498,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
       var requestUrl = __WEBPACK_IMPORTED_MODULE_3__utils_utils__["a" /* default */].produceRequestUrl(im, fps, url);
       return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
         fly.get(requestUrl).then(function (res) {
-          commit("setUserInfo", res.data);
+          commit("setMessageCount", res.data);
           resolve(res.data);
         });
       });
@@ -508,16 +508,16 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
     setOpenid: function setOpenid(state, res) {
       state.openid = res;
     },
-    setUserInfo: function setUserInfo(state, res) {
-      state.user_info = res;
+    setMessageCount: function setMessageCount(state, res) {
+      state.message_count = res;
     }
   },
   getters: {
     openid: function openid(state) {
       return state.openid;
     },
-    user_info: function user_info(state) {
-      return state.user_info;
+    message_count: function message_count(state) {
+      return state.message_count;
     }
   }
 }));

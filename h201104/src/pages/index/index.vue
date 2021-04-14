@@ -42,7 +42,7 @@
     <getUserInfo :isScope="is_scope" message="请授权头像信息，否则无法使用" @setUserInfo="setUserInfo"></getUserInfo>
 
     <!-- 自定义 tab -->
-    <tab message-count=1></tab>
+    <tab :message-count='message_count'></tab>
 
   </section>
 </template>
@@ -59,6 +59,7 @@
     },
     data() {
       return {
+        message_count: 0, // 信息条数
         is_login: false, // 是否登陆
         is_scope: false, // 是否打开请授权头像
         openid_info: "", // openid 信息
@@ -174,6 +175,21 @@
               item.meeting_time = `${item.meeting_time.split("日")[0]}日`;
             });
             this.list = result;
+          }
+        });
+        // 信息条数
+        await this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_unread_message,
+          fps: {
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "get_unread_message");
+          } else {
+            this.message_count = res.back_value;
           }
         });
         this.$Utils.closeWaiting();

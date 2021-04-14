@@ -152,6 +152,7 @@ if (false) {(function () {
   },
   data: function data() {
     return {
+      message_count: 0, // 信息条数
       is_login: false, // 是否登陆
       is_scope: false, // 是否打开请授权头像
       openid_info: "", // openid 信息
@@ -307,9 +308,26 @@ if (false) {(function () {
                 });
 
               case 4:
+                _context2.next = 6;
+                return _this3.$store.dispatch("fetch", {
+                  im: _this3.$Config.INTER_FACE.get_unread_message,
+                  fps: {
+                    u_key: _this3.u_key
+                  },
+                  url: _this3.$Config.REQUEST_URI
+                }).then(function (res) {
+                  if (res.result === "failure") {
+                    _this3.$Utils.closeWaiting();
+                    _this3.$Utils.showErrorInfo(res, "get_unread_message");
+                  } else {
+                    _this3.message_count = res.back_value;
+                  }
+                });
+
+              case 6:
                 _this3.$Utils.closeWaiting();
 
-              case 5:
+              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -455,7 +473,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('tab', {
     attrs: {
-      "message-count": "1",
+      "message-count": _vm.message_count,
       "mpcomid": '1'
     }
   })], 1)

@@ -10,7 +10,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     openid: "",
-    user_info: ""
+    message_count: ""
   },
   actions: {
     /**
@@ -50,16 +50,16 @@ export default new Vuex.Store({
       });
     },
     /**
-     * 获取用户信息
+     * 获取信息条数
      * */
-    getUserInfo({
+    getMessageCount({
       commit
     }, params) {
       const [im, fps, url] = [params.im, params.fps, params.url];
       const requestUrl = unit.produceRequestUrl(im, fps, url);
       return new Promise((resolve, reject) => {
         fly.get(requestUrl).then(res => {
-          commit("setUserInfo", res.data);
+          commit("setMessageCount", res.data);
           resolve(res.data);
         });
       });
@@ -69,12 +69,12 @@ export default new Vuex.Store({
     setOpenid(state, res) {
       state.openid = res;
     },
-    setUserInfo(state, res) {
-      state.user_info = res;
+    setMessageCount(state, res) {
+      state.message_count = res;
     }
   },
   getters: {
     openid: state => state.openid,
-    user_info: state => state.user_info
+    message_count: state => state.message_count
   }
 });

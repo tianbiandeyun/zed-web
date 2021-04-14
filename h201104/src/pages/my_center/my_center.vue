@@ -83,7 +83,7 @@
     </div> -->
 
     <!-- 自定义 tab -->
-    <tab selected='2' message-count=100></tab>
+    <tab selected='2' message-count=0></tab>
 
   </section>
 </template>
