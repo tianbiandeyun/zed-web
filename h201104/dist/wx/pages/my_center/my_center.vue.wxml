@@ -1,3 +1,3 @@
 <import src="/custom-tab-bar/index.vue.wxml" /><template name="60862bb4">
-  <view class="_section data-v-32e6eee8 user-center-container" wx:if="{{!is_page}}"> my_center <template selected="1" data="{{...$root[$kk+'0'], $root}}" is="55f19ec2"></template></view>
+  <view class="_section data-v-32e6eee8 user-center-container" wx:if="{{!is_page}}"> my_center <template selected="2" data="{{...$root[$kk+'0'], $root}}" is="55f19ec2"></template></view>
 </template>

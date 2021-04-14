@@ -40,17 +40,22 @@ global.webpackJsonpMpvue([1],{
   },
   data: function data() {
     return {
-      color: "#7A7E83",
-      selectedColor: "#3cc51f",
+      color: "#707070",
+      selectedColor: "#2c2c2c",
       list: [{
         pagePath: "/pages/index/main",
         iconPath: "../../static/images/shouye_n.png",
         selectedIconPath: "../../static/images/shouye_y.png",
         text: "首页"
       }, {
+        pagePath: "/pages/user_center/main",
+        iconPath: "../../static/images/xinxi_n.png",
+        selectedIconPath: "../../static/images/xinxi_y.png",
+        text: "信息"
+      }, {
         pagePath: "/pages/my_center/main",
-        iconPath: "../../static/images/icon_API.png",
-        selectedIconPath: "../../static/images/icon_API_HL.png",
+        iconPath: "../../static/images/wode_n.png",
+        selectedIconPath: "../../static/images/wode_y.png",
         text: "我的"
       }]
     };

@@ -318,7 +318,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "user-center-container"
   }, [_vm._v("\n\n  my_center\n\n  "), _vm._v(" "), _c('tab', {
     attrs: {
-      "selected": "1",
+      "selected": "2",
       "mpcomid": '0'
     }
   })], 1) : _vm._e()

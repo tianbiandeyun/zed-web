@@ -8,13 +8,12 @@ page {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100rpx;
+  height: 120rpx;
   background: white;
   display: flex;
   padding-bottom: env(safe-area-inset-bottom);
-  border: 2rpx solid red;
 }
-.tab-bar-border.data-v-036428c0 {
+.tab-bar .tab-bar-border.data-v-036428c0 {
   background-color: rgba(0, 0, 0, 0.33);
   position: absolute;
   left: 0;
@@ -23,19 +22,19 @@ page {
   height: 2rpx;
   transform: scaleY(0.5);
 }
-.tab-bar-item.data-v-036428c0 {
+.tab-bar .tab-bar-item.data-v-036428c0 {
   flex: 1;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2rpx solid black;
 }
-.tab-bar-item cover-image.data-v-036428c0 {
+.tab-bar .tab-bar-item cover-image.data-v-036428c0 {
   width: 60rpx;
   height: 60rpx;
+  margin-bottom: 8rpx;
 }
-.tab-bar-item cover-view.data-v-036428c0 {
+.tab-bar .tab-bar-item cover-view.data-v-036428c0 {
   font-size: 28rpx;
 }

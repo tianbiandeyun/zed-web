@@ -83,7 +83,7 @@
     </div> -->
 
     <!-- 自定义 tab -->
-    <tab selected='1'></tab>
+    <tab selected='2'></tab>
 
   </section>
 </template>

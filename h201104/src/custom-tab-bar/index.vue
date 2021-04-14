@@ -25,19 +25,27 @@
     },
     data() {
       return {
-        color: "#7A7E83",
-        selectedColor: "#3cc51f",
+        color: "#707070",
+        selectedColor: "#2c2c2c",
         list: [{
-          pagePath: "/pages/index/main",
-          iconPath: "../../static/images/shouye_n.png",
-          selectedIconPath: "../../static/images/shouye_y.png",
-          text: "首页"
-        }, {
-          pagePath: "/pages/my_center/main",
-          iconPath: "../../static/images/icon_API.png",
-          selectedIconPath: "../../static/images/icon_API_HL.png",
-          text: "我的"
-        }]
+            pagePath: "/pages/index/main",
+            iconPath: "../../static/images/shouye_n.png",
+            selectedIconPath: "../../static/images/shouye_y.png",
+            text: "首页"
+          },
+          {
+            pagePath: "/pages/user_center/main",
+            iconPath: "../../static/images/xinxi_n.png",
+            selectedIconPath: "../../static/images/xinxi_y.png",
+            text: "信息"
+          },
+          {
+            pagePath: "/pages/my_center/main",
+            iconPath: "../../static/images/wode_n.png",
+            selectedIconPath: "../../static/images/wode_y.png",
+            text: "我的"
+          }
+        ]
       }
     },
     methods: {
@@ -65,40 +73,39 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 60px;
     background: white;
     display: flex;
     padding-bottom: env(safe-area-inset-bottom);
-    border: 1px solid red;
-  }
 
-  .tab-bar-border {
-    background-color: rgba(0, 0, 0, 0.33);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 1px;
-    transform: scaleY(0.5);
-  }
+    .tab-bar-border {
+      background-color: rgba(0, 0, 0, 0.33);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 1px;
+      transform: scaleY(0.5);
+    }
 
-  .tab-bar-item {
-    flex: 1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid black;
-  }
+    .tab-bar-item {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
-  .tab-bar-item cover-image {
-    width: 30px;
-    height: 30px;
-  }
+      cover-image {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 4px;
+      }
 
-  .tab-bar-item cover-view {
-    font-size: 14px;
+      cover-view {
+        font-size: 14px;
+      }
+    }
   }
 
 </style>
