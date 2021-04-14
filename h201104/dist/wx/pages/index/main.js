@@ -137,6 +137,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
@@ -150,8 +153,8 @@ if (false) {(function () {
   data: function data() {
     return {
       is_login: false, // 是否登陆
-      openid_info: "", // openid 信息
       is_scope: false, // 是否打开请授权头像
+      openid_info: "", // openid 信息
       nick_name: "", // 昵称
       user_photo: "", // 头像
       u_key: "", // 本人 key

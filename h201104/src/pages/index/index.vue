@@ -1,6 +1,7 @@
 <template>
   <section class="index-container">
 
+    <!-- 展示头像 / 昵称 -->
     <div v-if="is_login" class="index-header">
       <div class="index-header-user-info" @click="goUserCenter">
         <div class="photo">
@@ -10,6 +11,7 @@
       </div>
     </div>
 
+    <!-- 点击登陆 -->
     <div v-else class="index-header">
       <div class="index-header-user-info" @click="openLogin">
         <div class="photo" style="background-color: #fff">
@@ -19,6 +21,7 @@
       </div>
     </div>
 
+    <!-- 活动列表 -->
     <div class="index-activity-list">
       <div class="index-activity-item" v-for="(item,index) in list" :key="index" @click="goActivity(item)">
         <div class="activity-item-img">
@@ -57,8 +60,8 @@
     data() {
       return {
         is_login: false, // 是否登陆
-        openid_info: "", // openid 信息
         is_scope: false, // 是否打开请授权头像
+        openid_info: "", // openid 信息
         nick_name: "", // 昵称
         user_photo: "", // 头像
         u_key: "", // 本人 key
