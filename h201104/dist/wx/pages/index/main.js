@@ -455,7 +455,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('tab', {
     attrs: {
-      "message-count": "100",
+      "message-count": "1",
       "mpcomid": '1'
     }
   })], 1)

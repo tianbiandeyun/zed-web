@@ -29,6 +29,24 @@ page {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+}
+.tab-bar .tab-bar-item .message.data-v-036428c0 {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  padding: 0 10rpx;
+  margin-right: -60rpx;
+  border: 2rpx solid red;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 50%;
+  background-color: red;
+}
+.tab-bar .tab-bar-item.data-v-036428c0:nth-of-type(3) {
+  border: 2rpx solid red;
 }
 .tab-bar .tab-bar-item cover-image.data-v-036428c0 {
   width: 60rpx;

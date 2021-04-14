@@ -42,7 +42,7 @@
     <getUserInfo :isScope="is_scope" message="请授权头像信息，否则无法使用" @setUserInfo="setUserInfo"></getUserInfo>
 
     <!-- 自定义 tab -->
-    <tab message-count=100></tab>
+    <tab message-count=1></tab>
 
   </section>
 </template>

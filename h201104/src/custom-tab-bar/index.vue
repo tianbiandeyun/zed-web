@@ -8,7 +8,7 @@
 
         <cover-image :src="_index === index ? item.selectedIconPath : item.iconPath"></cover-image>
         <cover-view :style="{color: _index === index ? selectedColor : color}">{{item.text}}</cover-view>
-        <cover-view v-if="index === 1">{{messageCount}}</cover-view>
+        <cover-view class="message" v-if="index === 1 && messageCount != 0">{{messageCount}}</cover-view>
 
       </cover-view>
 
@@ -98,6 +98,26 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      position: relative;
+
+      .message {
+        position: absolute;
+        top: 0;
+        right: 50%;
+        padding: 0 5px;
+        margin-right: -30px;
+        border: 1px solid red;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 50%;
+        background-color: red;
+      }
+
+      &:nth-of-type(3) {
+        border: 1px solid red;
+      }
 
       cover-image {
         width: 30px;

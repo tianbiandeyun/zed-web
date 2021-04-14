@@ -123,7 +123,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "mpcomid": '2_' + index
       }
-    }, [_vm._v(_vm._s(item.text))]), _vm._v(" "), (index === 1) ? _c('cover-view', {
+    }, [_vm._v(_vm._s(item.text))]), _vm._v(" "), (index === 1 && _vm.messageCount != 0) ? _c('cover-view', {
+      staticClass: "message",
       attrs: {
         "mpcomid": '3_' + index
       }
