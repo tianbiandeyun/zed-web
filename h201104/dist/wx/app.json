@@ -23,8 +23,7 @@
     "selectedColor": "#3cc51f",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/main",
         "iconPath": "/static/images/icon_component.png",
         "selectedIconPath": "/static/images/icon_component_HL.png",
@@ -42,6 +41,5 @@
     "scope.userLocation": {
       "desc": "你的位置将用于查看活动位置"
     }
-  },
-  "sitemapLocation": "sitemap74.json"
+  }
 }

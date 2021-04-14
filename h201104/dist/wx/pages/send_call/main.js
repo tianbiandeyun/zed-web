@@ -162,6 +162,13 @@ if (false) {(function () {
   },
 
   methods: {
+    goUser: function goUser(res) {
+      console.log(res.trigger_ukey);
+      wx.navigateTo({
+        url: "/pages/user_center/main?u_key=" + res.trigger_ukey
+      });
+    },
+
     /**
      * 举报信息
      */
@@ -188,8 +195,6 @@ if (false) {(function () {
           title: '提示',
           content: '确定举报吗？',
           success: function success(res) {
-            var _this = this;
-
             if (res.confirm) {
               that.$Utils.showWaiting();
               that.$store.dispatch("fetch", {
@@ -207,7 +212,7 @@ if (false) {(function () {
                   that.$Utils.showErrorInfo(res, "accuse_message");
                 } else {
                   if (res.back_value) {
-                    _this.checkbox = [];
+                    that.checkbox = [];
                     // 获取对话详情
                     that.refreshMessageDetails(that.id);
                   }
@@ -393,7 +398,7 @@ if (false) {(function () {
       // })
     },
     refreshMessageDetails: function refreshMessageDetails() {
-      var _this2 = this;
+      var _this = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -411,11 +416,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "get_chat_record_info");
+          _this.$Utils.closeWaiting();
+          _this.$Utils.showErrorInfo(res, "get_chat_record_info");
         } else {
-          _this2.list = res.back_value;
-          _this2.$Utils.closeWaiting();
+          _this.list = res.back_value;
+          _this.$Utils.closeWaiting();
         }
       });
     }
@@ -468,6 +473,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "mpcomid": '2_' + index
       },
       on: {
+        "getCall": function($event) {
+          _vm.goUser(item)
+        },
         "delCall": function($event) {
           _vm.delCall(index)
         }

@@ -11,7 +11,7 @@
         <reply :item='item' @revoke='revoke(item)' speak='我说'></reply>
       </div>
       <div v-else>
-        <get-line :item='item' @delCall='delCall(index)'></get-line>
+        <get-line :item='item' @getCall="goUser(item)" @delCall='delCall(index)'></get-line>
       </div>
 
     </div>
@@ -70,6 +70,12 @@
       this.refreshMessageDetails(this.id);
     },
     methods: {
+      goUser(res) {
+        console.log(res.trigger_ukey);
+        wx.navigateTo({
+          url: `/pages/user_center/main?u_key=${res.trigger_ukey}`
+        });
+      },
       /**
        * 举报信息
        */
@@ -113,7 +119,7 @@
                     that.$Utils.showErrorInfo(res, "accuse_message");
                   } else {
                     if (res.back_value) {
-                      this.checkbox = [];
+                      that.checkbox = [];
                       // 获取对话详情
                       that.refreshMessageDetails(that.id);
                     }

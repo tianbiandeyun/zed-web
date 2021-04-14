@@ -162,6 +162,12 @@ if (false) {(function () {
   },
 
   methods: {
+    goUser: function goUser() {
+      wx.navigateTo({
+        url: "/pages/user_center/main?u_key=" + this.u_key
+      });
+    },
+
     /**
      * 举报信息
      */
@@ -209,6 +215,7 @@ if (false) {(function () {
                     that.$Utils.showErrorInfo(res, "accuse_message");
                   } else {
                     if (res.back_value) {
+                      that.checkbox = [];
                       // 获取对话详情
                       that.refreshMessageDetails(that.id);
                     }
@@ -498,6 +505,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mpcomid": '0'
     },
     on: {
+      "getCall": _vm.goUser,
       "delCall": function($event) {
         _vm.delCall2(_vm.list.conversation)
       }

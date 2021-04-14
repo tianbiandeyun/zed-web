@@ -2,7 +2,7 @@
   <section class="get-call-container">
 
     <div class="call" v-if="list != ''">
-      <get-line :item='list.conversation' @delCall='delCall2(list.conversation)'></get-line>
+      <get-line :item='list.conversation' @getCall="goUser" @delCall='delCall2(list.conversation)'></get-line>
     </div>
 
     <div class="call" v-for="(item,index) in list.reply" :key="index">
@@ -70,6 +70,11 @@
       this.refreshMessageDetails(this.id);
     },
     methods: {
+      goUser() {
+        wx.navigateTo({
+          url: `/pages/user_center/main?u_key=${this.u_key}`
+        });
+      },
       /**
        * 举报信息
        */
@@ -117,6 +122,7 @@
                       that.$Utils.showErrorInfo(res, "accuse_message");
                     } else {
                       if (res.back_value) {
+                        that.checkbox = [];
                         // 获取对话详情
                         that.refreshMessageDetails(that.id);
                       }

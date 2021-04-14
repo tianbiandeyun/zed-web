@@ -5,7 +5,7 @@
     <view class="_div data-v-8b5e4afc call" wx:if="{{list != ''}}"><template bindrevoke="handleProxy" speak="我说" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="69c557b1"></template></view>
     <view class="_div data-v-8b5e4afc call" wx:key="index" key="{{index}}" wx:for="{{list.reply}}" wx:for-index="index" wx:for-item="item">
       <view wx:if="{{u_key == item.trigger_ukey}}" class="_div data-v-8b5e4afc"><template bindrevoke="handleProxy" speak="我说" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1_'+index], $root}}" is="69c557b1"></template></view>
-      <view wx:else class="_div data-v-8b5e4afc"><template binddelCall="handleProxy" data-eventid="{{'2_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2_'+index], $root}}" is="7d02b1c6"></template></view>
+      <view wx:else class="_div data-v-8b5e4afc"><template bindgetCall="handleProxy" binddelCall="handleProxy" data-eventid="{{'2_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2_'+index], $root}}" is="7d02b1c6"></template></view>
     </view>
     <view class="_div data-v-8b5e4afc call"><template bindsubmit="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="1cfab15e"></template></view>
     <v-dialog use-slot title="请选择举报原因" confirm-button-color="#19be6b" show="{{is_dialog}}" show-cancel-button bindcancel="handleProxy" bindconfirm="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_v-dialog data-v-8b5e4afc">
