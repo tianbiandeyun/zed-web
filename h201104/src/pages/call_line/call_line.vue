@@ -43,11 +43,42 @@
         u_key: '' // 本人 key
       };
     },
-    mounted() {
+    async onShow() {
       this.$Utils.showWaiting();
 
-      // 先获取一下 我收到的留言
-      this.refreshCallLine("accepter_ukey");
+      // 获取用户信息
+      await this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_member_info,
+        fps: {
+          open_id: this.openid.back_value.open_id,
+          u_key: ""
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(res => {
+        if (res.result === "failure") {
+          this.$Utils.closeWaiting();
+          if (res.error_code === 2012100231) {
+            throw new Error("未登录");
+          } else {
+            this.$Utils.showErrorInfo(res, "get_member_info");
+          }
+        } else {
+          if (res.back_value.name === "" || res.back_value.name === null) {
+            throw new Error("未登录");
+          } else {
+            this.u_key = res.back_value.u_key;
+          }
+        }
+      });
+
+      if (this.active === 1) {
+        // 如果点击的是我创建的对话，并且从上一个页面回来的
+        this.refreshCallLine("trigger_ukey");
+      } else {
+        // 先获取一下 我收到的留言
+        this.refreshCallLine("accepter_ukey");
+      }
+
     },
     methods: {
       /**
@@ -96,7 +127,7 @@
                     console.log(res);
                     if (res.back_value) {
                       // 我建立的 trigger_ukey
-                      that.refreshCallLine("trigger_ukey", that.u_key);
+                      that.refreshCallLine("trigger_ukey");
                     }
                   }
                 });
@@ -201,7 +232,7 @@
                   } else {
                     if (res.back_value) {
                       // 我收到的 accepter_ukey
-                      that.refreshCallLine("accepter_ukey", that.u_key);
+                      that.refreshCallLine("accepter_ukey");
                     }
                   }
                 });
@@ -249,12 +280,13 @@
       clickTabs(event) {
         this.$Utils.showWaiting();
         this.call_line_list = [];
+        this.active = event.mp.detail.index;
         if (event.mp.detail.index === 0) {
           // 我收到的 accepter_ukey
-          this.refreshCallLine("accepter_ukey", this.u_key);
+          this.refreshCallLine("accepter_ukey");
         } else {
           // 我建立的 trigger_ukey
-          this.refreshCallLine("trigger_ukey", this.u_key);
+          this.refreshCallLine("trigger_ukey");
         }
       },
       /**
@@ -264,35 +296,10 @@
 
         let [type] = [...res];
 
-        // 获取用户信息
-        await this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.get_member_info,
-          fps: {
-            open_id: this.openid.back_value.open_id,
-            u_key: ""
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            if (res.error_code === 2012100231 || res.error_code === "2012100231") {
-              console.log("未登录");
-            } else {
-              this.$Utils.showErrorInfo(res, "get_member_info");
-            }
-          } else {
-            if (res.back_value.name === "" || res.back_value.name === null) {
-              console.log("未登录");
-            } else {
-              this.u_key = res.back_value.u_key;
-            }
-          }
-        });
-
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_chat_record_list,
           fps: {
-            u_key: this.key,
+            u_key: this.u_key,
             type_str: type
           },
           url: this.$Config.REQUEST_URI

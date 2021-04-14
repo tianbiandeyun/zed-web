@@ -140,14 +140,14 @@
         }).then(res => {
           if (res.result === "failure") {
             this.$Utils.closeWaiting();
-            if (res.error_code === 2012100231 || res.error_code === "2012100231") {
-              console.log("未登录");
+            if (res.error_code === 2012100231) {
+              throw new Error("未登录");
             } else {
               this.$Utils.showErrorInfo(res, "get_member_info");
             }
           } else {
             if (res.back_value.name === "" || res.back_value.name === null) {
-              console.log("未登录");
+              throw new Error("未登录");
             } else {
               this.nick_name = res.back_value.name;
               this.user_photo = res.back_value.wx_photo;

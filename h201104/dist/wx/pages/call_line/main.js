@@ -85,10 +85,10 @@ if (false) {(function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_toConsumableArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex__ = __webpack_require__(5);
@@ -141,11 +141,59 @@ if (false) {(function () {
       u_key: '' // 本人 key
     };
   },
-  mounted: function mounted() {
-    this.$Utils.showWaiting();
+  onShow: function onShow() {
+    var _this = this;
 
-    // 先获取一下 我收到的留言
-    this.refreshCallLine("accepter_ukey");
+    return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee() {
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _this.$Utils.showWaiting();
+
+              // 获取用户信息
+              _context.next = 3;
+              return _this.$store.dispatch("fetch", {
+                im: _this.$Config.INTER_FACE.get_member_info,
+                fps: {
+                  open_id: _this.openid.back_value.open_id,
+                  u_key: ""
+                },
+                url: _this.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  _this.$Utils.closeWaiting();
+                  if (res.error_code === 2012100231) {
+                    throw new Error("未登录");
+                  } else {
+                    _this.$Utils.showErrorInfo(res, "get_member_info");
+                  }
+                } else {
+                  if (res.back_value.name === "" || res.back_value.name === null) {
+                    throw new Error("未登录");
+                  } else {
+                    _this.u_key = res.back_value.u_key;
+                  }
+                }
+              });
+
+            case 3:
+
+              if (_this.active === 1) {
+                // 如果点击的是我创建的对话，并且从上一个页面回来的
+                _this.refreshCallLine("trigger_ukey");
+              } else {
+                // 先获取一下 我收到的留言
+                _this.refreshCallLine("accepter_ukey");
+              }
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, _this);
+    }))();
   },
 
   methods: {
@@ -195,7 +243,7 @@ if (false) {(function () {
                   console.log(res);
                   if (res.back_value) {
                     // 我建立的 trigger_ukey
-                    that.refreshCallLine("trigger_ukey", that.u_key);
+                    that.refreshCallLine("trigger_ukey");
                   }
                 }
               });
@@ -244,7 +292,7 @@ if (false) {(function () {
      * 我建立的 留言详情
      */
     sendCall: function sendCall(res) {
-      var _this = this;
+      var _this2 = this;
 
       var id = res.id;
 
@@ -258,15 +306,15 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this.$Utils.closeWaiting();
-          _this.$Utils.showErrorInfo(res, "read_message");
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "read_message");
         } else {
           if (res.back_value) {
             wx.navigateTo({
-              url: "/pages/send_call/main?id=" + id + "&u_key=" + _this.u_key
+              url: "/pages/send_call/main?id=" + id + "&u_key=" + _this2.u_key
             });
           }
-          _this.$Utils.closeWaiting();
+          _this2.$Utils.closeWaiting();
         }
       });
     },
@@ -301,7 +349,7 @@ if (false) {(function () {
                 } else {
                   if (res.back_value) {
                     // 我收到的 accepter_ukey
-                    that.refreshCallLine("accepter_ukey", that.u_key);
+                    that.refreshCallLine("accepter_ukey");
                   }
                 }
               });
@@ -317,7 +365,7 @@ if (false) {(function () {
      * 我收到的 留言详情
      */
     getCall: function getCall(res) {
-      var _this2 = this;
+      var _this3 = this;
 
       var id = res.id;
 
@@ -331,15 +379,15 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "read_message");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "read_message");
         } else {
           if (res.back_value) {
             wx.navigateTo({
-              url: "/pages/get_call/main?id=" + id + "&u_key=" + _this2.u_key
+              url: "/pages/get_call/main?id=" + id + "&u_key=" + _this3.u_key
             });
           }
-          _this2.$Utils.closeWaiting();
+          _this3.$Utils.closeWaiting();
         }
       });
     },
@@ -350,12 +398,13 @@ if (false) {(function () {
     clickTabs: function clickTabs(event) {
       this.$Utils.showWaiting();
       this.call_line_list = [];
+      this.active = event.mp.detail.index;
       if (event.mp.detail.index === 0) {
         // 我收到的 accepter_ukey
-        this.refreshCallLine("accepter_ukey", this.u_key);
+        this.refreshCallLine("accepter_ukey");
       } else {
         // 我建立的 trigger_ukey
-        this.refreshCallLine("trigger_ukey", this.u_key);
+        this.refreshCallLine("trigger_ukey");
       }
     },
 
@@ -363,73 +412,45 @@ if (false) {(function () {
      * 获取留言信息
      */
     refreshCallLine: function refreshCallLine() {
-      var _this3 = this;
+      var _this4 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
       }
 
-      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
+      return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee2() {
         var _ref, type;
 
-        return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _ref = [].concat(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_toConsumableArray___default()(res)), type = _ref[0];
+                _ref = [].concat(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_toConsumableArray___default()(res)), type = _ref[0];
 
-                // 获取用户信息
 
-                _context.next = 3;
-                return _this3.$store.dispatch("fetch", {
-                  im: _this3.$Config.INTER_FACE.get_member_info,
+                _this4.$store.dispatch("fetch", {
+                  im: _this4.$Config.INTER_FACE.get_chat_record_list,
                   fps: {
-                    open_id: _this3.openid.back_value.open_id,
-                    u_key: ""
-                  },
-                  url: _this3.$Config.REQUEST_URI
-                }).then(function (res) {
-                  if (res.result === "failure") {
-                    _this3.$Utils.closeWaiting();
-                    if (res.error_code === 2012100231 || res.error_code === "2012100231") {
-                      console.log("未登录");
-                    } else {
-                      _this3.$Utils.showErrorInfo(res, "get_member_info");
-                    }
-                  } else {
-                    if (res.back_value.name === "" || res.back_value.name === null) {
-                      console.log("未登录");
-                    } else {
-                      _this3.u_key = res.back_value.u_key;
-                    }
-                  }
-                });
-
-              case 3:
-
-                _this3.$store.dispatch("fetch", {
-                  im: _this3.$Config.INTER_FACE.get_chat_record_list,
-                  fps: {
-                    u_key: _this3.key,
+                    u_key: _this4.u_key,
                     type_str: type
                   },
-                  url: _this3.$Config.REQUEST_URI
+                  url: _this4.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this3.$Utils.closeWaiting();
-                    _this3.$Utils.showErrorInfo(res, "get_chat_record_list");
+                    _this4.$Utils.closeWaiting();
+                    _this4.$Utils.showErrorInfo(res, "get_chat_record_list");
                   } else {
-                    _this3.call_line_list = res.back_value;
-                    _this3.$Utils.closeWaiting();
+                    _this4.call_line_list = res.back_value;
+                    _this4.$Utils.closeWaiting();
                   }
                 });
 
-              case 4:
+              case 2:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, _this3);
+        }, _callee2, _this4);
       }))();
     }
   },
