@@ -192,7 +192,7 @@ if (false) {(function () {
                 im: that.$Config.INTER_FACE.conceal_message,
                 fps: {
                   id: id,
-                  u_key: this.u_key
+                  u_key: that.u_key
                 },
                 url: that.$Config.REQUEST_URI
               }).then(function (res) {
