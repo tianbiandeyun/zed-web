@@ -137,8 +137,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
 
 
 
@@ -151,13 +149,13 @@ if (false) {(function () {
   },
   data: function data() {
     return {
-      is_login: false,
-      openid_info: "",
-      is_scope: false,
-      nick_name: "",
-      user_photo: "",
-      u_key: "",
-      list: []
+      is_login: false, // 是否登陆
+      openid_info: "", // openid 信息
+      is_scope: false, // 是否打开请授权头像
+      nick_name: "", // 昵称
+      user_photo: "", // 头像
+      u_key: "", // 本人 key
+      list: [] // 活动列表
     };
   },
   onShow: function onShow() {
@@ -187,10 +185,17 @@ if (false) {(function () {
   },
 
   methods: {
-    login_wx: function login_wx() {
+    /**
+     * 打开请授权头像
+     */
+    openLogin: function openLogin() {
       this.is_scope = true;
     },
-    goUserInfo: function goUserInfo() {
+
+    /**
+     * 前往用户中心
+     */
+    goUserCenter: function goUserCenter() {
       wx.navigateTo({
         url: "/pages/user_center/main?u_key=" + this.u_key
       });
@@ -218,7 +223,6 @@ if (false) {(function () {
       var _this2 = this;
 
       this.$Utils.showWaiting();
-
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.set_update_user_info,
         fps: {
@@ -237,6 +241,10 @@ if (false) {(function () {
         }
       });
     },
+
+    /**
+     * 首页信息获取
+     * */
     refreshIndex: function refreshIndex() {
       var _this3 = this;
 
@@ -296,7 +304,6 @@ if (false) {(function () {
                 });
 
               case 4:
-
                 _this3.$Utils.closeWaiting();
 
               case 5:
@@ -364,7 +371,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '0'
     },
     on: {
-      "click": _vm.goUserInfo
+      "click": _vm.goUserCenter
     }
   }, [_c('div', {
     staticClass: "photo"
@@ -383,7 +390,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '1'
     },
     on: {
-      "click": _vm.login_wx
+      "click": _vm.openLogin
     }
   }, [_c('div', {
     staticClass: "photo",

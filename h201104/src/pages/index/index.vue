@@ -2,7 +2,7 @@
   <section class="index-container">
 
     <div v-if="is_login" class="index-header">
-      <div class="index-header-user-info" @click="goUserInfo">
+      <div class="index-header-user-info" @click="goUserCenter">
         <div class="photo">
           <img :src="user_photo" alt="">
         </div>
@@ -11,7 +11,7 @@
     </div>
 
     <div v-else class="index-header">
-      <div class="index-header-user-info" @click="login_wx">
+      <div class="index-header-user-info" @click="openLogin">
         <div class="photo" style="background-color: #fff">
           <img src="../../../static/images/nologin.png" alt="">
         </div>
@@ -20,7 +20,6 @@
     </div>
 
     <div class="index-activity-list">
-
       <div class="index-activity-item" v-for="(item,index) in list" :key="index" @click="goActivity(item)">
         <div class="activity-item-img">
           <img :src="item.main_graph" alt="">
@@ -35,7 +34,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <getUserInfo :isScope="is_scope" message="请授权头像信息，否则无法使用" @setUserInfo="setUserInfo"></getUserInfo>
@@ -58,13 +56,13 @@
     },
     data() {
       return {
-        is_login: false,
-        openid_info: "",
-        is_scope: false,
-        nick_name: "",
-        user_photo: "",
-        u_key: "",
-        list: []
+        is_login: false, // 是否登陆
+        openid_info: "", // openid 信息
+        is_scope: false, // 是否打开请授权头像
+        nick_name: "", // 昵称
+        user_photo: "", // 头像
+        u_key: "", // 本人 key
+        list: [] // 活动列表
       };
     },
     async onShow() {
@@ -73,10 +71,16 @@
       this.refreshIndex();
     },
     methods: {
-      login_wx() {
+      /**
+       * 打开请授权头像
+       */
+      openLogin() {
         this.is_scope = true;
       },
-      goUserInfo() {
+      /**
+       * 前往用户中心
+       */
+      goUserCenter() {
         wx.navigateTo({
           url: `/pages/user_center/main?u_key=${this.u_key}`
         });
@@ -100,7 +104,6 @@
        * */
       setUserInfo(res) {
         this.$Utils.showWaiting();
-
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.set_update_user_info,
           fps: {
@@ -118,10 +121,11 @@
             this.refreshIndex();
           }
         });
-
       },
+      /**
+       * 首页信息获取
+       * */
       async refreshIndex() {
-
         // 获取用户信息
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
@@ -149,7 +153,6 @@
             }
           }
         });
-
         // 获取首页活动列表
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_salon_activity_list,
@@ -170,7 +173,6 @@
             this.list = result;
           }
         });
-
         this.$Utils.closeWaiting();
       }
     },
