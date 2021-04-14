@@ -276,7 +276,7 @@
 
     .index-activity-list {
       box-sizing: border-box;
-      padding: 0 20px;
+      padding: 0 20px 120px 20px;
       position: absolute;
       top: 80px;
       left: 0;

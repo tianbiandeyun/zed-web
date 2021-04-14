@@ -1,14 +1,18 @@
 @import "../../common/vendor.wxss";
 
 .call_line-container.data-v-bf8108fc {
-  background-color: #fff;
+  padding-bottom: 200rpx;
 }
 .call_line-container .call.data-v-bf8108fc {
+  background-color: #fff;
   border-bottom: 2rpx solid #dcdee2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 20rpx 28rpx 20rpx 28rpx;
+}
+.call_line-container .call.data-v-bf8108fc:last-child {
+  border-bottom: none;
 }
 .create_line-container .created-line-header.data-v-0ec57eb0 {
   display: grid;

@@ -33,7 +33,7 @@ page {
 }
 .tab-bar .tab-bar-item .message.data-v-036428c0 {
   position: absolute;
-  top: 0;
+  top: 8rpx;
   right: 50%;
   padding: 0 10rpx;
   margin-right: -60rpx;

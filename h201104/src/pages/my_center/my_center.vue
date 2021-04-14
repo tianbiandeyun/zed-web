@@ -199,6 +199,7 @@
 
 <style lang="less" scoped>
   .user-center-container {
+    padding-bottom: 100px;
 
     .user-j {
       padding: 10px;

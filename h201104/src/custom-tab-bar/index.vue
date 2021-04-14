@@ -102,7 +102,7 @@
 
       .message {
         position: absolute;
-        top: 0;
+        top: 4px;
         right: 50%;
         padding: 0 5px;
         margin-right: -30px;

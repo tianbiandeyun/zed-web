@@ -34,7 +34,7 @@
 }
 .index-container .index-activity-list.data-v-675665fc {
   box-sizing: border-box;
-  padding: 0 40rpx;
+  padding: 0 40rpx 240rpx 40rpx;
   position: absolute;
   top: 160rpx;
   left: 0;

@@ -324,14 +324,19 @@
 
 <style lang="less" scoped>
   .call_line-container {
-    background-color: #fff;
+    padding-bottom: 100px;
 
     .call {
+      background-color: #fff;
       border-bottom: 1px solid #dcdee2;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       padding: 10px 14px 10px 14px;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 

@@ -1,5 +1,8 @@
 @import "../../common/vendor.wxss";
 
+.user-center-container.data-v-32e6eee8 {
+  padding-bottom: 200rpx;
+}
 .user-center-container .user-j.data-v-32e6eee8 {
   padding: 20rpx;
   background-color: #fff;
