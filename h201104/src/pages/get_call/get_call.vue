@@ -227,6 +227,7 @@
                   url: that.$Config.REQUEST_URI
                 }).then(res => {
                   if (res.result === "failure") {
+                    that.$Utils.closeWaiting();
                     if (res.error_code === 2012240131) {
 
                       wx.showModal({
@@ -242,7 +243,7 @@
                       });
                       return false;
                     }
-                    that.$Utils.closeWaiting();
+
                     that.$Utils.showErrorInfo(res, "revoke_message");
                   } else {
                     console.log(res);
@@ -283,7 +284,7 @@
           url: that.$Config.REQUEST_URI
         }).then(res => {
           if (res.result === "failure") {
-
+            that.$Utils.closeWaiting();
             if (res.error_code === 201204121753) {
 
               wx.showModal({
@@ -300,7 +301,7 @@
               return false;
             }
 
-            that.$Utils.closeWaiting();
+
             that.$Utils.showErrorInfo(res, "set_reply_to_message");
           } else {
             if (res.back_value) {

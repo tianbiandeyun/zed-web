@@ -164,6 +164,21 @@ if (false) {(function () {
               }).then(function (res) {
                 if (res.result === "failure") {
                   that.$Utils.closeWaiting();
+                  if (res.error_code === 2012240131) {
+
+                    wx.showModal({
+                      title: "提交",
+                      content: "消息对方已阅读无法撤回",
+                      showCancel: false,
+                      confirmText: "好的",
+                      success: function success() {
+                        wx.navigateBack({
+                          delta: 1
+                        });
+                      }
+                    });
+                    return false;
+                  }
                   that.$Utils.showErrorInfo(res, "revoke_message");
                 } else {
                   console.log(res);
