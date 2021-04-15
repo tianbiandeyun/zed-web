@@ -81,7 +81,7 @@
     data() {
       return {
         name: "",
-        result: ["email"],
+        result: [],
         index: 0,
         array: ["男", "女"],
         complate: "",
@@ -110,8 +110,17 @@
         } else {
           let _user_info = res.back_value;
 
+          // 如果存在手机号，则无法获取
           if (_user_info.phone) {
             this.disabled = true;
+          }
+          // 如果 1 则是公开，2 是隐藏
+          if (_user_info.inner_data.phone_restrict == 1) {
+            this.result.push('phone')
+          }
+          // 如果 1 则是公开，2 是隐藏
+          if (_user_info.inner_data.mail_restrict == 1) {
+            this.result.push('email')
           }
 
           this.name = _user_info.name || ""; +
