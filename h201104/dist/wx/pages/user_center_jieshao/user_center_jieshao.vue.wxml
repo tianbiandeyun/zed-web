@@ -14,7 +14,7 @@
         <view class="_div data-v-706d9fbe"><label class="_span data-v-706d9fbe">自我介绍：</label> <textarea value="{{jieshao}}" bindinput="handleProxy" placeholder="请输入自我介绍" maxlength="300" adjust-position show-confirm-bar disable-default-padding data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_textarea data-v-706d9fbe" /></view>
         <view class="_div data-v-706d9fbe"><label class="_span data-v-706d9fbe">个人照片：</label>
           <view style="padding-left: 50px" class="_div data-v-706d9fbe">
-            <v-uploader upload-text="点击上传" max-count="1" fileList="{{fileList}}" bindafterRead="handleProxy" binddeleteItem="handleProxy" accept="image" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_v-uploader data-v-706d9fbe"></v-uploader>
+            <v-uploader upload-text="点击上传" max-count="1" fileList="{{photoList}}" bindafterRead="handleProxy" binddeleteItem="handleProxy" accept="image" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_v-uploader data-v-706d9fbe"></v-uploader>
           </view>
         </view>
       </view>

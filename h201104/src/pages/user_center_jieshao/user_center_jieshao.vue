@@ -28,7 +28,7 @@
         <div>
           <span>个人照片：</span>
           <div style="padding-left: 50px">
-            <v-uploader upload-text="点击上传" max-count="1" :fileList="fileList" @afterRead="afterRead"
+            <v-uploader upload-text="点击上传" max-count="1" :fileList="photoList" @afterRead="afterRead"
               @deleteItem="deleteItem" accept="image"></v-uploader>
           </div>
         </div>
@@ -53,7 +53,7 @@
     name: "sign_up",
     data() {
       return {
-        fileList: [],
+        photoList: [],
         jieshao: "",
         photo: ""
       };
@@ -84,11 +84,11 @@
 
           this.jieshao = _user_info.brief_introduction || "";
           if (_user_info.head_portrait !== null || _user_info.head_portrait !== "") {
-            this.fileList.push({
+            this.photoList.push({
               url: _user_info.head_portrait
             });
           } else {
-            this.fileList = [];
+            this.photoList = [];
           }
 
           this.$Utils.closeWaiting();
@@ -101,7 +101,7 @@
     methods: {
       deleteItem(event) {
         let index = event.mp.detail.index;
-        this.fileList.splice(index, 1);
+        this.photoList.splice(index, 1);
       },
       afterRead(event) {
         this.$Utils.showWaiting();
@@ -130,7 +130,7 @@
             }
           }
         });
-        this.fileList.push({
+        this.photoList.push({
           url: path
         });
       },

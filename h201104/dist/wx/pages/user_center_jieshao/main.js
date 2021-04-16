@@ -140,7 +140,7 @@ if (false) {(function () {
   name: "sign_up",
   data: function data() {
     return {
-      fileList: [],
+      photoList: [],
       jieshao: "",
       photo: ""
     };
@@ -172,11 +172,11 @@ if (false) {(function () {
 
         _this.jieshao = _user_info.brief_introduction || "";
         if (_user_info.head_portrait !== null || _user_info.head_portrait !== "") {
-          _this.fileList.push({
+          _this.photoList.push({
             url: _user_info.head_portrait
           });
         } else {
-          _this.fileList = [];
+          _this.photoList = [];
         }
 
         _this.$Utils.closeWaiting();
@@ -187,7 +187,7 @@ if (false) {(function () {
   methods: {
     deleteItem: function deleteItem(event) {
       var index = event.mp.detail.index;
-      this.fileList.splice(index, 1);
+      this.photoList.splice(index, 1);
     },
     afterRead: function afterRead(event) {
       var _this2 = this;
@@ -217,7 +217,7 @@ if (false) {(function () {
           }
         }
       });
-      this.fileList.push({
+      this.photoList.push({
         url: path
       });
     },
@@ -353,7 +353,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "upload-text": "点击上传",
       "max-count": "1",
-      "fileList": _vm.fileList,
+      "fileList": _vm.photoList,
       "accept": "image",
       "eventid": '1',
       "mpcomid": '0'
