@@ -140,16 +140,17 @@ if (false) {(function () {
   name: "sign_up",
   data: function data() {
     return {
-      photoList: [],
-      jieshao: "",
-      photo: ""
+      photoList: [], // 展示的头像
+      jieshao: "", // 个人介绍
+      photo: "", // 选择的头像
+      in_work: '请选择所在行业',
+      watch_work: '请选择关注行业'
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     this.$Utils.showWaiting();
-
     this.$store.dispatch("fetch", {
       im: this.$Config.INTER_FACE.get_member_info,
       fps: {
@@ -162,23 +163,17 @@ if (false) {(function () {
         _this.$Utils.closeWaiting();
         _this.$Utils.showErrorInfo(res, "get_member_info");
       } else {
-        var _user_info = res.back_value;
-
-        // let _index = _user_info.industry_involved || this.industry[0];
-        // let __index = _user_info.interest || this.w_industry[0];
-
-        // this.index = this.industry.indexOf(_index);
-        // this.w_index = this.w_industry.indexOf(__index);
-
-        _this.jieshao = _user_info.brief_introduction || "";
-        if (_user_info.head_portrait !== null || _user_info.head_portrait !== "") {
+        var _res = res.back_value;
+        _this.in_work = _res.industry_involved;
+        _this.watch_work = _res.interest;
+        _this.jieshao = _res.brief_introduction || "";
+        if (_res.head_portrait !== null || _res.head_portrait !== "") {
           _this.photoList.push({
-            url: _user_info.head_portrait
+            url: _res.head_portrait
           });
         } else {
           _this.photoList = [];
         }
-
         _this.$Utils.closeWaiting();
       }
     });
@@ -319,9 +314,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "message"
   }, [_c('div', [_c('span', [_vm._v("所属行业：")]), _vm._v(" "), _c('div', {
     staticClass: "professional"
-  })]), _vm._v(" "), _c('div', [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.in_work))])]), _vm._v(" "), _c('div', [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('div', {
     staticClass: "professional"
-  })]), _vm._v(" "), _c('div', [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('textarea', {
+  }, [_vm._v(_vm._s(_vm.watch_work))])]), _vm._v(" "), _c('div', [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('textarea', {
     directives: [{
       name: "model",
       rawName: "v-model",

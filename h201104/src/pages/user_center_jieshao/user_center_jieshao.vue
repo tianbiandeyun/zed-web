@@ -11,12 +11,12 @@
 
         <div>
           <span>所属行业：</span>
-          <div class="professional"></div>
+          <div class="professional">{{in_work}}</div>
         </div>
 
         <div>
           <span>关注行业：</span>
-          <div class="professional"></div>
+          <div class="professional">{{watch_work}}</div>
         </div>
 
         <div>
@@ -53,15 +53,15 @@
     name: "sign_up",
     data() {
       return {
-        photoList: [],
-        jieshao: "",
-        photo: ""
+        photoList: [], // 展示的头像
+        jieshao: "", // 个人介绍
+        photo: "", // 选择的头像
+        in_work: '请选择所在行业',
+        watch_work: '请选择关注行业'
       };
     },
     mounted() {
-
       this.$Utils.showWaiting();
-
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_member_info,
         fps: {
@@ -74,29 +74,20 @@
           this.$Utils.closeWaiting();
           this.$Utils.showErrorInfo(res, "get_member_info");
         } else {
-          let _user_info = res.back_value;
-
-          // let _index = _user_info.industry_involved || this.industry[0];
-          // let __index = _user_info.interest || this.w_industry[0];
-
-          // this.index = this.industry.indexOf(_index);
-          // this.w_index = this.w_industry.indexOf(__index);
-
-          this.jieshao = _user_info.brief_introduction || "";
-          if (_user_info.head_portrait !== null || _user_info.head_portrait !== "") {
+          let _res = res.back_value;
+          this.in_work = _res.industry_involved;
+          this.watch_work = _res.interest;
+          this.jieshao = _res.brief_introduction || "";
+          if (_res.head_portrait !== null || _res.head_portrait !== "") {
             this.photoList.push({
-              url: _user_info.head_portrait
+              url: _res.head_portrait
             });
           } else {
             this.photoList = [];
           }
-
           this.$Utils.closeWaiting();
-
         }
       });
-
-
     },
     methods: {
       deleteItem(event) {
@@ -260,7 +251,6 @@
           }
 
           >.professional {
-            border: 1px solid black;
             font-size: 16px;
             height: 30px;
             line-height: 30px;

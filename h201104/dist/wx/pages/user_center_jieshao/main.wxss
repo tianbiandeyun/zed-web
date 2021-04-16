@@ -34,7 +34,6 @@
   height: 60rpx;
 }
 .jieshao-container .jieshao-message .message > ._div > .professional.data-v-706d9fbe {
-  border: 2rpx solid black;
   font-size: 32rpx;
   height: 60rpx;
   line-height: 60rpx;
