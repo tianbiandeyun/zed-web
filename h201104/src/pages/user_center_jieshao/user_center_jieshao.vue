@@ -11,16 +11,12 @@
 
         <div>
           <span>所属行业：</span>
-          <picker @change="changeIndustry" :value="index" :range="industry">
-            <p>{{industry[index]}}</p>
-          </picker>
+          <div class="professional"></div>
         </div>
 
         <div>
           <span>关注行业：</span>
-          <picker @change="changeWatchIndustry" :value="w_index" :range="w_industry">
-            <p>{{w_industry[w_index]}}</p>
-          </picker>
+          <div class="professional"></div>
         </div>
 
         <div>
@@ -58,24 +54,6 @@
     data() {
       return {
         fileList: [],
-        index: 0,
-        industry: [
-          "请选择",
-          "IT|互联网|通信|电子", "金融|银行|保险", "消费零售|贸易|交通物流", "加工制造|仪表设备",
-          "房产|建筑建设|物业", "广告|传媒|印刷出版", "管理咨询|教育科研|中介服务", "医药生物|医疗保健",
-          "酒店旅游", "能源矿产|石油化工", "政府|非赢利机构|科研|其他", "财会|金融",
-          "汽车|工程机械", "消费品|生产|物流", "市场|媒介|设计", "管理|人力资源|行政",
-          "咨询|法律|教育|翻译", "服务业"
-        ],
-        w_index: 0,
-        w_industry: [
-          "请选择",
-          "IT|互联网|通信|电子", "金融|银行|保险", "消费零售|贸易|交通物流", "加工制造|仪表设备",
-          "房产|建筑建设|物业", "广告|传媒|印刷出版", "管理咨询|教育科研|中介服务", "医药生物|医疗保健",
-          "酒店旅游", "能源矿产|石油化工", "政府|非赢利机构|科研|其他", "财会|金融",
-          "汽车|工程机械", "消费品|生产|物流", "市场|媒介|设计", "管理|人力资源|行政",
-          "咨询|法律|教育|翻译", "服务业"
-        ],
         jieshao: "",
         photo: ""
       };
@@ -98,13 +76,13 @@
         } else {
           let _user_info = res.back_value;
 
-          let _index = _user_info.industry_involved || this.industry[0];
-          let __index = _user_info.interest || this.w_industry[0];
+          // let _index = _user_info.industry_involved || this.industry[0];
+          // let __index = _user_info.interest || this.w_industry[0];
 
-          this.index = this.industry.indexOf(_index);
-          this.w_index = this.w_industry.indexOf(__index);
+          // this.index = this.industry.indexOf(_index);
+          // this.w_index = this.w_industry.indexOf(__index);
+
           this.jieshao = _user_info.brief_introduction || "";
-
           if (_user_info.head_portrait !== null || _user_info.head_portrait !== "") {
             this.fileList.push({
               url: _user_info.head_portrait
@@ -126,14 +104,10 @@
         this.fileList.splice(index, 1);
       },
       afterRead(event) {
-
         this.$Utils.showWaiting();
-
         let path = event.mp.detail.file.path;
-
         const requestUrl = this.$Utils.produceRequestUrl(this.$Config.INTER_FACE.make_img_route, {}, this.$Config
           .REQUEST_URI, "post");
-
         wx.uploadFile({
           url: requestUrl,
           filePath: path,
@@ -146,7 +120,6 @@
             "fps[img]": ""
           },
           success: (res) => {
-
             if (JSON.parse(res.data).result === "failure") {
               this.$Utils.closeWaiting();
               this.$Utils.showErrorInfo(res, "make_img_route");
@@ -155,93 +128,83 @@
               this.photo = JSON.parse(res.data).back_value;
               this.$Utils.closeWaiting();
             }
-
           }
         });
-
         this.fileList.push({
           url: path
         });
-
       },
       submit() {
 
-        if (this.industry[this.index] === "请选择") {
+        // if (this.industry[this.index] === "请选择") {
 
-          wx.showModal({
-            title: "提示",
-            showCancel: false,
-            content: "所属行业不能为空",
-            success(res) {}
-          });
+        //   wx.showModal({
+        //     title: "提示",
+        //     showCancel: false,
+        //     content: "所属行业不能为空",
+        //     success(res) {}
+        //   });
 
-          return false;
-        }
+        //   return false;
+        // }
 
-        if (this.w_industry[this.w_index] === "请选择") {
+        // if (this.w_industry[this.w_index] === "请选择") {
 
-          wx.showModal({
-            title: "提示",
-            showCancel: false,
-            content: "关注行业不能为空",
-            success(res) {}
-          });
+        //   wx.showModal({
+        //     title: "提示",
+        //     showCancel: false,
+        //     content: "关注行业不能为空",
+        //     success(res) {}
+        //   });
 
-          return false;
-        }
+        //   return false;
+        // }
 
 
-        if (this.jieshao === "") {
+        // if (this.jieshao === "") {
 
-          wx.showModal({
-            title: "提示",
-            showCancel: false,
-            content: "自我介绍不能为空",
-            success(res) {}
-          });
+        //   wx.showModal({
+        //     title: "提示",
+        //     showCancel: false,
+        //     content: "自我介绍不能为空",
+        //     success(res) {}
+        //   });
 
-          return false;
-        }
+        //   return false;
+        // }
 
-        this.$Utils.showWaiting();
+        // this.$Utils.showWaiting();
 
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.update_user_info,
-          fps: {
-            open_id: this.openid.back_value.open_id,
-            industry_involved: this.industry[this.index], // 所属行业
-            interest: this.w_industry[this.w_index], // 关注行业
-            brief_introduction: this.jieshao,
-            head_portrait: this.photo
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
+        // this.$store.dispatch("fetch", {
+        //   im: this.$Config.INTER_FACE.update_user_info,
+        //   fps: {
+        //     open_id: this.openid.back_value.open_id,
+        //     industry_involved: this.industry[this.index], // 所属行业
+        //     interest: this.w_industry[this.w_index], // 关注行业
+        //     brief_introduction: this.jieshao,
+        //     head_portrait: this.photo
+        //   },
+        //   url: this.$Config.REQUEST_URI
+        // }).then(res => {
 
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "update_user_info");
-          } else {
-            wx.showModal({
-              title: "提示",
-              showCancel: false,
-              content: "保存成功",
-              success(res) {
-                wx.navigateBack({
-                  delta: 1
-                });
-              }
-            });
-            this.$Utils.closeWaiting();
-          }
-        });
+        //   if (res.result === "failure") {
+        //     this.$Utils.closeWaiting();
+        //     this.$Utils.showErrorInfo(res, "update_user_info");
+        //   } else {
+        //     wx.showModal({
+        //       title: "提示",
+        //       showCancel: false,
+        //       content: "保存成功",
+        //       success(res) {
+        //         wx.navigateBack({
+        //           delta: 1
+        //         });
+        //       }
+        //     });
+        //     this.$Utils.closeWaiting();
+        //   }
+        // });
 
-      },
-
-      changeIndustry(e) {
-        this.index = e.mp.detail.value;
-      },
-      changeWatchIndustry(e) {
-        this.w_index = e.mp.detail.value;
       }
     },
     computed: {
@@ -297,7 +260,8 @@
             height: 30px;
           }
 
-          >picker {
+          >.professional {
+            border: 1px solid black;
             font-size: 16px;
             height: 30px;
             line-height: 30px;

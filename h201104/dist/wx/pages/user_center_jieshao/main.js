@@ -133,10 +133,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -145,10 +141,6 @@ if (false) {(function () {
   data: function data() {
     return {
       fileList: [],
-      index: 0,
-      industry: ["请选择", "IT|互联网|通信|电子", "金融|银行|保险", "消费零售|贸易|交通物流", "加工制造|仪表设备", "房产|建筑建设|物业", "广告|传媒|印刷出版", "管理咨询|教育科研|中介服务", "医药生物|医疗保健", "酒店旅游", "能源矿产|石油化工", "政府|非赢利机构|科研|其他", "财会|金融", "汽车|工程机械", "消费品|生产|物流", "市场|媒介|设计", "管理|人力资源|行政", "咨询|法律|教育|翻译", "服务业"],
-      w_index: 0,
-      w_industry: ["请选择", "IT|互联网|通信|电子", "金融|银行|保险", "消费零售|贸易|交通物流", "加工制造|仪表设备", "房产|建筑建设|物业", "广告|传媒|印刷出版", "管理咨询|教育科研|中介服务", "医药生物|医疗保健", "酒店旅游", "能源矿产|石油化工", "政府|非赢利机构|科研|其他", "财会|金融", "汽车|工程机械", "消费品|生产|物流", "市场|媒介|设计", "管理|人力资源|行政", "咨询|法律|教育|翻译", "服务业"],
       jieshao: "",
       photo: ""
     };
@@ -172,13 +164,13 @@ if (false) {(function () {
       } else {
         var _user_info = res.back_value;
 
-        var _index = _user_info.industry_involved || _this.industry[0];
-        var __index = _user_info.interest || _this.w_industry[0];
+        // let _index = _user_info.industry_involved || this.industry[0];
+        // let __index = _user_info.interest || this.w_industry[0];
 
-        _this.index = _this.industry.indexOf(_index);
-        _this.w_index = _this.w_industry.indexOf(__index);
+        // this.index = this.industry.indexOf(_index);
+        // this.w_index = this.w_industry.indexOf(__index);
+
         _this.jieshao = _user_info.brief_introduction || "";
-
         if (_user_info.head_portrait !== null || _user_info.head_portrait !== "") {
           _this.fileList.push({
             url: _user_info.head_portrait
@@ -201,11 +193,8 @@ if (false) {(function () {
       var _this2 = this;
 
       this.$Utils.showWaiting();
-
       var path = event.mp.detail.file.path;
-
       var requestUrl = this.$Utils.produceRequestUrl(this.$Config.INTER_FACE.make_img_route, {}, this.$Config.REQUEST_URI, "post");
-
       wx.uploadFile({
         url: requestUrl,
         filePath: path,
@@ -218,7 +207,6 @@ if (false) {(function () {
           "fps[img]": ""
         },
         success: function success(res) {
-
           if (JSON.parse(res.data).result === "failure") {
             _this2.$Utils.closeWaiting();
             _this2.$Utils.showErrorInfo(res, "make_img_route");
@@ -229,87 +217,81 @@ if (false) {(function () {
           }
         }
       });
-
       this.fileList.push({
         url: path
       });
     },
     submit: function submit() {
-      var _this3 = this;
 
-      if (this.industry[this.index] === "请选择") {
+      // if (this.industry[this.index] === "请选择") {
 
-        wx.showModal({
-          title: "提示",
-          showCancel: false,
-          content: "所属行业不能为空",
-          success: function success(res) {}
-        });
+      //   wx.showModal({
+      //     title: "提示",
+      //     showCancel: false,
+      //     content: "所属行业不能为空",
+      //     success(res) {}
+      //   });
 
-        return false;
-      }
+      //   return false;
+      // }
 
-      if (this.w_industry[this.w_index] === "请选择") {
+      // if (this.w_industry[this.w_index] === "请选择") {
 
-        wx.showModal({
-          title: "提示",
-          showCancel: false,
-          content: "关注行业不能为空",
-          success: function success(res) {}
-        });
+      //   wx.showModal({
+      //     title: "提示",
+      //     showCancel: false,
+      //     content: "关注行业不能为空",
+      //     success(res) {}
+      //   });
 
-        return false;
-      }
+      //   return false;
+      // }
 
-      if (this.jieshao === "") {
 
-        wx.showModal({
-          title: "提示",
-          showCancel: false,
-          content: "自我介绍不能为空",
-          success: function success(res) {}
-        });
+      // if (this.jieshao === "") {
 
-        return false;
-      }
+      //   wx.showModal({
+      //     title: "提示",
+      //     showCancel: false,
+      //     content: "自我介绍不能为空",
+      //     success(res) {}
+      //   });
 
-      this.$Utils.showWaiting();
+      //   return false;
+      // }
 
-      this.$store.dispatch("fetch", {
-        im: this.$Config.INTER_FACE.update_user_info,
-        fps: {
-          open_id: this.openid.back_value.open_id,
-          industry_involved: this.industry[this.index], // 所属行业
-          interest: this.w_industry[this.w_index], // 关注行业
-          brief_introduction: this.jieshao,
-          head_portrait: this.photo
-        },
-        url: this.$Config.REQUEST_URI
-      }).then(function (res) {
+      // this.$Utils.showWaiting();
 
-        if (res.result === "failure") {
-          _this3.$Utils.closeWaiting();
-          _this3.$Utils.showErrorInfo(res, "update_user_info");
-        } else {
-          wx.showModal({
-            title: "提示",
-            showCancel: false,
-            content: "保存成功",
-            success: function success(res) {
-              wx.navigateBack({
-                delta: 1
-              });
-            }
-          });
-          _this3.$Utils.closeWaiting();
-        }
-      });
-    },
-    changeIndustry: function changeIndustry(e) {
-      this.index = e.mp.detail.value;
-    },
-    changeWatchIndustry: function changeWatchIndustry(e) {
-      this.w_index = e.mp.detail.value;
+      // this.$store.dispatch("fetch", {
+      //   im: this.$Config.INTER_FACE.update_user_info,
+      //   fps: {
+      //     open_id: this.openid.back_value.open_id,
+      //     industry_involved: this.industry[this.index], // 所属行业
+      //     interest: this.w_industry[this.w_index], // 关注行业
+      //     brief_introduction: this.jieshao,
+      //     head_portrait: this.photo
+      //   },
+      //   url: this.$Config.REQUEST_URI
+      // }).then(res => {
+
+      //   if (res.result === "failure") {
+      //     this.$Utils.closeWaiting();
+      //     this.$Utils.showErrorInfo(res, "update_user_info");
+      //   } else {
+      //     wx.showModal({
+      //       title: "提示",
+      //       showCancel: false,
+      //       content: "保存成功",
+      //       success(res) {
+      //         wx.navigateBack({
+      //           delta: 1
+      //         });
+      //       }
+      //     });
+      //     this.$Utils.closeWaiting();
+      //   }
+      // });
+
     }
   },
   computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(["openid"
@@ -337,25 +319,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "jieshao-message"
   }, [_c('div', {
     staticClass: "message"
-  }, [_c('div', [_c('span', [_vm._v("所属行业：")]), _vm._v(" "), _c('picker', {
-    attrs: {
-      "value": _vm.index,
-      "range": _vm.industry,
-      "eventid": '0'
-    },
-    on: {
-      "change": _vm.changeIndustry
-    }
-  }, [_c('p', [_vm._v(_vm._s(_vm.industry[_vm.index]))])], 1)], 1), _vm._v(" "), _c('div', [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('picker', {
-    attrs: {
-      "value": _vm.w_index,
-      "range": _vm.w_industry,
-      "eventid": '1'
-    },
-    on: {
-      "change": _vm.changeWatchIndustry
-    }
-  }, [_c('p', [_vm._v(_vm._s(_vm.w_industry[_vm.w_index]))])], 1)], 1), _vm._v(" "), _c('div', [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('textarea', {
+  }, [_c('div', [_c('span', [_vm._v("所属行业：")]), _vm._v(" "), _c('div', {
+    staticClass: "professional"
+  })]), _vm._v(" "), _c('div', [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('div', {
+    staticClass: "professional"
+  })]), _vm._v(" "), _c('div', [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('textarea', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -368,7 +336,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "adjust-position": "",
       "show-confirm-bar": "",
       "disable-default-padding": "",
-      "eventid": '2'
+      "eventid": '0'
     },
     domProps: {
       "value": (_vm.jieshao)
@@ -389,7 +357,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "max-count": "1",
       "fileList": _vm.fileList,
       "accept": "image",
-      "eventid": '3',
+      "eventid": '1',
       "mpcomid": '0'
     },
     on: {
@@ -400,7 +368,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "submit"
   }, [_c('button', {
     attrs: {
-      "eventid": '4'
+      "eventid": '2'
     },
     on: {
       "click": _vm.submit
