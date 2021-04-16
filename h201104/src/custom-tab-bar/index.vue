@@ -30,7 +30,7 @@
     data() {
       return {
         color: "#707070",
-        selectedColor: "#2c2c2c",
+        selectedColor: "#19be6b",
         list: [{
             pagePath: "/pages/index/main",
             iconPath: "../../static/images/shouye_n.png",
