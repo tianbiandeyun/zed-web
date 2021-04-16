@@ -235,11 +235,10 @@
                     this.professional_list = res.back_value;
                     setTimeout(() => {
                       that.is_popup = true;
-                    }, 2000);
+                    }, 1000);
                   }
                 });
               }
-
             }
           }
         });

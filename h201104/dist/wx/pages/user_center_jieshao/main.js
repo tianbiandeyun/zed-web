@@ -198,8 +198,8 @@ if (false) {(function () {
                   _this.$Utils.showErrorInfo(res, "get_member_info");
                 } else {
                   var _res = res.back_value;
-                  _this.in_work = _res.industry_involved;
-                  _this.watch_work = _res.interest;
+                  _this.in_work = _res.industry_involved === null ? '请选择所在行业' : _res.industry_involved;
+                  _this.watch_work = _res.interest === null ? '请选择关注行业' : _res.interest;
                   _this.jieshao = _res.brief_introduction || "";
                   if (_res.head_portrait !== null || _res.head_portrait !== "") {
                     _this.photoList.push({
@@ -288,8 +288,6 @@ if (false) {(function () {
     openChangeWork: function openChangeWork(res) {
 
       this.type = res;
-
-      console.log(this.type);
 
       if (this.in_work !== '请选择所在行业' && this.type === 1) {
         this.changge_professional = this.in_work.split('|');

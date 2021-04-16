@@ -98,8 +98,8 @@
           this.$Utils.showErrorInfo(res, "get_member_info");
         } else {
           let _res = res.back_value;
-          this.in_work = _res.industry_involved;
-          this.watch_work = _res.interest;
+          this.in_work = _res.industry_involved === null ? '请选择所在行业' : _res.industry_involved;
+          this.watch_work = _res.interest === null ? '请选择关注行业' : _res.interest;
           this.jieshao = _res.brief_introduction || "";
           if (_res.head_portrait !== null || _res.head_portrait !== "") {
             this.photoList.push({
@@ -174,8 +174,6 @@
       openChangeWork(res) {
 
         this.type = res;
-
-        console.log(this.type);
 
         if (this.in_work !== '请选择所在行业' && this.type === 1) {
           this.changge_professional = this.in_work.split('|');

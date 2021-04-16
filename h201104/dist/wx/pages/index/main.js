@@ -367,7 +367,7 @@ if (false) {(function () {
                             _this4.professional_list = res.back_value;
                             setTimeout(function () {
                               that.is_popup = true;
-                            }, 2000);
+                            }, 1000);
                           }
                         });
                       }
