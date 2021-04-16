@@ -233,11 +233,11 @@
                     this.$Utils.showErrorInfo(res, "get_occupation_list");
                   } else {
                     this.professional_list = res.back_value;
-                    setTimeout(() => {
-                      that.is_popup = true;
-                    }, 1000);
+                    that.is_popup = true;
                   }
                 });
+              } else {
+                that.is_popup = false;
               }
             }
           }

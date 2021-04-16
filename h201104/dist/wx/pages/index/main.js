@@ -365,11 +365,11 @@ if (false) {(function () {
                             _this4.$Utils.showErrorInfo(res, "get_occupation_list");
                           } else {
                             _this4.professional_list = res.back_value;
-                            setTimeout(function () {
-                              that.is_popup = true;
-                            }, 1000);
+                            that.is_popup = true;
                           }
                         });
+                      } else {
+                        that.is_popup = false;
                       }
                     }
                   }
