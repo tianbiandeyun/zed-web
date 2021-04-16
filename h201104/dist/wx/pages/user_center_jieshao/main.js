@@ -281,8 +281,24 @@ if (false) {(function () {
     onChange: function onChange(event) {
       this.changge_professional = event.mp.detail;
     },
+
+    /**
+     * 打开professional
+     */
     openChangeWork: function openChangeWork(res) {
+
       this.type = res;
+
+      console.log(this.type);
+
+      if (this.in_work !== '请选择所在行业' && this.type === 1) {
+        this.changge_professional = this.in_work.split('|');
+      }
+
+      if (this.watch_work !== '请选择关注行业' && this.type === 2) {
+        this.changge_professional = this.watch_work.split('|');
+      }
+
       this.is_popup = true;
     },
 
@@ -540,7 +556,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.submitProfessional
     }
-  }, [_vm._v("提交")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("确定")]), _vm._v(" "), _c('p', {
     staticClass: "wait",
     attrs: {
       "eventid": '6'

@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="professional-button">
-            <button class="submit" @click='submitProfessional'>提交</button>
+            <button class="submit" @click='submitProfessional'>确定</button>
             <p class="wait" @click="is_popup = false;changge_professional = []">关闭</p>
           </div>
         </v-checkbox-group>
@@ -168,9 +168,25 @@
       onChange(event) {
         this.changge_professional = event.mp.detail;
       },
+      /**
+       * 打开professional
+       */
       openChangeWork(res) {
+
         this.type = res;
+
+        console.log(this.type);
+
+        if (this.in_work !== '请选择所在行业' && this.type === 1) {
+          this.changge_professional = this.in_work.split('|');
+        }
+
+        if (this.watch_work !== '请选择关注行业' && this.type === 2) {
+          this.changge_professional = this.watch_work.split('|');
+        }
+
         this.is_popup = true;
+
       },
       /**
        * 临时删除照片，从新上传
