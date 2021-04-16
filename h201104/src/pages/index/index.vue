@@ -96,9 +96,11 @@
       this.refreshIndex();
     },
     methods: {
+      /**
+       * 提交关注行业
+       */
       submit() {
         let size = this.changge_professional.length;
-
         if (size === 0) {
           wx.showModal({
             title: "提示",
@@ -108,7 +110,6 @@
           });
           return false;
         }
-
         if (size > 3) {
           wx.showModal({
             title: "提示",
@@ -118,12 +119,8 @@
           });
           return false;
         }
-
         let interest = this.changge_professional.join('|');
-        console.log(interest);
-
         this.$Utils.showWaiting();
-
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.update_user_info,
           fps: {
@@ -142,7 +139,6 @@
             this.$Utils.closeWaiting();
           }
         });
-
       },
       /**
        * 选择professional

@@ -180,6 +180,9 @@ if (false) {(function () {
   },
 
   methods: {
+    /**
+     * 临时删除照片，从新上传
+     */
     deleteItem: function deleteItem(event) {
       var index = event.mp.detail.index;
       this.photoList.splice(index, 1);
@@ -216,6 +219,10 @@ if (false) {(function () {
         url: path
       });
     },
+
+    /**
+     * 提交信息
+     */
     submit: function submit() {
 
       // if (this.industry[this.index] === "请选择") {

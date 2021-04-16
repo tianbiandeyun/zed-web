@@ -90,6 +90,9 @@
       });
     },
     methods: {
+      /**
+       * 临时删除照片，从新上传
+       */
       deleteItem(event) {
         let index = event.mp.detail.index;
         this.photoList.splice(index, 1);
@@ -125,6 +128,9 @@
           url: path
         });
       },
+      /**
+       * 提交信息
+       */
       submit() {
 
         // if (this.industry[this.index] === "请选择") {

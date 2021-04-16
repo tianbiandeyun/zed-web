@@ -210,11 +210,13 @@ if (false) {(function () {
   },
 
   methods: {
+    /**
+     * 提交关注行业
+     */
     submit: function submit() {
       var _this2 = this;
 
       var size = this.changge_professional.length;
-
       if (size === 0) {
         wx.showModal({
           title: "提示",
@@ -224,7 +226,6 @@ if (false) {(function () {
         });
         return false;
       }
-
       if (size > 3) {
         wx.showModal({
           title: "提示",
@@ -234,12 +235,8 @@ if (false) {(function () {
         });
         return false;
       }
-
       var interest = this.changge_professional.join('|');
-      console.log(interest);
-
       this.$Utils.showWaiting();
-
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.update_user_info,
         fps: {
