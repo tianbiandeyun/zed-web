@@ -272,6 +272,10 @@ if (false) {(function () {
         }
       }
     },
+
+    /**
+     * 选择举报理由
+     */
     onChange: function onChange(event) {
       this.checkbox = event.mp.detail;
     },

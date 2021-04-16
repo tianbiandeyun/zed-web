@@ -46,16 +46,19 @@
 
     <!-- 选择行业 -->
     <v-popup :show="is_popup" @close="is_popup = false">
-      <div class="changeZy">
-        <div class="item">
-          <input type="checkbox" id="jack" value="Jack" v-model.lazy="checkedNames">
-          <label for="jack">Jack</label>
-        </div>
-        <div class="item">
-          <input type="checkbox" id="john" value="John" v-model.lazy="checkedNames">
-          <label for="john">John</label>
-        </div>
-        <button @click='submit'>click</button>
+      <div class="professional-box">
+        <h1 class="professional-title">选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动</h1>
+        <v-checkbox-group :value="changge_professional" @change="onChange">
+          <div class="professional-change">
+            <div class="professional-item" v-for='(item,index) in professional_list' :key="index">
+              <v-checkbox :name="item">{{item}}</v-checkbox>
+            </div>
+          </div>
+          <div class="professional-button">
+            <button class="submit" @click='submit'>提交</button>
+            <p class="wait" @click="is_popup = false">稍后提交</p>
+          </div>
+        </v-checkbox-group>
       </div>
     </v-popup>
 
@@ -74,8 +77,9 @@
     },
     data() {
       return {
-        checkedNames: [],
-        is_popup: true,
+        professional_list: [], // 职业列表
+        changge_professional: [], // 选择的职业
+        is_popup: false, // 是否打开选择职业
         message_count: 0, // 信息条数
         is_login: false, // 是否登陆
         is_scope: false, // 是否打开请授权头像
@@ -93,7 +97,13 @@
     },
     methods: {
       submit() {
-        console.log(this.checkedNames);
+        console.log(this.changge_professional);
+      },
+      /**
+       * 选择professional
+       */
+      onChange(event) {
+        this.changge_professional = event.mp.detail;
       },
       /**
        * 打开请授权头像
@@ -215,15 +225,12 @@
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "get_occupation_list");
           } else {
-            console.log(
-              res.back_value
-            );
+            this.professional_list = res.back_value;
             setTimeout(() => {
               that.is_popup = true;
-            }, 3000);
+            }, 1000);
           }
         });
-
         this.$Utils.closeWaiting();
       }
     },
@@ -365,8 +372,48 @@
 
     }
 
-    .changeZy {
-      border: 1px solid #fff;
+    .professional-box {
+      padding: 10px 20px;
+
+      .professional-title {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #17233d;
+      }
+
+      .professional-change {
+        width: 300px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 4px;
+        grid-row-gap: 6px;
+        margin-bottom: 5px;
+
+        .professional-item {
+          font-size: 14px;
+        }
+      }
+
+      .professional-button {
+        padding: 6px 0;
+
+        .submit {
+          background-color: #19be6b;
+          width: 100px;
+          height: 40px;
+          line-height: 40px;
+          color: #fff;
+          margin-bottom: 10px;
+        }
+
+        .wait {
+          text-align: center;
+          font-size: 14px;
+          color: #515a6e;
+        }
+
+      }
+
     }
 
   }

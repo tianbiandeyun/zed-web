@@ -78,6 +78,38 @@
 .index-container .index-activity-list .index-activity-item .activity-item-info .info-status_time .time.data-v-675665fc {
   text-align: right;
 }
-.index-container .changeZy.data-v-675665fc {
-  border: 2rpx solid #fff;
+.index-container .professional-box.data-v-675665fc {
+  padding: 20rpx 40rpx;
+}
+.index-container .professional-box .professional-title.data-v-675665fc {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  color: #17233d;
+}
+.index-container .professional-box .professional-change.data-v-675665fc {
+  width: 600rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8rpx;
+  grid-row-gap: 12rpx;
+  margin-bottom: 10rpx;
+}
+.index-container .professional-box .professional-change .professional-item.data-v-675665fc {
+  font-size: 28rpx;
+}
+.index-container .professional-box .professional-button.data-v-675665fc {
+  padding: 12rpx 0;
+}
+.index-container .professional-box .professional-button .submit.data-v-675665fc {
+  background-color: #19be6b;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  margin-bottom: 20rpx;
+}
+.index-container .professional-box .professional-button .wait.data-v-675665fc {
+  text-align: center;
+  font-size: 28rpx;
+  color: #515a6e;
 }

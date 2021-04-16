@@ -155,6 +155,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
@@ -167,8 +170,9 @@ if (false) {(function () {
   },
   data: function data() {
     return {
-      checkedNames: [],
-      is_popup: true,
+      professional_list: [], // 职业列表
+      changge_professional: [], // 选择的职业
+      is_popup: false, // 是否打开选择职业
       message_count: 0, // 信息条数
       is_login: false, // 是否登陆
       is_scope: false, // 是否打开请授权头像
@@ -207,7 +211,14 @@ if (false) {(function () {
 
   methods: {
     submit: function submit() {
-      console.log(this.checkedNames);
+      console.log(this.changge_professional);
+    },
+
+    /**
+     * 选择professional
+     */
+    onChange: function onChange(event) {
+      this.changge_professional = event.mp.detail;
     },
 
     /**
@@ -351,13 +362,12 @@ if (false) {(function () {
                     _this3.$Utils.closeWaiting();
                     _this3.$Utils.showErrorInfo(res, "get_occupation_list");
                   } else {
-                    console.log(res.back_value);
+                    _this3.professional_list = res.back_value;
                     setTimeout(function () {
                       that.is_popup = true;
-                    }, 3000);
+                    }, 1000);
                   }
                 });
-
                 _this3.$Utils.closeWaiting();
 
               case 9:
@@ -513,7 +523,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "show": _vm.is_popup,
       "eventid": '7',
-      "mpcomid": '2'
+      "mpcomid": '4'
     },
     on: {
       "close": function($event) {
@@ -521,101 +531,51 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }
   }, [_c('div', {
-    staticClass: "changeZy"
+    staticClass: "professional-box"
+  }, [_c('h1', {
+    staticClass: "professional-title"
+  }, [_vm._v("选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动")]), _vm._v(" "), _c('v-checkbox-group', {
+    attrs: {
+      "value": _vm.changge_professional,
+      "eventid": '6',
+      "mpcomid": '3'
+    },
+    on: {
+      "change": _vm.onChange
+    }
   }, [_c('div', {
-    staticClass: "item"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model.lazy",
-      value: (_vm.checkedNames),
-      expression: "checkedNames",
-      modifiers: {
-        "lazy": true
+    staticClass: "professional-change"
+  }, _vm._l((_vm.professional_list), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "professional-item"
+    }, [_c('v-checkbox', {
+      attrs: {
+        "name": item,
+        "mpcomid": '2_' + index
       }
-    }],
+    }, [_vm._v(_vm._s(item))])], 1)
+  })), _vm._v(" "), _c('div', {
+    staticClass: "professional-button"
+  }, [_c('button', {
+    staticClass: "submit",
     attrs: {
-      "type": "checkbox",
-      "id": "jack",
-      "value": "Jack",
       "eventid": '4'
-    },
-    domProps: {
-      "checked": Array.isArray(_vm.checkedNames) ? _vm._i(_vm.checkedNames, "Jack") > -1 : (_vm.checkedNames)
-    },
-    on: {
-      "__c": function($event) {
-        var $$a = _vm.checkedNames,
-          $$el = $event.target,
-          $$c = $$el.checked ? (true) : (false);
-        if (Array.isArray($$a)) {
-          var $$v = "Jack",
-            $$i = _vm._i($$a, $$v);
-          if ($$c) {
-            $$i < 0 && (_vm.checkedNames = $$a.concat($$v))
-          } else {
-            $$i > -1 && (_vm.checkedNames = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
-          }
-        } else {
-          _vm.checkedNames = $$c
-        }
-      }
-    }
-  }), _vm._v(" "), _c('label', {
-    attrs: {
-      "for": "jack"
-    }
-  }, [_vm._v("Jack")])], 1), _vm._v(" "), _c('div', {
-    staticClass: "item"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model.lazy",
-      value: (_vm.checkedNames),
-      expression: "checkedNames",
-      modifiers: {
-        "lazy": true
-      }
-    }],
-    attrs: {
-      "type": "checkbox",
-      "id": "john",
-      "value": "John",
-      "eventid": '5'
-    },
-    domProps: {
-      "checked": Array.isArray(_vm.checkedNames) ? _vm._i(_vm.checkedNames, "John") > -1 : (_vm.checkedNames)
-    },
-    on: {
-      "__c": function($event) {
-        var $$a = _vm.checkedNames,
-          $$el = $event.target,
-          $$c = $$el.checked ? (true) : (false);
-        if (Array.isArray($$a)) {
-          var $$v = "John",
-            $$i = _vm._i($$a, $$v);
-          if ($$c) {
-            $$i < 0 && (_vm.checkedNames = $$a.concat($$v))
-          } else {
-            $$i > -1 && (_vm.checkedNames = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
-          }
-        } else {
-          _vm.checkedNames = $$c
-        }
-      }
-    }
-  }), _vm._v(" "), _c('label', {
-    attrs: {
-      "for": "john"
-    }
-  }, [_vm._v("John")])], 1), _vm._v(" "), _c('button', {
-    attrs: {
-      "eventid": '6'
     },
     on: {
       "click": _vm.submit
     }
-  }, [_vm._v("click")])], 1)])], 1)
+  }, [_vm._v("提交")]), _vm._v(" "), _c('p', {
+    staticClass: "wait",
+    attrs: {
+      "eventid": '5'
+    },
+    on: {
+      "click": function($event) {
+        _vm.is_popup = false
+      }
+    }
+  }, [_vm._v("稍后提交")])], 1)])], 1)])], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

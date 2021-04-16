@@ -29,13 +29,18 @@
       </view>
     </view> <template message="请授权头像信息，否则无法使用" bindsetUserInfo="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ba02a0d4"></template> <template data="{{...$root[$kk+'1'], $root}}" is="55f19ec2"></template>
     <v-popup show="{{is_popup}}" bindclose="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_v-popup data-v-675665fc">
-      <view class="_div data-v-675665fc changeZy">
-        <view class="_div data-v-675665fc item">
-          <checkbox id="jack" value="{{checkedNames}}" bindchange="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_input data-v-675665fc" /> <label for="jack" class="_label data-v-675665fc">Jack</label>
-        </view>
-        <view class="_div data-v-675665fc item">
-          <checkbox id="john" value="{{checkedNames}}" bindchange="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_input data-v-675665fc" /> <label for="john" class="_label data-v-675665fc">John</label>
-        </view> <button bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_button data-v-675665fc">click</button>
+      <view class="_div data-v-675665fc professional-box">
+        <view class="_h1 data-v-675665fc professional-title">选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动</view>
+        <v-checkbox-group value="{{changge_professional}}" bindchange="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_v-checkbox-group data-v-675665fc">
+          <view class="_div data-v-675665fc professional-change">
+            <view class="_div data-v-675665fc professional-item" wx:key="index" key="{{index}}" wx:for="{{professional_list}}" wx:for-index="index" wx:for-item="item">
+              <v-checkbox name="{{item}}" class="_v-checkbox data-v-675665fc">{{item}}</v-checkbox>
+            </view>
+          </view>
+          <view class="_div data-v-675665fc professional-button"><button class="_button data-v-675665fc submit" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">提交</button>
+            <view class="_p data-v-675665fc wait" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">稍后提交</view>
+          </view>
+        </v-checkbox-group>
       </view>
     </v-popup>
   </view>

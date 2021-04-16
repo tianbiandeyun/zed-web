@@ -179,6 +179,9 @@
 
         }
       },
+      /**
+       * 选择举报理由
+       */
       onChange(event) {
         this.checkbox = event.mp.detail;
       },
