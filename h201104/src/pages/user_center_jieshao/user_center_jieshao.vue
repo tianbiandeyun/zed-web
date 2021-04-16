@@ -210,7 +210,6 @@
     computed: {
       ...mapGetters([
         "openid"
-        // "user_info"
       ])
     },
     onUnload() {
