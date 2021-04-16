@@ -2,6 +2,9 @@
   "navigationBarBackgroundColor": "#000",
   "navigationBarTitleText": "修改个人介绍信息",
   "usingComponents": {
-    "v-uploader": "../../../static/vant/uploader/index"
+    "v-uploader": "../../../static/vant/uploader/index",
+    "v-popup": "../../../static/vant/popup/index",
+    "v-checkbox": "../../../static/vant/checkbox/index",
+    "v-checkbox-group": "../../../static/vant/checkbox-group/index"
   }
 }

@@ -140,6 +140,10 @@ if (false) {(function () {
   name: "sign_up",
   data: function data() {
     return {
+      professional_list: [], // 职业列表
+      changge_professional: [], // 选择的职业
+      is_popup: false, // 是否打开选择职业
+
       photoList: [], // 展示的头像
       jieshao: "", // 个人介绍
       photo: "", // 选择的头像
@@ -180,6 +184,8 @@ if (false) {(function () {
   },
 
   methods: {
+    openChangeWork: function openChangeWork() {},
+
     /**
      * 临时删除照片，从新上传
      */
@@ -320,9 +326,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "message"
   }, [_c('div', [_c('span', [_vm._v("所属行业：")]), _vm._v(" "), _c('div', {
-    staticClass: "professional"
+    staticClass: "professional",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.openChangeWork
+    }
   }, [_vm._v(_vm._s(_vm.in_work))])]), _vm._v(" "), _c('div', [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('div', {
-    staticClass: "professional"
+    staticClass: "professional",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.openChangeWork
+    }
   }, [_vm._v(_vm._s(_vm.watch_work))])]), _vm._v(" "), _c('div', [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('textarea', {
     directives: [{
       name: "model",
@@ -336,7 +354,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "adjust-position": "",
       "show-confirm-bar": "",
       "disable-default-padding": "",
-      "eventid": '0'
+      "eventid": '2'
     },
     domProps: {
       "value": (_vm.jieshao)
@@ -357,7 +375,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "max-count": "1",
       "fileList": _vm.photoList,
       "accept": "image",
-      "eventid": '1',
+      "eventid": '3',
       "mpcomid": '0'
     },
     on: {
@@ -368,7 +386,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "submit"
   }, [_c('button', {
     attrs: {
-      "eventid": '2'
+      "eventid": '4'
     },
     on: {
       "click": _vm.submit

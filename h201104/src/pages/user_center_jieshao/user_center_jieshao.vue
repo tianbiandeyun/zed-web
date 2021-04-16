@@ -11,12 +11,12 @@
 
         <div>
           <span>所属行业：</span>
-          <div class="professional">{{in_work}}</div>
+          <div class="professional" @click='openChangeWork'>{{in_work}}</div>
         </div>
 
         <div>
           <span>关注行业：</span>
-          <div class="professional">{{watch_work}}</div>
+          <div class="professional" @click='openChangeWork'>{{watch_work}}</div>
         </div>
 
         <div>
@@ -53,6 +53,10 @@
     name: "sign_up",
     data() {
       return {
+        professional_list: [], // 职业列表
+        changge_professional: [], // 选择的职业
+        is_popup: false, // 是否打开选择职业
+
         photoList: [], // 展示的头像
         jieshao: "", // 个人介绍
         photo: "", // 选择的头像
@@ -90,6 +94,9 @@
       });
     },
     methods: {
+      openChangeWork() {
+
+      },
       /**
        * 临时删除照片，从新上传
        */
