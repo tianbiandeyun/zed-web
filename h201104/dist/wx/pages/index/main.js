@@ -211,7 +211,53 @@ if (false) {(function () {
 
   methods: {
     submit: function submit() {
-      console.log(this.changge_professional);
+      var _this2 = this;
+
+      var size = this.changge_professional.length;
+
+      if (size === 0) {
+        wx.showModal({
+          title: "提示",
+          showCancel: false,
+          content: "请选择一个行业",
+          success: function success(res) {}
+        });
+        return false;
+      }
+
+      if (size > 3) {
+        wx.showModal({
+          title: "提示",
+          showCancel: false,
+          content: "最多选择三个行业",
+          success: function success(res) {}
+        });
+        return false;
+      }
+
+      var interest = this.changge_professional.join('|');
+      console.log(interest);
+
+      this.$Utils.showWaiting();
+
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.update_user_info,
+        fps: {
+          open_id: this.openid_info.back_value.open_id,
+          interest: interest
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "update_user_info");
+        } else {
+          if (res.back_value) {
+            _this2.is_popup = false;
+          }
+          _this2.$Utils.closeWaiting();
+        }
+      });
     },
 
     /**
@@ -247,7 +293,7 @@ if (false) {(function () {
      * 授权用户信息并保存
      * */
     setUserInfo: function setUserInfo(res) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$Utils.showWaiting();
       this.$store.dispatch("fetch", {
@@ -260,11 +306,11 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "set_update_user_info");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "set_update_user_info");
         } else {
-          _this2.is_scope = false;
-          _this2.refreshIndex();
+          _this3.is_scope = false;
+          _this3.refreshIndex();
         }
       });
     },
@@ -273,7 +319,7 @@ if (false) {(function () {
      * 首页信息获取
      * */
     refreshIndex: function refreshIndex() {
-      var _this3 = this;
+      var _this4 = this;
 
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
         var that;
@@ -281,101 +327,106 @@ if (false) {(function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                that = _this3;
+                that = _this4;
                 // 获取用户信息
 
                 _context2.next = 3;
-                return _this3.$store.dispatch("fetch", {
-                  im: _this3.$Config.INTER_FACE.get_member_info,
+                return _this4.$store.dispatch("fetch", {
+                  im: _this4.$Config.INTER_FACE.get_member_info,
                   fps: {
-                    open_id: _this3.openid_info.back_value.open_id,
+                    open_id: _this4.openid_info.back_value.open_id,
                     u_key: ""
                   },
-                  url: _this3.$Config.REQUEST_URI
+                  url: _this4.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this3.$Utils.closeWaiting();
+                    _this4.$Utils.closeWaiting();
                     if (res.error_code === 2012100231) {
                       throw new Error("未登录");
                     } else {
-                      _this3.$Utils.showErrorInfo(res, "get_member_info");
+                      _this4.$Utils.showErrorInfo(res, "get_member_info");
                     }
                   } else {
                     if (res.back_value.name === "" || res.back_value.name === null) {
                       throw new Error("未登录");
                     } else {
-                      _this3.nick_name = res.back_value.name;
-                      _this3.user_photo = res.back_value.wx_photo;
-                      _this3.u_key = res.back_value.u_key;
-                      _this3.is_login = true;
+                      _this4.nick_name = res.back_value.name;
+                      _this4.user_photo = res.back_value.wx_photo;
+                      _this4.u_key = res.back_value.u_key;
+                      _this4.is_login = true;
+
+                      // 如果关注行业没有选择，则显示选择行业
+                      if (res.back_value.interest === null || res.back_value.interest === undefined || res.back_value.interest === '') {
+                        // 职业选项
+                        _this4.$store.dispatch("fetch", {
+                          im: _this4.$Config.INTER_FACE.get_occupation_list,
+                          fps: {},
+                          url: _this4.$Config.REQUEST_URI
+                        }).then(function (res) {
+                          if (res.result === "failure") {
+                            _this4.$Utils.closeWaiting();
+                            _this4.$Utils.showErrorInfo(res, "get_occupation_list");
+                          } else {
+                            _this4.professional_list = res.back_value;
+                            setTimeout(function () {
+                              that.is_popup = true;
+                            }, 2000);
+                          }
+                        });
+                      }
                     }
                   }
                 });
 
               case 3:
                 _context2.next = 5;
-                return _this3.$store.dispatch("fetch", {
-                  im: _this3.$Config.INTER_FACE.get_salon_activity_list,
+                return _this4.$store.dispatch("fetch", {
+                  im: _this4.$Config.INTER_FACE.get_salon_activity_list,
                   fps: {
-                    open_id: _this3.openid_info.back_value.open_id
+                    open_id: _this4.openid_info.back_value.open_id
                   },
-                  url: _this3.$Config.REQUEST_URI
+                  url: _this4.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this3.$Utils.closeWaiting();
-                    _this3.$Utils.showErrorInfo(res, "get_salon_activity_list");
+                    _this4.$Utils.closeWaiting();
+                    _this4.$Utils.showErrorInfo(res, "get_salon_activity_list");
                   } else {
 
                     var result = res.back_value;
                     result.forEach(function (item, index, arr) {
                       item.meeting_time = item.meeting_time.split("日")[0] + "\u65E5";
                     });
-                    _this3.list = result;
+                    _this4.list = result;
                   }
                 });
 
               case 5:
                 _context2.next = 7;
-                return _this3.$store.dispatch("fetch", {
-                  im: _this3.$Config.INTER_FACE.get_unread_message,
+                return _this4.$store.dispatch("fetch", {
+                  im: _this4.$Config.INTER_FACE.get_unread_message,
                   fps: {
-                    u_key: _this3.u_key
+                    u_key: _this4.u_key
                   },
-                  url: _this3.$Config.REQUEST_URI
+                  url: _this4.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this3.$Utils.closeWaiting();
-                    _this3.$Utils.showErrorInfo(res, "get_unread_message");
+                    _this4.$Utils.closeWaiting();
+                    _this4.$Utils.showErrorInfo(res, "get_unread_message");
                   } else {
-                    _this3.message_count = res.back_value;
+                    _this4.message_count = res.back_value;
                   }
                 });
 
               case 7:
-                // 职业选项
-                _this3.$store.dispatch("fetch", {
-                  im: _this3.$Config.INTER_FACE.get_occupation_list,
-                  fps: {},
-                  url: _this3.$Config.REQUEST_URI
-                }).then(function (res) {
-                  if (res.result === "failure") {
-                    _this3.$Utils.closeWaiting();
-                    _this3.$Utils.showErrorInfo(res, "get_occupation_list");
-                  } else {
-                    _this3.professional_list = res.back_value;
-                    setTimeout(function () {
-                      that.is_popup = true;
-                    }, 1000);
-                  }
-                });
-                _this3.$Utils.closeWaiting();
 
-              case 9:
+                _this4.$Utils.closeWaiting();
+
+              case 8:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, _this3);
+        }, _callee2, _this4);
       }))();
     }
   },

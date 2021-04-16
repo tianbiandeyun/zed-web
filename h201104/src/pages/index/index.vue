@@ -97,7 +97,52 @@
     },
     methods: {
       submit() {
-        console.log(this.changge_professional);
+        let size = this.changge_professional.length;
+
+        if (size === 0) {
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "请选择一个行业",
+            success(res) {}
+          });
+          return false;
+        }
+
+        if (size > 3) {
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "最多选择三个行业",
+            success(res) {}
+          });
+          return false;
+        }
+
+        let interest = this.changge_professional.join('|');
+        console.log(interest);
+
+        this.$Utils.showWaiting();
+
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.update_user_info,
+          fps: {
+            open_id: this.openid_info.back_value.open_id,
+            interest
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "update_user_info");
+          } else {
+            if (res.back_value) {
+              this.is_popup = false;
+            }
+            this.$Utils.closeWaiting();
+          }
+        });
+
       },
       /**
        * 选择professional
@@ -177,6 +222,28 @@
               this.user_photo = res.back_value.wx_photo;
               this.u_key = res.back_value.u_key;
               this.is_login = true;
+
+              // 如果关注行业没有选择，则显示选择行业
+              if (res.back_value.interest === null || res.back_value.interest === undefined || res.back_value
+                .interest === '') {
+                // 职业选项
+                this.$store.dispatch("fetch", {
+                  im: this.$Config.INTER_FACE.get_occupation_list,
+                  fps: {},
+                  url: this.$Config.REQUEST_URI
+                }).then(res => {
+                  if (res.result === "failure") {
+                    this.$Utils.closeWaiting();
+                    this.$Utils.showErrorInfo(res, "get_occupation_list");
+                  } else {
+                    this.professional_list = res.back_value;
+                    setTimeout(() => {
+                      that.is_popup = true;
+                    }, 2000);
+                  }
+                });
+              }
+
             }
           }
         });
@@ -215,22 +282,7 @@
             this.message_count = res.back_value;
           }
         });
-        // 职业选项
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.get_occupation_list,
-          fps: {},
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "get_occupation_list");
-          } else {
-            this.professional_list = res.back_value;
-            setTimeout(() => {
-              that.is_popup = true;
-            }, 1000);
-          }
-        });
+
         this.$Utils.closeWaiting();
       }
     },

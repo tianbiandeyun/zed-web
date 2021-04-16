@@ -209,8 +209,8 @@
           im: this.$Config.INTER_FACE.update_user_info,
           fps: {
             open_id: this.openid.back_value.open_id,
-            industry_involved: this.industry[this.index],
-            interest: this.w_industry[this.w_index],
+            industry_involved: this.industry[this.index], // 所属行业
+            interest: this.w_industry[this.w_index], // 关注行业
             brief_introduction: this.jieshao,
             head_portrait: this.photo
           },
