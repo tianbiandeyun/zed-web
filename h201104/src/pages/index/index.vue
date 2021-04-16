@@ -192,6 +192,22 @@
             this.message_count = res.back_value;
           }
         });
+        // 职业选项
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_occupation_list,
+          fps: {},
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "get_occupation_list");
+          } else {
+            console.log(
+              res.back_value
+            );
+          }
+        });
+
         this.$Utils.closeWaiting();
       }
     },

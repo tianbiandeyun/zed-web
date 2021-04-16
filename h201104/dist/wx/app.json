@@ -19,8 +19,7 @@
   ],
   "tabBar": {
     "custom": true,
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/main",
         "iconPath": "/static/images/shouye_n.png",
         "selectedIconPath": "/static/images/shouye_y.png",
@@ -44,6 +43,5 @@
     "scope.userLocation": {
       "desc": "你的位置将用于查看活动位置"
     }
-  },
-  "sitemapLocation": "sitemap14.json"
+  }
 }
