@@ -52,3 +52,38 @@
   color: #fff;
   width: 600rpx;
 }
+.jieshao-container .professional-box.data-v-706d9fbe {
+  padding: 20rpx 40rpx;
+}
+.jieshao-container .professional-box .professional-title.data-v-706d9fbe {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  color: #17233d;
+}
+.jieshao-container .professional-box .professional-change.data-v-706d9fbe {
+  width: 600rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8rpx;
+  grid-row-gap: 12rpx;
+  margin-bottom: 10rpx;
+}
+.jieshao-container .professional-box .professional-change .professional-item.data-v-706d9fbe {
+  font-size: 28rpx;
+}
+.jieshao-container .professional-box .professional-button.data-v-706d9fbe {
+  padding: 12rpx 0;
+}
+.jieshao-container .professional-box .professional-button .submit.data-v-706d9fbe {
+  background-color: #19be6b;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  margin-bottom: 20rpx;
+}
+.jieshao-container .professional-box .professional-button .wait.data-v-706d9fbe {
+  text-align: center;
+  font-size: 28rpx;
+  color: #515a6e;
+}

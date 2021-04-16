@@ -11,12 +11,12 @@
 
         <div>
           <span>所属行业：</span>
-          <div class="professional" @click='openChangeWork'>{{in_work}}</div>
+          <div class="professional" @click='openChangeWork(1)'>{{in_work}}</div>
         </div>
 
         <div>
           <span>关注行业：</span>
-          <div class="professional" @click='openChangeWork'>{{watch_work}}</div>
+          <div class="professional" @click='openChangeWork(2)'>{{watch_work}}</div>
         </div>
 
         <div>
@@ -41,6 +41,24 @@
       <button @click="submit">保存</button>
     </div>
 
+    <!-- 选择行业 -->
+    <v-popup :show="is_popup" @close="is_popup = false">
+      <div class="professional-box">
+        <h1 class="professional-title">选择不超过3个，用于向您推荐相关行业的BP和投研活动</h1>
+        <v-checkbox-group :value="changge_professional" @change="onChange">
+          <div class="professional-change">
+            <div class="professional-item" v-for='(item,index) in professional_list' :key="index">
+              <v-checkbox :name="item">{{item}}</v-checkbox>
+            </div>
+          </div>
+          <div class="professional-button">
+            <button class="submit" @click='submitProfessional'>提交</button>
+            <p class="wait" @click="is_popup = false;changge_professional = []">关闭</p>
+          </div>
+        </v-checkbox-group>
+      </div>
+    </v-popup>
+
   </section>
 </template>
 
@@ -53,6 +71,7 @@
     name: "sign_up",
     data() {
       return {
+        type: 1, // 区分是打开的那个列表。1 是in_work 2 是watch_work
         professional_list: [], // 职业列表
         changge_professional: [], // 选择的职业
         is_popup: false, // 是否打开选择职业
@@ -64,7 +83,7 @@
         watch_work: '请选择关注行业'
       };
     },
-    mounted() {
+    async mounted() {
       this.$Utils.showWaiting();
       this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_member_info,
@@ -89,13 +108,69 @@
           } else {
             this.photoList = [];
           }
-          this.$Utils.closeWaiting();
         }
       });
+
+      // 职业选项
+      await this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_occupation_list,
+        fps: {},
+        url: this.$Config.REQUEST_URI
+      }).then(res => {
+        if (res.result === "failure") {
+          this.$Utils.closeWaiting();
+          this.$Utils.showErrorInfo(res, "get_occupation_list");
+        } else {
+          this.professional_list = res.back_value;
+        }
+      });
+      this.$Utils.closeWaiting();
     },
     methods: {
-      openChangeWork() {
+      /**
+       * 提交行业
+       */
+      submitProfessional() {
+        let size = this.changge_professional.length;
 
+        if (size === 0) {
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "请选择一个行业",
+            success(res) {}
+          });
+          return false;
+        }
+        if (size > 3) {
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "最多选择三个行业",
+            success(res) {}
+          });
+          return false;
+        }
+        if (this.type === 1) {
+          this.in_work = this.changge_professional.join('|');
+        }
+
+        if (this.type === 2) {
+          this.watch_work = this.changge_professional.join('|');
+        }
+
+        this.is_popup = false;
+        this.changge_professional = [];
+      },
+      /**
+       * 选择professional
+       */
+      onChange(event) {
+        this.changge_professional = event.mp.detail;
+      },
+      openChangeWork(res) {
+        this.type = res;
+        this.is_popup = true;
       },
       /**
        * 临时删除照片，从新上传
@@ -140,74 +215,74 @@
        */
       submit() {
 
-        // if (this.industry[this.index] === "请选择") {
+        if (this.in_work === "请选择所在行业") {
 
-        //   wx.showModal({
-        //     title: "提示",
-        //     showCancel: false,
-        //     content: "所属行业不能为空",
-        //     success(res) {}
-        //   });
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "所属行业不能为空",
+            success(res) {}
+          });
 
-        //   return false;
-        // }
+          return false;
+        }
 
-        // if (this.w_industry[this.w_index] === "请选择") {
+        if (this.watch_work === "请选择关注行业") {
 
-        //   wx.showModal({
-        //     title: "提示",
-        //     showCancel: false,
-        //     content: "关注行业不能为空",
-        //     success(res) {}
-        //   });
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "关注行业不能为空",
+            success(res) {}
+          });
 
-        //   return false;
-        // }
+          return false;
+        }
 
 
-        // if (this.jieshao === "") {
+        if (this.jieshao === "") {
 
-        //   wx.showModal({
-        //     title: "提示",
-        //     showCancel: false,
-        //     content: "自我介绍不能为空",
-        //     success(res) {}
-        //   });
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "自我介绍不能为空",
+            success(res) {}
+          });
 
-        //   return false;
-        // }
+          return false;
+        }
 
-        // this.$Utils.showWaiting();
+        this.$Utils.showWaiting();
 
-        // this.$store.dispatch("fetch", {
-        //   im: this.$Config.INTER_FACE.update_user_info,
-        //   fps: {
-        //     open_id: this.openid.back_value.open_id,
-        //     industry_involved: this.industry[this.index], // 所属行业
-        //     interest: this.w_industry[this.w_index], // 关注行业
-        //     brief_introduction: this.jieshao,
-        //     head_portrait: this.photo
-        //   },
-        //   url: this.$Config.REQUEST_URI
-        // }).then(res => {
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.update_user_info,
+          fps: {
+            open_id: this.openid.back_value.open_id,
+            industry_involved: this.in_work, // 所属行业
+            interest: this.watch_work, // 关注行业
+            brief_introduction: this.jieshao,
+            head_portrait: this.photo
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
 
-        //   if (res.result === "failure") {
-        //     this.$Utils.closeWaiting();
-        //     this.$Utils.showErrorInfo(res, "update_user_info");
-        //   } else {
-        //     wx.showModal({
-        //       title: "提示",
-        //       showCancel: false,
-        //       content: "保存成功",
-        //       success(res) {
-        //         wx.navigateBack({
-        //           delta: 1
-        //         });
-        //       }
-        //     });
-        //     this.$Utils.closeWaiting();
-        //   }
-        // });
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "update_user_info");
+          } else {
+            wx.showModal({
+              title: "提示",
+              showCancel: false,
+              content: "保存成功",
+              success(res) {
+                wx.navigateBack({
+                  delta: 1
+                });
+              }
+            });
+            this.$Utils.closeWaiting();
+          }
+        });
 
       }
     },
@@ -291,6 +366,50 @@
         color: #fff;
         width: 300px;
       }
+    }
+
+    .professional-box {
+      padding: 10px 20px;
+
+      .professional-title {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #17233d;
+      }
+
+      .professional-change {
+        width: 300px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 4px;
+        grid-row-gap: 6px;
+        margin-bottom: 5px;
+
+        .professional-item {
+          font-size: 14px;
+        }
+      }
+
+      .professional-button {
+        padding: 6px 0;
+
+        .submit {
+          background-color: #19be6b;
+          width: 100px;
+          height: 40px;
+          line-height: 40px;
+          color: #fff;
+          margin-bottom: 10px;
+        }
+
+        .wait {
+          text-align: center;
+          font-size: 14px;
+          color: #515a6e;
+        }
+
+      }
+
     }
 
   }

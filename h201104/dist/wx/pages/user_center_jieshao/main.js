@@ -85,8 +85,32 @@ if (false) {(function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuex__ = __webpack_require__(4);
 
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -140,6 +164,7 @@ if (false) {(function () {
   name: "sign_up",
   data: function data() {
     return {
+      type: 1, // 区分是打开的那个列表。1 是in_work 2 是watch_work
       professional_list: [], // 职业列表
       changge_professional: [], // 选择的职业
       is_popup: false, // 是否打开选择职业
@@ -154,37 +179,112 @@ if (false) {(function () {
   mounted: function mounted() {
     var _this = this;
 
-    this.$Utils.showWaiting();
-    this.$store.dispatch("fetch", {
-      im: this.$Config.INTER_FACE.get_member_info,
-      fps: {
-        open_id: this.openid.back_value.open_id,
-        u_key: this.$root.$mp.query.u_key || ""
-      },
-      url: this.$Config.REQUEST_URI
-    }).then(function (res) {
-      if (res.result === "failure") {
-        _this.$Utils.closeWaiting();
-        _this.$Utils.showErrorInfo(res, "get_member_info");
-      } else {
-        var _res = res.back_value;
-        _this.in_work = _res.industry_involved;
-        _this.watch_work = _res.interest;
-        _this.jieshao = _res.brief_introduction || "";
-        if (_res.head_portrait !== null || _res.head_portrait !== "") {
-          _this.photoList.push({
-            url: _res.head_portrait
-          });
-        } else {
-          _this.photoList = [];
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _this.$Utils.showWaiting();
+              _this.$store.dispatch("fetch", {
+                im: _this.$Config.INTER_FACE.get_member_info,
+                fps: {
+                  open_id: _this.openid.back_value.open_id,
+                  u_key: _this.$root.$mp.query.u_key || ""
+                },
+                url: _this.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  _this.$Utils.closeWaiting();
+                  _this.$Utils.showErrorInfo(res, "get_member_info");
+                } else {
+                  var _res = res.back_value;
+                  _this.in_work = _res.industry_involved;
+                  _this.watch_work = _res.interest;
+                  _this.jieshao = _res.brief_introduction || "";
+                  if (_res.head_portrait !== null || _res.head_portrait !== "") {
+                    _this.photoList.push({
+                      url: _res.head_portrait
+                    });
+                  } else {
+                    _this.photoList = [];
+                  }
+                }
+              });
+
+              // 职业选项
+              _context.next = 4;
+              return _this.$store.dispatch("fetch", {
+                im: _this.$Config.INTER_FACE.get_occupation_list,
+                fps: {},
+                url: _this.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  _this.$Utils.closeWaiting();
+                  _this.$Utils.showErrorInfo(res, "get_occupation_list");
+                } else {
+                  _this.professional_list = res.back_value;
+                }
+              });
+
+            case 4:
+              _this.$Utils.closeWaiting();
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
         }
-        _this.$Utils.closeWaiting();
-      }
-    });
+      }, _callee, _this);
+    }))();
   },
 
   methods: {
-    openChangeWork: function openChangeWork() {},
+    /**
+     * 提交行业
+     */
+    submitProfessional: function submitProfessional() {
+      var size = this.changge_professional.length;
+
+      if (size === 0) {
+        wx.showModal({
+          title: "提示",
+          showCancel: false,
+          content: "请选择一个行业",
+          success: function success(res) {}
+        });
+        return false;
+      }
+      if (size > 3) {
+        wx.showModal({
+          title: "提示",
+          showCancel: false,
+          content: "最多选择三个行业",
+          success: function success(res) {}
+        });
+        return false;
+      }
+      if (this.type === 1) {
+        this.in_work = this.changge_professional.join('|');
+      }
+
+      if (this.type === 2) {
+        this.watch_work = this.changge_professional.join('|');
+      }
+
+      this.is_popup = false;
+      this.changge_professional = [];
+    },
+
+    /**
+     * 选择professional
+     */
+    onChange: function onChange(event) {
+      this.changge_professional = event.mp.detail;
+    },
+    openChangeWork: function openChangeWork(res) {
+      this.type = res;
+      this.is_popup = true;
+    },
 
     /**
      * 临时删除照片，从新上传
@@ -230,79 +330,78 @@ if (false) {(function () {
      * 提交信息
      */
     submit: function submit() {
+      var _this3 = this;
 
-      // if (this.industry[this.index] === "请选择") {
+      if (this.in_work === "请选择所在行业") {
 
-      //   wx.showModal({
-      //     title: "提示",
-      //     showCancel: false,
-      //     content: "所属行业不能为空",
-      //     success(res) {}
-      //   });
+        wx.showModal({
+          title: "提示",
+          showCancel: false,
+          content: "所属行业不能为空",
+          success: function success(res) {}
+        });
 
-      //   return false;
-      // }
+        return false;
+      }
 
-      // if (this.w_industry[this.w_index] === "请选择") {
+      if (this.watch_work === "请选择关注行业") {
 
-      //   wx.showModal({
-      //     title: "提示",
-      //     showCancel: false,
-      //     content: "关注行业不能为空",
-      //     success(res) {}
-      //   });
+        wx.showModal({
+          title: "提示",
+          showCancel: false,
+          content: "关注行业不能为空",
+          success: function success(res) {}
+        });
 
-      //   return false;
-      // }
+        return false;
+      }
 
+      if (this.jieshao === "") {
 
-      // if (this.jieshao === "") {
+        wx.showModal({
+          title: "提示",
+          showCancel: false,
+          content: "自我介绍不能为空",
+          success: function success(res) {}
+        });
 
-      //   wx.showModal({
-      //     title: "提示",
-      //     showCancel: false,
-      //     content: "自我介绍不能为空",
-      //     success(res) {}
-      //   });
+        return false;
+      }
 
-      //   return false;
-      // }
+      this.$Utils.showWaiting();
 
-      // this.$Utils.showWaiting();
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.update_user_info,
+        fps: {
+          open_id: this.openid.back_value.open_id,
+          industry_involved: this.in_work, // 所属行业
+          interest: this.watch_work, // 关注行业
+          brief_introduction: this.jieshao,
+          head_portrait: this.photo
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
 
-      // this.$store.dispatch("fetch", {
-      //   im: this.$Config.INTER_FACE.update_user_info,
-      //   fps: {
-      //     open_id: this.openid.back_value.open_id,
-      //     industry_involved: this.industry[this.index], // 所属行业
-      //     interest: this.w_industry[this.w_index], // 关注行业
-      //     brief_introduction: this.jieshao,
-      //     head_portrait: this.photo
-      //   },
-      //   url: this.$Config.REQUEST_URI
-      // }).then(res => {
-
-      //   if (res.result === "failure") {
-      //     this.$Utils.closeWaiting();
-      //     this.$Utils.showErrorInfo(res, "update_user_info");
-      //   } else {
-      //     wx.showModal({
-      //       title: "提示",
-      //       showCancel: false,
-      //       content: "保存成功",
-      //       success(res) {
-      //         wx.navigateBack({
-      //           delta: 1
-      //         });
-      //       }
-      //     });
-      //     this.$Utils.closeWaiting();
-      //   }
-      // });
-
+        if (res.result === "failure") {
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "update_user_info");
+        } else {
+          wx.showModal({
+            title: "提示",
+            showCancel: false,
+            content: "保存成功",
+            success: function success(res) {
+              wx.navigateBack({
+                delta: 1
+              });
+            }
+          });
+          _this3.$Utils.closeWaiting();
+        }
+      });
     }
   },
-  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(["openid"])),
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_3_vuex__["b" /* mapGetters */])(["openid"])),
   onUnload: function onUnload() {
     this.$Utils.restData(this);
   }
@@ -331,7 +430,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '0'
     },
     on: {
-      "click": _vm.openChangeWork
+      "click": function($event) {
+        _vm.openChangeWork(1)
+      }
     }
   }, [_vm._v(_vm._s(_vm.in_work))])]), _vm._v(" "), _c('div', [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('div', {
     staticClass: "professional",
@@ -339,7 +440,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '1'
     },
     on: {
-      "click": _vm.openChangeWork
+      "click": function($event) {
+        _vm.openChangeWork(2)
+      }
     }
   }, [_vm._v(_vm._s(_vm.watch_work))])]), _vm._v(" "), _c('div', [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('textarea', {
     directives: [{
@@ -391,7 +494,64 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.submit
     }
-  }, [_vm._v("保存")])], 1)])
+  }, [_vm._v("保存")])], 1), _vm._v(" "), _c('v-popup', {
+    attrs: {
+      "show": _vm.is_popup,
+      "eventid": '8',
+      "mpcomid": '3'
+    },
+    on: {
+      "close": function($event) {
+        _vm.is_popup = false
+      }
+    }
+  }, [_c('div', {
+    staticClass: "professional-box"
+  }, [_c('h1', {
+    staticClass: "professional-title"
+  }, [_vm._v("选择不超过3个，用于向您推荐相关行业的BP和投研活动")]), _vm._v(" "), _c('v-checkbox-group', {
+    attrs: {
+      "value": _vm.changge_professional,
+      "eventid": '7',
+      "mpcomid": '2'
+    },
+    on: {
+      "change": _vm.onChange
+    }
+  }, [_c('div', {
+    staticClass: "professional-change"
+  }, _vm._l((_vm.professional_list), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "professional-item"
+    }, [_c('v-checkbox', {
+      attrs: {
+        "name": item,
+        "mpcomid": '1_' + index
+      }
+    }, [_vm._v(_vm._s(item))])], 1)
+  })), _vm._v(" "), _c('div', {
+    staticClass: "professional-button"
+  }, [_c('button', {
+    staticClass: "submit",
+    attrs: {
+      "eventid": '5'
+    },
+    on: {
+      "click": _vm.submitProfessional
+    }
+  }, [_vm._v("提交")]), _vm._v(" "), _c('p', {
+    staticClass: "wait",
+    attrs: {
+      "eventid": '6'
+    },
+    on: {
+      "click": function($event) {
+        _vm.is_popup = false;
+        _vm.changge_professional = []
+      }
+    }
+  }, [_vm._v("关闭")])], 1)])], 1)])], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
