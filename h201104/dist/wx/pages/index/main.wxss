@@ -78,3 +78,6 @@
 .index-container .index-activity-list .index-activity-item .activity-item-info .info-status_time .time.data-v-675665fc {
   text-align: right;
 }
+.index-container .changeZy.data-v-675665fc {
+  border: 2rpx solid #fff;
+}

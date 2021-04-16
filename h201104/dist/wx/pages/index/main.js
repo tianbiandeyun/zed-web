@@ -140,6 +140,21 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -152,6 +167,8 @@ if (false) {(function () {
   },
   data: function data() {
     return {
+      checkedNames: [],
+      is_popup: true,
       message_count: 0, // 信息条数
       is_login: false, // 是否登陆
       is_scope: false, // 是否打开请授权头像
@@ -189,6 +206,10 @@ if (false) {(function () {
   },
 
   methods: {
+    submit: function submit() {
+      console.log(this.checkedNames);
+    },
+
     /**
      * 打开请授权头像
      */
@@ -196,14 +217,6 @@ if (false) {(function () {
       this.is_scope = true;
     },
 
-    /**
-     * 前往用户中心
-     */
-    // goUserCenter() {
-    //   wx.navigateTo({
-    //     url: `/pages/user_center/main?u_key=${this.u_key}`
-    //   });
-    // },
     /**
      * 前往单个活动详情
      * */
@@ -252,11 +265,15 @@ if (false) {(function () {
       var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var that;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
+                that = _this3;
+                // 获取用户信息
+
+                _context2.next = 3;
                 return _this3.$store.dispatch("fetch", {
                   im: _this3.$Config.INTER_FACE.get_member_info,
                   fps: {
@@ -284,8 +301,8 @@ if (false) {(function () {
                   }
                 });
 
-              case 2:
-                _context2.next = 4;
+              case 3:
+                _context2.next = 5;
                 return _this3.$store.dispatch("fetch", {
                   im: _this3.$Config.INTER_FACE.get_salon_activity_list,
                   fps: {
@@ -306,8 +323,8 @@ if (false) {(function () {
                   }
                 });
 
-              case 4:
-                _context2.next = 6;
+              case 5:
+                _context2.next = 7;
                 return _this3.$store.dispatch("fetch", {
                   im: _this3.$Config.INTER_FACE.get_unread_message,
                   fps: {
@@ -323,7 +340,7 @@ if (false) {(function () {
                   }
                 });
 
-              case 6:
+              case 7:
                 // 职业选项
                 _this3.$store.dispatch("fetch", {
                   im: _this3.$Config.INTER_FACE.get_occupation_list,
@@ -335,12 +352,15 @@ if (false) {(function () {
                     _this3.$Utils.showErrorInfo(res, "get_occupation_list");
                   } else {
                     console.log(res.back_value);
+                    setTimeout(function () {
+                      that.is_popup = true;
+                    }, 3000);
                   }
                 });
 
                 _this3.$Utils.closeWaiting();
 
-              case 8:
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -489,7 +509,113 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "message-count": _vm.message_count,
       "mpcomid": '1'
     }
-  })], 1)
+  }), _vm._v(" "), _c('v-popup', {
+    attrs: {
+      "show": _vm.is_popup,
+      "eventid": '7',
+      "mpcomid": '2'
+    },
+    on: {
+      "close": function($event) {
+        _vm.is_popup = false
+      }
+    }
+  }, [_c('div', {
+    staticClass: "changeZy"
+  }, [_c('div', {
+    staticClass: "item"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model.lazy",
+      value: (_vm.checkedNames),
+      expression: "checkedNames",
+      modifiers: {
+        "lazy": true
+      }
+    }],
+    attrs: {
+      "type": "checkbox",
+      "id": "jack",
+      "value": "Jack",
+      "eventid": '4'
+    },
+    domProps: {
+      "checked": Array.isArray(_vm.checkedNames) ? _vm._i(_vm.checkedNames, "Jack") > -1 : (_vm.checkedNames)
+    },
+    on: {
+      "__c": function($event) {
+        var $$a = _vm.checkedNames,
+          $$el = $event.target,
+          $$c = $$el.checked ? (true) : (false);
+        if (Array.isArray($$a)) {
+          var $$v = "Jack",
+            $$i = _vm._i($$a, $$v);
+          if ($$c) {
+            $$i < 0 && (_vm.checkedNames = $$a.concat($$v))
+          } else {
+            $$i > -1 && (_vm.checkedNames = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+          }
+        } else {
+          _vm.checkedNames = $$c
+        }
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    attrs: {
+      "for": "jack"
+    }
+  }, [_vm._v("Jack")])], 1), _vm._v(" "), _c('div', {
+    staticClass: "item"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model.lazy",
+      value: (_vm.checkedNames),
+      expression: "checkedNames",
+      modifiers: {
+        "lazy": true
+      }
+    }],
+    attrs: {
+      "type": "checkbox",
+      "id": "john",
+      "value": "John",
+      "eventid": '5'
+    },
+    domProps: {
+      "checked": Array.isArray(_vm.checkedNames) ? _vm._i(_vm.checkedNames, "John") > -1 : (_vm.checkedNames)
+    },
+    on: {
+      "__c": function($event) {
+        var $$a = _vm.checkedNames,
+          $$el = $event.target,
+          $$c = $$el.checked ? (true) : (false);
+        if (Array.isArray($$a)) {
+          var $$v = "John",
+            $$i = _vm._i($$a, $$v);
+          if ($$c) {
+            $$i < 0 && (_vm.checkedNames = $$a.concat($$v))
+          } else {
+            $$i > -1 && (_vm.checkedNames = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+          }
+        } else {
+          _vm.checkedNames = $$c
+        }
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    attrs: {
+      "for": "john"
+    }
+  }, [_vm._v("John")])], 1), _vm._v(" "), _c('button', {
+    attrs: {
+      "eventid": '6'
+    },
+    on: {
+      "click": _vm.submit
+    }
+  }, [_vm._v("click")])], 1)])], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

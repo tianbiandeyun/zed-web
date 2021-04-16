@@ -2,6 +2,6 @@
   "navigationBarBackgroundColor": "#000",
   "navigationBarTitleText": "首页",
   "usingComponents": {
-
+    "v-popup": "../../../static/vant/popup/index"
   }
 }

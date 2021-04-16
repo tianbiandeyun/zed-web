@@ -44,6 +44,21 @@
     <!-- 自定义 tab -->
     <tab :message-count='message_count'></tab>
 
+    <!-- 选择行业 -->
+    <v-popup :show="is_popup" @close="is_popup = false">
+      <div class="changeZy">
+        <div class="item">
+          <input type="checkbox" id="jack" value="Jack" v-model.lazy="checkedNames">
+          <label for="jack">Jack</label>
+        </div>
+        <div class="item">
+          <input type="checkbox" id="john" value="John" v-model.lazy="checkedNames">
+          <label for="john">John</label>
+        </div>
+        <button @click='submit'>click</button>
+      </div>
+    </v-popup>
+
   </section>
 </template>
 
@@ -59,6 +74,8 @@
     },
     data() {
       return {
+        checkedNames: [],
+        is_popup: true,
         message_count: 0, // 信息条数
         is_login: false, // 是否登陆
         is_scope: false, // 是否打开请授权头像
@@ -75,20 +92,15 @@
       this.refreshIndex();
     },
     methods: {
+      submit() {
+        console.log(this.checkedNames);
+      },
       /**
        * 打开请授权头像
        */
       openLogin() {
         this.is_scope = true;
       },
-      /**
-       * 前往用户中心
-       */
-      // goUserCenter() {
-      //   wx.navigateTo({
-      //     url: `/pages/user_center/main?u_key=${this.u_key}`
-      //   });
-      // },
       /**
        * 前往单个活动详情
        * */
@@ -130,6 +142,7 @@
        * 首页信息获取
        * */
       async refreshIndex() {
+        const that = this;
         // 获取用户信息
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
@@ -205,6 +218,9 @@
             console.log(
               res.back_value
             );
+            setTimeout(() => {
+              that.is_popup = true;
+            }, 3000);
           }
         });
 
@@ -347,6 +363,10 @@
         }
       }
 
+    }
+
+    .changeZy {
+      border: 1px solid #fff;
     }
 
   }
