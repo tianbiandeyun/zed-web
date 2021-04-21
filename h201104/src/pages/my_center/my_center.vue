@@ -157,6 +157,15 @@
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "get_member_info");
           } else {
+            if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
+              wx.showModal({
+                title: `inner_data`,
+                showCancel: false,
+                content: `res.back_value.inner_data 是 null 或者 空`,
+                success() {}
+              });
+              return false;
+            }
             this.is_phone = res.back_value.inner_data.phone_restrict;
             this.is_mail = res.back_value.inner_data.mail_restrict;
             this.user_info = res.back_value;

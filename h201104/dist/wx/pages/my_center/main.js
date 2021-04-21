@@ -277,6 +277,15 @@ if (false) {(function () {
                     _this2.$Utils.closeWaiting();
                     _this2.$Utils.showErrorInfo(res, "get_member_info");
                   } else {
+                    if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
+                      wx.showModal({
+                        title: "inner_data",
+                        showCancel: false,
+                        content: "res.back_value.inner_data \u662F null \u6216\u8005 \u7A7A",
+                        success: function success() {}
+                      });
+                      return false;
+                    }
                     _this2.is_phone = res.back_value.inner_data.phone_restrict;
                     _this2.is_mail = res.back_value.inner_data.mail_restrict;
                     _this2.user_info = res.back_value;
