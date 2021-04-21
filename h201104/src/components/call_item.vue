@@ -1,18 +1,18 @@
 <template>
   <!-- 我创建的对话 -->
-  <section class="create_line-container">
-    <div hover-class='b' class="created-line-header" @click.stop='sendCall'>
+  <section class="call_item-container">
+    <div hover-class='b' class="call_item-header" @click.stop='sendCall'>
       <p>我</p>
       <p>{{time}}，给"{{item.name}}"留言</p>
       <p @click.stop="delCall">{{status}}</p>
     </div>
-    <div hover-class='b' class="created-line-message" @click.stop='sendCall'>{{item.content}}</div>
+    <div hover-class='b' class="call_item-message" @click.stop='sendCall'>{{item.content}}</div>
   </section>
 </template>
 
 <script>
   export default {
-    name: "create_lline",
+    name: "call_item",
     props: {
       item: {
         type: Object
@@ -110,9 +110,9 @@
 </script>
 
 <style lang="less" scoped>
-  .create_line-container {
+  .call_item-container {
 
-    .created-line-header {
+    .call_item-header {
       display: grid;
       grid-template-columns: 30px 4fr 1fr;
       grid-column-gap: 6px;
@@ -143,7 +143,7 @@
       }
     }
 
-    .created-line-message {
+    .call_item-message {
       color: #515a6e;
       font-size: 16px;
     }

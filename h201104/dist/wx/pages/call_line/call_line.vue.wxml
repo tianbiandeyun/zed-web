@@ -1,11 +1,11 @@
-<import src="/components/get_line.vue.wxml" />
-<import src="/components/create_lline.vue.wxml" />
 <import src="/custom-tab-bar/index.vue.wxml" /><template name="3d1576c0">
   <view class="_section data-v-bf8108fc call_line-container">
     <v-tabs active="{{active}}" color="#19be6b" animated swipeable bindchange="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_v-tabs data-v-bf8108fc">
       <v-tab title="我收到的会话" class="_v-tab data-v-bf8108fc">
         <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item">
-          <view wx:if="{{item.trigger_ukey !== 'root'}}" class="_div data-v-bf8108fc"><template bindgetCall="handleProxy" binddelCall="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="7d02b1c6"></template></view>
+          <view wx:if="{{item.trigger_ukey !== 'root'}}" class="_div data-v-bf8108fc">
+            <get-line item="{{item}}" bindgetCall="handleProxy" binddelCall="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" class="_get-line data-v-bf8108fc"></get-line>
+          </view>
           <view class="_div data-v-bf8108fc system-message" wx:else><button session-from="laiyuan" send-message-title="{{item.name}}" open-type="contact" send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png" show-message-card="true" class="_button data-v-bf8108fc">
               <view class="_h1 data-v-bf8108fc">系统消息：{{item.name}}</view>
               <view class="_p data-v-bf8108fc">{{item.content}}</view>
@@ -13,7 +13,9 @@
         </view>
       </v-tab>
       <v-tab title="我建立的会话" class="_v-tab data-v-bf8108fc">
-        <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item"><template bindsendCall="handleProxy" binddelCall="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2_'+index], $root}}" is="96d61934"></template></view>
+        <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item">
+          <call-item item="{{item}}" bindsendCall="handleProxy" binddelCall="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" class="_call-item data-v-bf8108fc"></call-item>
+        </view>
       </v-tab>
     </v-tabs> <template selected="1" data="{{...$root[$kk+'5'], $root}}" is="55f19ec2"></template>
   </view>

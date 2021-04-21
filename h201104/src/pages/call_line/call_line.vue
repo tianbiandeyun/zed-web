@@ -21,7 +21,7 @@
 
       <v-tab title="我建立的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <created-line :item="item" @sendCall='sendCall(item)' @delCall="delCreatedLine(item)"></created-line>
+          <call-item :item="item" @sendCall='sendCall(item)' @delCall="delCreatedLine(item)"></call-item>
         </div>
       </v-tab>
 
@@ -38,13 +38,13 @@
     mapGetters
   } from "vuex";
   import getLine from "@/components/get_line";
-  import createdLine from "@/components/create_lline";
+  import callItem from "@/components/call_item";
 
   export default {
     name: "call_line",
     components: {
       getLine,
-      createdLine
+      callItem
     },
     data() {
       return {
