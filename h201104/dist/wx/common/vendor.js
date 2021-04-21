@@ -11153,6 +11153,7 @@ if (false) {
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "getUserInfo",
@@ -11167,17 +11168,35 @@ if (false) {
   },
   methods: {
     setUserInfo: function setUserInfo(e) {
+      var _this = this;
 
-      if (e.mp.detail.errMsg !== "getUserInfo:fail auth deny") {
-        this.$emit("setUserInfo", e.mp.detail);
-      } else {
-        wx.showModal({
-          title: "提示",
-          showCancel: false,
-          content: this.message,
-          success: function success(res) {}
-        });
-      }
+      console.log('33');
+
+      wx.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: function success(res) {
+          _this.$emit("setUserInfo", res);
+          // userInfo:
+          //   avatarUrl:
+          //   "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL5a5hW2NhrxX5UYVvYj0fS5Yurt5BDDfQqYjrDHXcJt7RjE6qzNLHp2aQt4VRKkgU2evjNH95Avw/132"
+          // city: ""
+          // country: "China"
+          // gender: 2
+          // language: "zh_CN"
+          // nickName: "Zed"
+          // province: ""
+        },
+        fail: function fail(res) {
+          if (res.errMsg === 'getUserProfile:fail auth deny') {
+            wx.showModal({
+              title: "提示",
+              showCancel: false,
+              content: _this.message,
+              success: function success(res) {}
+            });
+          }
+        }
+      });
     }
   }
 });
@@ -11199,13 +11218,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })]), _vm._v(" "), _c('button', {
     attrs: {
-      "open-type": "getUserInfo",
       "eventid": '0'
     },
     on: {
-      "getuserinfo": _vm.setUserInfo
+      "click": _vm.setUserInfo
     }
-  }, [_vm._v("开启授权")])], 1) : _vm._e()
+  }, [_vm._v("click me")])], 1) : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

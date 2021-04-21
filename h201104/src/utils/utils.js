@@ -157,7 +157,8 @@ const getErrorCode = code => {
   const errorCode = {
     2000920: "openid 错误",
     2011130201: "未报名参加此次活动",
-    1100852: "参数错误"
+    1100852: "参数错误",
+    2012100231: '此用户未授权用户信息'
   };
   let error_code = code;
   let error_message = errorCode[code];

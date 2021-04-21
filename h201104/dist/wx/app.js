@@ -325,7 +325,8 @@ var getErrorCode = function getErrorCode(code) {
   var errorCode = {
     2000920: "openid 错误",
     2011130201: "未报名参加此次活动",
-    1100852: "参数错误"
+    1100852: "参数错误",
+    2012100231: '此用户未授权用户信息'
   };
   var error_code = code;
   var error_message = errorCode[code];
