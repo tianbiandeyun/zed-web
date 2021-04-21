@@ -3,7 +3,7 @@
     <div class="getUserInfo-logo">
       <img src="../../static/images/logo.png" alt="">
     </div>
-    <button open-type="getUserInfo" @getuserinfo="setUserInfo">开启授权</button>
+    <!-- <button open-type="getUserInfo" @getuserinfo="setUserInfo">开启授权</button> -->
     <button @click='ddd'>click me</button>
   </section>
 </template>
@@ -28,7 +28,7 @@
           desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
           success: (res) => {
             console.log(res);
-            // this.$emit("setUserInfo", res);
+            this.$emit("setUserInfo", res);
           },
           fail: (res) => {
             if (res.errMsg === 'getUserProfile:fail auth deny') {

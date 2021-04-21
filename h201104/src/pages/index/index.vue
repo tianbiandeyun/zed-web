@@ -175,7 +175,7 @@
           im: this.$Config.INTER_FACE.set_update_user_info,
           fps: {
             open_id: this.openid_info.back_value.open_id,
-            encrypted_data: res.encryptedData,
+            encrypted_data: encodeURI(res.encryptedData),
             iv: res.iv
           },
           url: this.$Config.REQUEST_URI
