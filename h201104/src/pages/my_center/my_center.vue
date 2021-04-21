@@ -1,15 +1,15 @@
 <template>
   <section class="user-center-container">
 
-    <div class="user-j box">
+    <div class="basis box">
 
-      <div class="user-j-name">
+      <div class="basis-name">
         <span>{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</span>
         <img v-if="user_info.sex == 1" src="../../../static/images/nan.png" alt="">
         <img v-else src="../../../static/images/nv.png" alt="">
       </div>
 
-      <div class="user-j-company">
+      <div class="basis-company">
         <span>{{user_info.company === null || user_info.company === "" ? "暂无企业" : user_info.company}}</span>
         <span v-if="openid.back_value.open_id === user_info.open_id" @click="edit(1)">
           <img src="../../../static/images/bianji.png" alt="">
@@ -17,18 +17,18 @@
         </span>
       </div>
 
-      <div class="user-j-other">
+      <div class="basis-other">
         <span>职务：</span>
         <span>{{user_info.job_description === null || user_info.job_description === "" ? "无" : user_info.job_description}}</span>
       </div>
 
-      <div class="user-j-other">
+      <div class="basis-other">
         <span>电话：</span>
         <span>{{user_info.phone === null || user_info.phone === "" ? "暂无电话" : user_info.phone}} <span
             v-if="openid.back_value.open_id === user_info.open_id">{{is_phone == 1 ? "（公开）" : "（仅自己可见）"}}</span></span>
       </div>
 
-      <div class="user-j-other">
+      <div class="basis-other">
         <span>邮箱：</span>
         <span>{{user_info.mail === null || user_info.mail === "" ? "暂无邮箱" : user_info.mail}} <span
             v-if="openid.back_value.open_id === user_info.open_id">{{is_mail == 1 ? "（公开）" : "（仅自己可见）"}}</span></span>
@@ -36,9 +36,9 @@
 
     </div>
 
-    <div class="user-g box">
+    <div class="introduce box">
 
-      <div class="user-g-edit">
+      <div class="introduce-edit">
         <span>个人介绍：</span>
         <span v-if="openid.back_value.open_id === user_info.open_id" @click="edit(2)">
           <img src="../../../static/images/bianji.png" alt="">
@@ -46,17 +46,17 @@
         </span>
       </div>
 
-      <div class="user-g-other">
+      <div class="introduce-other">
         <span>所在行业：</span>
         <span>{{user_info.industry_involved === null || user_info.industry_involved === "" ? "暂无所在行业" : user_info.industry_involved}}</span>
       </div>
 
-      <div class="user-g-other">
+      <div class="introduce-other">
         <span>关注行业：</span>
         <span>{{user_info.interest === null || user_info.interest === "" ? "暂无关注行业" : user_info.interest}}</span>
       </div>
 
-      <div class="user-g-text">
+      <div class="introduce-text">
         <span>自我介绍：</span>
         <span>
           {{user_info.brief_introduction === null || user_info.brief_introduction === "" ? "暂无自我介绍" : user_info.brief_introduction}}
@@ -65,7 +65,7 @@
 
     </div>
 
-    <div class="user-e box">
+    <div class="photo box">
       <h1>形象照片</h1>
       <div>
         <p v-if="!user_info.head_portrait">暂无可以通过编辑添加</p>
@@ -202,9 +202,9 @@
       margin-bottom: 10px;
     }
 
-    .user-j {
+    .basis {
 
-      .user-j-name {
+      .basis-name {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
@@ -223,7 +223,7 @@
         }
       }
 
-      .user-j-company {
+      .basis-company {
         display: grid;
         grid-template-columns: 5fr 1fr;
         align-items: center;
@@ -248,7 +248,7 @@
         }
       }
 
-      .user-j-other {
+      .basis-other {
         display: grid;
         grid-template-columns: 2fr 8fr;
         align-items: center;
@@ -267,9 +267,9 @@
 
     }
 
-    .user-g {
+    .introduce {
 
-      .user-g-edit {
+      .introduce-edit {
         display: grid;
         grid-template-columns: 5fr 1fr;
         align-items: center;
@@ -294,7 +294,7 @@
         }
       }
 
-      .user-g-other {
+      .introduce-other {
         display: grid;
         grid-template-columns: 2fr 6fr;
         align-items: center;
@@ -311,7 +311,7 @@
         }
       }
 
-      .user-g-text {
+      .introduce-text {
         display: grid;
         grid-template-columns: 2fr 6fr;
         font-size: 16px;
@@ -329,7 +329,7 @@
       }
     }
 
-    .user-e {
+    .photo {
 
       h1 {
         color: #17233d;

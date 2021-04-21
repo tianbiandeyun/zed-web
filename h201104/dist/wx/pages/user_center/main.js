@@ -347,9 +347,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return (_vm.is_page) ? _c('section', {
     staticClass: "user-center-container"
   }, [_c('div', {
-    staticClass: "user-j box"
+    staticClass: "basis box"
   }, [_c('div', {
-    staticClass: "user-j-name"
+    staticClass: "basis-name"
   }, [_c('span', [_vm._v(_vm._s(_vm.user_info.name === null || _vm.user_info.name === "" ? "无" : _vm.user_info.name))]), _vm._v(" "), (_vm.user_info.sex == 1) ? _c('img', {
     attrs: {
       "src": "../../../static/images/nan.png",
@@ -361,7 +361,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
-    staticClass: "user-j-company"
+    staticClass: "basis-company"
   }, [_c('span', [_vm._v(_vm._s(_vm.user_info.company === null || _vm.user_info.company === "" ? "暂无企业" : _vm.user_info.company))]), _vm._v(" "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('span', {
     attrs: {
       "eventid": '0'
@@ -377,15 +377,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "alt": ""
     }
   }), _vm._v("\n        编辑\n      ")]) : _vm._e()]), _vm._v(" "), _c('div', {
-    staticClass: "user-j-other"
+    staticClass: "basis-other"
   }, [_c('span', [_vm._v("职务：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.job_description === null || _vm.user_info.job_description === "" ? "无" : _vm.user_info.job_description))])]), _vm._v(" "), _c('div', {
-    staticClass: "user-j-other"
+    staticClass: "basis-other"
   }, [_c('span', [_vm._v("电话：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.phone === null || _vm.user_info.phone === "" ? "暂无电话" : _vm.user_info.phone) + " "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('span', [_vm._v(_vm._s(_vm.is_phone == 1 ? "（公开）" : "（仅自己可见）"))]) : _vm._e()])]), _vm._v(" "), _c('div', {
-    staticClass: "user-j-other"
+    staticClass: "basis-other"
   }, [_c('span', [_vm._v("邮箱：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.mail === null || _vm.user_info.mail === "" ? "暂无邮箱" : _vm.user_info.mail) + " "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('span', [_vm._v(_vm._s(_vm.is_mail == 1 ? "（公开）" : "（仅自己可见）"))]) : _vm._e()])])]), _vm._v(" "), _c('div', {
-    staticClass: "user-g box"
+    staticClass: "introduce box"
   }, [_c('div', {
-    staticClass: "user-g-edit"
+    staticClass: "introduce-edit"
   }, [_c('span', [_vm._v("个人介绍：")]), _vm._v(" "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('span', {
     attrs: {
       "eventid": '1'
@@ -401,13 +401,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "alt": ""
     }
   }), _vm._v("\n        编辑\n      ")]) : _vm._e()]), _vm._v(" "), _c('div', {
-    staticClass: "user-g-other"
+    staticClass: "introduce-other"
   }, [_c('span', [_vm._v("所在行业：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.industry_involved === null || _vm.user_info.industry_involved === "" ? "暂无所在行业" : _vm.user_info.industry_involved))])]), _vm._v(" "), _c('div', {
-    staticClass: "user-g-other"
+    staticClass: "introduce-other"
   }, [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.interest === null || _vm.user_info.interest === "" ? "暂无关注行业" : _vm.user_info.interest))])]), _vm._v(" "), _c('div', {
-    staticClass: "user-g-text"
+    staticClass: "introduce-text"
   }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), (_vm.openid.back_value.open_id !== _vm.user_info.open_id) ? _c('div', {
-    staticClass: "box"
+    staticClass: "reply box"
   }, [_c('button', {
     attrs: {
       "eventid": '2'
@@ -415,8 +415,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.createdReply
     }
-  }, [_vm._v("创建留言")])], 1) : _vm._e(), _vm._v(" "), _c('div', {
-    staticClass: "user-e box"
+  }, [_vm._v("给TA留言")])], 1) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "photo box"
   }, [_c('h1', [_vm._v("形象照片")]), _vm._v(" "), _c('div', [(!_vm.user_info.head_portrait) ? _c('p', [_vm._v("暂无可以通过编辑添加")]) : _c('img', {
     attrs: {
       "src": _vm.user_info.head_portrait,
