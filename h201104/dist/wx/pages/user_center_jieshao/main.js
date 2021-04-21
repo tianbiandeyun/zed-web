@@ -189,7 +189,7 @@ if (false) {(function () {
                 im: _this.$Config.INTER_FACE.get_member_info,
                 fps: {
                   open_id: _this.openid.back_value.open_id,
-                  u_key: _this.$root.$mp.query.u_key || ""
+                  u_key: ""
                 },
                 url: _this.$Config.REQUEST_URI
               }).then(function (res) {

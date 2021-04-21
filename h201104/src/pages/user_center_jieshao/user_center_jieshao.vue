@@ -89,7 +89,7 @@
         im: this.$Config.INTER_FACE.get_member_info,
         fps: {
           open_id: this.openid.back_value.open_id,
-          u_key: this.$root.$mp.query.u_key || ""
+          u_key: ""
         },
         url: this.$Config.REQUEST_URI
       }).then(res => {

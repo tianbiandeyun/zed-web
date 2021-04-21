@@ -188,7 +188,7 @@ if (false) {(function () {
       im: this.$Config.INTER_FACE.get_member_info,
       fps: {
         open_id: this.openid.back_value.open_id,
-        u_key: this.$root.$mp.query.u_key || ""
+        u_key: ""
       },
       url: this.$Config.REQUEST_URI
     }).then(function (res) {
@@ -362,9 +362,7 @@ if (false) {(function () {
       console.log(this.result);
     }
   },
-  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(["openid"
-  // "user_info"
-  ])),
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(["openid"])),
   onUnload: function onUnload() {
     this.$Utils.restData(this);
   }
