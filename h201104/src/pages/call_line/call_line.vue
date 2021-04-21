@@ -144,6 +144,9 @@
           })
         }
       },
+      /**
+       * 阅读系统信息
+       */
       systemContact(res) {
         let id = res.id;
         this.$store.dispatch("fetch", {

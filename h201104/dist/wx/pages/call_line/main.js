@@ -261,6 +261,10 @@ if (false) {(function () {
         });
       }
     },
+
+    /**
+     * 阅读系统信息
+     */
     systemContact: function systemContact(res) {
       var _this2 = this;
 
