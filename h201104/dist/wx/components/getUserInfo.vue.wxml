@@ -2,6 +2,6 @@
   <view class="_section data-v-84129bd8 getUserInfo-container" wx:if="{{isScope}}">
     <view class="_div data-v-84129bd8 getUserInfo-logo">
       <image src="/static/images/logo.png" alt class="_img data-v-84129bd8"></image>
-    </view> <button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-84129bd8">click me</button>
+    </view> <button open-type="getUserInfo" bindgetuserinfo="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-84129bd8">开启授权</button> <button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-84129bd8">click me</button>
   </view>
 </template>

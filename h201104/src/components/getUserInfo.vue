@@ -3,8 +3,8 @@
     <div class="getUserInfo-logo">
       <img src="../../static/images/logo.png" alt="">
     </div>
-    <!-- <button open-type="getUserInfo" @getuserinfo="setUserInfo">开启授权</button> -->
-    <button @click='setUserInfo'>click me</button>
+    <button open-type="getUserInfo" @getuserinfo="setUserInfo">开启授权</button>
+    <button @click='ddd'>click me</button>
   </section>
 </template>
 
@@ -21,22 +21,14 @@
       }
     },
     methods: {
-      setUserInfo(e) {
-        console.log('33');
+      ddd(e) {
+        console.log('ddd');
 
         wx.getUserProfile({
           desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
           success: (res) => {
-            this.$emit("setUserInfo", res);
-            // userInfo:
-            //   avatarUrl:
-            //   "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL5a5hW2NhrxX5UYVvYj0fS5Yurt5BDDfQqYjrDHXcJt7RjE6qzNLHp2aQt4VRKkgU2evjNH95Avw/132"
-            // city: ""
-            // country: "China"
-            // gender: 2
-            // language: "zh_CN"
-            // nickName: "Zed"
-            // province: ""
+            console.log(res);
+            // this.$emit("setUserInfo", res);
           },
           fail: (res) => {
             if (res.errMsg === 'getUserProfile:fail auth deny') {
@@ -49,6 +41,20 @@
             }
           }
         })
+      },
+      setUserInfo(e) {
+        console.log(e.mp.detail);
+
+        // if (e.mp.detail.errMsg !== "getUserInfo:fail auth deny") {
+        //   this.$emit("setUserInfo", e.mp.detail);
+        // } else {
+        //   wx.showModal({
+        //     title: "提示",
+        //     showCancel: false,
+        //     content: this.message,
+        //     success(res) {}
+        //   });
+        // }
       }
     }
   };
