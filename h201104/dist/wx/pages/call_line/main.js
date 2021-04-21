@@ -639,7 +639,6 @@ if (false) {(function () {
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_item",
@@ -725,7 +724,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "send-message-title": _vm.item.content,
       "open-type": "contact",
       "send-message-path": "pages/call_line/main",
-      "send-message-img": "https://f.hztc.dev.hztcapp.com/cos_upload/wx/image_list/下载.png",
+      "send-message-img": _vm.item.file_img,
       "show-message-card": "true",
       "eventid": '1'
     },
