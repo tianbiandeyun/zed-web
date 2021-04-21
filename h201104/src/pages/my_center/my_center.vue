@@ -157,32 +157,6 @@
         }
       },
       async refreshUserCenter(u_key) {
-        // await this.$store.dispatch("fetch", {
-        //   im: this.$Config.INTER_FACE.get_member_info,
-        //   fps: {
-        //     open_id: this.openid.back_value.open_id,
-        //     u_key: u_key || ""
-        //   },
-        //   url: this.$Config.REQUEST_URI
-        // }).then(res => {
-        //   if (res.result === "failure") {
-        //     this.$Utils.closeWaiting();
-        //     this.$Utils.showErrorInfo(res, "get_member_info");
-        //   } else {
-        //     if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
-        //       wx.showModal({
-        //         title: `inner_data`,
-        //         showCancel: false,
-        //         content: `res.back_value.inner_data 是 null 或者 空`,
-        //         success() {}
-        //       });
-        //       return false;
-        //     }
-        //     this.is_phone = res.back_value.inner_data.phone_restrict;
-        //     this.is_mail = res.back_value.inner_data.mail_restrict;
-        //     this.user_info = res.back_value;
-        //   }
-        // });
         // 信息条数
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_unread_message,
