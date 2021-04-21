@@ -101,7 +101,7 @@
 
       this.$Utils.showWaiting();
 
-      // 获取 u_key
+      // 获取 u_key 个人信息 
       await this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_member_info,
         fps: {

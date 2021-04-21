@@ -202,7 +202,7 @@ if (false) {(function () {
 
               _this.$Utils.showWaiting();
 
-              // 获取 u_key
+              // 获取 u_key 个人信息 
               _context.next = 3;
               return _this.$store.dispatch("fetch", {
                 im: _this.$Config.INTER_FACE.get_member_info,
