@@ -567,17 +567,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "message-count": _vm.message_count,
       "mpcomid": '1'
     }
-  }), _vm._v(" "), _c('v-popup', {
-    attrs: {
-      "show": _vm.is_popup,
-      "eventid": '7',
-      "mpcomid": '4'
-    },
-    on: {
-      "close": function($event) {
-        _vm.is_popup = false
-      }
-    }
+  }), _vm._v(" "), (_vm.is_popup) ? _c('div', {
+    staticClass: "tip_overlay"
   }, [_c('div', {
     staticClass: "professional-box"
   }, [_c('h1', {
@@ -623,7 +614,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.is_popup = false
       }
     }
-  }, [_vm._v("稍后提交")])], 1)])], 1)])], 1)
+  }, [_vm._v("稍后提交")])], 1)])], 1)]) : _vm._e()], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

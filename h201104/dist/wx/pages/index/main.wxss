@@ -34,7 +34,7 @@
 }
 .index-container .index-activity-list.data-v-675665fc {
   box-sizing: border-box;
-  padding: 0 40rpx 240rpx 40rpx;
+  padding: 0 40rpx 200rpx 40rpx;
   position: absolute;
   top: 160rpx;
   left: 0;
@@ -78,15 +78,30 @@
 .index-container .index-activity-list .index-activity-item .activity-item-info .info-status_time .time.data-v-675665fc {
   text-align: right;
 }
-.index-container .professional-box.data-v-675665fc {
-  padding: 20rpx 40rpx;
+.index-container .tip_overlay.data-v-675665fc {
+  box-sizing: border-box;
+  padding-top: 40rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
 }
-.index-container .professional-box .professional-title.data-v-675665fc {
+.index-container .tip_overlay .professional-box.data-v-675665fc {
+  margin: 0 auto;
+  width: 600rpx;
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.index-container .tip_overlay .professional-box .professional-title.data-v-675665fc {
   font-size: 28rpx;
   margin-bottom: 10rpx;
   color: #17233d;
 }
-.index-container .professional-box .professional-change.data-v-675665fc {
+.index-container .tip_overlay .professional-box .professional-change.data-v-675665fc {
   width: 600rpx;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -94,13 +109,13 @@
   grid-row-gap: 12rpx;
   margin-bottom: 10rpx;
 }
-.index-container .professional-box .professional-change .professional-item.data-v-675665fc {
+.index-container .tip_overlay .professional-box .professional-change .professional-item.data-v-675665fc {
   font-size: 28rpx;
 }
-.index-container .professional-box .professional-button.data-v-675665fc {
+.index-container .tip_overlay .professional-box .professional-button.data-v-675665fc {
   padding: 12rpx 0;
 }
-.index-container .professional-box .professional-button .submit.data-v-675665fc {
+.index-container .tip_overlay .professional-box .professional-button .submit.data-v-675665fc {
   background-color: #19be6b;
   width: 200rpx;
   height: 80rpx;
@@ -108,7 +123,7 @@
   color: #fff;
   margin-bottom: 20rpx;
 }
-.index-container .professional-box .professional-button .wait.data-v-675665fc {
+.index-container .tip_overlay .professional-box .professional-button .wait.data-v-675665fc {
   text-align: center;
   font-size: 28rpx;
   color: #515a6e;

@@ -42,9 +42,9 @@
     </div>
 
     <!-- 选择行业 -->
-    <v-popup :show="is_popup" @close="is_popup = false">
+    <div class="tip_overlay" v-if="is_popup">
       <div class="professional-box">
-        <h1 class="professional-title">选择不超过3个，用于向您推荐相关行业的BP和投研活动</h1>
+        <h1 class="professional-title">选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动</h1>
         <v-checkbox-group :value="changge_professional" @change="onChange">
           <div class="professional-change">
             <div class="professional-item" v-for='(item,index) in professional_list' :key="index">
@@ -52,12 +52,12 @@
             </div>
           </div>
           <div class="professional-button">
-            <button class="submit" @click='submitProfessional'>确定</button>
-            <p class="wait" @click="is_popup = false;changge_professional = []">关闭</p>
+            <button class="submit" @click='submit'>提交</button>
+            <p class="wait" @click="is_popup = false">稍后提交</p>
           </div>
         </v-checkbox-group>
       </div>
-    </v-popup>
+    </div>
 
   </section>
 </template>
@@ -75,7 +75,6 @@
         professional_list: [], // 职业列表
         changge_professional: [], // 选择的职业
         is_popup: false, // 是否打开选择职业
-
         photoList: [], // 展示的头像
         jieshao: "", // 个人介绍
         photo: "", // 选择的头像
@@ -132,7 +131,6 @@
        */
       submitProfessional() {
         let size = this.changge_professional.length;
-
         if (size === 0) {
           wx.showModal({
             title: "提示",
@@ -154,11 +152,9 @@
         if (this.type === 1) {
           this.in_work = this.changge_professional.join('|');
         }
-
         if (this.type === 2) {
           this.watch_work = this.changge_professional.join('|');
         }
-
         this.is_popup = false;
         this.changge_professional = [];
       },
@@ -172,19 +168,14 @@
        * 打开professional
        */
       openChangeWork(res) {
-
         this.type = res;
-
         if (this.in_work !== '请选择所在行业' && this.type === 1) {
           this.changge_professional = this.in_work.split('|');
         }
-
         if (this.watch_work !== '请选择关注行业' && this.type === 2) {
           this.changge_professional = this.watch_work.split('|');
         }
-
         this.is_popup = true;
-
       },
       /**
        * 临时删除照片，从新上传
@@ -230,39 +221,33 @@
       submit() {
 
         if (this.in_work === "请选择所在行业") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "所属行业不能为空",
             success(res) {}
           });
-
           return false;
         }
 
         if (this.watch_work === "请选择关注行业") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "关注行业不能为空",
             success(res) {}
           });
-
           return false;
         }
 
 
         if (this.jieshao === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "自我介绍不能为空",
             success(res) {}
           });
-
           return false;
         }
 
@@ -279,7 +264,6 @@
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
-
           if (res.result === "failure") {
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "update_user_info");
@@ -297,7 +281,6 @@
             this.$Utils.closeWaiting();
           }
         });
-
       }
     },
     computed: {
@@ -382,48 +365,64 @@
       }
     }
 
-    .professional-box {
-      padding: 10px 20px;
+    .tip_overlay {
+      box-sizing: border-box;
+      padding-top: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, .7);
 
-      .professional-title {
-        font-size: 14px;
-        margin-bottom: 5px;
-        color: #17233d;
-      }
-
-      .professional-change {
+      .professional-box {
+        margin: 0 auto;
         width: 300px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 4px;
-        grid-row-gap: 6px;
-        margin-bottom: 5px;
+        padding: 10px 20px;
+        background-color: #fff;
+        border-radius: 5px;
 
-        .professional-item {
+        .professional-title {
           font-size: 14px;
+          margin-bottom: 5px;
+          color: #17233d;
         }
+
+        .professional-change {
+          width: 300px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: 4px;
+          grid-row-gap: 6px;
+          margin-bottom: 5px;
+
+          .professional-item {
+            font-size: 14px;
+          }
+        }
+
+        .professional-button {
+          padding: 6px 0;
+
+          .submit {
+            background-color: #19be6b;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            margin-bottom: 10px;
+          }
+
+          .wait {
+            text-align: center;
+            font-size: 14px;
+            color: #515a6e;
+          }
+
+        }
+
       }
-
-      .professional-button {
-        padding: 6px 0;
-
-        .submit {
-          background-color: #19be6b;
-          width: 100px;
-          height: 40px;
-          line-height: 40px;
-          color: #fff;
-          margin-bottom: 10px;
-        }
-
-        .wait {
-          text-align: center;
-          font-size: 14px;
-          color: #515a6e;
-        }
-
-      }
-
     }
 
   }

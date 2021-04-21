@@ -28,7 +28,7 @@
         </view>
       </view>
     </view> <template message="请授权头像信息，否则无法使用" bindsetUserInfo="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ba02a0d4"></template> <template data="{{...$root[$kk+'1'], $root}}" is="55f19ec2"></template>
-    <v-popup show="{{is_popup}}" bindclose="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_v-popup data-v-675665fc">
+    <view class="_div data-v-675665fc tip_overlay" wx:if="{{is_popup}}">
       <view class="_div data-v-675665fc professional-box">
         <view class="_h1 data-v-675665fc professional-title">选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动</view>
         <v-checkbox-group value="{{changge_professional}}" bindchange="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_v-checkbox-group data-v-675665fc">
@@ -42,6 +42,6 @@
           </view>
         </v-checkbox-group>
       </view>
-    </v-popup>
+    </view>
   </view>
 </template>
