@@ -211,9 +211,99 @@ if (false) {(function () {
 
   methods: {
     /**
+     * tab 点击
+     */
+    clickTabs: function clickTabs(event) {
+      this.$Utils.showWaiting();
+      this.call_line_list = [];
+      this.active = event.mp.detail.index;
+      if (event.mp.detail.index === 0) {
+        // 我收到的 accepter_ukey
+        this.refreshCallLine("accepter_ukey");
+      } else {
+        // 我建立的 trigger_ukey
+        this.refreshCallLine("trigger_ukey");
+      }
+    },
+
+    /**
+     * 我收到的 删除留言
+     */
+    myGetDel: function myGetDel(res) {
+      var id = res.id;
+      var operation_status = res.operation_status;
+      var that = this;
+      if (operation_status === 5) {
+        wx.showModal({
+          title: '提示',
+          content: '确定移除吗？',
+          success: function success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.conceal_message,
+                fps: {
+                  id: id,
+                  u_key: that.u_key
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "conceal_message");
+                } else {
+                  if (res.back_value) {
+                    // 我收到的 accepter_ukey
+                    that.refreshCallLine("accepter_ukey");
+                  }
+                }
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消');
+            }
+          }
+        });
+      }
+    },
+
+    /**
+     * 我收到的 留言详情
+     */
+    myGet: function myGet(res) {
+      var _this2 = this;
+
+      if (res.trigger_ukey !== 'root') {
+        var id = res.id;
+        this.$Utils.showWaiting();
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.read_message,
+          fps: {
+            id: id,
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(function (res) {
+          if (res.result === "failure") {
+            _this2.$Utils.closeWaiting();
+            _this2.$Utils.showErrorInfo(res, "read_message");
+          } else {
+            if (res.back_value) {
+              wx.navigateTo({
+                url: "/pages/get_call/main?id=" + id + "&u_key=" + _this2.u_key
+              });
+            }
+            _this2.$Utils.closeWaiting();
+          }
+        });
+      } else {
+        console.log(res.name);
+      }
+    },
+
+    /**
      * 我建立的 删除留言
      */
-    onDeleteCallItem: function onDeleteCallItem(res) {
+    myCreatedDel: function myCreatedDel(res) {
       var id = res.id;
       var operation_status = res.operation_status;
       var that = this;
@@ -299,8 +389,8 @@ if (false) {(function () {
     /**
      * 我建立的 留言详情
      */
-    onClickCallItem: function onClickCallItem(res) {
-      var _this2 = this;
+    myCreated: function myCreated(res) {
+      var _this3 = this;
 
       var id = res.id;
       this.$Utils.showWaiting();
@@ -313,107 +403,17 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this2.$Utils.closeWaiting();
-          _this2.$Utils.showErrorInfo(res, "read_message");
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo(res, "read_message");
         } else {
           if (res.back_value) {
             wx.navigateTo({
-              url: "/pages/send_call/main?id=" + id + "&u_key=" + _this2.u_key
+              url: "/pages/send_call/main?id=" + id + "&u_key=" + _this3.u_key
             });
           }
-          _this2.$Utils.closeWaiting();
+          _this3.$Utils.closeWaiting();
         }
       });
-    },
-
-    /**
-     * 我收到的 删除留言
-     */
-    delGetLine: function delGetLine(res) {
-      var id = res.id;
-      var operation_status = res.operation_status;
-      var that = this;
-      if (operation_status === 5) {
-        wx.showModal({
-          title: '提示',
-          content: '确定移除吗？',
-          success: function success(res) {
-            if (res.confirm) {
-              that.$Utils.showWaiting();
-              that.$store.dispatch("fetch", {
-                im: that.$Config.INTER_FACE.conceal_message,
-                fps: {
-                  id: id,
-                  u_key: that.u_key
-                },
-                url: that.$Config.REQUEST_URI
-              }).then(function (res) {
-                if (res.result === "failure") {
-                  that.$Utils.closeWaiting();
-                  that.$Utils.showErrorInfo(res, "conceal_message");
-                } else {
-                  if (res.back_value) {
-                    // 我收到的 accepter_ukey
-                    that.refreshCallLine("accepter_ukey");
-                  }
-                }
-              });
-            } else if (res.cancel) {
-              console.log('用户点击取消');
-            }
-          }
-        });
-      }
-    },
-
-    /**
-     * 我收到的 留言详情
-     */
-    getCall: function getCall(res) {
-      var _this3 = this;
-
-      if (res.trigger_ukey !== 'root') {
-        var id = res.id;
-        this.$Utils.showWaiting();
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.read_message,
-          fps: {
-            id: id,
-            u_key: this.u_key
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(function (res) {
-          if (res.result === "failure") {
-            _this3.$Utils.closeWaiting();
-            _this3.$Utils.showErrorInfo(res, "read_message");
-          } else {
-            if (res.back_value) {
-              wx.navigateTo({
-                url: "/pages/get_call/main?id=" + id + "&u_key=" + _this3.u_key
-              });
-            }
-            _this3.$Utils.closeWaiting();
-          }
-        });
-      } else {
-        console.log(res.name);
-      }
-    },
-
-    /**
-     * tab 点击
-     */
-    clickTabs: function clickTabs(event) {
-      this.$Utils.showWaiting();
-      this.call_line_list = [];
-      this.active = event.mp.detail.index;
-      if (event.mp.detail.index === 0) {
-        // 我收到的 accepter_ukey
-        this.refreshCallLine("accepter_ukey");
-      } else {
-        // 我建立的 trigger_ukey
-        this.refreshCallLine("trigger_ukey");
-      }
     },
 
     /**
@@ -696,10 +696,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       on: {
         "onClick": function($event) {
-          _vm.onClickCallItem(item)
+          _vm.myGet(item)
         },
         "onDelete": function($event) {
-          _vm.onDeleteCallItem(item)
+          _vm.myGetDel(item)
         }
       }
     })], 1) : _c('div', {
@@ -732,10 +732,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       on: {
         "onClick": function($event) {
-          _vm.onClickCallItem(item)
+          _vm.myCreated(item)
         },
         "onDelete": function($event) {
-          _vm.onDeleteCallItem(item)
+          _vm.myCreatedDel(item)
         }
       }
     })], 1)
