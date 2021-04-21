@@ -44,7 +44,7 @@
     <!-- 选择行业 -->
     <div class="tip_overlay" v-if="is_popup">
       <div class="professional-box">
-        <h1 class="professional-title">选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动</h1>
+        <h1 class="professional-title">选择不超过3个，用于向您推荐相关行业的BP和投研活动</h1>
         <v-checkbox-group :value="changge_professional" @change="onChange">
           <div class="professional-change">
             <div class="professional-item" v-for='(item,index) in professional_list' :key="index">
@@ -52,8 +52,8 @@
             </div>
           </div>
           <div class="professional-button">
-            <button class="submit" @click='submit'>提交</button>
-            <p class="wait" @click="is_popup = false">稍后提交</p>
+            <button class="submit" @click='submitProfessional'>提交</button>
+            <p class="wait" @click="is_popup = false;changge_professional = []">关闭</p>
           </div>
         </v-checkbox-group>
       </div>
@@ -88,7 +88,7 @@
         im: this.$Config.INTER_FACE.get_member_info,
         fps: {
           open_id: this.openid.back_value.open_id,
-          u_key: ""
+          u_key: this.$root.$mp.query.u_key || ""
         },
         url: this.$Config.REQUEST_URI
       }).then(res => {
@@ -131,6 +131,7 @@
        */
       submitProfessional() {
         let size = this.changge_professional.length;
+
         if (size === 0) {
           wx.showModal({
             title: "提示",
@@ -152,9 +153,11 @@
         if (this.type === 1) {
           this.in_work = this.changge_professional.join('|');
         }
+
         if (this.type === 2) {
           this.watch_work = this.changge_professional.join('|');
         }
+
         this.is_popup = false;
         this.changge_professional = [];
       },
@@ -168,14 +171,19 @@
        * 打开professional
        */
       openChangeWork(res) {
+
         this.type = res;
+
         if (this.in_work !== '请选择所在行业' && this.type === 1) {
           this.changge_professional = this.in_work.split('|');
         }
+
         if (this.watch_work !== '请选择关注行业' && this.type === 2) {
           this.changge_professional = this.watch_work.split('|');
         }
+
         this.is_popup = true;
+
       },
       /**
        * 临时删除照片，从新上传
@@ -221,33 +229,39 @@
       submit() {
 
         if (this.in_work === "请选择所在行业") {
+
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "所属行业不能为空",
             success(res) {}
           });
+
           return false;
         }
 
         if (this.watch_work === "请选择关注行业") {
+
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "关注行业不能为空",
             success(res) {}
           });
+
           return false;
         }
 
 
         if (this.jieshao === "") {
+
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "自我介绍不能为空",
             success(res) {}
           });
+
           return false;
         }
 
@@ -264,6 +278,7 @@
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
+
           if (res.result === "failure") {
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "update_user_info");
@@ -281,6 +296,7 @@
             this.$Utils.closeWaiting();
           }
         });
+
       }
     },
     computed: {

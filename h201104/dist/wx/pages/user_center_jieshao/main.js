@@ -188,7 +188,7 @@ if (false) {(function () {
                 im: _this.$Config.INTER_FACE.get_member_info,
                 fps: {
                   open_id: _this.openid.back_value.open_id,
-                  u_key: ""
+                  u_key: _this.$root.$mp.query.u_key || ""
                 },
                 url: _this.$Config.REQUEST_URI
               }).then(function (res) {
@@ -243,6 +243,7 @@ if (false) {(function () {
      */
     submitProfessional: function submitProfessional() {
       var size = this.changge_professional.length;
+
       if (size === 0) {
         wx.showModal({
           title: "提示",
@@ -264,9 +265,11 @@ if (false) {(function () {
       if (this.type === 1) {
         this.in_work = this.changge_professional.join('|');
       }
+
       if (this.type === 2) {
         this.watch_work = this.changge_professional.join('|');
       }
+
       this.is_popup = false;
       this.changge_professional = [];
     },
@@ -282,13 +285,17 @@ if (false) {(function () {
      * 打开professional
      */
     openChangeWork: function openChangeWork(res) {
+
       this.type = res;
+
       if (this.in_work !== '请选择所在行业' && this.type === 1) {
         this.changge_professional = this.in_work.split('|');
       }
+
       if (this.watch_work !== '请选择关注行业' && this.type === 2) {
         this.changge_professional = this.watch_work.split('|');
       }
+
       this.is_popup = true;
     },
 
@@ -339,32 +346,38 @@ if (false) {(function () {
       var _this3 = this;
 
       if (this.in_work === "请选择所在行业") {
+
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "所属行业不能为空",
           success: function success(res) {}
         });
+
         return false;
       }
 
       if (this.watch_work === "请选择关注行业") {
+
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "关注行业不能为空",
           success: function success(res) {}
         });
+
         return false;
       }
 
       if (this.jieshao === "") {
+
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "自我介绍不能为空",
           success: function success(res) {}
         });
+
         return false;
       }
 
@@ -381,6 +394,7 @@ if (false) {(function () {
         },
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
+
         if (res.result === "failure") {
           _this3.$Utils.closeWaiting();
           _this3.$Utils.showErrorInfo(res, "update_user_info");
@@ -499,7 +513,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "professional-box"
   }, [_c('h1', {
     staticClass: "professional-title"
-  }, [_vm._v("选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动")]), _vm._v(" "), _c('v-checkbox-group', {
+  }, [_vm._v("选择不超过3个，用于向您推荐相关行业的BP和投研活动")]), _vm._v(" "), _c('v-checkbox-group', {
     attrs: {
       "value": _vm.changge_professional,
       "eventid": '7',
@@ -528,7 +542,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '5'
     },
     on: {
-      "click": _vm.submit
+      "click": _vm.submitProfessional
     }
   }, [_vm._v("提交")]), _vm._v(" "), _c('p', {
     staticClass: "wait",
@@ -537,10 +551,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     },
     on: {
       "click": function($event) {
-        _vm.is_popup = false
+        _vm.is_popup = false;
+        _vm.changge_professional = []
       }
     }
-  }, [_vm._v("稍后提交")])], 1)])], 1)]) : _vm._e()])
+  }, [_vm._v("关闭")])], 1)])], 1)]) : _vm._e()])
 }
 var staticRenderFns = []
 render._withStripped = true

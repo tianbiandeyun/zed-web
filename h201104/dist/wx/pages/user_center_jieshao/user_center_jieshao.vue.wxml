@@ -22,7 +22,7 @@
     <view class="_div data-v-706d9fbe submit"><button bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_button data-v-706d9fbe">保存</button></view>
     <view class="_div data-v-706d9fbe tip_overlay" wx:if="{{is_popup}}">
       <view class="_div data-v-706d9fbe professional-box">
-        <view class="_h1 data-v-706d9fbe professional-title">选择不超过3个，您最关注的行业用于向您推荐相关行业的BP和投研活动</view>
+        <view class="_h1 data-v-706d9fbe professional-title">选择不超过3个，用于向您推荐相关行业的BP和投研活动</view>
         <v-checkbox-group value="{{changge_professional}}" bindchange="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_v-checkbox-group data-v-706d9fbe">
           <view class="_div data-v-706d9fbe professional-change">
             <view class="_div data-v-706d9fbe professional-item" wx:key="index" key="{{index}}" wx:for="{{professional_list}}" wx:for-index="index" wx:for-item="item">
@@ -30,7 +30,7 @@
             </view>
           </view>
           <view class="_div data-v-706d9fbe professional-button"><button class="_button data-v-706d9fbe submit" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">提交</button>
-            <view class="_p data-v-706d9fbe wait" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">稍后提交</view>
+            <view class="_p data-v-706d9fbe wait" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">关闭</view>
           </view>
         </v-checkbox-group>
       </view>
