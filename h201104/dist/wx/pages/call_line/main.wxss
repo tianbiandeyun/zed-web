@@ -45,6 +45,7 @@
   padding: 0;
   color: #17233d;
   font-size: 36rpx;
+  line-height: 1;
 }
 .call_item-container ._button.data-v-71cb5e99::after {
   border: none;

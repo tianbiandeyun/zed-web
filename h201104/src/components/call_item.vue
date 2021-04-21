@@ -13,8 +13,8 @@
           <span>{{time}}，给"{{item.name}}"留言</span>
         </div>
         <div v-if="type === 'system'">
-          <span style='color:red'>系统消息：</span>
-          <span>{{item.name}}</span>
+          <span style='color:red'>系统消息</span>
+          <span>{{time}}</span>
         </div>
         <div @click.stop="onDelete">{{status}}</div>
       </div>
@@ -117,6 +117,7 @@
       padding: 0;
       color: #17233d;
       font-size: 18px;
+      line-height: 1;
 
       &::after {
         border: none;

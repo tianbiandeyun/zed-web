@@ -708,7 +708,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "color": "red"
     }
-  }, [_vm._v("系统消息：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.item.name))])]) : _vm._e(), _vm._v(" "), _c('div', {
+  }, [_vm._v("系统消息")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))])]) : _vm._e(), _vm._v(" "), _c('div', {
     attrs: {
       "eventid": '0'
     },
