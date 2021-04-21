@@ -133,6 +133,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 
@@ -562,12 +564,22 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_item",
   props: {
     item: {
       type: Object
+    },
+    type: {
+      type: String,
+      default: '我建立的会话'
     }
   },
   methods: {
@@ -620,7 +632,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('div', {
     staticClass: "call_item-header"
-  }, [_c('p', [_vm._v("我")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), _c('p', {
+  }, [(_vm.type === '我收到的会话') ? _c('div', [_c('span', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))])]) : _vm._e(), _vm._v(" "), (_vm.type === '我建立的会话') ? _c('div', [_c('span', [_vm._v("我")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")])]) : _vm._e(), _vm._v(" "), _c('div', {
     attrs: {
       "eventid": '0'
     },
@@ -630,7 +642,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.onDelete($event)
       }
     }
-  }, [_vm._v(_vm._s(_vm.status))])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.status))])]), _vm._v(" "), _c('div', {
     staticClass: "call_item-message"
   }, [_vm._v(_vm._s(_vm.item.content))])])])
 }
@@ -675,18 +687,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       key: index,
       staticClass: "call"
-    }, [(item.trigger_ukey !== 'root') ? _c('div', [_c('get-line', {
+    }, [(item.trigger_ukey !== 'root') ? _c('div', [_c('call-item', {
       attrs: {
         "item": item,
+        "type": "我收到的会话",
         "eventid": '0_' + index,
         "mpcomid": '0_' + index
       },
       on: {
-        "getCall": function($event) {
-          _vm.getCall(item)
+        "onClick": function($event) {
+          _vm.onClickCallItem(item)
         },
-        "delCall": function($event) {
-          _vm.delGetLine(item)
+        "onDelete": function($event) {
+          _vm.onDeleteCallItem(item)
         }
       }
     })], 1) : _c('div', {
@@ -713,6 +726,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('call-item', {
       attrs: {
         "item": item,
+        "type": "我建立的会话",
         "eventid": '1_' + index,
         "mpcomid": '2_' + index
       },

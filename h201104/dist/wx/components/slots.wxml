@@ -15,3 +15,5 @@
 <import src="/components/reply.vue.wxml" />
 <import src="/components/get_line.vue.wxml" />
 <import src="/components/input_group.vue.wxml" />
+<import src="/components/call_item.vue.wxml" />
+<import src="/custom-tab-bar/index.vue.wxml" />

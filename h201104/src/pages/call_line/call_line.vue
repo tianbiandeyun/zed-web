@@ -6,7 +6,8 @@
       <v-tab title="我收到的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
           <div v-if="item.trigger_ukey !== 'root'">
-            <get-line :item="item" @getCall="getCall(item)" @delCall="delGetLine(item)"></get-line>
+            <call-item :item="item" type='我收到的会话' @onClick='onClickCallItem(item)' @onDelete="onDeleteCallItem(item)">
+            </call-item>
           </div>
           <div class="system-message" v-else>
             <button session-from="laiyuan" :send-message-title="item.name" open-type="contact"
@@ -21,7 +22,8 @@
 
       <v-tab title="我建立的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <call-item :item="item" @onClick='onClickCallItem(item)' @onDelete="onDeleteCallItem(item)"></call-item>
+          <call-item :item="item" type='我建立的会话' @onClick='onClickCallItem(item)' @onDelete="onDeleteCallItem(item)">
+          </call-item>
         </div>
       </v-tab>
 

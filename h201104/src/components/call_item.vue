@@ -3,9 +3,15 @@
   <section class="call_item-container">
     <div hover-class='click_active' @click.stop='onClick'>
       <div class="call_item-header">
-        <p>我</p>
-        <p>{{time}}，给"{{item.name}}"留言</p>
-        <p @click.stop="onDelete">{{status}}</p>
+        <div v-if="type === '我收到的会话'">
+          <span>{{item.name}}</span>
+          <span>{{time}}</span>
+        </div>
+        <div v-if="type === '我建立的会话'">
+          <span>我</span>
+          <span>{{time}}，给"{{item.name}}"留言</span>
+        </div>
+        <div @click.stop="onDelete">{{status}}</div>
       </div>
       <div class="call_item-message">{{item.content}}</div>
     </div>
@@ -18,6 +24,10 @@
     props: {
       item: {
         type: Object
+      },
+      type: {
+        type: String,
+        default: '我建立的会话'
       }
     },
     methods: {
@@ -55,37 +65,35 @@
 
     .call_item-header {
       display: grid;
-      grid-template-columns: 30px 4fr 1fr;
+      grid-template-columns: 5fr 1fr;
       grid-column-gap: 6px;
       margin-bottom: 10px;
       align-items: center;
 
-      p {
-
-        &:nth-of-type(1),
-        &:nth-of-type(3) {
-          text-align: center;
-        }
+      div {
+        font-size: 14px;
 
         &:nth-of-type(1) {
-          color: #17233d;
-          font-size: 18px;
+          color: #808695;
+
+          span {
+
+            &:nth-of-type(1) {
+              color: #17233d;
+              font-size: 18px;
+              margin-right: 10px;
+            }
+          }
         }
 
         &:nth-of-type(2) {
-          color: #808695;
-          font-size: 14px;
-        }
-
-        &:nth-of-type(3) {
           color: #FF0000;
-          font-size: 14px;
         }
       }
     }
 
     .call_item-message {
-      color: #515a6e;
+      color: #17233d;
       font-size: 16px;
     }
 
