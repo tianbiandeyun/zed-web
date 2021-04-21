@@ -2,7 +2,7 @@
   <!-- 我收到的对话 / 对话详情 -->
   <section class="line-container">
 
-    <div hover-class='b' class="line-header" @click.stop="getCall">
+    <div class="line-header" @click.stop="getCall">
 
       <div class="line-header-photo">
         <img :src="item.wx_photo" alt="">
@@ -19,7 +19,7 @@
 
     </div>
 
-    <div hover-class='b' class="line-message" @click.stop="getCall">{{item.content}}</div>
+    <div class="line-message" @click.stop="getCall">{{item.content}}</div>
 
   </section>
 </template>

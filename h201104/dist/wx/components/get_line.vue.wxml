@@ -1,6 +1,6 @@
 <template name="7d02b1c6">
   <view class="_section data-v-13901ff0 line-container">
-    <view hover-class="b" class="_div data-v-13901ff0 line-header" catchtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-13901ff0 line-header" catchtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
       <view class="_div data-v-13901ff0 line-header-photo">
         <image src="{{item.wx_photo}}" alt class="_img data-v-13901ff0"></image>
       </view>
@@ -12,6 +12,6 @@
         <view class="_p data-v-13901ff0">{{status}}</view>
       </view>
     </view>
-    <view hover-class="b" class="_div data-v-13901ff0 line-message" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">{{item.content}}</view>
+    <view class="_div data-v-13901ff0 line-message" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">{{item.content}}</view>
   </view>
 </template>
