@@ -721,7 +721,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v(_vm._s(_vm.status))])]), _vm._v(" "), (_vm.type === 'system') ? _c('button', {
     attrs: {
       "session-from": "laiyuan",
-      "send-message-title": _vm.item.name,
+      "send-message-title": _vm.item.content,
       "open-type": "contact",
       "send-message-path": "pages/call_line/main",
       "send-message-img": "https://f.hztc.dev.hztcapp.com/h/h201104/1.png",

@@ -19,7 +19,7 @@
         <div @click.stop="onDelete">{{status}}</div>
       </div>
 
-      <button v-if="type === 'system'" session-from="laiyuan" :send-message-title="item.name" open-type="contact"
+      <button v-if="type === 'system'" session-from="laiyuan" :send-message-title="item.content" open-type="contact"
         send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png"
         show-message-card="true" @contact="onContact">{{item.content}}</button>
 
