@@ -6,7 +6,7 @@
         <view wx:if="{{type === '我建立的会话'}}" class="_div data-v-71cb5e99"><label class="_span data-v-71cb5e99">我</label> <label class="_span data-v-71cb5e99">{{time}}，给"{{item.name}}"留言</label></view>
         <view wx:if="{{type === 'system'}}" class="_div data-v-71cb5e99"><label style="color:red" class="_span data-v-71cb5e99">系统消息</label> <label class="_span data-v-71cb5e99">{{time}}</label></view>
         <view catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_div data-v-71cb5e99">{{status}}</view>
-      </view> <button wx:if="{{type === 'system'}}" session-from="laiyuan" send-message-title="{{item.content}}" open-type="contact" send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png" show-message-card="true" bindcontact="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-71cb5e99">{{item.content}}</button>
+      </view> <button wx:if="{{type === 'system'}}" session-from="laiyuan" send-message-title="{{item.content}}" open-type="contact" send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/cos_upload/wx/image_list/下载.png" show-message-card="true" bindcontact="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-71cb5e99">{{item.content}}</button>
       <view wx:else class="_div data-v-71cb5e99 call_item-message">{{item.content}}</view>
     </view>
   </view>

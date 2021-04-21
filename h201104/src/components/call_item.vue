@@ -20,8 +20,9 @@
       </div>
 
       <button v-if="type === 'system'" session-from="laiyuan" :send-message-title="item.content" open-type="contact"
-        send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png"
-        show-message-card="true" @contact="onContact">{{item.content}}</button>
+        send-message-path="pages/call_line/main"
+        send-message-img="https://f.hztc.dev.hztcapp.com/cos_upload/wx/image_list/下载.png" show-message-card="true"
+        @contact="onContact">{{item.content}}</button>
 
       <div v-else class="call_item-message">{{item.content}}</div>
 
