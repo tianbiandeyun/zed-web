@@ -1,7 +1,7 @@
 @import "../../common/vendor.wxss";
 
 .call_line-container.data-v-bf8108fc {
-  padding-bottom: 180rpx;
+  padding-bottom: 200rpx;
 }
 .call_line-container .call.data-v-bf8108fc {
   background-color: #fff;
