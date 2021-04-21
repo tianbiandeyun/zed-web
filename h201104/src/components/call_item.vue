@@ -116,7 +116,7 @@
       text-align: left;
       padding: 0;
       color: #17233d;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1;
 
       &::after {
