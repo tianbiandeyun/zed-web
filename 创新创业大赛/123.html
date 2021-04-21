@@ -11,33 +11,30 @@
 <body>
 
 <ul id="ul">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
+    
 </ul>
-
-<a href="javaScript:void(0)" id="p1"
-   style="display:block;border: 1px solid black;height: 400px;width: 100%">1</a>
-
-<a href="javaScript:void(0)" id="p2" style="display:block;border: 1px solid black;height: 400px;width: 100%">2</a>
-
-<a href="javaScript:void(0)" id="p3" style="display:block;border: 1px solid black;height: 400px;width: 100%">3</a>
 
 
 <script src="./training/javaScript/jquery3.0.js"></script>
 <script>
     $(function () {
-        $('#ul').children('li').click(function () {
-            console.log($(this).text());
-            let a = {
-                '1': 'p1',
-                '2': 'p2',
-                '3': 'p3'
-            }
-            console.log(a[$(this).text()])
-            $('html,body').animate({scrollTop: $('#'+a[$(this).text()]+'').offset().top}, 1000);
-        });
+        
+        let a = [
+            {name:1},
+            {name:2},
+            {name:3},
+            {name:4}
+        ]
 
+        let html = '';
+        for (let index = 0; index < a.length; index++) {
+            html += `<li class='li' data-index='${index}'>${a[index].name}</li>`;
+        }
+        $('#ul').html(html);
+
+        $('body').on('click','.li',function(){
+            console.log($(this).attr('data-index'));
+        })
 
     })
 </script>

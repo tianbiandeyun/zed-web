@@ -119,11 +119,8 @@ if (false) {(function () {
 
   methods: {
     submit: function submit(p) {
-
       var that = this;
-
       that.$Utils.showWaiting();
-
       that.$store.dispatch("fetch", {
         im: that.$Config.INTER_FACE.set_initiate_a_session,
         fps: {
@@ -139,6 +136,7 @@ if (false) {(function () {
           that.$Utils.showErrorInfo(res, "set_initiate_a_session");
         } else {
           if (res.back_value) {
+            that.$Utils.closeWaiting();
             wx.showModal({
               title: "提交",
               content: '\u53D1\u9001\u6210\u529F',
@@ -153,74 +151,6 @@ if (false) {(function () {
           }
         }
       });
-
-      // wx.requestSubscribeMessage({
-      //   tmplIds: ['gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8'],
-      //   success: res => {
-      //     if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'accept') {
-      //       that.$store.dispatch("fetch", {
-      //         im: that.$Config.INTER_FACE.set_initiate_a_session,
-      //         fps: {
-      //           'u_key': that.m_key,
-      //           'second_ukey': that.u_key,
-      //           'content': p.message,
-      //           'receive_message': 1
-      //         },
-      //         url: that.$Config.REQUEST_URI
-      //       }).then(res => {
-      //         if (res.result === "failure") {
-      //           that.$Utils.closeWaiting();
-      //           that.$Utils.showErrorInfo(res, "set_initiate_a_session");
-      //         } else {
-      //           if (res.back_value) {
-      //             wx.showModal({
-      //               title: "提交",
-      //               content: `发送成功`,
-      //               showCancel: false,
-      //               confirmText: "好的",
-      //               success() {
-      //                 wx.navigateBack({
-      //                   delta: 1
-      //                 });
-      //               }
-      //             });
-      //           }
-      //         }
-      //       });
-      //     }
-      //     if (res.gvUFOaZJZQiZ9upgHghtJZ4GUr2wN7BJabg4I687gv8 === 'reject') {
-      //       that.$store.dispatch("fetch", {
-      //         im: that.$Config.INTER_FACE.set_initiate_a_session,
-      //         fps: {
-      //           'u_key': that.m_key,
-      //           'second_ukey': that.u_key,
-      //           'content': p.message,
-      //           'receive_message': 2
-      //         },
-      //         url: that.$Config.REQUEST_URI
-      //       }).then(res => {
-      //         if (res.result === "failure") {
-      //           that.$Utils.closeWaiting();
-      //           that.$Utils.showErrorInfo(res, "set_initiate_a_session");
-      //         } else {
-      //           if (res.back_value) {
-      //             wx.showModal({
-      //               title: "提交",
-      //               content: `发送成功`,
-      //               showCancel: false,
-      //               confirmText: "好的",
-      //               success() {
-      //                 wx.navigateBack({
-      //                   delta: 1
-      //                 });
-      //               }
-      //             });
-      //           }
-      //         }
-      //       });
-      //     }
-      //   }
-      // })
     }
   }
 });
