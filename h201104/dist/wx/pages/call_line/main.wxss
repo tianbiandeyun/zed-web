@@ -14,6 +14,20 @@
 .call_line-container .call.data-v-bf8108fc:last-child {
   border-bottom: none;
 }
+.call_line-container .call .system-message ._h1.data-v-bf8108fc {
+  color: #515a6e;
+  font-size: 32rpx;
+}
+.call_line-container .call .system-message ._button.data-v-bf8108fc {
+  background-color: transparent;
+  text-align: left;
+  padding: 0;
+  color: #17233d;
+  font-size: 36rpx;
+}
+.call_line-container .call .system-message ._button.data-v-bf8108fc::after {
+  border: none;
+}
 .create_line-container .created-line-header.data-v-0ec57eb0 {
   display: grid;
   grid-template-columns: 60rpx 4fr 1fr;

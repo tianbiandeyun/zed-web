@@ -5,7 +5,17 @@
 
       <v-tab title="我收到的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <get-line :item="item" @getCall="getCall(item)" @delCall="delGetLine(item)"></get-line>
+          <div v-if="item.trigger_ukey !== 'root'">
+            <get-line :item="item" @getCall="getCall(item)" @delCall="delGetLine(item)"></get-line>
+          </div>
+          <div class="system-message" v-else>
+            <button session-from="laiyuan" :send-message-title="item.name" open-type="contact"
+              send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png"
+              show-message-card="true">
+              <h1>系统消息：{{item.name}}</h1>
+              <p>{{item.content}}</p>
+            </button>
+          </div>
         </div>
       </v-tab>
 
@@ -340,6 +350,26 @@
 
       &:last-child {
         border-bottom: none;
+      }
+
+      .system-message {
+
+        h1 {
+          color: #515a6e;
+          font-size: 16px;
+        }
+
+        button {
+          background-color: transparent;
+          text-align: left;
+          padding: 0;
+          color: #17233d;
+          font-size: 18px;
+
+          &::after {
+            border: none;
+          }
+        }
       }
     }
   }
