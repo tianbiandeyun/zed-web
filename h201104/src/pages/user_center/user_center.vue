@@ -1,7 +1,7 @@
 <template>
   <section class="user-center-container" v-if="is_page">
 
-    <div class="user-j">
+    <div class="user-j box">
 
       <div class="user-j-name">
         <span>{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</span>
@@ -11,7 +11,7 @@
 
       <div class="user-j-company">
         <span>{{user_info.company === null || user_info.company === "" ? "暂无企业" : user_info.company}}</span>
-        <span v-if="openid.back_value.open_id === user_info.open_id" @click="goEdit(1)">
+        <span v-if="openid.back_value.open_id === user_info.open_id" @click="edit(1)">
           <img src="../../../static/images/bianji.png" alt="">
           编辑
         </span>
@@ -36,11 +36,11 @@
 
     </div>
 
-    <div class="user-g">
+    <div class="user-g box">
 
       <div class="user-g-edit">
         <span>个人介绍：</span>
-        <span v-if="openid.back_value.open_id === user_info.open_id" @click="goEdit(2)">
+        <span v-if="openid.back_value.open_id === user_info.open_id" @click="edit(2)">
           <img src="../../../static/images/bianji.png" alt="">
           编辑
         </span>
@@ -65,11 +65,11 @@
 
     </div>
 
-    <div v-if="openid.back_value.open_id !== user_info.open_id">
+    <div class="box" v-if="openid.back_value.open_id !== user_info.open_id">
       <button @click="createdReply">创建留言</button>
     </div>
 
-    <div class="user-e">
+    <div class="user-e box">
       <h1>形象照片</h1>
       <div>
         <p v-if="!user_info.head_portrait">暂无可以通过编辑添加</p>
@@ -101,11 +101,8 @@
       };
     },
     async onShow() {
-
       this.$Utils.showWaiting();
-
       this.u_key = this.$root.$mp.query.u_key;
-
       // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
       if (!this.openid.back_value) {
         await this.getOpenid();
@@ -113,9 +110,7 @@
       } else {
         this.is_page = true;
       }
-
       this.refreshUserCenter(this.u_key);
-
     },
     methods: {
       /**
@@ -131,7 +126,7 @@
       /**
        * 编辑信息
        */
-      goEdit(res) {
+      edit(res) {
         if (res === 1) {
           wx.navigateTo({
             url: `/pages/user_center_jichu/main`
@@ -191,10 +186,13 @@
 <style lang="less" scoped>
   .user-center-container {
 
-    .user-j {
-      padding: 10px;
+    .box {
       background-color: #fff;
+      padding: 10px;
       margin-bottom: 10px;
+    }
+
+    .user-j {
 
       .user-j-name {
         display: flex;
@@ -260,9 +258,6 @@
     }
 
     .user-g {
-      background-color: #fff;
-      padding: 10px;
-      margin-bottom: 10px;
 
       .user-g-edit {
         display: grid;
@@ -325,12 +320,6 @@
     }
 
     .user-e {
-      background-color: #fff;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 10px;
-      margin-bottom: 10px;
 
       h1 {
         color: #17233d;

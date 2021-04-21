@@ -202,11 +202,8 @@ if (false) {(function () {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-
               _this.$Utils.showWaiting();
-
               _this.u_key = _this.$root.$mp.query.u_key;
-
               // 因为这个页面需要分享出去，所以要判断是否有 openid 如果没有则获取
 
               if (_this.openid.back_value) {
@@ -226,7 +223,6 @@ if (false) {(function () {
               _this.is_page = true;
 
             case 9:
-
               _this.refreshUserCenter(_this.u_key);
 
             case 10:
@@ -253,7 +249,7 @@ if (false) {(function () {
     /**
      * 编辑信息
      */
-    goEdit: function goEdit(res) {
+    edit: function edit(res) {
       if (res === 1) {
         wx.navigateTo({
           url: "/pages/user_center_jichu/main"
@@ -351,7 +347,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return (_vm.is_page) ? _c('section', {
     staticClass: "user-center-container"
   }, [_c('div', {
-    staticClass: "user-j"
+    staticClass: "user-j box"
   }, [_c('div', {
     staticClass: "user-j-name"
   }, [_c('span', [_vm._v(_vm._s(_vm.user_info.name === null || _vm.user_info.name === "" ? "无" : _vm.user_info.name))]), _vm._v(" "), (_vm.user_info.sex == 1) ? _c('img', {
@@ -372,7 +368,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     },
     on: {
       "click": function($event) {
-        _vm.goEdit(1)
+        _vm.edit(1)
       }
     }
   }, [_c('img', {
@@ -387,7 +383,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('span', [_vm._v("电话：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.phone === null || _vm.user_info.phone === "" ? "暂无电话" : _vm.user_info.phone) + " "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('span', [_vm._v(_vm._s(_vm.is_phone == 1 ? "（公开）" : "（仅自己可见）"))]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "user-j-other"
   }, [_c('span', [_vm._v("邮箱：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.mail === null || _vm.user_info.mail === "" ? "暂无邮箱" : _vm.user_info.mail) + " "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('span', [_vm._v(_vm._s(_vm.is_mail == 1 ? "（公开）" : "（仅自己可见）"))]) : _vm._e()])])]), _vm._v(" "), _c('div', {
-    staticClass: "user-g"
+    staticClass: "user-g box"
   }, [_c('div', {
     staticClass: "user-g-edit"
   }, [_c('span', [_vm._v("个人介绍：")]), _vm._v(" "), (_vm.openid.back_value.open_id === _vm.user_info.open_id) ? _c('span', {
@@ -396,7 +392,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     },
     on: {
       "click": function($event) {
-        _vm.goEdit(2)
+        _vm.edit(2)
       }
     }
   }, [_c('img', {
@@ -410,7 +406,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "user-g-other"
   }, [_c('span', [_vm._v("关注行业：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.user_info.interest === null || _vm.user_info.interest === "" ? "暂无关注行业" : _vm.user_info.interest))])]), _vm._v(" "), _c('div', {
     staticClass: "user-g-text"
-  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), (_vm.openid.back_value.open_id !== _vm.user_info.open_id) ? _c('div', [_c('button', {
+  }, [_c('span', [_vm._v("自我介绍：")]), _vm._v(" "), _c('span', [_vm._v("\n        " + _vm._s(_vm.user_info.brief_introduction === null || _vm.user_info.brief_introduction === "" ? "暂无自我介绍" : _vm.user_info.brief_introduction) + "\n      ")])])]), _vm._v(" "), (_vm.openid.back_value.open_id !== _vm.user_info.open_id) ? _c('div', {
+    staticClass: "box"
+  }, [_c('button', {
     attrs: {
       "eventid": '2'
     },
@@ -418,7 +416,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "click": _vm.createdReply
     }
   }, [_vm._v("创建留言")])], 1) : _vm._e(), _vm._v(" "), _c('div', {
-    staticClass: "user-e"
+    staticClass: "user-e box"
   }, [_c('h1', [_vm._v("形象照片")]), _vm._v(" "), _c('div', [(!_vm.user_info.head_portrait) ? _c('p', [_vm._v("暂无可以通过编辑添加")]) : _c('img', {
     attrs: {
       "src": _vm.user_info.head_portrait,

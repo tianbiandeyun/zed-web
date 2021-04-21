@@ -1,8 +1,8 @@
 @import "../../common/vendor.wxss";
 
-.user-center-container .user-j.data-v-29f06caa {
-  padding: 20rpx;
+.user-center-container .box.data-v-29f06caa {
   background-color: #fff;
+  padding: 20rpx;
   margin-bottom: 20rpx;
 }
 .user-center-container .user-j .user-j-name.data-v-29f06caa {
@@ -56,11 +56,6 @@
   font-size: 28rpx;
   color: #515a6e;
 }
-.user-center-container .user-g.data-v-29f06caa {
-  background-color: #fff;
-  padding: 20rpx;
-  margin-bottom: 20rpx;
-}
 .user-center-container .user-g .user-g-edit.data-v-29f06caa {
   display: grid;
   grid-template-columns: 5fr 1fr;
@@ -108,14 +103,6 @@
 .user-center-container .user-g .user-g-text > ._span.data-v-29f06caa:nth-of-type(2) {
   font-size: 28rpx;
   color: #515a6e;
-}
-.user-center-container .user-e.data-v-29f06caa {
-  background-color: #fff;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 20rpx;
-  margin-bottom: 20rpx;
 }
 .user-center-container .user-e ._h1.data-v-29f06caa {
   color: #17233d;

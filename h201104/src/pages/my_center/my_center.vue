@@ -1,7 +1,7 @@
 <template>
   <section class="user-center-container">
 
-    <div class="user-j">
+    <div class="user-j box">
 
       <div class="user-j-name">
         <span>{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</span>
@@ -11,7 +11,7 @@
 
       <div class="user-j-company">
         <span>{{user_info.company === null || user_info.company === "" ? "暂无企业" : user_info.company}}</span>
-        <span v-if="openid.back_value.open_id === user_info.open_id" @click="goEdit(1)">
+        <span v-if="openid.back_value.open_id === user_info.open_id" @click="edit(1)">
           <img src="../../../static/images/bianji.png" alt="">
           编辑
         </span>
@@ -36,11 +36,11 @@
 
     </div>
 
-    <div class="user-g">
+    <div class="user-g box">
 
       <div class="user-g-edit">
         <span>个人介绍：</span>
-        <span v-if="openid.back_value.open_id === user_info.open_id" @click="goEdit(2)">
+        <span v-if="openid.back_value.open_id === user_info.open_id" @click="edit(2)">
           <img src="../../../static/images/bianji.png" alt="">
           编辑
         </span>
@@ -65,7 +65,7 @@
 
     </div>
 
-    <div class="user-e">
+    <div class="user-e box">
       <h1>形象照片</h1>
       <div>
         <p v-if="!user_info.head_portrait">暂无可以通过编辑添加</p>
@@ -145,7 +145,7 @@
       /**
        * 编辑信息
        */
-      goEdit(res) {
+      edit(res) {
         if (res === 1) {
           wx.navigateTo({
             url: `/pages/user_center_jichu/main`
@@ -196,10 +196,13 @@
   .user-center-container {
     padding-bottom: 100px;
 
-    .user-j {
+    .box {
       padding: 10px;
       background-color: #fff;
       margin-bottom: 10px;
+    }
+
+    .user-j {
 
       .user-j-name {
         display: flex;
@@ -265,9 +268,6 @@
     }
 
     .user-g {
-      background-color: #fff;
-      padding: 10px;
-      margin-bottom: 10px;
 
       .user-g-edit {
         display: grid;
@@ -330,12 +330,6 @@
     }
 
     .user-e {
-      background-color: #fff;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 10px;
-      margin-bottom: 10px;
 
       h1 {
         color: #17233d;
