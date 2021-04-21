@@ -187,7 +187,7 @@
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_unread_message,
           fps: {
-            u_key: this.u_key
+            u_key
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {

@@ -280,7 +280,7 @@ if (false) {(function () {
                 return _this2.$store.dispatch("fetch", {
                   im: _this2.$Config.INTER_FACE.get_unread_message,
                   fps: {
-                    u_key: _this2.u_key
+                    u_key: u_key
                   },
                   url: _this2.$Config.REQUEST_URI
                 }).then(function (res) {
