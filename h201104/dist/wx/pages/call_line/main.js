@@ -211,7 +211,7 @@ if (false) {(function () {
     /**
      * 我建立的 删除留言
      */
-    delCreatedLine: function delCreatedLine(res) {
+    onDeleteCallItem: function onDeleteCallItem(res) {
       var id = res.id;
       var operation_status = res.operation_status;
       var that = this;
@@ -297,7 +297,7 @@ if (false) {(function () {
     /**
      * 我建立的 留言详情
      */
-    sendCall: function sendCall(res) {
+    onClickCallItem: function onClickCallItem(res) {
       var _this2 = this;
 
       var id = res.id;
@@ -560,6 +560,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_item",
@@ -569,15 +571,11 @@ if (false) {(function () {
     }
   },
   methods: {
-    sendCall: function sendCall() {
-      this.$emit('sendCall', {
-        result: true
-      });
+    onClick: function onClick() {
+      this.$emit('onClick');
     },
-    delCall: function delCall() {
-      this.$emit("delCall", {
-        result: true
-      });
+    onDelete: function onDelete() {
+      this.$emit("onDelete");
     }
   },
   computed: {
@@ -585,7 +583,6 @@ if (false) {(function () {
       var time = this.item.creation_time;
 
       if (time) {
-
         var publishTime = Date.parse(time.replace(/-/gi, "/")) / 1000,
             d_seconds = void 0,
             d_minutes = void 0,
@@ -616,13 +613,11 @@ if (false) {(function () {
         if (s < 10) {
           s = "0" + s;
         }
-
         d = timeNow - publishTime;
         d_days = parseInt(d / 86400);
         d_hours = parseInt(d / 3600);
         d_minutes = parseInt(d / 60);
         d_seconds = parseInt(d);
-
         if (d_days > 0 && d_days < 3) {
           return d_days + "天前";
         } else if (d_days <= 0 && d_hours > 0) {
@@ -665,17 +660,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('section', {
     staticClass: "call_item-container"
   }, [_c('div', {
-    staticClass: "call_item-header",
     attrs: {
-      "hover-class": "b",
+      "hover-class": "click_active",
       "eventid": '1'
     },
     on: {
       "click": function($event) {
         $event.stopPropagation();
-        _vm.sendCall($event)
+        _vm.onClick($event)
       }
     }
+  }, [_c('div', {
+    staticClass: "call_item-header"
   }, [_c('p', [_vm._v("我")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), _c('p', {
     attrs: {
       "eventid": '0'
@@ -683,22 +679,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": function($event) {
         $event.stopPropagation();
-        _vm.delCall($event)
+        _vm.onDelete($event)
       }
     }
   }, [_vm._v(_vm._s(_vm.status))])], 1), _vm._v(" "), _c('div', {
-    staticClass: "call_item-message",
-    attrs: {
-      "hover-class": "b",
-      "eventid": '2'
-    },
-    on: {
-      "click": function($event) {
-        $event.stopPropagation();
-        _vm.sendCall($event)
-      }
-    }
-  }, [_vm._v(_vm._s(_vm.item.content))])])
+    staticClass: "call_item-message"
+  }, [_vm._v(_vm._s(_vm.item.content))])])])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -783,11 +769,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "mpcomid": '2_' + index
       },
       on: {
-        "sendCall": function($event) {
-          _vm.sendCall(item)
+        "onClick": function($event) {
+          _vm.onClickCallItem(item)
         },
-        "delCall": function($event) {
-          _vm.delCreatedLine(item)
+        "onDelete": function($event) {
+          _vm.onDeleteCallItem(item)
         }
       }
     })], 1)

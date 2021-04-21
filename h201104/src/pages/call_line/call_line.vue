@@ -21,7 +21,7 @@
 
       <v-tab title="我建立的会话">
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
-          <call-item :item="item" @sendCall='sendCall(item)' @delCall="delCreatedLine(item)"></call-item>
+          <call-item :item="item" @onClick='onClickCallItem(item)' @onDelete="onDeleteCallItem(item)"></call-item>
         </div>
       </v-tab>
 
@@ -95,7 +95,7 @@
       /**
        * 我建立的 删除留言
        */
-      delCreatedLine(res) {
+      onDeleteCallItem(res) {
         let id = res.id;
         let operation_status = res.operation_status;
         const that = this;
@@ -180,7 +180,7 @@
       /**
        * 我建立的 留言详情
        */
-      sendCall(res) {
+      onClickCallItem(res) {
         let id = res.id;
         this.$Utils.showWaiting();
         this.$store.dispatch("fetch", {

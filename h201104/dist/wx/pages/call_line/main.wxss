@@ -55,6 +55,6 @@
   color: #515a6e;
   font-size: 32rpx;
 }
-.call_item-container .b.data-v-71cb5e99 {
+.call_item-container .click_active.data-v-71cb5e99 {
   background-color: #e8eaec !important;
 }

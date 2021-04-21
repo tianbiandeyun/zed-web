@@ -1,12 +1,14 @@
 <template>
-  <!-- 我创建的对话 -->
+  <!-- 我创建的对话 / 我收到的对话 -->
   <section class="call_item-container">
-    <div hover-class='b' class="call_item-header" @click.stop='sendCall'>
-      <p>我</p>
-      <p>{{time}}，给"{{item.name}}"留言</p>
-      <p @click.stop="delCall">{{status}}</p>
+    <div hover-class='click_active' @click.stop='onClick'>
+      <div class="call_item-header">
+        <p>我</p>
+        <p>{{time}}，给"{{item.name}}"留言</p>
+        <p @click.stop="onDelete">{{status}}</p>
+      </div>
+      <div class="call_item-message">{{item.content}}</div>
     </div>
-    <div hover-class='b' class="call_item-message" @click.stop='sendCall'>{{item.content}}</div>
   </section>
 </template>
 
@@ -19,15 +21,11 @@
       }
     },
     methods: {
-      sendCall() {
-        this.$emit('sendCall', {
-          result: true
-        });
+      onClick() {
+        this.$emit('onClick');
       },
-      delCall() {
-        this.$emit("delCall", {
-          result: true
-        });
+      onDelete() {
+        this.$emit("onDelete");
       }
     },
     computed: {
@@ -35,7 +33,6 @@
         let time = this.item.creation_time;
 
         if (time) {
-
           let publishTime = Date.parse(time.replace(/-/gi, "/")) / 1000,
             d_seconds,
             d_minutes,
@@ -43,7 +40,6 @@
             d_days,
             timeNow = parseInt(new Date().getTime() / 1000),
             d,
-
             date = new Date(publishTime * 1000),
             Y = date.getFullYear(),
             M = date.getMonth() + 1,
@@ -67,13 +63,11 @@
           if (s < 10) {
             s = "0" + s;
           }
-
           d = timeNow - publishTime;
           d_days = parseInt(d / 86400);
           d_hours = parseInt(d / 3600);
           d_minutes = parseInt(d / 60);
           d_seconds = parseInt(d);
-
           if (d_days > 0 && d_days < 3) {
             return d_days + "天前";
           } else if (d_days <= 0 && d_hours > 0) {
@@ -91,7 +85,6 @@
           } else if (d_days >= 30) {
             return Y + "-" + M + "-" + D + " | " + H + ":" + m;
           }
-
         }
       },
       status() {
@@ -148,7 +141,7 @@
       font-size: 16px;
     }
 
-    .b {
+    .click_active {
       background-color: #e8eaec !important;
     }
   }
