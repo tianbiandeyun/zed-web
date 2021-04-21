@@ -237,28 +237,32 @@
        * 我收到的 留言详情
        */
       getCall(res) {
-        let id = res.id;
-        this.$Utils.showWaiting();
-        this.$store.dispatch("fetch", {
-          im: this.$Config.INTER_FACE.read_message,
-          fps: {
-            id,
-            u_key: this.u_key
-          },
-          url: this.$Config.REQUEST_URI
-        }).then(res => {
-          if (res.result === "failure") {
-            this.$Utils.closeWaiting();
-            this.$Utils.showErrorInfo(res, "read_message");
-          } else {
-            if (res.back_value) {
-              wx.navigateTo({
-                url: `/pages/get_call/main?id=${id}&u_key=${this.u_key}`
-              });
+        if (res.trigger_ukey !== 'root') {
+          let id = res.id;
+          this.$Utils.showWaiting();
+          this.$store.dispatch("fetch", {
+            im: this.$Config.INTER_FACE.read_message,
+            fps: {
+              id,
+              u_key: this.u_key
+            },
+            url: this.$Config.REQUEST_URI
+          }).then(res => {
+            if (res.result === "failure") {
+              this.$Utils.closeWaiting();
+              this.$Utils.showErrorInfo(res, "read_message");
+            } else {
+              if (res.back_value) {
+                wx.navigateTo({
+                  url: `/pages/get_call/main?id=${id}&u_key=${this.u_key}`
+                });
+              }
+              this.$Utils.closeWaiting();
             }
-            this.$Utils.closeWaiting();
-          }
-        });
+          });
+        } else {
+          console.log(res.name);
+        }
       },
       /**
        * tab 点击

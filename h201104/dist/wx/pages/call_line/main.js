@@ -360,28 +360,32 @@ if (false) {(function () {
     getCall: function getCall(res) {
       var _this3 = this;
 
-      var id = res.id;
-      this.$Utils.showWaiting();
-      this.$store.dispatch("fetch", {
-        im: this.$Config.INTER_FACE.read_message,
-        fps: {
-          id: id,
-          u_key: this.u_key
-        },
-        url: this.$Config.REQUEST_URI
-      }).then(function (res) {
-        if (res.result === "failure") {
-          _this3.$Utils.closeWaiting();
-          _this3.$Utils.showErrorInfo(res, "read_message");
-        } else {
-          if (res.back_value) {
-            wx.navigateTo({
-              url: "/pages/get_call/main?id=" + id + "&u_key=" + _this3.u_key
-            });
+      if (res.trigger_ukey !== 'root') {
+        var id = res.id;
+        this.$Utils.showWaiting();
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.read_message,
+          fps: {
+            id: id,
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(function (res) {
+          if (res.result === "failure") {
+            _this3.$Utils.closeWaiting();
+            _this3.$Utils.showErrorInfo(res, "read_message");
+          } else {
+            if (res.back_value) {
+              wx.navigateTo({
+                url: "/pages/get_call/main?id=" + id + "&u_key=" + _this3.u_key
+              });
+            }
+            _this3.$Utils.closeWaiting();
           }
-          _this3.$Utils.closeWaiting();
-        }
-      });
+        });
+      } else {
+        console.log(res.name);
+      }
     },
 
     /**
