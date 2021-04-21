@@ -13,7 +13,7 @@
           <span>{{time}}，给"{{item.name}}"留言</span>
         </div>
         <div v-if="type === 'system'">
-          <span>系统消息：</span>
+          <span style='color:red'>系统消息：</span>
           <span>{{item.name}}</span>
         </div>
         <div @click.stop="onDelete">{{status}}</div>
