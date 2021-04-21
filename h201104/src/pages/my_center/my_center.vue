@@ -194,7 +194,7 @@
 
 <style lang="less" scoped>
   .user-center-container {
-    padding-bottom: 80px;
+    padding-bottom: 90px;
 
     .box {
       padding: 10px;

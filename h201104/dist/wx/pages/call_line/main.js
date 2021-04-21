@@ -130,6 +130,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 
 
@@ -260,6 +261,24 @@ if (false) {(function () {
         });
       }
     },
+    systemContact: function systemContact(res) {
+      var _this2 = this;
+
+      var id = res.id;
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.read_message,
+        fps: {
+          id: id,
+          u_key: this.u_key
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "read_message");
+        } else {}
+      });
+    },
 
     /**
      * 我收到的 删除留言
@@ -305,7 +324,7 @@ if (false) {(function () {
      * 我收到的 留言详情
      */
     myGet: function myGet(res) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (res.trigger_ukey !== 'root') {
         var id = res.id;
@@ -319,15 +338,15 @@ if (false) {(function () {
           url: this.$Config.REQUEST_URI
         }).then(function (res) {
           if (res.result === "failure") {
-            _this2.$Utils.closeWaiting();
-            _this2.$Utils.showErrorInfo(res, "read_message");
+            _this3.$Utils.closeWaiting();
+            _this3.$Utils.showErrorInfo(res, "read_message");
           } else {
             if (res.back_value) {
               wx.navigateTo({
-                url: "/pages/get_call/main?id=" + id + "&u_key=" + _this2.u_key
+                url: "/pages/get_call/main?id=" + id + "&u_key=" + _this3.u_key
               });
             }
-            _this2.$Utils.closeWaiting();
+            _this3.$Utils.closeWaiting();
           }
         });
       } else {
@@ -425,7 +444,7 @@ if (false) {(function () {
      * 我建立的 留言详情
      */
     myCreated: function myCreated(res) {
-      var _this3 = this;
+      var _this4 = this;
 
       var id = res.id;
       this.$Utils.showWaiting();
@@ -438,15 +457,15 @@ if (false) {(function () {
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
         if (res.result === "failure") {
-          _this3.$Utils.closeWaiting();
-          _this3.$Utils.showErrorInfo(res, "read_message");
+          _this4.$Utils.closeWaiting();
+          _this4.$Utils.showErrorInfo(res, "read_message");
         } else {
           if (res.back_value) {
             wx.navigateTo({
-              url: "/pages/send_call/main?id=" + id + "&u_key=" + _this3.u_key
+              url: "/pages/send_call/main?id=" + id + "&u_key=" + _this4.u_key
             });
           }
-          _this3.$Utils.closeWaiting();
+          _this4.$Utils.closeWaiting();
         }
       });
     },
@@ -455,7 +474,7 @@ if (false) {(function () {
      * 获取留言信息
      */
     refreshCallLine: function refreshCallLine() {
-      var _this4 = this;
+      var _this5 = this;
 
       for (var _len = arguments.length, res = Array(_len), _key = 0; _key < _len; _key++) {
         res[_key] = arguments[_key];
@@ -470,48 +489,48 @@ if (false) {(function () {
               case 0:
                 _ref = [].concat(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_toConsumableArray___default()(res)), type = _ref[0];
                 _context2.next = 3;
-                return _this4.$store.dispatch("fetch", {
-                  im: _this4.$Config.INTER_FACE.get_chat_record_list,
+                return _this5.$store.dispatch("fetch", {
+                  im: _this5.$Config.INTER_FACE.get_chat_record_list,
                   fps: {
-                    u_key: _this4.u_key,
+                    u_key: _this5.u_key,
                     type_str: type
                   },
-                  url: _this4.$Config.REQUEST_URI
+                  url: _this5.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this4.$Utils.closeWaiting();
-                    _this4.$Utils.showErrorInfo(res, "get_chat_record_list");
+                    _this5.$Utils.closeWaiting();
+                    _this5.$Utils.showErrorInfo(res, "get_chat_record_list");
                   } else {
-                    _this4.call_line_list = res.back_value;
+                    _this5.call_line_list = res.back_value;
                   }
                 });
 
               case 3:
                 _context2.next = 5;
-                return _this4.$store.dispatch("fetch", {
-                  im: _this4.$Config.INTER_FACE.get_unread_message,
+                return _this5.$store.dispatch("fetch", {
+                  im: _this5.$Config.INTER_FACE.get_unread_message,
                   fps: {
-                    u_key: _this4.u_key
+                    u_key: _this5.u_key
                   },
-                  url: _this4.$Config.REQUEST_URI
+                  url: _this5.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this4.$Utils.closeWaiting();
-                    _this4.$Utils.showErrorInfo(res, "get_unread_message");
+                    _this5.$Utils.closeWaiting();
+                    _this5.$Utils.showErrorInfo(res, "get_unread_message");
                   } else {
-                    _this4.message_count = res.back_value;
+                    _this5.message_count = res.back_value;
                   }
                 });
 
               case 5:
-                _this4.$Utils.closeWaiting();
+                _this5.$Utils.closeWaiting();
 
               case 6:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, _this4);
+        }, _callee2, _this5);
       }))();
     }
   },
@@ -634,6 +653,9 @@ if (false) {(function () {
     },
     onDelete: function onDelete() {
       this.$emit("onDelete");
+    },
+    onContact: function onContact(e) {
+      this.$emit("onContact");
     }
   },
   computed: {
@@ -668,7 +690,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     attrs: {
       "hover-class": "click_active",
-      "eventid": '1'
+      "eventid": '2'
     },
     on: {
       "click": function($event) {
@@ -695,7 +717,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "open-type": "contact",
       "send-message-path": "pages/call_line/main",
       "send-message-img": "https://f.hztc.dev.hztcapp.com/h/h201104/1.png",
-      "show-message-card": "true"
+      "show-message-card": "true",
+      "eventid": '1'
+    },
+    on: {
+      "contact": _vm.onContact
     }
   }, [_vm._v(_vm._s(_vm.item.content))]) : _c('div', {
     staticClass: "call_item-message"
@@ -767,6 +793,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "mpcomid": '1_' + index
       },
       on: {
+        "onContact": function($event) {
+          _vm.systemContact(item)
+        },
         "onDelete": function($event) {
           _vm.systemDel(item)
         }

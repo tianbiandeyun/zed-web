@@ -10,7 +10,8 @@
             </call-item>
           </div>
           <div class="system_message" v-else>
-            <call-item :item="item" type='system' @onDelete="systemDel(item)"></call-item>
+            <call-item :item="item" type='system' @onContact='systemContact(item)' @onDelete="systemDel(item)">
+            </call-item>
           </div>
         </div>
       </v-tab>
@@ -142,6 +143,22 @@
             }
           })
         }
+      },
+      systemContact(res) {
+        let id = res.id;
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.read_message,
+          fps: {
+            id,
+            u_key: this.u_key
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "read_message");
+          } else {}
+        });
       },
       /**
        * 我收到的 删除留言
@@ -374,7 +391,7 @@
 
 <style lang="less" scoped>
   .call_line-container {
-    padding-bottom: 80px;
+    padding-bottom: 90px;
 
     .call {
       background-color: #fff;

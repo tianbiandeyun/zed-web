@@ -21,7 +21,7 @@
 
       <button v-if="type === 'system'" session-from="laiyuan" :send-message-title="item.name" open-type="contact"
         send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png"
-        show-message-card="true">{{item.content}}</button>
+        show-message-card="true" @contact="onContact">{{item.content}}</button>
 
       <div v-else class="call_item-message">{{item.content}}</div>
 
@@ -47,6 +47,9 @@
       },
       onDelete() {
         this.$emit("onDelete");
+      },
+      onContact(e) {
+        this.$emit("onContact");
       }
     },
     computed: {

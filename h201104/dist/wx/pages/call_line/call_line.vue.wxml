@@ -5,7 +5,7 @@
       <v-tab title="我收到的会话" class="_v-tab data-v-bf8108fc">
         <view class="_div data-v-bf8108fc call" wx:key="index" key="{{index}}" wx:for="{{call_line_list}}" wx:for-index="index" wx:for-item="item">
           <view wx:if="{{item.trigger_ukey !== 'root'}}" class="_div data-v-bf8108fc"><template type="我收到的会话" bindonClick="handleProxy" bindonDelete="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0_'+index], $root}}" is="774e56ca"></template></view>
-          <view class="_div data-v-bf8108fc system_message" wx:else><template type="system" bindonDelete="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1_'+index], $root}}" is="774e56ca"></template></view>
+          <view class="_div data-v-bf8108fc system_message" wx:else><template type="system" bindonContact="handleProxy" bindonDelete="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1_'+index], $root}}" is="774e56ca"></template></view>
         </view>
       </v-tab>
       <v-tab title="我建立的会话" class="_v-tab data-v-bf8108fc">
