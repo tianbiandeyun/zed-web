@@ -223,6 +223,18 @@ if (false) {(function () {
                   if (res.back_value.name === "" || res.back_value.name === null) {
                     throw new Error("未登录");
                   } else {
+                    if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
+                      wx.showModal({
+                        title: "inner_data",
+                        showCancel: false,
+                        content: "res.back_value.inner_data \u662F null \u6216\u8005 \u7A7A",
+                        success: function success() {}
+                      });
+                      return false;
+                    }
+                    _this.is_phone = res.back_value.inner_data.phone_restrict;
+                    _this.is_mail = res.back_value.inner_data.mail_restrict;
+                    _this.user_info = res.back_value;
                     _this.u_key = res.back_value.u_key;
                   }
                 }
@@ -266,35 +278,6 @@ if (false) {(function () {
               case 0:
                 _context2.next = 2;
                 return _this2.$store.dispatch("fetch", {
-                  im: _this2.$Config.INTER_FACE.get_member_info,
-                  fps: {
-                    open_id: _this2.openid.back_value.open_id,
-                    u_key: u_key || ""
-                  },
-                  url: _this2.$Config.REQUEST_URI
-                }).then(function (res) {
-                  if (res.result === "failure") {
-                    _this2.$Utils.closeWaiting();
-                    _this2.$Utils.showErrorInfo(res, "get_member_info");
-                  } else {
-                    if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
-                      wx.showModal({
-                        title: "inner_data",
-                        showCancel: false,
-                        content: "res.back_value.inner_data \u662F null \u6216\u8005 \u7A7A",
-                        success: function success() {}
-                      });
-                      return false;
-                    }
-                    _this2.is_phone = res.back_value.inner_data.phone_restrict;
-                    _this2.is_mail = res.back_value.inner_data.mail_restrict;
-                    _this2.user_info = res.back_value;
-                  }
-                });
-
-              case 2:
-                _context2.next = 4;
-                return _this2.$store.dispatch("fetch", {
                   im: _this2.$Config.INTER_FACE.get_unread_message,
                   fps: {
                     u_key: _this2.u_key
@@ -309,10 +292,10 @@ if (false) {(function () {
                   }
                 });
 
-              case 4:
+              case 2:
                 _this2.$Utils.closeWaiting();
 
-              case 5:
+              case 3:
               case "end":
                 return _context2.stop();
             }
