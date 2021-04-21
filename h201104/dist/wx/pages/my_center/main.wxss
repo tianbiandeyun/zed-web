@@ -1,7 +1,7 @@
 @import "../../common/vendor.wxss";
 
 .user-center-container.data-v-32e6eee8 {
-  padding-bottom: 200rpx;
+  padding-bottom: 160rpx;
 }
 .user-center-container .box.data-v-32e6eee8 {
   padding: 20rpx;

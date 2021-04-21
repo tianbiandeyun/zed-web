@@ -374,7 +374,7 @@
 
 <style lang="less" scoped>
   .call_line-container {
-    padding-bottom: 100px;
+    padding-bottom: 80px;
 
     .call {
       background-color: #fff;
