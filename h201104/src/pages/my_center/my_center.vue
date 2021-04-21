@@ -148,11 +148,11 @@
       goEdit(res) {
         if (res === 1) {
           wx.navigateTo({
-            url: `/pages/user_center_jichu/main?u_key=${this.u_key}`
+            url: `/pages/user_center_jichu/main`
           });
         } else {
           wx.navigateTo({
-            url: `/pages/user_center_jieshao/main?u_key=${this.u_key}`
+            url: `/pages/user_center_jieshao/main`
           });
         }
       },
