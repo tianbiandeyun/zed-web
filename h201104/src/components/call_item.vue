@@ -2,6 +2,7 @@
   <!-- 我创建的对话 / 我收到的对话 -->
   <section class="call_item-container">
     <div hover-class='click_active' @click.stop='onClick'>
+
       <div class="call_item-header">
         <div v-if="type === '我收到的会话'">
           <span>{{item.name}}</span>
@@ -11,9 +12,19 @@
           <span>我</span>
           <span>{{time}}，给"{{item.name}}"留言</span>
         </div>
+        <div v-if="type === 'system'">
+          <span>系统消息：</span>
+          <span>{{item.name}}</span>
+        </div>
         <div @click.stop="onDelete">{{status}}</div>
       </div>
-      <div class="call_item-message">{{item.content}}</div>
+
+      <button v-if="type === 'system'" session-from="laiyuan" :send-message-title="item.name" open-type="contact"
+        send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png"
+        show-message-card="true">{{item.content}}</button>
+
+      <div v-else class="call_item-message">{{item.content}}</div>
+
     </div>
   </section>
 </template>
@@ -95,6 +106,18 @@
     .call_item-message {
       color: #17233d;
       font-size: 16px;
+    }
+
+    button {
+      background-color: transparent;
+      text-align: left;
+      padding: 0;
+      color: #17233d;
+      font-size: 18px;
+
+      &::after {
+        border: none;
+      }
     }
 
     .click_active {

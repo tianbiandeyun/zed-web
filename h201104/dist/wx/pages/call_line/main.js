@@ -130,11 +130,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -227,6 +222,46 @@ if (false) {(function () {
     },
 
     /**
+     * 删除系统信息
+     */
+    systemDel: function systemDel(res) {
+      var id = res.id;
+      var operation_status = res.operation_status;
+      var that = this;
+      if (operation_status === 5) {
+        wx.showModal({
+          title: '提示',
+          content: '确定删除吗？',
+          success: function success(res) {
+            if (res.confirm) {
+              that.$Utils.showWaiting();
+              that.$store.dispatch("fetch", {
+                im: that.$Config.INTER_FACE.conceal_message,
+                fps: {
+                  id: id,
+                  u_key: that.u_key
+                },
+                url: that.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  that.$Utils.closeWaiting();
+                  that.$Utils.showErrorInfo(res, "conceal_message");
+                } else {
+                  if (res.back_value) {
+                    // 我收到的 accepter_ukey
+                    that.refreshCallLine("accepter_ukey");
+                  }
+                }
+              });
+            } else if (res.cancel) {
+              console.log('用户点击取消');
+            }
+          }
+        });
+      }
+    },
+
+    /**
      * 我收到的 删除留言
      */
     myGetDel: function myGetDel(res) {
@@ -236,7 +271,7 @@ if (false) {(function () {
       if (operation_status === 5) {
         wx.showModal({
           title: '提示',
-          content: '确定移除吗？',
+          content: '确定删除吗？',
           success: function success(res) {
             if (res.confirm) {
               that.$Utils.showWaiting();
@@ -356,7 +391,7 @@ if (false) {(function () {
       if (operation_status === 5) {
         wx.showModal({
           title: '提示',
-          content: '确定移除吗？',
+          content: '确定删除吗？',
           success: function success(res) {
             if (res.confirm) {
               that.$Utils.showWaiting();
@@ -570,6 +605,17 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_item",
@@ -632,7 +678,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('div', {
     staticClass: "call_item-header"
-  }, [(_vm.type === '我收到的会话') ? _c('div', [_c('span', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))])]) : _vm._e(), _vm._v(" "), (_vm.type === '我建立的会话') ? _c('div', [_c('span', [_vm._v("我")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")])]) : _vm._e(), _vm._v(" "), _c('div', {
+  }, [(_vm.type === '我收到的会话') ? _c('div', [_c('span', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))])]) : _vm._e(), _vm._v(" "), (_vm.type === '我建立的会话') ? _c('div', [_c('span', [_vm._v("我")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")])]) : _vm._e(), _vm._v(" "), (_vm.type === 'system') ? _c('div', [_c('span', [_vm._v("系统消息：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.item.name))])]) : _vm._e(), _vm._v(" "), _c('div', {
     attrs: {
       "eventid": '0'
     },
@@ -642,9 +688,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.onDelete($event)
       }
     }
-  }, [_vm._v(_vm._s(_vm.status))])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.status))])]), _vm._v(" "), (_vm.type === 'system') ? _c('button', {
+    attrs: {
+      "session-from": "laiyuan",
+      "send-message-title": _vm.item.name,
+      "open-type": "contact",
+      "send-message-path": "pages/call_line/main",
+      "send-message-img": "https://f.hztc.dev.hztcapp.com/h/h201104/1.png",
+      "show-message-card": "true"
+    }
+  }, [_vm._v(_vm._s(_vm.item.content))]) : _c('div', {
     staticClass: "call_item-message"
-  }, [_vm._v(_vm._s(_vm.item.content))])])])
+  }, [_vm._v(_vm._s(_vm.item.content))])], 1)])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -672,8 +727,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "color": "#19be6b",
       "animated": "",
       "swipeable": "",
-      "eventid": '2',
-      "mpcomid": '4'
+      "eventid": '3',
+      "mpcomid": '5'
     },
     on: {
       "change": _vm.clickTabs
@@ -681,7 +736,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('v-tab', {
     attrs: {
       "title": "我收到的会话",
-      "mpcomid": '1'
+      "mpcomid": '2'
     }
   }, _vm._l((_vm.call_line_list), function(item, index) {
     return _c('div', {
@@ -703,21 +758,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     })], 1) : _c('div', {
-      staticClass: "system-message"
-    }, [_c('button', {
+      staticClass: "system_message"
+    }, [_c('call-item', {
       attrs: {
-        "session-from": "laiyuan",
-        "send-message-title": item.name,
-        "open-type": "contact",
-        "send-message-path": "pages/call_line/main",
-        "send-message-img": "https://f.hztc.dev.hztcapp.com/h/h201104/1.png",
-        "show-message-card": "true"
+        "item": item,
+        "type": "system",
+        "eventid": '1_' + index,
+        "mpcomid": '1_' + index
+      },
+      on: {
+        "onDelete": function($event) {
+          _vm.systemDel(item)
+        }
       }
-    }, [_c('h1', [_vm._v("系统消息：" + _vm._s(item.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(item.content))])], 1)], 1)])
+    })], 1)])
   })), _vm._v(" "), _c('v-tab', {
     attrs: {
       "title": "我建立的会话",
-      "mpcomid": '3'
+      "mpcomid": '4'
     }
   }, _vm._l((_vm.call_line_list), function(item, index) {
     return _c('div', {
@@ -727,8 +785,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "item": item,
         "type": "我建立的会话",
-        "eventid": '1_' + index,
-        "mpcomid": '2_' + index
+        "eventid": '2_' + index,
+        "mpcomid": '3_' + index
       },
       on: {
         "onClick": function($event) {
@@ -743,7 +801,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "selected": "1",
       "message-count": _vm.message_count,
-      "mpcomid": '5'
+      "mpcomid": '6'
     }
   })], 1)
 }

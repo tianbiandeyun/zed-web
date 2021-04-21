@@ -9,13 +9,8 @@
             <call-item :item="item" type='我收到的会话' @onClick='myGet(item)' @onDelete="myGetDel(item)">
             </call-item>
           </div>
-          <div class="system-message" v-else>
-            <button session-from="laiyuan" :send-message-title="item.name" open-type="contact"
-              send-message-path="pages/call_line/main" send-message-img="https://f.hztc.dev.hztcapp.com/h/h201104/1.png"
-              show-message-card="true">
-              <h1>系统消息：{{item.name}}</h1>
-              <p>{{item.content}}</p>
-            </button>
+          <div class="system_message" v-else>
+            <call-item :item="item" type='system' @onDelete="systemDel(item)"></call-item>
           </div>
         </div>
       </v-tab>
@@ -110,6 +105,45 @@
         }
       },
       /**
+       * 删除系统信息
+       */
+      systemDel(res) {
+        let id = res.id;
+        let operation_status = res.operation_status;
+        const that = this;
+        if (operation_status === 5) {
+          wx.showModal({
+            title: '提示',
+            content: '确定删除吗？',
+            success(res) {
+              if (res.confirm) {
+                that.$Utils.showWaiting();
+                that.$store.dispatch("fetch", {
+                  im: that.$Config.INTER_FACE.conceal_message,
+                  fps: {
+                    id,
+                    u_key: that.u_key
+                  },
+                  url: that.$Config.REQUEST_URI
+                }).then(res => {
+                  if (res.result === "failure") {
+                    that.$Utils.closeWaiting();
+                    that.$Utils.showErrorInfo(res, "conceal_message");
+                  } else {
+                    if (res.back_value) {
+                      // 我收到的 accepter_ukey
+                      that.refreshCallLine("accepter_ukey");
+                    }
+                  }
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      },
+      /**
        * 我收到的 删除留言
        */
       myGetDel(res) {
@@ -119,7 +153,7 @@
         if (operation_status === 5) {
           wx.showModal({
             title: '提示',
-            content: '确定移除吗？',
+            content: '确定删除吗？',
             success(res) {
               if (res.confirm) {
                 that.$Utils.showWaiting();
@@ -235,7 +269,7 @@
         if (operation_status === 5) {
           wx.showModal({
             title: '提示',
-            content: '确定移除吗？',
+            content: '确定删除吗？',
             success(res) {
               if (res.confirm) {
                 that.$Utils.showWaiting();
@@ -352,26 +386,6 @@
 
       &:last-child {
         border-bottom: none;
-      }
-
-      .system-message {
-
-        h1 {
-          color: #515a6e;
-          font-size: 16px;
-        }
-
-        button {
-          background-color: transparent;
-          text-align: left;
-          padding: 0;
-          color: #17233d;
-          font-size: 18px;
-
-          &::after {
-            border: none;
-          }
-        }
       }
     }
   }

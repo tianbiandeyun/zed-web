@@ -14,20 +14,6 @@
 .call_line-container .call.data-v-bf8108fc:last-child {
   border-bottom: none;
 }
-.call_line-container .call .system-message ._h1.data-v-bf8108fc {
-  color: #515a6e;
-  font-size: 32rpx;
-}
-.call_line-container .call .system-message ._button.data-v-bf8108fc {
-  background-color: transparent;
-  text-align: left;
-  padding: 0;
-  color: #17233d;
-  font-size: 36rpx;
-}
-.call_line-container .call .system-message ._button.data-v-bf8108fc::after {
-  border: none;
-}
 .call_item-container .call_item-header.data-v-71cb5e99 {
   display: grid;
   grid-template-columns: 5fr 1fr;
@@ -52,6 +38,16 @@
 .call_item-container .call_item-message.data-v-71cb5e99 {
   color: #17233d;
   font-size: 32rpx;
+}
+.call_item-container ._button.data-v-71cb5e99 {
+  background-color: transparent;
+  text-align: left;
+  padding: 0;
+  color: #17233d;
+  font-size: 36rpx;
+}
+.call_item-container ._button.data-v-71cb5e99::after {
+  border: none;
 }
 .call_item-container .click_active.data-v-71cb5e99 {
   background-color: #e8eaec !important;
