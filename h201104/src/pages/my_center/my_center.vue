@@ -182,7 +182,30 @@
             this.$Utils.showErrorInfo(res, "set_update_user_info");
           } else {
             this.is_scope = false;
-            this.refreshUserCenter(this.u_key);
+            this.$store.dispatch("fetch", {
+              im: this.$Config.INTER_FACE.get_member_info,
+              fps: {
+                open_id: this.openid.back_value.open_id,
+                u_key: ""
+              },
+              url: this.$Config.REQUEST_URI
+            }).then(res => {
+              if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
+                this.$Utils.closeWaiting();
+                wx.showModal({
+                  title: `inner_data`,
+                  showCancel: false,
+                  content: `res.back_value.inner_data 是 null 或者 空`,
+                  success() {}
+                });
+                return false;
+              }
+              this.is_phone = res.back_value.inner_data.phone_restrict;
+              this.is_mail = res.back_value.inner_data.mail_restrict;
+              this.user_info = res.back_value;
+              this.u_key = res.back_value.u_key;
+              this.$Utils.closeWaiting();
+            })
           }
         });
       },

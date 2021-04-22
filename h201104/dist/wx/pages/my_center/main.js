@@ -91,7 +91,7 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuex__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_login__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_getUserInfo__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_getUserInfo__ = __webpack_require__(35);
 
 
 
@@ -298,7 +298,30 @@ if (false) {(function () {
           _this2.$Utils.showErrorInfo(res, "set_update_user_info");
         } else {
           _this2.is_scope = false;
-          _this2.refreshUserCenter(_this2.u_key);
+          _this2.$store.dispatch("fetch", {
+            im: _this2.$Config.INTER_FACE.get_member_info,
+            fps: {
+              open_id: _this2.openid.back_value.open_id,
+              u_key: ""
+            },
+            url: _this2.$Config.REQUEST_URI
+          }).then(function (res) {
+            if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
+              _this2.$Utils.closeWaiting();
+              wx.showModal({
+                title: "inner_data",
+                showCancel: false,
+                content: "res.back_value.inner_data \u662F null \u6216\u8005 \u7A7A",
+                success: function success() {}
+              });
+              return false;
+            }
+            _this2.is_phone = res.back_value.inner_data.phone_restrict;
+            _this2.is_mail = res.back_value.inner_data.mail_restrict;
+            _this2.user_info = res.back_value;
+            _this2.u_key = res.back_value.u_key;
+            _this2.$Utils.closeWaiting();
+          });
         }
       });
     },
