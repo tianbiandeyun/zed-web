@@ -73,6 +73,8 @@
       </div>
     </div>
 
+    <getUserInfo :isScope="is_scope" @setUserInfo="setUserInfo"></getUserInfo>
+
     <!-- 自定义 tab -->
     <tab selected='2' :message-count='message_count'></tab>
 
@@ -84,12 +86,17 @@
     mapGetters
   } from "vuex";
   import login from "../../utils/login";
+  import getUserInfo from "@/components/getUserInfo";
 
   export default {
     name: "user_center",
+    components: {
+      getUserInfo
+    },
     mixins: [login],
     data() {
       return {
+        is_scope: false,
         message_count: 0, // 信息条数
         u_key: '', // 本人 key
         user_info: "", // 获取个人信息
@@ -118,7 +125,9 @@
             error_info: "请登录后，查看其他内容",
             result: "failure",
             sign: "CFEApiH201104"
-          }, "提示");
+          }, "提示", () => {
+            this.is_scope = true;
+          });
         } else {
           if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
             wx.showModal({
@@ -153,6 +162,29 @@
             url: `/pages/user_center_jieshao/main`
           });
         }
+      },
+      /**
+       * 授权用户信息并保存
+       * */
+      setUserInfo(res) {
+        this.$Utils.showWaiting();
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.set_update_user_info,
+          fps: {
+            open_id: this.openid.back_value.open_id,
+            encrypted_data: res.encryptedData,
+            iv: res.iv
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "set_update_user_info");
+          } else {
+            this.is_scope = false;
+            this.refreshUserCenter(this.u_key);
+          }
+        });
       },
       async refreshUserCenter(u_key) {
         // 信息条数

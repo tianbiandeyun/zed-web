@@ -91,6 +91,7 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuex__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_login__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_getUserInfo__ = __webpack_require__(58);
 
 
 
@@ -175,15 +176,22 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "user_center",
+  components: {
+    getUserInfo: __WEBPACK_IMPORTED_MODULE_5__components_getUserInfo__["a" /* default */]
+  },
   mixins: [__WEBPACK_IMPORTED_MODULE_4__utils_login__["a" /* default */]],
   data: function data() {
     return {
+      is_scope: false,
       message_count: 0, // 信息条数
       u_key: '', // 本人 key
       user_info: "", // 获取个人信息
@@ -220,7 +228,9 @@ if (false) {(function () {
                     error_info: "请登录后，查看其他内容",
                     result: "failure",
                     sign: "CFEApiH201104"
-                  }, "提示");
+                  }, "提示", function () {
+                    _this.is_scope = true;
+                  });
                 } else {
                   if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
                     wx.showModal({
@@ -266,8 +276,34 @@ if (false) {(function () {
         });
       }
     },
-    refreshUserCenter: function refreshUserCenter(u_key) {
+
+    /**
+     * 授权用户信息并保存
+     * */
+    setUserInfo: function setUserInfo(res) {
       var _this2 = this;
+
+      this.$Utils.showWaiting();
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.set_update_user_info,
+        fps: {
+          open_id: this.openid.back_value.open_id,
+          encrypted_data: res.encryptedData,
+          iv: res.iv
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this2.$Utils.closeWaiting();
+          _this2.$Utils.showErrorInfo(res, "set_update_user_info");
+        } else {
+          _this2.is_scope = false;
+          _this2.refreshUserCenter(_this2.u_key);
+        }
+      });
+    },
+    refreshUserCenter: function refreshUserCenter(u_key) {
+      var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
@@ -275,30 +311,30 @@ if (false) {(function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.$store.dispatch("fetch", {
-                  im: _this2.$Config.INTER_FACE.get_unread_message,
+                return _this3.$store.dispatch("fetch", {
+                  im: _this3.$Config.INTER_FACE.get_unread_message,
                   fps: {
                     u_key: u_key
                   },
-                  url: _this2.$Config.REQUEST_URI
+                  url: _this3.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this2.$Utils.closeWaiting();
-                    _this2.$Utils.showErrorInfo(res, "get_unread_message");
+                    _this3.$Utils.closeWaiting();
+                    _this3.$Utils.showErrorInfo(res, "get_unread_message");
                   } else {
-                    _this2.message_count = res.back_value;
+                    _this3.message_count = res.back_value;
                   }
                 });
 
               case 2:
-                _this2.$Utils.closeWaiting();
+                _this3.$Utils.closeWaiting();
 
               case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, _this2);
+        }, _callee2, _this3);
       }))();
     }
   },
@@ -307,16 +343,16 @@ if (false) {(function () {
     this.$Utils.restData(this);
   },
   onPullDownRefresh: function onPullDownRefresh() {
-    var _this3 = this;
+    var _this4 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              _this3.$Utils.showWaiting();
+              _this4.$Utils.showWaiting();
               _context3.next = 3;
-              return _this3.refreshUserCenter(_this3.u_key);
+              return _this4.refreshUserCenter(_this4.u_key);
 
             case 3:
               wx.stopPullDownRefresh();
@@ -326,7 +362,7 @@ if (false) {(function () {
               return _context3.stop();
           }
         }
-      }, _callee3, _this3);
+      }, _callee3, _this4);
     }))();
   }
 });
@@ -407,11 +443,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.user_info.head_portrait,
       "alt": ""
     }
-  })], 1)], 1), _vm._v(" "), _c('tab', {
+  })], 1)], 1), _vm._v(" "), _c('getUserInfo', {
+    attrs: {
+      "isScope": _vm.is_scope,
+      "eventid": '2',
+      "mpcomid": '0'
+    },
+    on: {
+      "setUserInfo": _vm.setUserInfo
+    }
+  }), _vm._v(" "), _c('tab', {
     attrs: {
       "selected": "2",
       "message-count": _vm.message_count,
-      "mpcomid": '0'
+      "mpcomid": '1'
     }
   })], 1)
 }

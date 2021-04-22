@@ -1,3 +1,4 @@
+<import src="/components/getUserInfo.vue.wxml" />
 <import src="/custom-tab-bar/index.vue.wxml" /><template name="60862bb4">
   <view class="_section data-v-32e6eee8 user-center-container">
     <view class="_div data-v-32e6eee8 basis box">
@@ -28,6 +29,6 @@
         <view wx:if="{{!user_info.head_portrait}}" class="_p data-v-32e6eee8">暂无可以通过编辑添加</view>
         <image wx:else src="{{user_info.head_portrait}}" alt class="_img data-v-32e6eee8"></image>
       </view>
-    </view> <template selected="2" data="{{...$root[$kk+'0'], $root}}" is="55f19ec2"></template>
+    </view> <template bindsetUserInfo="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ba02a0d4"></template> <template selected="2" data="{{...$root[$kk+'1'], $root}}" is="55f19ec2"></template>
   </view>
 </template>

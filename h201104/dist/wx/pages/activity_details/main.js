@@ -259,10 +259,15 @@ if (false) {(function () {
       }).then(function (res) {
         if (res.result === "failure") {
           _this2.$Utils.closeWaiting();
-          _this2.is_scope = true;
-          // this.$Utils.showErrorInfo(res, "get_member_info");
-          console.log(res.error_code);
-          console.log(res.error_info);
+          _this2.$Utils.showErrorInfo({
+            error_attachmsg: null,
+            error_code: 2012100231,
+            error_info: "请先登录以后在报名",
+            result: "failure",
+            sign: "CFEApiH201104"
+          }, "提示", function () {
+            _this2.is_scope = true;
+          });
         } else {
           wx.navigateTo({
             url: "/pages/participate/main?activity_id=" + _this2.$root.$mp.query.activity_id
