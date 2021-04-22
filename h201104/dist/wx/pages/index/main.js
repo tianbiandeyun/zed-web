@@ -326,7 +326,7 @@ if (false) {(function () {
               case 0:
                 personnel = '';
 
-                if (_this4.$root.$mp.query.personnel != '' || _this4.$root.$mp.query.personnel != undefined || _this4.$root.$mp.query.personnel != null) {
+                if (_this4.$root.$mp.query.personnel) {
                   personnel = _this4.$root.$mp.query.personnel;
                 }
                 // 获取用户信息

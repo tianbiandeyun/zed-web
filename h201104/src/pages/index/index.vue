@@ -194,8 +194,7 @@
        * */
       async refreshIndex() {
         let personnel = '';
-        if (this.$root.$mp.query.personnel != '' || this.$root.$mp.query.personnel != undefined || this.$root.$mp
-          .query.personnel != null) {
+        if (this.$root.$mp.query.personnel) {
           personnel = this.$root.$mp.query.personnel;
         }
         // 获取用户信息
