@@ -275,6 +275,16 @@ if (false) {(function () {
      * 前往单个活动详情
      * */
     goActivity: function goActivity(res) {
+      if (this.is_login === false) {
+        this.$Utils.showErrorInfo({
+          error_attachmsg: null,
+          error_code: 2012100231,
+          error_info: "请登录后，查看其他内容",
+          result: "failure",
+          sign: "CFEApiH201104"
+        }, "提示");
+        return false;
+      }
       if (res.status != 3) {
         wx.navigateTo({
           url: "/pages/activity_details/main?activity_id=" + res.id + "&m_key=" + this.u_key

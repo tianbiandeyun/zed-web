@@ -11172,7 +11172,6 @@ if (false) {
       wx.getUserProfile({
         desc: '用于完善资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: function success(res) {
-          console.log(res);
           _this.$emit("setUserInfo", res);
         },
         fail: function fail(res) {
