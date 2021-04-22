@@ -174,7 +174,7 @@ if (false) {(function () {
       changge_professional: [], // 选择的职业
       is_popup: false, // 是否打开选择职业
       message_count: 0, // 信息条数
-      is_login: false, // 是否登陆
+      is_login: false, // 是否展示登陆按钮
       is_scope: false, // 是否打开请授权头像
       openid_info: "", // openid 信息
       nick_name: "", // 昵称
@@ -338,7 +338,13 @@ if (false) {(function () {
                 }).then(function (res) {
                   if (res.result === "failure") {
                     _this4.$Utils.closeWaiting();
-                    _this4.$Utils.showErrorInfo(res, "get_member_info");
+                    _this4.$Utils.showErrorInfo({
+                      error_attachmsg: null,
+                      error_code: 2012100231,
+                      error_info: "请登录后，查看其他内容",
+                      result: "failure",
+                      sign: "CFEApiH201104"
+                    }, "提示");
                   } else {
                     _this4.nick_name = res.back_value.name;
                     _this4.user_photo = res.back_value.wx_photo;

@@ -1,4 +1,21 @@
 /**
+ * 错误号码
+ * */
+const getErrorCode = code => {
+  const errorCode = {
+    2000920: "openid 错误",
+    2011130201: "未报名参加此次活动",
+    1100852: "参数错误",
+    2012100231: '此用户未授权用户信息'
+  };
+  let error_code = code;
+  let error_message = errorCode[code];
+  return {
+    error_code,
+    error_message
+  };
+};
+/**
  * 展示错误
  * errorCode 错误号
  * requestFace 接口名字
@@ -149,23 +166,6 @@ const getDays = (strDateStart, strDateEnd) => {
   let strDateE = new Date(oDate2[0], oDate2[1] - 1, oDate2[2]);
   iDays = parseInt(Math.abs(strDateS - strDateE) / 1000 / 60 / 60 / 24); //把相差的毫秒数转换为天数
   return iDays;
-};
-/**
- * 错误号码
- * */
-const getErrorCode = code => {
-  const errorCode = {
-    2000920: "openid 错误",
-    2011130201: "未报名参加此次活动",
-    1100852: "参数错误",
-    2012100231: '此用户未授权用户信息'
-  };
-  let error_code = code;
-  let error_message = errorCode[code];
-  return {
-    error_code,
-    error_message
-  };
 };
 /**
  * 获取选择的日期中日期最大的一个

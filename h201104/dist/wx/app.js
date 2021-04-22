@@ -153,6 +153,23 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
 
 /**
+ * 错误号码
+ * */
+var getErrorCode = function getErrorCode(code) {
+  var errorCode = {
+    2000920: "openid 错误",
+    2011130201: "未报名参加此次活动",
+    1100852: "参数错误",
+    2012100231: '此用户未授权用户信息'
+  };
+  var error_code = code;
+  var error_message = errorCode[code];
+  return {
+    error_code: error_code,
+    error_message: error_message
+  };
+};
+/**
  * 展示错误
  * errorCode 错误号
  * requestFace 接口名字
@@ -317,23 +334,6 @@ var getDays = function getDays(strDateStart, strDateEnd) {
   var strDateE = new Date(oDate2[0], oDate2[1] - 1, oDate2[2]);
   iDays = parseInt(Math.abs(strDateS - strDateE) / 1000 / 60 / 60 / 24); //把相差的毫秒数转换为天数
   return iDays;
-};
-/**
- * 错误号码
- * */
-var getErrorCode = function getErrorCode(code) {
-  var errorCode = {
-    2000920: "openid 错误",
-    2011130201: "未报名参加此次活动",
-    1100852: "参数错误",
-    2012100231: '此用户未授权用户信息'
-  };
-  var error_code = code;
-  var error_message = errorCode[code];
-  return {
-    error_code: error_code,
-    error_message: error_message
-  };
 };
 /**
  * 获取选择的日期中日期最大的一个
