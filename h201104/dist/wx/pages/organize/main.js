@@ -172,7 +172,6 @@ if (false) {(function () {
       },
       url: this.$Config.REQUEST_URI
     }).then(function (res) {
-
       if (res.result === "failure") {
         _this.$Utils.closeWaiting();
         _this.$Utils.showErrorInfo(res, "get_organizers_info");
@@ -189,38 +188,32 @@ if (false) {(function () {
       var _this2 = this;
 
       if (this.user === "") {
-
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "对接联系人不能为空",
           success: function success(res) {}
         });
-
         return false;
       }
 
       if (this.photo === "") {
-
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "联系电话不能为空",
           success: function success(res) {}
         });
-
         return false;
       }
 
       if (this.complate === "") {
-
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "机构名称不能为空",
           success: function success(res) {}
         });
-
         return false;
       }
 
@@ -297,7 +290,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, _vm._l((item.centont), function(k, v) {
       return _c('div', {
-        key: k,
+        key: v,
         staticClass: "organize-content"
       }, [_c('p', {
         staticClass: "organize-content-title"

@@ -5,7 +5,7 @@
 
       <v-collapse-item v-for="(item,index) in info" :key="index" :title="item.title" :name="index">
 
-        <div class="organize-content" v-for="(k,v) in item.centont" :key="k">
+        <div class="organize-content" v-for="(k,v) in item.centont" :key="v">
           <p class="organize-content-title">{{k.title}}</p>
           <p v-if="k.describe" class="organize-content-message">{{k.describe}}</p>
           <p v-else class="organize-content-images">
@@ -84,7 +84,6 @@
         },
         url: this.$Config.REQUEST_URI
       }).then(res => {
-
         if (res.result === "failure") {
           this.$Utils.closeWaiting();
           this.$Utils.showErrorInfo(res, "get_organizers_info");
@@ -94,44 +93,37 @@
           this.$Utils.closeWaiting();
         }
       });
-
     },
     methods: {
       submit() {
 
         if (this.user === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "对接联系人不能为空",
             success(res) {}
           });
-
           return false;
         }
 
         if (this.photo === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "联系电话不能为空",
             success(res) {}
           });
-
           return false;
         }
 
         if (this.complate === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "机构名称不能为空",
             success(res) {}
           });
-
           return false;
         }
 

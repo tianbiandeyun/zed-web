@@ -124,7 +124,6 @@
        * 报名参与
        * */
       sign() {
-
         // 获取用户信息
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
@@ -137,7 +136,9 @@
           if (res.result === "failure") {
             this.$Utils.closeWaiting();
             this.is_scope = true;
-            this.$Utils.showErrorInfo(res, "get_member_info");
+            // this.$Utils.showErrorInfo(res, "get_member_info");
+            console.log(res.error_code);
+            console.log(res.error_info);
           } else {
             wx.navigateTo({
               url: `/pages/participate/main?activity_id=${this.$root.$mp.query.activity_id}`

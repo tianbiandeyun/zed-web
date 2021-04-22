@@ -260,7 +260,9 @@ if (false) {(function () {
         if (res.result === "failure") {
           _this2.$Utils.closeWaiting();
           _this2.is_scope = true;
-          _this2.$Utils.showErrorInfo(res, "get_member_info");
+          // this.$Utils.showErrorInfo(res, "get_member_info");
+          console.log(res.error_code);
+          console.log(res.error_info);
         } else {
           wx.navigateTo({
             url: "/pages/participate/main?activity_id=" + _this2.$root.$mp.query.activity_id

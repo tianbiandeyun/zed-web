@@ -2,7 +2,7 @@
   <view class="_section data-v-a357ae14 organize-container" wx:if="{{info.length !== 0}}">
     <v-collapse value="{{activeNames}}" bindchange="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_v-collapse data-v-a357ae14">
       <v-collapse-item wx:key="index" key="{{index}}" title="{{item.title}}" name="{{index}}" wx:for="{{info}}" wx:for-index="index" wx:for-item="item" class="_v-collapse-item data-v-a357ae14">
-        <view class="_div data-v-a357ae14 organize-content" wx:key="k" key="{{k}}" wx:for="{{item.centont}}" wx:for-index="v" wx:for-item="k">
+        <view class="_div data-v-a357ae14 organize-content" wx:key="v" key="{{v}}" wx:for="{{item.centont}}" wx:for-index="v" wx:for-item="k">
           <view class="_p data-v-a357ae14 organize-content-title">{{k.title}}</view>
           <view wx:if="{{k.describe}}" class="_p data-v-a357ae14 organize-content-message">{{k.describe}}</view>
           <view wx:else class="_p data-v-a357ae14 organize-content-images">
