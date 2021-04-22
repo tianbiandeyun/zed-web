@@ -77,6 +77,8 @@
       </div>
     </div>
 
+    <getUserInfo :isScope="is_scope" @setUserInfo="setUserInfo"></getUserInfo>
+
   </section>
 </template>
 
@@ -87,12 +89,17 @@
     mapGetters
   } from "vuex";
   import login from "../../utils/login";
+  import getUserInfo from "@/components/getUserInfo";
 
   export default {
     name: "user_center",
+    components: {
+      getUserInfo
+    },
     mixins: [login],
     data() {
       return {
+        is_scope: false,
         u_key: '', // 这里面所有的u_key都是，点击谁就是谁的
         is_page: false, // 等待接口加载完毕之后显示页面
         user_info: "", // 获取个人信息
@@ -117,6 +124,29 @@
 
     },
     methods: {
+      /**
+       * 授权用户信息并保存
+       * */
+      setUserInfo(res) {
+        this.$Utils.showWaiting();
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.set_update_user_info,
+          fps: {
+            open_id: this.openid.back_value.open_id,
+            encrypted_data: res.encryptedData,
+            iv: res.iv
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo(res, "set_update_user_info");
+          } else {
+            this.is_scope = false;
+            this.refreshUserCenter(this.u_key);
+          }
+        });
+      },
       /**
        * 创建留言
        */

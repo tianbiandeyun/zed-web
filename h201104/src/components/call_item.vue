@@ -7,14 +7,17 @@
         <div v-if="type === '我收到的会话'">
           <span>{{item.name}}</span>
           <span>{{time}}</span>
+          <span v-if="item.message_status === 1"></span>
         </div>
         <div v-if="type === '我建立的会话'">
           <span>我</span>
           <span>{{time}}，给"{{item.name}}"留言</span>
+          <span v-if="item.message_status === 1"></span>
         </div>
         <div v-if="type === 'system'">
           <span style='color:red'>系统消息</span>
           <span>{{time}}</span>
+          <span v-if="item.message_status === 1"></span>
         </div>
         <div @click.stop="onDelete">{{status}}</div>
       </div>
@@ -96,6 +99,15 @@
               color: #17233d;
               font-size: 18px;
               margin-right: 10px;
+            }
+
+            &:nth-of-type(3) {
+              display: inline-block;
+              background-color: red;
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              margin-left: 10px;
             }
           }
         }

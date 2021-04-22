@@ -635,6 +635,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_item",
@@ -700,11 +703,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('div', {
     staticClass: "call_item-header"
-  }, [(_vm.type === '我收到的会话') ? _c('div', [_c('span', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))])]) : _vm._e(), _vm._v(" "), (_vm.type === '我建立的会话') ? _c('div', [_c('span', [_vm._v("我")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")])]) : _vm._e(), _vm._v(" "), (_vm.type === 'system') ? _c('div', [_c('span', {
+  }, [(_vm.type === '我收到的会话') ? _c('div', [_c('span', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.type === '我建立的会话') ? _c('div', [_c('span', [_vm._v("我")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.type === 'system') ? _c('div', [_c('span', {
     staticStyle: {
       "color": "red"
     }
-  }, [_vm._v("系统消息")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))])]) : _vm._e(), _vm._v(" "), _c('div', {
+  }, [_vm._v("系统消息")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e(), _vm._v(" "), _c('div', {
     attrs: {
       "eventid": '0'
     },

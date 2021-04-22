@@ -1,4 +1,4 @@
-<template name="28ba98e8">
+<import src="/components/getUserInfo.vue.wxml" /><template name="28ba98e8">
   <view class="_section data-v-29f06caa user-center-container" wx:if="{{is_page}}">
     <view class="_div data-v-29f06caa basis box">
       <view class="_div data-v-29f06caa basis-name"><label class="_span data-v-29f06caa">{{user_info.name === null || user_info.name === "" ? "无" : user_info.name}}</label>
@@ -29,6 +29,6 @@
         <view wx:if="{{!user_info.head_portrait}}" class="_p data-v-29f06caa">暂无可以通过编辑添加</view>
         <image wx:else src="{{user_info.head_portrait}}" alt class="_img data-v-29f06caa"></image>
       </view>
-    </view>
+    </view> <template bindsetUserInfo="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ba02a0d4"></template>
   </view>
 </template>

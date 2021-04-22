@@ -32,6 +32,14 @@
   font-size: 36rpx;
   margin-right: 20rpx;
 }
+.call_item-container .call_item-header ._div:nth-of-type(1) ._span.data-v-71cb5e99:nth-of-type(3) {
+  display: inline-block;
+  background-color: red;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-left: 20rpx;
+}
 .call_item-container .call_item-header ._div.data-v-71cb5e99:nth-of-type(2) {
   color: #FF0000;
 }
