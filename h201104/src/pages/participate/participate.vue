@@ -76,12 +76,12 @@
     name: "sign_up",
     data() {
       return {
-        name: "",
-        complate: "",
-        zhiwei: "",
+        name: "", // 姓名
+        complate: "", // 单位
+        zhiwei: "", // 职位
         phone_message: "获取手机号码",
-        phone: "",
-        disabled: false,
+        phone: "", // 电话
+        disabled: false, // 手机号码按钮是否可以点击
         info: ""
       };
     },
@@ -133,50 +133,42 @@
       submit() {
 
         if (this.name === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "姓名不能为空",
             success(res) {}
           });
-
           return false;
         }
 
         if (this.complate === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "公司不能为空",
             success(res) {}
           });
-
           return false;
         }
 
         if (this.zhiwei === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "职位不能为空",
             success(res) {}
           });
-
           return false;
         }
 
         if (this.phone === "") {
-
           wx.showModal({
             title: "提示",
             showCancel: false,
             content: "电话不能为空",
             success(res) {}
           });
-
           return false;
         }
 
@@ -194,7 +186,6 @@
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
-
           if (res.result === "failure") {
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "set_registration");
@@ -212,7 +203,6 @@
             this.$Utils.closeWaiting();
           }
         });
-
       },
       goBack() {
         wx.navigateBack({
@@ -225,14 +215,11 @@
       getPhone(e) {
 
         if (e.mp.detail.errMsg === "getPhoneNumber:ok") {
-
           this.$Utils.showWaiting();
-
           let {
             encryptedData,
             iv
           } = e.mp.detail;
-
           this.$store.dispatch("fetch", {
             im: this.$Config.INTER_FACE.get_user_phone,
             fps: {
@@ -252,7 +239,6 @@
               this.$Utils.closeWaiting();
             }
           });
-
         } else {
           wx.showModal({
             title: "提示",
@@ -261,16 +247,13 @@
             success(res) {}
           });
         }
-
       },
       /**
        * 获取经纬度并且打开地图位置
        * */
       getLocation() {
         const that = this;
-
         this.$Utils.showWaiting("请稍后");
-
         wx.openLocation({
           latitude: +that.info.longitude,
           longitude: +that.info.latitude,
@@ -287,8 +270,7 @@
     },
     computed: {
       ...mapGetters([
-        "openid",
-        "is_registration"
+        "openid"
       ])
     },
     onUnload() {

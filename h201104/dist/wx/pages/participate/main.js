@@ -169,12 +169,12 @@ if (false) {(function () {
   name: "sign_up",
   data: function data() {
     return {
-      name: "",
-      complate: "",
-      zhiwei: "",
+      name: "", // 姓名
+      complate: "", // 单位
+      zhiwei: "", // 职位
       phone_message: "获取手机号码",
-      phone: "",
-      disabled: false,
+      phone: "", // 电话
+      disabled: false, // 手机号码按钮是否可以点击
       info: ""
     };
   },
@@ -246,50 +246,42 @@ if (false) {(function () {
       var _this2 = this;
 
       if (this.name === "") {
-
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "姓名不能为空",
           success: function success(res) {}
         });
-
         return false;
       }
 
       if (this.complate === "") {
-
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "公司不能为空",
           success: function success(res) {}
         });
-
         return false;
       }
 
       if (this.zhiwei === "") {
-
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "职位不能为空",
           success: function success(res) {}
         });
-
         return false;
       }
 
       if (this.phone === "") {
-
         wx.showModal({
           title: "提示",
           showCancel: false,
           content: "电话不能为空",
           success: function success(res) {}
         });
-
         return false;
       }
 
@@ -307,7 +299,6 @@ if (false) {(function () {
         },
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
-
         if (res.result === "failure") {
           _this2.$Utils.closeWaiting();
           _this2.$Utils.showErrorInfo(res, "set_registration");
@@ -339,13 +330,10 @@ if (false) {(function () {
       var _this3 = this;
 
       if (e.mp.detail.errMsg === "getPhoneNumber:ok") {
-
         this.$Utils.showWaiting();
-
         var _e$mp$detail = e.mp.detail,
             encryptedData = _e$mp$detail.encryptedData,
             iv = _e$mp$detail.iv;
-
 
         this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_user_phone,
@@ -381,9 +369,7 @@ if (false) {(function () {
      * */
     getLocation: function getLocation() {
       var that = this;
-
       this.$Utils.showWaiting("请稍后");
-
       wx.openLocation({
         latitude: +that.info.longitude,
         longitude: +that.info.latitude,
@@ -398,7 +384,7 @@ if (false) {(function () {
       });
     }
   },
-  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_3_vuex__["b" /* mapGetters */])(["openid", "is_registration"])),
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_3_vuex__["b" /* mapGetters */])(["openid"])),
   onUnload: function onUnload() {
     this.$Utils.restData(this);
   }
