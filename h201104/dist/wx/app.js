@@ -151,43 +151,29 @@ if (false) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
+
 
 /**
- * 错误号码
- * */
-var getErrorCode = function getErrorCode(code) {
-  var errorCode = {
-    2000920: "openid 错误",
-    2011130201: "未报名参加此次活动",
-    1100852: "参数错误",
-    2012100231: '此用户未授权用户信息'
-  };
-  var error_code = code;
-  var error_message = errorCode[code];
-  return {
-    error_code: error_code,
-    error_message: error_message
-  };
-};
-/**
  * 展示错误
- * errorCode 错误号
- * requestFace 接口名字
- * errorMessage 错误信息
+ * error_code 错误号
+ * errorFace 接口名字
+ * errorInfo 错误信息
  * */
 var showErrorInfo = function showErrorInfo(errorInfo, errorFace) {
   var callback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {
     return "";
   };
 
-  var _getErrorCode = getErrorCode(errorInfo.error_code),
-      error_code = _getErrorCode.error_code,
-      error_message = _getErrorCode.error_message;
+  var _errorInfo = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, errorInfo),
+      error_code = _errorInfo.error_code,
+      error_info = _errorInfo.error_info;
 
   wx.showModal({
     title: "" + errorFace,
     showCancel: false,
-    content: "" + error_message,
+    content: "" + error_info,
     success: function success() {
       callback();
     }
@@ -365,7 +351,6 @@ var restData = function restData(that) {
   getDate: getDate,
   format: format,
   getDays: getDays,
-  getErrorCode: getErrorCode,
   getMaxDate: getMaxDate,
   restData: restData
 });

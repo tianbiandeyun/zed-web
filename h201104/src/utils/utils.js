@@ -1,35 +1,20 @@
 /**
- * 错误号码
- * */
-const getErrorCode = code => {
-  const errorCode = {
-    2000920: "openid 错误",
-    2011130201: "未报名参加此次活动",
-    1100852: "参数错误",
-    2012100231: '此用户未授权用户信息'
-  };
-  let error_code = code;
-  let error_message = errorCode[code];
-  return {
-    error_code,
-    error_message
-  };
-};
-/**
  * 展示错误
- * errorCode 错误号
- * requestFace 接口名字
- * errorMessage 错误信息
+ * error_code 错误号
+ * errorFace 接口名字
+ * errorInfo 错误信息
  * */
 const showErrorInfo = (errorInfo, errorFace, callback = () => "") => {
   let {
     error_code,
-    error_message
-  } = getErrorCode(errorInfo.error_code);
+    error_info
+  } = {
+    ...errorInfo
+  }
   wx.showModal({
     title: `${errorFace}`,
     showCancel: false,
-    content: `${error_message}`,
+    content: `${error_info}`,
     success() {
       callback();
     }
@@ -197,7 +182,6 @@ export default {
   getDate,
   format,
   getDays,
-  getErrorCode,
   getMaxDate,
   restData
 };
