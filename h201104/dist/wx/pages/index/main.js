@@ -319,19 +319,23 @@ if (false) {(function () {
       var _this4 = this;
 
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-        var that;
+        var personnel;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                that = _this4;
-                // 获取用户信息
+                personnel = '';
 
-                _context2.next = 3;
+                if (_this4.$root.$mp.query.personnel != '' || _this4.$root.$mp.query.personnel != undefined || _this4.$root.$mp.query.personnel != null) {
+                  personnel = _this4.$root.$mp.query.personnel;
+                }
+                // 获取用户信息
+                _context2.next = 4;
                 return _this4.$store.dispatch("fetch", {
                   im: _this4.$Config.INTER_FACE.get_member_info,
                   fps: {
                     open_id: _this4.openid_info.back_value.open_id,
+                    personnel: personnel,
                     u_key: ""
                   },
                   url: _this4.$Config.REQUEST_URI
@@ -368,8 +372,8 @@ if (false) {(function () {
                   }
                 });
 
-              case 3:
-                _context2.next = 5;
+              case 4:
+                _context2.next = 6;
                 return _this4.$store.dispatch("fetch", {
                   im: _this4.$Config.INTER_FACE.get_salon_activity_list,
                   fps: {
@@ -389,8 +393,8 @@ if (false) {(function () {
                   }
                 });
 
-              case 5:
-                _context2.next = 7;
+              case 6:
+                _context2.next = 8;
                 return _this4.$store.dispatch("fetch", {
                   im: _this4.$Config.INTER_FACE.get_unread_message,
                   fps: {
@@ -406,10 +410,10 @@ if (false) {(function () {
                   }
                 });
 
-              case 7:
+              case 8:
                 _this4.$Utils.closeWaiting();
 
-              case 8:
+              case 9:
               case "end":
                 return _context2.stop();
             }

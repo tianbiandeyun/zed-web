@@ -193,12 +193,17 @@
        * 首页信息获取
        * */
       async refreshIndex() {
-        const that = this;
+        let personnel = '';
+        if (this.$root.$mp.query.personnel != '' || this.$root.$mp.query.personnel != undefined || this.$root.$mp
+          .query.personnel != null) {
+          personnel = this.$root.$mp.query.personnel;
+        }
         // 获取用户信息
         await this.$store.dispatch("fetch", {
           im: this.$Config.INTER_FACE.get_member_info,
           fps: {
             open_id: this.openid_info.back_value.open_id,
+            personnel,
             u_key: ""
           },
           url: this.$Config.REQUEST_URI
