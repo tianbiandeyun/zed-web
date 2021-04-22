@@ -3,8 +3,7 @@
     <div class="getUserInfo-logo">
       <img src="../../static/images/logo.png" alt="">
     </div>
-    <!-- <button open-type="getUserInfo" @getuserinfo="setUserInfo">开启授权</button> -->
-    <button @click='ddd'>click me</button>
+    <button @click='setUserInfo'>开启授权</button>
   </section>
 </template>
 
@@ -21,11 +20,9 @@
       }
     },
     methods: {
-      ddd(e) {
-        console.log('ddd');
-
+      setUserInfo(e) {
         wx.getUserProfile({
-          desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+          desc: '用于完善资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
           success: (res) => {
             console.log(res);
             this.$emit("setUserInfo", res);
@@ -41,20 +38,6 @@
             }
           }
         })
-      },
-      setUserInfo(e) {
-        console.log(e.mp.detail);
-
-        // if (e.mp.detail.errMsg !== "getUserInfo:fail auth deny") {
-        //   this.$emit("setUserInfo", e.mp.detail);
-        // } else {
-        //   wx.showModal({
-        //     title: "提示",
-        //     showCancel: false,
-        //     content: this.message,
-        //     success(res) {}
-        //   });
-        // }
       }
     }
   };
