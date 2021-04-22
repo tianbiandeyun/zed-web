@@ -225,7 +225,10 @@ if (false) {(function () {
             case 9:
               _this.refreshUserCenter(_this.u_key);
 
-            case 10:
+              console.log("\u5176\u4ED6\u4EBA u_key\uFF1A" + _this.$root.$mp.query.u_key);
+              console.log("\u6211 m_key\uFF1A" + _this.$root.$mp.query.m_key);
+
+            case 12:
             case "end":
               return _context.stop();
           }

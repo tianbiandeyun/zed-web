@@ -162,9 +162,9 @@ if (false) {(function () {
   },
 
   methods: {
-    goUser: function goUser() {
+    goUser: function goUser(res) {
       wx.navigateTo({
-        url: "/pages/user_center/main?u_key=" + this.u_key
+        url: "/pages/user_center/main?m_key=" + this.u_key + "&u_key=" + res.conversation.trigger_ukey
       });
     },
 
@@ -509,7 +509,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mpcomid": '0'
     },
     on: {
-      "getCall": _vm.goUser,
+      "getCall": function($event) {
+        _vm.goUser(_vm.list)
+      },
       "delCall": function($event) {
         _vm.delCall2(_vm.list.conversation)
       }

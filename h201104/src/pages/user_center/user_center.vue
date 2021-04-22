@@ -111,6 +111,10 @@
         this.is_page = true;
       }
       this.refreshUserCenter(this.u_key);
+
+      console.log(`其他人 u_key：${this.$root.$mp.query.u_key}`);
+      console.log(`我 m_key：${this.$root.$mp.query.m_key}`);
+
     },
     methods: {
       /**

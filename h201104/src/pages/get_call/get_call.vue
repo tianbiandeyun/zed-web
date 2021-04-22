@@ -2,7 +2,7 @@
   <section class="get-call-container">
 
     <div class="call" v-if="list != ''">
-      <get-line :item='list.conversation' @getCall="goUser" @delCall='delCall2(list.conversation)'></get-line>
+      <get-line :item='list.conversation' @getCall="goUser(list)" @delCall='delCall2(list.conversation)'></get-line>
     </div>
 
     <div class="call" v-for="(item,index) in list.reply" :key="index">
@@ -70,9 +70,9 @@
       this.refreshMessageDetails(this.id);
     },
     methods: {
-      goUser() {
+      goUser(res) {
         wx.navigateTo({
-          url: `/pages/user_center/main?u_key=${this.u_key}`
+          url: `/pages/user_center/main?m_key=${this.u_key}&u_key=${res.conversation.trigger_ukey}`
         });
       },
       /**
