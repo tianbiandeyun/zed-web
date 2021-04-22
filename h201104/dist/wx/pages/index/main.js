@@ -275,16 +275,6 @@ if (false) {(function () {
      * 前往单个活动详情
      * */
     goActivity: function goActivity(res) {
-      if (this.is_login === false) {
-        this.$Utils.showErrorInfo({
-          error_attachmsg: null,
-          error_code: 2012100231,
-          error_info: "请登录后，查看其他内容",
-          result: "failure",
-          sign: "CFEApiH201104"
-        }, "提示");
-        return false;
-      }
       if (res.status != 3) {
         wx.navigateTo({
           url: "/pages/activity_details/main?activity_id=" + res.id + "&m_key=" + this.u_key
@@ -348,13 +338,9 @@ if (false) {(function () {
                 }).then(function (res) {
                   if (res.result === "failure") {
                     _this4.$Utils.closeWaiting();
-                    _this4.$Utils.showErrorInfo({
-                      error_attachmsg: null,
-                      error_code: 2012100231,
-                      error_info: "请登录后，查看其他内容",
-                      result: "failure",
-                      sign: "CFEApiH201104"
-                    }, "提示");
+                    // this.$Utils.showErrorInfo(res, "get_member_info");
+                    console.log(res.error_code);
+                    console.log(res.error_info);
                   } else {
                     _this4.nick_name = res.back_value.name;
                     _this4.user_photo = res.back_value.wx_photo;
