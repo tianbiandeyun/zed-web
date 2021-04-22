@@ -131,6 +131,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 
@@ -770,7 +772,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "title": "我收到的会话",
       "mpcomid": '2'
     }
-  }, _vm._l((_vm.call_line_list), function(item, index) {
+  }, [(_vm.call_line_list.length === 0) ? _c('div', {
+    staticStyle: {
+      "text-align": "center",
+      "line-height": "4"
+    }
+  }, [_vm._v("暂无任何会话")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.call_line_list), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "call"
@@ -807,12 +814,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     })], 1)])
-  })), _vm._v(" "), _c('v-tab', {
+  })], 2), _vm._v(" "), _c('v-tab', {
     attrs: {
       "title": "我建立的会话",
       "mpcomid": '4'
     }
-  }, _vm._l((_vm.call_line_list), function(item, index) {
+  }, [(_vm.call_line_list.length === 0) ? _c('div', {
+    staticStyle: {
+      "text-align": "center",
+      "line-height": "4"
+    }
+  }, [_vm._v("暂无任何会话")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.call_line_list), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "call"
@@ -832,7 +844,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     })], 1)
-  }))], 1), _vm._v(" "), _c('tab', {
+  })], 2)], 1), _vm._v(" "), _c('tab', {
     attrs: {
       "selected": "1",
       "message-count": _vm.message_count,

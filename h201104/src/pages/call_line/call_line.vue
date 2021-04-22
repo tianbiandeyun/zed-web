@@ -4,6 +4,7 @@
     <v-tabs :active="active" color="#19be6b" animated swipeable @change="clickTabs">
 
       <v-tab title="我收到的会话">
+        <div v-if="call_line_list.length === 0" style="text-align: center;line-height: 4;">暂无任何会话</div>
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
           <div v-if="item.trigger_ukey !== 'root'">
             <call-item :item="item" type='我收到的会话' @onClick='myGet(item)' @onDelete="myGetDel(item)">
@@ -17,6 +18,7 @@
       </v-tab>
 
       <v-tab title="我建立的会话">
+        <div v-if="call_line_list.length === 0" style="text-align: center;line-height: 4;">暂无任何会话</div>
         <div class="call" v-for="(item,index) in call_line_list" :key="index">
           <call-item :item="item" type='我建立的会话' @onClick='myCreated(item)' @onDelete="myCreatedDel(item)">
           </call-item>
