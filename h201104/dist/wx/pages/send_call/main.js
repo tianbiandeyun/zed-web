@@ -163,9 +163,9 @@ if (false) {(function () {
 
   methods: {
     goUser: function goUser(res) {
-      console.log(res.trigger_ukey);
+      console.log(res);
       wx.navigateTo({
-        url: "/pages/user_center/main?u_key=" + res.trigger_ukey
+        url: "/pages/user_center/main?m_key=" + this.u_key + "&u_key=" + res.trigger_ukey
       });
     },
 
