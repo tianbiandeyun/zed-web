@@ -203,7 +203,6 @@
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
-          console.log(res);
           if (res.result === "failure") {
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "get_member_info");

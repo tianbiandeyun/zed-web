@@ -112,29 +112,21 @@
       }).then(res => {
         if (res.result === "failure") {
           this.$Utils.closeWaiting();
-          if (res.error_code === 2012100231) {
-            throw new Error("未登录");
-          } else {
-            this.$Utils.showErrorInfo(res, "get_member_info");
-          }
+          this.$Utils.showErrorInfo(res, "get_member_info");
         } else {
-          if (res.back_value.name === "" || res.back_value.name === null) {
-            throw new Error("未登录");
-          } else {
-            if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
-              wx.showModal({
-                title: `inner_data`,
-                showCancel: false,
-                content: `res.back_value.inner_data 是 null 或者 空`,
-                success() {}
-              });
-              return false;
-            }
-            this.is_phone = res.back_value.inner_data.phone_restrict;
-            this.is_mail = res.back_value.inner_data.mail_restrict;
-            this.user_info = res.back_value;
-            this.u_key = res.back_value.u_key;
+          if (res.back_value.inner_data === null || res.back_value.inner_data === '') {
+            wx.showModal({
+              title: `inner_data`,
+              showCancel: false,
+              content: `res.back_value.inner_data 是 null 或者 空`,
+              success() {}
+            });
+            return false;
           }
+          this.is_phone = res.back_value.inner_data.phone_restrict;
+          this.is_mail = res.back_value.inner_data.mail_restrict;
+          this.user_info = res.back_value;
+          this.u_key = res.back_value.u_key;
         }
       });
 

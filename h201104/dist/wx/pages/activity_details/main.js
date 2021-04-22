@@ -257,21 +257,14 @@ if (false) {(function () {
         },
         url: this.$Config.REQUEST_URI
       }).then(function (res) {
-
         if (res.result === "failure") {
-          if (res.error_code === 2012100231 || res.error_code === "2012100231") {
-            _this2.is_scope = true;
-          } else {
-            _this2.$Utils.showErrorInfo(res, "get_member_info");
-          }
+          _this2.$Utils.closeWaiting();
+          _this2.is_scope = true;
+          _this2.$Utils.showErrorInfo(res, "get_member_info");
         } else {
-          if (res.back_value.name === "" || res.back_value.name === null) {
-            _this2.is_scope = true;
-          } else {
-            wx.navigateTo({
-              url: "/pages/participate/main?activity_id=" + _this2.$root.$mp.query.activity_id
-            });
-          }
+          wx.navigateTo({
+            url: "/pages/participate/main?activity_id=" + _this2.$root.$mp.query.activity_id
+          });
         }
       });
     },

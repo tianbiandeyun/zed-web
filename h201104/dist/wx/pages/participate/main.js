@@ -206,7 +206,6 @@ if (false) {(function () {
               });
 
               // 如果报名过则显示报名信息
-              // if (this.is_registration.back_value != 1) {
               _context.next = 4;
               return _this.$store.dispatch("fetch", {
                 im: _this.$Config.INTER_FACE.get_member_info,
@@ -220,12 +219,10 @@ if (false) {(function () {
                   _this.$Utils.closeWaiting();
                   _this.$Utils.showErrorInfo(res, "get_member_info ");
                 } else {
-
                   _this.name = res.back_value.name || "";
                   _this.complate = res.back_value.company || "";
                   _this.zhiwei = res.back_value.job_description || "";
                   _this.phone = res.back_value.phone || "";
-
                   if (_this.phone !== "") {
                     _this.disabled = true;
                   }
@@ -233,8 +230,6 @@ if (false) {(function () {
               });
 
             case 4:
-              // }
-
               _this.$Utils.closeWaiting();
 
             case 5:

@@ -134,23 +134,15 @@
           },
           url: this.$Config.REQUEST_URI
         }).then(res => {
-
           if (res.result === "failure") {
-            if (res.error_code === 2012100231 || res.error_code === "2012100231") {
-              this.is_scope = true;
-            } else {
-              this.$Utils.showErrorInfo(res, "get_member_info");
-            }
+            this.$Utils.closeWaiting();
+            this.is_scope = true;
+            this.$Utils.showErrorInfo(res, "get_member_info");
           } else {
-            if (res.back_value.name === "" || res.back_value.name === null) {
-              this.is_scope = true;
-            } else {
-              wx.navigateTo({
-                url: `/pages/participate/main?activity_id=${this.$root.$mp.query.activity_id}`
-              });
-            }
+            wx.navigateTo({
+              url: `/pages/participate/main?activity_id=${this.$root.$mp.query.activity_id}`
+            });
           }
-
         });
 
       },

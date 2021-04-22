@@ -106,7 +106,6 @@
       });
 
       // 如果报名过则显示报名信息
-      // if (this.is_registration.back_value != 1) {
       await this.$store.dispatch("fetch", {
         im: this.$Config.INTER_FACE.get_member_info,
         fps: {
@@ -119,22 +118,16 @@
           this.$Utils.closeWaiting();
           this.$Utils.showErrorInfo(res, "get_member_info ");
         } else {
-
           this.name = res.back_value.name || "";
           this.complate = res.back_value.company || "";
           this.zhiwei = res.back_value.job_description || "";
           this.phone = res.back_value.phone || "";
-
           if (this.phone !== "") {
             this.disabled = true;
           }
-
         }
       });
-      // }
-
       this.$Utils.closeWaiting();
-
     },
     methods: {
       submit() {

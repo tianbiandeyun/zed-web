@@ -336,7 +336,6 @@ if (false) {(function () {
                   },
                   url: _this4.$Config.REQUEST_URI
                 }).then(function (res) {
-                  console.log(res);
                   if (res.result === "failure") {
                     _this4.$Utils.closeWaiting();
                     _this4.$Utils.showErrorInfo(res, "get_member_info");

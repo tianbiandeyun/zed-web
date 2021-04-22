@@ -172,17 +172,9 @@ if (false) {(function () {
               }).then(function (res) {
                 if (res.result === "failure") {
                   _this.$Utils.closeWaiting();
-                  if (res.error_code === 2012100231) {
-                    throw new Error("未登录");
-                  } else {
-                    _this.$Utils.showErrorInfo(res, "get_member_info");
-                  }
+                  _this.$Utils.showErrorInfo(res, "get_member_info");
                 } else {
-                  if (res.back_value.name === "" || res.back_value.name === null) {
-                    throw new Error("未登录");
-                  } else {
-                    _this.u_key = res.back_value.u_key;
-                  }
+                  _this.u_key = res.back_value.u_key;
                 }
               });
 
