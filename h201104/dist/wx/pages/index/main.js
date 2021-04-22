@@ -379,7 +379,6 @@ if (false) {(function () {
                     _this4.$Utils.closeWaiting();
                     _this4.$Utils.showErrorInfo(res, "get_salon_activity_list");
                   } else {
-
                     var result = res.back_value;
                     result.forEach(function (item, index, arr) {
                       item.meeting_time = item.meeting_time.split("日")[0] + "\u65E5";

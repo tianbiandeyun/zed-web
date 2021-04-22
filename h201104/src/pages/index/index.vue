@@ -245,7 +245,6 @@
             this.$Utils.closeWaiting();
             this.$Utils.showErrorInfo(res, "get_salon_activity_list");
           } else {
-
             let result = res.back_value;
             result.forEach((item, index, arr) => {
               item.meeting_time = `${item.meeting_time.split("日")[0]}日`;
