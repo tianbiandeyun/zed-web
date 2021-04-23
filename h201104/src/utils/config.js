@@ -11,8 +11,8 @@ const VERSION = "v3.0.3";
 /**
  * 请求域名
  * */
-const CONST_REQUEST_URI = "https://testphp.hztc.dev.hztcapp.com/test_index.php"; // 开发
-// const CONST_REQUEST_URI = "https://hztc.dev.hztcapp.com/index.php"; // 正式
+// const CONST_REQUEST_URI = "https://testphp.hztc.dev.hztcapp.com/test_index.php"; // 开发
+const CONST_REQUEST_URI = "https://hztc.dev.hztcapp.com/index.php"; // 正式
 
 /**
  * 请求地址

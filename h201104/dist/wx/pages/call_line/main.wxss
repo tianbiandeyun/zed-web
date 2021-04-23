@@ -41,7 +41,7 @@
   margin-left: 20rpx;
 }
 .call_item-container .call_item-header ._div.data-v-71cb5e99:nth-of-type(2) {
-  color: #FF0000;
+  color: #19be6b;
 }
 .call_item-container .call_item-message.data-v-71cb5e99 {
   color: #17233d;

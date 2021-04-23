@@ -113,7 +113,7 @@
         }
 
         &:nth-of-type(2) {
-          color: #FF0000;
+          color: #19be6b;
         }
       }
     }
