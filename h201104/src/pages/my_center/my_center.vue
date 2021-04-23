@@ -148,6 +148,10 @@
       this.refreshUserCenter(this.u_key);
 
     },
+    onHide() {
+      console.log('my_center');
+      this.is_scope = false;
+    },
     methods: {
       /**
        * 编辑信息

@@ -260,6 +260,10 @@ if (false) {(function () {
       }, _callee, _this);
     }))();
   },
+  onHide: function onHide() {
+    console.log('my_center');
+    this.is_scope = false;
+  },
 
   methods: {
     /**

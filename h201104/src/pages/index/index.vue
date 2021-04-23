@@ -95,6 +95,10 @@
       this.openid_info = await this.getOpenid();
       this.refreshIndex();
     },
+    onHide() {
+      console.log('index');
+      this.is_scope = false;
+    },
     methods: {
       /**
        * 提交关注行业

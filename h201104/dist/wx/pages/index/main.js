@@ -208,6 +208,10 @@ if (false) {(function () {
       }, _callee, _this);
     }))();
   },
+  onHide: function onHide() {
+    console.log('index');
+    this.is_scope = false;
+  },
 
   methods: {
     /**
