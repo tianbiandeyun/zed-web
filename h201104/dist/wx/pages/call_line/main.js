@@ -152,7 +152,7 @@ if (false) {(function () {
       u_key: '' // 本人 key
     };
   },
-  mounted: function mounted() {
+  onShow: function onShow() {
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -179,6 +179,7 @@ if (false) {(function () {
                   console.log(res.error_info);
                 } else {
                   _this.u_key = res.back_value.u_key;
+                  console.log(_this.u_key);
                 }
               });
 

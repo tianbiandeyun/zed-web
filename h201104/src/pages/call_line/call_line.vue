@@ -54,7 +54,7 @@
         u_key: '' // 本人 key
       };
     },
-    async mounted() {
+    async onShow() {
       this.$Utils.showWaiting();
 
       // 获取 u_key
@@ -73,6 +73,7 @@
           console.log(res.error_info);
         } else {
           this.u_key = res.back_value.u_key;
+          console.log(this.u_key);
         }
       });
 
