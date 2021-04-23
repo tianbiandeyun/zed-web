@@ -183,7 +183,7 @@ if (false) {(function () {
       list: [] // 活动列表
     };
   },
-  mounted: function mounted() {
+  onShow: function onShow() {
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
