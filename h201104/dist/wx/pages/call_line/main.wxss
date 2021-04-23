@@ -24,7 +24,7 @@
   padding: 0;
   color: #17233d;
   font-size: 32rpx;
-  line-height: 1;
+  line-height: 1.5;
   width: 100%;
 }
 .call_item_container .call .call_system_left.data-v-71cb5e99::after {
