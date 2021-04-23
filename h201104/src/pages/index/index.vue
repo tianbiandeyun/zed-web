@@ -90,7 +90,7 @@
         list: [] // 活动列表
       };
     },
-    async onShow() {
+    async mounted() {
       this.$Utils.showWaiting();
       this.openid_info = await this.getOpenid();
       this.refreshIndex();
@@ -300,6 +300,45 @@
         // 返回当前时间段对应的状态
         return text;
       }
+    },
+    async onPullDownRefresh() {
+      this.$Utils.showWaiting();
+      // 获取首页活动列表
+      await this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_salon_activity_list,
+        fps: {
+          open_id: this.openid_info.back_value.open_id
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(res => {
+        if (res.result === "failure") {
+          this.$Utils.closeWaiting();
+          this.$Utils.showErrorInfo(res, "get_salon_activity_list");
+        } else {
+          let result = res.back_value;
+          result.forEach((item, index, arr) => {
+            item.meeting_time = `${item.meeting_time.split("日")[0]}日`;
+          });
+          this.list = result;
+        }
+      });
+      // 信息条数
+      await this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_unread_message,
+        fps: {
+          u_key: this.u_key
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(res => {
+        if (res.result === "failure") {
+          this.$Utils.closeWaiting();
+          this.$Utils.showErrorInfo(res, "get_unread_message");
+        } else {
+          this.message_count = res.back_value;
+        }
+      });
+      this.$Utils.closeWaiting();
+      wx.stopPullDownRefresh();
     },
     onShareAppMessage: function (res) {
       if (res.from === "button") {

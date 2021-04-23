@@ -183,7 +183,7 @@ if (false) {(function () {
       list: [] // 活动列表
     };
   },
-  onShow: function onShow() {
+  mounted: function mounted() {
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -447,6 +447,66 @@ if (false) {(function () {
       return text;
     }
   },
+  onPullDownRefresh: function onPullDownRefresh() {
+    var _this5 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _this5.$Utils.showWaiting();
+              // 获取首页活动列表
+              _context3.next = 3;
+              return _this5.$store.dispatch("fetch", {
+                im: _this5.$Config.INTER_FACE.get_salon_activity_list,
+                fps: {
+                  open_id: _this5.openid_info.back_value.open_id
+                },
+                url: _this5.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  _this5.$Utils.closeWaiting();
+                  _this5.$Utils.showErrorInfo(res, "get_salon_activity_list");
+                } else {
+                  var result = res.back_value;
+                  result.forEach(function (item, index, arr) {
+                    item.meeting_time = item.meeting_time.split("日")[0] + "\u65E5";
+                  });
+                  _this5.list = result;
+                }
+              });
+
+            case 3:
+              _context3.next = 5;
+              return _this5.$store.dispatch("fetch", {
+                im: _this5.$Config.INTER_FACE.get_unread_message,
+                fps: {
+                  u_key: _this5.u_key
+                },
+                url: _this5.$Config.REQUEST_URI
+              }).then(function (res) {
+                if (res.result === "failure") {
+                  _this5.$Utils.closeWaiting();
+                  _this5.$Utils.showErrorInfo(res, "get_unread_message");
+                } else {
+                  _this5.message_count = res.back_value;
+                }
+              });
+
+            case 5:
+              _this5.$Utils.closeWaiting();
+              wx.stopPullDownRefresh();
+
+            case 7:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, _this5);
+    }))();
+  },
+
   onShareAppMessage: function onShareAppMessage(res) {
     if (res.from === "button") {
       console.log("来自页面内转发按钮");
