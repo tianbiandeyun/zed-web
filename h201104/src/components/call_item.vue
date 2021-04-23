@@ -1,34 +1,49 @@
 <template>
   <!-- 我创建的对话 / 我收到的对话 -->
-  <section class="call_item-container">
-    <div hover-class='click_active' @click.stop='onClick'>
+  <section class="call_item_container">
 
-      <div class="call_item-header">
-        <div v-if="type === '我收到的会话'">
-          <span>{{item.name}}</span>
+    <div hover-class='click_active' class="call" @click.stop='onClick'>
+
+      <button v-if="type === 'system'" class="call_system_left" session-from="laiyuan"
+        :send-message-title="item.content" open-type="contact" send-message-path="pages/call_line/main"
+        :send-message-img="item.file_img" show-message-card="true" @contact="onContact">
+        <div class="left_top">
+          <span>系统消息</span>
           <span>{{time}}</span>
           <span v-if="item.message_status === 1"></span>
         </div>
-        <div v-if="type === '我建立的会话'">
-          <span>我</span>
-          <span>{{time}}，给"{{item.name}}"留言</span>
-          <span v-if="item.message_status === 1"></span>
+        <div class="left_bottom">
+          <div>{{item.content}}</div>
         </div>
-        <div v-if="type === 'system'">
-          <span style='color:red'>系统消息</span>
-          <span>{{time}}</span>
-          <span v-if="item.message_status === 1"></span>
+      </button>
+
+      <div v-else class="call_left">
+
+        <div class="left_top">
+          <div v-if="type === '我收到的会话'">
+            <span>{{item.name}}</span>
+            <span>{{time}}</span>
+            <span v-if="item.message_status === 1"></span>
+          </div>
+          <div v-if="type === '我建立的会话'">
+            <span>我</span>
+            <span>{{time}}，给"{{item.name}}"留言</span>
+            <span v-if="item.message_status === 1"></span>
+          </div>
         </div>
+
+        <div class="left_bottom">
+          <div>{{item.content}}</div>
+        </div>
+
+      </div>
+
+      <div class="call_right">
         <div @click.stop="onDelete">{{status}}</div>
       </div>
 
-      <button v-if="type === 'system'" session-from="laiyuan" :send-message-title="item.content" open-type="contact"
-        send-message-path="pages/call_line/main" :send-message-img="item.file_img" show-message-card="true"
-        @contact="onContact">{{item.content}}</button>
-
-      <div v-else class="call_item-message">{{item.content}}</div>
-
     </div>
+
   </section>
 </template>
 
@@ -78,20 +93,27 @@
 </script>
 
 <style lang="less" scoped>
-  .call_item-container {
+  .call_item_container {
 
-    .call_item-header {
+    .call {
       display: grid;
       grid-template-columns: 5fr 1fr;
-      grid-column-gap: 6px;
-      margin-bottom: 10px;
-      align-items: center;
 
-      div {
-        font-size: 14px;
+      .call_system_left {
+        background-color: transparent;
+        text-align: left;
+        padding: 0;
+        color: #17233d;
+        font-size: 16px;
+        line-height: 1;
+        width: 100%;
 
-        &:nth-of-type(1) {
-          color: #808695;
+        &::after {
+          border: none;
+        }
+
+        .left_top {
+          margin-bottom: 10px;
 
           span {
 
@@ -99,6 +121,12 @@
               color: #17233d;
               font-size: 18px;
               margin-right: 10px;
+              color: red;
+            }
+
+            &:nth-of-type(2) {
+              font-size: 14px;
+              color: #808695;
             }
 
             &:nth-of-type(3) {
@@ -112,27 +140,63 @@
           }
         }
 
-        &:nth-of-type(2) {
-          color: #19be6b;
+        .left_bottom {
+          div {
+            color: #17233d;
+            font-size: 16px;
+          }
         }
       }
-    }
 
-    .call_item-message {
-      color: #17233d;
-      font-size: 16px;
-    }
 
-    button {
-      background-color: transparent;
-      text-align: left;
-      padding: 0;
-      color: #17233d;
-      font-size: 16px;
-      line-height: 1;
+      .call_left {
 
-      &::after {
-        border: none;
+        .left_top {
+          margin-bottom: 10px;
+
+          div {
+
+            &:nth-of-type(1) {
+
+              span {
+
+                &:nth-of-type(1) {
+                  color: #17233d;
+                  font-size: 18px;
+                  margin-right: 10px;
+                }
+
+                &:nth-of-type(2) {
+                  font-size: 14px;
+                  color: #808695;
+                }
+
+                &:nth-of-type(3) {
+                  display: inline-block;
+                  background-color: red;
+                  width: 8px;
+                  height: 8px;
+                  border-radius: 50%;
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+
+        .left_bottom {
+          div {
+            color: #17233d;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .call_right {
+        div {
+          color: #19be6b;
+          text-align: center;
+        }
       }
     }
 

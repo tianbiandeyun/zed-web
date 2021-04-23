@@ -638,6 +638,21 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "call_item",
@@ -689,8 +704,9 @@ if (false) {(function () {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', {
-    staticClass: "call_item-container"
+    staticClass: "call_item_container"
   }, [_c('div', {
+    staticClass: "call",
     attrs: {
       "hover-class": "click_active",
       "eventid": '2'
@@ -701,23 +717,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.onClick($event)
       }
     }
-  }, [_c('div', {
-    staticClass: "call_item-header"
-  }, [(_vm.type === '我收到的会话') ? _c('div', [_c('span', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.type === '我建立的会话') ? _c('div', [_c('span', [_vm._v("我")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.type === 'system') ? _c('div', [_c('span', {
-    staticStyle: {
-      "color": "red"
-    }
-  }, [_vm._v("系统消息")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e(), _vm._v(" "), _c('div', {
-    attrs: {
-      "eventid": '0'
-    },
-    on: {
-      "click": function($event) {
-        $event.stopPropagation();
-        _vm.onDelete($event)
-      }
-    }
-  }, [_vm._v(_vm._s(_vm.status))])]), _vm._v(" "), (_vm.type === 'system') ? _c('button', {
+  }, [(_vm.type === 'system') ? _c('button', {
+    staticClass: "call_system_left",
     attrs: {
       "session-from": "laiyuan",
       "send-message-title": _vm.item.content,
@@ -725,14 +726,34 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "send-message-path": "pages/call_line/main",
       "send-message-img": _vm.item.file_img,
       "show-message-card": "true",
-      "eventid": '1'
+      "eventid": '0'
     },
     on: {
       "contact": _vm.onContact
     }
-  }, [_vm._v(_vm._s(_vm.item.content))]) : _c('div', {
-    staticClass: "call_item-message"
-  }, [_vm._v(_vm._s(_vm.item.content))])], 1)])
+  }, [_c('div', {
+    staticClass: "left_top"
+  }, [_c('span', [_vm._v("系统消息")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "left_bottom"
+  }, [_c('div', [_vm._v(_vm._s(_vm.item.content))])])]) : _c('div', {
+    staticClass: "call_left"
+  }, [_c('div', {
+    staticClass: "left_top"
+  }, [(_vm.type === '我收到的会话') ? _c('div', [_c('span', [_vm._v(_vm._s(_vm.item.name))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time))]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.type === '我建立的会话') ? _c('div', [_c('span', [_vm._v("我")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.time) + "，给\"" + _vm._s(_vm.item.name) + "\"留言")]), _vm._v(" "), (_vm.item.message_status === 1) ? _c('span') : _vm._e()]) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "left_bottom"
+  }, [_c('div', [_vm._v(_vm._s(_vm.item.content))])])]), _vm._v(" "), _c('div', {
+    staticClass: "call_right"
+  }, [_c('div', {
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        $event.stopPropagation();
+        _vm.onDelete($event)
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.status))])])], 1)])
 }
 var staticRenderFns = []
 render._withStripped = true

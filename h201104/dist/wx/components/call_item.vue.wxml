@@ -1,13 +1,23 @@
 <template name="774e56ca">
-  <view class="_section data-v-71cb5e99 call_item-container">
-    <view hover-class="click_active" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_div data-v-71cb5e99">
-      <view class="_div data-v-71cb5e99 call_item-header">
-        <view wx:if="{{type === '我收到的会话'}}" class="_div data-v-71cb5e99"><label class="_span data-v-71cb5e99">{{item.name}}</label> <label class="_span data-v-71cb5e99">{{time}}</label> <label wx:if="{{item.message_status === 1}}" class="_span data-v-71cb5e99"></label></view>
-        <view wx:if="{{type === '我建立的会话'}}" class="_div data-v-71cb5e99"><label class="_span data-v-71cb5e99">我</label> <label class="_span data-v-71cb5e99">{{time}}，给"{{item.name}}"留言</label> <label wx:if="{{item.message_status === 1}}" class="_span data-v-71cb5e99"></label></view>
-        <view wx:if="{{type === 'system'}}" class="_div data-v-71cb5e99"><label style="color:red" class="_span data-v-71cb5e99">系统消息</label> <label class="_span data-v-71cb5e99">{{time}}</label> <label wx:if="{{item.message_status === 1}}" class="_span data-v-71cb5e99"></label></view>
-        <view catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_div data-v-71cb5e99">{{status}}</view>
-      </view> <button wx:if="{{type === 'system'}}" session-from="laiyuan" send-message-title="{{item.content}}" open-type="contact" send-message-path="pages/call_line/main" send-message-img="{{item.file_img}}" show-message-card="true" bindcontact="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-71cb5e99">{{item.content}}</button>
-      <view wx:else class="_div data-v-71cb5e99 call_item-message">{{item.content}}</view>
+  <view class="_section data-v-71cb5e99 call_item_container">
+    <view hover-class="click_active" class="_div data-v-71cb5e99 call" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"><button wx:if="{{type === 'system'}}" class="_button data-v-71cb5e99 call_system_left" session-from="laiyuan" send-message-title="{{item.content}}" open-type="contact" send-message-path="pages/call_line/main" send-message-img="{{item.file_img}}" show-message-card="true" bindcontact="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-71cb5e99 left_top"><label class="_span data-v-71cb5e99">系统消息</label> <label class="_span data-v-71cb5e99">{{time}}</label> <label wx:if="{{item.message_status === 1}}" class="_span data-v-71cb5e99"></label></view>
+        <view class="_div data-v-71cb5e99 left_bottom">
+          <view class="_div data-v-71cb5e99">{{item.content}}</view>
+        </view>
+      </button>
+      <view wx:else class="_div data-v-71cb5e99 call_left">
+        <view class="_div data-v-71cb5e99 left_top">
+          <view wx:if="{{type === '我收到的会话'}}" class="_div data-v-71cb5e99"><label class="_span data-v-71cb5e99">{{item.name}}</label> <label class="_span data-v-71cb5e99">{{time}}</label> <label wx:if="{{item.message_status === 1}}" class="_span data-v-71cb5e99"></label></view>
+          <view wx:if="{{type === '我建立的会话'}}" class="_div data-v-71cb5e99"><label class="_span data-v-71cb5e99">我</label> <label class="_span data-v-71cb5e99">{{time}}，给"{{item.name}}"留言</label> <label wx:if="{{item.message_status === 1}}" class="_span data-v-71cb5e99"></label></view>
+        </view>
+        <view class="_div data-v-71cb5e99 left_bottom">
+          <view class="_div data-v-71cb5e99">{{item.content}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-71cb5e99 call_right">
+        <view catchtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-71cb5e99">{{status}}</view>
+      </view>
     </view>
   </view>
 </template>
