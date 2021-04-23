@@ -174,7 +174,7 @@
             });
           } else {
             this.$Utils.closeWaiting();
-            let m_key = this.$root.$mp.query.m_key;
+            let m_key = this.$root.$mp.query.m_key || res.back_value.u_key;
             let name = this.user_info.name;
             wx.navigateTo({
               url: `/pages/created/main?m_key=${m_key}&u_key=${this.u_key}&name=${name}`

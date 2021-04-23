@@ -301,7 +301,7 @@ if (false) {(function () {
           });
         } else {
           _this3.$Utils.closeWaiting();
-          var m_key = _this3.$root.$mp.query.m_key;
+          var m_key = _this3.$root.$mp.query.m_key || res.back_value.u_key;
           var name = _this3.user_info.name;
           wx.navigateTo({
             url: "/pages/created/main?m_key=" + m_key + "&u_key=" + _this3.u_key + "&name=" + name
