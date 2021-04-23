@@ -276,10 +276,37 @@ if (false) {(function () {
      * 创建留言
      */
     createdReply: function createdReply() {
-      var m_key = this.$root.$mp.query.m_key;
-      var name = this.user_info.name;
-      wx.navigateTo({
-        url: "/pages/created/main?m_key=" + m_key + "&u_key=" + this.u_key + "&name=" + name
+      var _this3 = this;
+
+      this.$Utils.showWaiting();
+      // 获取 个人信息  判断是否登陆
+      this.$store.dispatch("fetch", {
+        im: this.$Config.INTER_FACE.get_member_info,
+        fps: {
+          open_id: this.openid.back_value.open_id,
+          u_key: ""
+        },
+        url: this.$Config.REQUEST_URI
+      }).then(function (res) {
+        if (res.result === "failure") {
+          _this3.$Utils.closeWaiting();
+          _this3.$Utils.showErrorInfo({
+            error_attachmsg: null,
+            error_code: 2012100231,
+            error_info: "请登录后，留言",
+            result: "failure",
+            sign: "CFEApiH201104"
+          }, "提示", function () {
+            _this3.is_scope = true;
+          });
+        } else {
+          _this3.$Utils.closeWaiting();
+          var m_key = _this3.$root.$mp.query.m_key;
+          var name = _this3.user_info.name;
+          wx.navigateTo({
+            url: "/pages/created/main?m_key=" + m_key + "&u_key=" + _this3.u_key + "&name=" + name
+          });
+        }
       });
     },
 
@@ -298,7 +325,7 @@ if (false) {(function () {
       }
     },
     refreshUserCenter: function refreshUserCenter(u_key) {
-      var _this3 = this;
+      var _this4 = this;
 
       return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
@@ -306,33 +333,33 @@ if (false) {(function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this3.$store.dispatch("fetch", {
-                  im: _this3.$Config.INTER_FACE.get_member_info,
+                return _this4.$store.dispatch("fetch", {
+                  im: _this4.$Config.INTER_FACE.get_member_info,
                   fps: {
-                    open_id: _this3.openid.back_value.open_id,
+                    open_id: _this4.openid.back_value.open_id,
                     u_key: u_key || ""
                   },
-                  url: _this3.$Config.REQUEST_URI
+                  url: _this4.$Config.REQUEST_URI
                 }).then(function (res) {
                   if (res.result === "failure") {
-                    _this3.$Utils.closeWaiting();
-                    _this3.$Utils.showErrorInfo(res, "get_member_info");
+                    _this4.$Utils.closeWaiting();
+                    _this4.$Utils.showErrorInfo(res, "get_member_info");
                   } else {
-                    _this3.is_phone = res.back_value.inner_data.phone_restrict;
-                    _this3.is_mail = res.back_value.inner_data.mail_restrict;
-                    _this3.user_info = res.back_value;
+                    _this4.is_phone = res.back_value.inner_data.phone_restrict;
+                    _this4.is_mail = res.back_value.inner_data.mail_restrict;
+                    _this4.user_info = res.back_value;
                   }
                 });
 
               case 2:
-                _this3.$Utils.closeWaiting();
+                _this4.$Utils.closeWaiting();
 
               case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, _this3);
+        }, _callee2, _this4);
       }))();
     }
   },
@@ -341,16 +368,16 @@ if (false) {(function () {
     this.$Utils.restData(this);
   },
   onPullDownRefresh: function onPullDownRefresh() {
-    var _this4 = this;
+    var _this5 = this;
 
     return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee3() {
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              _this4.$Utils.showWaiting();
+              _this5.$Utils.showWaiting();
               _context3.next = 3;
-              return _this4.refreshUserCenter(_this4.$root.$mp.query.u_key);
+              return _this5.refreshUserCenter(_this5.$root.$mp.query.u_key);
 
             case 3:
               wx.stopPullDownRefresh();
@@ -360,7 +387,7 @@ if (false) {(function () {
               return _context3.stop();
           }
         }
-      }, _callee3, _this4);
+      }, _callee3, _this5);
     }))();
   },
 

@@ -151,11 +151,36 @@
        * 创建留言
        */
       createdReply() {
-        let m_key = this.$root.$mp.query.m_key;
-        let name = this.user_info.name;
-        wx.navigateTo({
-          url: `/pages/created/main?m_key=${m_key}&u_key=${this.u_key}&name=${name}`
-        });
+        this.$Utils.showWaiting();
+        // 获取 个人信息  判断是否登陆
+        this.$store.dispatch("fetch", {
+          im: this.$Config.INTER_FACE.get_member_info,
+          fps: {
+            open_id: this.openid.back_value.open_id,
+            u_key: ""
+          },
+          url: this.$Config.REQUEST_URI
+        }).then(res => {
+          if (res.result === "failure") {
+            this.$Utils.closeWaiting();
+            this.$Utils.showErrorInfo({
+              error_attachmsg: null,
+              error_code: 2012100231,
+              error_info: "请登录后，留言",
+              result: "failure",
+              sign: "CFEApiH201104"
+            }, "提示", () => {
+              this.is_scope = true;
+            });
+          } else {
+            this.$Utils.closeWaiting();
+            let m_key = this.$root.$mp.query.m_key;
+            let name = this.user_info.name;
+            wx.navigateTo({
+              url: `/pages/created/main?m_key=${m_key}&u_key=${this.u_key}&name=${name}`
+            });
+          }
+        })
       },
       /**
        * 编辑信息
