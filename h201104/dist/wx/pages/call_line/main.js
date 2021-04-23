@@ -152,7 +152,7 @@ if (false) {(function () {
       u_key: '' // 本人 key
     };
   },
-  onShow: function onShow() {
+  mounted: function mounted() {
     var _this = this;
 
     return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -184,12 +184,12 @@ if (false) {(function () {
 
             case 3:
 
-              if (_this.active === 1) {
-                // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
-                _this.refreshCallLine("trigger_ukey");
-              } else {
+              if (_this.active === 0) {
                 // 先获取一下 我收到的留言
                 _this.refreshCallLine("accepter_ukey");
+              } else {
+                // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
+                _this.refreshCallLine("trigger_ukey");
               }
 
             case 4:
@@ -534,7 +534,33 @@ if (false) {(function () {
       }))();
     }
   },
-  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_4_vuex__["b" /* mapGetters */])(["openid"]))
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_4_vuex__["b" /* mapGetters */])(["openid"])),
+  onPullDownRefresh: function onPullDownRefresh() {
+    var _this6 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _this6.$Utils.showWaiting();
+              if (_this6.active === 0) {
+                // 先获取一下 我收到的留言
+                _this6.refreshCallLine("accepter_ukey");
+              } else {
+                // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
+                _this6.refreshCallLine("trigger_ukey");
+              }
+              wx.stopPullDownRefresh();
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, _this6);
+    }))();
+  }
 });
 
 /***/ }),

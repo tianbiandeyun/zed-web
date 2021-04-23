@@ -1,6 +1,7 @@
 {
   "navigationBarBackgroundColor": "#000",
   "navigationBarTitleText": "通讯",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "v-tab": "../../../static/vant/tab/index",
     "v-tabs": "../../../static/vant/tabs/index"

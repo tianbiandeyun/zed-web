@@ -54,7 +54,7 @@
         u_key: '' // 本人 key
       };
     },
-    async onShow() {
+    async mounted() {
       this.$Utils.showWaiting();
 
       // 获取 u_key
@@ -76,12 +76,12 @@
         }
       });
 
-      if (this.active === 1) {
-        // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
-        this.refreshCallLine("trigger_ukey");
-      } else {
+      if (this.active === 0) {
         // 先获取一下 我收到的留言
         this.refreshCallLine("accepter_ukey");
+      } else {
+        // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
+        this.refreshCallLine("trigger_ukey");
       }
 
     },
@@ -383,6 +383,17 @@
       ...mapGetters([
         "openid"
       ])
+    },
+    async onPullDownRefresh() {
+      this.$Utils.showWaiting();
+      if (this.active === 0) {
+        // 先获取一下 我收到的留言
+        this.refreshCallLine("accepter_ukey");
+      } else {
+        // 如果点击的是我创建的对话，并且从我创建的对话详情回来的
+        this.refreshCallLine("trigger_ukey");
+      }
+      wx.stopPullDownRefresh();
     }
   };
 
