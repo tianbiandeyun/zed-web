@@ -544,6 +544,7 @@ if (false) {(function () {
           switch (_context3.prev = _context3.next) {
             case 0:
               _this6.$Utils.showWaiting();
+              _this6.call_line_list = [];
               if (_this6.active === 0) {
                 // 先获取一下 我收到的留言
                 _this6.refreshCallLine("accepter_ukey");
@@ -553,7 +554,7 @@ if (false) {(function () {
               }
               wx.stopPullDownRefresh();
 
-            case 3:
+            case 4:
             case "end":
               return _context3.stop();
           }

@@ -386,6 +386,7 @@
     },
     async onPullDownRefresh() {
       this.$Utils.showWaiting();
+      this.call_line_list = [];
       if (this.active === 0) {
         // 先获取一下 我收到的留言
         this.refreshCallLine("accepter_ukey");
