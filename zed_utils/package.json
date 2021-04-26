@@ -1,0 +1,18 @@
+{
+  "name": "zed_utils",
+  "version": "1.0.0",
+  "description": "JavaScript 工具包",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel index.js --out-dir dist"
+  },
+  "keywords": [
+    "zed_utils"
+  ],
+  "author": "zed",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
