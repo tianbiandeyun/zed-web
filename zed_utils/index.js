@@ -46,7 +46,7 @@ class zedUtils {
     }
     /**
      * 生成请求链接
-     * @method produceRequestUrl
+     * @method getRequestUrl
      * @for zedUtils
      * @param {String} im 接口名称
      * @param {Object} fps 参数对象
@@ -116,7 +116,7 @@ class zedUtils {
     }
     /**
      * 格式化时间几秒前几天前几个月前
-     * @method formatDate
+     * @method getBeforeDate
      * @for zedUtils
      * @param {String} time 传入日期字符串,包含时分秒
      * @returns 距离当前时间的小时/天数
@@ -180,7 +180,7 @@ class zedUtils {
     }
     /**
      * 获取两个日期之间相隔几天
-     * @method betweenDay
+     * @method getBetweenDay
      * @for zedUtils
      * @param {String} start 开始日期
      * @param {String} end 结束日期
@@ -198,7 +198,7 @@ class zedUtils {
     }
     /**
      * 获取一组日期中日期最大的一个
-     * @method maxDate
+     * @method getMaxDate
      * @for zedUtils
      * @param {Array} arr 一组日期
      * @returns 其中日期最大的一个
@@ -215,7 +215,7 @@ class zedUtils {
     }
     /**
      * 检测是否是移动设备
-     * @method redirect
+     * @method isRedirect
      * @for zedUtils
      * @returns 设备类型
      */
@@ -227,6 +227,33 @@ class zedUtils {
         } else {
             return 'PC'
         }
+    }
+    /**
+     * 判断是否是微信环境
+     * @method isWx
+     * @for zedUtils
+     * @returns true/false
+     */
+    isWx() {
+        let ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    /**
+     * 获取地址栏参数
+     * @method getUrlParam
+     * @for zedUtils
+     * @param {String} url 网络地址
+     * @returns 返回网络地址参数
+     */
+    getUrlParam(url) {
+        let reg = new RegExp("(^|&)" + url + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
+        let r = window.location.search.substr(1).match(reg); // 匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; // 返回参数值
     }
 }
 
