@@ -2,7 +2,7 @@
   <section class="home-contaienr">
     <button @click="countAdd">add</button>
     <p>{{count}}</p>
-    <test></test>
+    <test name='jack' @sendName='sendName'></test>
   </section>
 </template>
 <script>
@@ -27,9 +27,14 @@
         console.log(context);
       }
 
+      const sendName = res => {
+        console.log(res);
+      }
+
       return {
         ...toRefs(data),
-        countAdd
+        countAdd,
+        sendName
       }
     }
   }
