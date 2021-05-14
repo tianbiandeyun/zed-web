@@ -30,8 +30,6 @@
       const store = useStore();
 
       console.log(store.state);
-      store.commit()
-      store.dispatch()
 
       const {
         push
