@@ -1,11 +1,15 @@
 const Mock = require('mockjs')
-const { deepClone } = require('../utils')
-const { asyncRoutes, constantRoutes } = require('./routes.js')
+const {
+  deepClone
+} = require('../utils')
+const {
+  asyncRoutes,
+  constantRoutes
+} = require('./routes.js')
 
 const routes = deepClone([...constantRoutes, ...asyncRoutes])
 
-const roles = [
-  {
+const roles = [{
     key: 'admin',
     name: 'admin',
     description: 'Super Administrator. Have access to view all pages.',
@@ -15,7 +19,7 @@ const roles = [
     key: 'editor',
     name: 'editor',
     description: 'Normal Editor. Can see all pages except permission page',
-    routes: routes.filter(i => i.path !== '/permission')// just a mock
+    routes: routes.filter(i => i.path !== '/permission') // just a mock
   },
   {
     key: 'visitor',
@@ -24,13 +28,14 @@ const roles = [
     routes: [{
       path: '',
       redirect: 'dashboard',
-      children: [
-        {
-          path: 'dashboard',
-          name: 'Dashboard',
-          meta: { title: 'dashboard', icon: 'dashboard' }
+      children: [{
+        path: 'dashboard',
+        name: 'Dashboard',
+        meta: {
+          title: 'dashboard',
+          icon: 'dashboard'
         }
-      ]
+      }]
     }]
   }
 ]

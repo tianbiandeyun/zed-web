@@ -93,7 +93,7 @@ export const constantRoutes = [{
       meta: {
         title: 'Documentation',
         icon: 'documentation',
-        affix: true
+        affix: false
       }
     }]
   },
