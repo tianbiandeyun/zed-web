@@ -1,7 +1,11 @@
 export const setSessionStorage = (...res) => {
-    window.sessionStorage.setItem(res[0], res[1])
+    window.sessionStorage.setItem(res[0], res[1]);
 }
 
 export const getSessionStorage = (res) => {
-    return window.sessionStorage.getItem(res)
+    return window.sessionStorage.getItem(res);
+}
+
+export const removeSessionStorage = (res) => {
+    window.sessionStorage.removeItem(res);
 }

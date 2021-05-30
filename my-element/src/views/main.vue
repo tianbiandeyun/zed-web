@@ -50,7 +50,8 @@
   } from "vuex";
   import {
     setSessionStorage,
-    getSessionStorage
+    getSessionStorage,
+    removeSessionStorage,
   } from "../utils/utils";
   export default {
     data() {
@@ -73,7 +74,8 @@
     methods: {
       // 退出功能
       loginOut() {
-        window.sessionStorage.removeItem("token");
+        removeSessionStorage("token");
+        removeSessionStorage("path");
         this.$router.push("/login");
       },
       // 临时保存menu的选择位置
@@ -83,7 +85,7 @@
       },
       // 浏览器刷新的时候获取上一次选择的menu的位置
       getMenuState() {
-        this.menuState = getSessionStorage("path");
+        this.menuState = getSessionStorage("path") || "/index";
       },
       toggleCollapse() {
         this.isCollapse = !this.isCollapse;
