@@ -2,13 +2,15 @@
   <el-container>
     <el-header>
       <div>
-        <span>后台系统</span>
+        <span>欢迎回家</span>
       </div>
       <el-button type="info" @click="loginOut">退出</el-button>
     </el-header>
     <el-container>
       <el-aside :width="isCollapse ? '64px' : '200px'">
-        <div class="my_collapse" @click="toggleCollapse">|||</div>
+        <div class="my_collapse" @click="toggleCollapse">
+          {{ isCollapse ? "-》" : "《-" }}
+        </div>
         <el-menu background-color="#333744" text-color="#fff" active-text-color="#409Eff" unique-opened router
           :collapse-transition="false" :default-active="menuState" :collapse="isCollapse">
           <template v-for="item in menu">
@@ -119,8 +121,13 @@
       font-size: 12px;
       line-height: 24px;
       text-align: center;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.2em;
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: rgb(41, 44, 54);
+      }
     }
 
     .el-menu {
