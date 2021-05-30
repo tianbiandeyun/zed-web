@@ -87,6 +87,7 @@
       getMenuState() {
         this.menuState = getSessionStorage("path") || "/index";
       },
+      // 展开关闭侧边导航
       toggleCollapse() {
         this.isCollapse = !this.isCollapse;
       },
