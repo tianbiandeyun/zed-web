@@ -12,7 +12,8 @@ import {
     Menu,
     MenuItem,
     Submenu,
-    MenuItemGroup
+    MenuItemGroup,
+    Tooltip
 } from 'element-ui'
 
 Vue.prototype.$message = Message;
@@ -29,3 +30,4 @@ Vue.use(Menu)
 Vue.use(MenuItem)
 Vue.use(Submenu)
 Vue.use(MenuItemGroup)
+Vue.use(Tooltip)
