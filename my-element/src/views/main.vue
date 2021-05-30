@@ -14,6 +14,7 @@
           active-text-color="#409Eff"
           unique-opened
           router
+          :default-active="menuState"
         >
           <!-- 判断是否由有二级菜单 -->
           <div v-for="item in menu" :key="item.id">
@@ -29,6 +30,7 @@
                   :index="i.path"
                   v-for="i in item.children"
                   :key="i.id"
+                  @click="saveMenuState(i.path)"
                 >
                   <template slot="title">
                     <i class="el-icon-menu"></i>
@@ -39,7 +41,10 @@
             </div>
             <div v-else>
               <!-- 没有二级菜单 -->
-              <el-menu-item :index="item.path">
+              <el-menu-item
+                :index="item.path"
+                @click="saveMenuState(item.path)"
+              >
                 <i :class="iconsObject[item.id]"></i>
                 <span slot="title">{{ item.authName }}</span>
               </el-menu-item>
@@ -48,7 +53,7 @@
         </el-menu>
       </el-aside>
       <el-main>
-        <!-- 主题显示区域 -->
+        <!-- 主要内容显示区域 -->
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -56,9 +61,13 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import { setSessionStorage, getSessionStorage } from "../utils/utils";
 export default {
   data() {
     return {
+      // 侧边导航的选择状态位置
+      menuState: "",
+      // 图标
       iconsObject: {
         145: "iconfont icon-tupian",
         125: "iconfont icon-paihangbang",
@@ -67,11 +76,23 @@ export default {
       },
     };
   },
+  created() {
+    this.getMenuState();
+  },
   methods: {
     // 退出功能
     loginOut() {
       window.sessionStorage.removeItem("token");
       this.$router.push("/login");
+    },
+    // 临时保存menu的选择位置
+    saveMenuState(res) {
+      this.menuState = res;
+      setSessionStorage("path", res);
+    },
+    // 浏览器刷新的时候获取上一次选择的menu的位置
+    getMenuState() {
+      this.menuState = getSessionStorage("path");
     },
   },
   computed: {
