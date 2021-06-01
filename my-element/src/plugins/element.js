@@ -13,7 +13,14 @@ import {
     MenuItem,
     Submenu,
     MenuItemGroup,
-    Tooltip
+    Tooltip,
+    Breadcrumb,
+    BreadcrumbItem,
+    Card,
+    Row,
+    Col,
+    Table,
+    TableColumn
 } from 'element-ui'
 
 Vue.prototype.$message = Message;
@@ -31,3 +38,10 @@ Vue.use(MenuItem)
 Vue.use(Submenu)
 Vue.use(MenuItemGroup)
 Vue.use(Tooltip)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Card)
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(Table)
+Vue.use(TableColumn)
