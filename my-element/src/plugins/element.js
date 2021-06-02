@@ -20,7 +20,8 @@ import {
     Row,
     Col,
     Table,
-    TableColumn
+    TableColumn,
+    Switch,
 } from 'element-ui'
 
 Vue.prototype.$message = Message;
@@ -45,3 +46,4 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Switch)

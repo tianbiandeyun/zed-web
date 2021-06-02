@@ -82,7 +82,7 @@ export default new Vuex.Store({
         type: 2,
         email: "13@qq.com",
         create_tiem: "2021-06-01",
-        user_state: true,
+        user_state: false,
         role: "普通用户",
       },
       {
