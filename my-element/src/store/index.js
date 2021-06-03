@@ -1,5 +1,21 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Mock from "mockjs";
+
+let mockDate = Mock.mock({
+  "table|1-10": [{
+    "id|+1": 1,
+    username: "@cname",
+    mobile: /^1[0-9]{10}$/,
+    "type|1-2": 1,
+    email: "@email()",
+    create_time: '@date("yyyy-MM-dd")',
+    "user_state|1": true,
+    role: function () {
+      return this.user_state ? "超级管理员" : "普通用户";
+    },
+  }, ],
+});
 
 Vue.use(Vuex)
 
@@ -55,14 +71,9 @@ export default new Vuex.Store({
         ],
       }
     ],
-    table: [],
+    table: mockDate.table,
   },
-  mutations: {
-    // 设置table数据
-    setTableData(state, res) {
-      state.table = res.table;
-    }
-  },
+  mutations: {},
   actions: {},
   modules: {},
   getters: {
