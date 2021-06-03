@@ -1,5 +1,21 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Mock from "mockjs";
+
+let mockDate = Mock.mock({
+  "table|1-10": [{
+    "id|+1": 1,
+    username: "@cname",
+    mobile: /^1[0-9]{10}$/,
+    "type|1-2": 1,
+    'email': '@email()',
+    'create_time': '@date("yyyy-MM-dd")',
+    "user_state|1": true,
+    'role': function () {
+      return this.user_state ? '超级管理员' : '普通用户'
+    }
+  }],
+});
 
 Vue.use(Vuex)
 
@@ -55,107 +71,7 @@ export default new Vuex.Store({
         ],
       }
     ],
-    table: [{
-        id: 11,
-        username: "tige_11",
-        mobile: 17344421920,
-        type: 1,
-        email: "11@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "超级管理员",
-      },
-      {
-        id: 12,
-        username: "tige_12",
-        mobile: 17344421920,
-        type: 1,
-        email: "12@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "超级管理员",
-      },
-      {
-        id: 13,
-        username: "tige_13",
-        mobile: "无",
-        type: 2,
-        email: "13@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: false,
-        role: "普通用户",
-      },
-      {
-        id: 14,
-        username: "tige_14",
-        mobile: 17344421920,
-        type: 2,
-        email: "14@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "普通用户",
-      },
-      {
-        id: 15,
-        username: "tige_14",
-        mobile: 17344421920,
-        type: 2,
-        email: "14@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "普通用户",
-      },
-      {
-        id: 16,
-        username: "tige_14",
-        mobile: 17344421920,
-        type: 2,
-        email: "14@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "普通用户",
-      },
-      {
-        id: 17,
-        username: "tige_14",
-        mobile: 17344421920,
-        type: 2,
-        email: "14@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "普通用户",
-      },
-      {
-        id: 18,
-        username: "tige_14",
-        mobile: 17344421920,
-        type: 2,
-        email: "14@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "普通用户",
-      },
-      {
-        id: 19,
-        username: "tige_14",
-        mobile: 17344421920,
-        type: 2,
-        email: "14@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "普通用户",
-      },
-      {
-        id: 20,
-        username: "tige_14",
-        mobile: 17344421920,
-        type: 2,
-        email: "14@qq.com",
-        create_tiem: "2021-06-01",
-        user_state: true,
-        role: "普通用户",
-      }
-    ],
+    table: mockDate,
   },
   mutations: {},
   actions: {},
