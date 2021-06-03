@@ -71,6 +71,10 @@
       },
       handleCurrentChange(res) {
         console.log(res);
+        this.$message({
+          message: `成功切换到第${res}页`,
+          type: 'success'
+        });
       },
     },
     computed: {
