@@ -24,23 +24,28 @@
         <el-table-column prop="role" label="用户角色"></el-table-column>
         <el-table-column prop="user_state" label="用户状态">
           <template slot-scope="scope">
-            <el-switch v-model='scope.row.user_state'></el-switch>
+            <el-switch v-model="scope.row.user_state"></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="240px">
           <template slot-scope="scope">
             <el-tooltip effect="dark" content="修改" placement="top">
-              <el-button type='primary' size='min' :data-d='scope' icon='el-icon-edit'></el-button>
+              <el-button type="primary" size="min" :data-d="scope" icon="el-icon-edit"></el-button>
             </el-tooltip>
             <el-tooltip effect="dark" content="删除" placement="top">
-              <el-button type='danger' size='min' :data-d='scope' icon='el-icon-delete'></el-button>
+              <el-button type="danger" size="min" :data-d="scope" icon="el-icon-delete"></el-button>
             </el-tooltip>
-            <el-tooltip effect="dark" content="设置" placement="top" :enterable='false'>
-              <el-button type='warning' size='min' :data-d='scope' icon='el-icon-setting'></el-button>
+            <el-tooltip effect="dark" content="设置" placement="top" :enterable="false">
+              <el-button type="warning" size="min" :data-d="scope" icon="el-icon-setting"></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
       </el-table>
+      <!-- 分页 -->
+      <!-- total 总共有几条 page-size 每页显示几条 page-sizes 可选择每页显示几条 current-page 当前页数 -->
+      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage"
+        :page-sizes="[1, 5, 10, 20]" :page-size="5" layout="total, sizes, prev, pager, next, jumper" :total="100">
+      </el-pagination>
     </el-card>
   </section>
 </template>
@@ -52,12 +57,21 @@
   export default {
     name: "userList",
     components: {
-      breadcrumb
+      breadcrumb,
     },
     data() {
       return {
         crumb: ["用户管理", "用户列表"],
+        currentPage: 1, // 当前显示第几页
       };
+    },
+    methods: {
+      handleSizeChange(res) {
+        console.log(res);
+      },
+      handleCurrentChange(res) {
+        console.log(res);
+      },
     },
     computed: {
       ...mapGetters(["table"]),
@@ -66,7 +80,9 @@
 </script>
 <style lang="less" scoped>
   .user_container {
-    .el-row {
+
+    .el-row,
+    .el-table {
       margin-bottom: 20px;
     }
   }
