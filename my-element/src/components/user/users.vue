@@ -44,7 +44,7 @@
       <!-- 分页 -->
       <!-- total 总共有几条 page-size 每页显示几条 page-sizes 可选择每页显示几条 current-page 当前页数 -->
       <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage"
-        :page-sizes="[1, 5, 10, 20]" :page-size="5" layout="total, sizes, prev, pager, next, jumper" :total="100">
+        :page-sizes="[10, 15, 20, 30]" :page-size="10" layout="total, sizes, prev, pager, next, jumper" :total="100">
       </el-pagination>
     </el-card>
   </section>
