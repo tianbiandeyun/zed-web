@@ -57,7 +57,11 @@ export default new Vuex.Store({
     ],
     table: '',
   },
-  mutations: {},
+  mutations: {
+    setTableData(state, res) {
+      state.table = res
+    }
+  },
   actions: {},
   modules: {},
   getters: {

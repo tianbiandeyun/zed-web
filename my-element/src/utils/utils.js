@@ -14,7 +14,7 @@ export const removeSessionStorage = (res) => {
 
 export const generateTable = () => {
     return Mock.mock({
-        "table|1-10": [{
+        "table|10": [{
             "id|+1": 1,
             username: "@cname",
             mobile: /^1[0-9]{10}$/,

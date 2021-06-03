@@ -6,7 +6,7 @@
       <!-- 搜索 -->
       <el-row :gutter="20">
         <el-col :span="8">
-          <el-input placeholder="请输入搜索内容">
+          <el-input placeholder="请输入搜索内容" v-model="search_val">
             <el-button slot="append" icon="el-icon-search"></el-button>
           </el-input>
         </el-col>
@@ -43,14 +43,17 @@
       </el-table>
       <!-- 分页 -->
       <!-- total 总共有几条 page-size 每页显示几条 page-sizes 可选择每页显示几条 current-page 当前页数 -->
-      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage"
-        :page-sizes="[10, 15, 20, 30]" :page-size="10" layout="total, sizes, prev, pager, next, jumper" :total="100">
+      <el-pagination @current-change="handleCurrentChange" :current-page="currentPage"
+        layout="total, prev, pager, next, jumper" :total="100">
       </el-pagination>
     </el-card>
   </section>
 </template>
 <script>
   import breadcrumb from "../../components/Zed_breadcrumb/breadcrumb";
+  import {
+    generateTable
+  } from "../../utils/utils";
   import {
     mapGetters
   } from "vuex";
@@ -61,20 +64,29 @@
     },
     data() {
       return {
-        crumb: ["用户管理", "用户列表"],
+        search_val: "",
+        crumb: ["用户管理", "用户列表"], // 面包屑
         currentPage: 1, // 当前显示第几页
       };
     },
+    created() {
+      this.initTable();
+    },
     methods: {
-      handleSizeChange(res) {
-        console.log(res);
-      },
+      // 切换页数
       handleCurrentChange(res) {
-        console.log(res);
+        this.initTable();
         this.$message({
           message: `成功切换到第${res}页`,
-          type: 'success'
+          type: "success",
         });
+      },
+      // 初始化 table 数据
+      initTable() {
+        const {
+          table
+        } = generateTable();
+        this.$store.commit("setTableData", table);
       },
     },
     computed: {
