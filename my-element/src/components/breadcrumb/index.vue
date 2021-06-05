@@ -1,5 +1,5 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="/">
+  <el-breadcrumb class="breadcrumb_container" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
         <!-- 如果设置 redirect:'noRedirect' 或者 只有一个路由的时候则不开启跳转 -->
@@ -24,11 +24,7 @@ export default {
     };
   },
   watch: {
-    $route(route) {
-      // startsWith 是一个字符串方法，用于检测字符串是否以指定的前缀开始
-      if (route.path.startsWith("/redirect/")) {
-        return;
-      }
+    $route() {
       this.getBreadcrumb();
     },
   },
@@ -61,6 +57,7 @@ export default {
       // toLocaleLowerCase() 把字符串转为小写
       return name.trim().toLocaleLowerCase() === "首页".toLocaleLowerCase();
     },
+    // 点击跳转
     handleLink(item) {
       const { path } = item;
       this.$emit("handleLink", path);
@@ -71,15 +68,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.app-breadcrumb.el-breadcrumb {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 50px;
-  margin-left: 8px;
-
-  .no-redirect {
-    color: #97a8be;
-    cursor: text;
-  }
+.breadcrumb_container {
+  border: 1px solid #fff;
+  color: #fff;
 }
 </style>
