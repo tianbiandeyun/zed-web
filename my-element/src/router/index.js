@@ -21,7 +21,7 @@ const routes = [{
         path: '/index',
         name: 'index',
         meta: {
-          pageName: '首页'
+          title: '首页'
         },
         component: () => import('../components/index/index.vue'),
       },
@@ -29,7 +29,7 @@ const routes = [{
         path: '/users',
         name: 'users',
         meta: {
-          pageName: '用户列表'
+          title: '用户列表'
         },
         component: () => import('../components/user/users.vue'),
       },
@@ -37,7 +37,7 @@ const routes = [{
         path: '/power',
         name: 'power',
         meta: {
-          pageName: '角色列表'
+          title: '角色列表'
         },
         component: () => import('../components/power/power.vue'),
       },
@@ -45,7 +45,7 @@ const routes = [{
         path: '/roles',
         name: 'roles',
         meta: {
-          pageName: '权限列表'
+          title: '权限列表'
         },
         component: () => import('../components/power/roles.vue'),
       },
@@ -53,7 +53,7 @@ const routes = [{
         path: '/goods',
         name: 'goods',
         meta: {
-          pageName: '商品列表'
+          title: '商品列表'
         },
         component: () => import('../components/goods/goods.vue'),
       },
@@ -61,7 +61,7 @@ const routes = [{
         path: '/class',
         name: 'class',
         meta: {
-          pageName: '分类参数'
+          title: '分类参数'
         },
         component: () => import('../components/goods/class.vue'),
       },
@@ -69,7 +69,7 @@ const routes = [{
         path: '/goodClass',
         name: 'goodClass',
         meta: {
-          pageName: '商品分类'
+          title: '商品分类'
         },
         component: () => import('../components/goods/goodClass.vue'),
       }
