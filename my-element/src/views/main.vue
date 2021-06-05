@@ -1,10 +1,19 @@
 <template>
   <el-container>
     <el-header>
-      <div>
-        <span>欢迎回家</span>
-      </div>
-      <el-button type="info" @click="loginOut">退出</el-button>
+      <el-row :gutter="20">
+        <el-col :span="20" class="header_left">
+          <div>欢迎使用</div>
+          <breadcrumb></breadcrumb>
+        </el-col>
+        <el-col :span="4" class="header_right">
+          <el-button type="info" @click="loginOut">退出</el-button>
+        </el-col>
+      </el-row>
+      <!-- <div class="header_left">header_left</div>
+      <div class="header_right">
+        <el-button type="info" @click="loginOut">退出</el-button>
+      </div> -->
     </el-header>
     <el-container>
       <el-aside :width="isCollapse ? '64px' : '200px'">
@@ -66,6 +75,7 @@
   </el-container>
 </template>
 <script>
+import breadcrumb from "../components/breadcrumb";
 import { mapGetters } from "vuex";
 import {
   setSessionStorage,
@@ -73,6 +83,7 @@ import {
   removeSessionStorage,
 } from "../utils/utils";
 export default {
+  components: { breadcrumb },
   data() {
     return {
       isCollapse: false,
@@ -111,6 +122,7 @@ export default {
       this.isCollapse = !this.isCollapse;
     },
   },
+
   computed: {
     ...mapGetters(["menu"]),
   },
@@ -133,11 +145,21 @@ export default {
 
 .el-header {
   background-color: #373d41;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: 20px;
   color: #fff;
+
+  .el-row,
+  .header_left,
+  .header_right {
+    height: 60px;
+  }
+
+  .header_left {
+    border: 1px solid #fff;
+  }
+  .header_right {
+    border: 1px solid #fff;
+  }
 }
 
 .el-aside {

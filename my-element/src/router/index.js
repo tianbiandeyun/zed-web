@@ -21,7 +21,7 @@ const routes = [{
         path: '/index',
         name: 'index',
         meta: {
-          title: '首页'
+          title: 'Index'
         },
         component: () => import('../components/index/index.vue'),
       },
