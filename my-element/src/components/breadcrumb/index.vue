@@ -5,12 +5,14 @@
         <!-- 如果设置 redirect:'noRedirect' 或者 只有一个路由的时候则不开启跳转 -->
         <span
           v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"
-          class="no-redirect"
+          class="no_redirect"
         >
           {{ item.meta.title }}
         </span>
         <!-- 否则开启跳转 -->
-        <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        <span class="redirect" v-else @click.prevent="handleLink(item)">{{
+          item.meta.title
+        }}</span>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -69,7 +71,21 @@ export default {
 
 <style lang="less" scoped>
 .breadcrumb_container {
-  border: 1px solid #fff;
-  color: #fff;
+  margin-bottom: 20px;
+
+  .no_redirect,
+  .redirect {
+    color: #999;
+    font-size: 16px;
+  }
+
+  .redirect {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: #1890ff;
+    }
+  }
 }
 </style>

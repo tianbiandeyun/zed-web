@@ -4,16 +4,11 @@
       <el-row :gutter="20">
         <el-col :span="20" class="header_left">
           <div>欢迎使用</div>
-          <breadcrumb @handleLink="saveMenuState"></breadcrumb>
         </el-col>
         <el-col :span="4" class="header_right">
           <el-button type="info" @click="loginOut">退出</el-button>
         </el-col>
       </el-row>
-      <!-- <div class="header_left">header_left</div>
-      <div class="header_right">
-        <el-button type="info" @click="loginOut">退出</el-button>
-      </div> -->
     </el-header>
     <el-container>
       <el-aside :width="isCollapse ? '64px' : '200px'">
@@ -66,6 +61,8 @@
         </el-menu>
       </el-aside>
       <el-main>
+        <!-- 面包屑 -->
+        <breadcrumb @handleLink="saveMenuState"></breadcrumb>
         <!-- 主要内容显示区域 -->
         <transition name="slide-fade">
           <router-view></router-view>
@@ -133,6 +130,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+// 主要内容显示区域过渡动画
 .slide-fade-enter-active {
   transition: all 0.3s ease-in-out;
 }
@@ -159,10 +157,13 @@ export default {
   }
 
   .header_left {
-    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
   }
   .header_right {
-    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
