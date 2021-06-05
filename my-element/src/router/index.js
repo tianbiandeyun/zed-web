@@ -21,7 +21,7 @@ const routes = [{
         path: '/index',
         name: 'index',
         meta: {
-          title: 'Index'
+          title: '首页'
         },
         component: () => import('../components/index/index.vue'),
       },
@@ -37,7 +37,7 @@ const routes = [{
         path: '/power',
         name: 'power',
         meta: {
-          title: '角色列表'
+          title: '权限列表'
         },
         component: () => import('../components/power/power.vue'),
       },
@@ -45,7 +45,7 @@ const routes = [{
         path: '/roles',
         name: 'roles',
         meta: {
-          title: '权限列表'
+          title: '角色列表'
         },
         component: () => import('../components/power/roles.vue'),
       },

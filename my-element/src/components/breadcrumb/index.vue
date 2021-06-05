@@ -39,15 +39,16 @@ export default {
       let matched = this.$route.matched.filter(
         (item) => item.meta && item.meta.title
       );
-      const first = matched[0];
+      console.log(matched);
+      // const first = matched[0];
 
-      if (!this.isDashboard(first)) {
-        matched = [{ path: "/index", meta: { title: "首页" } }].concat(matched);
-      }
+      // if (!this.isDashboard(first)) {
+      //   matched = [{ path: "/index", meta: { title: "首页" } }].concat(matched);
+      // }
 
-      this.levelList = matched.filter(
-        (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
-      );
+      // this.levelList = matched.filter(
+      //   (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
+      // );
     },
     isDashboard(route) {
       // 拿到路由的名字
@@ -63,12 +64,13 @@ export default {
       return toPath(params);
     },
     handleLink(item) {
-      const { redirect, path } = item;
-      if (redirect) {
-        this.$router.push(redirect);
-        return;
-      }
-      this.$router.push(this.pathCompile(path));
+      console.log(item);
+      // const { redirect, path } = item;
+      // if (redirect) {
+      //   this.$router.push(redirect);
+      //   return;
+      // }
+      // this.$router.push(this.pathCompile(path));
     },
   },
 };
