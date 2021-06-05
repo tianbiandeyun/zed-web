@@ -1,7 +1,5 @@
 <template>
   <section class="user_container">
-    <!-- 面包屑 -->
-    <breadcrumb :crumb="crumb"></breadcrumb>
     <el-card>
       <!-- 搜索 -->
       <el-row :gutter="20">
@@ -74,18 +72,14 @@
   </section>
 </template>
 <script>
-import breadcrumb from "../../components/Zed_breadcrumb/breadcrumb";
 import { generateTable } from "../../utils/utils";
 import { mapGetters } from "vuex";
 export default {
   name: "userList",
-  components: {
-    breadcrumb,
-  },
+  components: {},
   data() {
     return {
       search_val: "",
-      crumb: ["用户管理", "用户列表"], // 面包屑
       currentPage: 1, // 当前显示第几页
     };
   },
