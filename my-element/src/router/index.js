@@ -19,7 +19,7 @@ const routes = [{
     component: () => import('../views/main.vue'),
     children: [{
         path: '/index',
-        name: 'index',
+        name: '首页',
         meta: {
           title: '首页'
         },
@@ -27,7 +27,7 @@ const routes = [{
       },
       {
         path: '/users',
-        name: 'users',
+        name: '用户列表',
         meta: {
           title: '用户列表'
         },
@@ -35,7 +35,7 @@ const routes = [{
       },
       {
         path: '/power',
-        name: 'power',
+        name: '权限列表',
         meta: {
           title: '权限列表'
         },
@@ -43,7 +43,7 @@ const routes = [{
       },
       {
         path: '/roles',
-        name: 'roles',
+        name: '角色列表',
         meta: {
           title: '角色列表'
         },
@@ -51,7 +51,7 @@ const routes = [{
       },
       {
         path: '/goods',
-        name: 'goods',
+        name: '商品列表',
         meta: {
           title: '商品列表'
         },
@@ -59,7 +59,7 @@ const routes = [{
       },
       {
         path: '/class',
-        name: 'class',
+        name: '分类参数',
         meta: {
           title: '分类参数'
         },
@@ -67,7 +67,7 @@ const routes = [{
       },
       {
         path: '/goodClass',
-        name: 'goodClass',
+        name: '商品分类',
         meta: {
           title: '商品分类'
         },

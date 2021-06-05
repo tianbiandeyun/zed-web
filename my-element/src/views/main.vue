@@ -4,7 +4,7 @@
       <el-row :gutter="20">
         <el-col :span="20" class="header_left">
           <div>欢迎使用</div>
-          <breadcrumb></breadcrumb>
+          <breadcrumb @handleLink="saveMenuState"></breadcrumb>
         </el-col>
         <el-col :span="4" class="header_right">
           <el-button type="info" @click="loginOut">退出</el-button>
@@ -110,8 +110,7 @@ export default {
     },
     // 临时保存menu的选择位置
     saveMenuState(res) {
-      this.menuState = res;
-      setSessionStorage("path", res);
+      this.setMenuState(res);
     },
     // 浏览器刷新的时候获取上一次选择的menu的位置
     getMenuState() {
@@ -120,6 +119,11 @@ export default {
     // 展开关闭侧边导航
     toggleCollapse() {
       this.isCollapse = !this.isCollapse;
+    },
+    // 设置menu的高亮和位置
+    setMenuState(res) {
+      this.menuState = res;
+      setSessionStorage("path", res);
     },
   },
 

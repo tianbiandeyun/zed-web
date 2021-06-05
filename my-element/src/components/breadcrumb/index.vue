@@ -2,11 +2,14 @@
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
+        <!-- 如果设置 redirect:'noRedirect' 或者 只有一个路由的时候则不开启跳转 -->
         <span
           v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"
           class="no-redirect"
-          >{{ item.meta.title }}</span
         >
+          {{ item.meta.title }}
+        </span>
+        <!-- 否则开启跳转 -->
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
@@ -14,8 +17,6 @@
 </template>
 
 <script>
-import { pathToRegexp } from "path-to-regexp";
-
 export default {
   data() {
     return {
@@ -39,38 +40,31 @@ export default {
       let matched = this.$route.matched.filter(
         (item) => item.meta && item.meta.title
       );
-      console.log(matched);
-      // const first = matched[0];
+      const first = matched[0];
 
-      // if (!this.isDashboard(first)) {
-      //   matched = [{ path: "/index", meta: { title: "首页" } }].concat(matched);
-      // }
+      if (!this.isIndex(first)) {
+        matched = [{ path: "/index", meta: { title: "首页" } }].concat(matched);
+      }
 
-      // this.levelList = matched.filter(
-      //   (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
-      // );
+      this.levelList = matched.filter(
+        (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
+      );
     },
-    isDashboard(route) {
+    // 是否是 index 页
+    isIndex(route) {
       // 拿到路由的名字
       const name = route && route.name;
       if (!name) {
         return false;
       }
+      // trim() 方法删除字符串两端的空白符
+      // toLocaleLowerCase() 把字符串转为小写
       return name.trim().toLocaleLowerCase() === "首页".toLocaleLowerCase();
     },
-    pathCompile(path) {
-      const { params } = this.$route;
-      var toPath = pathToRegexp.compile(path);
-      return toPath(params);
-    },
     handleLink(item) {
-      console.log(item);
-      // const { redirect, path } = item;
-      // if (redirect) {
-      //   this.$router.push(redirect);
-      //   return;
-      // }
-      // this.$router.push(this.pathCompile(path));
+      const { path } = item;
+      this.$emit("handleLink", path);
+      this.$router.push(path);
     },
   },
 };
