@@ -20,7 +20,7 @@ export const generateTable = () => {
             mobile: /^1[0-9]{10}$/,
             "type|1-2": 1,
             email: "@email()",
-            create_time: '@date("yyyy-MM-dd")',
+            create_tiem: '@date("yyyy-MM-dd")',
             "user_state|1": true,
             role: function () {
                 return this.user_state ? "超级管理员" : "普通用户";
