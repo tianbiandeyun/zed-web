@@ -7,7 +7,10 @@
       @toggleClick="toggleSideBar"
     />
 
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+    <breadcrumb
+      id="breadcrumb-container"
+      class="breadcrumb-container zed_border"
+    />
 
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
