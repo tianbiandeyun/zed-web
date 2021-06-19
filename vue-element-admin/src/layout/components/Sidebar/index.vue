@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'has-logo': showLogo }">
-    <!-- 左侧侧边栏顶部图标和标题 -->
+    <!-- 左侧侧边栏顶部图标和标题  showLogo是否展示logo-->
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu

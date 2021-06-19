@@ -8,10 +8,11 @@
     <!-- 左侧侧边栏 -->
     <sidebar class="sidebar-container" />
     <div :class="{ hasTagsView: needTagsView }" class="main-container">
+      <!-- :class="{ 'fixed-header': fixedHeader }" 控制顶部导航是否固定在顶部 -->
       <div :class="{ 'fixed-header': fixedHeader }">
         <!-- 顶部导航 -->
         <navbar />
-        <!-- 快捷标签 -->
+        <!-- 快捷标签  needTagsView 是否展示快捷标签-->
         <tags-view v-if="needTagsView" />
       </div>
       <app-main />
