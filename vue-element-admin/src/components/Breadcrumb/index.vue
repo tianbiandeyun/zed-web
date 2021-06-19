@@ -5,8 +5,7 @@
         <span
           v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"
           class="no-redirect"
-          >{{ item.meta.title }}</span
-        >
+        >{{ item.meta.title }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
@@ -14,77 +13,74 @@
 </template>
 
 <script>
-import pathToRegexp from "path-to-regexp";
+import pathToRegexp from 'path-to-regexp'
 
 export default {
   data() {
     return {
-      levelList: null,
-    };
+      levelList: null
+    }
   },
   watch: {
     $route(route) {
       // startsWith 是一个字符串方法，用于检测字符串是否以指定的前缀开始
-      if (route.path.startsWith("/redirect/")) {
-        return;
+      if (route.path.startsWith('/redirect/')) {
+        return
       }
-      this.getBreadcrumb();
-    },
+      this.getBreadcrumb()
+    }
   },
   created() {
-    this.getBreadcrumb();
+    this.getBreadcrumb()
   },
   methods: {
     getBreadcrumb() {
       // only show routes with meta.title
       let matched = this.$route.matched.filter(
         (item) => item.meta && item.meta.title
-      );
-      console.log(matched);
-      const first = matched[0];
+      )
+      console.log(matched)
+      const first = matched[0]
 
       if (!this.isDashboard(first)) {
-        matched = [{ path: "/dashboard", meta: { title: "Dashboard" } }].concat(
+        matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(
           matched
-        );
+        )
       }
 
       this.levelList = matched.filter(
         (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
-      );
+      )
     },
     isDashboard(route) {
       // 拿到路由的名字
-      const name = route && route.name;
+      const name = route && route.name
       if (!name) {
-        return false;
+        return false
       }
       return (
-        name.trim().toLocaleLowerCase() === "Dashboard".toLocaleLowerCase()
-      );
+        name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
+      )
     },
     pathCompile(path) {
       // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
-      const { params } = this.$route;
-      var toPath = pathToRegexp.compile(path);
-      return toPath(params);
+      const { params } = this.$route
+      var toPath = pathToRegexp.compile(path)
+      return toPath(params)
     },
     handleLink(item) {
-      const { redirect, path } = item;
+      const { redirect, path } = item
       if (redirect) {
-        this.$router.push(redirect);
-        return;
+        this.$router.push(redirect)
+        return
       }
-      this.$router.push(this.pathCompile(path));
-    },
-  },
-};
+      this.$router.push(this.pathCompile(path))
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-.app-breadcrumb {
-  border: 1px solid black;
-}
 .app-breadcrumb.el-breadcrumb {
   display: inline-block;
   font-size: 14px;
