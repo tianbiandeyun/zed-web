@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     handleClickOutside() {
+      console.log('移动')
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
   }
