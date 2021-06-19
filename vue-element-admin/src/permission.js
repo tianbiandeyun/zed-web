@@ -42,9 +42,11 @@ router.beforeEach(async(to, from, next) => {
       // 获取登录用户的角色信息，如果没有则通过 getInfo 获取当前登录用户的角色信息
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
       if (hasRoles) {
+        console.log('hasRoles')
         next()
       } else {
         try {
+          console.log('no-hasRoles')
           // 获取登录用户的角色信息
           const {
             roles
