@@ -1,5 +1,5 @@
 <template>
-  <div class="drawer-container zed_border">
+  <div class="drawer-container">
     <div>
       <h3 class="drawer-title">Page style setting</h3>
 

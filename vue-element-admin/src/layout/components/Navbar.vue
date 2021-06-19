@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar zed_border">
+  <div class="navbar">
     <hamburger
       id="hamburger-container"
       :is-active="sidebar.opened"

@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'has-logo': showLogo }" class="zed_border">
+  <div :class="{ 'has-logo': showLogo }">
     <!-- 左侧侧边栏顶部图标和标题 -->
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
