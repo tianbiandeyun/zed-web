@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar zed_border">
     <hamburger
       id="hamburger-container"
       :is-active="sidebar.opened"
@@ -7,10 +7,7 @@
       @toggleClick="toggleSideBar"
     />
 
-    <breadcrumb
-      id="breadcrumb-container"
-      class="breadcrumb-container zed_border"
-    />
+    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
