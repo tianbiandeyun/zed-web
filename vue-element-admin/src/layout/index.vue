@@ -46,11 +46,11 @@ export default {
   mixins: [ResizeMixin],
   computed: {
     ...mapState({
-      sidebar: (state) => state.app.sidebar,
+      sidebar: (state) => state.app.sidebar, // 左侧侧边栏状态
       device: (state) => state.app.device,
-      showSettings: (state) => state.settings.showSettings,
-      needTagsView: (state) => state.settings.tagsView,
-      fixedHeader: (state) => state.settings.fixedHeader
+      showSettings: (state) => state.settings.showSettings, // 是否显示右侧齿轮
+      needTagsView: (state) => state.settings.tagsView, // 是否显示快捷标签
+      fixedHeader: (state) => state.settings.fixedHeader // 顶部导航是否固定在顶部
     }),
     // 根据左侧侧边栏的展开状态设置class
     classObj() {

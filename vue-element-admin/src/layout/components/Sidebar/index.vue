@@ -13,6 +13,7 @@
         :collapse-transition="false"
         mode="vertical"
       >
+        <!-- 表示每一个侧边栏菜单选项 -->
         <sidebar-item
           v-for="route in permission_routes"
           :key="route.path"
