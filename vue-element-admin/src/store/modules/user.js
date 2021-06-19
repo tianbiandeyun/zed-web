@@ -140,7 +140,7 @@ const actions = {
     })
   },
 
-  // dynamically modify permissions
+  // 设置权限控制路由，基本没有，因为我们用不到手动设置
   async changeRoles({
     commit,
     dispatch
