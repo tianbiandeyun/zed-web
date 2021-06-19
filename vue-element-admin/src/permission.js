@@ -3,8 +3,8 @@ import store from './store'
 import {
   Message
 } from 'element-ui'
-import NProgress from 'nprogress' // progress bar
-import 'nprogress/nprogress.css' // progress bar style
+import NProgress from 'nprogress' // 顶部浏览器进度条
+import 'nprogress/nprogress.css' // 顶部浏览器进度条 style
 import {
   getToken
 } from '@/utils/auth' // get token from cookie
@@ -14,10 +14,11 @@ NProgress.configure({
   showSpinner: false
 }) // NProgress Configuration 顶部浏览器进度条
 
-const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
+// 路由白名单
+const whiteList = ['/login', '/auth-redirect']
 
 // 路由拦截器
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async(to, from, next) => {
   // 顶部浏览器进度条 start
   NProgress.start()
 
@@ -29,7 +30,7 @@ router.beforeEach(async (to, from, next) => {
 
   if (hasToken) {
     // 登陆过
-    console.log('登陆过');
+    console.log('登陆过')
     if (to.path === '/login') {
       // 如果登陆过，并且目标是 login，则路由到首页
       next({
@@ -72,7 +73,7 @@ router.beforeEach(async (to, from, next) => {
     }
   } else {
     //  没有登陆过
-    console.log('没有登陆过');
+    console.log('没有登陆过')
     if (whiteList.indexOf(to.path) !== -1) {
       // in the free login whitelist, go directly
       next()
