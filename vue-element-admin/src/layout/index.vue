@@ -25,8 +25,10 @@
 </template>
 
 <script>
+// 右侧齿轮的东西 RightPanel
 import RightPanel from '@/components/RightPanel'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
+// 监控页面尺寸的东西 ResizeMixin
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
