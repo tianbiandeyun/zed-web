@@ -1,9 +1,19 @@
 <template>
-  <div class="page-container">第五页 - 1</div>
+  <div class="app-container">
+    <switch-roles @change="handleRolesChange" />
+  </div>
 </template>
 
 <script>
+import SwitchRoles from './components/SwitchRoles'
+
 export default {
-  name: 'Page'
+  name: 'PagePermission',
+  components: { SwitchRoles },
+  methods: {
+    handleRolesChange() {
+      this.$router.push({ path: '/permission/index?' + +new Date() })
+    }
+  }
 }
 </script>
