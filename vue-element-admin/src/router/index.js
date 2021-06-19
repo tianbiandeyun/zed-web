@@ -27,174 +27,174 @@ import Layout from '@/layout'
  * 基础路由表，所有用户都可以访问的路由表
  */
 export const constantRoutes = [{
-  path: '/redirect',
-  component: Layout,
-  hidden: true,
-  children: [{
-    path: '/redirect/:path(.*)',
-    component: () => import('@/views/redirect/index')
-  }]
-},
-{
-  path: '/login',
-  component: () => import('@/views/login/index'),
-  hidden: true
-},
-{
-  path: '/auth-redirect',
-  component: () => import('@/views/login/auth-redirect'),
-  hidden: true
-},
-{
-  path: '/404',
-  component: () => import('@/views/error-page/404'),
-  hidden: true
-},
-{
-  path: '/401',
-  component: () => import('@/views/error-page/401'),
-  hidden: true
-},
-{
-  path: '/',
-  component: Layout,
-  redirect: '/dashboard/index',
-  children: [{
-    path: 'dashboard',
-    component: () => import('@/views/dashboard/index'),
-    name: 'Dashboard',
-    meta: {
-      title: '首页',
-      icon: 'dashboard',
-      affix: true
-    }
-  }]
-},
-{
-  path: '/documentation',
-  component: Layout,
-  redirect: '/documentation/index',
-  children: [{
-    path: 'index',
-    component: () => import('@/views/documentation/index'),
-    name: 'Documentation',
-    meta: {
-      title: '第二页',
-      icon: 'documentation',
-      affix: false
-    }
-  }]
-},
-{
-  path: '/guide',
-  component: Layout,
-  redirect: '/guide/index',
-  children: [{
-    path: 'index',
-    component: () => import('@/views/guide/index'),
-    name: 'Guide',
-    meta: {
-      title: '第三页',
-      icon: 'guide',
-      noCache: true
-    }
-  }]
-},
-{
-  path: '/profile',
-  component: Layout,
-  redirect: '/profile/index',
-  children: [{
-    path: 'index',
-    component: () => import('@/views/profile/index'),
-    name: 'Profile',
-    meta: {
-      title: '第四页',
-      icon: 'user',
-      noCache: true
-    }
-  }]
-}
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: '/redirect/:path(.*)',
+      component: () => import('@/views/redirect/index')
+    }]
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/login/index'),
+    hidden: true
+  },
+  {
+    path: '/auth-redirect',
+    component: () => import('@/views/login/auth-redirect'),
+    hidden: true
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/error-page/404'),
+    hidden: true
+  },
+  {
+    path: '/401',
+    component: () => import('@/views/error-page/401'),
+    hidden: true
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [{
+      path: 'dashboard',
+      component: () => import('@/views/dashboard/index'),
+      name: 'Dashboard',
+      meta: {
+        title: '首页',
+        icon: 'dashboard',
+        affix: true
+      }
+    }]
+  },
+  {
+    path: '/documentation',
+    component: Layout,
+    redirect: '/documentation/index',
+    children: [{
+      path: 'index',
+      component: () => import('@/views/documentation/index'),
+      name: 'Documentation',
+      meta: {
+        title: '第二页',
+        icon: 'documentation',
+        affix: false
+      }
+    }]
+  },
+  {
+    path: '/guide',
+    component: Layout,
+    redirect: '/guide/index',
+    children: [{
+      path: 'index',
+      component: () => import('@/views/guide/index'),
+      name: 'Guide',
+      meta: {
+        title: '第三页',
+        icon: 'guide',
+        noCache: true
+      }
+    }]
+  },
+  {
+    path: '/profile',
+    component: Layout,
+    redirect: '/profile/index',
+    children: [{
+      path: 'index',
+      component: () => import('@/views/profile/index'),
+      name: 'Profile',
+      meta: {
+        title: '第四页',
+        icon: 'user',
+        noCache: true
+      }
+    }]
+  }
 ]
 
 /**
  * 异步路由，只有拥有权限的用户，才能显示的路由表
  */
 export const asyncRoutes = [{
-  path: '/permission',
-  component: Layout,
-  redirect: '/permission/page',
-  alwaysShow: true, // will always show the root menu
-  name: 'Permission',
-  meta: {
-    title: '第五页',
-    icon: 'lock',
-    roles: ['admin'] // you can set roles in root nav
-  },
-  children: [{
-    path: 'page',
-    component: () => import('@/views/permission/page'),
-    name: 'PagePermission',
+    path: '/permission',
+    component: Layout,
+    redirect: '/permission/page',
+    alwaysShow: true, // will always show the root menu
+    name: 'Permission',
     meta: {
-      title: '第五页 - 1',
-      roles: ['admin'] // or you can only set roles in sub nav
-    }
+      title: '第五页',
+      icon: 'lock',
+      roles: ['admin'] // you can set roles in root nav
+    },
+    children: [{
+        path: 'page',
+        component: () => import('@/views/permission/page'),
+        name: 'PagePermission',
+        meta: {
+          title: '第五页 - 1',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'directive',
+        component: () => import('@/views/permission/directive'),
+        name: 'DirectivePermission',
+        meta: {
+          title: '第五页 - 2',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/permission/role'),
+        name: 'RolePermission',
+        meta: {
+          title: '第五页 - 3',
+          roles: ['admin']
+        }
+      }
+    ]
   },
   {
-    path: 'directive',
-    component: () => import('@/views/permission/directive'),
-    name: 'DirectivePermission',
+    path: '/error',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'ErrorPages',
     meta: {
-      title: '第五页 - 2',
-      roles: ['admin']
-    }
+      title: '错误页面展示',
+      icon: '404'
+    },
+    children: [{
+        path: '401',
+        component: () => import('@/views/error-page/401'),
+        name: 'Page401',
+        meta: {
+          title: '401',
+          noCache: true
+        }
+      },
+      {
+        path: '404',
+        component: () => import('@/views/error-page/404'),
+        name: 'Page404',
+        meta: {
+          title: '404',
+          noCache: true
+        }
+      }
+    ]
   },
+  // 404 page must be placed at the end !!!
   {
-    path: 'role',
-    component: () => import('@/views/permission/role'),
-    name: 'RolePermission',
-    meta: {
-      title: '第五页 - 3',
-      roles: ['admin']
-    }
+    path: '*',
+    redirect: '/404',
+    hidden: true
   }
-  ]
-},
-{
-  path: '/error',
-  component: Layout,
-  redirect: 'noRedirect',
-  name: 'ErrorPages',
-  meta: {
-    title: '错误页面展示',
-    icon: '404'
-  },
-  children: [{
-    path: '401',
-    component: () => import('@/views/error-page/401'),
-    name: 'Page401',
-    meta: {
-      title: '401',
-      noCache: true
-    }
-  },
-  {
-    path: '404',
-    component: () => import('@/views/error-page/404'),
-    name: 'Page404',
-    meta: {
-      title: '404',
-      noCache: true
-    }
-  }
-  ]
-},
-// 404 page must be placed at the end !!!
-{
-  path: '*',
-  redirect: '/404',
-  hidden: true
-}
 ]
 
 const createRouter = () => new Router({
