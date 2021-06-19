@@ -80,6 +80,7 @@ export default {
     ...mapGetters(['sidebar', 'avatar', 'device'])
   },
   methods: {
+    // 打开左侧菜单栏
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },

@@ -10,6 +10,7 @@ const state = {
 }
 
 const mutations = {
+  // 打开左侧菜单栏
   TOGGLE_SIDEBAR: state => {
     state.sidebar.opened = !state.sidebar.opened
     state.sidebar.withoutAnimation = false
@@ -19,6 +20,7 @@ const mutations = {
       Cookies.set('sidebarStatus', 0)
     }
   },
+  // 关闭左侧菜单栏
   CLOSE_SIDEBAR: (state, withoutAnimation) => {
     Cookies.set('sidebarStatus', 0)
     state.sidebar.opened = false
@@ -34,16 +36,28 @@ const mutations = {
 }
 
 const actions = {
-  toggleSideBar({ commit }) {
+  // 打开左侧菜单栏
+  toggleSideBar({
+    commit
+  }) {
     commit('TOGGLE_SIDEBAR')
   },
-  closeSideBar({ commit }, { withoutAnimation }) {
+  // 关闭左侧菜单栏
+  closeSideBar({
+    commit
+  }, {
+    withoutAnimation
+  }) {
     commit('CLOSE_SIDEBAR', withoutAnimation)
   },
-  toggleDevice({ commit }, device) {
+  toggleDevice({
+    commit
+  }, device) {
     commit('TOGGLE_DEVICE', device)
   },
-  setSize({ commit }, size) {
+  setSize({
+    commit
+  }, size) {
     commit('SET_SIZE', size)
   }
 }

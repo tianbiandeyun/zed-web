@@ -15,6 +15,7 @@
         <!-- 快捷标签  needTagsView 是否展示快捷标签-->
         <tags-view v-if="needTagsView" />
       </div>
+      <!-- 主要显示区域 -->
       <app-main />
       <!-- 右侧齿轮 -->
       <right-panel v-if="showSettings">
@@ -51,10 +52,11 @@ export default {
       needTagsView: (state) => state.settings.tagsView,
       fixedHeader: (state) => state.settings.fixedHeader
     }),
+    // 根据左侧侧边栏的展开状态设置class
     classObj() {
       return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
+        hideSidebar: !this.sidebar.opened, // 关闭
+        openSidebar: this.sidebar.opened, // 打开
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }
@@ -62,7 +64,7 @@ export default {
   },
   methods: {
     handleClickOutside() {
-      console.log('移动')
+      // 关闭左侧菜单栏
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
   }
