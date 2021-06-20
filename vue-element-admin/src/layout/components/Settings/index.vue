@@ -4,19 +4,19 @@
       <h3 class="drawer-title">页面抽屉工具栏</h3>
 
       <div class="drawer-item">
-        <span>Theme Color</span>
+        <span>工具栏 1</span>
       </div>
 
       <div class="drawer-item">
-        <span>Open Tags-View</span>
+        <span>工具栏 2</span>
       </div>
 
       <div class="drawer-item">
-        <span>Fixed Header</span>
+        <span>工具栏 3</span>
       </div>
 
       <div class="drawer-item">
-        <span>Sidebar Logo</span>
+        <span>工具栏 4</span>
       </div>
     </div>
   </div>

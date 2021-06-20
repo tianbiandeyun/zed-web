@@ -8,8 +8,7 @@
     <!-- 左侧侧边栏 -->
     <sidebar class="sidebar-container" />
     <div :class="{ hasTagsView: needTagsView }" class="main-container">
-      <!-- :class="{ 'fixed-header': fixedHeader }" 控制顶部导航是否固定在顶部 -->
-      <div :class="{ 'fixed-header': fixedHeader }">
+      <div :class="{ 'fixed-header': !fixedHeader }">
         <!-- 顶部导航 -->
         <navbar />
         <!-- 快捷标签  needTagsView 是否展示快捷标签-->
@@ -27,21 +26,21 @@
 
 <script>
 // 右侧齿轮的东西 RightPanel
-import RightPanel from '@/components/RightPanel'
-import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
+import RightPanel from "@/components/RightPanel";
+import { AppMain, Navbar, Settings, Sidebar, TagsView } from "./components";
 // 监控页面尺寸的东西 ResizeMixin
-import ResizeMixin from './mixin/ResizeHandler'
-import { mapState } from 'vuex'
+import ResizeMixin from "./mixin/ResizeHandler";
+import { mapState } from "vuex";
 
 export default {
-  name: 'Layout',
+  name: "Layout",
   components: {
     AppMain,
     Navbar,
     RightPanel,
     Settings,
     Sidebar,
-    TagsView
+    TagsView,
   },
   mixins: [ResizeMixin],
   computed: {
@@ -50,7 +49,7 @@ export default {
       device: (state) => state.app.device,
       showSettings: (state) => state.settings.showSettings, // 是否显示右侧齿轮
       needTagsView: (state) => state.settings.tagsView, // 是否显示快捷标签
-      fixedHeader: (state) => state.settings.fixedHeader // 顶部导航是否固定在顶部
+      fixedHeader: (state) => state.settings.fixedHeader, // 顶部导航是否固定在顶部
     }),
     // 根据左侧侧边栏的展开状态设置class
     classObj() {
@@ -58,17 +57,17 @@ export default {
         hideSidebar: !this.sidebar.opened, // 关闭
         openSidebar: this.sidebar.opened, // 打开
         withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.device === 'mobile'
-      }
-    }
+        mobile: this.device === "mobile",
+      };
+    },
   },
   methods: {
     handleClickOutside() {
       // 关闭左侧菜单栏
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
-    }
-  }
-}
+      this.$store.dispatch("app/closeSideBar", { withoutAnimation: false });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
