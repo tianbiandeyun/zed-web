@@ -47,6 +47,11 @@ Object.keys(filters).forEach(key => {
 
 Vue.config.productionTip = false
 
+// import watermark from 'watermark-dom';
+// watermark.init({
+//   watermark_txt: 'ddd'
+// });
+
 new Vue({
   el: '#app',
   router,

@@ -33,7 +33,8 @@
     "vue-grid-layout": "^2.3.12",
     "vue-pdf": "^4.2.0",
     "vue-seamless-scroll": "^1.1.23",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "watermark-dom": "^2.3.0"
   },
   "eslintConfig": {
     "root": true,

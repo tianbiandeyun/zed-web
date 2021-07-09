@@ -13,6 +13,11 @@ import '../src/assets/fontclass/iconfont.css'
 
 Vue.config.productionTip = false
 
+import watermark from 'watermark-dom'
+watermark.init({
+  watermark_txt: "测试水印"
+});
+
 new Vue({
   store,
   router,
