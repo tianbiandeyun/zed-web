@@ -113,7 +113,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.dashboard_container {
+// .dashboard_container {
   // 修改表格头部背景
   // .el-table th{
   //     background: red;
@@ -166,7 +166,7 @@ export default {
   //   background-color: rgb(201, 82, 14) !important;
   //   color: #fff;
   // }
-}
+// }
 </style>
 <style lang="scss" scoped>
 .dashboard_container {
