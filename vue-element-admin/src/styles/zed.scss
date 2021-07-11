@@ -1,0 +1,113 @@
+// 主风格颜色
+$zColor:rgb(42, 180, 123);
+
+// 底衬
+$backingBorderRadius:14px;
+$backingPadding:20px;
+$backingMarginB:20px;
+
+// 表格斑马线
+$tableStriped: rgb(232, 236, 236);
+
+// 底衬
+.backing {
+  background-color: #fff;
+  border-radius: $backingBorderRadius;
+  padding: $backingPadding;
+  margin-bottom: $backingMarginB;
+}
+
+// 表格样式
+.zTable {
+
+  // 表格头部背景
+  .el-table th {
+    background-color: $zColor;
+    color: #fff;
+  }
+
+  // 表格斑马线的背景
+  .el-table--striped .el-table__body tr.el-table__row--striped td {
+    background-color: $tableStriped;
+  }
+
+}
+
+// 表单样式
+.zForm {
+
+  .el-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+
+    .el-form-item {
+
+      // 表单图标颜色
+      .el-input__suffix,
+      .el-select__caret {
+        color: $zColor;
+      }
+
+      // 下拉框宽度
+      .el-select {
+        width: 100%;
+      }
+
+      // 表单输入框样式
+      .el-form-item__content {
+        .el-input {
+          .el-input__inner {
+            border-radius: 50px;
+            background-color: rgb(232, 236, 236);
+          }
+        }
+      }
+    }
+  }
+}
+
+.zDialog {
+
+  // 模态框
+  .el-dialog__wrapper {
+
+    // 模态框样式
+    .el-dialog {
+      width: 80%;
+      border-radius: 10px;
+      overflow: hidden;
+
+      // 模态框头
+      .el-dialog__header {
+        background-color: $zColor;
+
+        // 标题
+        .el-dialog__title {
+          color: #fff;
+        }
+
+        // 关闭按钮
+        .el-dialog__headerbtn {
+          .el-dialog__close {
+            color: #fff;
+          }
+        }
+      }
+
+      // 模态框底部
+      .el-dialog__footer {
+        text-align: center;
+
+        // 模态框第二个按钮
+        button {
+          &:nth-of-type(2) {
+            background-color: $zColor;
+            color: #fff;
+          }
+        }
+      }
+
+    }
+  }
+}

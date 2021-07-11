@@ -1,23 +1,81 @@
 <template>
-  <!-- :header-row-class-name="headerRowClass"
-      :row-class-name="rowClass" -->
-  <div class="dashboard_container">
-    <el-table :data="tableData" border style="width: 100%" stripe>
-      <el-table-column fixed prop="date" label="日期"> </el-table-column>
-      <el-table-column prop="name" label="姓名"> </el-table-column>
-      <el-table-column prop="province" label="省份"> </el-table-column>
-      <el-table-column prop="city" label="市区"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="zip" label="邮编"> </el-table-column>
-      <el-table-column fixed="right" label="操作">
-        <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="small"
-            >查看</el-button
-          >
-          <el-button type="text" size="small">编辑</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+  <div class="dashboard_container zTable zForm zDialog">
+    <div class="backing">
+      <el-form ref="form" :model="form" label-width="80px">
+        <el-form-item label="活动名称">
+          <el-input v-model="form.a" suffix-icon="el-icon-search"></el-input>
+        </el-form-item>
+        <el-form-item label="活动名称">
+          <el-input v-model="form.b" suffix-icon="el-icon-search"></el-input>
+        </el-form-item>
+        <el-form-item label="活动名称">
+          <el-input v-model="form.c" suffix-icon="el-icon-search"></el-input>
+        </el-form-item>
+        <el-form-item label="活动区域">
+          <el-select v-model="form.d" placeholder="请选择活动区域">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="活动名称">
+          <el-input v-model="form.e" suffix-icon="el-icon-search"></el-input>
+        </el-form-item>
+        <el-form-item label="活动名称">
+          <el-input v-model="form.f" suffix-icon="el-icon-search"></el-input>
+        </el-form-item>
+        <el-form-item label="活动名称">
+          <el-input v-model="form.g" suffix-icon="el-icon-search"></el-input>
+        </el-form-item>
+        <el-form-item label="活动区域">
+          <el-select v-model="form.h" placeholder="请选择活动区域">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <div class="backing">
+      <el-table :data="tableData" style="width: 100%" stripe>
+        <el-table-column fixed prop="date" label="日期"> </el-table-column>
+        <el-table-column prop="name" label="姓名"> </el-table-column>
+        <el-table-column prop="province" label="省份"> </el-table-column>
+        <el-table-column prop="city" label="市区"> </el-table-column>
+        <el-table-column prop="address" label="地址"> </el-table-column>
+        <el-table-column prop="zip" label="邮编"> </el-table-column>
+        <el-table-column fixed="right" label="操作">
+          <template slot-scope="scope">
+            <el-button @click="handleClick(scope.row)" type="text" size="small"
+              >查看</el-button
+            >
+            <el-button type="text" size="small">编辑</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <el-dialog title="提示" :visible.sync="dialogVisible">
+      <el-table :data="tableData" style="width: 100%" stripe>
+        <el-table-column fixed prop="date" label="日期"> </el-table-column>
+        <el-table-column prop="name" label="姓名"> </el-table-column>
+        <el-table-column prop="province" label="省份"> </el-table-column>
+        <el-table-column prop="city" label="市区"> </el-table-column>
+        <el-table-column prop="address" label="地址"> </el-table-column>
+        <el-table-column prop="zip" label="邮编"> </el-table-column>
+        <el-table-column fixed="right" label="操作">
+          <template slot-scope="scope">
+            <el-button @click="handleClick(scope.row)" type="text" size="small"
+              >查看</el-button
+            >
+            <el-button type="text" size="small">编辑</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button @click="dialogVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -26,6 +84,17 @@ export default {
   name: "Dashboard",
   data() {
     return {
+      dialogVisible: false,
+      form: {
+        a: "",
+        b: "",
+        c: "",
+        d: "",
+        e: "",
+        f: "",
+        g: "",
+        h: "",
+      },
       tableData: [
         {
           date: "2016-05-02",
@@ -95,81 +164,21 @@ export default {
     };
   },
   methods: {
-    handleClick(row) {
-      console.log(row);
+    onSubmit() {
+      console.log("submit!");
     },
-    // headerRowClass() {
-    // return "b";
-    // },
-    // rowClass({ rowIndex }) {
-    // console.log(rowIndex);
-    // console.log(rowIndex % 2 === 0);
-    // if (rowIndex % 2 === 0) {
-    //   return "c";
-    // }
-    // return "";
-    // },
+    handleClick(row) {
+      this.dialogVisible = true;
+    },
   },
 };
 </script>
-<style lang="scss">
-// .dashboard_container {
-  // 修改表格头部背景
-  // .el-table th{
-  //     background: red;
-  //   }
-  // 修改表格行背景
-  // .el-table tr{
-  //    background:blue;
-  //   }
-  // 修改斑马线表格的背景
-  // .el-table--striped .el-table__body tr.el-table__row--striped td {
-  //     background: goldenrod;
-  //   }
-  // 修改行内线的颜色
-  // .el-table td,.building-top .el-table th.is-leaf {
-  //     border-bottom:  1px solid goldenrod;
-  //   }
-  // 修改表格最底部边框颜色和高度
-  // .el-table::before{
-  //    border-bottom:  1px solid blue;
-  //     height: 2px
-  //   }
-  // 修改表头字体颜色
-  // .el-table thead {
-  //   color: #8eb7fa;
-  //   font-weight: 800;
-  // }
-  // 修改表格内容字体颜色和字体大小
-  // .el-table{
-  //     color: #6B81CE;
-  //     font-size: 14px;
-  //   }
-  // 修改表格无数据的时候背景，字体颜色
-  // .el-table__empty-block{
-  //     background: #16603C;
-  //   }
-  // .el-table__empty-text{
-  //   color: #blue
-  // }
-  // 修改表格鼠标悬浮hover背景色
-  // .el-table--enable-row-hover .el-table__body tr:hover>td {
-  //     background-color: blue;
-  // }
-
-  // .el-table .b th {
-  //   background-color: rgb(8, 51, 133) !important;
-  //   color: #fff;
-  // }
-
-  // .el-table .c td {
-  //   background-color: rgb(201, 82, 14) !important;
-  //   color: #fff;
-  // }
-// }
-</style>
 <style lang="scss" scoped>
 .dashboard_container {
   padding: 20px 60px;
+
+  .zSelect {
+    border: 1px solid black;
+  }
 }
 </style>

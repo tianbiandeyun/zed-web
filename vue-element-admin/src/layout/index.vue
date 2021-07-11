@@ -16,7 +16,7 @@
       </div>
       <!-- 主要显示区域 -->
       <app-main />
-      <!-- 右侧齿轮 -->
+      <!-- 右侧齿轮  -->
       <right-panel v-if="showSettings">
         <settings />
       </right-panel>
